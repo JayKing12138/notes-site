@@ -1,0 +1,4264 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../ImageBind%20%E4%B8%8E%20LanguageBind%20%E5%AF%B9%E6%AF%94/">
+      
+      
+        <link rel="next" href="../LLaMA/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>InternVL - 学习资料库</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#internvl" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="学习资料库" class="md-header__button md-logo" aria-label="学习资料库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            学习资料库
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              InternVL
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="学习资料库" class="md-nav__button md-logo" aria-label="学习资料库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    学习资料库
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    学习资料库
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GENIUS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    GENIUS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GENIUS/GENIUS%20%E6%80%BB%E7%BB%93/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GENIUS 总结
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RadAlign
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RadAlign
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RadAlign/RadVLM-GRPO%20%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RadVLM-GRPO 论文精读
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RadAlign/%E5%85%B3%E9%94%AE%E4%BB%A3%E7%A0%81%E8%AF%B4%E6%98%8E/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关键代码说明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    全模态大模型·出行安全项目
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    全模态大模型·出行安全项目
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/5.27%20Qwen3.7-Max%2BGeoLife%E8%AF%84%E4%BC%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.27 Qwen3.7-Max+GeoLife评估
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/Omni-%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Omni-出行安全项目
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%B1%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    全模态大模型·出行安全项目进展
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLUE
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    BLUE
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/BLUE/BLUE%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLUE论文笔记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    论文精读笔记
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    论文精读笔记
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AAAAA_Transformer%E3%80%81LLM%E4%B8%8EVLM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AAAAA_Transformer、LLM与VLM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BBBBB_%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BBBBB_强化学习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BERT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BERT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BEiT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BEiT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BLIP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLIP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLIP%20%26%20ALIGN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP & ALIGN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLIP%20%E6%94%B9%E8%BF%9B%E5%B7%A5%E4%BD%9C%E4%B8%B2%E8%AE%B2%EF%BC%88%E4%B8%8A%EF%BC%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP 改进工作串讲（上）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLIP%20%E6%94%B9%E8%BF%9B%E5%B7%A5%E4%BD%9C%E4%B8%B2%E8%AE%B2%EF%BC%88%E4%B8%8B%EF%BC%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP 改进工作串讲（下）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DALL%C2%B7E%202/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DALL·E 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DINO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DINO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Flamingo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Flamingo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GPT%EF%BC%8CGPT-2%EF%BC%8CGPT-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPT，GPT-2，GPT-3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ImageBind%20%E4%B8%8E%20LanguageBind%20%E5%AF%B9%E6%AF%94/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ImageBind 与 LanguageBind 对比
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    InternVL
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    InternVL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目录
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        系列概览
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        设计哲学
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-internvl-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. InternVL 1.0
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. InternVL 1.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 背景
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-internvit-6b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 InternViT-6B
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-qllama" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 QLLaMA🚗
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 三阶段训练🚗
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-llm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.5 与 LLM 的连接
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.6 小结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-internvl-15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. InternVL 1.5
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. InternVL 1.5">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 背景
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 持续学习
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 动态高分辨率🚗
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-mlp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 MLP 投影器🚗
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 双语数据
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6 与 1.0 对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-internvl-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. InternVL 2.0
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. InternVL 2.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 定位
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 相对 1.5 的变化
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-internvl-25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. InternVL 2.5
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. InternVL 2.5">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 背景
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 架构
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 三阶段训练
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 渐进扩展🚗
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5 动态分辨率扩展
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46-square-averaging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6 Square Averaging
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#47-15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.7 与 1.5 对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-mini-internvl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Mini-InternVL
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Mini-InternVL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 背景
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-internvit-300m" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 InternViT-300M
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 模型系列
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 训练
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5 迁移框架
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#56-15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.6 与 1.5 对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-mpo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. MPO
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. MPO">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 背景
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-mmpr-dropoutntp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 MMPR 与 DropoutNTP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-mpo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 MPO 算法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 训练流程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65-dporlhf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5 与 DPO/RLHF 对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-internvl-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. InternVL 3
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. InternVL 3">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 背景
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 原生预训练
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-v2pe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 V2PE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74-sft-mpo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4 SFT + MPO
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#75" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.5 测试时缩放
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#76-25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.6 与 2.5 对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-internvl-35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. InternVL 3.5
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. InternVL 3.5">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 背景
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-cascade-rl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 Cascade RL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-vir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 ViR
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84-dvd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4 DvD
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#85-sft" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.5 SFT 增强
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#86" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.6 模型变体
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#87-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.7 与 3 对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. 总结
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. 总结">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1 演进脉络
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2 关键洞察
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLaMA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLaMA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLaVA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLaVA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MAE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MAE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MoCo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MoCo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OFA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OFA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PaLI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PaLI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Qwen-VL%E4%B8%8EOmni/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qwen-VL与Omni
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SAM3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SAM3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SigLIP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SigLIP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SimVLM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SimVLM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Swin%20Transformer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Swin Transformer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UniPerceiver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UniPerceiver
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Unified-IO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unified-IO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ViLT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ViLT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ViT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ViT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ZZZZZ%E5%85%AC%E5%BC%8F%E4%BB%A3%E7%A0%81%E7%AD%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ZZZZZ公式代码等
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%8E%9F%E7%94%9F%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    原生多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%90%8E%E8%AE%AD%E7%BB%83%E7%BB%BC%E8%BF%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多模态大模型后训练综述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%9A%E6%A8%A1%E6%80%81%E8%AE%BA%E6%96%87%E4%B8%B2%E8%AE%B2%C2%B7%E4%B8%8A/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多模态论文串讲·上
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%9A%E6%A8%A1%E6%80%81%E8%AE%BA%E6%96%87%E4%B8%B2%E8%AE%B2%C2%B7%E4%B8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多模态论文串讲·下
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%AF%B9%E6%AF%94%E5%AD%A6%E4%B9%A0%E7%BB%BC%E8%BF%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    对比学习综述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%B7%B7%E5%90%88%E7%B2%BE%E5%BA%A6%E8%AE%AD%E7%BB%83%E4%B8%8E%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    混合精度训练与分布式训练
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%A7%86%E9%A2%91%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    视频多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%9F%B3%E9%A2%91%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    音频多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目录
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        系列概览
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        设计哲学
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-internvl-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. InternVL 1.0
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. InternVL 1.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 背景
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-internvit-6b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 InternViT-6B
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-qllama" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 QLLaMA🚗
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 三阶段训练🚗
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-llm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.5 与 LLM 的连接
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.6 小结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-internvl-15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. InternVL 1.5
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. InternVL 1.5">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 背景
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 持续学习
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 动态高分辨率🚗
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-mlp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 MLP 投影器🚗
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 双语数据
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6 与 1.0 对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-internvl-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. InternVL 2.0
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. InternVL 2.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 定位
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 相对 1.5 的变化
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-internvl-25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. InternVL 2.5
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. InternVL 2.5">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 背景
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 架构
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 三阶段训练
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 渐进扩展🚗
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5 动态分辨率扩展
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46-square-averaging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6 Square Averaging
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#47-15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.7 与 1.5 对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-mini-internvl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Mini-InternVL
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Mini-InternVL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 背景
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-internvit-300m" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 InternViT-300M
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 模型系列
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 训练
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5 迁移框架
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#56-15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.6 与 1.5 对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-mpo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. MPO
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. MPO">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 背景
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-mmpr-dropoutntp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 MMPR 与 DropoutNTP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-mpo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 MPO 算法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 训练流程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65-dporlhf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5 与 DPO/RLHF 对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-internvl-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. InternVL 3
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. InternVL 3">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 背景
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 原生预训练
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-v2pe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 V2PE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74-sft-mpo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4 SFT + MPO
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#75" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.5 测试时缩放
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#76-25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.6 与 2.5 对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-internvl-35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. InternVL 3.5
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. InternVL 3.5">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 背景
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-cascade-rl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 Cascade RL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-vir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 ViR
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84-dvd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4 DvD
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#85-sft" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.5 SFT 增强
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#86" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.6 模型变体
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#87-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.7 与 3 对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. 总结
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. 总结">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1 演进脉络
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2 关键洞察
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="internvl">InternVL<a class="headerlink" href="#internvl" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>📄 <strong>论文链接</strong>：
+- <a href="https://arxiv.org/abs/2312.14238">InternVL 1.0: Scaling up Vision Foundation Models and Aligning for Generic Visual-Linguistic Tasks</a> | <a href="https://arxiv.org/pdf/2312.14238">PDF</a>
+- <a href="https://arxiv.org/abs/2404.16821">InternVL 1.5: How Far Are We to GPT-4V?</a> | <a href="https://arxiv.org/pdf/2404.16821">PDF</a>
+- <a href="https://arxiv.org/abs/2410.16261">Mini-InternVL: A Flexible-Transfer Pocket Multimodal Model</a> | <a href="https://arxiv.org/pdf/2410.16261">PDF</a>
+- <a href="https://arxiv.org/abs/2411.10442">MPO: Enhancing the Reasoning Ability of Multimodal Large Language Models via Mixed Preference Optimization</a> | <a href="https://arxiv.org/pdf/2411.10442">PDF</a>
+- <a href="https://arxiv.org/abs/2412.05271">InternVL 2.5: Model, Data, and Test-Time Scaling</a> | <a href="https://arxiv.org/pdf/2412.05271">PDF</a>
+- <a href="https://arxiv.org/abs/2504.10479">InternVL 3: Exploring Advanced Training and Test-Time Recipes</a> | <a href="https://arxiv.org/pdf/2504.10479">PDF</a>
+- <a href="https://arxiv.org/abs/2508.18265">InternVL 3.5: Advancing Open-Source Multimodal Models in Versatility, Reasoning, and Efficiency</a> | <a href="https://arxiv.org/pdf/2508.18265">PDF</a></p>
+<p><strong>作者</strong>：OpenGVLab / Shanghai AI Laboratory 等</p>
+<p><strong>时间跨度</strong>：2023.12 – 2025.08</p>
+</blockquote>
+<h2 id="_1">目录<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#系列概览">系列概览</a></li>
+<li><a href="#设计哲学">设计哲学</a></li>
+<li><a href="#1-internvl-10">1. InternVL 1.0</a></li>
+<li><a href="#2-internvl-15">2. InternVL 1.5</a></li>
+<li><a href="#3-internvl-20">3. InternVL 2.0</a></li>
+<li><a href="#4-internvl-25">4. InternVL 2.5</a></li>
+<li><a href="#5-mini-internvl">5. Mini-InternVL</a></li>
+<li><a href="#6-mpo">6. MPO</a></li>
+<li><a href="#7-internvl-3">7. InternVL 3</a></li>
+<li><a href="#8-internvl-35">8. InternVL 3.5</a></li>
+<li><a href="#9-总结">9. 总结</a></li>
+</ul>
+<h2 id="_2">系列概览<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>时间</th>
+<th>核心创新</th>
+<th>视觉编码器</th>
+<th>训练范式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1.0</strong></td>
+<td>2023.12</td>
+<td>6B ViT + QLLaMA + 三阶段对齐</td>
+<td>InternViT-6B (48层)</td>
+<td>对比 → 生成 → SFT</td>
+</tr>
+<tr>
+<td><strong>1.5</strong></td>
+<td>2024.04</td>
+<td>动态高分辨率 + 持续学习 + 双语数据</td>
+<td>InternViT-6B-448px-V1.5 (45层)</td>
+<td>持续学习 + SFT</td>
+</tr>
+<tr>
+<td><strong>2.0</strong></td>
+<td>2024</td>
+<td>多图/视频支持 + per-dataset n_max</td>
+<td>InternViT-6B/300M</td>
+<td>（过渡版本，无独立论文）</td>
+</tr>
+<tr>
+<td><strong>Mini</strong></td>
+<td>2024.10</td>
+<td>InternViT-300M 蒸馏 + 统一迁移框架</td>
+<td>InternViT-300M (蒸馏)</td>
+<td>对齐 → SFT</td>
+</tr>
+<tr>
+<td><strong>MPO</strong></td>
+<td>2024.11</td>
+<td>混合偏好优化增强 CoT 推理</td>
+<td>沿用 InternVL2</td>
+<td>SFT + MPO</td>
+</tr>
+<tr>
+<td><strong>2.5</strong></td>
+<td>2024.12</td>
+<td>渐进扩展 + Square Averaging + 测试时缩放</td>
+<td>InternViT-6B/300M-V2.5</td>
+<td>MLP Warmup → ViT 增量 → SFT</td>
+</tr>
+<tr>
+<td><strong>3</strong></td>
+<td>2025.04</td>
+<td>原生多模态预训练 + V2PE + VisualPRM</td>
+<td>InternViT-6B/300M-V2.5</td>
+<td>原生预训练 + SFT + MPO</td>
+</tr>
+<tr>
+<td><strong>3.5</strong></td>
+<td>2025.08</td>
+<td>Cascade RL + ViR + DvD</td>
+<td>InternViT-6B/300M-V2.5</td>
+<td>原生预训练 + SFT + Cascade RL</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_3">设计哲学<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>InternVL 系列的核心贡献<strong>不在架构创新，而在训练配方、数据工程和工程策略的持续迭代</strong>。</p>
+<p>从 1.5 开始，模型架构基本固定为：<code>ViT → MLP Projector → LLM</code>。真正推动性能的是几条主线：</p>
+<ul>
+<li><strong>视觉编码器规模化</strong>：把 ViT 从 300M 推到 6B，再蒸馏回 300M。</li>
+<li><strong>动态高分辨率</strong>：从单图 tile 切分，扩展到多图、视频。</li>
+<li><strong>训练范式演进</strong>：三阶段后训练 → 持续学习 → 原生多模态预训练。</li>
+<li><strong>推理增强</strong>：SFT → MPO → Cascade RL。</li>
+<li><strong>部署效率</strong>：Mini → ViR → DvD。</li>
+</ul>
+<h2 id="1-internvl-10">1. InternVL 1.0<a class="headerlink" href="#1-internvl-10" title="Permanent link">&para;</a></h2>
+<h3 id="11">1.1 背景<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<p>LLMs 规模和能力快速增长，但视觉基础模型发展滞后，成为多模态系统的瓶颈。主要问题：</p>
+<ul>
+<li><strong>参数量失衡</strong>：LLM 已达百亿/千亿级，视觉编码器通常只有 ~1B，无法充分发挥 LLM 能力。</li>
+<li><strong>表示不一致</strong>：传统视觉模型基于纯视觉数据或 BERT 风格对齐，与 LLM 特征空间不兼容。</li>
+<li><strong>连接层薄弱</strong>：QFormer、线性投影等“胶水”层通常轻量且随机初始化，难以捕捉复杂跨模态交互。</li>
+</ul>
+<p>核心思路：把视觉基础模型规模化到与 LLM 相当的量级，并通过渐进式训练让视觉特征与 LLM 对齐。</p>
+<h3 id="12-internvit-6b">1.2 InternViT-6B<a class="headerlink" href="#12-internvit-6b" title="Permanent link">&para;</a></h3>
+<p>InternVL 的大规模视觉编码器，采用标准 ViT，参数量扩至 <strong>6B</strong>。</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Width</td>
+<td>3200</td>
+</tr>
+<tr>
+<td>Depth</td>
+<td>48</td>
+</tr>
+<tr>
+<td>MLP 维度</td>
+<td>12800</td>
+</tr>
+<tr>
+<td>注意力头数</td>
+<td>25</td>
+</tr>
+<tr>
+<td>总参数量</td>
+<td>~5.9B</td>
+</tr>
+</tbody>
+</table>
+<p>通过超参数搜索发现：在总算力相同的情况下，深度、头维度、MLP 比例对精度影响较小。最终选择更深但更窄的配置，以兼顾精度、速度和训练稳定性。</p>
+<p>InternViT-6B 可输出稠密特征图 <code>F ∈ R^(H/14 × W/14 × D)</code>，也可通过全局池化做图像分类。初始化采用 BEiT 方式。</p>
+<h3 id="13-qllama">1.3 QLLaMA🚗<a class="headerlink" href="#13-qllama" title="Permanent link">&para;</a></h3>
+<p>QLLaMA 是 InternVL 1.0 用来连接视觉编码器和 LLM 的”语言中间件”，本质是一个改造过的 LLaMA 模型。</p>
+<p><strong>结构：</strong>
+- 基于<strong>多语言增强的 LLaMA-7B</strong> 初始化（总参数约 8B）
+- 在 LLaMA 的每层 Transformer Block 中新增 <strong>96 个可学习 Query</strong> 和 <strong>Cross-Attention 层</strong>（约 1B 新增参数，随机初始化）</p>
+<p><strong>工作方式：</strong>
+1. InternViT-6B 输出视觉 token；
+2. QLLaMA 的 96 个可学习 Query 通过 Cross-Attention “查询”这些视觉 token；
+3. 得到的表示作为<strong>前缀文本</strong>输入到后续自回归 LLM（如 Vicuna-13B），引导文本生成。</p>
+<p><strong>相比 QFormer 的优势：</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>QFormer (BLIP-2)</th>
+<th>QLLaMA (InternVL)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>初始化</td>
+<td>随机初始化</td>
+<td>LLaMA-7B 预训练权重</td>
+</tr>
+<tr>
+<td>参数量</td>
+<td>~188M</td>
+<td>~8B（大 42 倍）</td>
+</tr>
+<tr>
+<td>特征空间</td>
+<td>与 LLM 对齐弱</td>
+<td>天然兼容 LLM 语义空间</td>
+</tr>
+</tbody>
+</table>
+<p>由于 LLaMA-7B 初始化，QLLaMA 的特征空间与下游 LLM 天然一致，SFT 阶段仅需一个轻量 MLP 即可对接，甚至可以冻结 LLM 解码器。</p>
+<p><strong>为何 1.5 放弃了 QLLaMA：</strong>
+动态高分辨率引入后，每张图的视觉 token 数量大幅增加（可达数千个），QLLaMA 的 Cross-Attention 计算开销随之爆炸。1.5 改用两层 MLP 作为投影层，结构更简单，但配合高质量数据和更强的 ViT，效果反而更好。</p>
+<h3 id="14">1.4 三阶段训练🚗<a class="headerlink" href="#14" title="Permanent link">&para;</a></h3>
+<p><img alt="InternVL 1.0 三阶段训练策略" src="../images/internvl_v1_fig3_training.png" /></p>
+<p>三阶段训练的核心思想是<strong>从粗粒度对齐到细粒度生成、从噪声数据到高质量数据</strong>的渐进式 pipeline：</p>
+<div class="highlight"><pre><span></span><code>Stage 1: 视觉-语言对比学习（Contrastive Pre-training）
+Stage 2: 视觉-语言生成式训练（Generative Pre-training）
+Stage 3: 监督微调（Supervised Fine-tuning）
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>目标</th>
+<th>数据特点</th>
+<th>可训练参数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stage 1</td>
+<td>视觉-文本特征空间对齐</td>
+<td>海量噪声图文对（LAION、COYO、CC3M 等）</td>
+<td>InternViT-6B + LLaMA-7B 全部</td>
+</tr>
+<tr>
+<td>Stage 2</td>
+<td>视觉驱动文本生成</td>
+<td>清洗后的高质量图文数据</td>
+<td>96 Query + Cross-Attention</td>
+</tr>
+<tr>
+<td>Stage 3</td>
+<td>对齐人类指令</td>
+<td>约 400 万条高质量指令数据</td>
+<td>MLP（+ 可选 QLLaMA）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Stage 1：对比学习</strong>
+- 在海量噪声图文对上对齐 InternViT-6B 与多语言 LLaMA-7B。
+- 使用图文对相似度矩阵上的对称交叉熵损失。
+- 视觉编码器随机初始化，文本编码器用 LLaMA-7B 预训练权重，所有参数可训练。
+- 输入分辨率从 196² 逐步提升到 224²。
+- 作用：建立"这张图对应这段文本"的粗粒度关联。</p>
+<p><strong>Stage 2：生成式训练</strong>
+- InternViT-6B 与 QLLaMA 主体冻结，仅训练新增的可学习 Query 和 Cross-Attention 层。
+- 损失 = ITC（图文对比）+ ITM（图文匹配）+ ITG（图像到文本生成）。
+- 使用经过清洗的高质量图文数据。
+- 作用：让 QLLaMA 学会把视觉 token 组织成语义连贯的"前缀文本"，为 LLM 生成做准备。</p>
+<p><strong>Stage 3：监督微调</strong></p>
+<ul>
+<li>通过 MLP 层连接到现成的 LLM 解码器（Vicuna、InternLM 等）。</li>
+<li>使用约 400 万条高质量指令数据。</li>
+<li>可仅训练 MLP，或同时训练 MLP 与 QLLaMA，LLM 解码器可冻结。</li>
+<li>支持两种配置：</li>
+<li>
+<p><strong>仅 InternViT-6B（w/o QLLaMA）</strong>：适合对比/检索类任务，如 zero-shot 图像分类、图文检索。</p>
+</li>
+<li>
+<p><strong>完整 InternVL（w/ QLLaMA）</strong>：适合生成/对话类任务，如图像描述、多模态对话、VQA。</p>
+</li>
+</ul>
+<p>关键区别在于：<strong>有没有把视觉特征转换成“可生成文本”的表示</strong>。w/o QLLaMA 时只有视觉特征向量，只能做相似度计算和分类；w/ QLLaMA 时，视觉 token 被 Cross-Attention 转换成与 LLM 语义空间对齐的前缀文本，后续自回归 LLM 才能继续生成连贯句子。🚗
+- 作用：让模型服从人类指令，完成 VQA、对话、OCR 等任务。</p>
+<p>这种"先对齐、再生成、再指令"的渐进策略，避免了直接用少量高质量指令数据去训练一个随机初始化的 6B ViT，既稳定又高效。后续 2.5 / 3 系列虽然把连接层从 QLLaMA 换成了 MLP，但三阶段（或多阶段）渐进训练的思想一直延续。</p>
+<h3 id="15-llm">1.5 与 LLM 的连接<a class="headerlink" href="#15-llm" title="Permanent link">&para;</a></h3>
+<p>由于 QLLaMA 与 LLM 共享相似特征空间，SFT 阶段只需一个 MLP 层即可把视觉特征接入现成 LLM。这种设计允许冻结 LLM 解码器，既加速训练又保留 LLM 原有语言能力。</p>
+<p><img alt="InternVL 1.0 的四种使用方式" src="../images/internvl_v1_fig4_variants.png" /></p>
+<p>通过组合视觉编码器与 QLLaMA，InternVL 可灵活支持对比任务（InternVL-C）、生成任务（InternVL-G）和多模态对话（InternVL-Chat）等多种视觉-语言任务。</p>
+<h3 id="16">1.6 小结<a class="headerlink" href="#16" title="Permanent link">&para;</a></h3>
+<ul>
+<li>首次将视觉基础模型规模化到 6B 参数。</li>
+<li>提出“视觉编码器 + 语言中间件”的参数均衡架构。</li>
+<li>通过渐进式三阶段训练，从噪声图文对到高质量指令数据逐步对齐。</li>
+<li>可灵活组合为 InternVL-C（对比）、InternVL-G（生成）、InternVL-Chat（对话）三种模式。</li>
+</ul>
+<h2 id="2-internvl-15">2. InternVL 1.5<a class="headerlink" href="#2-internvl-15" title="Permanent link">&para;</a></h2>
+<h3 id="21">2.1 背景<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<p>目标：缩小开源 MLLM 与闭源商业模型在三个维度上的差距：</p>
+<ul>
+<li><strong>参数规模</strong>：商业模型视觉编码器 ~1B+、LLM ~100B+，开源模型多为 300M + 7-13B。</li>
+<li><strong>图像分辨率</strong>：商业模型采用动态分辨率并保持原始宽高比；开源模型多为固定 336×336 / 448×448。</li>
+<li><strong>多语言能力</strong>：商业模型使用大量多语言数据；开源模型主要依赖英文。</li>
+</ul>
+<h3 id="22">2.2 持续学习<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
+<p>InternVL 1.5 对 InternViT-6B 做持续预训练，得到 <strong>InternViT-6B-448px-V1.5</strong>。</p>
+<ul>
+<li>分辨率从 224 提升到 448。</li>
+<li>层数从 48 层减少到 <strong>45 层</strong>：发现倒数第 4 层（即第 45 层）的特征对多模态任务最有效，因此丢弃最后 3 层。</li>
+<li>在高质量 OCR、图像描述等数据上进一步训练。</li>
+<li>视觉编码器可跨 LLM 复用：从 Nous-Hermes-2-Yi-34B 换到 InternLM2-20B 后，InternViT-6B-448px-V1.5 无需重新训练。</li>
+</ul>
+<h3 id="23">2.3 动态高分辨率🚗<a class="headerlink" href="#23" title="Permanent link">&para;</a></h3>
+<p>核心思想：根据输入图像的宽高比和分辨率，动态切分为多个 448×448 的 tile。</p>
+<div class="highlight"><pre><span></span><code>输入图像 H × W
+  ↓
+计算宽高比 ratio = W / H
+  ↓
+从预定义集合中匹配最接近的宽高比（1~12 个 tile 共 35 种组合）
+  ↓
+resize 后切分，并保留一张全局缩略图
+  ↓
+每个 tile 经 ViT 得到 1024 token，再 Pixel Shuffle 4× 压缩到 256 token
+</code></pre></div>
+<ul>
+<li>训练时 tile 数为 1~12。</li>
+<li>测试时可 zero-shot 扩展到最多 40 个 tiles，支持约 4K 分辨率。</li>
+<li>Pixel Shuffle 把视觉 token 数压缩为 1/4，缓解高分辨率带来的 token 爆炸。</li>
+</ul>
+<p><img alt="动态高分辨率与 ViT-MLP-LLM 架构" src="../images/internvl_v2.5_fig2_architecture.png" />
+<em>图 1：动态高分辨率预处理与 ViT-MLP-LLM 架构。左侧为按宽高比切分 tile 并保留缩略图；右侧为模型整体架构。</em></p>
+<h3 id="24-mlp">2.4 MLP 投影器🚗<a class="headerlink" href="#24-mlp" title="Permanent link">&para;</a></h3>
+<p>InternVL 1.5 把 1.0 的 QLLaMA 替换为简单的 <strong>MLP Projector</strong>，形成标准 <code>ViT-MLP-LLM</code> 架构。配合 Pixel Shuffle，结构更简单、效率更高。</p>
+<h3 id="25">2.5 双语数据<a class="headerlink" href="#25" title="Permanent link">&para;</a></h3>
+<p>构建高质量中英双语数据集，覆盖自然场景、文档、图表、OCR 等。关键做法：</p>
+<ul>
+<li>收集并清洗多语言公开数据。</li>
+<li>利用开源 LLM 或 GPT-3.5 将英文数据集翻译成中文，保留专有名词、品牌、地名等英文原文。</li>
+<li>微调阶段覆盖通用 QA、科学图像、图表、OCR、文档、视觉定位、多轮对话等任务。</li>
+</ul>
+<h3 id="26-10">2.6 与 1.0 对比<a class="headerlink" href="#26-10" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>InternVL 1.0</th>
+<th>InternVL 1.5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>视觉编码器</td>
+<td>InternViT-6B (48层, 224px)</td>
+<td>InternViT-6B-448px-V1.5 (45层)</td>
+</tr>
+<tr>
+<td>输入分辨率</td>
+<td>固定 336/448</td>
+<td>动态 448×448 (1~40 tiles)</td>
+</tr>
+<tr>
+<td>语言中间件</td>
+<td>QLLaMA (8B)</td>
+<td>MLP Projector</td>
+</tr>
+<tr>
+<td>LLM</td>
+<td>Vicuna-13B</td>
+<td>InternLM2-20B</td>
+</tr>
+<tr>
+<td>训练数据</td>
+<td>主要英文</td>
+<td>中英双语</td>
+</tr>
+<tr>
+<td>最大分辨率</td>
+<td>448×448</td>
+<td>~4K</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-internvl-20">3. InternVL 2.0<a class="headerlink" href="#3-internvl-20" title="Permanent link">&para;</a></h2>
+<h3 id="31">3.1 定位<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
+<p>InternVL 2.0 没有发表独立论文，是 1.5 → 2.5 之间的过渡版本，核心价值是验证 1.5 架构的可扩展性。</p>
+<h3 id="32-15">3.2 相对 1.5 的变化<a class="headerlink" href="#32-15" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>数据类型</strong>：新增多图像和视频支持。</li>
+<li><strong>动态分辨率</strong>：引入 per-dataset 的 <code>n_max</code> 控制，替代 1.5 的全局统一 <code>n_max = 12</code>。</li>
+<li><strong>LLM 扩展</strong>：从 InternLM2 扩展到 LLaMA-3、Nous-Hermes 等多种 backbone。</li>
+<li><strong>渐进扩展</strong>：在实践中使用先用小 LLM 训练 ViT 再换大 LLM 的策略，到 2.5 才被系统文档化。</li>
+</ul>
+<h2 id="4-internvl-25">4. InternVL 2.5<a class="headerlink" href="#4-internvl-25" title="Permanent link">&para;</a></h2>
+<h3 id="41">4.1 背景<a class="headerlink" href="#41" title="Permanent link">&para;</a></h3>
+<p>InternVL 2.5 系统性探索 MLLM 中的 <strong>模型规模、数据规模、测试时计算</strong> 三者的关系。几个核心观察：</p>
+<ul>
+<li>大规模视觉编码器能显著降低对训练数据量的依赖。</li>
+<li>数据质量比单纯堆量更重要，异常样本（如重复模式）会严重损害 CoT 推理。</li>
+<li>测试时使用 CoT 等推理策略能有效提升困难任务表现。</li>
+</ul>
+<h3 id="42">4.2 架构<a class="headerlink" href="#42" title="Permanent link">&para;</a></h3>
+<p>沿用 InternVL 1.5 / 2.0 的 <code>ViT-MLP-LLM</code> 范式：</p>
+<ul>
+<li>视觉编码器：InternViT-300M 或 InternViT-6B（V2.5 版本）。</li>
+<li>连接器：随机初始化的两层 MLP。</li>
+<li>LLM：InternLM 2.5、Qwen 2.5 等。</li>
+<li>保留 Pixel Unshuffle：每个 448×448 tile 的 1024 token 压缩为 256 token。</li>
+<li>保留动态高分辨率预处理。</li>
+</ul>
+<p><img alt="InternVL 2.5 整体架构" src="../images/internvl_v2.5_fig2_architecture.png" />
+<em>图 2：InternVL 2.5 沿用 ViT-MLP-LLM 范式，支持单图、多图与视频输入。</em></p>
+<h3 id="43">4.3 三阶段训练<a class="headerlink" href="#43" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>Stage 1: MLP Warmup
+Stage 1.5: ViT 增量学习（可选）
+Stage 2: 全模型指令微调
+</code></pre></div>
+<p><strong>Stage 1：MLP Warmup</strong>
+- 仅训练 MLP，ViT 与 LLM 冻结。
+- 使用预训练混合数据，从这一阶段就引入动态高分辨率。</p>
+<p><strong>Stage 1.5：ViT 增量学习</strong>
+- 训练 ViT + MLP，LLM 仍冻结。
+- 学习率更低，防止遗忘已学视觉能力。
+- 增强视觉编码器在稀有领域（多语言 OCR、数学图表）的特征提取。
+- 训练一次后可复用给不同 LLM，因此常为可选步骤。</p>
+<p><strong>Stage 2：全模型指令微调</strong>
+- 端到端训练 ViT、MLP、LLM。
+- 使用高质量多模态指令数据，严格控制数据质量。
+- 统一学习率，超参数保持简单。</p>
+<h3 id="44">4.4 渐进扩展🚗<a class="headerlink" href="#44" title="Permanent link">&para;</a></h3>
+<p>核心思想：先用<strong>小 LLM</strong> 训练/优化 ViT，再把学好的 ViT 迁移到<strong>大 LLM</strong>，无需重新训练视觉编码器。</p>
+<div class="highlight"><pre><span></span><code>小 LLM (如 20B):
+  Stage 1 → Stage 1.5 (训练 ViT) → Stage 2
+
+大 LLM (如 72B):
+  Stage 1 → 跳过 Stage 1.5 (复用 ViT) → Stage 2
+</code></pre></div>
+<p>这证明了 ViT 学到的视觉特征是通用的，可被不同 LLM 理解，从而大幅降低训练成本。</p>
+<p><img alt="三阶段训练与渐进扩展" src="../images/internvl_v2.5_fig4_training.png" />
+<em>图 3：InternVL 2.5 的三阶段训练流水线（上）与渐进扩展策略（下）。小 LLM 上训好的 InternViT 可直接迁移到大 LLM。</em></p>
+<h3 id="45">4.5 动态分辨率扩展<a class="headerlink" href="#45" title="Permanent link">&para;</a></h3>
+<p>把 1.5 的动态高分辨率从单图扩展到多图和视频：</p>
+<ul>
+<li><strong>单图</strong>：最大 tile 数 <code>n_max</code> 全部分配给一张图。</li>
+<li><strong>多图</strong>：<code>n_max</code> 按图片数量比例分配，用 <code>Image-1</code>、<code>Image-2</code> 等标签区分。</li>
+<li><strong>视频</strong>：<code>n_max = 1</code>，每帧 resize 到 448×448，用 <code>Frame-1</code>、<code>Frame-2</code> 等标签顺序输入。</li>
+</ul>
+<h3 id="46-square-averaging">4.6 Square Averaging<a class="headerlink" href="#46-square-averaging" title="Permanent link">&para;</a></h3>
+<p>为平衡不同长度回复对损失的贡献，提出 Square Averaging：</p>
+<div class="arithmatex">\[w_i = \frac{1}{\sqrt{l}}\]</div>
+<p>其中 <code>l</code> 为该回复的 token 数。它介于 token averaging（偏向长回复）和 sample averaging（偏向短回复）之间。</p>
+<h3 id="47-15">4.7 与 1.5 对比<a class="headerlink" href="#47-15" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>InternVL 1.5</th>
+<th>InternVL 2.5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>架构</td>
+<td>ViT-MLP-LLM</td>
+<td>ViT-MLP-LLM（沿用）</td>
+</tr>
+<tr>
+<td>数据类型</td>
+<td>单图 + 文本</td>
+<td>单图 + 多图 + 视频 + 文本</td>
+</tr>
+<tr>
+<td>动态分辨率</td>
+<td>单图</td>
+<td>扩展到多图/视频</td>
+</tr>
+<tr>
+<td>训练策略</td>
+<td>持续学习 + SFT</td>
+<td>MLP Warmup → ViT 增量 → SFT</td>
+</tr>
+<tr>
+<td>ViT 训练</td>
+<td>冻结</td>
+<td>可训练（Stage 1.5）</td>
+</tr>
+<tr>
+<td>损失权重</td>
+<td>Token Averaging</td>
+<td>Square Averaging</td>
+</tr>
+<tr>
+<td>LLM</td>
+<td>InternLM2-20B</td>
+<td>InternLM 2.5 / Qwen 2.5</td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-mini-internvl">5. Mini-InternVL<a class="headerlink" href="#5-mini-internvl" title="Permanent link">&para;</a></h2>
+<h3 id="51">5.1 背景<a class="headerlink" href="#51" title="Permanent link">&para;</a></h3>
+<p>MLLM 性能强劲但规模过大，难以在消费级 GPU 或边缘设备部署。现有轻量模型多用 CLIP 类视觉编码器，仅在自然图像域训练，泛化能力有限。Mini-InternVL 的目标是在小参数规模下保留大模型的视觉知识。</p>
+<h3 id="52-internvit-300m">5.2 InternViT-300M<a class="headerlink" href="#52-internvit-300m" title="Permanent link">&para;</a></h3>
+<p>通过知识蒸馏从 InternViT-6B 得到轻量视觉编码器。</p>
+<div class="highlight"><pre><span></span><code>教师：InternViT-6B (5.9B)
+学生：CLIP-ViT-L-336px 初始化 (300M)
+
+对齐目标：师生网络最后 K 层 hidden state 的负余弦相似度
+训练数据：自然图像、OCR、图表、多学科图像
+</code></pre></div>
+<p>蒸馏后的 InternViT-300M 继承了 InternViT-6B 的跨域视觉知识。</p>
+<p><img alt="Mini-InternVL 架构与迁移" src="../images/mini_internvl_fig1_architecture.png" />
+<em>图 4：Mini-InternVL 架构。左侧为 InternViT-300M 蒸馏；右侧为 ViT-MLP-LLM 架构及下游迁移示例。</em></p>
+<h3 id="53">5.3 模型系列<a class="headerlink" href="#53" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>视觉编码器</th>
+<th>LLM</th>
+<th>总参数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mini-InternVL-1B</td>
+<td>InternViT-300M</td>
+<td>Qwen2-0.5B</td>
+<td>~1B</td>
+</tr>
+<tr>
+<td>Mini-InternVL-2B</td>
+<td>InternViT-300M</td>
+<td>InternLM2-1.8B</td>
+<td>~2B</td>
+</tr>
+<tr>
+<td>Mini-InternVL-4B</td>
+<td>InternViT-300M</td>
+<td>Phi-3-mini</td>
+<td>~4B</td>
+</tr>
+</tbody>
+</table>
+<p>采用 Pixel Unshuffle 将视觉 token 压缩到 1/4，支持动态高分辨率输入。</p>
+<h3 id="54">5.4 训练<a class="headerlink" href="#54" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>阶段 1：语言-图像对齐</strong>：仅训练 MLP，冻结 ViT 和 LLM。</li>
+<li><strong>阶段 2：视觉指令微调</strong>：全参数微调。</li>
+</ul>
+<p>两阶段的数据构建方式与 InternVL 1.5 保持一致。</p>
+<h3 id="55">5.5 迁移框架<a class="headerlink" href="#55" title="Permanent link">&para;</a></h3>
+<p>将不同下游任务统一转化为 VQA/对话格式：</p>
+<ul>
+<li>图像分类 → 多项选择问答</li>
+<li>视觉定位 → <code>&lt;ref&gt;</code> / <code>&lt;box&gt;</code> 特殊 token</li>
+<li>区域感知 → 坐标框/掩码限定</li>
+<li>多视角图像 → 多 <code>&lt;img&gt;</code> 标签</li>
+<li>视频帧 → 交错图像格式</li>
+</ul>
+<p>迁移时全参数微调，并混入通用多模态数据以保持通用能力。</p>
+<h3 id="56-15">5.6 与 1.5 对比<a class="headerlink" href="#56-15" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>InternVL 1.5</th>
+<th>Mini-InternVL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>视觉编码器</td>
+<td>InternViT-6B (5.5B)</td>
+<td>InternViT-300M (0.3B, 蒸馏)</td>
+</tr>
+<tr>
+<td>LLM</td>
+<td>InternLM2-20B</td>
+<td>Qwen2-0.5B / InternLM2-1.8B / Phi-3</td>
+</tr>
+<tr>
+<td>总参数</td>
+<td>~25.5B</td>
+<td>1B - 4B</td>
+</tr>
+<tr>
+<td>核心策略</td>
+<td>动态分辨率 + 双语数据</td>
+<td>知识蒸馏 + 统一迁移</td>
+</tr>
+<tr>
+<td>目标</td>
+<td>缩小与商业模型差距</td>
+<td>轻量化 + 下游迁移</td>
+</tr>
+</tbody>
+</table>
+<h2 id="6-mpo">6. MPO<a class="headerlink" href="#6-mpo" title="Permanent link">&para;</a></h2>
+<h3 id="61">6.1 背景<a class="headerlink" href="#61" title="Permanent link">&para;</a></h3>
+<p>开源 MLLM 通常采用“预训练 + SFT”范式，直接回答表现不错，但使用 Chain-of-Thought（CoT）推理时性能反而下降。根本原因是<strong>分布偏移</strong>：</p>
+<ul>
+<li>训练时使用 teacher forcing，基于 ground-truth token 预测下一个 token。</li>
+<li>推理时模型只能基于自己生成的 token 继续预测。</li>
+<li>CoT 需要生成长段推理过程，分布偏移问题被进一步放大。</li>
+</ul>
+<p>MPO 通过偏好优化来缓解这一问题，提升多模态推理能力。</p>
+<h3 id="62-mmpr-dropoutntp">6.2 MMPR 与 DropoutNTP<a class="headerlink" href="#62-mmpr-dropoutntp" title="Permanent link">&para;</a></h3>
+<p>MMPR（MultiModal Preference Reasoning）是 MPO 构建的多模态推理偏好数据集，约 300 万样本，覆盖 VQA、科学、图表、数学、OCR、文档等领域。</p>
+<ul>
+<li><strong>有明确标准答案的样本</strong>：让模型先给推理过程再输出最终答案，正确答案作为 chosen，错误答案作为 rejected。</li>
+<li><strong>无明确标准答案的样本</strong>：提出 <strong>DropoutNTP</strong>：</li>
+<li>把模型生成的完整回答作为 chosen；</li>
+<li>将该回答截断一半，再让模型在无图像输入条件下补全剩余部分；</li>
+<li>补全结果作为 rejected（因缺失图像信息，更容易产生幻觉）。</li>
+</ul>
+<h3 id="63-mpo">6.3 MPO 算法<a class="headerlink" href="#63-mpo" title="Permanent link">&para;</a></h3>
+<p>MPO 将三类损失混合：</p>
+<div class="arithmatex">\[\mathcal{L}_{\text{MPO}} = w_p \mathcal{L}_{\text{DPO}} + w_q \mathcal{L}_{\text{BCO}} + w_g \mathcal{L}_{\text{SFT}}\]</div>
+<ul>
+<li><strong>DPO 损失</strong>：学习成对响应之间的相对偏好。</li>
+<li><strong>BCO 损失</strong>：学习单个响应的绝对质量。</li>
+<li><strong>SFT 损失</strong>：学习如何生成高质量的偏好响应。</li>
+</ul>
+<p>关键发现：<strong>参考模型必须保持冻结</strong>。去掉或更新参考模型都会导致性能下降。</p>
+<h3 id="64">6.4 训练流程<a class="headerlink" href="#64" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>InternVL2 (预训练 + SFT)
+  ↓
+在 MMPR 上用 MPO 训练
+  ↓
+InternVL2-MPO
+</code></pre></div>
+<h3 id="65-dporlhf">6.5 与 DPO/RLHF 对比<a class="headerlink" href="#65-dporlhf" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>是否需要奖励模型</th>
+<th>是否在线采样</th>
+<th>核心特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DPO</td>
+<td>否</td>
+<td>否</td>
+<td>仅学习成对偏好</td>
+</tr>
+<tr>
+<td>RLHF</td>
+<td>是</td>
+<td>是</td>
+<td>PPO + 奖励模型</td>
+</tr>
+<tr>
+<td>MPO</td>
+<td>否</td>
+<td>否</td>
+<td>DPO + BCO + SFT，专注 CoT 推理</td>
+</tr>
+</tbody>
+</table>
+<h2 id="7-internvl-3">7. InternVL 3<a class="headerlink" href="#7-internvl-3" title="Permanent link">&para;</a></h2>
+<h3 id="71">7.1 背景<a class="headerlink" href="#71" title="Permanent link">&para;</a></h3>
+<p>传统 MLLM 先在纯文本语料上预训练 LLM，再通过多阶段 pipeline 把视觉能力“后装”到文本模型上，属于 <strong>post-hoc 训练</strong>。这带来几个问题：</p>
+<ul>
+<li>模态对齐困难。</li>
+<li>需要复杂的参数冻结策略和辅助数据（如 OCR）。</li>
+<li>容易损失 LLM 原有语言能力。</li>
+</ul>
+<p>InternVL 3 提出<strong>原生多模态预训练</strong>，把语言预训练和多模态对齐合并为单一阶段。</p>
+<h3 id="72">7.2 原生预训练<a class="headerlink" href="#72" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>输入：多模态数据（图文、视频-文本、交错图文）+ 纯文本数据
+目标：自回归 Next Token Prediction
+关键：loss 只计算在文本 token 上，视觉 token 仅作为条件上下文
+优化：ViT + MLP + LLM 全部参数一起更新
+</code></pre></div>
+<p>数据配比约为 文本 : 多模态 = 1 : 3，总预训练 token 约 200B。所有 LLM 均从 base 预训练模型初始化，而非指令微调版本。</p>
+<h3 id="73-v2pe">7.3 V2PE<a class="headerlink" href="#73-v2pe" title="Permanent link">&para;</a></h3>
+<p><strong>Variable Visual Position Encoding</strong> 用于支持更长的多模态上下文。</p>
+<ul>
+<li>文本 token：位置索引 +1。</li>
+<li>视觉 token：位置索引 +δ，其中 δ &lt; 1。</li>
+<li>同一图像内部 δ 保持不变，维护视觉 token 的相对位置。</li>
+<li>训练时 δ 从 <code>{1, 1/2, 1/4, ..., 1/256}</code> 中随机采样。</li>
+<li>δ = 1 时退化为 InternVL 2.5 的标准位置编码。</li>
+</ul>
+<h3 id="74-sft-mpo">7.4 SFT + MPO<a class="headerlink" href="#74-sft-mpo" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>SFT</strong>：用高质量监督数据覆盖工具使用、GUI 操作、3D 场景、长上下文、视频、科学图表等更多领域。</li>
+<li><strong>MPO</strong>：在 SFT 之后继续使用 MMPR 偏好数据训练，缓解分布偏移，提升 CoT 推理能力。</li>
+</ul>
+<h3 id="75">7.5 测试时缩放<a class="headerlink" href="#75" title="Permanent link">&para;</a></h3>
+<p>InternVL 3 使用 <strong>Best-of-N</strong> 策略，并用 <strong>VisualPRM-8B</strong> 作为评价模型：</p>
+<ul>
+<li>VisualPRM 把解题过程拆成多轮对话，每轮给出当前步骤，模型预测该步骤是否正确。</li>
+<li>每一步得分定义为模型输出“正确”的概率，最终得分为各步骤得分平均。</li>
+<li>推理时生成 N 个候选解答，VisualPRM 评分后选择最优。</li>
+</ul>
+<h3 id="76-25">7.6 与 2.5 对比<a class="headerlink" href="#76-25" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>InternVL 2.5</th>
+<th>InternVL 3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>预训练范式</td>
+<td>后训练（MLP Warmup → ViT 增量 → SFT）</td>
+<td>原生多模态预训练</td>
+</tr>
+<tr>
+<td>参数优化</td>
+<td>分阶段冻结</td>
+<td>全参数联合优化</td>
+</tr>
+<tr>
+<td>位置编码</td>
+<td>标准位置编码</td>
+<td>V2PE</td>
+</tr>
+<tr>
+<td>后训练</td>
+<td>SFT</td>
+<td>SFT + MPO</td>
+</tr>
+<tr>
+<td>测试时缩放</td>
+<td>无</td>
+<td>Best-of-N + VisualPRM</td>
+</tr>
+<tr>
+<td>LLM 初始化</td>
+<td>通常用指令版</td>
+<td>用 base 版</td>
+</tr>
+</tbody>
+</table>
+<h2 id="8-internvl-35">8. InternVL 3.5<a class="headerlink" href="#8-internvl-35" title="Permanent link">&para;</a></h2>
+<h3 id="81">8.1 背景<a class="headerlink" href="#81" title="Permanent link">&para;</a></h3>
+<p>InternVL 3.5 同时瞄准三个目标：</p>
+<ul>
+<li><strong>通用性（Versatility）</strong>：继续缩小与闭源顶尖模型的通用任务差距。</li>
+<li><strong>推理能力（Reasoning）</strong>：解决离线 RL（MPO）性能上限受限于静态数据的问题。</li>
+<li><strong>推理效率（Efficiency）</strong>：降低高分辨率、长上下文带来的计算成本。</li>
+</ul>
+<h3 id="82-cascade-rl">8.2 Cascade RL<a class="headerlink" href="#82-cascade-rl" title="Permanent link">&para;</a></h3>
+<p>Cascade RL 把强化学习分为两个阶段：</p>
+<div class="highlight"><pre><span></span><code>阶段 1: 离线 RL (MPO)
+  - 使用预收集的偏好数据
+  - 稳定收敛，获得良好初始策略
+
+阶段 2: 在线 RL (GSPO)
+  - 在线采样 rollout
+  - 无需参考模型，优势函数由同查询下多条响应的奖励归一化得到
+  - 进一步提升性能上限
+</code></pre></div>
+<p>优势：离线阶段解耦 rollout 收集与参数更新，缓解 reward hacking；MPO 产生的 rollout 可被多模型复用，摊薄在线采样成本。</p>
+<p><img alt="InternVL 3.5 训练流程" src="../images/internvl_v3.5_fig3_training.png" />
+<em>图 5：InternVL 3.5 训练流程。原生预训练 → SFT → Cascade RL（MPO + GSPO）；Flash 变体额外经过 ViCO 训练 ViR。</em></p>
+<h3 id="83-vir">8.3 ViR<a class="headerlink" href="#83-vir" title="Permanent link">&para;</a></h3>
+<p><strong>Visual Resolution Router</strong> 是 InternVL 3.5-Flash 引入的动态 patch 压缩机制。</p>
+<ul>
+<li>传统 Dynamic High Resolution 仅从宽高比维度切分 patch，所有 patch 统一压缩率。</li>
+<li>ViR 从<strong>语义内容</strong>维度决定每个 patch 的压缩率：语义丰富的 patch 用低压缩率，语义稀疏的 patch 用高压缩率。</li>
+<li>每个 patch 先表示为 1024 token，经 Pixel Shuffle 可压缩到 256 或 64 token。</li>
+</ul>
+<p>训练方式 <strong>ViCO</strong>（Visual Consistency Learning）：</p>
+<ul>
+<li><strong>Consistency Training</strong>：最小化不同压缩率下模型输出分布的 KL 散度，保证压缩后语义一致。</li>
+<li><strong>Router Training</strong>：把 ViR 训练为二分类器，主干 MLLM 冻结，标签由压缩带来的损失比值决定。</li>
+</ul>
+<p>目标：视觉 token 数量显著减少，性能几乎无损。</p>
+<p><img alt="InternVL 3.5 架构与 ViR" src="../images/internvl_v3.5_fig2_architecture.png" />
+<em>图 6：InternVL 3.5 架构。右侧为 InternVL 3.5-Flash 的 ViR 动态压缩连接器。</em></p>
+<h3 id="84-dvd">8.4 DvD<a class="headerlink" href="#84-dvd" title="Permanent link">&para;</a></h3>
+<p><strong>Decoupled Vision-Language Deployment</strong> 把视觉编码器和语言模型分离部署到不同 GPU：</p>
+<ul>
+<li><strong>Vision Server</strong>：部署 ViT + MLP（Flash 变体还包括 ViR），批量处理图像。</li>
+<li><strong>Language Server</strong>：仅执行 LLM 的 prefilling 与 decoding。</li>
+<li>视觉特征以 BF16 格式单向传输，可选 RDMA 加速。</li>
+<li>视觉端与语言端可并行异步执行，形成三阶段流水线，减少阻塞。</li>
+</ul>
+<p><img alt="DvD 解耦部署" src="../images/internvl_v3.5_fig4_dvd.png" />
+<em>图 7：DvD 把视觉编码器与 LLM 分离部署，使视觉计算与 LLM 的 prefilling/decoding 重叠执行。</em></p>
+<h3 id="85-sft">8.5 SFT 增强<a class="headerlink" href="#85-sft" title="Permanent link">&para;</a></h3>
+<p>SFT 阶段约 5600 万样本、130B token，上下文窗口 32K。新增三类数据：</p>
+<ul>
+<li><strong>指令遵循数据</strong>：复用 InternVL 3 的指令数据，保持广泛任务覆盖。</li>
+<li><strong>多模态 Thinking 数据</strong>：带详细推理过程的长思考数据，覆盖数学、科学等领域。</li>
+<li><strong>能力扩展数据</strong>：GUI 交互、具身交互、SVG 理解与生成。</li>
+</ul>
+<h3 id="86">8.6 模型变体<a class="headerlink" href="#86" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>类型</th>
+<th>视觉编码器</th>
+<th>语言模型</th>
+<th>总参数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>InternVL3.5-1B</td>
+<td>Dense</td>
+<td>InternViT-300M</td>
+<td>Qwen3-0.6B</td>
+<td>~1B</td>
+</tr>
+<tr>
+<td>InternVL3.5-8B</td>
+<td>Dense</td>
+<td>InternViT-300M</td>
+<td>Qwen3-8B</td>
+<td>~8B</td>
+</tr>
+<tr>
+<td>InternVL3.5-14B</td>
+<td>Dense</td>
+<td>InternViT-300M</td>
+<td>Qwen3-14B</td>
+<td>~15B</td>
+</tr>
+<tr>
+<td>InternVL3.5-38B</td>
+<td>Dense</td>
+<td>InternViT-6B</td>
+<td>Qwen3-32B</td>
+<td>~38B</td>
+</tr>
+<tr>
+<td>InternVL3.5-20B-A4B</td>
+<td>MoE</td>
+<td>InternViT-300M</td>
+<td>GPT-OSS-20B</td>
+<td>20B (激活 4B)</td>
+</tr>
+<tr>
+<td>InternVL3.5-30B-A3B</td>
+<td>MoE</td>
+<td>InternViT-300M</td>
+<td>Qwen3-30B-A3B</td>
+<td>30B (激活 3B)</td>
+</tr>
+<tr>
+<td>InternVL3.5-241B-A28B</td>
+<td>MoE</td>
+<td>InternViT-6B</td>
+<td>Qwen3-235B-A22B</td>
+<td>241B (激活 28B)</td>
+</tr>
+</tbody>
+</table>
+<p><code>A</code> 表示激活参数量。Flash 变体在 Dense 模型基础上加入 ViR，面向资源受限场景。</p>
+<h3 id="87-3">8.7 与 3 对比<a class="headerlink" href="#87-3" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>InternVL 3</th>
+<th>InternVL 3.5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RL 策略</td>
+<td>MPO (离线)</td>
+<td>Cascade RL (离线 MPO + 在线 GSPO)</td>
+</tr>
+<tr>
+<td>视觉 token 压缩</td>
+<td>固定 Pixel Shuffle</td>
+<td>ViR 动态压缩</td>
+</tr>
+<tr>
+<td>部署方式</td>
+<td>传统串行</td>
+<td>DvD 视觉-语言分离</td>
+</tr>
+<tr>
+<td>模型类型</td>
+<td>Dense</td>
+<td>Dense + MoE</td>
+</tr>
+<tr>
+<td>LLM</td>
+<td>Qwen2.5 系列</td>
+<td>Qwen3 系列 / GPT-OSS</td>
+</tr>
+<tr>
+<td>SFT 数据</td>
+<td>~56M 样本</td>
+<td>~56M + Thinking + 能力扩展</td>
+</tr>
+<tr>
+<td>新能力</td>
+<td>基础多模态</td>
+<td>GUI、具身、SVG</td>
+</tr>
+</tbody>
+</table>
+<h2 id="9">9. 总结<a class="headerlink" href="#9" title="Permanent link">&para;</a></h2>
+<h3 id="91">9.1 演进脉络<a class="headerlink" href="#91" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>视觉编码器：
+  InternViT-6B (48层, 224px)
+    ↓ 持续学习，丢弃最后3层
+  InternViT-6B-448px-V1.5 (45层)
+    ↓ 蒸馏
+  InternViT-300M
+    ↓ 增量预训练
+  InternViT-6B/300M-V2.5
+    ↓ 沿用
+  InternViT-6B/300M-V2.5
+
+训练范式：
+  三阶段后训练 (1.0)
+    ↓ 持续学习 + SFT (1.5)
+    ↓ MLP Warmup → ViT 增量 → SFT (2.5)
+    ↓ 原生多模态预训练 (3)
+    ↓ 原生预训练 + Cascade RL (3.5)
+
+分辨率策略：
+  固定 224/448 (1.0)
+    ↓ 动态 tile (1.5)
+    ↓ 多图/视频 (2.0/2.5)
+    ↓ ViR 动态压缩 (3.5)
+
+推理增强：
+  SFT → MPO → Cascade RL
+
+效率优化：
+  Mini-InternVL → ViR → DvD
+</code></pre></div>
+<h3 id="92">9.2 关键洞察<a class="headerlink" href="#92" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>视觉编码器规模化是基础</strong>：6B ViT 不仅提升视觉理解能力，还降低了对训练数据量的依赖。</li>
+<li><strong>视觉编码器可复用</strong>：从 1.5 开始，InternViT 学到的视觉特征不绑定特定 LLM，可跨 backbone 迁移。</li>
+<li><strong>动态分辨率是实用化的关键</strong>：文档、图表等高分辨率场景需要 tile 切分和 Pixel Shuffle/Unshuffle。</li>
+<li><strong>原生预训练是范式变革</strong>：把语言预训练和多模态对齐合并为单一阶段，简化了 pipeline。</li>
+<li><strong>偏好优化是推理能力的突破口</strong>：MPO 到 Cascade RL 系统性地解决了 CoT 推理的分布偏移问题。</li>
+<li><strong>效率与能力同样重要</strong>：Mini、ViR、DvD 代表了从研究到部署的完整路径。</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.top", "navigation.instant", "search.highlight", "content.code.copy", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

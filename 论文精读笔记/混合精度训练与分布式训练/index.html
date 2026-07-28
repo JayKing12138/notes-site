@@ -1,0 +1,4232 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../%E5%AF%B9%E6%AF%94%E5%AD%A6%E4%B9%A0%E7%BB%BC%E8%BF%B0/">
+      
+      
+        <link rel="next" href="../%E8%A7%86%E9%A2%91%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>混合精度训练与分布式训练 - 学习资料库</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="学习资料库" class="md-header__button md-logo" aria-label="学习资料库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            学习资料库
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              混合精度训练与分布式训练
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="学习资料库" class="md-nav__button md-logo" aria-label="学习资料库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    学习资料库
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    学习资料库
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GENIUS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    GENIUS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GENIUS/GENIUS%20%E6%80%BB%E7%BB%93/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GENIUS 总结
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RadAlign
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RadAlign
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RadAlign/RadVLM-GRPO%20%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RadVLM-GRPO 论文精读
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RadAlign/%E5%85%B3%E9%94%AE%E4%BB%A3%E7%A0%81%E8%AF%B4%E6%98%8E/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关键代码说明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    全模态大模型·出行安全项目
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    全模态大模型·出行安全项目
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/5.27%20Qwen3.7-Max%2BGeoLife%E8%AF%84%E4%BC%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.27 Qwen3.7-Max+GeoLife评估
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/Omni-%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Omni-出行安全项目
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%B1%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    全模态大模型·出行安全项目进展
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLUE
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    BLUE
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/BLUE/BLUE%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLUE论文笔记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    论文精读笔记
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    论文精读笔记
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AAAAA_Transformer%E3%80%81LLM%E4%B8%8EVLM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AAAAA_Transformer、LLM与VLM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BBBBB_%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BBBBB_强化学习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BERT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BERT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BEiT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BEiT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BLIP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLIP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLIP%20%26%20ALIGN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP & ALIGN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLIP%20%E6%94%B9%E8%BF%9B%E5%B7%A5%E4%BD%9C%E4%B8%B2%E8%AE%B2%EF%BC%88%E4%B8%8A%EF%BC%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP 改进工作串讲（上）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLIP%20%E6%94%B9%E8%BF%9B%E5%B7%A5%E4%BD%9C%E4%B8%B2%E8%AE%B2%EF%BC%88%E4%B8%8B%EF%BC%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP 改进工作串讲（下）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DALL%C2%B7E%202/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DALL·E 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DINO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DINO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Flamingo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Flamingo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GPT%EF%BC%8CGPT-2%EF%BC%8CGPT-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPT，GPT-2，GPT-3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ImageBind%20%E4%B8%8E%20LanguageBind%20%E5%AF%B9%E6%AF%94/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ImageBind 与 LanguageBind 对比
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InternVL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    InternVL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLaMA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLaMA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLaVA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLaVA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MAE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MAE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MoCo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MoCo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OFA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OFA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PaLI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PaLI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Qwen-VL%E4%B8%8EOmni/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qwen-VL与Omni
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SAM3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SAM3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SigLIP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SigLIP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SimVLM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SimVLM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Swin%20Transformer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Swin Transformer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UniPerceiver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UniPerceiver
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Unified-IO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unified-IO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ViLT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ViLT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ViT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ViT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ZZZZZ%E5%85%AC%E5%BC%8F%E4%BB%A3%E7%A0%81%E7%AD%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ZZZZZ公式代码等
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%8E%9F%E7%94%9F%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    原生多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%90%8E%E8%AE%AD%E7%BB%83%E7%BB%BC%E8%BF%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多模态大模型后训练综述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%9A%E6%A8%A1%E6%80%81%E8%AE%BA%E6%96%87%E4%B8%B2%E8%AE%B2%C2%B7%E4%B8%8A/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多模态论文串讲·上
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%9A%E6%A8%A1%E6%80%81%E8%AE%BA%E6%96%87%E4%B8%B2%E8%AE%B2%C2%B7%E4%B8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多模态论文串讲·下
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%AF%B9%E6%AF%94%E5%AD%A6%E4%B9%A0%E7%BB%BC%E8%BF%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    对比学习综述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    混合精度训练与分布式训练
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    混合精度训练与分布式训练
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        混合精度训练
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="混合精度训练">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 浮点数的二进制表示
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 低精度计算的三大好处
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 低精度的两大缺点
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 低精度的两大缺点">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 表示范围有限（下溢）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 大数吃小数
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 混合精度的解决思路
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 混合精度的解决思路">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-fp32-master-weight" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 技术一：FP32 Master Weight
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-loss-scaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 技术二：Loss Scaling（损失缩放）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-fp32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 技术三：部分算子保持 FP32
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 对模型精度的影响
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-pytorch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. PyTorch 实践
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 一些问题
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. 一些问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-fp16-fp32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 为什么参数/梯度用 FP16、优化器状态全用 FP32
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-fp16-fp32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 FP16 与 FP32 如何互相转换
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-bf16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 BF16 的特殊之处
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dpddpdeepspeed-zero" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数据并行：DP、DDP、DeepSpeed ZeRO
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="数据并行：DP、DDP、DeepSpeed ZeRO">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0. 背景
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="0. 背景">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.1 单机单卡流程
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-dp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. DP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. DP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 运行模式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 通信量
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 两个问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-ring-all-reduce" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Ring All-Reduce
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Ring All-Reduce">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 目标与例子
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-scatter-reduce" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Scatter-Reduce
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-all-gather" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 All-Gather
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 优点
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-ddp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. DDP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. DDP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-dp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 与 DP 对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 训练流程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 参数逆序与桶机制
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 通信量
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-dp-ddp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 DP 与 DDP 区别总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 显存占用公式
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 显存占用公式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-adam-fp32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 为什么 Adam 优化器里有四份 FP32 数据
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-deepspeed-zero" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. DeepSpeed ZeRO
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. DeepSpeed ZeRO">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-zero-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 ZeRO-1：切分优化器状态
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-zero-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 ZeRO-2：再切分梯度
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-zero-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 ZeRO-3：再切分参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-zero-zero-r-offload-infinity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 ZeRO 家族扩展：ZeRO-R / Offload / Infinity
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 总结对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#megatron-lm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        张量并行：Megatron-LM
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="张量并行：Megatron-LM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#7_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 背景与定位
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. 背景与定位">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 并行方式分类
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-gpipe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 与 GPipe 对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 论文要点
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 层的切分
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. 层的切分">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-mlp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 MLP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 自注意力
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 嵌入层与输出层
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4 整体抽象
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. 通信量分析
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. 通信量分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-megatron" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1 Megatron 通信量
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2 与数据并行对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.3 各自优劣
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#94" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.4 实验设置
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#95" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.5 效率曲线
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#96-layernorm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.6 LayerNorm 调整
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. 总评
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%A7%86%E9%A2%91%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    视频多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%9F%B3%E9%A2%91%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    音频多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        混合精度训练
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="混合精度训练">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 浮点数的二进制表示
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 低精度计算的三大好处
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 低精度的两大缺点
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 低精度的两大缺点">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 表示范围有限（下溢）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 大数吃小数
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 混合精度的解决思路
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 混合精度的解决思路">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-fp32-master-weight" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 技术一：FP32 Master Weight
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-loss-scaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 技术二：Loss Scaling（损失缩放）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-fp32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 技术三：部分算子保持 FP32
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 对模型精度的影响
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-pytorch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. PyTorch 实践
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 一些问题
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. 一些问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-fp16-fp32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 为什么参数/梯度用 FP16、优化器状态全用 FP32
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-fp16-fp32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 FP16 与 FP32 如何互相转换
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-bf16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 BF16 的特殊之处
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dpddpdeepspeed-zero" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数据并行：DP、DDP、DeepSpeed ZeRO
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="数据并行：DP、DDP、DeepSpeed ZeRO">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0. 背景
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="0. 背景">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.1 单机单卡流程
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-dp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. DP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. DP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 运行模式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 通信量
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 两个问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-ring-all-reduce" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Ring All-Reduce
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Ring All-Reduce">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 目标与例子
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-scatter-reduce" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Scatter-Reduce
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-all-gather" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 All-Gather
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 优点
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-ddp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. DDP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. DDP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-dp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 与 DP 对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 训练流程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 参数逆序与桶机制
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 通信量
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-dp-ddp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 DP 与 DDP 区别总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 显存占用公式
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 显存占用公式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-adam-fp32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 为什么 Adam 优化器里有四份 FP32 数据
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-deepspeed-zero" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. DeepSpeed ZeRO
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. DeepSpeed ZeRO">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-zero-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 ZeRO-1：切分优化器状态
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-zero-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 ZeRO-2：再切分梯度
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-zero-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 ZeRO-3：再切分参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-zero-zero-r-offload-infinity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 ZeRO 家族扩展：ZeRO-R / Offload / Infinity
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 总结对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#megatron-lm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        张量并行：Megatron-LM
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="张量并行：Megatron-LM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#7_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 背景与定位
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. 背景与定位">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 并行方式分类
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-gpipe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 与 GPipe 对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 论文要点
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 层的切分
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. 层的切分">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-mlp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 MLP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 自注意力
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 嵌入层与输出层
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4 整体抽象
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. 通信量分析
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. 通信量分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-megatron" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1 Megatron 通信量
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2 与数据并行对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.3 各自优劣
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#94" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.4 实验设置
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#95" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.5 效率曲线
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#96-layernorm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.6 LayerNorm 调整
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. 总评
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>混合精度训练与分布式训练</h1>
+
+<h2 id="_1">混合精度训练<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>视频链接：https://www.bilibili.com/video/BV1qJ4m1w7ur/?spm_id_from=333.1387.upload.video_card.click&amp;vd_source=d98b016832f1904078511f0d2a38100f</p>
+<p>来源：视频《混合精度训练》转录整理。混合精度训练可以<strong>大幅加速模型训练、减少显存占用，同时不影响模型精度</strong>，目前已是大模型训练的默认配置。本章也是后面数据并行部分（显存公式、Adam 四份 FP32、loss scaling）的前置知识。</p>
+</blockquote>
+<h3 id="1">1. 浮点数的二进制表示<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<p>以实数 2.5 为例，看计算机如何用 Float32 表示：</p>
+<ol>
+<li>先把 2.5 转成二进制：<strong>10.1</strong>；</li>
+<li>再写成二进制科学计数法：<strong>1.01 × 2¹</strong>；</li>
+<li>按 FP32 的 32 个二进制位存入：</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>位数</th>
+<th>存入内容（2.5 的例子）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>符号位</td>
+<td>1</td>
+<td>0（正数）</td>
+</tr>
+<tr>
+<td>指数位</td>
+<td>8</td>
+<td>指数 1 的二进制</td>
+</tr>
+<tr>
+<td>小数位</td>
+<td>23</td>
+<td>小数部分 01</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Float16</strong>：同样 1 位符号位，指数位减少到 <strong>5 位</strong>，小数位减少到 <strong>10 位</strong>。</p>
+<p>此外还有 <strong>TensorFloat32（TF32）</strong>、<strong>BFloat16（BF16）</strong> 等格式。</p>
+<h3 id="2">2. 低精度计算的三大好处<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>算力大幅提升</strong>：以 A100 为例，FP32 算力 19.5 TFlops，FP16 算力 <strong>312 TFlops，提升 16 倍</strong>；</li>
+<li><strong>显存占用减半</strong>：FP16 占的存储只有 FP32 的一半；</li>
+<li><strong>显存带宽占用减半</strong>（同样重要）：混合精度计算时，中间的激活值、参数、梯度都用 FP16 表示，在显存和计算单元之间传输时对<strong>显存带宽</strong>的占用也减半，同样能加速训练。</li>
+</ol>
+<h3 id="3">3. 低精度的两大缺点<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<h4 id="31">3.1 表示范围有限（下溢）<a class="headerlink" href="#31" title="Permanent link">&para;</a></h4>
+<p>FP16 表示不了太大和太小的值。神经网络训练中大多是绝对值很小的值，可能导致部分参数和梯度<strong>因太小向下溢出而变为 0</strong>。</p>
+<h4 id="32">3.2 大数吃小数<a class="headerlink" href="#32" title="Permanent link">&para;</a></h4>
+<p>例子：PyTorch 里用 FP16 计算 <strong>2048 + 0.5，结果还是 2048</strong>——0.5 被 2048 "吃掉"了。</p>
+<p>原因推导：</p>
+<ul>
+<li>2048 的二进制科学计数法：1.0 × 2¹¹；</li>
+<li>0.5 的二进制科学计数法：1.0 × 2⁻¹；</li>
+<li>相加时，小数要对齐到大数的指数（都表示成 × 2¹¹），0.5 变成 <strong>1.0 × 2⁻¹² × 2¹¹</strong>；</li>
+<li>FP16 小数位只有 10 位，2⁻¹² 超出表示能力，<strong>向下溢出为 0</strong> → 0.5 消失。</li>
+</ul>
+<h3 id="4">4. 混合精度的解决思路<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<p>结合高低精度的优点：<strong>需要高精度的地方用 FP32，不需要的地方用 FP16</strong>。神经网络里大部分计算在 FP16 下进行，但配合三项关键技术。</p>
+<h4 id="41-fp32-master-weight">4.1 技术一：FP32 Master Weight<a class="headerlink" href="#41-fp32-master-weight" title="Permanent link">&para;</a></h4>
+<p>优化器同时保存一份 FP32 的参数拷贝（master weight）。两个理由：</p>
+<ol>
+<li><strong>梯度下溢</strong>：观察一次更新中所有梯度值的分布，有一部分梯度在 FP16 表示范围之外（绝对值很小）——若在 FP16 下更新会下溢为 0，起不到参数更新的作用；</li>
+<li><strong>大数吃小数</strong>：参数相对梯度来说很大，若用 FP16 表示，会出现<strong>参数吃掉梯度值</strong>的问题。</li>
+</ol>
+<p>训练循环（master weight 视角）：</p>
+<ol>
+<li>优化器里保存 FP32 的 master weight，转化为 FP16 给模型，input 也转 FP16；</li>
+<li>FP16 下前向传播，中间激活值也是 FP16；</li>
+<li>反向传播算出的梯度也是 FP16；</li>
+<li>FP16 梯度传入优化器，优化器转成 FP32，更新 FP32 master weight；</li>
+<li>开始下一轮训练。</li>
+</ol>
+<h4 id="42-loss-scaling">4.2 技术二：Loss Scaling（损失缩放）<a class="headerlink" href="#42-loss-scaling" title="Permanent link">&para;</a></h4>
+<p><strong>动机</strong>：梯度大部分绝对值都很小，处在 FP16 表示范围之外；同时 FP16 较大数值的区间基本闲置（梯度值一般都很小，用不到大数区间）。→ <strong>对梯度做缩放，把它整体平移进 FP16 可表示的范围内</strong>。</p>
+<p>具体流程：</p>
+<ol>
+<li>FP16 参数前向传播，但 <strong>loss 函数用 FP32 计算</strong>，得到 FP32 的 loss；</li>
+<li>loss <strong>乘以 N 倍</strong>（缩放），得到缩放后的 loss；</li>
+<li>缩放后的 loss 转 FP16，进行反向传播——因为 loss 已放大，算出的缩放梯度虽是 FP16 但<strong>不会下溢</strong>；</li>
+<li>梯度更新时，把缩放梯度<strong>转成 FP32，再除以 N</strong>（unscale），还原出真实的 FP32 梯度；</li>
+<li>用 FP32 梯度更新 FP32 master weight，完成一次训练；</li>
+<li>master weight 转 FP16 给模型参数，进行下一次训练。</li>
+</ol>
+<h4 id="43-fp32">4.3 技术三：部分算子保持 FP32<a class="headerlink" href="#43-fp32" title="Permanent link">&para;</a></h4>
+<p>PyTorch 自动混合精度下，算子分两类：</p>
+<ul>
+<li><strong>默认 FP16</strong>：线性层、卷积、循环神经网络等；</li>
+<li><strong>必须 FP32</strong>：一般是 <strong>loss 函数</strong>和<strong>需要累加的操作</strong>（如 Sum）——因为累加过程中随着累加值变大，会出现大数吃小数。</li>
+</ul>
+<p>典型处理方式：<strong>矩阵乘法在 FP16 下进行，累加计算时转 FP32，算完再把结果转回 FP16</strong>。</p>
+<h3 id="5">5. 对模型精度的影响<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
+<p>经过上述处理，混合精度训练对模型精度<strong>几乎没有影响，甚至还可以改进精度</strong>：对比实验中（baseline 为 FP32 训练），混合精度训练的模型平均精度还<strong>略高于</strong> FP32 训练的模型。</p>
+<h3 id="6-pytorch">6. PyTorch 实践<a class="headerlink" href="#6-pytorch" title="Permanent link">&para;</a></h3>
+<p>改动非常小：</p>
+<div class="highlight"><pre><span></span><code><span class="n">model</span> <span class="o">=</span> <span class="n">Net</span><span class="p">()</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">amp</span><span class="o">.</span><span class="n">GradScaler</span><span class="p">()</span>          <span class="c1"># 梯度缩放器：对 loss 缩放、对梯度反缩放</span>
+
+<span class="k">for</span> <span class="nb">input</span><span class="p">,</span> <span class="n">target</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+    <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+    <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">autocast</span><span class="p">(</span><span class="n">device_type</span><span class="o">=</span><span class="s1">&#39;cuda&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float16</span><span class="p">):</span>  <span class="c1"># AutoCast 上下文</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>                 <span class="c1"># PyTorch 自动决定哪些算子用 FP16</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_fn</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+    <span class="n">scaler</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">loss</span><span class="p">)</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>             <span class="c1"># 用缩放后的 loss 反传</span>
+    <span class="n">scaler</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">optimizer</span><span class="p">)</span>                    <span class="c1"># 梯度转 FP32 + 反缩放 + 更新 master weight</span>
+    <span class="n">scaler</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>                           <span class="c1"># 根据本次梯度值自动调整缩放比例</span>
+</code></pre></div>
+<p>要点：</p>
+<ul>
+<li><strong>autocast</strong> 上下文指定混合精度类型（如 float16），其中 PyTorch 自行决定哪些计算用 FP16；</li>
+<li><strong>GradScaler</strong> 自动决定 loss 的放大比例，并随训练进行动态调整，无需人工干预；</li>
+<li><code>scaler.step(optimizer)</code> 时缩放器把梯度转 FP32 并反缩放，然后更新 FP32 master weight；</li>
+<li><code>scaler.update()</code> 根据这一次的梯度值更新缩放比例。</li>
+</ul>
+<h3 id="7">7. 一些问题<a class="headerlink" href="#7" title="Permanent link">&para;</a></h3>
+<h4 id="71-fp16-fp32">7.1 为什么参数/梯度用 FP16、优化器状态全用 FP32<a class="headerlink" href="#71-fp16-fp32" title="Permanent link">&para;</a></h4>
+<p>按"这个量参与什么运算"来划分——<strong>高频大批量计算用 FP16 换速度，小增量累加用 FP32 保精度</strong>：</p>
+<p><strong>FP16 的参数和梯度：为了快</strong></p>
+<ul>
+<li>前向/反向传播是训练中计算量最大的部分（矩阵乘法），FP16 算力是 FP32 的 16 倍（A100），且显存、带宽减半；</li>
+<li>参数和梯度只是这些计算的"原材料"，单次前向/反向对精度损失不敏感——一点舍入误差不影响 loss 的大方向。</li>
+</ul>
+<p><strong>FP32 的优化器状态：为了不丢更新</strong></p>
+<p>优化器里做的全是<strong>小增量累加</strong>，恰好踩中 FP16 的两个死穴：</p>
+<ul>
+<li><strong>m、v（动量）</strong>：每步 <code>旧值×0.9 + 新值×0.1</code> 式累加，FP16 只有 ~3 位有效数字，小增量会被舍入吞掉；v 是梯度平方（1e-8 量级），直接低于 FP16 下溢线（~6e-8），存 FP16 直接变 0；</li>
+<li><strong>master weight</strong>：<code>θ + lr·Δ</code> 中更新量比参数小几个数量级，FP16 下 θ+Δ==θ，<strong>更新被完全吃掉，模型停止学习</strong>。</li>
+</ul>
+<p>一句话：<strong>前向反向"算得糙没关系"，优化器"记得准才有用"</strong>——所以计算路径 FP16、累积路径 FP32。</p>
+<h4 id="72-fp16-fp32">7.2 FP16 与 FP32 如何互相转换<a class="headerlink" href="#72-fp16-fp32" title="Permanent link">&para;</a></h4>
+<p>两者结构相同（符号位 + 指数位 + 小数位），转换就是<strong>位段的扩展或截断</strong>：</p>
+<p><strong>FP16 → FP32（升精度，无损）</strong></p>
+<ul>
+<li>小数位：10 位后面<strong>补 0</strong> 到 23 位；</li>
+<li>指数位：5 位换算到 8 位（换偏置，bias 15 → 127，值不变）；</li>
+<li>任何 FP16 数都能被 FP32 精确表示，所以这个方向<strong>永远不丢信息</strong>。梯度进优化器前转 FP32 就是这一步（PyTorch 里 <code>grad.float()</code>，硬件一条指令完成）。</li>
+</ul>
+<p><strong>FP32 → FP16（降精度，有损）</strong></p>
+<ul>
+<li>小数位：23 位<strong>舍入截断</strong>到 10 位（丢掉低位精度）；</li>
+<li>指数位：8 位压到 5 位——超出 FP16 范围的大数变 <strong>inf（上溢）</strong>，太小的数变 <strong>0（下溢）</strong>；</li>
+<li>master weight → FP16 参数就是这一步：每步更新完在 FP32 里"记好账"，再发一份低精度副本去做前向。丢的只是本次计算用不到的低位，<strong>真身账本没损失</strong>。</li>
+</ul>
+<p>这正是混合精度成立的关键闭环：<strong>FP32 → FP16 有损但只用于计算，FP16 → FP32 无损且用于累积</strong>，误差不会跨步累积。</p>
+<h4 id="73-bf16">7.3 BF16 的特殊之处<a class="headerlink" href="#73-bf16" title="Permanent link">&para;</a></h4>
+<p>BF16 是<strong>用精度换范围</strong>的设计，现在大模型训练基本都用它取代 FP16。</p>
+<p><strong>位分配对比</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>格式</th>
+<th>符号</th>
+<th>指数位</th>
+<th>小数位</th>
+<th>表示范围</th>
+<th>有效十进制位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FP32</td>
+<td>1</td>
+<td>8</td>
+<td>23</td>
+<td>~1e±38</td>
+<td>~7 位</td>
+</tr>
+<tr>
+<td>FP16</td>
+<td>1</td>
+<td>5</td>
+<td>10</td>
+<td>~6e-8 ~ 65504</td>
+<td>~3 位</td>
+</tr>
+<tr>
+<td><strong>BF16</strong></td>
+<td>1</td>
+<td><strong>8</strong></td>
+<td><strong>7</strong></td>
+<td><strong>~1e±38（与 FP32 相同）</strong></td>
+<td>~2 位</td>
+</tr>
+</tbody>
+</table>
+<p><strong>四个特殊点</strong>：</p>
+<ol>
+<li><strong>指数位与 FP32 完全相同（8 位）→ 范围一样大</strong>：FP16 的所有麻烦——梯度下溢变 0、大数上溢变 inf、必须用 Loss Scaling——根源都是 5 位指数太窄。BF16 范围直接对齐 FP32，<strong>基本不会上溢/下溢，通常可以不用 GradScaler</strong>，训练稳定性大幅提升。这就是 LLM 训练（LLaMA、GPT 系）默认 BF16 的原因；</li>
+<li><strong>与 FP32 转换极其廉价</strong>：BF16 就是 <strong>FP32 的高 16 位</strong>——FP32→BF16 直接截掉低 16 位小数，BF16→FP32 低位补 0，硬件实现几乎零成本；</li>
+<li><strong>代价：小数位只有 7 位，精度比 FP16 还糙</strong>（~2 位有效数字），单次运算舍入误差更大。但深度学习<strong>对范围敏感、对精度钝感</strong>——梯度变 0 是灾难，尾数糙一点无所谓，所以这个取舍非常划算。累加仍需 FP32（master weight、动量照旧）；</li>
+<li><strong>硬件门槛</strong>：Ampere（A100/3090）及之后才支持；V100 只能用 FP16。</li>
+</ol>
+<p>一句话：<strong>FP16 省显存但范围窄、要靠 Loss Scaling 续命；BF16 范围与 FP32 齐平、免缩放、转换零成本，是"专为深度学习设计的 FP32 平替"</strong>。</p>
+<hr />
+<h2 id="dpddpdeepspeed-zero">数据并行：DP、DDP、DeepSpeed ZeRO<a class="headerlink" href="#dpddpdeepspeed-zero" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>视频链接：
+- 数据并行（DP/DDP/ZeRO）：https://www.bilibili.com/video/BV1mm42137X8/?spm_id_from=333.337.search-card.all.click&amp;vd_source=d98b016832f1904078511f0d2a38100f
+- 张量并行（Megatron-LM 论文精读）：https://www.bilibili.com/video/BV1nB4y1R7Yz/?spm_id_from=333.788.videopod.sections&amp;vd_source=d98b016832f1904078511f0d2a38100f
+- Adam 优化器讲解：https://www.bilibili.com/video/BV1bP4y1p7Gq/
+- ZeRO 微软官方博客（内含清晰动画视频）：https://www.microsoft.com/en-us/research/blog/zero-deepspeed-new-system-optimizations-enable-training-models-with-over-100-billion-parameters/</p>
+<p>来源：视频《动画理解 Pytorch 大模型分布式训练技术 DP，DDP，DeepSpeed ZeRO 技术》转录整理。
+符号约定：<strong>Ψ（psi）= 神经网络参数量</strong>，<strong>N = GPU 个数</strong>。</p>
+<p>详细带图的笔记见wps DL智能文档</p>
+</blockquote>
+<h3 id="0">0. 背景<a class="headerlink" href="#0" title="Permanent link">&para;</a></h3>
+<p>模型分布式训练有多种方式：<strong>数据并行、模型并行、张量并行</strong>等。其中<strong>数据并行适用范围最广、应用最多</strong>，本文只讨论数据并行。</p>
+<p>分布式训练主要解决两个问题：</p>
+<ol>
+<li>利用多个 GPU <strong>加快模型训练</strong>；</li>
+<li>模型太大，<strong>单张 GPU 显存不足</strong>以支持训练，需要分布式训练减少每个 GPU 的显存占用。</li>
+</ol>
+<p>前置知识（原视频作者的三个前置视频主题）：</p>
+<ul>
+<li>训练时总体显存占用；</li>
+<li>优化器内部的显存占用；</li>
+<li>混合精度训练。</li>
+</ul>
+<h4 id="01">0.1 单机单卡流程<a class="headerlink" href="#01" title="Permanent link">&para;</a></h4>
+<ol>
+<li>从硬盘读取数据；</li>
+<li>CPU 处理数据，将数据组成一个 batch 传入 GPU；</li>
+<li>GPU 进行网络前向传播，算出 loss；</li>
+<li>反向传播计算梯度；</li>
+<li>用梯度更新网络参数，完成一次训练。</li>
+</ol>
+<hr />
+<h3 id="1-dp">1. DP<a class="headerlink" href="#1-dp" title="Permanent link">&para;</a></h3>
+<p>PyTorch 里<strong>最早的数据并行多卡训练框架</strong> DataParallel，简称 DP。</p>
+<h4 id="11">1.1 运行模式<a class="headerlink" href="#11" title="Permanent link">&para;</a></h4>
+<ol>
+<li>从硬盘读取数据；</li>
+<li>通过<strong>一个 CPU 进程</strong>将数据分成多份，每个 GPU 一份（scatter）；</li>
+<li>每个 GPU 独立进行前向传播、反向传播，计算出各自的梯度；</li>
+<li>所有其他 GPU 都将自己计算的梯度传递到 <strong>GPU0</strong> 上进行平均（gather）；</li>
+<li>GPU0 用全局平均的梯度<strong>更新自己的网络参数</strong>；</li>
+<li>GPU0 将更新后的参数<strong>广播</strong>到其他 GPU 上。</li>
+</ol>
+<p><img alt="DP 架构与通信量" src="../images/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83/dp%E6%9E%B6%E6%9E%84%E4%B8%8E%E9%80%9A%E4%BF%A1%E9%87%8F.png" /></p>
+<blockquote>
+<p>分布式训练最关键的任务是<strong>如何减少多卡之间的通信量</strong>，以提高训练效率。在分布式训练任务里，可能<strong>一半的训练时间</strong>都被多卡之间的通信占用。</p>
+</blockquote>
+<h4 id="12">1.2 通信量<a class="headerlink" href="#12" title="Permanent link">&para;</a></h4>
+<p>设参数量为 Ψ，GPU 个数为 N。</p>
+<p><strong>GPU0（瓶颈）：</strong></p>
+<table>
+<thead>
+<tr>
+<th>方向</th>
+<th>内容</th>
+<th>通信量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>传入</td>
+<td>其他 N-1 个 GPU 的梯度</td>
+<td>(N-1)·Ψ</td>
+</tr>
+<tr>
+<td>传出</td>
+<td>更新后的参数发给其他 N-1 个 GPU</td>
+<td>(N-1)·Ψ</td>
+</tr>
+</tbody>
+</table>
+<p>→ GPU0 的通信量<strong>与 GPU 总数线性相关</strong>：GPU 越多，GPU0 通信量越大。</p>
+<p><strong>其他 GPU：</strong></p>
+<table>
+<thead>
+<tr>
+<th>方向</th>
+<th>内容</th>
+<th>通信量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>传出</td>
+<td>自己的梯度</td>
+<td>Ψ</td>
+</tr>
+<tr>
+<td>传入</td>
+<td>GPU0 更新后的参数</td>
+<td>Ψ</td>
+</tr>
+</tbody>
+</table>
+<p>→ 不论总 GPU 个数多少，其他 GPU 的通信量都不变。</p>
+<h4 id="13">1.3 两个问题<a class="headerlink" href="#13" title="Permanent link">&para;</a></h4>
+<ol>
+<li><strong>单进程多线程</strong>模型，受限于 Python 的 <strong>GIL</strong>（全局解释器锁），只能利用一个 CPU 核；</li>
+<li>（最重要）<strong>GPU0 负责收集梯度、更新参数、同步参数</strong>，通信和计算压力都很大，其通信量与总 GPU 个数线性相关。</li>
+</ol>
+<hr />
+<h3 id="2-ring-all-reduce">2. Ring All-Reduce<a class="headerlink" href="#2-ring-all-reduce" title="Permanent link">&para;</a></h3>
+<p>DDP 使用的集群通信方式：把多个节点<strong>连成一个环</strong>进行通信。</p>
+<h4 id="21">2.1 目标与例子<a class="headerlink" href="#21" title="Permanent link">&para;</a></h4>
+<p>例子：GPU0、GPU1、GPU2 分别有 A、B、C 三个参数的梯度值（GPU_i 上记为 A_i、B_i、C_i）。目标：通信结束后，<strong>每个 GPU 上都有三个参数的梯度和</strong>，如对参数 A，每个 GPU 上都有 A0+A1+A2。</p>
+<h4 id="22-scatter-reduce">2.2 Scatter-Reduce<a class="headerlink" href="#22-scatter-reduce" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Scatter</strong>：通过分发让每个节点有不同的值；</li>
+<li><strong>Reduce</strong>：收集所有节点的值并进行计算（这里是累加）。</li>
+</ul>
+<p>过程（每个 GPU 同时发送和接收，形成环）：</p>
+<p><strong>第一次通信：</strong>
+- GPU0 的 A0 → GPU1，与 A1 求和；
+- GPU1 的 B1 → GPU2，与 B2 求和；
+- GPU2 的 C2 → GPU0，与 C0 求和。</p>
+<p><strong>第二次通信：</strong>
+- GPU0 的 (C0+C2) → GPU1，与 C1 求和；
+- GPU1 的 (A0+A1) → GPU2，与 A2 求和；
+- GPU2 的 (B1+B2) → GPU0，与 B0 求和。</p>
+<p>结果：GPU0 上有了 B 的完整梯度和（B0+B1+B2），GPU1 上有 C 的梯度和，GPU2 上有 A 的梯度和——<strong>每个 GPU 各持有一个参数块的完整规约结果</strong>。第一阶段完成。</p>
+<p><img alt="Ring All-Reduce 第一阶段 Scatter-Reduce" src="../images/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83/ring_scatter_reduce.png" /></p>
+<h4 id="23-all-gather">2.3 All-Gather<a class="headerlink" href="#23-all-gather" title="Permanent link">&para;</a></h4>
+<p>任务：将各参数的梯度求和值<strong>同步到所有 GPU</strong>。</p>
+<p><strong>第一次通信：</strong>
+- GPU0 把 B 的梯度和 → GPU1；
+- GPU1 把 C 的梯度和 → GPU2；
+- GPU2 把 A 的梯度和 → GPU0。</p>
+<p><strong>第二次通信：</strong>
+- GPU0 把 A 的梯度和 → GPU1；
+- GPU1 把 B 的梯度和 → GPU2；
+- GPU2 把 C 的梯度和 → GPU0。</p>
+<p>至此每个 GPU 上都有了所有参数的梯度和。</p>
+<p><img alt="Ring All-Reduce 第二阶段 All-Gather 完成" src="../images/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83/ring_allgather.png" /></p>
+<h4 id="24">2.4 优点<a class="headerlink" href="#24" title="Permanent link">&para;</a></h4>
+<ul>
+<li>环形连接下<strong>每个 GPU 的负载都一样</strong>（没有中心瓶颈）；</li>
+<li>每个 GPU <strong>同时进行发送和接收</strong>，可以最大限度利用每张显卡的<strong>上行和下行带宽</strong>。</li>
+</ul>
+<hr />
+<h3 id="3-ddp">3. DDP<a class="headerlink" href="#3-ddp" title="Permanent link">&para;</a></h3>
+<h4 id="31-dp">3.1 与 DP 对比<a class="headerlink" href="#31-dp" title="Permanent link">&para;</a></h4>
+<ul>
+<li>DP：单进程多线程，只有 GPU0 需要优化器进行参数更新；</li>
+<li>DDP：<strong>多进程</strong>。每个进程为自己的 GPU 准备数据并与其他 GPU 通信。</li>
+</ul>
+<h4 id="32_1">3.2 训练流程<a class="headerlink" href="#32_1" title="Permanent link">&para;</a></h4>
+<ol>
+<li>每个进程用各自的数据进行前向和反向传播，计算自己的梯度（数据不同，所以每个 batch 算出的梯度也不同）；</li>
+<li>通过 <strong>Ring All-Reduce 同步</strong>多个 GPU 计算出来的梯度，同步后各 GPU 的梯度相同；</li>
+<li>各 GPU 用<strong>各自的优化器</strong>更新各自的网络——网络状态和优化器状态<strong>始终保持同步</strong>；</li>
+<li>进行下一个 batch 的训练，循环往复。</li>
+</ol>
+<p><img alt="DDP 各卡各自持有优化器" src="../images/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83/ddp%E5%90%84%E5%8D%A1%E7%8B%AC%E7%AB%8B%E4%BC%98%E5%8C%96%E5%99%A8.png" /></p>
+<h4 id="33">3.3 参数逆序与桶机制<a class="headerlink" href="#33" title="Permanent link">&para;</a></h4>
+<p>假设有三张显卡：</p>
+<ol>
+<li><strong>GPU0 加载模型</strong>，把模型同步到 GPU1 和 GPU2；</li>
+<li>按照神经网络参数定义的<strong>反序</strong>排列参数——输出层排最前面，输入层排最后面；</li>
+<li>对每个参数<strong>注册一个监听器（hook）</strong>，这些监听器按顺序放到一个个<strong>桶（bucket）</strong>里。</li>
+</ol>
+<p><strong>为什么要反序排列？</strong>
+反向传播计算梯度时，<strong>后面（输出层）的参数梯度先算出来，前面（输入层）的后算出来</strong>。输出层放前面，先算好的梯度可以先传输，让 GPU 计算的同时进行传输——<strong>计算和通信时间重叠</strong>，减少整体训练时间。</p>
+<p><strong>为什么要分桶？</strong>
+先算出来的梯度可以先同步，但<strong>每算出一个梯度就同步一次，系统开销太大，得不偿失</strong>。所以收集满一个桶再进行同步。注册监听器是为了让 DDP 框架知道哪个参数的梯度已经计算好了。</p>
+<p><strong>运行时行为：</strong>
+- 反向传播中，梯度逐步算出；
+- 当多个 GPU 的<strong>同一个桶</strong>里的梯度都计算完成后，这个桶就进行 Ring All-Reduce 同步，同时 GPU 还在计算其他梯度；
+- 所有桶都同步完成后，每个 GPU 分别调用各自的优化器更新网络。此时它们的优化器状态、神经网络参数都是同步的，可以进行下一次训练。</p>
+<p><img alt="DDP 分桶：计算与通信同步进行" src="../images/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83/ddp%E5%88%86%E6%A1%B6%E8%AE%A1%E7%AE%97%E9%80%9A%E4%BF%A1%E9%87%8D%E5%8F%A0.png" /></p>
+<h4 id="34">3.4 通信量<a class="headerlink" href="#34" title="Permanent link">&para;</a></h4>
+<p>参数量 Ψ，GPU 个数 N。实际做法是把所有需要同步的参数 Ψ 除以 GPU 数 N，每个通信块大小为 <strong>Ψ/N</strong>。</p>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>每块传递次数</th>
+<th>每 GPU 发送/接收通信量</th>
+<th>N 足够大时</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Scatter-Reduce</td>
+<td>N-1 次</td>
+<td>(N-1)·Ψ/N</td>
+<td>≈ Ψ</td>
+</tr>
+<tr>
+<td>All-Gather</td>
+<td>N-1 次</td>
+<td>(N-1)·Ψ/N</td>
+<td>≈ Ψ</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>2(N-1)·Ψ/N</strong></td>
+<td><strong>≈ 2Ψ</strong></td>
+</tr>
+</tbody>
+</table>
+<p>→ DDP 架构下每个进程总的发送/接收通信量都约为 <strong>2Ψ，与集群 GPU 数量无关</strong>。</p>
+<p><img alt="DDP 通信量分析" src="../images/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83/ddp%E9%80%9A%E4%BF%A1%E9%87%8F%E5%88%86%E6%9E%90.png" /></p>
+<h4 id="35-dp-ddp">3.5 DP 与 DDP 区别总结<a class="headerlink" href="#35-dp-ddp" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>DP</th>
+<th>DDP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>进程模型</td>
+<td><strong>单进程多线程</strong>，受 Python GIL 限制，只能利用一个 CPU 核</td>
+<td><strong>多进程</strong>，每个 GPU 一个进程，各自准备数据</td>
+</tr>
+<tr>
+<td>梯度同步方式</td>
+<td>所有卡把梯度发给 <strong>GPU0</strong>，GPU0 平均、更新参数后再<strong>广播</strong>回去</td>
+<td><strong>Ring All-Reduce</strong> 环形同步梯度，同步后各卡用<strong>各自的优化器</strong>独立更新（状态始终一致）</td>
+</tr>
+<tr>
+<td>通信量</td>
+<td>GPU0：<strong>2(N-1)Ψ</strong>，随卡数线性增长 → 中心瓶颈</td>
+<td>每卡固定 <strong>2Ψ</strong>，与卡数无关，负载均衡</td>
+</tr>
+<tr>
+<td>计算通信重叠</td>
+<td>无</td>
+<td>有：参数<strong>逆序排列 + 分桶</strong>，反向传播中先算好的梯度（输出层）先按桶同步，通信与计算重叠</td>
+</tr>
+<tr>
+<td>优化器</td>
+<td>只有 GPU0 需要优化器</td>
+<td>每卡各有一份优化器（也因此有冗余，才有后来的 ZeRO）</td>
+</tr>
+</tbody>
+</table>
+<p>一句话：<strong>DP 是"中心化"的单进程方案，GPU0 既是瓶颈又受 GIL 拖累；DDP 是"去中心化"的多进程方案，用 Ring All-Reduce + 分桶重叠把通信量降到与卡数无关的 2Ψ</strong>，所以实践中 DP 已被 DDP 完全取代。</p>
+<hr />
+<h3 id="4_1">4. 显存占用公式<a class="headerlink" href="#4_1" title="Permanent link">&para;</a></h3>
+<p>DDP 下每个 GPU 都要存储完整的网络和优化器，训练大模型时可能显存不够。分析混合精度训练下每个 GPU 需要存储的内容：</p>
+<ul>
+<li><strong>FP16 网络参数</strong>：2Ψ 字节；</li>
+<li><strong>FP16 梯度</strong>：2Ψ 字节;</li>
+<li><strong>优化器状态</strong>（以 Adam 为例，占大头）：</li>
+<li>FP32 梯度；</li>
+<li>FP32 一阶动量；</li>
+<li>FP32 二阶动量；</li>
+<li>FP32 参数（master weight）。</li>
+</ul>
+<p><img alt="混合精度训练数据流：FP16 前后向 + FP32 优化器状态" src="../images/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83/%E6%B7%B7%E5%90%88%E7%B2%BE%E5%BA%A6%E8%AE%AD%E7%BB%83%E6%B5%81%E7%A8%8B.png" /></p>
+<h4 id="41-adam-fp32">4.1 为什么 Adam 优化器里有四份 FP32 数据<a class="headerlink" href="#41-adam-fp32" title="Permanent link">&para;</a></h4>
+<p>先回顾 Adam 更新公式：</p>
+<div class="arithmatex">\[
+m_t = \beta_1 m_{t-1} + (1-\beta_1)g_t \qquad v_t = \beta_2 v_{t-1} + (1-\beta_2)g_t^2
+\]</div>
+<div class="arithmatex">\[
+\theta_t = \theta_{t-1} - lr \cdot \frac{\hat m_t}{\sqrt{\hat v_t}+\epsilon}
+\]</div>
+<p>Adam 本身就需要<strong>跨 step 持久保存</strong> m 和 v 两个状态；混合精度又额外逼出了另外两份 FP32 拷贝：</p>
+<ol>
+<li><strong>FP32 梯度</strong>：前向/反向算出的是 FP16 梯度（还乘过 loss scale）。进优化器前要先<strong>转成 FP32 并 unscale</strong>（除掉缩放系数），再去更新动量——直接用 FP16 梯度做累积运算，精度损失会一步步放大。这份通常是<strong>临时的</strong>。</li>
+<li><strong>FP32 一阶动量 m</strong>：梯度的指数滑动平均（记住"方向"）。它是跨 step 累积量——每步都是"旧值 × 0.9 + 新值 × 0.1"这种<strong>小增量累加</strong>，FP16 只有约 3 位有效十进制数字，小增量会被舍入吞掉，累积误差不可接受，必须 FP32。</li>
+<li><strong>FP32 二阶动量 v</strong>：梯度<strong>平方</strong>的滑动平均（自适应学习率的分母）。梯度本来就小（如 1e-4），平方后是 1e-8 量级——<strong>直接低于 FP16 的下溢边界（约 6e-8）</strong>，用 FP16 存会变成 0，导致除零/爆炸。必须 FP32。</li>
+<li><strong>FP32 参数（master weight）——最关键的一份</strong>：参数更新量 lr·m̂/√v̂ 通常比参数本身<strong>小好几个数量级</strong>。FP16 下做 θ + Δ，当 Δ 小于 θ 的最低有效位时，结果就是 θ + Δ == θ——<strong>更新被完全丢掉，模型不再学习</strong>。所以必须维护一份 FP32 的"真身"参数：每步在 FP32 上更新，再 cast 成 FP16 供下一轮前向/反向使用。</li>
+</ol>
+<p><strong>与 K=12 的对应</strong>：K=12 字节/参数指的是<strong>持久保存</strong>的三份：m（4）+ v（4）+ master weight（4）= 12。FP32 梯度是转换用的临时量，一般不计入。</p>
+<p>一句话：<strong>m、v 是 Adam 算法本身的状态；FP32 梯度和 master weight 是混合精度为了对抗 FP16 的下溢和舍入而付出的代价</strong>——这也正是优化器状态占大头、ZeRO-1 先拿它开刀的原因。</p>
+<p>每 GPU 显存占用公式：</p>
+<div class="arithmatex">\[
+(2 + 2 + K)\cdot\Psi
+\]</div>
+<p>其中 K 为优化器占用的字节数，<strong>Adam 的 K = 12</strong>。</p>
+<p><strong>具体例子（后文沿用）：模型 7.5B 参数，64 张 GPU 卡</strong>，标准 DDP 下每张显卡显存占用：</p>
+<div class="arithmatex">\[
+(2+2+12) \times 7.5\text{B} = 120\ \text{GB}
+\]</div>
+<p>关键观察：<strong>每个 GPU 占显存最大的就是优化器状态，且每个 GPU 都存了一份完全相同的优化器状态——产生了冗余</strong>。</p>
+<p><img alt="DDP 下三卡各存一份完整的显存布局（冗余）" src="../images/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83/ddp%E4%B8%89%E5%8D%A1%E6%98%BE%E5%AD%98%E5%86%97%E4%BD%99.png" /></p>
+<p>除了上述冗余，显存还存在<strong>内存碎片化</strong>问题（张量频繁申请释放导致显存虽有空闲却无法分配大块），这也是 ZeRO-R 要处理的对象之一（见 5.4）。</p>
+<hr />
+<h3 id="5-deepspeed-zero">5. DeepSpeed ZeRO<a class="headerlink" href="#5-deepspeed-zero" title="Permanent link">&para;</a></h3>
+<p>ZeRO = <strong>Zero Redundancy Optimizer</strong>，零冗余优化器。出发点：每个 GPU 上都有一套完整的参数/状态，是一种浪费。设想：<strong>对于任意权重 w，只存储在一个 GPU 上，哪个 GPU 想用就去要</strong>——类似参数服务器的思想。即让每个 GPU 只存一部分状态，整个系统只有一份完整拷贝，消除冗余。</p>
+<h4 id="51-zero-1">5.1 ZeRO-1：切分优化器状态<a class="headerlink" href="#51-zero-1" title="Permanent link">&para;</a></h4>
+<p><strong>做法</strong>：把优化器状态按 GPU 划分。例如神经网络有 9 层、3 个 GPU：</p>
+<ul>
+<li>GPU0 存前 3 层对应的优化器状态，负责前 3 层参数的更新；</li>
+<li>GPU1 存中间 3 层，负责中间 3 层的更新；</li>
+<li>GPU2 存最后 3 层，负责最后 3 层的更新。</li>
+</ul>
+<p><img alt="ZeRO-1 优化器状态划分" src="../images/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83/zero1%E4%BC%98%E5%8C%96%E5%99%A8%E7%8A%B6%E6%80%81%E5%88%92%E5%88%86.png" /></p>
+<p><strong>训练流程</strong>：</p>
+<ol>
+<li><strong>前向传播</strong>没有问题——每个 GPU 都存有完整的 FP16 网络参数；</li>
+<li><strong>反向传播</strong>：每个 GPU 从后向前算出每一层的梯度；</li>
+<li>GPU0、GPU1 不负责更新最后 3 层，把自己算出的最后 3 层梯度<strong>发送给负责的 GPU2</strong>（发送的同时 GPU 仍继续计算其他层的梯度，通信计算重叠）；GPU2 聚合 3 个 GPU 的梯度并求平均。同理中间 3 层的梯度汇总到 GPU1，前 3 层的梯度汇总到 GPU0；</li>
+<li>反向传播完毕后，每个 GPU 拿到自己负责部分参数的<strong>梯度均值</strong>，将梯度转为 FP32 并缩放（unscale），更新优化器里的一阶、二阶动量，优化器更新 FP32 参数（master weight）；</li>
+<li>用 FP32 参数更新各自负责的那部分 <strong>FP16 网络参数</strong>；</li>
+<li>把各自更新后的 FP16 参数<strong>广播给其他 GPU</strong>，完成一次训练。</li>
+</ol>
+<p><img alt="ZeRO-1 梯度收集：各卡把梯度发给负责的 GPU" src="../images/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83/zero1%E6%A2%AF%E5%BA%A6%E6%94%B6%E9%9B%86.png" /></p>
+<p><strong>用规范集合通信术语重述整个流程（Reduce-Scatter + All-Gather）</strong>：
+GPU0/1/2 均持有完整的 FP16 参数，各自根据本地数据独立算出<strong>全部 9 层</strong>的梯度；接着进入<strong>梯度规约分发（Reduce-Scatter）</strong>阶段——各卡将自己算出的梯度按层拆分发送给对应的负责人（如 GPU1、GPU2 把 1-3 层的梯度发给 GPU0，GPU0 把 4-9 层的梯度分别发给他人），使每个 GPU 手中都汇聚并规约出自己负责那部分的<strong>全局平均梯度</strong>；随后进入<strong>局部更新</strong>阶段——GPU0 用这份 1-3 层全局梯度更新本地的 1-3 层 FP32 优化器状态与 FP32 参数，并转回 FP16 参数；此时各卡只更新了模型的一段，为对齐进度，所有 GPU 必须做一次<strong>全收集（All-Gather）</strong>——GPU0 把最新的 1-3 层参数分片发给别人的同时，也接收别人发来的 4-9 层新分片；最终所有 GPU 重新拼出完整的最新版 FP16 参数，协同开启下一轮前向传播。</p>
+<p><strong>通信量分析</strong>：</p>
+<ul>
+<li>梯度收集阶段：每个 GPU 负责的参数量为 Ψ/N。发送其他 N-1 个块给对应负责的 GPU：(N-1)·Ψ/N；接收其他 N-1 个 GPU 发来的自己负责部分的梯度：(N-1)·Ψ/N。N 大时各 ≈ Ψ；</li>
+<li>参数广播阶段：发送和接收各 (N-1)·Ψ/N ≈ Ψ；</li>
+<li><strong>总通信量 ≈ 2Ψ，与标准 DDP 一样</strong>。</li>
+</ul>
+<p><strong>为什么显存大减但通信量不增？</strong>
+因为每个 GPU 只把自己算出的梯度发送给<strong>负责更新的唯一那一个 GPU</strong>，而不是广播——这部分<strong>减少</strong>了通信量；但 ZeRO-1 对参数更新做了划分，更新后需要广播参数——这部分<strong>增加</strong>了通信量。两者抵消，总量与 DDP 相同。</p>
+<p><img alt="ZeRO-1 通信量分析" src="../images/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83/zero1%E9%80%9A%E4%BF%A1%E9%87%8F%E5%88%86%E6%9E%90.png" /></p>
+<p><strong>显存节省</strong>：优化器状态被 N 张卡平分：</p>
+<div class="arithmatex">\[
+2\Psi + 2\Psi + \frac{K\cdot\Psi}{N}
+\]</div>
+<p>7.5B / 64 卡例子：<strong>120GB → 31.4GB</strong>。</p>
+<h4 id="52-zero-2">5.2 ZeRO-2：再切分梯度<a class="headerlink" href="#52-zero-2" title="Permanent link">&para;</a></h4>
+<p><strong>动机</strong>：既然每个 GPU 只负责更新一部分参数，那它<strong>只需要保存这一部分参数的梯度</strong>，其他梯度没必要保存。</p>
+<p><strong>具体过程</strong>：</p>
+<ol>
+<li>反向传播时，GPU0、GPU1 算出最后一层的梯度，以<strong>桶的形式</strong>发送给负责该部分的 GPU2；</li>
+<li>只有 GPU2 保存汇总后的平均梯度，GPU0、GPU1 <strong>立即释放</strong>这部分梯度占用的显存；</li>
+<li>以此类推逐层进行：算出梯度 → 发给负责的 GPU → 其他 GPU 立即释放；</li>
+<li>反向传播完成后，每个 GPU 都有自己负责部分的平均梯度，然后更新优化器状态 → 优化器更新参数 → 每个 GPU 把更新后的参数广播给其他 GPU。</li>
+</ol>
+<p><img alt="ZeRO-2 梯度划分：逐层 Reduce-Scatter 后立即释放" src="../images/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83/zero2%E6%A2%AF%E5%BA%A6%E5%88%92%E5%88%86.png" /></p>
+<p>与 ZeRO-1 类似，只是不再保存用不到的梯度。<strong>通信量不变（2Ψ），显存继续减小</strong>。</p>
+<p><strong>与 ZeRO-1 的关键时序差异</strong>：ZeRO-2 的梯度<strong>不再在本地全量堆积</strong>——每当某一层梯度算完，立即通过 Reduce-Scatter 发给负责人并释放本地显存；反向传播结束时每卡手中已直接握好自己负责部分的全局平均梯度，<strong>无需像 ZeRO-1 那样在反传结束后才做全量拆分</strong>。</p>
+<p><strong>显存节省</strong>：梯度的 2 字节也移到分子上被 N 张卡平分：</p>
+<div class="arithmatex">\[
+2\Psi + \frac{(2+K)\cdot\Psi}{N}
+\]</div>
+<p>7.5B / 64 卡例子：<strong>16.6GB</strong>。</p>
+<h4 id="53-zero-3">5.3 ZeRO-3：再切分参数<a class="headerlink" href="#53-zero-3" title="Permanent link">&para;</a></h4>
+<p><strong>做法</strong>：对<strong>参数</strong>也按 GPU 划分，让参数在整个系统里也零冗余。<strong>连 FP16 参数也不再完整存储在任何一个 GPU 上</strong>——像拼图一样被均匀切分分布在所有 GPU 中（如 GPU0 只长期持有 1-3 层的参数分片）。</p>
+<p><img alt="ZeRO-3 参数划分：每卡只持有参数分片" src="../images/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83/zero3%E5%8F%82%E6%95%B0%E5%88%92%E5%88%86.png" /></p>
+<p><strong>前向传播时遇到自己没有的参数怎么办？</strong>
+靠负责的 GPU <strong>广播</strong>。例如 GPU1、GPU2 没有第一层参数，就由 GPU0 广播；GPU1、GPU2 <strong>计算完第一层后立即丢弃</strong>这部分参数，不占显存。其余层类似，完成前向传播。</p>
+<p><strong>反向传播计算梯度时依然需要参数怎么办？</strong>
+<strong>再广播一次</strong>。同样，所有 GPU 用完不是自己负责的参数后立即丢弃以节省显存。梯度和参数更新部分与 ZeRO-2 一样。</p>
+<p><strong>通信量分析</strong>：</p>
+<ul>
+<li>梯度收集部分不变：≈ Ψ；</li>
+<li>ZeRO-1/2 在前向传播前本来也需要参数广播（≈ Ψ）；ZeRO-3 只是<strong>增加了反向传播时的一次参数广播</strong>，多了 ≈ Ψ；</li>
+<li><strong>总通信量 ≈ 3Ψ，是标准 DDP 的 1.5 倍</strong>。</li>
+</ul>
+<p><img alt="ZeRO-3 通信量分析" src="../images/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83/zero3%E9%80%9A%E4%BF%A1%E9%87%8F%E5%88%86%E6%9E%90.png" /></p>
+<p><strong>一句话总结 ZeRO-3</strong>：每张卡手里只握着模型的一块"拼图"，参数在需要时临时 All-Gather 凑齐、用完即弃，梯度产生瞬间就 Reduce-Scatter 给负责人后丢弃——系统以这种<strong>循环借还</strong>的方式，使单卡能承载的模型规模随 GPU 数量增加而无限扩展。</p>
+<p><strong>显存节省</strong>：参数的 2 字节也移到分子上：</p>
+<div class="arithmatex">\[
+\frac{(2+2+K)\cdot\Psi}{N}
+\]</div>
+<p>理论上 N → ∞ 时每卡显存占用趋于 0。7.5B / 64 卡例子：<strong>1.9GB</strong>（从标准 DDP 的 120GB 降到 1.9GB）。</p>
+<h4 id="54-zero-zero-r-offload-infinity">5.4 ZeRO 家族扩展：ZeRO-R / Offload / Infinity<a class="headerlink" href="#54-zero-zero-r-offload-infinity" title="Permanent link">&para;</a></h4>
+<p>ZeRO 论文和 DeepSpeed 生态中，除了上面切分模型状态的 <strong>ZeRO-DP（即 ZeRO-1/2/3）</strong>，还有几个配套/扩展技术：</p>
+<p><strong>ZeRO-R</strong>：针对模型状态之外的<strong>剩余显存（Residual）</strong>做优化，处理三类对象：</p>
+<ul>
+<li>激活值内存；</li>
+<li>临时缓冲区内存；</li>
+<li>碎片化内存。</li>
+</ul>
+<p><strong>ZeRO-Offload</strong>：把优化器压力卸载到 CPU：</p>
+<ul>
+<li>在 GPU 上进行前向和后向计算；</li>
+<li>将梯度复制到 CPU，<strong>在 CPU 上更新优化器状态和参数</strong>；</li>
+<li>将更新后的参数传回 GPU（如果需要）；</li>
+<li>使得<strong>单个 GPU 训练超大模型</strong>成为可能（例如 13B 参数的模型）；</li>
+<li>本质是利用 CPU 内存作为"扩展内存"，但速度比纯 GPU 训练慢。</li>
+</ul>
+<p><strong>ZeRO-Infinity</strong>：ZeRO-Offload 的扩展和增强版，可看作 <strong>"ZeRO-3 + Offload + NVMe 扩展"</strong>。核心创新：</p>
+<ol>
+<li><strong>无限内存扩展</strong>：不仅利用 CPU 内存，还可把数据卸载到 <strong>NVMe 固态硬盘</strong>，实现 TB 级参数训练；</li>
+<li><strong>带宽优化</strong>：通过异步 I/O 和高效的数据调度，减少 CPU/NVMe 通信瓶颈；</li>
+<li><strong>参数分区与碎片化处理</strong>：更精细的内存管理，支持<strong>万亿参数</strong>模型的训练。</li>
+</ol>
+<hr />
+<h3 id="6">6. 总结对比<a class="headerlink" href="#6" title="Permanent link">&para;</a></h3>
+<p>以 7.5B 模型、64 卡、Adam（K=12）混合精度训练为例：</p>
+<table>
+<thead>
+<tr>
+<th>方案</th>
+<th>切分内容</th>
+<th>每卡显存公式</th>
+<th>每卡显存（例）</th>
+<th>每卡通信量</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DP</td>
+<td>无</td>
+<td>(2+2+K)Ψ</td>
+<td>120GB</td>
+<td>GPU0: 2(N-1)Ψ；其他: 2Ψ</td>
+<td>单进程多线程，GIL；GPU0 瓶颈</td>
+</tr>
+<tr>
+<td>DDP</td>
+<td>无</td>
+<td>(2+2+K)Ψ</td>
+<td>120GB</td>
+<td>2Ψ</td>
+<td>多进程 + Ring All-Reduce + 分桶重叠</td>
+</tr>
+<tr>
+<td>ZeRO-1 (P_os)</td>
+<td>优化器状态</td>
+<td>2Ψ+2Ψ+KΨ/N</td>
+<td>31.4GB</td>
+<td>2Ψ</td>
+<td>通信量不增</td>
+</tr>
+<tr>
+<td>ZeRO-2 (P_os+g)</td>
+<td>+梯度</td>
+<td>2Ψ+(2+K)Ψ/N</td>
+<td>16.6GB</td>
+<td>2Ψ</td>
+<td>通信量不增，<strong>实际最常用</strong></td>
+</tr>
+<tr>
+<td>ZeRO-3 (P_os+g+p)</td>
+<td>+参数</td>
+<td>(2+2+K)Ψ/N</td>
+<td>1.9GB</td>
+<td>3Ψ</td>
+<td>DDP 的 1.5 倍通信；N→∞ 时显存→0</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="ZeRO 论文原图：三阶段显存节省对比（120GB→31.4→16.6→1.9GB）" src="../images/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83/zero%E6%98%BE%E5%AD%98%E5%AF%B9%E6%AF%94.png" /></p>
+<p>各方案核心通信操作对比：</p>
+<p><img alt="DP/ZeRO-1/2/3 核心通信操作对比表" src="../images/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83/zero%E9%80%9A%E4%BF%A1%E6%93%8D%E4%BD%9C%E5%AF%B9%E6%AF%94%E8%A1%A8.png" /></p>
+<p><strong>实践结论</strong>：一般实际中多采用 <strong>ZeRO-2</strong>——它没有增加通信量，但大大减少了显存占用。</p>
+<p><strong>实践资源</strong>：DeepSpeed 学习示例仓库 <a href="https://github.com/bobo0810/LearnDeepSpeed">LearnDeepSpeed</a>（含 DDP 训练 pipeline、MoE 用法、学习率调度器配置、ZeRO 配置、流水并行示例等）。</p>
+<p><img alt="LearnDeepSpeed 仓库" src="../images/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83/learndeepspeed%E4%BB%93%E5%BA%93.png" /></p>
+<hr />
+<h2 id="megatron-lm">张量并行：Megatron-LM<a class="headerlink" href="#megatron-lm" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>来源：论文精读视频《Megatron-LM》转录整理。前面第 1~6 章讲的都是<strong>数据并行</strong>（DP/DDP/ZeRO），本篇讲的是并行三大方式里的另一支——<strong>张量并行</strong>。</p>
+</blockquote>
+<h3 id="7_1">7. 背景与定位<a class="headerlink" href="#7_1" title="Permanent link">&para;</a></h3>
+<h4 id="71">7.1 并行方式分类<a class="headerlink" href="#71" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>数据并行</strong>：把数据切开发到不同 GPU，每卡都有完整模型（DP/DDP/ZeRO）；</li>
+<li><strong>模型并行（层间）</strong>：把不同的层放到不同 GPU（GPipe 的流水线并行属于此类，层与层之间切）；</li>
+<li><strong>张量并行（层内）</strong>：把<strong>一个层内部的张量切开</strong>放到不同 GPU——这就是 Megatron-LM 的做法。</li>
+</ul>
+<blockquote>
+<p>关系辨析：张量并行既可以说是模型并行的一种，也可以说它与模型并行、数据并行三者并列。因为 Megatron 论文标题用了"模型并行（Model Parallelism）"一词，导致后续很多工作说"模型并行"时，实际指的就是 Megatron 这种<strong>张量并行</strong>。</p>
+</blockquote>
+<h4 id="72-gpipe">7.2 与 GPipe 对比<a class="headerlink" href="#72-gpipe" title="Permanent link">&para;</a></h4>
+<ul>
+<li>GPipe：<strong>按层切</strong>（层间），加入数据并行做流水，叫流水线并行；</li>
+<li>Megatron：<strong>把一个层从中间切开</strong>（层内），叫张量并行；</li>
+<li>两者是<strong>互补、正交</strong>的关系，可以混合使用。</li>
+</ul>
+<h4 id="73">7.3 论文要点<a class="headerlink" href="#73" title="Permanent link">&para;</a></h4>
+<ul>
+<li>NVIDIA 2019 年 9 月发表，针对<strong>特定使用 Transformer 的语言模型</strong>设计（GPipe 更通用，还能做 CNN）；</li>
+<li>卖点：<strong>不需要新的编译器或新的库</strong>，只要在 PyTorch 代码里插入一些通信操作即可；</li>
+<li>训练了 <strong>83 亿参数</strong>的 GPT-2 类模型，用 <strong>512 块 GPU</strong>，达到 15.1 PetaFlops、<strong>76% 的分布式效率</strong>（相对理想线性加速比）；</li>
+<li>强基线：单 GPU 基线已达到 GPU 理论峰值的 30%（不含任何额外开销，区别于 GPipe 需重算带来的 20~30% 开销）；</li>
+<li>还训练了 39 亿的 BERT，发现需要调整 <strong>LayerNorm 的位置</strong>才能训得更大、不发散。</li>
+</ul>
+<h3 id="8">8. 层的切分<a class="headerlink" href="#8" title="Permanent link">&para;</a></h3>
+<p>一个 Transformer 块包含两个主要部分：<strong>自注意力（Attention）</strong> 和 <strong>MLP</strong>，各带一个残差连接。核心问题是如何把 MLP 和 Attention 分别切开。</p>
+<h4 id="81-mlp">8.1 MLP<a class="headerlink" href="#81-mlp" title="Permanent link">&para;</a></h4>
+<p>MLP 结构：输入 X（形状 [B×L, K]，B 批量、L 序列长度、K 隐藏层宽度）经过两层全连接：</p>
+<div class="arithmatex">\[
+Y = \text{GeLU}(X A)\, B
+\]</div>
+<ul>
+<li>A：形状 [K, K']，K' 是中间隐藏层大小，一般 <strong>K' = 4K</strong>；</li>
+<li>激活函数用 <strong>GeLU</strong>（可看作 ReLU 把拐点做平滑连续，逐元素运算）；</li>
+<li>B：形状 [K', K]，输出 Y 与 X 同大小。</li>
+</ul>
+<p><strong>如何切 A？</strong> 矩阵要么横着切（按行），要么竖着切（按列）：</p>
+<ul>
+<li><strong>按行切 A</strong>（错误方向）：X 需要相应地竖着切，两个 GPU 各算一部分后，结果都是 [X A] 的完整大小，<strong>必须相加</strong>才正确 → 中间就要通信，带来额外带宽开销；</li>
+<li><strong>按列切 A</strong>（Megatron 采用）：A 均匀竖切，GPU0 拿左半列、GPU1 拿右半列。X 在两个 GPU 上<strong>各存一份完整拷贝</strong>。因为每个 GPU 有 A 的完整列，用 X 的每一行 × 该列做点积，就能算出结果的对应列。结果天然切成两半（GPU0 得左半、GPU1 得右半），<strong>这一步不需要通信</strong>。</li>
+</ul>
+<p><strong>接着到 GeLU</strong>：逐元素运算，各 GPU 自己算自己那半，<strong>不需要通信</strong>。</p>
+<p><strong>接着到 B</strong>：由于左边矩阵按列切了，B 就相应<strong>按行切</strong>（上半放 GPU0、下半放 GPU1）。每个 GPU 各自做矩阵乘法，得到与 Y 同样大小但<strong>只有一半值</strong>的结果。最后做一次 <strong>All-Reduce</strong> 把两块加起来，就得到完整的 Y。</p>
+<p><strong>MLP 通信小结</strong>：只要输入 X 事先已在各 GPU 上，整个 MLP 中间过程无通信，<strong>只在输出处做一次 All-Reduce</strong>。中间的 A、B 和中间结果每卡各只存一半——若这些是显存瓶颈，加 GPU 就能减小每卡负担。</p>
+<h4 id="82">8.2 自注意力<a class="headerlink" href="#82" title="Permanent link">&para;</a></h4>
+<p>假设批量 B=1（每个批量独立），输入 X 形状 [L, K]。自注意力中 X 被复制成三份，对应 Q、K、V。</p>
+<p><strong>单头</strong>：Q、K、V 各经一个投影（无偏移的矩阵乘法）降到 K/h 维（h 为头数），Q·K 做点积 + Softmax 得权重，再与 V 相乘，得到 [L, K/h] 的输出。</p>
+<p><strong>多头</strong>：各头输出拼接（concat）成 [L, K]，再经一个输出投影矩阵 W（[K, K]）得到最终 Y（[L, K]）。</p>
+<p><strong>切分方法（按头切）</strong>：每个头内部的计算是<strong>独立并行</strong>的（各头有自己的 Q/K/V 三组权重，只要拿到完整的 X 就能算）。所以：</p>
+<ul>
+<li><strong>一半的头放 GPU0，一半的头放 GPU1</strong>（有多个头就均分）；</li>
+<li>X 在每个 GPU 上各存一份；</li>
+<li>各 GPU 算出自己那部分头的输出（拼起来是 [L, K] 的一半列）；</li>
+<li>输出投影 W <strong>按行切</strong>（上半 GPU0、下半 GPU1），各自算出 [L, K] 大小但只有一半值的结果；</li>
+<li>最后一次 <strong>All-Reduce</strong> 相加得到完整输出。</li>
+</ul>
+<p>自注意力与 MLP 类似：只是在做最后的输出投影前，是<strong>按头</strong>分到不同 GPU；最后的投影与 MLP 最后一层做法一样。只要输入 X 已在各 GPU，直到最后才需要通信。通信量与 MLP 相同（输出都是 [B, L, K]）。</p>
+<h4 id="83">8.3 嵌入层与输出层<a class="headerlink" href="#83" title="Permanent link">&para;</a></h4>
+<p>语言模型的<strong>输入 embedding 和输出 embedding 是共享</strong>的，所以两者的切法必须一致（否则每卡要存两份不同的东西）。</p>
+<p><strong>输入嵌入层</strong>：embedding 矩阵形状 [V, K]，V 是词典大小（几万），K 是隐藏层宽度。做法是<strong>把整个词典切开</strong>：GPU0 拿一半词典、GPU1 拿另一半。查找时把输入 X 复制到两个 GPU，若某个词在本卡维护的词典里就返回真实向量、否则返回 0，最后 <strong>All-Reduce</strong> 相加。</p>
+<p><strong>输出层</strong>：输入 [B×L, K]，输出 [B×L, V]。同样按词典切成两半（GPU0、GPU1 各半列）。这里有个问题：<strong>V 通常几万，比 K（约一万以内）大很多</strong>，若像前面那样把 [B×L, V] 矩阵拼起来通信，通信量会是普通层的十几倍。</p>
+<p><strong>优化做法（把 Softmax + Loss 计算下放）</strong>：不发送整个大矩阵，只通信"按行求和"的标量：</p>
+<ol>
+<li>每个 GPU 对自己那半先算指数（exp）；</li>
+<li>每个 GPU 把自己那半<strong>按行求和</strong>；</li>
+<li>对这个行和做一次 <strong>All-Reduce</strong>（只传每行一个标量），相加得到 Softmax 分母，各自除一下得到 Softmax 分数；</li>
+<li>结合 label 算出损失后，再对每行一个标量做一次 All-Reduce 得到最终 loss。</li>
+</ol>
+<p>这样输出层的通信量<strong>几乎可以忽略不计</strong>。</p>
+<h4 id="84">8.4 整体抽象<a class="headerlink" href="#84" title="Permanent link">&para;</a></h4>
+<p>不管是 MLP 块、自注意力块还是 embedding 块，都可抽象为一个"块"。Transformer 就是很多这样的块堆叠。切分方式：<strong>把每一层从中间剖开，一半一半</strong>（MLP 第一层按列、第二层按行；注意力按头分），所有可学习参数均匀分到不同 GPU。</p>
+<p>代价：<strong>每算完一个块就要做一次 All-Reduce</strong>——有多少层就做多少次。前向如此，反向（backward）也一样：因为 All-Reduce 本质是加法，自动求导反过来就是把结果复制到不同 GPU（前向的复制 ↔ 反向的 All-Reduce），所以<strong>正反向通信量相同</strong>。</p>
+<h3 id="9">9. 通信量分析<a class="headerlink" href="#9" title="Permanent link">&para;</a></h3>
+<h4 id="91-megatron">9.1 Megatron 通信量<a class="headerlink" href="#91-megatron" title="Permanent link">&para;</a></h4>
+<p>每个块的通信量固定：一个 [B, L, K] 的张量做 All-Reduce（发出去累加、再把结果拉回来），所以是 <strong>2×(B·L·K)</strong>。每个 Transformer 层内做两次（Attention + MLP），加上输入层一次。写成 O 记号（忽略常数）：</p>
+<div class="arithmatex">\[
+O(N \cdot B \cdot L \cdot K)\quad(N = \text{层数})
+\]</div>
+<h4 id="92">9.2 与数据并行对比<a class="headerlink" href="#92" title="Permanent link">&para;</a></h4>
+<p>数据并行每次发一个梯度、拿回更新后的权重（两者同大小）。每层权重约 <strong>K²</strong> 复杂度（MLP 是 K→K 投影、注意力是多头投影，都是 K²），N 层就是 <strong>K²·N</strong>。</p>
+<p>对比：</p>
+<div class="arithmatex">\[
+\text{数据并行}: K^2 \cdot N \qquad \text{Megatron}: (B\cdot L)\cdot K \cdot N
+\]</div>
+<p>两者都有 <strong>K·N</strong> 这一项，差别在于 <strong>Megatron 的 (B·L)</strong> vs <strong>数据并行的另一个 K</strong>。数值上：B·L ≈ 8×1024 ~ 16×512 ≈ 10⁴~10⁵，K ≈ 几千~1万 ≈ 10⁴~10⁵，<strong>两者数量级差不多</strong>。所以从通信量看两种方法接近，但各有优劣。</p>
+<h4 id="93">9.3 各自优劣<a class="headerlink" href="#93" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Megatron（张量并行）</th>
+<th>数据并行</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>每卡模型</td>
+<td>只需维护一块，模型占用小</td>
+<td>保存完整模型（单卡约 15 亿参数封顶）</td>
+</tr>
+<tr>
+<td>切分约束</td>
+<td>头数 / K 必须能被 GPU 数整除</td>
+<td>无</td>
+</tr>
+<tr>
+<td>计算-通信重叠</td>
+<td><strong>不能重叠</strong>，每步必须等 All-Reduce 完成才能算下一层</td>
+<td><strong>可重叠</strong>（算完一个梯度就发送，计算继续），对带宽要求较低</td>
+</tr>
+<tr>
+<td>冗余</td>
+<td>每层输入输出 [B·L·K] 要在每卡各存一份</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h4 id="94">9.4 实验设置<a class="headerlink" href="#94" title="Permanent link">&para;</a></h4>
+<ul>
+<li>硬件：32 台 DGX-2H，每台 16 块 V100（32GB）= <strong>512 块 V100</strong>，约 1200 万美元（近 1 亿人民币）；机内 NVSwitch 带宽 300 GB/s，机间 8 根 InfiniBand 共 100 GB/s（是普通万兆网卡的近 80 倍）；</li>
+<li>基线 1.2B 模型（K=1536, 层数 40），能塞进单卡；逐步增大到 <strong>8.3B</strong>（分到 8 GPU，每卡始终约 1.2B）；</li>
+<li>词典从 5 万多<strong>补 0 扩到 51200</strong>（能被 8 整除且是 2 的幂，算得快）；</li>
+<li>每卡固定批量大小 8，全局累计到 512；</li>
+<li><strong>为什么只做到 8 卡而非 16 卡？</strong>（一台机器有 16 卡）：① 卡越多效率下降越明显；② 每层输入输出要在每卡各存一份，这部分非常占显存，做到 16 卡时无法把模型扩到 16B——这正是后续 ZeRO 要解决的问题。</li>
+</ul>
+<h4 id="95">9.5 效率曲线<a class="headerlink" href="#95" title="Permanent link">&para;</a></h4>
+<ul>
+<li>单机内从 1→2→4→8 卡：每卡<strong>计算时间不变</strong>（模型和 GPU 同比例增长），但<strong>通信量随 K、层数上涨</strong>（比线性略高），所以效率逐步下降；</li>
+<li>多机（图中 64/128/512）：64 = 64 台机器各出 1 卡做<strong>纯数据并行</strong>，效率反而比 2/4 卡的张量并行更高——因为数据并行能做<strong>计算通信异步</strong>；128 = 64 台 × 每台 2 卡张量并行；512 = 64 台 × 每台 8 卡张量并行。加机器后效率损失不大，同样得益于数据并行的异步性；</li>
+<li>论文开头那张"接近理论线性加速比"的图，是<strong>实验设计取巧 + 图做了美化</strong>（log-log 坐标，8→64 卡时反而更靠近理论值）的结果。</li>
+</ul>
+<h4 id="96-layernorm">9.6 LayerNorm 调整<a class="headerlink" href="#96-layernorm" title="Permanent link">&para;</a></h4>
+<p>把 BERT 变大时（如 752M）会发散炸掉。做法是<strong>调整 LayerNorm 在残差连接中的位置</strong>（放进残差块内），改后不再发散。（作者也提到，发散其实也可通过回滚到上一个 checkpoint 重训绕过，此调整是否被后续广泛采用存疑。）</p>
+<h3 id="10">10. 总评<a class="headerlink" href="#10" title="Permanent link">&para;</a></h3>
+<p><strong>优点</strong>：</p>
+<ul>
+<li>切分容易——按头数或隐藏层大小切，通常是 2 的整数倍，2/4/8 卡都好切；</li>
+<li>不像 GPipe 按层切会有<strong>负载不均</strong>问题（每卡计算量可能不同），Megatron 按层内切，分配更均匀。</li>
+</ul>
+<p><strong>局限</strong>：</p>
+<ol>
+<li>只针对 Transformer 设计（CNN 等理论上也能切，但论文未做）；</li>
+<li><strong>通信量大且不能与计算异步</strong> → 必须用机内 GPU 互联极好的高端机器，否则达不到接近理论值的效果；</li>
+<li>难以扩展到多机——多机之间仍要靠数据并行；</li>
+<li>GPU 越多<strong>冗余越大</strong>（每层输入输出每卡各存一份），导致做不到 16 卡；这在下一篇 <strong>ZeRO</strong> 中被解决。</li>
+</ol>
+<p><strong>与 GPipe 的通信对比</strong>：两者每次都通信一个 [B, L, K] 的层输出，但 Megatron 通信次数与<strong>层数</strong>成正比（每层两次），GPipe 与 <strong>GPU 数</strong>成正比（每卡只把自己那块最终输出发出去）。由于层数通常约为 GPU 数的 10 倍，<strong>Megatron 的通信量约是 GPipe 的 10 倍</strong>，对 GPU 间通信要求极高。</p>
+<p><strong>Megatron 相对 GPipe 的好处</strong>：GPipe 必须重算（recompute），因为它要把数据切成微批量（micro-batch）才能流水，且微批量数 m 需 &gt; 4×GPU 数（如 8 卡需切 32 块），而单卡 32GB 塞 batch=8 已撑满，无法支撑那么大的批量与中间结果，只能丢弃并重算，带来 20~30% 额外开销。Megatron 每卡批量固定为 8，无需重算，避开了这个开销。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.top", "navigation.instant", "search.highlight", "content.code.copy", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

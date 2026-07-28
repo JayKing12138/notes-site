@@ -1,0 +1,4785 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../BERT/">
+      
+      
+        <link rel="next" href="../BLIP/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>BEiT - 学习资料库</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#beit" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="学习资料库" class="md-header__button md-logo" aria-label="学习资料库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            学习资料库
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              BEiT
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="学习资料库" class="md-nav__button md-logo" aria-label="学习资料库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    学习资料库
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    学习资料库
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GENIUS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    GENIUS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GENIUS/GENIUS%20%E6%80%BB%E7%BB%93/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GENIUS 总结
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RadAlign
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RadAlign
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RadAlign/RadVLM-GRPO%20%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RadVLM-GRPO 论文精读
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RadAlign/%E5%85%B3%E9%94%AE%E4%BB%A3%E7%A0%81%E8%AF%B4%E6%98%8E/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关键代码说明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    全模态大模型·出行安全项目
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    全模态大模型·出行安全项目
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/5.27%20Qwen3.7-Max%2BGeoLife%E8%AF%84%E4%BC%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.27 Qwen3.7-Max+GeoLife评估
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/Omni-%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Omni-出行安全项目
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%B1%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    全模态大模型·出行安全项目进展
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLUE
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    BLUE
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/BLUE/BLUE%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLUE论文笔记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    论文精读笔记
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    论文精读笔记
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AAAAA_Transformer%E3%80%81LLM%E4%B8%8EVLM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AAAAA_Transformer、LLM与VLM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BBBBB_%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BBBBB_强化学习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BERT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BERT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BEiT
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BEiT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#beit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BEiT
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#beit-v1-bert-pre-training-of-image-transformers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第一部分：BEiT v1 - BERT Pre-Training of Image Transformers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第一部分：BEiT v1 - BERT Pre-Training of Image Transformers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目录
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心要点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 背景与动机
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 背景与动机">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-vision-transformer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Vision Transformer 的数据饥渴问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-bert" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 BERT 的启发
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 现有自监督方法的局限
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 方法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-mask-image-modeling-mim" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 核心思想：Mask Image Modeling (MIM)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-tokenizer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 离散视觉 Tokenizer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-beit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 BEiT 预训练
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 下游任务微调
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-beit-v1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. BEiT v1 总结
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. BEiT v1 总结">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 核心贡献
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 与同期方法对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 局限性
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#beit-v2-masked-image-modeling-with-vector-quantized-visual-tokenizers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第二部分：BEiT v2 - Masked Image Modeling with Vector-Quantized Visual Tokenizers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第二部分：BEiT v2 - Masked Image Modeling with Vector-Quantized Visual Tokenizers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心要点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 背景与动机
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 背景与动机">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-beit-v1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 BEiT v1 的局限：低级像素重建目标
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 核心改进思路
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 方法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-vector-quantized-knowledge-distillation-vq-kd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Vector-Quantized Knowledge Distillation (VQ-KD)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 Vector-Quantized Knowledge Distillation (VQ-KD)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#211-tokenizer-tokenizer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1.1 视觉 Tokenizer 的角色定位：与文本 Tokenizer 的对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#212-tokenizer-mae" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1.2 视觉 Tokenizer 的作用与 MAE 范式的对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-patch-aggregation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Patch Aggregation 策略
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-beit-v2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 BEiT v2 预训练
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-beit-v2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. BEiT v2 总结
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. BEiT v2 总结">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 核心贡献
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-beit-v1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 与 BEiT v1 对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#beit-3-image-as-a-foreign-language" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第三部分：BEiT-3 - Image as a Foreign Language
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第三部分：BEiT-3 - Image as a Foreign Language">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心要点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 背景与动机
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 背景与动机">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 多模态学习的架构割裂
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 "图像作为外语"的类比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 统一架构的优势
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 方法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 统一输入表示
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-multiway-transformer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Multiway Transformer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-masked-data-modeling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 统一预训练任务：Masked Data Modeling
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 统一预训练任务：Masked Data Modeling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231-mask-then-predict" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.1 混合训练详解：三种数据统一做 mask-then-predict
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#232-vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.2 混合训练 vs 分阶段训练
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#233-multiway-transformer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.3 Multiway Transformer 如何同时处理三种数据
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#234" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.4 单一任务如何隐式学到多种能力
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#235-vlmo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.5 与 VLMo 的训练效率对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 下游任务适配
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-beit-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. BEiT-3 总结
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. BEiT-3 总结">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 核心贡献
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-beit-v1v2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 与 BEiT v1/v2 对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 与其他多模态模型对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 影响
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-vlmo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 与 VLMo 的异同
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.5 与 VLMo 的异同">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        相同点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        不同点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vlmo-future-work-beit-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VLMo 的 Future Work 在 BEiT-3 中的逐条实现
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        演进关系
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        总结与对比
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="总结与对比">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三代方法对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        关键技术洞察
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        演进脉络
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BLIP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLIP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLIP%20%26%20ALIGN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP & ALIGN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLIP%20%E6%94%B9%E8%BF%9B%E5%B7%A5%E4%BD%9C%E4%B8%B2%E8%AE%B2%EF%BC%88%E4%B8%8A%EF%BC%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP 改进工作串讲（上）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLIP%20%E6%94%B9%E8%BF%9B%E5%B7%A5%E4%BD%9C%E4%B8%B2%E8%AE%B2%EF%BC%88%E4%B8%8B%EF%BC%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP 改进工作串讲（下）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DALL%C2%B7E%202/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DALL·E 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DINO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DINO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Flamingo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Flamingo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GPT%EF%BC%8CGPT-2%EF%BC%8CGPT-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPT，GPT-2，GPT-3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ImageBind%20%E4%B8%8E%20LanguageBind%20%E5%AF%B9%E6%AF%94/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ImageBind 与 LanguageBind 对比
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InternVL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    InternVL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLaMA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLaMA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLaVA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLaVA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MAE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MAE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MoCo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MoCo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OFA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OFA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PaLI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PaLI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Qwen-VL%E4%B8%8EOmni/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qwen-VL与Omni
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SAM3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SAM3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SigLIP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SigLIP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SimVLM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SimVLM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Swin%20Transformer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Swin Transformer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UniPerceiver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UniPerceiver
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Unified-IO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unified-IO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ViLT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ViLT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ViT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ViT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ZZZZZ%E5%85%AC%E5%BC%8F%E4%BB%A3%E7%A0%81%E7%AD%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ZZZZZ公式代码等
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%8E%9F%E7%94%9F%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    原生多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%90%8E%E8%AE%AD%E7%BB%83%E7%BB%BC%E8%BF%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多模态大模型后训练综述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%9A%E6%A8%A1%E6%80%81%E8%AE%BA%E6%96%87%E4%B8%B2%E8%AE%B2%C2%B7%E4%B8%8A/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多模态论文串讲·上
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%9A%E6%A8%A1%E6%80%81%E8%AE%BA%E6%96%87%E4%B8%B2%E8%AE%B2%C2%B7%E4%B8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多模态论文串讲·下
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%AF%B9%E6%AF%94%E5%AD%A6%E4%B9%A0%E7%BB%BC%E8%BF%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    对比学习综述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%B7%B7%E5%90%88%E7%B2%BE%E5%BA%A6%E8%AE%AD%E7%BB%83%E4%B8%8E%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    混合精度训练与分布式训练
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%A7%86%E9%A2%91%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    视频多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%9F%B3%E9%A2%91%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    音频多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#beit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BEiT
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#beit-v1-bert-pre-training-of-image-transformers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第一部分：BEiT v1 - BERT Pre-Training of Image Transformers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第一部分：BEiT v1 - BERT Pre-Training of Image Transformers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目录
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心要点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 背景与动机
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 背景与动机">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-vision-transformer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Vision Transformer 的数据饥渴问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-bert" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 BERT 的启发
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 现有自监督方法的局限
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 方法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-mask-image-modeling-mim" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 核心思想：Mask Image Modeling (MIM)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-tokenizer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 离散视觉 Tokenizer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-beit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 BEiT 预训练
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 下游任务微调
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-beit-v1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. BEiT v1 总结
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. BEiT v1 总结">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 核心贡献
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 与同期方法对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 局限性
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#beit-v2-masked-image-modeling-with-vector-quantized-visual-tokenizers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第二部分：BEiT v2 - Masked Image Modeling with Vector-Quantized Visual Tokenizers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第二部分：BEiT v2 - Masked Image Modeling with Vector-Quantized Visual Tokenizers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心要点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 背景与动机
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 背景与动机">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-beit-v1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 BEiT v1 的局限：低级像素重建目标
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 核心改进思路
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 方法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-vector-quantized-knowledge-distillation-vq-kd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Vector-Quantized Knowledge Distillation (VQ-KD)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 Vector-Quantized Knowledge Distillation (VQ-KD)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#211-tokenizer-tokenizer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1.1 视觉 Tokenizer 的角色定位：与文本 Tokenizer 的对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#212-tokenizer-mae" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1.2 视觉 Tokenizer 的作用与 MAE 范式的对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-patch-aggregation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Patch Aggregation 策略
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-beit-v2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 BEiT v2 预训练
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-beit-v2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. BEiT v2 总结
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. BEiT v2 总结">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 核心贡献
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-beit-v1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 与 BEiT v1 对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#beit-3-image-as-a-foreign-language" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第三部分：BEiT-3 - Image as a Foreign Language
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第三部分：BEiT-3 - Image as a Foreign Language">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心要点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 背景与动机
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 背景与动机">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 多模态学习的架构割裂
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 "图像作为外语"的类比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 统一架构的优势
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 方法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 统一输入表示
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-multiway-transformer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Multiway Transformer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-masked-data-modeling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 统一预训练任务：Masked Data Modeling
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 统一预训练任务：Masked Data Modeling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231-mask-then-predict" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.1 混合训练详解：三种数据统一做 mask-then-predict
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#232-vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.2 混合训练 vs 分阶段训练
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#233-multiway-transformer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.3 Multiway Transformer 如何同时处理三种数据
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#234" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.4 单一任务如何隐式学到多种能力
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#235-vlmo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.5 与 VLMo 的训练效率对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 下游任务适配
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-beit-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. BEiT-3 总结
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. BEiT-3 总结">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 核心贡献
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-beit-v1v2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 与 BEiT v1/v2 对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 与其他多模态模型对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 影响
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-vlmo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 与 VLMo 的异同
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.5 与 VLMo 的异同">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        相同点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        不同点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vlmo-future-work-beit-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VLMo 的 Future Work 在 BEiT-3 中的逐条实现
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        演进关系
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        总结与对比
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="总结与对比">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三代方法对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        关键技术洞察
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        演进脉络
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>BEiT</h1>
+
+<h2 id="beit">BEiT<a class="headerlink" href="#beit" title="Permanent link">&para;</a></h2>
+<p>本笔记涵盖 Microsoft Research 的 BEiT（Bidirectional Encoder representation from Image Transformers）系列三代工作，展示了视觉自监督学习从 Mask Image Modeling 到多模态统一架构的完整演进历程。</p>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>论文</th>
+<th>时间</th>
+<th>核心变化</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>BEiT v1</strong></td>
+<td><a href="https://arxiv.org/abs/2106.08254">arXiv:2106.08254</a></td>
+<td>2021.06</td>
+<td>视觉领域的 BERT，提出 Mask Image Modeling</td>
+</tr>
+<tr>
+<td><strong>BEiT v2</strong></td>
+<td><a href="https://arxiv.org/abs/2208.06366">arXiv:2208.06366</a></td>
+<td>2022.08</td>
+<td>VQ-KD 语义感知 tokenizer + patch aggregation</td>
+</tr>
+<tr>
+<td><strong>BEiT-3</strong></td>
+<td><a href="https://arxiv.org/abs/2208.10442">arXiv:2208.10442</a></td>
+<td>2022.08</td>
+<td>多模态统一架构，视觉+语言+多模态三合一</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="beit-v1-bert-pre-training-of-image-transformers">第一部分：BEiT v1 - BERT Pre-Training of Image Transformers<a class="headerlink" href="#beit-v1-bert-pre-training-of-image-transformers" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>📄 <strong>论文链接</strong>：<a href="https://arxiv.org/abs/2106.08254">arXiv:2106.08254</a> | <a href="https://arxiv.org/pdf/2106.08254">PDF</a></p>
+<p><strong>作者</strong>：Hangbo Bao, Li Dong, Songhao Piao, Furu Wei (Harbin Institute of Technology, Microsoft Research)</p>
+<p><strong>发表</strong>：ICLR 2022</p>
+</blockquote>
+<h3 id="_1">目录<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="#核心要点">核心要点</a></li>
+<li><a href="#1-背景与动机">1. 背景与动机</a></li>
+<li><a href="#2-方法">2. 方法</a></li>
+<li><a href="#3-beit-v1-总结">3. BEiT v1 总结</a></li>
+<li><a href="#核心要点">核心要点</a></li>
+<li><a href="#1-背景与动机">1. 背景与动机</a></li>
+<li><a href="#2-方法">2. 方法</a></li>
+<li><a href="#3-beit-v2-总结">3. BEiT v2 总结</a></li>
+<li><a href="#核心要点">核心要点</a></li>
+<li><a href="#1-背景与动机">1. 背景与动机</a></li>
+<li><a href="#2-方法">2. 方法</a></li>
+<li><a href="#23-统一预训练任务masked-data-modeling">2.3 统一预训练任务：Masked Data Modeling</a></li>
+<li><a href="#231-混合训练详解三种数据统一做-mask-then-predict">2.3.1 混合训练详解</a></li>
+<li><a href="#232-混合训练-vs-分阶段训练">2.3.2 混合训练 vs 分阶段训练</a></li>
+<li><a href="#233-multiway-transformer-如何同时处理三种数据">2.3.3 Multiway Transformer 如何同时处理三种数据</a></li>
+<li><a href="#234-单一任务如何隐式学到多种能力">2.3.4 单一任务如何隐式学到多种能力</a></li>
+<li><a href="#235-与-vlmo-的训练效率对比">2.3.5 与 VLMo 的训练效率对比</a></li>
+<li><a href="#3-beit-3-总结">3. BEiT-3 总结</a></li>
+<li><a href="#总结与对比">总结与对比</a></li>
+</ul>
+<h3 id="_2">核心要点<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<blockquote>
+<ol>
+<li><strong>视觉领域的 BERT</strong>：将 BERT 的 Mask Language Modeling 思想迁移到视觉领域，提出 Mask Image Modeling（MIM）任务</li>
+<li><strong>离散视觉 Tokenizer</strong>：使用 dVAE 将图像 patch 编码为离散 token，作为预测目标</li>
+<li><strong>自监督预训练</strong>：随机 mask 图像 patch，预测对应的视觉 token，无需人工标注</li>
+<li><strong>迁移学习有效</strong>：预训练的 BEiT 在下游任务（分类、分割、检测）上超越 ImageNet 监督预训练</li>
+</ol>
+</blockquote>
+<p><img alt="image-20260628032315076" src="/Users/qinghuo/Library/Application Support/typora-user-images/image-20260628032315076.png" />
+<em>BEiT v1：随机 mask 图像 patch，预测对应的离散视觉 token</em></p>
+<hr />
+<h3 id="1">1. 背景与动机<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<h4 id="11-vision-transformer">1.1 Vision Transformer 的数据饥渴问题<a class="headerlink" href="#11-vision-transformer" title="Permanent link">&para;</a></h4>
+<p>Vision Transformer（ViT）在 ImageNet 上取得了优异性能，但相比 CNN 需要更多训练数据：</p>
+<blockquote>
+<p>"empirical studies show that vision Transformers require more training data than convolutional neural networks"</p>
+</blockquote>
+<p><strong>核心问题</strong>：如何在不依赖大规模标注数据的情况下，有效训练 Vision Transformer？</p>
+<h4 id="12-bert">1.2 BERT 的启发<a class="headerlink" href="#12-bert" title="Permanent link">&para;</a></h4>
+<p>BERT 在 NLP 领域的巨大成功证明了自监督预训练的有效性：</p>
+<ul>
+<li><strong>Mask Language Modeling (MLM)</strong>：随机 mask 文本 token，预测被 mask 的 token</li>
+<li><strong>双向编码器</strong>：利用上下文信息预测缺失部分</li>
+<li><strong>预训练-微调范式</strong>：在大规模无标注数据上预训练，下游任务微调</li>
+</ul>
+<p><strong>关键洞察</strong>：能否将 BERT 的思想迁移到视觉领域？</p>
+<h4 id="13">1.3 现有自监督方法的局限<a class="headerlink" href="#13" title="Permanent link">&para;</a></h4>
+<p>2021 年初，视觉自监督学习主要有两条路线：</p>
+<ol>
+<li><strong>对比学习</strong>（SimCLR、MoCo、DINO 等）：</li>
+<li>需要精心设计正负样本对</li>
+<li>依赖数据增强策略</li>
+<li>
+<p>学习的是全局表示，缺乏细粒度理解</p>
+</li>
+<li>
+<p><strong>自蒸馏</strong>（BYOL 等）：</p>
+</li>
+<li>需要动量更新，训练复杂</li>
+<li>同样缺乏细粒度理解</li>
+</ol>
+<p><strong>BEiT 的路线</strong>：借鉴 BERT，直接预测被 mask 的图像区域，更简单直接。</p>
+<hr />
+<h3 id="2">2. 方法<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<h4 id="21-mask-image-modeling-mim">2.1 核心思想：Mask Image Modeling (MIM)<a class="headerlink" href="#21-mask-image-modeling-mim" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>预训练目标：
+  输入：原始图像 → 切分为 16×16 的 patch
+  Mask：随机 mask 40% 的 patch（替换为 [M] token）
+  预测：预测被 mask patch 对应的视觉 token
+
+下游任务：
+  去掉 mask，附加任务层，微调整个模型
+</code></pre></div>
+<p><strong>关键挑战</strong>：图像的"token"是什么？</p>
+<h4 id="22-tokenizer">2.2 离散视觉 Tokenizer<a class="headerlink" href="#22-tokenizer" title="Permanent link">&para;</a></h4>
+<p>BEiT 使用 <strong>dVAE</strong>（discrete Variational AutoEncoder）将图像编码为离散 token：</p>
+<div class="highlight"><pre><span></span><code>Tokenizer 训练（独立阶段）：
+  输入：原始图像 → 切分为 16×16 patch
+  编码：dVAE 编码器 → 连续特征
+  量化：Gumbel-Softmax → 离散 token（从 8192 个码本中选择）
+  解码：dVAE 解码器 → 重建图像
+  训练目标：重建损失 + KL 散度
+</code></pre></div>
+<p><strong>Tokenizer 特点</strong>：
+- 码本大小：8192（与 BERT 的词表大小相当）
+- 每个 patch → 1 个离散 token
+- 224×224 图像 → 196 个 token（14×14 grid）</p>
+<h4 id="23-beit">2.3 BEiT 预训练<a class="headerlink" href="#23-beit" title="Permanent link">&para;</a></h4>
+<p><strong>预训练流程</strong>：</p>
+<div class="highlight"><pre><span></span><code>1. Tokenize：用训练好的 dVAE 将所有图像转为 token 序列
+2. Mask：随机选择 40% 的 patch，替换为 [M] token
+3. 编码：将 masked image 输入 ViT
+4. 预测：用 ViT 输出预测被 mask 位置的 token（8192 分类）
+5. 损失：交叉熵损失（仅计算被 mask 的位置）
+</code></pre></div>
+<p><strong>架构细节</strong>：</p>
+<div class="highlight"><pre><span></span><code>┌─────────────────────────────────────┐
+│         Masked Image Patches        │
+│  [P1] [M] [P3] [P4] [M] ... [P196] │
+└────────────────┬────────────────────┘
+                 │
+                 ▼
+┌─────────────────────────────────────┐
+│      Vision Transformer (ViT)       │
+│  - 12/24 layers (Base/Large)        │
+│  - 768/1024 hidden dim              │
+│  - 12/16 attention heads            │
+└────────────────┬────────────────────┘
+                 │
+                 ▼
+┌─────────────────────────────────────┐
+│      Prediction Head (MLP)          │
+│  - 预测被 mask 位置的 token         │
+│  - 输出维度：8192（码本大小）        │
+└────────────────┬────────────────────┘
+                 │
+                 ▼
+┌─────────────────────────────────────┐
+│    Cross-Entropy Loss (masked only) │
+└─────────────────────────────────────┘
+</code></pre></div>
+<p><strong>关键超参数</strong>：
+- <strong>Mask ratio</strong>：40%（BERT 是 15%，图像冗余度更高）
+- <strong>Mask token</strong>：可学习的 [M] embedding
+- <strong>预测目标</strong>：离散 token（8192 分类）</p>
+<h4 id="24">2.4 下游任务微调<a class="headerlink" href="#24" title="Permanent link">&para;</a></h4>
+<p><strong>图像分类</strong>：
+<div class="highlight"><pre><span></span><code>预训练 BEiT → 附加分类头 → 微调
+- 去掉 prediction head
+- 添加 [CLS] token 或 global average pooling
+- 附加线性分类器
+- 微调整个模型
+</code></pre></div></p>
+<p><strong>语义分割</strong>：
+<div class="highlight"><pre><span></span><code>预训练 BEiT → 附加 UPerNet → 微调
+- 使用 ViT 的 patch 级特征（不用 [CLS]）
+- 附加分割头（UPerNet）
+- 微调整个模型
+</code></pre></div></p>
+<hr />
+<h3 id="3-beit-v1">3. BEiT v1 总结<a class="headerlink" href="#3-beit-v1" title="Permanent link">&para;</a></h3>
+<h4 id="31">3.1 核心贡献<a class="headerlink" href="#31" title="Permanent link">&para;</a></h4>
+<ol>
+<li><strong>Mask Image Modeling</strong>：将 BERT 的思想成功迁移到视觉领域</li>
+<li><strong>离散视觉 Tokenizer</strong>：用 dVAE 将图像转为离散 token，作为预测目标</li>
+<li><strong>自监督预训练</strong>：无需人工标注，在大规模图像上预训练</li>
+<li><strong>迁移学习有效</strong>：预训练 BEiT 在多个下游任务上超越 ImageNet 监督预训练</li>
+</ol>
+<h4 id="32">3.2 与同期方法对比<a class="headerlink" href="#32" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>预训练目标</th>
+<th>需要负样本</th>
+<th>需要动量更新</th>
+<th>细粒度理解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>BEiT</strong></td>
+<td>Mask Image Modeling</td>
+<td>❌</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>DINO</td>
+<td>自蒸馏</td>
+<td>❌</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>MoCo v3</td>
+<td>对比学习</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>SimCLR</td>
+<td>对比学习</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+<h4 id="33">3.3 局限性<a class="headerlink" href="#33" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Tokenizer 训练复杂</strong>：dVAE 需要单独训练，增加流程复杂度</li>
+<li><strong>离散 token 信息损失</strong>：离散化会丢失部分视觉信息</li>
+<li><strong>Mask ratio 敏感</strong>：40% 是经验值，不同任务可能需要不同比例</li>
+</ul>
+<hr />
+<h2 id="beit-v2-masked-image-modeling-with-vector-quantized-visual-tokenizers">第二部分：BEiT v2 - Masked Image Modeling with Vector-Quantized Visual Tokenizers<a class="headerlink" href="#beit-v2-masked-image-modeling-with-vector-quantized-visual-tokenizers" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>📄 <strong>论文链接</strong>：<a href="https://arxiv.org/abs/2208.06366">arXiv:2208.06366</a> | <a href="https://arxiv.org/pdf/2208.06366">PDF</a></p>
+<p><strong>作者</strong>：Zhiliang Peng, Li Dong, Hangbo Bao, Qixiang Ye, Furu Wei (University of Chinese Academy of Sciences, Microsoft Research)</p>
+<p><strong>发表</strong>：2022 年 8 月</p>
+</blockquote>
+<h3 id="_3">核心要点<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<blockquote>
+<ol>
+<li><strong>语义感知视觉 Tokenizer</strong>：提出 Vector-Quantized Knowledge Distillation（VQ-KD）算法训练语义感知的视觉 tokenizer，将 MIM 从像素级提升到语义级</li>
+<li><strong>VQ-KD 以 CLIP 为 teacher</strong>：VQ-KD 的 decoder 学习重建 teacher 模型（OpenAI CLIP-B/16）的语义特征，使离散 token 携带高级语义信息</li>
+<li><strong>Patch Aggregation 策略</strong>：引入 patch 聚合策略，通过信息瓶颈鼓励 [CLS] token 聚合全局信息，缓解 patch 级预训练与图像级表示之间的差距</li>
+<li><strong>更强的性能</strong>：在 ImageNet 分类和 ADE20K 语义分割上全面超越 BEiT v1 及其他 MIM 方法</li>
+</ol>
+</blockquote>
+<p><img alt="Figure 1: BEiT v2 在 ImageNet 上的 Top-1 fine-tuning 准确率" src="../images/beit_v2_fig1.png" />
+<em>Figure 1: BEiT v2 在 ImageNet (224 size) 上的 Top-1 fine-tuning 准确率，左为 ViT-B/16，右为 ViT-L/16</em></p>
+<hr />
+<h3 id="1_1">1. 背景与动机<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h3>
+<h4 id="11-beit-v1">1.1 BEiT v1 的局限：低级像素重建目标<a class="headerlink" href="#11-beit-v1" title="Permanent link">&para;</a></h4>
+<p>BEiT v1 证明了 Mask Image Modeling 的有效性，但其重建目标存在根本性不足：</p>
+<blockquote>
+<p>"most existing studies operate on low-level image pixels, which hinders the exploitation of high-level semantics for representation models"</p>
+</blockquote>
+<p>BEiT v1 使用 dVAE 将图像编码为离散 token，但 dVAE 的重建目标是<strong>原始像素</strong>（low-level image elements），而非高级语义信息。这导致：</p>
+<ol>
+<li><strong>Token 语义性不足</strong>：dVAE tokenizer 学到的是低级视觉特征（像素级重建），缺乏高级语义</li>
+<li><strong>重建目标层级低</strong>：MIM 预测的是低级 token，难以学到高级语义表示</li>
+<li><strong>全局表示弱</strong>：MIM 以 patch 重建为首要目标，削弱了全局图像表示的学习</li>
+</ol>
+<h4 id="12">1.2 核心改进思路<a class="headerlink" href="#12" title="Permanent link">&para;</a></h4>
+<p><strong>关键问题</strong>：如何将 MIM 从像素级提升到语义级？</p>
+<p><strong>BEiT v2 的两个核心创新</strong>：
+1. <strong>VQ-KD 语义感知 Tokenizer</strong>：提出 Vector-Quantized Knowledge Distillation 算法，以 CLIP 等 teacher 模型的语义特征为重建目标，训练语义感知的视觉 tokenizer
+2. <strong>Patch Aggregation 策略</strong>：通过信息瓶颈鼓励 [CLS] token 聚合全局信息，缓解 patch 级预训练与图像级表示之间的差距</p>
+<hr />
+<h3 id="2_1">2. 方法<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h3>
+<h4 id="21-vector-quantized-knowledge-distillation-vq-kd">2.1 Vector-Quantized Knowledge Distillation (VQ-KD)<a class="headerlink" href="#21-vector-quantized-knowledge-distillation-vq-kd" title="Permanent link">&para;</a></h4>
+<p>BEiT v2 的核心创新是提出 <strong>VQ-KD（Vector-Quantized Knowledge Distillation）</strong> 算法来训练语义感知的视觉 tokenizer。</p>
+<p><strong>VQ-KD 的架构</strong>：</p>
+<div class="highlight"><pre><span></span><code>输入图像
+  │
+  ▼
+┌─────────────────────────────┐
+│  Tokenizer Encoder (ViT)    │
+│  将图像编码为连续特征向量      │
+└──────────┬──────────────────┘
+           │
+           ▼
+┌─────────────────────────────┐
+│  Vector Quantizer            │
+│  L2 归一化 → 查找码本最近邻    │
+│  码本: K=8192, D=32          │
+└──────────┬──────────────────┘
+           │
+     离散视觉 Token (z₁, z₂, ..., z_N)
+           │
+           ▼
+┌─────────────────────────────┐
+│  Decoder (3层 Transformer)   │
+│  重建 teacher 模型的语义特征   │
+└──────────┬──────────────────┘
+           │
+           ▼
+    重建输出 oᵢ
+           │
+     与 Teacher 特征 tᵢ 计算损失
+     (Teacher: OpenAI CLIP-B/16)
+</code></pre></div>
+<p><strong>Tokenizer 编码与量化</strong>：
+- 输入图像切分为 14×14 grid 的 16×16 patch
+- ViT 编码器将每个 patch 编码为连续向量 hᵢ
+- 量化器对每个 hᵢ 进行 <strong>L2 归一化</strong>，然后在码本中查找最近邻（余弦相似度）：</p>
+<p><code>zᵢ = arg minⱼ ||ℓ₂(hᵢ) - ℓ₂(vⱼ)||²</code></p>
+<ul>
+<li>码本大小 K=8192，码本嵌入维度 D=32（低维空间降低量化难度）</li>
+</ul>
+<p><strong>Decoder 与 Teacher 模型</strong>：
+- Decoder 是一个 3 层标准 Transformer，与编码器具有相同的维度和注意力头数
+- Decoder 的输出 oᵢ 旨在重建 <strong>teacher 模型的语义特征</strong> tᵢ
+- <strong>Teacher 模型</strong>：OpenAI CLIP-B/16（论文也对比了 DINO 作为 teacher）
+- 训练目标：最大化 decoder 输出与 teacher 特征的余弦相似度</p>
+<p><strong>VQ-KD 训练目标</strong>：</p>
+<div class="highlight"><pre><span></span><code>max  Σᵢ cos(oᵢ, tᵢ)              ← 重建 teacher 语义特征
+    - ||sg[ℓ₂(hᵢ)] - ℓ₂(vzᵢ)||²  ← commitment loss (codebook)
+    - ||ℓ₂(hᵢ) - sg[ℓ₂(vzᵢ)]||²  ← commitment loss (encoder)
+
+其中 sg[·] 为 stop-gradient 算子
+</code></pre></div>
+<p><strong>关键技术细节</strong>：
+- <strong>Straight-Through Gradients</strong>：量化过程不可微，梯度直接从 decoder 输入复制到编码器输出（类似 VQ-VAE）
+- <strong>码本利用率优化</strong>：使用 L2 归一化距离 + 32 维低维码本嵌入 + 指数移动平均（EMA）更新码本，缓解码本坍缩问题
+- <strong>Teacher 选择</strong>：CLIP 作为 teacher 比 DINO 效果更好（实验验证了 CLIP 的语义特征更适合作为重建目标）</p>
+<p><strong>VQ-KD 训练后</strong>：编码器作为语义视觉 tokenizer，离散码作为 BEiT 预训练的监督信号</p>
+<h5 id="211-tokenizer-tokenizer">2.1.1 视觉 Tokenizer 的角色定位：与文本 Tokenizer 的对比<a class="headerlink" href="#211-tokenizer-tokenizer" title="Permanent link">&para;</a></h5>
+<p>在 BEiT 系列（尤其是 BEiT-3 统一架构）中，视觉 tokenizer（VQ-KD）和文本 tokenizer（SentencePiece）承担了不同的角色。理解这种不对称性是理解 BEiT 框架的关键。</p>
+<p><strong>文本和图像在 tokenizer 使用上的根本区别</strong>：</p>
+<div class="highlight"><pre><span></span><code>文本：
+  SentencePiece ──→ 文本 token ID ──→ embedding lookup ──→ 输入表示
+  SentencePiece ──→ 文本 token ID ──────────────────────→ 预测目标（ground truth）
+
+  同一个 tokenizer，输入和目标一致
+
+图像：
+  原始 patch ──→ 线性投影（linear projection）──→ 输入表示
+  VQ-KD tokenizer ──→ 离散视觉 token ──────────→ 预测目标（ground truth）
+
+  两个不同的东西，输入和目标不一致
+</code></pre></div>
+<p><strong>文本 Tokenizer（SentencePiece）</strong>：</p>
+<p>SentencePiece 是 Google 开发的<strong>无参数统计分词工具</strong>（Kudo &amp; Richardson, 2018），在 BERT、T5、GPT 等模型中广泛使用。</p>
+<div class="highlight"><pre><span></span><code>输入文本：&quot;The cat sat on the mat&quot;
+           │
+           ▼
+  SentencePiece 分词（BPE 或 Unigram 模型）
+           │
+           ▼
+  token 序列：[&quot;▁The&quot;, &quot;▁cat&quot;, &quot;▁sat&quot;, &quot;▁on&quot;, &quot;▁the&quot;, &quot;▁mat&quot;]
+           │
+           ▼
+  查词表 → token ID：[450, 3210, 1892, 21, 12, 5781]
+           │
+           ▼
+  embedding lookup → 连续向量（模型输入）
+</code></pre></div>
+<ul>
+<li><strong>无参数</strong>：训练完成后就是固定的字符串到 ID 的映射规则，没有可学习的参数</li>
+<li><strong>确定性</strong>：同一个词永远映射到同一个 token ID</li>
+<li><strong>训练方法</strong>：在大规模语料上用 BPE（Byte-Pair Encoding）或 Unigram 语言模型统计子词频率，无监督</li>
+<li><strong>不涉及语义</strong>：分词结果纯粹基于统计频率，"cat" 和 "dog" 是否共享子词完全取决于拼写统计，不涉及语义理解</li>
+<li><strong>输入 = 预测目标</strong>：模型输入的 token ID 和 mask-then-predict 要预测的 token ID 是同一个东西</li>
+</ul>
+<p><strong>视觉 Tokenizer（VQ-KD）在 BEiT 中的角色</strong>：</p>
+<div class="highlight"><pre><span></span><code>原始图像
+  │
+  ├──── 路径 A（模型输入）─────────────────────────┐
+  │     切分 patch → 线性投影 → 视觉 embedding     │
+  │     （Transformer 实际看到的东西）               │
+  │                                                ▼
+  │                                          ViT / Multiway Transformer
+  │                                                │
+  └──── 路径 B（预测目标）──────────────────────────┐
+        VQ-KD encoder → 量化 → 离散 token          │
+        （mask 位置要预测的 ground truth）           │
+                                                   ▼
+                                              交叉熵损失
+</code></pre></div>
+<ul>
+<li><strong>有参数</strong>：encoder 是 ViT，量化器有可学习的码本，decoder 是 Transformer——都是神经网络参数</li>
+<li><strong>语义感知</strong>：码本中的 token 携带 CLIP 的语义信息（因为 decoder 训练目标是重建 CLIP 特征）</li>
+<li><strong>非确定性</strong>：同一个视觉 patch 映射到哪个 token 取决于 encoder 的输出和码本的最近邻查找</li>
+<li><strong>仅做预测目标</strong>：VQ-KD 产出的离散 token 只作为 ground truth，模型的输入是原始 patch 的线性投影</li>
+</ul>
+<p><strong>核心区别对比</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>文本 Tokenizer（SentencePiece）</th>
+<th>视觉 Tokenizer（VQ-KD）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>本质</strong></td>
+<td>统计分词规则（无参数）</td>
+<td>神经网络（有参数）</td>
+</tr>
+<tr>
+<td><strong>训练方式</strong></td>
+<td>无监督 BPE/Unigram，统计子词频率</td>
+<td>有监督知识蒸馏，以 CLIP 为 teacher</td>
+</tr>
+<tr>
+<td><strong>码本/词表</strong></td>
+<td>固定词表（子词 → ID）</td>
+<td>可学习码本（8192 个 32 维嵌入向量）</td>
+</tr>
+<tr>
+<td><strong>token 含义</strong></td>
+<td>子词片段（如 "cat" → "▁c", "at"）</td>
+<td>语义视觉概念（如"天空""动物毛发"等）</td>
+</tr>
+<tr>
+<td><strong>输入 = 目标？</strong></td>
+<td>✅ 是——同一个 tokenizer 既提供输入也提供目标</td>
+<td>❌ 否——输入是线性投影，目标是 VQ-KD token</td>
+</tr>
+<tr>
+<td><strong>在模型中的角色</strong></td>
+<td>输入表示 + 预测目标</td>
+<td><strong>仅预测目标</strong></td>
+</tr>
+<tr>
+<td><strong>可微性</strong></td>
+<td>完全不可微（字符串映射）</td>
+<td>量化不可微（用 Straight-Through Estimator）</td>
+</tr>
+<tr>
+<td><strong>信息层级</strong></td>
+<td>低级（拼写/字形）</td>
+<td>高级（语义，继承自 CLIP）</td>
+</tr>
+<tr>
+<td><strong>参数量</strong></td>
+<td>0（仅一张查找表）</td>
+<td>Encoder (ViT-B/16, ~86M) + Decoder + 码本</td>
+</tr>
+</tbody>
+</table>
+<p><strong>为什么视觉的输入和目标要分开？</strong></p>
+<p>这是 BEiT 系列最核心的设计决策之一：</p>
+<ol>
+<li><strong>NLP 中不需要分开</strong>：文本本身就是离散的，token ID 查表就是连续向量，输入和预测目标天然统一</li>
+<li><strong>图像是连续的</strong>：像素值不能直接做分类预测，必须转为离散 token</li>
+<li><strong>但不能用离散 token 做输入</strong>：如果用 VQ-KD 的离散 token 做输入（查码本嵌入），模型输入的信息量就被码本限制了（信息瓶颈）——模型只能看到码本"认为"重要的信息，丢失了细节</li>
+<li><strong>解决方案</strong>：输入用<strong>信息丰富的原始 patch 线性投影</strong>（保留全部像素信息），预测目标用<strong>语义丰富的 VQ-KD 离散 token</strong>（迫使模型学到高级语义）</li>
+</ol>
+<div class="highlight"><pre><span></span><code>输入（丰富像素信息）  →  Transformer  →  预测（高级语义 token）
+       全信息                              信息瓶颈
+</code></pre></div>
+<p>这种<strong>信息不对称</strong>正是 BEiT 从 v1（dVAE 像素级）到 v2（VQ-KD 语义级）的关键进化——模型有足够的输入信息来推断被 mask 区域的语义内容，但预测目标只关心语义层面。</p>
+<h5 id="212-tokenizer-mae">2.1.2 视觉 Tokenizer 的作用与 MAE 范式的对比<a class="headerlink" href="#212-tokenizer-mae" title="Permanent link">&para;</a></h5>
+<p>视觉 tokenizer 的设计并非唯一选择。MAE（Masked Autoencoders）采用了一种更简单的范式——直接预测原始像素，无需 tokenizer。理解两者的区别，有助于理解 BEiT 为什么坚持使用视觉 tokenizer。</p>
+<p><strong>两种范式的核心区别</strong>：</p>
+<div class="highlight"><pre><span></span><code>BEiT 范式：
+  图像 patch → [mask] → ViT encoder → 预测离散视觉 token（分类问题）
+                                           ↑
+                                    VQ-KD/dVAE tokenizer 提供
+                                    （语义压缩后的离散标签）
+
+MAE 范式：
+  图像 patch → [mask] → ViT encoder → lightweight decoder → 重建原始像素（回归问题）
+                                                              ↑
+                                                        直接用原图 patch 作为目标
+</code></pre></div>
+<p>BEiT v2 论文 Section 1 明确指出了像素级重建的问题：</p>
+<blockquote>
+<p>"most existing studies operate on low-level image pixels, which hinders the exploitation of high-level semantics for representation models"</p>
+</blockquote>
+<p><strong>视觉 Tokenizer 的四个核心作用</strong>：</p>
+<p><strong>1. 信息压缩与语义抽象</strong></p>
+<p>原始 patch 包含大量低级信息（纹理、颜色、光照细节），而 VQ-KD tokenizer 将这些信息压缩为 8192 个语义类别之一：</p>
+<div class="highlight"><pre><span></span><code>原始 patch (16×16×3 = 768 维连续值)
+    ↓ VQ-KD
+离散 token (1 个整数，取值 0~8191)
+</code></pre></div>
+<p>这种压缩迫使模型学习<strong>抽象语义</strong>而非低级细节。例如一个 patch 的像素值可能千变万化（不同光照、角度、尺度），但经过 VQ-KD 后，"天空的蓝色区域"可能都映射到同一个 token。模型不需要预测精确像素，只需预测"这是什么语义概念"。</p>
+<p><strong>2. 将回归问题转为分类问题</strong></p>
+<p>BEiT v1 Section 1 明确指出：</p>
+<blockquote>
+<p>"the images and texts have different elementary units. Specifically, the texts are modeled as discrete tokens (i.e., words, subwords or characters) in a finite vocabulary, while the raw image is represented as continuous RGB values of pixels."</p>
+</blockquote>
+<ul>
+<li><strong>BEiT</strong>：预测离散 token → 8192 分类问题 → 用交叉熵损失，与 BERT 的 MLM 完全对齐</li>
+<li><strong>MAE</strong>：预测连续像素值 → 回归问题 → 用 MSE 损失</li>
+</ul>
+<p>分类问题在优化上通常比回归更稳定（梯度信号更清晰，损失尺度更可控）。</p>
+<p><strong>3. 注入语义先验知识</strong></p>
+<p>VQ-KD tokenizer 以 CLIP 为 teacher，这意味着 VQ-KD 的离散 token 不仅仅是"视觉相似"的聚类，而是继承了 CLIP 的语义对齐信息。例如码本中可能出现这样的聚类：
+- token #42 对应"有文字的平面区域"（CLIP 认为这类视觉特征与"文本"语义相关）
+- token #187 对应"动物的毛发纹理"（CLIP 认为这与"动物"语义相关）</p>
+<p>这种语义先验是 MAE 的纯像素目标不具备的。</p>
+<p><strong>4. 与 NLP 框架的统一（BEiT-3 的需求）</strong></p>
+<p>在 BEiT-3 中，视觉 tokenizer 的作用更加关键：</p>
+<div class="highlight"><pre><span></span><code>文本：SentencePiece → 离散 token → mask-then-predict（分类）
+图像：VQ-KD → 离散 token → mask-then-predict（分类）
+
+两个模态统一为&quot;预测离散 token&quot;的同一个任务
+</code></pre></div>
+<p>如果图像用 MAE 的像素回归，文本用 MLM 的分类，就无法在同一个 loss 框架下统一训练。</p>
+<p><strong>MAE 的设计哲学</strong>：</p>
+<p>MAE 论文 Section 3 提出了完全不同的思路：</p>
+<blockquote>
+<p>"we have a simple implementation of masked autoencoders that is effective yet has received little attention in prior work"</p>
+</blockquote>
+<p>MAE 的核心设计：
+- <strong>极高 mask 比例（75%）</strong>：MAE 发现，当 mask 比例足够高时，即使预测原始像素也能学到很好的表示。高 mask 比例迫使模型理解全局语义才能重建局部像素
+- <strong>非对称编码器-解码器</strong>：encoder 只处理可见的 25% patch（极大加速），轻量 decoder 处理全部 patch 做重建
+- <strong>无需 tokenizer</strong>：直接预测归一化后的像素值，简单直接</p>
+<p>MAE 的论点可以概括为：<strong>"如果 mask 比例够高，预测像素本身就足够难，不需要 tokenizer 做语义压缩"</strong>。</p>
+<p><strong>MAE 能否替代 BEiT 的 Tokenizer？</strong></p>
+<p>从<strong>纯视觉任务性能</strong>看：<strong>部分可以</strong>。MAE 在纯视觉任务上取得了与 BEiT v1 相当甚至更好的性能（MAE 用更简单的架构 + 75% mask）。这说明高 mask 比例确实能弥补像素级目标的不足，tokenizer 训练确实增加了流程复杂度。对于纯视觉任务，MAE 范式是可行的替代方案。</p>
+<p>从<strong>语义表示质量</strong>看：<strong>不能完全替代</strong>。BEiT v2 的实验表明，VQ-KD tokenizer 带来了显著的性能提升（相比 BEiT v1 和 MAE）。VQ-KD 的离散 token 携带语义信息，迫使模型学习高级语义而非低级像素。BEiT v2 的 token 可视化显示，码本中的 token 对应有意义的语义概念（如"天空""动物毛发"等），这种语义级别的表示在下游任务上更有优势。</p>
+<p>从<strong>多模态统一</strong>看：<strong>完全不能替代</strong>。BEiT-3 的核心是"图像作为外语"——用同一个 mask-then-predict 任务统一视觉和语言。这要求文本和图像都必须转为离散 token，预测目标都必须是分类问题，这样才能在同一个 batch 中混合训练。如果 BEiT-3 用 MAE 的范式：</p>
+<div class="highlight"><pre><span></span><code>图像：mask → 预测像素（回归，MSE loss）
+文本：mask → 预测 token（分类，交叉熵 loss）
+
+两种 loss 无法统一，需要像 VLMo 一样用多个 loss，违背了 BEiT-3 的&quot;单一任务&quot;原则
+</code></pre></div>
+<p><strong>总结对比</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>BEiT（Tokenizer）</th>
+<th>MAE（无 Tokenizer）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>预测目标</strong></td>
+<td>语义离散 token（分类）</td>
+<td>原始像素（回归）</td>
+</tr>
+<tr>
+<td><strong>信息层级</strong></td>
+<td>高级语义（经 CLIP 蒸馏）</td>
+<td>低级像素</td>
+</tr>
+<tr>
+<td><strong>复杂度</strong></td>
+<td>需要训练 tokenizer</td>
+<td>无需额外训练</td>
+</tr>
+<tr>
+<td><strong>纯视觉性能</strong></td>
+<td>强（v2 更强）</td>
+<td>强（75% mask 弥补）</td>
+</tr>
+<tr>
+<td><strong>语义表示</strong></td>
+<td>更好（token 可视化验证）</td>
+<td>较弱（依赖高 mask 比例）</td>
+</tr>
+<tr>
+<td><strong>多模态扩展</strong></td>
+<td>天然支持（统一为分类）</td>
+<td>不支持（像素回归无法与 MLM 统一）</td>
+</tr>
+<tr>
+<td><strong>设计哲学</strong></td>
+<td>"压缩信息，预测语义"</td>
+<td>"高 mask 比例，预测像素"</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一句话</strong>：MAE 用简单性换来了纯视觉任务的竞争力，但 BEiT 的 tokenizer 在语义表示质量和多模态统一上提供了 MAE 无法替代的优势。BEiT-3 的"图像作为外语"范式，本质上依赖于视觉 tokenizer 将图像"翻译"成与文本同构的离散 token 序列。</p>
+<h4 id="22-patch-aggregation">2.2 Patch Aggregation 策略<a class="headerlink" href="#22-patch-aggregation" title="Permanent link">&para;</a></h4>
+<p><strong>问题</strong>：MIM 以 patch 重建为首要目标，削弱了全局图像表示的学习（如 linear probing 性能弱）</p>
+<p><strong>解决方案</strong>：受 Gao &amp; Callan (2021) 启发，构建<strong>信息瓶颈</strong>（representation bottleneck），鼓励 [CLS] token 聚合全局信息</p>
+<div class="highlight"><pre><span></span><code>┌──────────────────────────────────────────┐
+│         Vision Transformer (L 层)        │
+│                                          │
+│  第 l 层 patch tokens: {hˡᵢ}             │
+│          │                               │
+│    ...（中间层正常处理）...                │
+│          │                               │
+│  第 L 层 [CLS] token: hᴸ_CLS             │
+│          │                               │
+│          ▼                               │
+│  拼接: S = [hᴸ_CLS, hˡ₁, ..., hˡ_N]    │
+│  （第 L 层 CLS + 第 l 层 patch tokens）    │
+│          │                               │
+│          ▼                               │
+│  浅层 Transformer Decoder (2层)          │
+│  → 再次进行 masked prediction            │
+│  → L_c^MIM 损失                          │
+└──────────────────────────────────────────┘
+
+最终损失 = L_MIM（第 L 层原始 MIM） + L_c^MIM（patch aggregation）
+</code></pre></div>
+<p><strong>核心思想</strong>：
+- 将最后一层的 [CLS] token 与中间层的 patch tokens 拼接，送入浅层 decoder 再次预测
+- 由于 [CLS] 必须通过浅层 decoder 完成 patch 预测，模型被迫将全局信息推入 [CLS] token
+- 浅层 decoder <strong>仅在预训练时使用</strong>，预训练后丢弃</p>
+<h4 id="23-beit-v2">2.3 BEiT v2 预训练<a class="headerlink" href="#23-beit-v2" title="Permanent link">&para;</a></h4>
+<p><strong>预训练流程</strong>（继承 BEiT v1 的 MIM 框架）：</p>
+<div class="highlight"><pre><span></span><code>1. Tokenize：用 VQ-KD 训练好的 tokenizer 将图像转为离散 token
+2. Mask：随机 block-wise mask 约 40% 的 patch（约 75 个 patch），替换为 [M] token
+3. 编码：将 masked image + [CLS] token 输入 ViT
+4. 预测：
+   - 第 L 层的 masked positions → MIM Head → 预测 visual token → L_MIM
+   - 第 L 层 [CLS] + 第 l 层 patches → 浅层 Decoder → 预测 visual token → L_c^MIM
+5. 损失：L_MIM + L_c^MIM（仅计算 masked 位置）
+</code></pre></div>
+<p><strong>关键超参数</strong>：
+- <strong>Mask ratio</strong>：40%（block-wise masking，与 BEiT v1 相同）
+- <strong>码本大小</strong>：8192（码本维度 32）
+- <strong>Teacher 模型</strong>：CLIP-B/16（base 和 large 预训练共用同一个 base-size teacher）
+- <strong>Tokenizer</strong>：ViT-B/16（用于 base 和 large 预训练）
+- <strong>训练数据</strong>：ImageNet-1K（无标签）</p>
+<hr />
+<h3 id="3-beit-v2">3. BEiT v2 总结<a class="headerlink" href="#3-beit-v2" title="Permanent link">&para;</a></h3>
+<h4 id="31_1">3.1 核心贡献<a class="headerlink" href="#31_1" title="Permanent link">&para;</a></h4>
+<ol>
+<li><strong>VQ-KD 语义感知 Tokenizer</strong>：提出 Vector-Quantized Knowledge Distillation，以 CLIP 为 teacher 训练语义感知 tokenizer，将 MIM 从像素级提升到语义级</li>
+<li><strong>Patch Aggregation 策略</strong>：通过信息瓶颈鼓励 [CLS] token 聚合全局信息，改善全局表示学习</li>
+<li><strong>更强性能</strong>：在 ImageNet fine-tuning 和 linear probing 上大幅超越 BEiT v1 及其他 MIM 方法</li>
+<li><strong>语义可视化</strong>：学到的 codebook 对应有意义的语义概念（论文 Figure 4-5 可视化验证）</li>
+</ol>
+<h4 id="32-beit-v1">3.2 与 BEiT v1 对比<a class="headerlink" href="#32-beit-v1" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>BEiT v1</th>
+<th>BEiT v2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tokenizer</td>
+<td>dVAE（像素级重建）</td>
+<td>VQ-KD（语义级重建，CLIP teacher）</td>
+</tr>
+<tr>
+<td>重建目标</td>
+<td>原始像素</td>
+<td>CLIP 语义特征</td>
+</tr>
+<tr>
+<td>全局表示</td>
+<td>弱（linear probing 差）</td>
+<td>强（patch aggregation 增强）</td>
+</tr>
+<tr>
+<td>码本大小</td>
+<td>8192</td>
+<td>8192（维度 32）</td>
+</tr>
+<tr>
+<td>预训练目标</td>
+<td>MIM</td>
+<td>MIM + Patch Aggregation</td>
+</tr>
+<tr>
+<td>性能</td>
+<td>baseline</td>
+<td>更强（ImageNet 和 ADE20K 均有显著提升）</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="beit-3-image-as-a-foreign-language">第三部分：BEiT-3 - Image as a Foreign Language<a class="headerlink" href="#beit-3-image-as-a-foreign-language" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>📄 <strong>论文链接</strong>：<a href="https://arxiv.org/abs/2208.10442">arXiv:2208.10442</a> | <a href="https://arxiv.org/pdf/2208.10442">PDF</a></p>
+<p><strong>作者</strong>：Wenhui Wang, Hangbo Bao, Li Dong, Johan Bjorck, Zhiliang Peng, Qiang Liu, Kriti Aggarwal, Owais Khan Mohammed, Saksham Singhal, Subhojit Som, Furu Wei (Microsoft Corporation)</p>
+<p><strong>发表</strong>：2022 年 8 月</p>
+</blockquote>
+<h3 id="_4">核心要点<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<blockquote>
+<ol>
+<li><strong>"图像作为外语"</strong>：将图像视为一种"外语"（Imglish），与文本（English）统一建模，图文对视为"平行句子"（parallel sentences）</li>
+<li><strong>多模态统一架构</strong>：单一 Multiway Transformer 同时处理视觉、语言、多模态任务</li>
+<li><strong>Multiway Transformer</strong>：共享自注意力层 + 模态专属 FFN（modality experts），平衡共享与特化</li>
+<li><strong>统一预训练任务</strong>：仅使用一个预训练任务——mask-then-predict（masked data modeling），在图像、文本、图文对上统一进行</li>
+</ol>
+</blockquote>
+<p><img alt="Figure 1: BEiT-3 在多种任务上的 SOTA 性能" src="../images/beit3_fig1.png" />
+<em>Figure 1: BEiT-3 在视觉和视觉-语言任务上全面达到 SOTA 性能</em></p>
+<hr />
+<h3 id="1_2">1. 背景与动机<a class="headerlink" href="#1_2" title="Permanent link">&para;</a></h3>
+<h4 id="11">1.1 多模态学习的架构割裂<a class="headerlink" href="#11" title="Permanent link">&para;</a></h4>
+<p>2022 年，多模态学习存在明显的架构割裂：</p>
+<p><strong>视觉模型</strong>（ViT、BEiT）：
+- 仅处理图像
+- 用于分类、分割等视觉任务</p>
+<p><strong>语言模型</strong>（BERT、GPT）：
+- 仅处理文本
+- 用于 NLU、NLG 等语言任务</p>
+<p><strong>多模态模型</strong>（CLIP、BLIP）：
+- 双塔架构或编码器-解码器
+- 视觉和语言分别编码，后期融合</p>
+<p><strong>核心问题</strong>：能否用单一架构统一处理所有模态？</p>
+<h4 id="12_1">1.2 "图像作为外语"的类比<a class="headerlink" href="#12_1" title="Permanent link">&para;</a></h4>
+<p><strong>关键洞察</strong>：</p>
+<div class="highlight"><pre><span></span><code>文本：sequence of tokens (words/subwords)
+图像：sequence of patches (visual tokens)
+
+相似性：
+  - 都是序列输入
+  - 都可以用 Transformer 处理
+  - 都可以用 mask-predict 预训练
+
+差异：
+  - 文本是离散的（词表）
+  - 图像是连续的（像素）
+  - 但图像可以 tokenize 为离散 token
+</code></pre></div>
+<p><strong>核心思想</strong>：将图像视为一种"外语"，与文本统一建模。</p>
+<h4 id="13_1">1.3 统一架构的优势<a class="headerlink" href="#13_1" title="Permanent link">&para;</a></h4>
+<p><strong>为什么需要统一架构？</strong></p>
+<ol>
+<li><strong>参数共享</strong>：视觉和语言共享 Transformer 参数，减少参数量</li>
+<li><strong>知识迁移</strong>：视觉和语言知识互相促进</li>
+<li><strong>灵活扩展</strong>：可以轻松添加新模态（音频、视频等）</li>
+<li><strong>简化设计</strong>：无需针对不同模态设计不同架构</li>
+</ol>
+<hr />
+<h3 id="2_2">2. 方法<a class="headerlink" href="#2_2" title="Permanent link">&para;</a></h3>
+<h4 id="21">2.1 统一输入表示<a class="headerlink" href="#21" title="Permanent link">&para;</a></h4>
+<p><strong>核心思想</strong>：所有模态都转为 token 序列，以统一的方式进行 masked data modeling</p>
+<p><strong>Tokenizer</strong>：
+- <strong>文本</strong>：使用 <strong>SentencePiece</strong> tokenizer 进行分词
+- <strong>图像</strong>：使用 <strong>BEiT v2 的 VQ-KD tokenizer</strong> 将图像转为离散视觉 token，作为重建目标</p>
+<div class="highlight"><pre><span></span><code>文本输入：
+  &quot;Hello world&quot; → SentencePiece → [HELLO] [WORLD] → 文本 token embeddings
+
+图像输入：
+  Image → patch 切分 → VQ-KD tokenizer → [P1] [P2] ... [P196] → 视觉 token embeddings
+
+多模态输入（图文对 = “平行句子”）：
+  Image + Text → [P1] ... [P196] [CLS] [HELLO] [WORLD]
+                 └──── 视觉 ────┘ └─── 文本 ───┘
+</code></pre></div>
+<p><strong>Modality Embeddings</strong>：
+- 视觉 token 添加 <code>[vis]</code> embedding
+- 文本 token 添加 <code>[txt]</code> embedding
+- 帮助模型区分不同模态</p>
+<h4 id="22-multiway-transformer">2.2 Multiway Transformer<a class="headerlink" href="#22-multiway-transformer" title="Permanent link">&para;</a></h4>
+<p><strong>核心挑战</strong>：如何在共享架构的同时，保留模态特化能力？</p>
+<p><strong>解决方案</strong>：Multiway Transformer——共享自注意力 + 模态专属 FFN（modality experts）</p>
+<p><img alt="Figure 2: BEiT-3 预训练概览" src="../images/beit3_fig2.png" />
+<em>Figure 2: BEiT-3 预训练概览。使用共享的 Multiway Transformer 对单模态（图像、文本）和多模态（图文对）数据进行 masked data modeling</em></p>
+<div class="highlight"><pre><span></span><code>标准 Transformer Block：
+  LayerNorm → Multi-Head Attention → LayerNorm → FFN → Residual
+
+Multiway Transformer Block：
+  LayerNorm → Multi-Head Attention → LayerNorm → Modality-Specific FFN → Residual
+
+  其中 FFN 根据模态选择（modality experts）：
+    - 视觉 token → V-FFN (Vision Expert)
+    - 文本 token → L-FFN (Language Expert)
+    - 多模态 token → VL-FFN (VL Expert)
+</code></pre></div>
+<p><strong>架构设计</strong>：</p>
+<div class="highlight"><pre><span></span><code>┌─────────────────────────────────────────┐
+│           Multiway Transformer          │
+├─────────────────────────────────────────┤
+│                                         │
+│  ┌─────────────────────────────────┐   │
+│  │   Shared Multi-Head Attention    │   │
+│  │   (共享，所有模态可见)            │   │
+│  └────────────┬────────────────────┘   │
+│               │                         │
+│        ┌──────┼──────┐                  │
+│        │      │      │                  │
+│        ▼      ▼      ▼                  │
+│  ┌────────┐┌────────┐┌────────┐        │
+│  │ V-FFN  ││ L-FFN  ││ VL-FFN │        │
+│  │(Vision)││(Lang)  ││(VL)    │        │
+│  └────┬───┘└────┬───┘└────┬───┘        │
+│       │         │         │             │
+│       ▼         ▼         ▼             │
+│  [视觉token] [文本token] [多模态token]  │
+└─────────────────────────────────────────┘
+</code></pre></div>
+<p><strong>关键设计</strong>：
+- <strong>注意力层共享</strong>：所有模态共享自注意力参数，学习跨模态对齐和深度融合
+- <strong>FFN 层分离（modality experts）</strong>：不同模态使用不同的 FFN，保留模态特化能力
+- <strong>层级配置</strong>：每一层包含 Vision Expert 和 Language Expert；<strong>顶部三层</strong>额外增加 VL Expert，用于融合编码器的深度跨模态交互</p>
+<h4 id="23-masked-data-modeling">2.3 统一预训练任务：Masked Data Modeling<a class="headerlink" href="#23-masked-data-modeling" title="Permanent link">&para;</a></h4>
+<p><strong>核心设计</strong>：BEiT-3 <strong>仅使用一个预训练任务</strong>——mask-then-predict（masked data modeling），在单模态和多模态数据上统一进行。</p>
+<blockquote>
+<p>"we only use one pretraining task, i.e., mask-then-predict, to train a general-purpose multimodal foundation model"</p>
+</blockquote>
+<p><strong>与以往方法的对比</strong>：以往视觉-语言模型通常使用多个预训练任务（image-text contrast、image-text matching、word-patch/region alignment），导致扩展不友好。BEiT-3 的单一任务设计使训练过程<strong>易于扩展</strong>（scaling-up friendly），且可使用更小的 batch size。</p>
+<p><strong>统一 mask-then-predict 任务</strong>：</p>
+<div class="highlight"><pre><span></span><code>单模态图像（Imglish）：
+  - 输入：masked image
+  - 预测：被 mask 的 visual tokens（VQ-KD tokenizer 生成）
+  - Mask 比例：40%（block-wise masking，同 BEiT）
+  - 使用：V-FFN
+
+单模态文本（English）：
+  - 输入：masked text
+  - 预测：被 mask 的 text tokens
+  - Mask 比例：15%
+  - 使用：L-FFN
+
+多模态图文对（“平行句子”）：
+  - 输入：masked image + masked text
+  - 预测：被 mask 的 visual tokens 和 text tokens
+  - 文本 Mask 比例：50%（比单模态更高）
+  - 使用：V-FFN + L-FFN（+ 顶部三层 VL-FFN）
+</code></pre></div>
+<p><strong>统一任务的优势</strong>：
+- mask-then-predict 不仅学习表示，还学习模态间的对齐
+- 单一任务避免了多任务的工程复杂性
+- 更小的 batch size 即可训练（对比学习需要超大 batch）</p>
+<h5 id="231-mask-then-predict">2.3.1 混合训练详解：三种数据统一做 mask-then-predict<a class="headerlink" href="#231-mask-then-predict" title="Permanent link">&para;</a></h5>
+<p>混合训练的关键是：<strong>三种不同类型的数据被混入同一个 batch 中训练</strong>，而不是分阶段训练。每种数据都执行同一个操作——mask 一部分 token，然后预测被 mask 的 token——但具体的 mask 策略和预测目标不同。</p>
+<p><strong>单模态图像（Imglish）</strong>：</p>
+<div class="highlight"><pre><span></span><code>输入：ImageNet-21k 等纯图像数据
+
+处理流程：
+  原始图像
+    │
+    ├──→ patch 切分 → 线性投影 → 视觉 token embeddings + [vis] embedding
+    │    （模型的输入表示）
+    │
+    └──→ VQ-KD tokenizer → 离散视觉 token（预测目标 / ground truth）
+
+Mask 策略：
+  - 40% block-wise masking（与 BEiT v1/v2 相同）
+  - 将选中的 patch 替换为可学习的 [M] token
+
+预测：
+  - 被 mask 位置的输出 → V-FFN → 分类头 → 预测离散视觉 token（8192 分类）
+  - 损失：交叉熵，仅计算被 mask 的位置
+</code></pre></div>
+<p><strong>单模态文本（English）</strong>：</p>
+<div class="highlight"><pre><span></span><code>输入：Wikipedia + BookCorpus 等纯文本数据
+
+处理流程：
+  原始文本 → SentencePiece 分词 → 文本 token embeddings + [txt] embedding
+  （输入和预测目标都是文本 token，与 BERT 的 MLM 一样）
+
+Mask 策略：
+  - 15% random masking（与 BERT 相同）
+  - 被选中的 token 替换为 [MASK]
+
+预测：
+  - 被 mask 位置的输出 → L-FFN → 分类头 → 预测文本 token
+  - 损失：交叉熵，仅计算被 mask 的位置
+</code></pre></div>
+<p><strong>多模态图文对（"平行句子"）</strong>：</p>
+<div class="highlight"><pre><span></span><code>输入：Conceptual Captions、SBU、LAION 等图文对数据
+
+处理流程：
+  图像部分：patch 切分 → 线性投影 → 视觉 token embeddings + [vis] embedding
+  文本部分：SentencePiece → 文本 token embeddings + [txt] embedding
+  拼接：[P1] [P2] ... [P196] [SEP] [T1] [T2] ... [TN]
+         └──── 视觉部分 ────┘        └─── 文本部分 ──┘
+
+Mask 策略：
+  - 图像部分：40% block-wise masking
+  - 文本部分：50% random masking（比单模态文本的 15% 更高！）
+  - 两部分同时 mask
+
+预测：
+  - 被 mask 的视觉 token → V-FFN → 预测离散视觉 token
+  - 被 mask 的文本 token → L-FFN → 预测文本 token
+  - 顶部三层的 VL-FFN 也参与多模态交互
+  - 损失：两类交叉熵之和，仅计算各自被 mask 的位置
+</code></pre></div>
+<p><strong>为什么图文对的文本 mask 比例是 50% 而非 15%？</strong> 图文对中模型需要同时利用图像上下文和文本上下文来预测被 mask 的 token，更高的 mask 比例迫使模型更深度地进行跨模态推理，而不是仅靠单模态上下文就能猜出来。</p>
+<h5 id="232-vs">2.3.2 混合训练 vs 分阶段训练<a class="headerlink" href="#232-vs" title="Permanent link">&para;</a></h5>
+<p>这是 BEiT-3 与 VLMo 最根本的区别：</p>
+<p><strong>VLMo（分阶段）</strong>：
+<div class="highlight"><pre><span></span><code>阶段 1：只在图像数据上训练，冻结语言模块
+阶段 2：只在文本数据上训练，冻结视觉模块
+阶段 3：只在图文对上训练，用 ITC + ITM + MLM 三个 loss
+每次 iteration 需要多次 forward pass 算不同 loss
+</code></pre></div></p>
+<p><strong>BEiT-3（混合训练）</strong>：
+<div class="highlight"><pre><span></span><code>每个 batch 中同时包含三种数据：
+  - 一部分是纯图像
+  - 一部分是纯文本
+  - 一部分是图文对
+
+所有数据统一执行 mask-then-predict
+一次 forward pass 搞定，一个 loss
+</code></pre></div></p>
+<p>论文强调这种混合训练是 <strong>"scaling-friendly"</strong> 的：
+- 无需设计多阶段训练策略
+- 无需调不同 loss 的权重
+- 更小的 batch size 就能训练（对比学习如 CLIP 需要超大 batch）
+- 容易扩展到新模态（只需增加对应的 expert FFN 和数据）</p>
+<h5 id="233-multiway-transformer">2.3.3 Multiway Transformer 如何同时处理三种数据<a class="headerlink" href="#233-multiway-transformer" title="Permanent link">&para;</a></h5>
+<p>关键在于架构的"共享与分离"设计。以一个 batch 中同时包含三种数据为例：</p>
+<div class="highlight"><pre><span></span><code>┌─────────────────────────────────────────────────────────┐
+│                  Shared Self-Attention                    │
+│                                                          │
+│  所有 token（无论来自图像、文本还是图文对）                  │
+│  都在同一个注意力层中互相可见                               │
+│                                                          │
+│  - 纯图像样本：patch token 之间互相关注                     │
+│  - 纯文本样本：text token 之间互相关注                      │
+│  - 图文对样本：patch token 和 text token 互相关注           │
+│    ← 这就是跨模态对齐的来源！                              │
+└────────────────────────┬────────────────────────────────┘
+                         │
+              ┌──────────┼──────────┐
+              │          │          │
+              ▼          ▼          ▼
+        ┌──────────┐┌──────────┐┌──────────┐
+        │  V-FFN   ││  L-FFN   ││  VL-FFN  │
+        │(视觉专家) ││(语言专家) ││(多模态专家)│
+        └──────────┘└──────────┘└──────────┘
+              │          │          │
+              ▼          ▼          ▼
+        视觉 token   文本 token   多模态 token
+        路由到 V-FFN  路由到 L-FFN  路由到 VL-FFN
+</code></pre></div>
+<p><strong>注意力层共享</strong>的作用：
+- 纯图像样本：自注意力学到视觉内部的空间关系
+- 纯文本样本：自注意力学到语言内部的语法/语义关系
+- 图文对样本：视觉 token 和文本 token <strong>直接互相 attend</strong>，学到跨模态对齐</p>
+<p><strong>FFN 层分离</strong>的作用：
+- 不同模态的"知识"存在各自的 FFN 参数中
+- 避免模态间的参数冲突（视觉特征和语言特征的分布差异大）
+- VL-FFN 仅在顶部三层出现，负责深度的跨模态融合</p>
+<h5 id="234">2.3.4 单一任务如何隐式学到多种能力<a class="headerlink" href="#234" title="Permanent link">&para;</a></h5>
+<p>论文的核心论点：<strong>mask-then-predict 一个任务就够了</strong>，它能隐式地学到传统方法用多个 loss 显式追求的所有能力：</p>
+<table>
+<thead>
+<tr>
+<th>传统方法用多个 loss 追求的能力</th>
+<th>BEiT-3 如何通过单一任务学到</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>视觉表示</strong>（MIM loss）</td>
+<td>纯图像数据做 mask-predict → 学到视觉特征</td>
+</tr>
+<tr>
+<td><strong>语言表示</strong>（MLM loss）</td>
+<td>纯文本数据做 mask-predict → 学到语言特征</td>
+</tr>
+<tr>
+<td><strong>跨模态对齐</strong>（ITC loss）</td>
+<td>图文对中视觉 token 和文本 token 共享注意力 + 互相预测 → 隐式对齐</td>
+</tr>
+<tr>
+<td><strong>图文匹配</strong>（ITM loss）</td>
+<td>图文对中深度交互（VL-FFN）→ 隐式学到匹配关系</td>
+</tr>
+</tbody>
+</table>
+<p>论文原文：</p>
+<blockquote>
+<p>"mask-then-predict not only learns representations but also learns the alignment between modalities"</p>
+</blockquote>
+<h5 id="235-vlmo">2.3.5 与 VLMo 的训练效率对比<a class="headerlink" href="#235-vlmo" title="Permanent link">&para;</a></h5>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>VLMo</th>
+<th>BEiT-3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Loss 数量</td>
+<td>3 个（ITC + ITM + MLM）</td>
+<td>1 个（masked data modeling）</td>
+</tr>
+<tr>
+<td>每次 iteration</td>
+<td>多次 forward pass</td>
+<td>1 次 forward pass</td>
+</tr>
+<tr>
+<td>训练策略</td>
+<td>3 阶段，需要设计冻结策略</td>
+<td>混合训练，无阶段</td>
+</tr>
+<tr>
+<td>Batch size</td>
+<td>对比学习需要大 batch</td>
+<td>较小 batch 即可</td>
+</tr>
+<tr>
+<td>Loss 权重调参</td>
+<td>需要平衡 3 个 loss</td>
+<td>无需调权重</td>
+</tr>
+<tr>
+<td>Scale up</td>
+<td>复杂度高</td>
+<td>简单，易于扩展</td>
+</tr>
+</tbody>
+</table>
+<p>这也是论文的核心主张——<strong>越简单的方法，越能 scale up</strong>。BEiT-3 扩展到了 ViT-Giant（1.9B 参数），全部使用公开数据集，全面超越了用了私有数据（JFT-3B）的 CoCa。</p>
+<h4 id="24_1">2.4 下游任务适配<a class="headerlink" href="#24_1" title="Permanent link">&para;</a></h4>
+<p>BEiT-3 的统一架构可灵活适配多种下游任务：</p>
+<p><img alt="Figure 3: BEiT-3 下游任务适配" src="../images/beit3_fig3.png" />
+<em>Figure 3: BEiT-3 可迁移到多种视觉和视觉-语言下游任务。通过共享 Multiway Transformer，模型可复用为视觉/语言编码器、融合编码器、双塔编码器、序列到序列生成模型</em></p>
+<p><strong>(a)(b) 视觉/语言编码器</strong>：
+<div class="highlight"><pre><span></span><code>视觉编码器：
+  输入：image → V-FFN
+  任务：图像分类（ImageNet）、语义分割（ADE20K）、
+       目标检测/实例分割（COCO）
+
+语言编码器：
+  输入：text → L-FFN
+  任务：Masked Language Modeling
+</code></pre></div></p>
+<p><strong>(c) 融合编码器</strong>：
+<div class="highlight"><pre><span></span><code>输入：image + text → V-FFN + L-FFN + VL-FFN（顶部三层）
+任务：视觉问答（VQAv2）、视觉推理（NLVR2）
+说明：联合编码图文对，实现深度跨模态交互
+</code></pre></div></p>
+<p><strong>(d) 双塔编码器</strong>：
+<div class="highlight"><pre><span></span><code>输入：image 和 text 分别编码
+  - 图像分支：V-FFN
+  - 文本分支：L-FFN
+任务：图文检索（Flickr30k, COCO）
+说明：模态分别编码，用于高效检索
+</code></pre></div></p>
+<p><strong>(e) 序列到序列生成</strong>：
+<div class="highlight"><pre><span></span><code>输入：image + [BOS] → VL-FFN
+输出：next token prediction
+任务：图像描述生成（COCO Captioning）
+说明：序列到序列学习，用于图像到文本生成
+</code></pre></div></p>
+<hr />
+<h3 id="3-beit-3">3. BEiT-3 总结<a class="headerlink" href="#3-beit-3" title="Permanent link">&para;</a></h3>
+<h4 id="31_2">3.1 核心贡献<a class="headerlink" href="#31_2" title="Permanent link">&para;</a></h4>
+<ol>
+<li><strong>"图像作为外语"</strong>：将图像视为一种语言，与文本统一建模</li>
+<li><strong>Multiway Transformer</strong>：共享注意力 + 分离 FFN，平衡共享与特化</li>
+<li><strong>全模态预训练</strong>：同时在图像、文本、图文对上预训练</li>
+<li><strong>灵活扩展</strong>：可以轻松添加新模态和新任务</li>
+</ol>
+<h4 id="32-beit-v1v2">3.2 与 BEiT v1/v2 对比<a class="headerlink" href="#32-beit-v1v2" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>BEiT v1</th>
+<th>BEiT v2</th>
+<th>BEiT-3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>模态</td>
+<td>视觉</td>
+<td>视觉</td>
+<td>视觉 + 语言 + 多模态</td>
+</tr>
+<tr>
+<td>预训练目标</td>
+<td>MIM</td>
+<td>MIM + Cls</td>
+<td>MIM + MLM + ITM + ITC</td>
+</tr>
+<tr>
+<td>架构</td>
+<td>ViT</td>
+<td>ViT</td>
+<td>Multiway Transformer</td>
+</tr>
+<tr>
+<td>下游任务</td>
+<td>视觉任务</td>
+<td>视觉任务</td>
+<td>视觉 + 语言 + 多模态</td>
+</tr>
+<tr>
+<td>统一性</td>
+<td>❌</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<h4 id="33_1">3.3 与其他多模态模型对比<a class="headerlink" href="#33_1" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>架构</th>
+<th>预训练目标</th>
+<th>统一性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>BEiT-3</strong></td>
+<td>Multiway Transformer</td>
+<td>MIM+MLM+ITM+ITC</td>
+<td>✅ 全统一</td>
+</tr>
+<tr>
+<td>CLIP</td>
+<td>双塔 ViT+Transformer</td>
+<td>ITC</td>
+<td>❌ 分离</td>
+</tr>
+<tr>
+<td>BLIP</td>
+<td>MED</td>
+<td>ITC+ITM+LM</td>
+<td>⚠️ 部分统一</td>
+</tr>
+<tr>
+<td>FLAVA</td>
+<td>双塔 + 融合</td>
+<td>MLM+MIM+ITM+ITC</td>
+<td>⚠️ 部分统一</td>
+</tr>
+</tbody>
+</table>
+<h4 id="34">3.4 影响<a class="headerlink" href="#34" title="Permanent link">&para;</a></h4>
+<p>BEiT-3 是微软 BEiT 系列的集大成之作：
+- <strong>BEiT v1</strong>：证明了 Mask Image Modeling 的有效性
+- <strong>BEiT v2</strong>：改进 tokenizer + 多任务学习
+- <strong>BEiT-3</strong>：统一视觉、语言、多模态，实现"图像作为外语"</p>
+<p>BEiT-3 的思想影响了后续的多模态统一架构（如 Qwen-VL、LLaVA 等），推动了多模态学习从"分离"走向"统一"。</p>
+<h4 id="35-vlmo">3.5 与 VLMo 的异同<a class="headerlink" href="#35-vlmo" title="Permanent link">&para;</a></h4>
+<p>BEiT-3 是 VLMo 的直接后续演进，两者都出自 Microsoft Research。BEiT-3 论文中显式引用 VLMo 为 "[WBDW21]"，并明确写道：</p>
+<blockquote>
+<p>"We adopt Multiway Transformers [WBDW21] for general-purpose modeling"</p>
+</blockquote>
+<p>即 BEiT-3 的骨干网络 Multiway Transformer 直接来自 VLMo 的 MOME Transformer。两篇论文的核心作者高度重合（Wenhui Wang、Hangbo Bao、Li Dong、Furu Wei）。</p>
+<h5 id="_5">相同点<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h5>
+<ol>
+<li><strong>模型架构本质相同</strong>：BEiT-3 的 Multi-Way Transformer 就是 VLMo 的 MoME（Mixture-of-Modality-Experts），只是改了名（受 Google Pathways 影响）。两者的核心设计一致：</li>
+<li><strong>Self-Attention 层</strong>：所有模态共享参数</li>
+<li><strong>FFN 层</strong>：按模态拆分为 Vision Expert / Language Expert / Vision-Language Expert</li>
+<li>
+<p>推理时根据任务选择模型的不同部分，可灵活切换 Dual-Encoder（检索）和 Fusion Encoder（VQA 等）模式</p>
+</li>
+<li>
+<p><strong>都支持单模态和多模态任务</strong>：同一模型既能做图像分类、文本 MLM，也能做 VQA、图文检索</p>
+</li>
+<li>
+<p><strong>都利用了单模态大数据</strong>：不只依赖多模态数据，也在 ImageNet、纯文本等单模态数据上训练</p>
+</li>
+</ol>
+<h5 id="_6">不同点<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h5>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>VLMo（2021.11）</th>
+<th>BEiT-3（2022.08）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>预训练目标</strong></td>
+<td>ITC + ITM + MLM <strong>三个 Loss</strong></td>
+<td>仅 Masked Data Modeling <strong>一个 Loss</strong></td>
+</tr>
+<tr>
+<td><strong>训练策略</strong></td>
+<td>分阶段预训练：Vision → Language → Vision-Language，每阶段冻结不同模块</td>
+<td>混合训练，在图像/文本/图文对上统一做 mask-then-predict</td>
+</tr>
+<tr>
+<td><strong>核心理念</strong></td>
+<td>统一 Dual-Encoder 与 Fusion Encoder 的灵活性</td>
+<td><strong>"图像作为外语"</strong>（Imaglish），图文对视为平行句子</td>
+</tr>
+<tr>
+<td><strong>VL Expert 位置</strong></td>
+<td>最后 F 层（Base 模型 L=10, F=2）</td>
+<td>顶部三层额外增加 VL Expert</td>
+</tr>
+<tr>
+<td><strong>视觉 Tokenizer</strong></td>
+<td>无独立 tokenizer（直接用 BEiT v1 初始化）</td>
+<td>使用 BEiT v2 的 VQ-KD tokenizer 将图像编码为离散 token 作为预测目标</td>
+</tr>
+<tr>
+<td><strong>Scale</strong></td>
+<td>Base/Large，4M 训练数据</td>
+<td>扩展到 <strong>Billion 级参数</strong>（ViT-Giant, 1.9B），大幅扩展数据集，且全部使用<strong>公开数据集</strong></td>
+</tr>
+<tr>
+<td><strong>训练效率</strong></td>
+<td>每次 iteration 需多次 forward（算三个 Loss），64 张 V100 训练两天</td>
+<td>单 Loss 训练高效，更小的 batch size 即可，<strong>易于 Scale Up</strong></td>
+</tr>
+<tr>
+<td><strong>性能</strong></td>
+<td>在 4M Setting 下全线高于 ALBEF</td>
+<td>全面超越 CoCa、BLIP 等前作，且全部使用公开数据（CoCa 用了 JFT-3B 私有数据）</td>
+</tr>
+</tbody>
+</table>
+<h5 id="vlmo-future-work-beit-3">VLMo 的 Future Work 在 BEiT-3 中的逐条实现<a class="headerlink" href="#vlmo-future-work-beit-3" title="Permanent link">&para;</a></h5>
+<p>VLMo 论文的 Conclusion 列出了四条未来方向，<strong>每一条都在 BEiT-3 中落实</strong>：</p>
+<ol>
+<li><strong>"scale up the model size"</strong> → BEiT-3 扩展到 ViT-Giant（1.9B 参数），Base/Large 之上增加了 Giant 规模</li>
+<li><strong>"fine-tuning for vision-language generation tasks, such as image captioning"</strong> → BEiT-3 在 COCO Captioning 上达到 SOTA（CIDEr 147.6），支持序列到序列生成</li>
+<li><strong>"explore to what extent vision-language pre-training can help each other modality"</strong> → BEiT-3 在图像/文本/图文对上统一训练，单模态和多模态互相促进，且视觉任务（检测、分割）也受益</li>
+<li><strong>"extend to integrate more modalities (e.g., speech, video, structured knowledge)"</strong> → BEiT-3 的 Multiway Transformer 统一框架天然支持扩展新模态，只需添加对应的 modality expert</li>
+</ol>
+<h5 id="_7">演进关系<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code>BEiT v1（2021.06，视觉 MIM）
+    ↓
+VLMo（2021.11，提出 MOME 架构 + 分阶段预训练 + ITC/ITM/MLM 三个 Loss）
+    ↓
+VL-BEiT（2022.06，Vision-Language Mask Modeling 过渡）
+    ↓
+BEiT-3（2022.08，继承 MOME 改名为 Multiway Transformer + 单一 MDM Loss + 大规模扩展）
+</code></pre></div>
+<p><strong>核心区别一句话</strong>：VLMo 提出了 MOME 架构但用了三个 Loss 训练；BEiT-3 继承了同一架构，但将训练目标简化为一个 Masked Data Modeling Loss，并大幅扩展了 scale。BEiT-3 的核心主张是——"越简单的方法，Scale 越好，越能应用"。</p>
+<hr />
+<h3 id="_8">总结与对比<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<h4 id="_9">三代方法对比<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>BEiT v1</th>
+<th>BEiT v2</th>
+<th>BEiT-3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>时间</td>
+<td>2021.06</td>
+<td>2022.08</td>
+<td>2022.08</td>
+</tr>
+<tr>
+<td>核心创新</td>
+<td>Mask Image Modeling</td>
+<td>改进 Tokenizer + 多任务</td>
+<td>图像作为外语</td>
+</tr>
+<tr>
+<td>模态</td>
+<td>视觉</td>
+<td>视觉</td>
+<td>视觉 + 语言 + 多模态</td>
+</tr>
+<tr>
+<td>预训练目标</td>
+<td>MIM</td>
+<td>MIM + Cls</td>
+<td>MIM + MLM + ITM + ITC</td>
+</tr>
+<tr>
+<td>架构</td>
+<td>ViT</td>
+<td>ViT</td>
+<td>Multiway Transformer</td>
+</tr>
+<tr>
+<td>Tokenizer</td>
+<td>dVAE（独立训练）</td>
+<td>改进版（复用）</td>
+<td>统一 tokenizer</td>
+</tr>
+<tr>
+<td>下游任务</td>
+<td>视觉</td>
+<td>视觉</td>
+<td>视觉 + 语言 + 多模态</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_10">关键技术洞察<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
+<ol>
+<li>
+<p><strong>Mask-predict 是有效的</strong>：从 BEiT v1 到 BEiT-3，mask-predict 思想贯穿始终，证明了其有效性</p>
+</li>
+<li>
+<p><strong>Tokenizer 质量很重要</strong>：从 dVAE 到改进版 tokenizer，质量提升带来性能提升</p>
+</li>
+<li>
+<p><strong>多任务学习有效</strong>：BEiT v2 的 MIM+分类、BEiT-3 的全模态预训练，多任务互补</p>
+</li>
+<li>
+<p><strong>统一架构是趋势</strong>：BEiT-3 证明了单一架构可以处理多模态，影响了后续工作</p>
+</li>
+<li>
+<p><strong>"图像作为外语"的类比</strong>：将图像视为一种语言，为多模态统一建模提供了新思路</p>
+</li>
+</ol>
+<h4 id="_11">演进脉络<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>BERT (NLP)
+  ↓ 迁移：Mask Language → Mask Image
+BEiT v1 (2021.06)
+  ↓ 改进：Tokenizer + 多任务
+BEiT v2 (2022.08)
+  ↓ 扩展：视觉 → 多模态
+BEiT-3 (2022.08)
+</code></pre></div>
+<p>BEiT 系列展示了从"视觉自监督"到"多模态统一"的演进路径，是微软在多模态学习领域的重要贡献，也是理解现代多模态大模型（如 Qwen-VL、LLaVA）的重要基础。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.top", "navigation.instant", "search.highlight", "content.code.copy", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,4145 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../GENIUS/GENIUS%20%E6%80%BB%E7%BB%93/">
+      
+      
+        <link rel="next" href="../%E5%85%B3%E9%94%AE%E4%BB%A3%E7%A0%81%E8%AF%B4%E6%98%8E/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>RadVLM-GRPO 论文精读 - 学习资料库</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#radvlm-grpo" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="学习资料库" class="md-header__button md-logo" aria-label="学习资料库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            学习资料库
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              RadVLM-GRPO 论文精读
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="学习资料库" class="md-nav__button md-logo" aria-label="学习资料库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    学习资料库
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    学习资料库
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GENIUS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    GENIUS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GENIUS/GENIUS%20%E6%80%BB%E7%BB%93/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GENIUS 总结
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RadAlign
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RadAlign
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RadVLM-GRPO 论文精读
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RadVLM-GRPO 论文精读
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0. 简历版项目介绍
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="0. 简历版项目介绍">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01-verl-ray" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.1 verl 与 Ray 基础
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="0.1 verl 与 Ray 基础">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#verl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        为什么需要 verl
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verl-single-controller-multi-worker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        verl 的核心架构：Single-Controller + Multi-Worker
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rayverl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ray：verl 的分布式底座
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grpo-step" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一个 GRPO step 的数据流
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#02-vllm-rollout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.2 vLLM Rollout 的角色
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#03-fsdp-vllm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.3 FSDP 训练与 vLLM 推理的内存布局不兼容
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 核心要点
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 方法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 数据集
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 数据集">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数据集来源与开源情况
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#llava-sharegpt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        样本格式（LLaVA / ShareGPT 风格）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 类任务的样例
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        关键设计点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数据集构建方法（通俗版）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 整体训练流程
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 整体训练流程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sft" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SFT 细节：全参数微调
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sft-rl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        训练硬件与显存（SFT + RL 两阶段）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-grpo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 GRPO 强化学习
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 GRPO 强化学习">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#grpo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GRPO 目标函数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RL 超参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Batch 维度实际计算
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        训练稳定性机制🚗
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reward-grpo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        配置到代码：并行 Reward 如何流入 GRPO
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-reward" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Reward 设计
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4 Reward 设计">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-radcliq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        报告生成：-RadCliQ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#radcliq-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RadCliQ 4 个组件详解
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hungarian-matched-soft-f1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        视觉定位：Hungarian-matched soft-F1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reward-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reward server 架构
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 显存分析
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 实验结果
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 实验结果">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 报告生成性能
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 视觉定位性能
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 奖励选择的影响
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 讨论与局限
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 讨论与局限">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 未来方向
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 总结
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%85%B3%E9%94%AE%E4%BB%A3%E7%A0%81%E8%AF%B4%E6%98%8E/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关键代码说明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    全模态大模型·出行安全项目
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    全模态大模型·出行安全项目
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/5.27%20Qwen3.7-Max%2BGeoLife%E8%AF%84%E4%BC%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.27 Qwen3.7-Max+GeoLife评估
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/Omni-%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Omni-出行安全项目
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%B1%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    全模态大模型·出行安全项目进展
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLUE
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    BLUE
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/BLUE/BLUE%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLUE论文笔记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    论文精读笔记
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    论文精读笔记
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/AAAAA_Transformer%E3%80%81LLM%E4%B8%8EVLM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AAAAA_Transformer、LLM与VLM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/BBBBB_%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BBBBB_强化学习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/BERT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BERT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/BEiT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BEiT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/BLIP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLIP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/CLIP%20%26%20ALIGN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP & ALIGN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/CLIP%20%E6%94%B9%E8%BF%9B%E5%B7%A5%E4%BD%9C%E4%B8%B2%E8%AE%B2%EF%BC%88%E4%B8%8A%EF%BC%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP 改进工作串讲（上）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/CLIP%20%E6%94%B9%E8%BF%9B%E5%B7%A5%E4%BD%9C%E4%B8%B2%E8%AE%B2%EF%BC%88%E4%B8%8B%EF%BC%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP 改进工作串讲（下）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/DALL%C2%B7E%202/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DALL·E 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/DINO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DINO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/Flamingo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Flamingo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/GPT%EF%BC%8CGPT-2%EF%BC%8CGPT-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPT，GPT-2，GPT-3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/ImageBind%20%E4%B8%8E%20LanguageBind%20%E5%AF%B9%E6%AF%94/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ImageBind 与 LanguageBind 对比
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/InternVL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    InternVL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/LLaMA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLaMA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/LLaVA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLaVA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/MAE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MAE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/MoCo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MoCo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/OFA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OFA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/PaLI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PaLI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/Qwen-VL%E4%B8%8EOmni/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qwen-VL与Omni
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/SAM3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SAM3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/SigLIP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SigLIP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/SimVLM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SimVLM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/Swin%20Transformer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Swin Transformer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/UniPerceiver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UniPerceiver
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/Unified-IO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unified-IO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/ViLT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ViLT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/ViT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ViT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/ZZZZZ%E5%85%AC%E5%BC%8F%E4%BB%A3%E7%A0%81%E7%AD%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ZZZZZ公式代码等
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/%E5%8E%9F%E7%94%9F%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    原生多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%90%8E%E8%AE%AD%E7%BB%83%E7%BB%BC%E8%BF%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多模态大模型后训练综述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/%E5%A4%9A%E6%A8%A1%E6%80%81%E8%AE%BA%E6%96%87%E4%B8%B2%E8%AE%B2%C2%B7%E4%B8%8A/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多模态论文串讲·上
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/%E5%A4%9A%E6%A8%A1%E6%80%81%E8%AE%BA%E6%96%87%E4%B8%B2%E8%AE%B2%C2%B7%E4%B8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多模态论文串讲·下
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/%E5%AF%B9%E6%AF%94%E5%AD%A6%E4%B9%A0%E7%BB%BC%E8%BF%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    对比学习综述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/%E6%B7%B7%E5%90%88%E7%B2%BE%E5%BA%A6%E8%AE%AD%E7%BB%83%E4%B8%8E%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    混合精度训练与分布式训练
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/%E8%A7%86%E9%A2%91%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    视频多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/%E9%9F%B3%E9%A2%91%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    音频多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0. 简历版项目介绍
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="0. 简历版项目介绍">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01-verl-ray" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.1 verl 与 Ray 基础
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="0.1 verl 与 Ray 基础">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#verl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        为什么需要 verl
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verl-single-controller-multi-worker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        verl 的核心架构：Single-Controller + Multi-Worker
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rayverl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ray：verl 的分布式底座
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grpo-step" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一个 GRPO step 的数据流
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#02-vllm-rollout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.2 vLLM Rollout 的角色
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#03-fsdp-vllm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.3 FSDP 训练与 vLLM 推理的内存布局不兼容
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 核心要点
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 方法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 数据集
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 数据集">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数据集来源与开源情况
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#llava-sharegpt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        样本格式（LLaVA / ShareGPT 风格）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 类任务的样例
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        关键设计点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数据集构建方法（通俗版）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 整体训练流程
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 整体训练流程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sft" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SFT 细节：全参数微调
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sft-rl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        训练硬件与显存（SFT + RL 两阶段）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-grpo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 GRPO 强化学习
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 GRPO 强化学习">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#grpo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GRPO 目标函数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RL 超参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Batch 维度实际计算
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        训练稳定性机制🚗
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reward-grpo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        配置到代码：并行 Reward 如何流入 GRPO
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-reward" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Reward 设计
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4 Reward 设计">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-radcliq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        报告生成：-RadCliQ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#radcliq-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RadCliQ 4 个组件详解
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hungarian-matched-soft-f1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        视觉定位：Hungarian-matched soft-F1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reward-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reward server 架构
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 显存分析
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 实验结果
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 实验结果">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 报告生成性能
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 视觉定位性能
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 奖励选择的影响
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 讨论与局限
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 讨论与局限">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 未来方向
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 总结
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="radvlm-grpo">RadVLM-GRPO 论文精读<a class="headerlink" href="#radvlm-grpo" title="Permanent link">&para;</a></h1>
+<p><strong>RadAlign: Aligning Radiology VLMs with Clinically Grounded Rewards</strong></p>
+<p><strong>RadAlign：基于临床依据奖励的放射学视觉语言模型对齐</strong></p>
+<blockquote>
+<p><strong>论文标题</strong>：Enhancing Radiology Report Generation and Visual Grounding using Reinforcement Learning<br />
+<strong>作者</strong>：Benjamin Gundersen, Nicolas Deperrois, Samuel Ruiperez-Campillo, Thomas M. Sutter, Julia E. Vogt, Michael Moor, Farhad Nooralahzadeh, Michael Krauthammer<br />
+<strong>机构</strong>：University of Zurich, ETH Zurich, Zurich University of Applied Sciences<br />
+<strong>arXiv</strong>：2512.10691<br />
+<strong>代码</strong>：https://github.com/uzh-dqbm-cmi/RadVLM-GRPO<br />
+<strong>模型权重</strong>：https://physionet.org/content/radvlm-model</p>
+</blockquote>
+<hr />
+<h2 id="0">0. 简历版项目介绍<a class="headerlink" href="#0" title="Permanent link">&para;</a></h2>
+<p><strong>RadAlign：用临床导向的奖励对齐放射学 VLM</strong>（多模态大模型 SFT 与 RL 后训练研究）</p>
+<ul>
+<li><strong>项目概述</strong>：面向胸部 X 光医学垂域，基于多机多卡分布式训练，用 SFT + GRPO 两阶段后训练多模态 VLM，统一优化报告生成与视觉定位两类临床任务。</li>
+<li><strong>多模态 SFT 全参数微调</strong>：基于 Qwen3-VL-8B-Instruct，用 LLaMA-Factory + DeepSpeed ZeRO-3 做全参数 SFT，训练数据为 ShareGPT 风格指令对，使用 bf16 混合精度训练。</li>
+<li><strong>GRPO 强化学习</strong>：使用 verl + Ray 实现 GRPO 算法，配置非对称 clip、KL 散度约束等增强训练稳定性；Actor + Reference + vLLM Rollout 三份模型副本通过 ZeRO-3 分片协同，解决 FSDP 训练与 vLLM 推理内存布局不兼容问题。</li>
+<li><strong>奖励工程</strong>：设计领域对齐的复合 reward：报告生成用多个评测模型加权组合的综合指标，视觉定位用基于 IoU 的内联规则奖励函数。</li>
+<li><strong>分布式 Reward Server</strong>：独立节点跑多个 FastAPI worker 并行运行 reward 计算服务，与训练节点解耦避免显存争用。</li>
+</ul>
+<blockquote>
+<p><strong>口述亮点</strong>：（1）GRPO 相比 PPO 砍掉 critic、用组相对优势的算法理解；（2）verl 工程实现里 Actor/Rollout 权重共享却需独立存储的 FSDP/vLLM 兼容问题；（3）reward hacking 的发现与综合指标规避方案——这三点最能体现对 RL 训练和工程的理解深度。</p>
+</blockquote>
+<h3 id="01-verl-ray">0.1 verl 与 Ray 基础<a class="headerlink" href="#01-verl-ray" title="Permanent link">&para;</a></h3>
+<h4 id="verl">为什么需要 verl<a class="headerlink" href="#verl" title="Permanent link">&para;</a></h4>
+<p>RL 训练（PPO/GRPO）比 SFT 复杂得多：一个 step 里要同时协调<strong>多个模型副本</strong>——Actor（训练）、Reference（冻结）、Reward（打分）、Rollout（推理生成），每个副本用不同引擎（FSDP/vLLM/外部 server），跨多 GPU/多节点。手写这套分布式编排（进程管理、显存分配、权重同步、数据传输）极其复杂。<strong>verl</strong>（Volcano Engine Reinforcement Learning，字节跳动火山引擎开源）把这些工程环节封装好，用户只需写 reward 函数和算法配置即可跑 GRPO/PPO/REINFORCE。</p>
+<h4 id="verl-single-controller-multi-worker">verl 的核心架构：Single-Controller + Multi-Worker<a class="headerlink" href="#verl-single-controller-multi-worker" title="Permanent link">&para;</a></h4>
+<p>verl 采用<strong>单控制器多工作器</strong>模式：</p>
+<ul>
+<li><strong>Controller</strong>（单进程）：编排整个训练流程，按顺序发指令——"生成 rollout → 算 reward → 算 advantage → 更新 actor → 同步权重"。不干活，只调度。</li>
+<li><strong>Worker</strong>（多进程/多节点）：实际执行计算的角色，每个算法角色对应一个 WorkerGroup：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Worker</th>
+<th>算法角色</th>
+<th>引擎</th>
+<th>GRPO 是否需要</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ActorWorker</td>
+<td>策略 π_θ（可训练）</td>
+<td>FSDP/DeepSpeed</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>RefWorker</td>
+<td>参考 π_ref（冻结）</td>
+<td>FSDP/DeepSpeed</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>RewardWorker</td>
+<td>奖励 R_φ</td>
+<td>外部 server / 规则函数</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>RolloutWorker</td>
+<td>推理生成（工程角色）</td>
+<td>vLLM</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>CriticWorker</td>
+<td>价值函数 V_ψ</td>
+<td>FSDP/DeepSpeed</td>
+<td>❌（GRPO 砍掉）</td>
+</tr>
+</tbody>
+</table>
+<h4 id="rayverl">Ray：verl 的分布式底座<a class="headerlink" href="#rayverl" title="Permanent link">&para;</a></h4>
+<p><strong>Ray</strong> 是 UC Berkeley RISELab 出品的开源分布式计算框架，可以理解为<strong>"分布式 Python 的操作系统"</strong>。它提供三个核心抽象：</p>
+<ul>
+<li><strong>Task</strong>（无状态远程函数）：<code>@ray.remote</code> 装饰普通函数，异步调度到集群任意节点执行</li>
+<li><strong>Actor</strong>（有状态远程对象）：<code>@ray.remote</code> 装饰类，实例化为长驻进程，保持状态。verl 的每个 WorkerGroup 都是 Ray Actor</li>
+<li><strong>Object Store</strong>（共享内存池）：跨节点零拷贝数据传递，rollout 数据通过它从 RolloutWorker 传给 ActorWorker</li>
+</ul>
+<p>在 verl 里，Ray 负责三件事：</p>
+<ol>
+<li><strong>资源调度</strong>：把多节点 GPU 集群抽象成统一 resource pool，每个 Worker 声明需要多少 GPU，Ray 通过 PlacementGroup 保证调度到正确位置</li>
+<li><strong>进程管理</strong>：每个 verl Worker 是独立 Ray Actor，进程隔离，崩溃可重启</li>
+<li><strong>跨节点数据传输</strong>：rollout 生成的大批 token 序列通过 Object Store 零拷贝传递，不走网络序列化</li>
+</ol>
+<h4 id="grpo-step">一个 GRPO step 的数据流<a class="headerlink" href="#grpo-step" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>prompts → RolloutWorker(vLLM 生成 G=8 条响应)
+       → RewardWorker(算每条 reward)
+       → ActorWorker + RefWorker(算 log π_θ, log π_ref, KL)
+       → Controller(算 GRPO advantage = (R - mean)/std)
+       → ActorWorker(FSDP 前向+反向, 更新 θ)
+       → Actor → Rollout 权重同步(FSDP 分片 → vLLM 完整)
+</code></pre></div>
+<p>一句话：<strong>verl 是 RL 训练框架，定义"做什么"（算法、reward、worker 角色）；Ray 是分布式底座，解决"在哪儿做"（多机调度、进程隔离、数据传输）</strong>。</p>
+<h3 id="02-vllm-rollout">0.2 vLLM Rollout 的角色<a class="headerlink" href="#02-vllm-rollout" title="Permanent link">&para;</a></h3>
+<p><strong>先澄清 GRPO 的算法角色</strong>：GRPO（Group Relative Policy Optimization）相比 PPO 最大的变化是<strong>砍掉 Critic（Value Model）</strong>，不用训练价值函数，而是通过同一 Prompt 下多个回答之间的相对奖励来计算 Advantage。因此 GRPO 的模型角色比 PPO 少一个：</p>
+<table>
+<thead>
+<tr>
+<th>角色</th>
+<th>PPO</th>
+<th>GRPO</th>
+<th>本项目里是谁</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Actor（策略 π_θ，可训练）</td>
+<td>✅</td>
+<td>✅</td>
+<td>Qwen3-VL-8B SFT checkpoint</td>
+</tr>
+<tr>
+<td>Reference（π_ref，冻结）</td>
+<td>✅</td>
+<td>✅</td>
+<td>同 Actor 的 SFT checkpoint，冻结</td>
+</tr>
+<tr>
+<td>Reward（R_φ，冻结）</td>
+<td>✅</td>
+<td>✅</td>
+<td><strong>两个任务不一样</strong>（见下）</td>
+</tr>
+<tr>
+<td>Critic（V_ψ，可训练）</td>
+<td>✅</td>
+<td>❌</td>
+<td>不需要</td>
+</tr>
+</tbody>
+</table>
+<p><strong>关键</strong>：GRPO 仍然需要 Reward 这个角色，只是 Reward 的形式多样——可以是训练出来的 reward model（传统 RLHF），也可以是规则验证器（DeepSeek-R1 的数学答案验证器）、外部评测模型等。GRPO 用组内相对优势 <code>Â = (R - mean)/std</code> 替代了 PPO 中 Critic 提供的 Advantage，所以砍掉了 Critic，但 Reward 角色保留。</p>
+<p><strong>本项目里 Reward 角色按任务分两种</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>任务</th>
+<th>Reward 实现</th>
+<th>是否调用神经网络</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>报告生成</td>
+<td><strong>外部评测模型</strong>（RadCliQ server：BERTScore + CheXbert + RadGraph-F1 + BLEU）</td>
+<td>✅ 调用 DistilBERT / CheXbert / RadGraph-XL</td>
+</tr>
+<tr>
+<td>视觉定位</td>
+<td><strong>内联规则函数</strong>（IoU + Hungarian 匹配）</td>
+<td>❌ 纯几何运算</td>
+</tr>
+</tbody>
+</table>
+<p><strong>vLLM Rollout 不是算法角色，是工程角色</strong>。它的功能是：<strong>快速生成 G=8 个 rollout</strong>（对每个 prompt 采样 8 条输出供 GRPO 计算组内相对优势）。</p>
+<p><strong>为什么需要单独的 Rollout</strong>：Actor 既要训练又要生成 rollout，但两种场景内存布局不兼容——训练（FSDP）权重分片到多卡，推理（vLLM）需要完整权重 + 预分配 KV cache 池。无法共享同一份权重，所以 verl 把"生成 rollout"功能从 Actor 里剥离，单独用 vLLM 跑。</p>
+<p><strong>Actor 和 Rollout 的关系</strong>：算法上是同一个模型（都是策略 π_θ），工程上独立存储（两套内存布局），每步训练后把 Actor 的权重同步到 Rollout（vLLM）——这个同步开销是 verl 上 GRPO 的主要工程成本。</p>
+<p><strong>verl 实现里同时驻留的模型副本</strong>（3 个算法角色 + 1 个工程角色）：</p>
+<table>
+<thead>
+<tr>
+<th>副本</th>
+<th>算法角色</th>
+<th>引擎</th>
+<th>是否可训练</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Actor</td>
+<td>策略 π_θ</td>
+<td>FSDP</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Reference</td>
+<td>参考 π_ref</td>
+<td>FSDP</td>
+<td>❌ 冻结</td>
+</tr>
+<tr>
+<td>Reward（报告生成）</td>
+<td>外部评测模型</td>
+<td>FastAPI server（独立节点）</td>
+<td>❌ 冻结</td>
+</tr>
+<tr>
+<td>Reward（视觉定位）</td>
+<td>规则函数</td>
+<td>verl worker 内联</td>
+<td>❌ 无模型</td>
+</tr>
+<tr>
+<td>Rollout</td>
+<td>策略 π_θ（同 Actor，工程副本）</td>
+<td>vLLM</td>
+<td>❌ 每步从 Actor 同步</td>
+</tr>
+</tbody>
+</table>
+<p>一句话总结：<strong>GRPO 算法有 3 个模型角色（Actor + Reference + Reward，砍掉了 PPO 的 Critic），Reward 在本项目里按任务分两种实现（报告生成用外部评测模型，视觉定位用内联规则函数），vLLM Rollout 是 verl 为了加速采样而额外复制一份 Actor 权重做推理用的工程方案，不是算法必需</strong>。</p>
+<h3 id="03-fsdp-vllm">0.3 FSDP 训练与 vLLM 推理的内存布局不兼容<a class="headerlink" href="#03-fsdp-vllm" title="Permanent link">&para;</a></h3>
+<p>Actor 模型在一个 GRPO step 里要干两件事：<strong>训练</strong>（前向+反向传播，算梯度更新权重）用 FSDP，<strong>推理</strong>（生成 8 条 rollout）用 vLLM。两种引擎的内存使用方式水火不容：</p>
+<p><strong>FSDP（训练时）</strong>：
+- 权重被<strong>切片</strong>分散到所有 GPU 上——每张卡只存 1/N 的权重
+- 前向/反向时临时 <strong>all-gather</strong> 拼出完整权重，算完立刻<strong>释放</strong>
+- 内存由 PyTorch allocator <strong>动态</strong>分配/回收
+- 还要存梯度 + AdamW 优化器状态（也分片）</p>
+<p><strong>vLLM（推理时）</strong>：
+- 权重需要是<strong>完整的</strong>（或 TP 切分，但不是 FSDP 那种全切片）
+- 启动时<strong>预分配</strong>一大块连续显存作为 KV cache 池（PagedAttention）
+- 这块 KV cache 池由 vLLM 自己的内存管理器管，<strong>不归 PyTorch 管</strong>
+- 内存布局是<strong>静态</strong>的——先放权重，再把剩余空间全划给 KV cache</p>
+<p><strong>冲突点</strong>：vLLM 预分配 KV cache 池后，FSDP 想 all-gather 完整权重时没有连续显存可用；FSDP 的权重是分片的，vLLM 拿不到完整权重做推理。两者的内存管理器互相不知道对方，无法共享同一份权重。</p>
+<p><strong>verl 的解决方案</strong>：不共享，存两份。Actor（FSDP）用于训练，Rollout（vLLM）用于推理，算法上是同一个模型（都是 <span class="arithmatex">\(\pi_\theta\)</span>），工程上是两套独立的内存布局。每步训练更新完 Actor 权重后，把 Actor（FSDP 分片格式）的权重<strong>同步</strong>到 Rollout（vLLM 完整格式）——需要 all-gather 拼出完整权重再灌进 vLLM，这个同步开销是 verl GRPO 的主要工程成本。</p>
+<hr />
+<h2 id="1">1. 核心要点<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>医学 VLM + RL 的系统性研究</strong>：在胸部 X 光（CXR）领域，系统对比了 <strong>SFT-only 与 SFT+GRPO</strong> 两种设置，覆盖开放域的 <strong>report generation</strong> 和 <strong>visual grounding</strong> 两个任务。</li>
+<li><strong>基于 Qwen3-VL 的 RadVLM 升级版</strong>：把原来的 RadVLM 底座从 LLaVA 系换成了 <strong>Qwen3-VL-8B-Instruct</strong>，先在大规模 CXR 指令数据上做 SFT，再用 GRPO 优化。</li>
+<li><strong>clinically grounded reward 设计</strong>：</li>
+<li>报告生成：用 <strong>-RadCliQ</strong> 作为奖励（RadCliQ 越低越好，所以取负）</li>
+<li>视觉定位：用 <strong>Hungarian-matched soft-F1</strong>（基于 IoU）作为连续奖励</li>
+<li><strong>关键结论</strong>：</li>
+<li><strong>RL 在两个任务上都带来一致提升</strong>，即使 RadVLM 已经经过强 SFT</li>
+<li><strong>Reward 的选择至关重要</strong>：RadGraph-F1 单独作为奖励会出现严重的 reward hacking（报告极短）</li>
+</ol>
+<hr />
+<h2 id="2">2. 方法<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<h3 id="21">2.1 数据集<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>数据集</th>
+<th>用途</th>
+<th>规模</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RadVLM instruction dataset</td>
+<td>SFT</td>
+<td>~1M image-text pairs</td>
+<td>包含报告生成、异常分类、视觉定位、多轮对话</td>
+</tr>
+<tr>
+<td>RL prompts</td>
+<td>GRPO</td>
+<td>154k</td>
+<td>从上述数据中采样</td>
+</tr>
+</tbody>
+</table>
+<p>RadVLM 指令数据集的四种任务类型：
+1. <strong>Free-text report generation</strong>：根据单张 CXR 生成 findings section
+2. <strong>Abnormality classification</strong>：异常分类
+3. <strong>Visual grounding</strong>：解剖结构、异常、短语级别的 bounding box 定位
+4. <strong>Multi-turn conversations</strong>：用 GPT-4o 生成的多轮对话</p>
+<h4 id="_1">数据集来源与开源情况<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>发布渠道</strong>：PhysioNet，https://physionet.org/content/radvlm-instruction-dataset/1.0.0/ （DOI: 10.13026/et5g-h222）</li>
+<li><strong>原始论文</strong>：Deperrois et al., 2025a</li>
+<li><strong>开源方式</strong>：<strong>受控访问（credentialed access）</strong>，需注册 PhysioNet + 完成 CITI 伦理培训 + 签署 DUA 才能下载（因为底层含 MIMIC-CXR 患者影像）</li>
+<li><strong>图像来源</strong>：MIMIC-CXR-JPG（主要）、Chest Imagenome、VinDr-CXR、MS-CXR、PadChest-GR</li>
+</ul>
+<h4 id="llava-sharegpt">样本格式（LLaVA / ShareGPT 风格）<a class="headerlink" href="#llava-sharegpt" title="Permanent link">&para;</a></h4>
+<p>每条样本是一个 JSON，字段包括：<code>image</code>（图像路径）、<code>conversations</code>（多轮 <code>{from, value}</code>）、<code>id</code>，可选 <code>labels</code>、<code>pathologies</code>。坐标已归一化到 [0,1]，格式 <code>[x1,y1,x2,y2]</code>。<code>&lt;image&gt;</code> 占位符统一插入第一个 human turn 开头。</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;image&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mimic_cxr/xxxx.jpg&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;conversations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;human&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;image&gt;\n问题文本...&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gpt&quot;</span><span class="p">,</span><span class="w">   </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;答案文本...&quot;</span><span class="p">}</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mimic_12345&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;labels&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;pathologies&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="4">4 类任务的样例<a class="headerlink" href="#4" title="Permanent link">&para;</a></h4>
+<p><strong>(i) Free-text report generation（自由文本报告生成）</strong>（<code>generate_instruction_report_generation</code>，15 个问句变体）</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;image&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mimic_cxr/xxxx.jpg&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;conversations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;human&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;image&gt;\nProvide a radiology report for this Chest X-Ray.&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gpt&quot;</span><span class="p">,</span><span class="w">   </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PA and lateral views of the chest demonstrate clear lungs. No focal consolidation...&quot;</span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>(ii) Abnormality classification（异常分类）</strong>（基于 CheXbert/VinDr 标签）</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;image&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vindrcxr/xxxx.jpg&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;conversations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;human&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;image&gt;\nAre there any abnormalities on this Chest X-ray?&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gpt&quot;</span><span class="p">,</span><span class="w">   </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Yes, the following abnormalities are identified: Cardiomegaly and Pleural Effusion.&quot;</span><span class="p">}</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;labels&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Cardiomegaly&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Pleural Effusion&quot;</span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>(iii) Visual grounding（视觉定位）</strong> — 三类定位
+- 解剖定位（<code>generate_instruction_location</code>，20 问 + 20 答变体）：</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;image&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;imagenome/xxxx.jpg&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;conversations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;human&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;image&gt;\nWhere is the right lung located in this Chest X-ray?&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gpt&quot;</span><span class="p">,</span><span class="w">   </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The right lung is located at the coordinates [0.52, 0.21, 0.95, 0.78] on the image.&quot;</span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>短语级定位（<code>generate_instruction_phrase_location</code>，8 问 + 8 答变体）：</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;image&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mscxr/xxxx.jpg&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;conversations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;human&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;image&gt;\nPlease locate the following sentence: blunted costophrenic angle&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gpt&quot;</span><span class="p">,</span><span class="w">   </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;This sentence is located at the coordinates [0.18, 0.65, 0.42, 0.89] on the image.&quot;</span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>异常定位（<code>generate_instruction_abnormalities_grouped</code>，多框拼接）：</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;image&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vindrcxr/xxxx.jpg&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;conversations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;human&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;image&gt;\nCould you indicate if there are any abnormalities on this Chest X-ray and their locations?&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gpt&quot;</span><span class="p">,</span><span class="w">   </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Yes, the following abnormalities are identified: Aortic enlargement at [0.30, 0.15, 0.85, 0.55] and Pleural effusion at [0.10, 0.60, 0.45, 0.92].&quot;</span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>(iv) Multi-turn conversations（多轮对话）</strong>（GPT-4o 生成，单样本含多轮 human/gpt 交替）</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;image&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mimic_cxr/xxxx.jpg&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;conversations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;human&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;image&gt;\nWhat do you see in this chest X-ray?&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gpt&quot;</span><span class="p">,</span><span class="w">   </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;There is opacity in the right lower lobe...&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;human&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Could that be pneumonia?&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gpt&quot;</span><span class="p">,</span><span class="w">   </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Yes, consolidation is consistent with pneumonia...&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;human&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Where exactly?&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gpt&quot;</span><span class="p">,</span><span class="w">   </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The area is at [0.6, 0.5, 0.9, 0.8].&quot;</span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="_2">关键设计点<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
+<ol>
+<li><strong>问句/答句都有 8–20 个变体随机采样</strong>，避免模型记忆固定模板（见 <code>code/RadVLM/radvlm/data/create_instructions.py</code>）</li>
+<li><strong>坐标归一化到 [0,1]</strong>，2 位小数，以 <code>[x1,y1,x2,y2]</code> 列表形式嵌入自然语言</li>
+<li><strong><code>&lt;image&gt;</code> 占位符</strong>统一放在第一个 human turn 开头</li>
+<li><strong>labels/pathologies 字段</strong>是评估用的辅助标签，不参与对话内容</li>
+</ol>
+<h4 id="_3">数据集构建方法（通俗版）<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<p>想象在训练一个"AI 放射科医生"，需要给它准备 100 多万份"习题集"。RadVLM instruction dataset 的构建流程如下：</p>
+<p><strong>第一步：从 5 个公开库搬原料</strong></p>
+<table>
+<thead>
+<tr>
+<th>数据集</th>
+<th>提供</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MIMIC-CXR-JPG</td>
+<td>美国医院的胸片 + 医生手写报告</td>
+<td>最大来源，用于报告生成和异常分类</td>
+</tr>
+<tr>
+<td>Chest Imagenome</td>
+<td>每张片子标注"右肺在哪、心脏在哪"的解剖框</td>
+<td>解剖定位</td>
+</tr>
+<tr>
+<td>VinDr-CXR</td>
+<td>越南胸片，标注"结节在哪、积液在哪"的病理框</td>
+<td>异常定位</td>
+</tr>
+<tr>
+<td>MS-CXR / PadChest-GR</td>
+<td>把报告里的一句话和一个框对应起来</td>
+<td>短语级定位</td>
+</tr>
+</tbody>
+</table>
+<p><strong>第二步：清洗原料</strong></p>
+<ul>
+<li><strong>挑正位片</strong>：侧位片全扔掉，只留正面拍的</li>
+<li><strong>洗报告</strong>：让 GPT-4o 把医生报告里的"与上次相比..."这种历史引用删掉，只留对当前片子的描述，并抽取 findings 段</li>
+<li><strong>自动打标签</strong>：用 CheXpert labeler 给每张片子打 14 个病理标签（心影增大、肺水肿等），"不确定"的一律当"没有"</li>
+<li><strong>整理框框</strong>：公开数据集自带的框直接用；没有的部分请 3 位放射科医生手标，标完用 Weighted Box Fusion 把多人的框合并成一组。所有坐标统一归一化到 [0,1]</li>
+</ul>
+<p><strong>第三步：把原料变成"问答题"</strong></p>
+<p>光有图和报告还不够，得把它们改写成"人提问、AI 回答"的形式。团队写了一堆自然语言模板，每个任务都有 8-20 种问法、8-20 种答法，随机抽：</p>
+<ul>
+<li><strong>报告生成题</strong>：从"请给这张胸片写个报告"到"请简明扼要地总结这张片子的发现"——15 种问法，答案就是清洗过的 findings</li>
+<li><strong>异常分类题</strong>：根据 14 个标签回答"这张片子有什么异常"</li>
+<li><strong>定位题</strong>（3 种）：</li>
+<li>解剖定位："右肺在哪？" → 输出框</li>
+<li>异常定位："有什么异常？在哪？" → 输出多个框</li>
+<li>短语定位："请定位这句话：左侧肋膈角变钝" → 输出框</li>
+</ul>
+<p><strong>第四步：让 GPT-4o 编多轮对话</strong></p>
+<p>前 3 类都是一问一答，太单调。团队让 GPT-4o 当"编剧"，给它喂报告、标签、视图、性别、bbox 这些临床信息，让它编出逼真的多轮对话——比如医生追问"这可能是肺炎吗？"、AI 答"是的，密度增高影支持这个判断"、"具体在哪？"、"在右下肺 [0.6, 0.5, 0.9, 0.8]"。一共编了 10 万条这样的对话。</p>
+<p><strong>第五步：打包成统一格式</strong></p>
+<p>最后把所有问答都塞进一个统一的 JSON 模板（ShareGPT 风格）：<code>{image, conversations, id, labels, pathologies}</code>。<code>&lt;image&gt;</code> 是图像占位符，训练时会替换成真正的视觉 token；坐标直接嵌在自然语言里（比如"位于 [0.52, 0.21, 0.95, 0.78]"），而不是单独输出。</p>
+<p><strong>一句话总结</strong>：拿 5 个公开胸片库的原始数据 → 洗干净（抽 findings、去引用、打标签、归一化框）→ 用 80 多个问句模板套词成单轮问答 → 让 GPT-4o 再编 10 万条多轮对话 → 打包成统一 JSON → 得到 100 万条指令样本。关键巧思是：图像、框、报告都是真实的（只有多轮对话是合成的），但问法是随机模板，既保证了数据真实，又避免了模型记住固定句式。</p>
+<h3 id="22">2.2 整体训练流程<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>Qwen3-VL-8B-Instruct
+    ↓ SFT on RadVLM dataset (1M pairs, 2 epochs)
+RadVLM
+    ↓ GRPO (300 steps, 154k prompt-image pairs)
+RadVLM+RL
+</code></pre></div>
+<p>同时，作者还把同样的 RL 流程直接应用到<strong>通用域</strong>的 Qwen3-VL-8B-Instruct 上，测试"只用 RL 能否把通用模型适配到 CXR 领域"。</p>
+<h4 id="sft">SFT 细节：全参数微调<a class="headerlink" href="#sft" title="Permanent link">&para;</a></h4>
+<p>SFT 阶段采用 <strong>full fine-tuning</strong>（非 LoRA），Qwen3-VL-8B 的<strong>所有参数（Vision Encoder + Projector + LLM）全部解冻一起更新</strong>。配置文件 <code>LLaMA-Factory/examples/train_full/qwen3vl_full_sft.yaml</code> 关键项：</p>
+<table>
+<thead>
+<tr>
+<th>配置项</th>
+<th>值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>finetuning_type</code></td>
+<td><code>full</code></td>
+<td>全参数微调</td>
+</tr>
+<tr>
+<td><code>freeze_vision_tower</code></td>
+<td><code>false</code></td>
+<td>Vision Encoder 参与训练</td>
+</tr>
+<tr>
+<td><code>freeze_multi_modal_projector</code></td>
+<td><code>false</code></td>
+<td>Projector 参与训练</td>
+</tr>
+<tr>
+<td><code>freeze_language_model</code></td>
+<td><code>false</code></td>
+<td>LLM 参与训练</td>
+</tr>
+<tr>
+<td><code>deepspeed</code></td>
+<td><code>ds_z3_config.json</code></td>
+<td>DeepSpeed ZeRO-3 显存分片</td>
+</tr>
+<tr>
+<td><code>bf16</code></td>
+<td><code>true</code></td>
+<td>bf16 混合精度</td>
+</tr>
+<tr>
+<td><code>learning_rate</code></td>
+<td>1e-5</td>
+<td>cosine schedule, warmup 0.1</td>
+</tr>
+<tr>
+<td><code>num_train_epochs</code></td>
+<td>1.0</td>
+<td>1 个 epoch（论文记 2 epochs）</td>
+</tr>
+<tr>
+<td><code>per_device_train_batch_size</code></td>
+<td>1</td>
+<td>梯度累积 2 步</td>
+</tr>
+</tbody>
+</table>
+<p>仓库未提供 Qwen3-VL 的 LoRA 配置（<code>train_lora/</code> 下只有 qwen2_5vl），进一步印证走的是 full SFT 路线。</p>
+<h4 id="sft-rl">训练硬件与显存（SFT + RL 两阶段）<a class="headerlink" href="#sft-rl" title="Permanent link">&para;</a></h4>
+<p>论文 §4.1 + Appendix Table 7 + <code>code/README.md</code> 给出详细配置。SFT 和 RL 是<strong>串行两阶段</strong>，使用的 GPU 数量不同：</p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>SFT 阶段</th>
+<th>RL 阶段</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>训练 GPU 数</td>
+<td><strong>64</strong></td>
+<td><strong>32</strong>（+4 reward server）</td>
+</tr>
+<tr>
+<td>节点拓扑</td>
+<td>~8 节点 × 8 GPU/节点</td>
+<td>8 节点 × 4 GPU/节点</td>
+</tr>
+<tr>
+<td>框架</td>
+<td>LLaMA-Factory + DeepSpeed ZeRO-3</td>
+<td>verl + Ray</td>
+</tr>
+<tr>
+<td>GPU 型号</td>
+<td>NVIDIA <strong>GH200</strong>（CSCS Alps/Clariden）</td>
+<td>同左</td>
+</tr>
+<tr>
+<td>Effective batch</td>
+<td>8 × 64 = 512</td>
+<td>512 prompts × 8 rollouts</td>
+</tr>
+<tr>
+<td>训练量</td>
+<td>2 epochs / 1M 对</td>
+<td>300 steps / 154k 对</td>
+</tr>
+<tr>
+<td>学习率</td>
+<td>1e-5</td>
+<td>1e-6</td>
+</tr>
+<tr>
+<td>序列长度</td>
+<td><code>cutoff_len=131072</code>（最大截断，模板默认值；实际样本 ~1-5k tokens）</td>
+<td><code>max_prompt=3072 + max_response=1024</code> ≈ 4k</td>
+</tr>
+<tr>
+<td>图像尺寸</td>
+<td><code>image_max_pixels=262144</code>（≈512×512）</td>
+<td>同左</td>
+</tr>
+<tr>
+<td>精度</td>
+<td>bf16</td>
+<td>bf16</td>
+</tr>
+<tr>
+<td>vLLM rollout</td>
+<td>不适用</td>
+<td><code>gpu_memory_utilization=0.6</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>额外节点（reward server）</strong>：RL 阶段另起 1 个节点（4 张 GH200），跑 <strong>32 个 RadCliQ worker 副本</strong>（<code>WORKER_NUM_GPUS=4 × WORKER_INSTANCES_PER_GPU=8</code>）并行算奖励，因为 RadGraph 不支持 batch inference。</p>
+<h3 id="23-grpo">2.3 GRPO 强化学习<a class="headerlink" href="#23-grpo" title="Permanent link">&para;</a></h3>
+<h4 id="grpo">GRPO 目标函数<a class="headerlink" href="#grpo" title="Permanent link">&para;</a></h4>
+<div class="arithmatex">\[\mathcal{L}_{\text{GRPO}}(\theta) = \mathbb{E}_{(q,a)\sim \mathcal{D}, \{o_i\}_{i=1}^G \sim \pi_{\theta_{\text{old}}}(\cdot|q)} \left[ \frac{1}{G} \sum_{i=1}^{G} \frac{1}{|o_i|} \sum_{t=1}^{|o_i|} \left( \min\left( r_{i,t}(\theta) \hat{A}_{i,t}, \ \text{clip}(r_{i,t}(\theta), 1-\epsilon, 1+\epsilon) \hat{A}_{i,t} \right) - \beta D_{KL}(\pi_\theta \| \pi_{\text{ref}}) \right) \right]\]</div>
+<p>其中重要性采样比：</p>
+<div class="arithmatex">\[r_{i,t}(\theta) = \frac{\pi_\theta(o_{i,t} | q, o_{i,&lt;t})}{\pi_{\theta_{\text{old}}}(o_{i,t} | q, o_{i,&lt;t})}\]</div>
+<p>组相对优势：</p>
+<div class="arithmatex">\[\hat{A}_{i,t} = \frac{R_i - \text{mean}(\{R_i\}_{i=1}^G)}{\text{std}(\{R_i\}_{i=1}^G)}\]</div>
+<h4 id="rl">RL 超参数<a class="headerlink" href="#rl" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RL 步数</td>
+<td>300 steps</td>
+</tr>
+<tr>
+<td>Batch size</td>
+<td>512 prompts</td>
+</tr>
+<tr>
+<td>Group size (rollouts per prompt, G)</td>
+<td><strong>8</strong></td>
+</tr>
+<tr>
+<td>学习率</td>
+<td>1e-6</td>
+</tr>
+<tr>
+<td>KL penalty coefficient</td>
+<td>0.01</td>
+</tr>
+<tr>
+<td>Clip ratio low / high</td>
+<td>0.20 / 0.28（非对称裁剪）</td>
+</tr>
+<tr>
+<td>处理 prompt-image pairs 总数</td>
+<td>154k</td>
+</tr>
+<tr>
+<td>max response length</td>
+<td>1024</td>
+</tr>
+<tr>
+<td>ppo_mini_batch_size</td>
+<td>128</td>
+</tr>
+</tbody>
+</table>
+<p>实现使用 <strong>verl</strong> 库，在 8 个节点 × 4 张 GPU 上训练。</p>
+<h4 id="batch">Batch 维度实际计算<a class="headerlink" href="#batch" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>batch_size = 512 prompts</code></li>
+<li>每个 prompt 采样 <code>G = 8</code> 个 rollout（<code>actor_rollout_ref.rollout.n=8</code>，论文 §4.1 + Appendix Table 7 都明确）</li>
+<li>所以一个训练 step 实际处理 <strong>512 × 8 = 4096 条 rollout</strong></li>
+<li><code>ppo_mini_batch_size = 128</code> → 一次 step 内分 <strong>4096 / 128 = 32 个 mini-batch</strong> 做梯度更新</li>
+</ul>
+<h4 id="_4">训练稳定性机制🚗<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<p>GRPO 训练稳定性靠三道保险协同：非对称 clip 管"单步"稳定性，KL 约束管"全局"稳定性，k3 估计器让 KL 信号本身更可靠。</p>
+<p><strong>① 非对称 clip（Asymmetric Clipping）</strong></p>
+<p>标准 PPO 用对称 clip 约束重要性采样比 <span class="arithmatex">\(r = \pi_\theta / \pi_{\theta_{\text{old}}}\)</span>：<span class="arithmatex">\(\text{clip}(r, 1-\varepsilon, 1+\varepsilon)\)</span>（如 <span class="arithmatex">\(\varepsilon=0.2\)</span> → <span class="arithmatex">\([0.8, 1.2]\)</span>）。<strong>非对称 clip</strong> 把上下界解开，用不同的 <span class="arithmatex">\(\varepsilon\)</span>：</p>
+<div class="arithmatex">\[\text{clip}(r,\; 1-\varepsilon_{\text{low}},\; 1+\varepsilon_{\text{high}})\]</div>
+<p>直觉：<span class="arithmatex">\(r &gt; 1\)</span> 表示新策略比旧策略更倾向于选这个动作（好动作被加强），<span class="arithmatex">\(r &lt; 1\)</span> 表示在降低这个动作概率。非对称 clip（<span class="arithmatex">\(\varepsilon_{\text{high}} &gt; \varepsilon_{\text{low}}\)</span>）允许策略<strong>更激进地提升好动作概率</strong>，但<strong>严格限制降低好动作概率</strong>。来源于 DeepSeek 系列工作的实践经验。</p>
+<p><strong>本项目应用</strong>（<code>report_radcliq_run.sh</code>）：
+- <code>clip_ratio_low=0.20</code> → 下界 <span class="arithmatex">\(0.80\)</span>
+- <code>clip_ratio_high=0.28</code> → 上界 <span class="arithmatex">\(1.28\)</span>
+- ratio 被裁剪到 <span class="arithmatex">\([0.80, 1.28]\)</span></p>
+<p><strong>② KL 散度约束</strong></p>
+<p>防止 Actor 在追求 reward 时偏离 SFT 参考模型太远（避免 reward hacking 和语言能力退化）。KL 散度衡量两个分布差异：</p>
+<div class="arithmatex">\[D_{\text{KL}}(\pi_\theta \| \pi_{\text{ref}}) = \mathbb{E}_{\pi_\theta}\!\left[\log \pi_\theta - \log \pi_{\text{ref}}\right]\]</div>
+<p>两种应用方式：</p>
+<table>
+<thead>
+<tr>
+<th>方式</th>
+<th>公式</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>KL in reward</strong></td>
+<td><span class="arithmatex">\(R_{\text{total}} = R_{\text{external}} - \beta \cdot D_{\text{KL}}\)</span></td>
+<td>在 reward 上扣分，间接影响 advantage</td>
+</tr>
+<tr>
+<td><strong>KL in loss</strong></td>
+<td><span class="arithmatex">\(L_{\text{total}} = L_{\text{policy}} - \beta \cdot D_{\text{KL}}\)</span></td>
+<td>直接加梯度信号，约束更强</td>
+</tr>
+</tbody>
+</table>
+<p><strong>本项目应用</strong>（<code>report_radcliq_run.sh</code>）：
+- <code>use_kl_loss=True</code> → 用 KL in loss 方式
+- <code>kl_loss_coef=0.01</code> → <span class="arithmatex">\(\beta = 0.01\)</span>（较温和的约束，允许较大优化空间）
+- <code>algorithm.use_kl_in_reward=False</code> → 不在 reward 里加 KL 惩罚</p>
+<p>总损失：</p>
+<div class="arithmatex">\[L = L_{\text{GRPO}}(\text{policy}) - 0.01 \cdot D_{\text{KL}}(\pi_\theta \| \pi_{\text{ref}})\]</div>
+<p><strong>③ k3 低方差 KL 估计器</strong>❓</p>
+<p><strong>为什么不能精确计算 KL？</strong></p>
+<p>KL 散度的定义是：</p>
+<div class="arithmatex">\[D_{\text{KL}}(\pi_\theta \| \pi_{\text{ref}}) = \sum_{o \in \mathcal{O}} \pi_\theta(o) \log \frac{\pi_\theta(o)}{\pi_{\text{ref}}(o)}\]</div>
+<p>这里 <span class="arithmatex">\(o\)</span> 是一个完整的 token 序列（rollout 输出），<span class="arithmatex">\(\mathcal{O}\)</span> 是所有可能序列的集合。要精确算这个求和，需要遍历所有可能的序列。</p>
+<p>Qwen3-VL 词表约 150k tokens，一个 rollout 最长 1024 tokens，可能的序列数：</p>
+<div class="arithmatex">\[|\mathcal{O}| = 150000^{1024} \approx 10^{5400}\]</div>
+<p>比可观测宇宙的原子数（<span class="arithmatex">\(\sim 10^{80}\)</span>）还多几十个数量级，<strong>根本不可能枚举</strong>。</p>
+<p>我们能做和不能做的：</p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>能否做到</th>
+<th>怎么做</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>采样 <span class="arithmatex">\(o \sim \pi_\theta\)</span></td>
+<td>✅</td>
+<td>让模型生成 rollout</td>
+</tr>
+<tr>
+<td>计算 <span class="arithmatex">\(\pi_\theta(o)\)</span>（某条具体序列的概率）</td>
+<td>✅</td>
+<td>前向传播，每步 token 的 log-prob 相加</td>
+</tr>
+<tr>
+<td>计算 <span class="arithmatex">\(\pi_{\text{ref}}(o)\)</span></td>
+<td>✅</td>
+<td>参考模型也做一次前向传播</td>
+</tr>
+<tr>
+<td>遍历所有 <span class="arithmatex">\(o\)</span> 求和</td>
+<td>❌</td>
+<td>序列空间太大</td>
+</tr>
+</tbody>
+</table>
+<p>所以只能用<strong>蒙特卡洛估计</strong>：从 <span class="arithmatex">\(\pi_\theta\)</span> 采样 <span class="arithmatex">\(n\)</span> 条 rollout（GRPO 本来就要采样 G=8 条），用这些样本估 KL。</p>
+<blockquote>
+<p><strong>一个容易混淆的点</strong>：如果只看单个 token 位置的分布 <span class="arithmatex">\(\pi_\theta(\cdot | o_{&lt;t})\)</span>，这是一个 150k 维类别分布，可以精确算 KL（softmax 后对 150k 个 token 求和）。但序列级别的 KL 需要考虑所有可能的上文 <span class="arithmatex">\(o_{&lt;t}\)</span>，又回到组合爆炸。所以实践中还是用样本估计。</p>
+</blockquote>
+<p><strong>三种估计器</strong></p>
+<p>John Schulman 在 <a href="http://joschu.net/blog/kl-approx.html">Approximating KL Divergence</a> 提出 3 种估计器。令 <span class="arithmatex">\(\Delta = \log \pi_{\text{ref}}(o) - \log \pi_\theta(o) = \log \frac{\pi_{\text{ref}}(o)}{\pi_\theta(o)}\)</span>，注意 <span class="arithmatex">\(D_{\text{KL}} = \mathbb{E}[-\Delta]\)</span>，三种估计器都是对这个期望的蒙特卡洛近似，区别在于方差：</p>
+<table>
+<thead>
+<tr>
+<th>估计器</th>
+<th>公式</th>
+<th><span class="arithmatex">\(p \approx q\)</span> 时</th>
+<th>方差</th>
+<th>非负性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>k1</strong></td>
+<td><span class="arithmatex">\(\mathbb{E}\!\left[\log \frac{\pi_\theta}{\pi_{\text{ref}}}\right] = \mathbb{E}[-\Delta]\)</span></td>
+<td><span class="arithmatex">\(\approx -\Delta\)</span>（<strong>线性</strong>）</td>
+<td>高</td>
+<td>可为负</td>
+</tr>
+<tr>
+<td><strong>k2</strong></td>
+<td><span class="arithmatex">\(\frac{1}{2}\,\mathbb{E}\!\left[\Delta^2\right]\)</span></td>
+<td><span class="arithmatex">\(\approx \frac{1}{2}\Delta^2\)</span>（二次）</td>
+<td>更高（平方放大离群值）</td>
+<td>始终非负</td>
+</tr>
+<tr>
+<td><strong>k3</strong></td>
+<td><span class="arithmatex">\(\mathbb{E}\!\left[\exp(\Delta) - \Delta - 1\right]\)</span></td>
+<td><span class="arithmatex">\(\approx \frac{1}{2}\Delta^2\)</span>（二次）</td>
+<td><strong>最低</strong></td>
+<td>始终非负</td>
+</tr>
+</tbody>
+</table>
+<p>三者期望相同（<span class="arithmatex">\(\mathbb{E}[\text{k1}] = \mathbb{E}[\text{k2}] = \mathbb{E}[\text{k3}] = D_{\text{KL}}\)</span>），方差不同。</p>
+<p><strong>k1 的问题</strong>：<span class="arithmatex">\(\Delta\)</span> 可正可负（<span class="arithmatex">\(\pi_{\text{ref}}\)</span> 比 <span class="arithmatex">\(\pi_\theta\)</span> 更喜欢某样本时 <span class="arithmatex">\(\Delta &gt; 0\)</span>，反之 <span class="arithmatex">\(\Delta &lt; 0\)</span>），线性量方差大，且估计值可能为负（KL 理论上恒非负）。</p>
+<p><strong>k2 的问题</strong>：平方始终非负，但 <span class="arithmatex">\(\mathbb{E}[\frac{1}{2}\Delta^2] \geq D_{\text{KL}}\)</span>（Jensen 不等式），是有正偏差的上界；且平方放大离群值，方差比 k1 还高。</p>
+<p><strong>k3 的推导（control variate 控制变量法）</strong>：</p>
+<p>关键观察：<span class="arithmatex">\(\mathbb{E}_{o \sim \pi_\theta}\!\left[\frac{\pi_{\text{ref}}(o)}{\pi_\theta(o)}\right] = \int \pi_\theta(o) \cdot \frac{\pi_{\text{ref}}(o)}{\pi_\theta(o)} \, do = \int \pi_{\text{ref}}(o) \, do = 1\)</span>，即 <span class="arithmatex">\(\mathbb{E}[\exp(\Delta)] = 1\)</span>，所以 <span class="arithmatex">\(\mathbb{E}[\exp(\Delta) - 1] = 0\)</span>。</p>
+<p><span class="arithmatex">\(\exp(\Delta) - 1\)</span> 是一个<strong>期望为 0 的量</strong>，可以加到任何无偏估计器上而不改变期望：</p>
+<div class="arithmatex">\[D_{\text{KL}} = \mathbb{E}[-\Delta] = \mathbb{E}\!\left[-\Delta + \underbrace{(\exp(\Delta) - 1)}_{\text{期望为 0}}\right] = \mathbb{E}\!\left[\exp(\Delta) - \Delta - 1\right]\]</div>
+<p><strong>为什么 k3 方差低</strong>：当 <span class="arithmatex">\(\pi_\theta \approx \pi_{\text{ref}}\)</span>（RL 训练的正常情况——KL 约束就是为了让它们不要差太远），<span class="arithmatex">\(\Delta \approx 0\)</span>，对 <span class="arithmatex">\(\exp(\Delta) - \Delta - 1\)</span> 做二阶泰勒展开：</p>
+<div class="arithmatex">\[\exp(\Delta) - \Delta - 1 \approx \underbrace{(1 + \Delta + \frac{\Delta^2}{2})}_{\exp(\Delta)} - \Delta - 1 = \frac{\Delta^2}{2}\]</div>
+<p>k1 是 <span class="arithmatex">\(\Delta\)</span> 的<strong>线性函数</strong>（可正可负，方差大），k3 通过 control variate 消掉一阶项，只剩 <span class="arithmatex">\(\Delta^2/2\)</span>（二次项，始终非负，且 <span class="arithmatex">\(\Delta\)</span> 小时更小）。所以 k3 在 <span class="arithmatex">\(\pi_\theta \approx \pi_{\text{ref}}\)</span> 时方差远低于 k1。</p>
+<p>k3 还有额外好处：<span class="arithmatex">\(\exp(x) - x - 1 \geq 0\)</span> 对所有 <span class="arithmatex">\(x\)</span> 成立（因为 <span class="arithmatex">\(e^x \geq 1 + x\)</span>），估计值<strong>始终非负</strong>，不会出现 k1 那种"KL 估出来是负数"的尴尬。</p>
+<p><strong>本项目应用</strong>（<code>core_algos.py</code> 的 <code>kl_penalty_forward</code>，配置 <code>kl_loss_type=low_var_kl</code>）：</p>
+<div class="arithmatex">\[\hat{D}_{\text{KL}}^{\,\text{k3}} = \frac{1}{n}\sum_{i=1}^{n}\left[\exp(\Delta_i) - \Delta_i - 1\right], \qquad \Delta_i = \log \pi_{\text{ref}}(o_i \mid q) - \log \pi_\theta(o_i \mid q)\]</div>
+<p>其中 <span class="arithmatex">\(\log \pi_\theta\)</span> 和 <span class="arithmatex">\(\log \pi_{\text{ref}}\)</span> 都是对同一条 rollout <span class="arithmatex">\(o_i\)</span> 算 log-prob（前向传播，不重新采样）。工程实现里会对 <span class="arithmatex">\(\Delta\)</span> 做 <span class="arithmatex">\(\text{clamp}(\Delta, -20, 20)\)</span>、对 <span class="arithmatex">\(\exp(\Delta)\)</span> 做 <span class="arithmatex">\(\text{clamp}(\exp(\Delta), -10, 10)\)</span> 防数值爆炸，但不影响算法本质。</p>
+<p><strong>三者协同总结</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>机制</th>
+<th>角色</th>
+<th>防止什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>非对称 clip</td>
+<td>限制单步 ratio 范围 <span class="arithmatex">\([0.80,\, 1.28]\)</span></td>
+<td>防止单步更新过大导致训练崩溃</td>
+</tr>
+<tr>
+<td>KL 约束</td>
+<td>限制 policy 偏离 SFT</td>
+<td>防止 reward hacking 和语言能力退化</td>
+</tr>
+<tr>
+<td>k3 估计器</td>
+<td>降低 KL 估计方差</td>
+<td>让 KL 约束信号更稳定，不抖动</td>
+</tr>
+</tbody>
+</table>
+<h4 id="reward-grpo">配置到代码：并行 Reward 如何流入 GRPO<a class="headerlink" href="#reward-grpo" title="Permanent link">&para;</a></h4>
+<p>上面讲了算法机制，这里从代码层面追一条完整数据流：<strong><code>rollout.n=8</code> 的 8 条回答 → <code>naive_pool</code> 并行打分 → GRPO 组内归一化 → 非对称 clip 更新 Actor</strong>，看 verl 代码是怎么把它们串起来的。</p>
+<p><strong>① <code>rollout.n=8</code> → uid 分组</strong></p>
+<p><code>RayPPOTrainer.fit()</code> 在生成 rollout 前给每条 prompt 分配唯一 <code>uid</code>，然后 repeat 8 份：</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># ray_trainer.py</span>
+<span class="n">batch</span><span class="o">.</span><span class="n">non_tensor_batch</span><span class="p">[</span><span class="s2">&quot;uid&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">())</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">512</span><span class="p">)]</span>  <span class="c1"># 512 个 uid</span>
+<span class="n">batch</span> <span class="o">=</span> <span class="n">batch</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">repeat_times</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">interleave</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># → 4096 行，每 8 行共享同一 uid</span>
+</code></pre></div>
+<p><code>interleave=True</code> 保证排列是 <code>[uid0×8, uid1×8, ...]</code>，每 8 条连续行属于同一组。<strong>uid 是贯穿全局的分组线索</strong>。</p>
+<p><strong>② <code>naive_pool</code> → reward 张量</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">reward_tensor</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">compute_reward</span><span class="p">(</span><span class="n">batch</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">reward_fn</span><span class="p">)</span>  <span class="c1"># → naive_pool.__call__()</span>
+<span class="c1"># naive_pool 用 512 线程并行调 compute_score → HTTP → 32 个 FastAPI worker</span>
+<span class="c1"># 返回 reward_tensor shape (4096, response_length)，分数写在每条回答最后一个 token 位置：</span>
+<span class="c1">#   reward_tensor[i, valid_response_length - 1] = score  # 其他位置全 0</span>
+</code></pre></div>
+<p><strong>③ reward → <code>token_level_rewards</code> → GRPO advantage</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">batch</span><span class="o">.</span><span class="n">batch</span><span class="p">[</span><span class="s2">&quot;token_level_scores&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">reward_tensor</span>
+<span class="n">batch</span><span class="o">.</span><span class="n">batch</span><span class="p">[</span><span class="s2">&quot;token_level_rewards&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">batch</span><span class="o">.</span><span class="n">batch</span><span class="p">[</span><span class="s2">&quot;token_level_scores&quot;</span><span class="p">]</span>  <span class="c1"># use_kl_in_reward=False 时直接别名</span>
+
+<span class="n">batch</span> <span class="o">=</span> <span class="n">compute_advantage</span><span class="p">(</span><span class="n">batch</span><span class="p">,</span> <span class="n">adv_estimator</span><span class="o">=</span><span class="s2">&quot;grpo&quot;</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+</code></pre></div>
+<p>GRPO 分支按 <code>uid</code> 分组算组内相对优势（<code>core_algos.py:265</code>）：</p>
+<div class="highlight"><pre><span></span><code><span class="n">scores</span> <span class="o">=</span> <span class="n">token_level_rewards</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>     <span class="c1"># (4096,) 每条回答的总 reward</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4096</span><span class="p">):</span>
+    <span class="n">id2score</span><span class="p">[</span><span class="n">uid</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">scores</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>       <span class="c1"># 按 uid 分组，每组 8 条</span>
+<span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">id2score</span><span class="p">:</span>
+    <span class="n">id2mean</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">id2score</span><span class="p">[</span><span class="n">idx</span><span class="p">])</span>       <span class="c1"># 组内均值</span>
+    <span class="n">id2std</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>  <span class="o">=</span> <span class="n">std</span><span class="p">(</span><span class="n">id2score</span><span class="p">[</span><span class="n">idx</span><span class="p">])</span>        <span class="c1"># 组内标准差</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4096</span><span class="p">):</span>
+    <span class="n">scores</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">scores</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">id2mean</span><span class="p">[</span><span class="n">uid</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span> <span class="o">/</span> <span class="p">(</span><span class="n">id2std</span><span class="p">[</span><span class="n">uid</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">+</span> <span class="n">eps</span><span class="p">)</span>  <span class="c1"># ★ GRPO 核心公式</span>
+<span class="n">batch</span><span class="o">.</span><span class="n">batch</span><span class="p">[</span><span class="s2">&quot;advantages&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">scores</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">response_mask</span>  <span class="c1"># 广播到 token 级</span>
+</code></pre></div>
+<p><strong>这就是 <code>rollout.n=8</code> 和 <code>adv_estimator=grpo</code> 的连接点</strong>：n=8 决定每组 8 条，GRPO 按 uid 分组算 <span class="arithmatex">\((R - \text{mean}) / \text{std}\)</span>。</p>
+<p><strong>④ advantage + 非对称 clip → Actor 更新</strong></p>
+<div class="highlight"><pre><span></span><code><span class="bp">self</span><span class="o">.</span><span class="n">actor_rollout_wg</span><span class="o">.</span><span class="n">update_actor</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span>  <span class="c1"># batch 里已有 &quot;advantages&quot;</span>
+</code></pre></div>
+<p>进入 <code>compute_policy_loss_vanilla</code>（<code>core_algos.py:885</code>），用 <code>clip_ratio_low=0.20</code> / <code>clip_ratio_high=0.28</code> 做非对称 clip：</p>
+<div class="highlight"><pre><span></span><code><span class="n">ratio</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="n">log_prob</span> <span class="o">-</span> <span class="n">old_log_prob</span><span class="p">)</span>                <span class="c1"># π_θ / π_θ_old</span>
+<span class="n">pg_losses1</span> <span class="o">=</span> <span class="o">-</span><span class="n">advantages</span> <span class="o">*</span> <span class="n">ratio</span>
+<span class="n">pg_losses2</span> <span class="o">=</span> <span class="o">-</span><span class="n">advantages</span> <span class="o">*</span> <span class="n">clamp</span><span class="p">(</span><span class="n">ratio</span><span class="p">,</span> <span class="mi">1</span><span class="o">-</span><span class="mf">0.20</span><span class="p">,</span> <span class="mi">1</span><span class="o">+</span><span class="mf">0.28</span><span class="p">)</span>  <span class="c1"># ★ 非对称 clip：[0.80, 1.28]</span>
+<span class="n">pg_loss</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">pg_losses1</span><span class="p">,</span> <span class="n">pg_losses2</span><span class="p">)</span>
+</code></pre></div>
+<p>然后叠加 KL 约束（<code>dp_actor.py:470</code>）：</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">use_kl_loss</span><span class="p">:</span>  <span class="c1"># True</span>
+    <span class="n">kld</span> <span class="o">=</span> <span class="n">kl_penalty</span><span class="p">(</span><span class="n">logprob</span><span class="p">,</span> <span class="n">ref_logprob</span><span class="p">,</span> <span class="n">kl_penalty</span><span class="o">=</span><span class="s2">&quot;low_var_kl&quot;</span><span class="p">)</span>  <span class="c1"># exp(Δ)-Δ-1</span>
+    <span class="n">policy_loss</span> <span class="o">=</span> <span class="n">pg_loss</span> <span class="o">+</span> <span class="n">kld</span> <span class="o">*</span> <span class="mf">0.01</span>  <span class="c1"># kl_loss_coef</span>
+</code></pre></div>
+<p><strong>完整数据流一图总结</strong>：</p>
+<div class="highlight"><pre><span></span><code>配置                        代码位置                          产出
+───────────────────────────────────────────────────────────────────────
+rollout.n=8           → fit(): batch.repeat(8)           → 4096 行，每 8 行同 uid
+                          ↓
+reward_manager=       → compute_reward()                 → reward_tensor[4096, resp_len]
+  naive_pool             → 512线程 → HTTP → 32 workers       分数在 EOS token 位置
+                          ↓
+                      → batch[&quot;token_level_rewards&quot;]     → 存入 batch
+                          ↓
+adv_estimator=grpo    → compute_grpo_outcome_advantage() → batch[&quot;advantages&quot;]
+                         按 uid 分组 (R-mean)/std           每 token 的优势值
+                          ↓
+clip_ratio_low=0.20   → compute_policy_loss_vanilla()    → pg_loss
+clip_ratio_high=0.28     clamp(ratio, 0.80, 1.28)           非对称裁剪策略损失
+                          ↓
+use_kl_loss=True      → kl_penalty(low_var_kl)           → kl_loss
+kl_loss_coef=0.01       exp(Δ)-Δ-1                        KL 散度约束
+                          ↓
+                      → total = pg_loss + 0.01*kl        → FSDP backward → optimizer.step
+</code></pre></div>
+<p>一句话：<strong><code>rollout.n=8</code> 决定"每组 8 条"的分组结构，<code>naive_pool</code> 给 4096 条回答打分，<code>adv_estimator=grpo</code> 按 uid 分组算 <span class="arithmatex">\((R-\text{mean})/\text{std}\)</span> 得到 advantage，<code>clip_ratio</code> 和 <code>kl_loss</code> 在 Actor 更新时约束策略不要走太远</strong>。uid 是贯穿全局的分组线索，<code>token_level_rewards</code> 是连接 reward 和 advantage 的数据管道。</p>
+<h3 id="24-reward">2.4 Reward 设计<a class="headerlink" href="#24-reward" title="Permanent link">&para;</a></h3>
+<h4 id="-radcliq">报告生成：-RadCliQ<a class="headerlink" href="#-radcliq" title="Permanent link">&para;</a></h4>
+<p><strong>RadCliQ</strong> 是一个综合指标，组合了：
+- BERTScore
+- CheXbert vector similarity
+- RadGraph-F1
+- BLEU</p>
+<p>它已经被证明比单一指标更能对齐放射科医生的判断。由于 <strong>RadCliQ 越低越好</strong>，所以直接取 <strong>-RadCliQ</strong> 作为奖励。</p>
+<blockquote>
+<p>实际部署时，作者启动了 32 个 RadCliQ 副本并行计算奖励，避免成为瓶颈。</p>
+</blockquote>
+<h4 id="radcliq-4">RadCliQ 4 个组件详解<a class="headerlink" href="#radcliq-4" title="Permanent link">&para;</a></h4>
+<p>这 4 个都是<strong>文本生成评测指标</strong>，从不同角度衡量"生成的报告"和"医生写的参考报告"有多像。RadCliQ 把它们组合起来，是因为单个指标各有盲区：</p>
+<p><strong>① BERTScore（基于语义嵌入的相似度）</strong>
+- 用 BERT 对生成报告和参考报告编码，对每个 token 在对方里找余弦相似度最高的 token（greedy matching），算 precision/recall/F1
+- <strong>强项</strong>：容忍同义改写（"左侧肺炎" vs "左肺感染" 给高分）
+- <strong>弱项</strong>：对临床事实错误不敏感（"右肺"写成"左肺"仍可能有较高分）</p>
+<p><strong>② CheXbert vector similarity（临床标签向量相似度）</strong>
+- 用 CheXbert（BERT-based 自动标注模型）给报告打 <strong>14 类 CheXpert 病理标签</strong>：No Finding, Enlarged Cardiomediastinum, Cardiomegaly, Lung Opacity, Lung Lesion, Edema, Consolidation, Pneumonia, Atelectasis, Pneumothorax, Pleural Effusion, Pleural Other, Fracture, Support Devices
+  - CheXbert 是一个基于 BERT 的放射学报告自动标注模型，由 Stanford 团队提出（Smit et al., 2020, NeurIPS ML4H  workshop），专门用来给胸部 X 光报告打 14 类病理标签。</p>
+<ul>
+<li>生成报告和参考报告各得一个 14 维向量，算 cosine/dot 相似度</li>
+<li><strong>强项</strong>：直接衡量临床判断是否正确</li>
+<li><strong>弱项</strong>：粒度粗（14 类涵盖不全），无法捕捉细节描述差异</li>
+</ul>
+<p><strong>③ RadGraph-F1（实体关系图匹配）</strong></p>
+<ul>
+<li>用 <strong>RadGraph</strong>（放射学信息抽取模型）从报告抽实体（anatomy/observation/type）和关系（定位/修饰），构建图</li>
+<li>对生成报告和参考报告两张图做实体+关系匹配，算 F1（实体匹配需 label + relation 都对齐）</li>
+<li><strong>强项</strong>：能区分"左肺有模糊影"和"右肺有模糊影"（anatomy 不同）</li>
+<li><strong>弱项</strong>：RadGraph 本身有抽取错误；纯用 RadGraph-F1 作奖励会 reward hack（报告越短越容易避免错误实体，长度从 207 降到 93 字符）</li>
+</ul>
+<p><strong>④ BLEU（n-gram 精度）</strong>
+- IBM 2002 提出的经典机器翻译指标：算生成报告中 n-gram 出现在参考报告里的比例（precision），n=1,2,3,4，加 brevity penalty 防止极短文本刷分
+- <strong>强项</strong>：字面严格匹配，计算快、可解释、有历史可比性
+- <strong>弱项</strong>：不捕捉语义，"肺水肿" vs "肺部积水" 给 0 分</p>
+<p><strong>4 个指标互补关系</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>衡量角度</th>
+<th>强项</th>
+<th>弱项</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BERTScore</td>
+<td>语义嵌入相似度</td>
+<td>容忍同义改写</td>
+<td>对事实错误不敏感</td>
+</tr>
+<tr>
+<td>CheXbert sim</td>
+<td>14 类临床标签</td>
+<td>直接抓临床判断</td>
+<td>粒度粗</td>
+</tr>
+<tr>
+<td>RadGraph-F1</td>
+<td>实体关系图</td>
+<td>抓医学信息结构</td>
+<td>易 reward hack</td>
+</tr>
+<tr>
+<td>BLEU</td>
+<td>n-gram 字面</td>
+<td>严格、可解释</td>
+<td>不懂同义词</td>
+</tr>
+</tbody>
+</table>
+<p><strong>RadCliQ 如何组合</strong>：先把 4 个指标各自在数据集上做 z-score 归一化（减均值除标准差），再用学出来的权重加权组合（或简单平均，取决于实现），输出一个标量，<strong>越低越好</strong>（因为是距离指标）。论文里 reward 用 <strong>-RadCliQ</strong>：取负号让"更好"变成"更大"，符合 reward 最大化方向。</p>
+<h4 id="hungarian-matched-soft-f1">视觉定位：Hungarian-matched soft-F1<a class="headerlink" href="#hungarian-matched-soft-f1" title="Permanent link">&para;</a></h4>
+<p>对每个图像，计算预测框和参考框两两之间的 IoU，然后用 <strong>Hungarian 算法</strong>做一对一匹配：</p>
+<ul>
+<li>匹配上的预测框：按 IoU 大小贡献 soft true positive</li>
+<li>未匹配的预测框：false positive</li>
+<li>未匹配的参考框：false negative</li>
+</ul>
+<p>这种连续奖励相比 mAP@0.5 更稳定，能给"接近正确"的预测部分 credit。</p>
+<h4 id="reward-server">Reward server 架构<a class="headerlink" href="#reward-server" title="Permanent link">&para;</a></h4>
+<p>外部的 reward 模型分成两类：报告生成用独立 server，视觉定位用规则函数。</p>
+<p><strong>报告生成（FastAPI reward server，跑在 4×GH200 的独立节点）</strong></p>
+<p>代码在 <code>code/verl/custom_rewards/reward_server/</code>，3 个独立服务：</p>
+<table>
+<thead>
+<tr>
+<th>Worker 文件</th>
+<th>调用的外部模型</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>worker_radcliq.py</code></td>
+<td><code>RadEval.factual.RadCliQv1.radcliq.CompositeMetric()</code></td>
+<td><strong>主 reward</strong>，内部又封装了 4 个子模型</td>
+</tr>
+<tr>
+<td><code>worker_radgraph.py</code></td>
+<td><code>F1RadGraph(model_type="radgraph-xl")</code></td>
+<td>消融实验用</td>
+</tr>
+<tr>
+<td><code>worker_bertscore.py</code></td>
+<td><code>BERTScorer(model_type='distilbert-base-uncased', num_layers=5)</code></td>
+<td>消融实验用</td>
+</tr>
+</tbody>
+</table>
+<p>RadCliQ 内部组合的 4 个外部模型（全部从 RadEval 库调用）：
+1. <strong>BERTScore</strong> → DistilBERT（语义嵌入）
+2. <strong>CheXbert</strong> → Stanford 的 BERT-based 14 类病理标注器（Smit et al., 2020）
+3. <strong>RadGraph-F1</strong> → RadGraph-XL（AllenAI 的放射学实体关系抽取模型）
+4. <strong>BLEU</strong> → 纯统计指标，无模型</p>
+<p>每个 worker 都是 FastAPI 服务，verl 的 actor 通过 HTTP POST <code>/score_radcliq</code> 请求 reward。主 run 用 <code>worker_radcliq.py</code>，输出 <code>-rewards[0]</code>（取负，因 RadCliQ 越低越好）。</p>
+<p><strong>视觉定位（非外部 server，规则函数内联在 verl 里）</strong></p>
+<p><code>code/verl/custom_rewards/grounding_reward.py</code> 的 <code>compute_score()</code>，直接在 verl worker 内部调用，不启动独立 server：
+- <code>scipy.optimize.linear_sum_assignment</code> 做 Hungarian 一对一匹配
+- 自实现的 <code>compute_iou()</code> 算 IoU 矩阵
+- 输出 <code>soft_f1_hungarian(pred_boxes, gt_boxes)</code>
+- 纯几何运算，不调用任何神经网络</p>
+<p><strong>小结</strong>：严格说只有 3 个外部神经网络——<strong>RadGraph-XL、CheXbert、DistilBERT</strong>（BLEU 是统计公式），它们都被 <code>RadEval.CompositeMetric</code> 封装进 RadCliQ server 里。视觉定位的 soft-F1 不是外部模型，是规则函数。</p>
+<h3 id="25">2.5 显存分析<a class="headerlink" href="#25" title="Permanent link">&para;</a></h3>
+<p><strong>GH200 单卡显存</strong>：141 GB HBM3e（NVIDIA Grace Hopper Superchip）</p>
+<p><strong>GPU 数量数据来源</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>数量</th>
+<th>来源</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SFT</td>
+<td>8×64 = 64 GPU</td>
+<td>论文 §4.1（第 6 页）"SFT on RadVLM instruction dataset (8×64 GPUs)"</td>
+</tr>
+<tr>
+<td>RL 训练</td>
+<td>8 节点 × 4 = 32 GPU</td>
+<td><code>verl/jobs/report_radcliq_run.sh</code>：<code>trainer.nnodes=8</code>、<code>trainer.n_gpus_per_node=4</code></td>
+</tr>
+<tr>
+<td>RL reward server</td>
+<td>1 节点 × 4 = 4 GPU</td>
+<td><code>verl/README.md</code> 第 80 行："9 nodes (8 for RL, 1 for radcliq reward)"</td>
+</tr>
+<tr>
+<td>GPU 型号</td>
+<td>GH200（141 GB HBM3e）</td>
+<td><code>code/README.md</code>：CSCS Clariden / Alps 集群</td>
+</tr>
+</tbody>
+</table>
+<p><strong>SFT vs RL GPU 数差异</strong>：SFT 用 64 张卡，RL 只用 32 张（+4 reward server）。直觉上 RL 有 3 份模型副本应该更吃显存，但 SFT 用更多卡的主要原因不是显存，而是<strong>总计算量</strong>——SFT 要处理 1M pairs × 2 epochs = 2M 样本，RL 只有 300 steps × 4096 = 1.2M 样本且单样本更短，总计算量小得多。更多卡是为了<strong>训练吞吐</strong>，否则 SFT 跑几周都跑不完。</p>
+<p><strong>SFT vs RL 每节点 GPU 数差异</strong>：SFT 每节点 8 张卡，RL 每节点 4 张。RL 少挂卡是因为同节点要驻留 Actor + Reference + vLLM Rollout 三份模型副本，还要预留显存给 vLLM 的 KV cache 池（<code>gpu_memory_utilization=0.6</code>），所以每节点少挂几张卡留显存余量。SFT 只有 1 份模型副本，可以满挂 8 张。</p>
+<p><strong>关于 <code>cutoff_len=131072</code> 的澄清</strong>：这是 LLaMA-Factory 的 Qwen3-VL 模板默认值（Qwen3-VL 本身支持 128k 上下文），是<strong>最大截断长度</strong>，不是实际样本长度。CXR 问答/多轮对话的实际样本约 1-5k tokens（图像 ~300-400 visual tokens + 文本 ~100-500 tokens），远不到 128k。作者大概率只是没改这个默认值。</p>
+<p><strong>SFT 阶段（8B 模型，bf16，ZeRO-3 跨 64 GPU）</strong>：</p>
+<ul>
+<li>权重：8B × 2 bytes = 16 GB</li>
+<li>梯度（bf16）：16 GB</li>
+<li>AdamW 优化器状态（fp32，含 master weight + 2 momentums）：8B × 8 bytes = 64 GB</li>
+<li><strong>未分片总计</strong>：~96 GB + activations</li>
+<li><strong>ZeRO-3 分片到 64 GPU</strong>：每卡仅承担 1/64 ≈ 1.5 GB 参数/梯度/优化器</li>
+<li>实际样本 ~1-5k tokens，activation 占用不大，单卡显存绰绰有余</li>
+<li><code>per_device_train_batch_size=1 + grad_accum=2</code> 是模板配置，实际跑的是 per_device=8</li>
+<li><strong>64 张卡主要为了吞吐</strong>：1M pairs × 2 epochs 数据量大，多卡并行才能在合理时间内跑完</li>
+</ul>
+<p><strong>RL 阶段（8B 模型，bf16，32 GPU）</strong>：</p>
+<blockquote>
+<p>⚠️ <strong>先澄清一个常见误解</strong>：GRPO 算法本身只需要 <strong>2 个模型角色</strong>（Actor + Reference），它<strong>砍掉了 PPO 的 critic</strong>，用组内相对优势 <code>Â_i = (R_i - mean(R))/std(R)</code> 替代价值函数估计 baseline。Reward 可以是规则式函数（本项目用 RadCliQ / soft-F1，不是学出来的 reward model）。</p>
+<p>但 <strong>verl 工程实现</strong>为了加速，会同时驻留 <strong>3 份模型副本</strong>：Actor、Reference、Rollout（vLLM）。其中 Actor 和 Rollout 共享权重但独立存储——训练引擎（FSDP）和推理引擎（vLLM）的内存布局不兼容，vLLM 需要预分配 KV cache 池，无法与训练的 activation/optimizer 共享显存。每步训练后把 Actor 权重同步到 Rollout（vLLM），这个同步开销是 verl 上 GRPO 的主要工程成本。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>verl 角色</th>
+<th>作用</th>
+<th>是否可训练</th>
+<th>显存占用（8B bf16，未分片）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Actor</strong></td>
+<td>策略模型，做梯度更新</td>
+<td>✅ 可训练</td>
+<td>权重 16 GB + 梯度 16 GB + AdamW 64 GB = <strong>96 GB</strong></td>
+</tr>
+<tr>
+<td><strong>Reference</strong></td>
+<td>计算 KL 散度 π_θ ‖ π_ref</td>
+<td>❌ 始终冻结</td>
+<td>权重 <strong>16 GB</strong></td>
+</tr>
+<tr>
+<td><strong>Rollout</strong></td>
+<td>vLLM 做 fast inference，生成 G=8 个 rollout</td>
+<td>❌ 冻结（每步从 Actor 同步权重）</td>
+<td>权重 16 GB + KV cache（vLLM paged attention）</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>三份都通过 ZeRO-3 分片到 32 GPU，单卡实际承担 ~4 GB 权重 + 各自 activation/KV</li>
+<li>vLLM rollout 限制 <code>gpu_memory_utilization=0.6</code>，即最多用 141 × 0.6 ≈ <strong>85 GB</strong> 作为 weights + KV cache</li>
+<li>RL 上下文 ~4k tokens（与 SFT 实际样本长度同量级），activation 占用不大</li>
+<li>reward server 节点单独跑 32 个 RadCliQ 副本（4 GPU × 8 实例），与训练节点解耦避免显存争用</li>
+<li><strong>注意</strong>：reward 是外部 server，不在训练卡的显存里——它不算 GRPO 的"模型角色"</li>
+</ul>
+<p><strong>关键点</strong>：SFT 用 64 张卡主要是为了<strong>训练吞吐</strong>（1M pairs × 2 epochs 数据量大），不是因为单样本显存不够；RL 用 32 张卡是因为总计算量小（300 steps），且 3 份模型副本虽多但上下文短，32 张卡 ZeRO-3 分片后显存够用。RL 每节点只挂 4 张卡（而非 SFT 的 8 张）是为了给 vLLM KV cache 留显存余量。</p>
+<hr />
+<h2 id="3">3. 实验结果<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<h3 id="31">3.1 报告生成性能<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
+<p>在 MIMIC-CXR 派生的 RadVLM 测试集上评估，指标包括：
+- ROUGE-L, BERTScore（文本相似度）
+- CheXbert micro/macro F1（临床标签）
+- RadGraph F1（实体关系）
+- GREEN（LLM-as-Judge）
+  -  GREEN = 用一个微调过的 Llama-2-7B 当裁判，给生成报告 vs   参考报告打分（0-1，越高越好），关注临床事实错误而非字面匹配；但它对长报告有偏好，单独用作 reward 也会 length hack</p>
+<ul>
+<li>RadCliQ（综合指标，越低越好）</li>
+</ul>
+<p><strong>关键发现</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>R-L</th>
+<th>B-S</th>
+<th>CXb-micro</th>
+<th>CXb-macro</th>
+<th>RGF1</th>
+<th>GREEN</th>
+<th>RCQ↓</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen3-VL</td>
+<td>14.0</td>
+<td>42.0</td>
+<td>35.3</td>
+<td>20.4</td>
+<td>10.8</td>
+<td>21.9</td>
+<td>1.67</td>
+</tr>
+<tr>
+<td>Qwen3-VL+RL</td>
+<td>24.7</td>
+<td>55.8</td>
+<td>47.4</td>
+<td>22.3</td>
+<td>22.5</td>
+<td>25.8</td>
+<td>1.05</td>
+</tr>
+<tr>
+<td>RadVLM</td>
+<td>26.0</td>
+<td>53.3</td>
+<td>49.0</td>
+<td>30.5</td>
+<td>19.0</td>
+<td>29.1</td>
+<td>1.14</td>
+</tr>
+<tr>
+<td><strong>RadVLM+RL</strong></td>
+<td><strong>29.9</strong></td>
+<td><strong>59.2</strong></td>
+<td><strong>57.0</strong></td>
+<td>33.4</td>
+<td><strong>25.8</strong></td>
+<td>32.7</td>
+<td><strong>0.86</strong></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>GRPO 显著提升</strong>：RadVLM+RL 在所有指标上都优于 RadVLM（SFT only）</li>
+<li><strong>通用模型 + RL 也能适配</strong>：Qwen3-VL+RL 甚至超过 SFT-only 的 RadVLM 某些指标</li>
+<li>注意：RadVLM 系列在 <strong>CheXbert-macro</strong> 上仍落后于一些基线（如 LLaVA-Rad 39.2）</li>
+</ul>
+<h3 id="32">3.2 视觉定位性能<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>Anatomy</th>
+<th>Abnorm.</th>
+<th>PhraseMS</th>
+<th>PhrasePad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen3-VL</td>
+<td>11.1</td>
+<td>5.1</td>
+<td>19.0</td>
+<td>10.7</td>
+</tr>
+<tr>
+<td>Qwen3-VL+RL</td>
+<td>79.0</td>
+<td>36.0</td>
+<td>79.4</td>
+<td>55.3</td>
+</tr>
+<tr>
+<td>RadVLM</td>
+<td>82.1</td>
+<td>44.2</td>
+<td>84.6</td>
+<td>59.0</td>
+</tr>
+<tr>
+<td><strong>RadVLM+RL</strong></td>
+<td><strong>84.5</strong></td>
+<td><strong>45.9</strong></td>
+<td><strong>87.9</strong></td>
+<td><strong>63.0</strong></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>通用 Qwen3-VL 在 CXR grounding 上几乎不可用，但 <strong>RL alone 能大幅提升</strong></li>
+<li>RadVLM+RL 在 grounding 上再次提升，说明即使强 SFT 模型也能从任务对齐的 RL 中受益</li>
+</ul>
+<h3 id="33">3.3 奖励选择的影响<a class="headerlink" href="#33" title="Permanent link">&para;</a></h3>
+<p>作者对比了不同奖励函数训练 RadVLM+RL：</p>
+<table>
+<thead>
+<tr>
+<th>Reward</th>
+<th>R-L</th>
+<th>B-S</th>
+<th>CXb-micro</th>
+<th>CXb-macro</th>
+<th>RGF1</th>
+<th>GREEN</th>
+<th>RCQ↓</th>
+<th>平均长度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RadCliQ</td>
+<td>29.9</td>
+<td>59.2</td>
+<td>57.0</td>
+<td>33.4</td>
+<td>25.8</td>
+<td>32.7</td>
+<td><strong>0.86</strong></td>
+<td>171</td>
+</tr>
+<tr>
+<td>BERTScore</td>
+<td>29.0</td>
+<td><strong>61.6</strong></td>
+<td>56.5</td>
+<td><strong>35.1</strong></td>
+<td>23.9</td>
+<td>33.1</td>
+<td>0.93</td>
+<td>206</td>
+</tr>
+<tr>
+<td>GLEU</td>
+<td>29.8</td>
+<td>59.2</td>
+<td>56.0</td>
+<td><strong>35.1</strong></td>
+<td>25.3</td>
+<td><strong>33.7</strong></td>
+<td>0.92</td>
+<td>209</td>
+</tr>
+<tr>
+<td>RadGraph-F1</td>
+<td>22.8</td>
+<td>48.8</td>
+<td>34.1</td>
+<td>18.4</td>
+<td><strong>27.6</strong></td>
+<td>23.5</td>
+<td>1.20</td>
+<td><strong>93</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>关键教训</strong>：
+- <strong>RadCliQ</strong> 综合表现最好，4/7 指标最优
+- <strong>RadGraph-F1 单独作为奖励会 reward hack</strong>：报告长度从 207 降到 93 字符，其他指标大幅下降
+- BERTScore/GLEU 会倾向于生成更长报告，GREEN 提升可能部分来自长度因素</p>
+<hr />
+<h2 id="4_1">4. 讨论与局限<a class="headerlink" href="#4_1" title="Permanent link">&para;</a></h2>
+<h3 id="41">4.1 未来方向<a class="headerlink" href="#41" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>LLM-as-Judge 奖励</strong>：如 GREEN，但需要小心 reward hacking</li>
+<li><strong>多轮对话 + 工具使用</strong>：让模型能裁剪、缩放、重观察图像</li>
+</ul>
+<hr />
+<h2 id="5">5. 总结<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<p>RadVLM-GRPO 证明了在医学 VLM 中，<strong>RL 是 SFT 的有力补充</strong>。通过精心设计的 clinically grounded rewards（-RadCliQ 用于报告生成，soft-F1 用于视觉定位），GRPO 能进一步提升已具备强 SFT 基础的 RadVLM。</p>
+<p>对于类似 CheX-Align 的项目，最值得借鉴的是：
+1. 在指令微调后增加 GRPO 阶段
+2. 用 -RadCliQ 作为报告生成的奖励
+3. 注意奖励 hacking，避免使用单一、容易被钻空子的指标</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.top", "navigation.instant", "search.highlight", "content.code.copy", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

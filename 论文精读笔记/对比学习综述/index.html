@@ -1,0 +1,4378 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../%E5%A4%9A%E6%A8%A1%E6%80%81%E8%AE%BA%E6%96%87%E4%B8%B2%E8%AE%B2%C2%B7%E4%B8%8B/">
+      
+      
+        <link rel="next" href="../%E6%B7%B7%E5%90%88%E7%B2%BE%E5%BA%A6%E8%AE%AD%E7%BB%83%E4%B8%8E%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>对比学习综述 - 学习资料库</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="学习资料库" class="md-header__button md-logo" aria-label="学习资料库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            学习资料库
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              对比学习综述
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="学习资料库" class="md-nav__button md-logo" aria-label="学习资料库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    学习资料库
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    学习资料库
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GENIUS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    GENIUS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GENIUS/GENIUS%20%E6%80%BB%E7%BB%93/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GENIUS 总结
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RadAlign
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RadAlign
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RadAlign/RadVLM-GRPO%20%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RadVLM-GRPO 论文精读
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RadAlign/%E5%85%B3%E9%94%AE%E4%BB%A3%E7%A0%81%E8%AF%B4%E6%98%8E/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关键代码说明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    全模态大模型·出行安全项目
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    全模态大模型·出行安全项目
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/5.27%20Qwen3.7-Max%2BGeoLife%E8%AF%84%E4%BC%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.27 Qwen3.7-Max+GeoLife评估
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/Omni-%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Omni-出行安全项目
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%B1%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    全模态大模型·出行安全项目进展
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLUE
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    BLUE
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/BLUE/BLUE%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLUE论文笔记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    论文精读笔记
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    论文精读笔记
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AAAAA_Transformer%E3%80%81LLM%E4%B8%8EVLM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AAAAA_Transformer、LLM与VLM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BBBBB_%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BBBBB_强化学习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BERT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BERT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BEiT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BEiT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BLIP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLIP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLIP%20%26%20ALIGN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP & ALIGN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLIP%20%E6%94%B9%E8%BF%9B%E5%B7%A5%E4%BD%9C%E4%B8%B2%E8%AE%B2%EF%BC%88%E4%B8%8A%EF%BC%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP 改进工作串讲（上）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLIP%20%E6%94%B9%E8%BF%9B%E5%B7%A5%E4%BD%9C%E4%B8%B2%E8%AE%B2%EF%BC%88%E4%B8%8B%EF%BC%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP 改进工作串讲（下）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DALL%C2%B7E%202/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DALL·E 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DINO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DINO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Flamingo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Flamingo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GPT%EF%BC%8CGPT-2%EF%BC%8CGPT-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPT，GPT-2，GPT-3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ImageBind%20%E4%B8%8E%20LanguageBind%20%E5%AF%B9%E6%AF%94/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ImageBind 与 LanguageBind 对比
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InternVL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    InternVL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLaMA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLaMA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLaVA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLaVA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MAE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MAE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MoCo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MoCo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OFA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OFA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PaLI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PaLI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Qwen-VL%E4%B8%8EOmni/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qwen-VL与Omni
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SAM3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SAM3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SigLIP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SigLIP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SimVLM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SimVLM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Swin%20Transformer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Swin Transformer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UniPerceiver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UniPerceiver
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Unified-IO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unified-IO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ViLT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ViLT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ViT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ViT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ZZZZZ%E5%85%AC%E5%BC%8F%E4%BB%A3%E7%A0%81%E7%AD%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ZZZZZ公式代码等
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%8E%9F%E7%94%9F%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    原生多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%90%8E%E8%AE%AD%E7%BB%83%E7%BB%BC%E8%BF%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多模态大模型后训练综述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%9A%E6%A8%A1%E6%80%81%E8%AE%BA%E6%96%87%E4%B8%B2%E8%AE%B2%C2%B7%E4%B8%8A/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多模态论文串讲·上
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%9A%E6%A8%A1%E6%80%81%E8%AE%BA%E6%96%87%E4%B8%B2%E8%AE%B2%C2%B7%E4%B8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多模态论文串讲·下
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    对比学习综述
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    对比学习综述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目录
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心要点
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-2018-2019" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 第一阶段：百花齐放（2018-2019年中）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 第一阶段：百花齐放（2018-2019年中）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-instdiscinstance-discrimination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 InstDisc（Instance Discrimination）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1 InstDisc（Instance Discrimination）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1.1 动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1.2 核心做法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#113" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1.3 关键细节
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#114" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1.4 贡献与影响
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-invariant-spreadingcvpr-2019" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Invariant Spreading（CVPR 2019）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2 Invariant Spreading（CVPR 2019）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2.1 动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2.2 核心做法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#123" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2.3 局限性
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-cpccontrastive-predictive-coding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 CPC（Contrastive Predictive Coding）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.3 CPC（Contrastive Predictive Coding）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#131" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3.1 动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#132" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3.2 核心做法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#133" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3.3 贡献
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-cmccontrastive-multiview-coding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 CMC（Contrastive Multiview Coding）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.4 CMC（Contrastive Multiview Coding）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#141" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4.1 动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#142" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4.2 核心做法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#143" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4.3 贡献与影响
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#144" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4.4 局限性
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.5 第一阶段总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-2019-2020" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 第二阶段：双雄争霸（2019年中-2020年中）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 第二阶段：双雄争霸（2019年中-2020年中）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-moco-v1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 MoCo v1
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 MoCo v1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#211" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1.1 核心贡献
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#212-instdisc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1.2 与 InstDisc 的关系
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#213" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1.3 写作风格
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#214" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1.4 影响力
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-simclr-v1simple-contrastive-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 SimCLR v1（Simple Contrastive Learning）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 SimCLR v1（Simple Contrastive Learning）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.1 核心做法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222-invariant-spreading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.2 相比 Invariant Spreading 的改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#223" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.3 作者的谦逊态度
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#224" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.4 长远影响
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-moco-v2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 MoCo v2
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 MoCo v2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.1 核心改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#232-simclr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.2 与 SimCLR 对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#233" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.3 硬件友好性
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-simclr-v2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 SimCLR v2
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4 SimCLR v2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#241" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.1 定位
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#242-v1v2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.2 模型改进（v1→v2）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-swavswapping-assignments-between-views" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 SwAV（Swapping Assignments between Views）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.5 SwAV（Swapping Assignments between Views）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#251" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5.1 核心思想
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#252" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5.2 具体做法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#253-multi-crop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5.3 Multi-Crop 技术
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#254" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5.4 性能
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-cpc-v2-infomin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6 CPC v2 与 InfoMin（简述）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.7 第二阶段总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-2020-2021" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 第三阶段：不用负样本的对比学习（2020年中-2021年初）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 第三阶段：不用负样本的对比学习（2020年中-2021年初）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-byolbootstrap-your-own-latent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 BYOL（Bootstrap Your Own Latent）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 BYOL（Bootstrap Your Own Latent）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#311" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1.1 动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#312" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1.2 核心做法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#313" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1.3 性能
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#314-batch-norm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1.4 Batch Norm 争议
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-simsiamsimple-siamese-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 SimSiam（Simple Siamese Network）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 SimSiam（Simple Siamese Network）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#321" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2.1 动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2.2 核心做法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#323" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2.3 理论解释
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#324" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2.4 性能对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-barlow-twins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Barlow Twins（简述）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-transformer-2021" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 第四阶段：Transformer 时代（2021年起）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 第四阶段：Transformer 时代（2021年起）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-moco-v3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 MoCo v3
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1 MoCo v3">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#411" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1.1 架构
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#412" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1.2 训练不稳定性问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#413" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1.3 解决方案
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#414" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1.4 论文特点
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-dinoself-distillation-with-no-labels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 DINO（Self-Distillation with No Labels）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.2 DINO（Self-Distillation with No Labels）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#421" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2.1 核心卖点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#422" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2.2 方法
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        总结与对比
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="总结与对比">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        各方法全景对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        关键技术演进时间线
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心洞察
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%B7%B7%E5%90%88%E7%B2%BE%E5%BA%A6%E8%AE%AD%E7%BB%83%E4%B8%8E%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    混合精度训练与分布式训练
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%A7%86%E9%A2%91%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    视频多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%9F%B3%E9%A2%91%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    音频多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目录
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心要点
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-2018-2019" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 第一阶段：百花齐放（2018-2019年中）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 第一阶段：百花齐放（2018-2019年中）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-instdiscinstance-discrimination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 InstDisc（Instance Discrimination）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1 InstDisc（Instance Discrimination）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1.1 动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1.2 核心做法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#113" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1.3 关键细节
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#114" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1.4 贡献与影响
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-invariant-spreadingcvpr-2019" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Invariant Spreading（CVPR 2019）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2 Invariant Spreading（CVPR 2019）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2.1 动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2.2 核心做法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#123" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2.3 局限性
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-cpccontrastive-predictive-coding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 CPC（Contrastive Predictive Coding）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.3 CPC（Contrastive Predictive Coding）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#131" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3.1 动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#132" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3.2 核心做法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#133" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3.3 贡献
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-cmccontrastive-multiview-coding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 CMC（Contrastive Multiview Coding）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.4 CMC（Contrastive Multiview Coding）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#141" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4.1 动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#142" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4.2 核心做法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#143" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4.3 贡献与影响
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#144" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4.4 局限性
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.5 第一阶段总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-2019-2020" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 第二阶段：双雄争霸（2019年中-2020年中）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 第二阶段：双雄争霸（2019年中-2020年中）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-moco-v1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 MoCo v1
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 MoCo v1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#211" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1.1 核心贡献
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#212-instdisc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1.2 与 InstDisc 的关系
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#213" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1.3 写作风格
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#214" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1.4 影响力
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-simclr-v1simple-contrastive-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 SimCLR v1（Simple Contrastive Learning）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 SimCLR v1（Simple Contrastive Learning）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.1 核心做法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222-invariant-spreading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.2 相比 Invariant Spreading 的改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#223" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.3 作者的谦逊态度
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#224" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.4 长远影响
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-moco-v2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 MoCo v2
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 MoCo v2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.1 核心改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#232-simclr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.2 与 SimCLR 对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#233" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.3 硬件友好性
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-simclr-v2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 SimCLR v2
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4 SimCLR v2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#241" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.1 定位
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#242-v1v2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.2 模型改进（v1→v2）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-swavswapping-assignments-between-views" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 SwAV（Swapping Assignments between Views）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.5 SwAV（Swapping Assignments between Views）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#251" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5.1 核心思想
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#252" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5.2 具体做法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#253-multi-crop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5.3 Multi-Crop 技术
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#254" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5.4 性能
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-cpc-v2-infomin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6 CPC v2 与 InfoMin（简述）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.7 第二阶段总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-2020-2021" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 第三阶段：不用负样本的对比学习（2020年中-2021年初）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 第三阶段：不用负样本的对比学习（2020年中-2021年初）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-byolbootstrap-your-own-latent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 BYOL（Bootstrap Your Own Latent）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 BYOL（Bootstrap Your Own Latent）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#311" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1.1 动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#312" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1.2 核心做法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#313" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1.3 性能
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#314-batch-norm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1.4 Batch Norm 争议
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-simsiamsimple-siamese-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 SimSiam（Simple Siamese Network）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 SimSiam（Simple Siamese Network）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#321" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2.1 动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2.2 核心做法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#323" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2.3 理论解释
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#324" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2.4 性能对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-barlow-twins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Barlow Twins（简述）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-transformer-2021" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 第四阶段：Transformer 时代（2021年起）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 第四阶段：Transformer 时代（2021年起）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-moco-v3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 MoCo v3
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1 MoCo v3">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#411" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1.1 架构
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#412" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1.2 训练不稳定性问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#413" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1.3 解决方案
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#414" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1.4 论文特点
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-dinoself-distillation-with-no-labels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 DINO（Self-Distillation with No Labels）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.2 DINO（Self-Distillation with No Labels）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#421" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2.1 核心卖点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#422" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2.2 方法
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        总结与对比
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="总结与对比">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        各方法全景对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        关键技术演进时间线
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心洞察
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1">对比学习综述<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>📄 <strong>涉及论文链接</strong>：</p>
+<p><strong>第一阶段（百花齐放）</strong>：<a href="https://arxiv.org/pdf/1805.01978">InstDisc</a> | <a href="https://arxiv.org/pdf/1807.03748">CPC</a> | <a href="https://arxiv.org/pdf/1906.05849">CMC</a></p>
+<p><strong>第二阶段（双雄争霸）</strong>：<a href="https://arxiv.org/pdf/1911.05722">MoCo v1</a> | <a href="https://arxiv.org/pdf/2002.05709">SimCLR</a> | <a href="https://arxiv.org/pdf/2003.04297">MoCo v2</a> | <a href="https://arxiv.org/pdf/2006.10029">SimCLR v2</a></p>
+<p><strong>第三阶段（无负样本）</strong>：<a href="https://arxiv.org/pdf/2006.09882">SwAV</a> | <a href="https://arxiv.org/pdf/2006.07733">BYOL</a> | <a href="https://arxiv.org/pdf/2011.10566">SimSiam</a></p>
+<p><strong>第四阶段（Transformer）</strong>：<a href="https://arxiv.org/pdf/2103.03230">Barlow Twins</a> | <a href="https://arxiv.org/pdf/2104.02057">MoCo v3</a> | <a href="https://arxiv.org/pdf/2104.14294">DINO</a></p>
+</blockquote>
+<h2 id="_2">目录<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#核心要点">核心要点</a></li>
+<li><a href="#1-第一阶段百花齐放2018-2019年中">1. 第一阶段：百花齐放（2018-2019年中）</a></li>
+<li><a href="#2-第二阶段双雄争霸2019年中-2020年中">2. 第二阶段：双雄争霸（2019年中-2020年中）</a></li>
+<li><a href="#3-第三阶段不用负样本的对比学习2020年中-2021年初">3. 第三阶段：不用负样本的对比学习（2020年中-2021年初）</a></li>
+<li><a href="#4-第四阶段transformer-时代2021年起">4. 第四阶段：Transformer 时代（2021年起）</a></li>
+<li><a href="#总结与对比">总结与对比</a></li>
+</ul>
+<h2 id="_3">核心要点<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<blockquote>
+<ol>
+<li><strong>四阶段发展脉络</strong>：对比学习在计算机视觉领域的发展可分为四个阶段——百花齐放（InstDisc/CPC/CMC）、双雄争霸（MoCo/SimCLR）、无负样本探索（BYOL/SimSiam）、Transformer 时代（MoCo v3/DINO）。</li>
+<li><strong>核心代理任务演进</strong>：从个体判别（Instance Discrimination）到预测型任务（CPC），再到多视角/多模态（CMC），最终走向自蒸馏与聚类融合（SwAV/BYOL/SimSiam）。</li>
+<li><strong>关键技术积累</strong>：projection head（MLP层）、强数据增强、动量编码器、大 batch size、更长训练时间等技术逐步积累，共同推动了对比学习性能的提升。</li>
+<li><strong>负样本的消解</strong>：从依赖大量负样本（memory bank/队列）到使用聚类中心（SwAV），再到完全不需要显式负样本（BYOL/SimSiam），对比学习的范式发生了根本转变。</li>
+<li><strong>Vision Transformer 的融入</strong>：MoCo v3 和 DINO 将骨干网络从 CNN 替换为 ViT，解决了训练不稳定性问题，开启了自监督学习的新篇章。</li>
+</ol>
+</blockquote>
+<hr />
+<h2 id="1-2018-2019">1. 第一阶段：百花齐放（2018-2019年中）<a class="headerlink" href="#1-2018-2019" title="Permanent link">&para;</a></h2>
+<p>这一阶段方法、模型、目标函数、代理任务均未统一，各种思路并行探索。</p>
+<h3 id="11-instdiscinstance-discrimination">1.1 InstDisc（Instance Discrimination）<a class="headerlink" href="#11-instdiscinstance-discrimination" title="Permanent link">&para;</a></h3>
+<h4 id="111">1.1.1 动机<a class="headerlink" href="#111" title="Permanent link">&para;</a></h4>
+<ul>
+<li>受有监督学习结果启发：将有监督训练好的分类器对一张豹子图片进行分类时，排名靠前的类别（猎豹、雪豹等）都是视觉上相似的物体，排名靠后的则完全不相关。</li>
+<li>这说明让图片聚集在一起的原因并非语义标签相似，而是视觉外观本身相似。</li>
+<li>因此提出<strong>个体判别（Instance Discrimination）</strong>任务：将每个 instance（每张图片）都视为一个独立的类别，目标是学习一种特征使得每张图片都能被区分开来。</li>
+<li>这是将"按类别走的有监督信号推到了极致"。</li>
+</ul>
+<h4 id="112">1.1.2 核心做法<a class="headerlink" href="#112" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>编码器</strong>：通过卷积神经网络（ResNet-50）将所有图片编码为特征。</li>
+<li><strong>Memory Bank</strong>：将所有图片的特征存储在一个字典（memory bank）中。ImageNet 有 128 万张图片，因此 memory bank 有 128 万行，特征维度选择 128 维以降低存储代价。</li>
+<li><strong>前向过程</strong>：</li>
+<li>Batch size = 256，图片通过 ResNet-50 得到 2048 维特征，再降维到 128 维。</li>
+<li>正样本：图片本身（可能经过数据增强），共 256 个。</li>
+<li>负样本：从 memory bank 中随机抽取 4096 个。</li>
+<li>使用 NCE loss 计算对比学习目标函数。</li>
+<li><strong>更新机制</strong>：每次更新网络后，将当前 mini-batch 对应的特征更新回 memory bank。</li>
+<li><strong>Proximal Regularization</strong>：给模型训练加约束，使 memory bank 中的特征能进行动量式更新（与 MoCo 的想法一致）。</li>
+</ul>
+<h4 id="113">1.1.3 关键细节<a class="headerlink" href="#113" title="Permanent link">&para;</a></h4>
+<ul>
+<li>温度参数 τ = 0.07</li>
+<li>负样本数量：4096</li>
+<li>训练 epochs：200</li>
+<li>Batch size：256</li>
+<li>初始学习率：0.03</li>
+<li>这些超参数设置被后续 MoCo 等工作严格沿用。</li>
+</ul>
+<h4 id="114">1.1.4 贡献与影响<a class="headerlink" href="#114" title="Permanent link">&para;</a></h4>
+<ul>
+<li>提出了个体判别代理任务。</li>
+<li>使用 NCE loss 做对比学习，取得了不错的无监督表征学习结果。</li>
+<li>提出了用外部数据结构（memory bank）存储大量负样本的方案。</li>
+<li>提出了特征的动量更新机制。</li>
+<li>是 MoCo 等众多后续工作的基石（MoCo 论文中反复引用的文献 61）。</li>
+</ul>
+<h3 id="12-invariant-spreadingcvpr-2019">1.2 Invariant Spreading（CVPR 2019）<a class="headerlink" href="#12-invariant-spreadingcvpr-2019" title="Permanent link">&para;</a></h3>
+<h4 id="121">1.2.1 动机<a class="headerlink" href="#121" title="Permanent link">&para;</a></h4>
+<ul>
+<li>最基本的对比学习思想：相同图片经过编码器后特征应相似（invariant），不同图片的特征应分散开（spreading）。</li>
+<li>可视为 SimCLR 的前身。</li>
+</ul>
+<h4 id="122">1.2.2 核心做法<a class="headerlink" href="#122" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>端到端学习</strong>：不使用额外数据结构存储负样本，只用一个编码器进行端到端训练。</li>
+<li><strong>正负样本定义</strong>：</li>
+<li>Batch size = 256，每张图做数据增强得到 x'。</li>
+<li>对于 x1，其正样本为 x1'；负样本为 mini-batch 中剩余所有样本及其增强版本，共 (256-1)×2 = 510 个。</li>
+<li><strong>特征降维</strong>：编码器输出后经全连接层降至 128 维。</li>
+<li><strong>目标函数</strong>：NCE loss 的变体。</li>
+</ul>
+<h4 id="123">1.2.3 局限性<a class="headerlink" href="#123" title="Permanent link">&para;</a></h4>
+<ul>
+<li>没有 TPU，batch size 仅 256，负样本只有约 500 个（字典不够大）。</li>
+<li>缺少强数据增强和 MLP projector。</li>
+<li>结果不如后来的 SimCLR 惊艳，但思路上是 SimCLR 的直接前身。</li>
+</ul>
+<h3 id="13-cpccontrastive-predictive-coding">1.3 CPC（Contrastive Predictive Coding）<a class="headerlink" href="#13-cpccontrastive-predictive-coding" title="Permanent link">&para;</a></h3>
+<h4 id="131">1.3.1 动机<a class="headerlink" href="#131" title="Permanent link">&para;</a></h4>
+<ul>
+<li>区别于判别式的个体判别任务，CPC 采用<strong>生成式/预测型</strong>代理任务。</li>
+<li>是一个通用结构，可处理音频、图片、文字及强化学习。</li>
+</ul>
+<h4 id="132">1.3.2 核心做法<a class="headerlink" href="#132" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>输入序列</strong>：以音频信号为例，有从 t-3 到 t 的时刻序列，以及未来时刻 t+1, t+2 等。</li>
+<li><strong>编码器</strong>：将历史时刻的输入编码为特征。</li>
+<li><strong>自回归模型（Auto-Regressive）</strong>：将编码器输出的特征喂给 RNN/LSTM 等自回归模型，每一步得到 context representation ct。</li>
+<li><strong>预测任务</strong>：用 ct 去预测未来时刻的特征输出 zt+1, zt+2。</li>
+<li><strong>正负样本定义</strong>：</li>
+<li>正样本：未来时刻的输入经编码器得到的真实特征输出。</li>
+<li>负样本：任意选取的输入经编码器得到的输出（应与预测不相似）。</li>
+<li><strong>灵活性</strong>：将输入序列换成句子可做文本预测，换成图片 patch 序列可做图像预测。</li>
+</ul>
+<h4 id="133">1.3.3 贡献<a class="headerlink" href="#133" title="Permanent link">&para;</a></h4>
+<ul>
+<li>提出了 InfoNCE loss。</li>
+<li>提出了预测型代理任务用于对比学习。</li>
+<li>跨模态通用框架。</li>
+</ul>
+<h3 id="14-cmccontrastive-multiview-coding">1.4 CMC（Contrastive Multiview Coding）<a class="headerlink" href="#14-cmccontrastive-multiview-coding" title="Permanent link">&para;</a></h3>
+<h4 id="141">1.4.1 动机<a class="headerlink" href="#141" title="Permanent link">&para;</a></h4>
+<ul>
+<li>人通过多个传感器（眼睛、耳朵等）观察世界，每个视角带有噪声且不完整，但最重要的信息在所有视角间共享（物理定律、几何形状、语义信息等）。</li>
+<li>目标：学习具有<strong>视角不变性</strong>的特征，无论哪个视角都能识别同一物体。</li>
+<li>核心思想：<strong>最大化多视角之间的互信息</strong>。</li>
+</ul>
+<h4 id="142">1.4.2 核心做法<a class="headerlink" href="#142" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>数据集</strong>：NYU RGBD，包含 4 个视角——原始图像、深度信息、表面法向量（surface normal）、分割图像。</li>
+<li><strong>正样本</strong>：同一物体的不同视角互为正样本（如 RGB 图 + 深度图 + 法向量图 + 分割图）。</li>
+<li><strong>负样本</strong>：不配对的其他图片的任意视角。</li>
+<li><strong>特征空间</strong>：同一物体的多个视角特征应接近，不同物体的特征应远离。</li>
+<li>可能需要多个编码器处理不同模态的输入。</li>
+</ul>
+<h4 id="143">1.4.3 贡献与影响<a class="headerlink" href="#143" title="Permanent link">&para;</a></h4>
+<ul>
+<li>第一个/较早的多视角对比学习工作。</li>
+<li>证明了对比学习的灵活性和多视角/多模态的可行性。</li>
+<li>直接启发了 CLIP（图像-文本对作为正样本做多模态对比学习）。</li>
+<li>CMC 原班作者后续用对比学习做蒸馏（teacher-student 输出作为正样本对）。</li>
+</ul>
+<h4 id="144">1.4.4 局限性<a class="headerlink" href="#144" title="Permanent link">&para;</a></h4>
+<ul>
+<li>不同视角/模态可能需要不同编码器，计算代价高。</li>
+<li>Transformer 的出现提供了统一处理多模态数据的可能（如 MAE-CLIP 用一个 Transformer 同时处理两种模态，效果更好）。</li>
+</ul>
+<h3 id="15">1.5 第一阶段总结<a class="headerlink" href="#15" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>InstDisc</th>
+<th>Invariant Spreading</th>
+<th>CPC</th>
+<th>CMC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>代理任务</td>
+<td>个体判别</td>
+<td>个体判别</td>
+<td>预测未来</td>
+<td>多视角</td>
+</tr>
+<tr>
+<td>目标函数</td>
+<td>NCE</td>
+<td>NCE变体</td>
+<td>InfoNCE</td>
+<td>NCE变体</td>
+</tr>
+<tr>
+<td>模型结构</td>
+<td>编码器+Memory Bank</td>
+<td>单编码器(端到端)</td>
+<td>编码器+自回归模型</td>
+<td>多编码器</td>
+</tr>
+<tr>
+<td>负样本来源</td>
+<td>Memory Bank</td>
+<td>Mini-batch</td>
+<td>任意输入</td>
+<td>不配对视角</td>
+</tr>
+<tr>
+<td>应用领域</td>
+<td>图像</td>
+<td>图像</td>
+<td>音频/图像/文本/RL</td>
+<td>多视角/多模态</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-2019-2020">2. 第二阶段：双雄争霸（2019年中-2020年中）<a class="headerlink" href="#2-2019-2020" title="Permanent link">&para;</a></h2>
+<p><img alt="Figure 2: SimCLR 对比学习框架" src="../images/simclr_fig2.png" />
+<em>Figure 2: SimCLR 对比学习框架</em></p>
+<p>这一阶段发展极为迅速，ImageNet 最好成绩几乎每月刷新。MoCo 和 SimCLR 两大系列主导了该阶段。</p>
+<h3 id="21-moco-v1">2.1 MoCo v1<a class="headerlink" href="#21-moco-v1" title="Permanent link">&para;</a></h3>
+<h4 id="211">2.1.1 核心贡献<a class="headerlink" href="#211" title="Permanent link">&para;</a></h4>
+<ul>
+<li>将之前对比学习方法归纳总结为<strong>字典查询（Dictionary Lookup）</strong>问题。</li>
+<li>提出两个关键技术：</li>
+<li><strong>队列（Queue）</strong>：取代 memory bank，作为额外数据结构存储负样本。</li>
+<li><strong>动量编码器（Momentum Encoder）</strong>：取代 loss 中的约束项，实现编码器的动量更新（而非特征的动量更新），得到更一致的特征。</li>
+<li>形成"又大又一致的字典"，帮助更好的对比学习。</li>
+</ul>
+<h4 id="212-instdisc">2.1.2 与 InstDisc 的关系<a class="headerlink" href="#212-instdisc" title="Permanent link">&para;</a></h4>
+<ul>
+<li>整体出发点和实现细节高度相似：</li>
+<li>基线模型：ResNet-50</li>
+<li>特征维度：128 维</li>
+<li>L2 归一化</li>
+<li>温度 τ = 0.07</li>
+<li>数据增强方式、学习率 0.03、训练 200 epochs 均与 InstDisc 一致</li>
+<li>区别：MoCo 用 InfoNCE（而非 NCE），用队列取代 memory bank，用动量编码器取代 proximal regularization。</li>
+</ul>
+<h4 id="213">2.1.3 写作风格<a class="headerlink" href="#213" title="Permanent link">&para;</a></h4>
+<ul>
+<li>自顶向下的写作方式：先从 CV 与 NLP 的区别讲起，再将所有对比学习方法归纳为字典查找问题，在此大一统框架下提出 MoCo。</li>
+<li>方法部分从目标函数入手，先定义正负样本，再讲网络结构和实现细节。</li>
+<li>故意不指定具体输入类型和网络结构，使框架更具通用性（输入可以是图片、图片块、上下文完的图片块等；编码器可以相同、部分共享或完全不同）。</li>
+</ul>
+<h4 id="214">2.1.4 影响力<a class="headerlink" href="#214" title="Permanent link">&para;</a></h4>
+<ul>
+<li>动量编码器技术被后续 SimCLR v2、BYOL 等工作广泛采用。</li>
+<li>第一个在许多视觉下游任务上让无监督预训练模型超越有监督预训练模型的方法。</li>
+</ul>
+<h3 id="22-simclr-v1simple-contrastive-learning">2.2 SimCLR v1（Simple Contrastive Learning）<a class="headerlink" href="#22-simclr-v1simple-contrastive-learning" title="Permanent link">&para;</a></h3>
+<p><img alt="Figure 1: SimCLR 线性分类器性能随训练步数变化" src="../images/simclr_fig1.png" />
+<em>Figure 1: SimCLR 线性分类器性能随训练步数变化</em></p>
+<h4 id="221">2.2.1 核心做法<a class="headerlink" href="#221" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>极简框架</strong>：</li>
+<li>对 mini-batch 中的图片做不同的数据增强，得到 xi 和 xj。</li>
+<li>同一图片的两个增强版本为正样本，其余所有样本及其增强版本为负样本。</li>
+<li>通过共享权重的编码器 f（如 ResNet-50）得到特征 h（2048 维）。</li>
+<li><strong>Projection Head（MLP层 g）</strong>：全连接层 + ReLU，将特征降至 128 维得到 z。仅此一层 MLP 就能在 ImageNet 分类上提升近 10 个点。</li>
+<li>使用 normalized temperature-scaled cross-entropy loss（本质上是 InfoNCE）。</li>
+<li><strong>Projection Head 仅在训练时使用</strong>，下游任务时丢弃，仍用 h 特征做评估，保证公平对比。</li>
+</ul>
+<h4 id="222-invariant-spreading">2.2.2 相比 Invariant Spreading 的改进<a class="headerlink" href="#222-invariant-spreading" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>更强的数据增强</strong>：crop、color distortion、rotation、cutout、Gaussian noise、Gaussian blur、Sobel filter 等全部用上。消融实验表明 <strong>random crop 和 color distortion 是最关键的两种增强</strong>，其他锦上添花。</li>
+<li><strong>MLP Projection Head</strong>：非线性变换显著提升性能。z 的维度（32/64/128/2048）对结果影响不大，128 维即可。</li>
+<li><strong>更大的 batch size 和更长的训练时间</strong>。</li>
+<li><strong>LARS 优化器</strong>：用于大 batch size 训练。</li>
+</ul>
+<h4 id="223">2.2.3 作者的谦逊态度<a class="headerlink" href="#223" title="Permanent link">&para;</a></h4>
+<ul>
+<li>将相关工作放在第七节（文章末尾），承认单个贡献在之前工作中都被提出过。</li>
+<li>强调 SimCLR 的成功不是由任何单一设计决定，而是所有技术的结合。</li>
+<li>详细消融实验和设计选择放在附录。</li>
+</ul>
+<h4 id="224">2.2.4 长远影响<a class="headerlink" href="#224" title="Permanent link">&para;</a></h4>
+<ul>
+<li>MLP projection head 被 MoCo v2、BYOL 等后续工作全部采用。</li>
+<li>数据增强策略被广泛使用。</li>
+<li>LARS 优化器被 BYOL 等采用。</li>
+</ul>
+<h3 id="23-moco-v2">2.3 MoCo v2<a class="headerlink" href="#23-moco-v2" title="Permanent link">&para;</a></h3>
+<h4 id="231">2.3.1 核心改进<a class="headerlink" href="#231" title="Permanent link">&para;</a></h4>
+<p>两页技术报告，将 SimCLR 中的即插即用技术移植到 MoCo 上：</p>
+<ol>
+<li><strong>MLP Projection Head</strong>：加一层 MLP，准确率从 60.6 提升到 66.2（+5.6）。</li>
+<li><strong>更强的数据增强</strong>：从 60 提升到 63（+3）。</li>
+<li><strong>Cosine Learning Rate Schedule</strong>：从 67.3 到 67.5（+0.2，可忽略）。</li>
+<li><strong>更长训练时间</strong>：从 200 epochs 到 800 epochs，达到 71.1。</li>
+</ol>
+<h4 id="232-simclr">2.3.2 与 SimCLR 对比<a class="headerlink" href="#232-simclr" title="Permanent link">&para;</a></h4>
+<ul>
+<li>200 epochs 时 MoCo v2 比 SimCLR 高约 1 个点。</li>
+<li>800 epochs 时 MoCo v2（71.1）比 SimCLR 训练 1000 epochs 还高近 2 个点。</li>
+<li>MoCo v2 能更好地利用数据，在更短时间内取得更好结果。</li>
+</ul>
+<h4 id="233">2.3.3 硬件友好性<a class="headerlink" href="#233" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>配置</th>
+<th>GPU内存</th>
+<th>训练时长</th>
+<th>性能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MoCo v2 (batch=256)</td>
+<td>5 GB</td>
+<td>53小时</td>
+<td>71.1</td>
+</tr>
+<tr>
+<td>SimCLR (batch=256)</td>
+<td>7.4 GB</td>
+<td>更多</td>
+<td>61.9</td>
+</tr>
+<tr>
+<td>SimCLR (batch=4096)</td>
+<td>~93 GB (估计)</td>
+<td>需64张GPU</td>
+<td>66.6</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>MoCo 只需一台 8 卡 V100 机器两天即可完成训练。</li>
+<li>SimCLR 等端到端方法默认需要 8 台 8 卡机（64 张 GPU）。</li>
+</ul>
+<h3 id="24-simclr-v2">2.4 SimCLR v2<a class="headerlink" href="#24-simclr-v2" title="Permanent link">&para;</a></h3>
+<h4 id="241">2.4.1 定位<a class="headerlink" href="#241" title="Permanent link">&para;</a></h4>
+<ul>
+<li>主要是关于半监督学习的论文，SimCLR v1→v2 的模型改进仅占半页篇幅。</li>
+<li>三步框架：自监督预训练 → 少量标签微调 → teacher 生成伪标签做自学习（受 Noisy Student 启发）。</li>
+</ul>
+<h4 id="242-v1v2">2.4.2 模型改进（v1→v2）<a class="headerlink" href="#242-v1v2" title="Permanent link">&para;</a></h4>
+<ol>
+<li><strong>更大的骨干网络</strong>：ResNet-152 + Selective Kernels (SK-Net)。</li>
+<li><strong>更深的 Projection Head</strong>：从 1 层 MLP 变为 2 层 MLP（FC+ReLU+FC+ReLU），效果最好。</li>
+<li><strong>动量编码器</strong>：受 MoCo 启发，但在 SimCLR v2 中提升不大（约 1 个点），因为已有非常大的 batch size（4096/8192），负样本已足够多。</li>
+</ol>
+<h3 id="25-swavswapping-assignments-between-views">2.5 SwAV（Swapping Assignments between Views）<a class="headerlink" href="#25-swavswapping-assignments-between-views" title="Permanent link">&para;</a></h3>
+<h4 id="251">2.5.1 核心思想<a class="headerlink" href="#251" title="Permanent link">&para;</a></h4>
+<ul>
+<li>将对比学习与聚类方法融合。</li>
+<li>给定同一图片的不同视角，用一个视角的特征去预测另一个视角的特征（换位预测）。</li>
+<li>不与大量负样本对比，而是与<strong>聚类中心（Prototypes）</strong>对比。</li>
+</ul>
+<h4 id="252">2.5.2 具体做法<a class="headerlink" href="#252" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Prototypes</strong>：矩阵 C，维度 d×k（d=128 特征维度，k=3000 聚类中心数）。</li>
+<li><strong>前向过程</strong>：</li>
+<li>两张增强图 x1, x2 通过编码器得到特征 z1, z2。</li>
+<li>通过聚类方法将 z 与 prototype C 生成目标 q1, q2（类似 ground truth）。</li>
+<li><strong>Swapped Prediction</strong>：用 z1·C 预测 q2，用 z2·C 预测 q1。</li>
+<li><strong>使用聚类的优势</strong>：</li>
+<li>只需几百到 3000 个聚类中心，远少于几万个负样本。</li>
+<li>聚类中心有明确语义含义，避免随机抽样导致的类别不均衡和潜在正样本误标为负样本。</li>
+</ul>
+<h4 id="253-multi-crop">2.5.3 Multi-Crop 技术<a class="headerlink" href="#253-multi-crop" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>动机</strong>：传统方法只用两个大 crop（224×224），主要捕获全局特征；增加 crop 数量可关注局部物体特征，但计算代价剧增。</li>
+<li><strong>做法</strong>：2 个 160×160 crop（学全局特征）+ 4 个 96×96 crop（学局部特征），共 6 个视角，计算代价与原方案相当。</li>
+<li><strong>效果</strong>：</li>
+<li>对 SwAV 提升约 4 个点。</li>
+<li>对 SimCLR 提升 2.4 个点。</li>
+<li>对聚类方法提升 4+ 个点。</li>
+<li><strong>关键发现</strong>：如果没有 multi-crop，SwAV 的性能与 MoCo v2 差不多。真正提点的是 multi-crop 技术本身，而非聚类+对比学习的结合。</li>
+</ul>
+<h4 id="254">2.5.4 性能<a class="headerlink" href="#254" title="Permanent link">&para;</a></h4>
+<ul>
+<li>ResNet-50 linear evaluation：<strong>75.3%</strong>（CNN 对比学习中最高）。</li>
+<li>有监督基线：76.5%。</li>
+<li>使用更宽模型（2×/4×/5×）时性能持续提升，5× 时与有监督差距极小。</li>
+</ul>
+<h3 id="26-cpc-v2-infomin">2.6 CPC v2 与 InfoMin（简述）<a class="headerlink" href="#26-cpc-v2-infomin" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>CPC v2</strong>：融合多种技巧（更大模型、更大图像块、更多方向预测、LayerNorm 替代 BatchNorm、更强数据增强），将 CPC v1 在 ImageNet 上从 40+ 提升到 70+。</li>
+<li><strong>InfoMin</strong>：CMC 作者的分析性工作，提出最小化互信息原则——两个视角间的互信息应"不多不少刚刚好"，而非一味最大化。按此原则选择数据增强，ImageNet 上达 73。</li>
+</ul>
+<h3 id="27">2.7 第二阶段总结<a class="headerlink" href="#27" title="Permanent link">&para;</a></h3>
+<p>到第二阶段末期，许多细节趋于统一：
+- 目标函数统一为 InfoNCE 或其变体。
+- 模型统一为编码器 + Projection Head。
+- 普遍采用强数据增强、动量编码器、更长训练时间。
+- ImageNet 准确率逐渐逼近有监督基线。</p>
+<hr />
+<h2 id="3-2020-2021">3. 第三阶段：不用负样本的对比学习（2020年中-2021年初）<a class="headerlink" href="#3-2020-2021" title="Permanent link">&para;</a></h2>
+<p><img alt="Figure 2: BYOL 架构（无需负样本）" src="../images/byol_fig2.png" />
+<em>Figure 2: BYOL 架构（无需负样本）</em></p>
+<p>SwAV 已显露趋势（用聚类中心代替负样本），BYOL 和 SimSiam 则彻底抛弃了显式负样本。</p>
+<h3 id="31-byolbootstrap-your-own-latent">3.1 BYOL（Bootstrap Your Own Latent）<a class="headerlink" href="#31-byolbootstrap-your-own-latent" title="Permanent link">&para;</a></h3>
+<h4 id="311">3.1.1 动机<a class="headerlink" href="#311" title="Permanent link">&para;</a></h4>
+<ul>
+<li>完全不用任何形式的负样本，"自己跟自己学"。</li>
+<li>挑战：没有负样本约束时，模型可能学到捷径解（所有输入返回相同输出，loss 恒为 0），即<strong>模型坍塌（Model Collapse / Learning Collapse）</strong>。</li>
+<li>负样本的作用：防止模型坍塌，迫使模型学到有区分性的特征。</li>
+</ul>
+<h4 id="312">3.1.2 核心做法<a class="headerlink" href="#312" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>双编码器架构</strong>：</li>
+<li>Online Network（fθ）：随梯度更新。</li>
+<li>Target Network（fξ）：动量更新（与 MoCo 相同）。</li>
+<li><strong>Projection Head</strong>（gθ/gξ）：与 SimCLR 相同结构，输出 256 维特征。</li>
+<li><strong>Predictor</strong>（qθ）：新增的一层 MLP，结构与 projector 相同。</li>
+<li><strong>前向过程</strong>：</li>
+<li>两张增强图 v, v' 分别通过两个分支。</li>
+<li>Online 分支：encoder → projector → predictor → qθ(zθ)。</li>
+<li>Target 分支：encoder → projector → zξ（stop gradient）。</li>
+<li>目标：让 qθ(zθ) 尽可能接近 zξ（预测任务而非匹配任务）。</li>
+<li><strong>目标函数</strong>：MSE Loss（不再是 InfoNCE）。</li>
+<li>训练完成后只保留 encoder，丢弃 projector 和 predictor。</li>
+</ul>
+<h4 id="313">3.1.3 性能<a class="headerlink" href="#313" title="Permanent link">&para;</a></h4>
+<ul>
+<li>ImageNet top-1 准确率：<strong>74.3%</strong>（当时最高）。</li>
+</ul>
+<h4 id="314-batch-norm">3.1.4 Batch Norm 争议<a class="headerlink" href="#314-batch-norm" title="Permanent link">&para;</a></h4>
+<p><strong>博客的发现（Understanding Self-Supervised Learning with BYOL）</strong>：</p>
+<ul>
+<li>复现 BYOL 时遗漏了 projection head 中的 BatchNorm，导致模型坍塌。</li>
+<li>消融实验结果：</li>
+<li>正确 BYOL（projector + predictor 都有 BN）：57.7</li>
+<li>无 BN：28.3（= 随机初始化，模型坍塌）</li>
+<li>只在 projector 或只在 predictor 加 BN：48-55（模型在学习但未坍塌）</li>
+<li>用 LayerNorm 替代 BN：29.4（模型坍塌）</li>
+<li><strong>结论</strong>：BatchNorm 提供了隐式负样本——BN 计算整个 batch 的均值/方差，相当于将当前样本与"平均图片"（类似聚类中心）做对比。</li>
+</ul>
+<p><strong>BYOL 作者的回应（BYOL works even without Batch Normalization）</strong>：</p>
+<ul>
+<li>完整消融实验发现反例：</li>
+<li>Projector 有 BN 但 encoder 无 BN 时，BYOL 仍然失败（若 BN 提供隐式负样本则不应失败）。</li>
+<li>无任何归一化时，SimCLR（有显式负样本）也失败（说明 BN 的作用不仅是提供负样本）。</li>
+<li><strong>新解释</strong>：BN 的主要作用是帮助模型稳定训练、提高训练稳健性。</li>
+<li><strong>验证</strong>：使用 GroupNorm + Weight Standardization（ViT 原班作者在 BEiT/ResNet v2 中提出的初始化方式）替代 BN，BYOL 仍能达到 73.9 的准确率，且无 batch 统计量计算，不存在隐式对比。</li>
+<li>双方最终达成共识：BN 的核心作用是稳定训练，而非提供隐式负样本。</li>
+</ul>
+<h3 id="32-simsiamsimple-siamese-network">3.2 SimSiam（Simple Siamese Network）<a class="headerlink" href="#32-simsiamsimple-siamese-network" title="Permanent link">&para;</a></h3>
+<h4 id="321">3.2.1 动机<a class="headerlink" href="#321" title="Permanent link">&para;</a></h4>
+<ul>
+<li>对比学习的性能似乎由众多小技巧堆砌而成（projection head、长训练、强增强、动量编码器、大 batch size 等），不便分析。</li>
+<li>凯明团队化繁为简，提出最简孪生网络结构。</li>
+</ul>
+<h4 id="322">3.2.2 核心做法<a class="headerlink" href="#322" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>不需要</strong>：负样本、大 batch size、动量编码器。</li>
+<li><strong>架构</strong>：与 BYOL 非常相似，唯一区别是<strong>没有动量编码器</strong>（两个编码器共享参数）。</li>
+<li><strong>Loss</strong>：Negative Cosine Similarity Loss（本质上是 MSE Loss），对称形式（p1 预测 z2 + p2 预测 z1，除以 2）。</li>
+<li><strong>Stop Gradient</strong>：关键操作，防止模型坍塌。</li>
+</ul>
+<h4 id="323">3.2.3 理论解释<a class="headerlink" href="#323" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Stop gradient 将一套模型参数人为分成两份，相当于在解决两个子问题，模型更新交替进行。</li>
+<li>可理解为 <strong>EM 算法</strong>，进一步可归结为 <strong>k-means 聚类</strong>问题（分配点→更新聚类中心→循环）。</li>
+<li>因此 SimSiam 与 SwAV 存在内在联系。</li>
+</ul>
+<h4 id="324">3.2.4 性能对比<a class="headerlink" href="#324" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>Batch Size</th>
+<th>负样本</th>
+<th>动量编码器</th>
+<th>100 epochs</th>
+<th>200 epochs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SimCLR</td>
+<td>4096</td>
+<td>有</td>
+<td>无(v1)</td>
+<td>-</td>
+<td>70.0</td>
+</tr>
+<tr>
+<td>MoCo v2</td>
+<td>256</td>
+<td>有</td>
+<td>有</td>
+<td>-</td>
+<td>71.1</td>
+</tr>
+<tr>
+<td>SwAV</td>
+<td>-</td>
+<td>聚类中心</td>
+<td>无</td>
+<td>-</td>
+<td>71.8*</td>
+</tr>
+<tr>
+<td>BYOL</td>
+<td>4096</td>
+<td>无</td>
+<td>有</td>
+<td>-</td>
+<td>74.3</td>
+</tr>
+<tr>
+<td>SimSiam</td>
+<td>256</td>
+<td>无</td>
+<td>无</td>
+<td><strong>最高</strong></td>
+<td>71.3</td>
+</tr>
+</tbody>
+</table>
+<p>*SwAV 未使用 multi-crop 时的结果。</p>
+<ul>
+<li>SimSiam 学习速度快（100 epochs 时最好），但后期涨幅慢。</li>
+<li>下游任务（检测/分割）迁移性能：MoCo v2 ≈ SimSiam &gt; BYOL ≈ SwAV（差 1-2 个点）。</li>
+<li>MoCo v2 仍是实践中最常用的基线（训练快、稳、下游迁移好）。</li>
+</ul>
+<h3 id="33-barlow-twins">3.3 Barlow Twins（简述）<a class="headerlink" href="#33-barlow-twins" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Yann LeCun 组的工作，2021年3月发布。</li>
+<li>更换目标函数：生成 cross-correlation matrix，使其尽量接近 identity matrix（对角线为1，其余为0）。</li>
+<li>本质仍是让正样本相似性趋近1、与其他样本相似性趋近0。</li>
+<li>因发布时间较晚，很快被 Vision Transformer 浪潮淹没。</li>
+</ul>
+<hr />
+<h2 id="4-transformer-2021">4. 第四阶段：Transformer 时代（2021年起）<a class="headerlink" href="#4-transformer-2021" title="Permanent link">&para;</a></h2>
+<p><img alt="Figure 2: DINO 自蒸馏框架" src="../images/dino_fig2.png" />
+<em>Figure 2: DINO 自蒸馏框架</em></p>
+<p>Vision Transformer 爆火后，约半数视觉研究者转向 ViT。自监督学习（无论对比学习还是掩码学习）都开始使用 ViT 作为骨干网络。</p>
+<h3 id="41-moco-v3">4.1 MoCo v3<a class="headerlink" href="#41-moco-v3" title="Permanent link">&para;</a></h3>
+<p><img alt="Figure 1: DINO 自注意力的语义分割效果（无需标注）" src="../images/dino_fig1.png" />
+<em>Figure 1: DINO 自注意力的语义分割效果（无需标注）</em></p>
+<h4 id="411">4.1.1 架构<a class="headerlink" href="#411" title="Permanent link">&para;</a></h4>
+<ul>
+<li>MoCo v2 + SimSiam 的合体：</li>
+<li>保留 MoCo 的双编码器（query + key）+ 动量编码器 + 对比学习 loss。</li>
+<li>引入 SimSiam/BYOL 的 projection head + prediction head + 对称 loss。</li>
+<li>骨干网络从 ResNet 替换为 Vision Transformer。</li>
+</ul>
+<h4 id="412">4.1.2 训练不稳定性问题<a class="headerlink" href="#412" title="Permanent link">&para;</a></h4>
+<ul>
+<li>小 batch size 时训练曲线平滑。</li>
+<li>大 batch size 时训练曲线出现突然跌落（准确度骤降后恢复但达不到原来水平），最终性能反而更差。</li>
+<li>通过观察梯度发现：每次 loss 大幅震动时，<strong>第一层（patch projection layer）的梯度出现异常波峰</strong>。</li>
+</ul>
+<h4 id="413">4.1.3 解决方案<a class="headerlink" href="#413" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>冻结 Patch Projection Layer</strong>：随机初始化后冻住，整个训练过程中不更新。</li>
+<li>效果：问题解决，训练曲线平滑，性能提升。</li>
+<li>该 trick 对 BYOL 等其他框架同样有效。</li>
+<li>启发了后续对 tokenization 阶段重要性的研究。</li>
+</ul>
+<h4 id="414">4.1.4 论文特点<a class="headerlink" href="#414" title="Permanent link">&para;</a></h4>
+<ul>
+<li>题目为 "An Empirical Study of Training Self-Supervised Vision Transformers"。</li>
+<li>摘要直言"本文并未描述新方法"，只是分享了一个让自监督 ViT 训练更稳定的小改动及相关发现。</li>
+<li>ICCV 2021 Oral。</li>
+</ul>
+<h3 id="42-dinoself-distillation-with-no-labels">4.2 DINO（Self-Distillation with No Labels）<a class="headerlink" href="#42-dinoself-distillation-with-no-labels" title="Permanent link">&para;</a></h3>
+<h4 id="421">4.2.1 核心卖点<a class="headerlink" href="#421" title="Permanent link">&para;</a></h4>
+<ul>
+<li>自监督训练的 ViT 展现出惊人特性：<strong>自注意力图能精准抓住物体轮廓</strong>，效果媲美无监督分割。</li>
+</ul>
+<h4 id="422">4.2.2 方法<a class="headerlink" href="#422" title="Permanent link">&para;</a></h4>
+<ul>
+<li>框架与 BYOL 高度相似，改名为蒸馏框架：</li>
+<li>Student Network（对应 online network）</li>
+<li>Teacher Network（对应 target network）</li>
+<li><strong>Centering</strong>：对 teacher 网络的输出减去整个 batch 的均值，防止模型坍塌（类似 BN 讨论中的均值操作）。</li>
+<li><strong>Stop Gradient</strong>：在 teacher 分支上。</li>
+<li>伪代码与 MoCo v3 几乎一模一样，仅目标函数略有不同。</li>
+</ul>
+<hr />
+<h2 id="_4">总结与对比<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="_5">各方法全景对比<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>InstDisc ──→ MoCo v1 ──→ MoCo v2 ──→ MoCo v3
+                ↑              ↑           ↑
+Invariant Spread ──→ SimCLR v1 ──→ SimCLR v2    (ViT)
+                                      ↓
+Deep Cluster ──→ SwAV               BYOL ──→ BYOL v2 (回应博客)
+                  ↑                    ↓
+CPC v1 ──→ CPC v2                 SimSiam
+                                    ↓
+CMC ──→ InfoMin                 Barlow Twins
+                                    ↓
+                              DINO (ViT)
+</code></pre></div>
+<h3 id="_6">关键技术演进时间线<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>技术</th>
+<th>首次提出/推广</th>
+<th>后续采用者</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Memory Bank</td>
+<td>InstDisc</td>
+<td>-</td>
+</tr>
+<tr>
+<td>队列（Queue）</td>
+<td>MoCo v1</td>
+<td>-</td>
+</tr>
+<tr>
+<td>动量编码器</td>
+<td>MoCo v1</td>
+<td>SimCLR v2, BYOL, MoCo v3, DINO</td>
+</tr>
+<tr>
+<td>Projection Head (MLP)</td>
+<td>SimCLR v1</td>
+<td>MoCo v2, BYOL, SimSiam, SwAV, MoCo v3, DINO</td>
+</tr>
+<tr>
+<td>强数据增强</td>
+<td>SimCLR v1</td>
+<td>MoCo v2, 几乎所有后续工作</td>
+</tr>
+<tr>
+<td>Multi-Crop</td>
+<td>SwAV</td>
+<td>被后续工作广泛借鉴</td>
+</tr>
+<tr>
+<td>无负样本</td>
+<td>BYOL</td>
+<td>SimSiam, DINO</td>
+</tr>
+<tr>
+<td>Stop Gradient</td>
+<td>MoCo/BYOL</td>
+<td>SimSiam, DINO</td>
+</tr>
+<tr>
+<td>Centering</td>
+<td>DINO</td>
+<td>-</td>
+</tr>
+<tr>
+<td>冻结 Patch Projection</td>
+<td>MoCo v3</td>
+<td>BYOL+ViT 等</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_7">核心洞察<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>对比学习是一个想法而非具体工作</strong>：几十年前就已提出，生命力持久。</li>
+<li><strong>性能提升来自技术组合</strong>：单一改进往往有限，组合起来才产生质变。</li>
+<li><strong>负样本并非必需</strong>：BYOL/SimSiam 证明了无负样本也能成功，关键在于防止模型坍塌的机制（stop gradient、BN、centering 等）。</li>
+<li><strong>实践建议</strong>：MoCo v2 仍是最佳基线（训练快、稳、下游迁移好、硬件友好）。</li>
+<li><strong>多模态对比学习是主流方向</strong>：CLIP 等工作中图像-文本对比 loss 仍是标准目标函数。</li>
+<li><strong>Transformer 的统一潜力</strong>：一个网络处理多种数据类型，无需针对每种数据做特有改进。</li>
+<li><strong>掩码学习（MAE）兴起后</strong>，对比学习进入发展潜伏期，但前途依然光明。</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.top", "navigation.instant", "search.highlight", "content.code.copy", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

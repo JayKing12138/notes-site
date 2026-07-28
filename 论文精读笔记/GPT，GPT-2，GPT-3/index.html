@@ -1,0 +1,3288 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Flamingo/">
+      
+      
+        <link rel="next" href="../ImageBind%20%E4%B8%8E%20LanguageBind%20%E5%AF%B9%E6%AF%94/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>GPT，GPT-2，GPT-3 - 学习资料库</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#gptgpt-2gpt-3" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="学习资料库" class="md-header__button md-logo" aria-label="学习资料库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            学习资料库
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              GPT，GPT-2，GPT-3
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="学习资料库" class="md-nav__button md-logo" aria-label="学习资料库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    学习资料库
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    学习资料库
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GENIUS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    GENIUS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GENIUS/GENIUS%20%E6%80%BB%E7%BB%93/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GENIUS 总结
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RadAlign
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RadAlign
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RadAlign/RadVLM-GRPO%20%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RadVLM-GRPO 论文精读
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RadAlign/%E5%85%B3%E9%94%AE%E4%BB%A3%E7%A0%81%E8%AF%B4%E6%98%8E/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关键代码说明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    全模态大模型·出行安全项目
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    全模态大模型·出行安全项目
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/5.27%20Qwen3.7-Max%2BGeoLife%E8%AF%84%E4%BC%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.27 Qwen3.7-Max+GeoLife评估
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/Omni-%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Omni-出行安全项目
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%B1%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    全模态大模型·出行安全项目进展
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLUE
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    BLUE
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/BLUE/BLUE%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLUE论文笔记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    论文精读笔记
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    论文精读笔记
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AAAAA_Transformer%E3%80%81LLM%E4%B8%8EVLM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AAAAA_Transformer、LLM与VLM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BBBBB_%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BBBBB_强化学习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BERT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BERT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BEiT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BEiT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BLIP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLIP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLIP%20%26%20ALIGN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP & ALIGN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLIP%20%E6%94%B9%E8%BF%9B%E5%B7%A5%E4%BD%9C%E4%B8%B2%E8%AE%B2%EF%BC%88%E4%B8%8A%EF%BC%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP 改进工作串讲（上）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLIP%20%E6%94%B9%E8%BF%9B%E5%B7%A5%E4%BD%9C%E4%B8%B2%E8%AE%B2%EF%BC%88%E4%B8%8B%EF%BC%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP 改进工作串讲（下）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DALL%C2%B7E%202/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DALL·E 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DINO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DINO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Flamingo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Flamingo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPT，GPT-2，GPT-3
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPT，GPT-2，GPT-3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目录
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心要点
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="核心要点">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        各代核心创新点
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-gpt-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. GPT-1：使用生成式预训练提升语言理解
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. GPT-1：使用生成式预训练提升语言理解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 背景与动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 方法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2 方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2.1 预训练：自回归语言模型
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2.2 模型架构
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#123" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2.3 微调：任务相关的输入构造
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 数据集与训练
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-gpt-1-vs-bert" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 GPT-1 vs BERT 对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-gpt-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. GPT-2：语言模型是无监督的多任务学习器
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. GPT-2：语言模型是无监督的多任务学习器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 背景与动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-zero-shot-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 核心方法：Zero-Shot 与 Prompt
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 核心方法：Zero-Shot 与 Prompt">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221-zero-shot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.1 Zero-Shot 的挑战
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222-in-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.2 In-Context 的思想来源
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-webtext" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 数据集：WebText
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 模型架构
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 实验结果
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-gpt-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. GPT-3：语言模型是少样本学习器
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. GPT-3：语言模型是少样本学习器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 背景与动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 三种评估模式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 模型架构
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 训练数据
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-scaling-laws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 Scaling Laws
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6 实验结果
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#37" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.7 局限性
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 总结与对比
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 总结与对比">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-gpt-123" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 GPT 1→2→3 版本演进
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-gpt-vs-bert" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 GPT vs BERT 设计哲学对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-gpt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 GPT 系列的启示
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ImageBind%20%E4%B8%8E%20LanguageBind%20%E5%AF%B9%E6%AF%94/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ImageBind 与 LanguageBind 对比
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InternVL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    InternVL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLaMA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLaMA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLaVA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLaVA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MAE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MAE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MoCo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MoCo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OFA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OFA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PaLI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PaLI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Qwen-VL%E4%B8%8EOmni/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qwen-VL与Omni
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SAM3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SAM3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SigLIP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SigLIP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SimVLM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SimVLM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Swin%20Transformer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Swin Transformer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UniPerceiver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UniPerceiver
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Unified-IO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unified-IO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ViLT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ViLT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ViT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ViT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ZZZZZ%E5%85%AC%E5%BC%8F%E4%BB%A3%E7%A0%81%E7%AD%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ZZZZZ公式代码等
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%8E%9F%E7%94%9F%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    原生多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%90%8E%E8%AE%AD%E7%BB%83%E7%BB%BC%E8%BF%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多模态大模型后训练综述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%9A%E6%A8%A1%E6%80%81%E8%AE%BA%E6%96%87%E4%B8%B2%E8%AE%B2%C2%B7%E4%B8%8A/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多模态论文串讲·上
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%9A%E6%A8%A1%E6%80%81%E8%AE%BA%E6%96%87%E4%B8%B2%E8%AE%B2%C2%B7%E4%B8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多模态论文串讲·下
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%AF%B9%E6%AF%94%E5%AD%A6%E4%B9%A0%E7%BB%BC%E8%BF%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    对比学习综述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%B7%B7%E5%90%88%E7%B2%BE%E5%BA%A6%E8%AE%AD%E7%BB%83%E4%B8%8E%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    混合精度训练与分布式训练
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%A7%86%E9%A2%91%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    视频多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%9F%B3%E9%A2%91%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    音频多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目录
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心要点
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="核心要点">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        各代核心创新点
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-gpt-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. GPT-1：使用生成式预训练提升语言理解
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. GPT-1：使用生成式预训练提升语言理解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 背景与动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 方法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2 方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2.1 预训练：自回归语言模型
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2.2 模型架构
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#123" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2.3 微调：任务相关的输入构造
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 数据集与训练
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-gpt-1-vs-bert" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 GPT-1 vs BERT 对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-gpt-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. GPT-2：语言模型是无监督的多任务学习器
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. GPT-2：语言模型是无监督的多任务学习器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 背景与动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-zero-shot-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 核心方法：Zero-Shot 与 Prompt
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 核心方法：Zero-Shot 与 Prompt">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221-zero-shot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.1 Zero-Shot 的挑战
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222-in-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.2 In-Context 的思想来源
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-webtext" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 数据集：WebText
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 模型架构
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 实验结果
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-gpt-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. GPT-3：语言模型是少样本学习器
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. GPT-3：语言模型是少样本学习器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 背景与动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 三种评估模式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 模型架构
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 训练数据
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-scaling-laws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 Scaling Laws
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6 实验结果
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#37" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.7 局限性
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 总结与对比
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 总结与对比">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-gpt-123" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 GPT 1→2→3 版本演进
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-gpt-vs-bert" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 GPT vs BERT 设计哲学对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-gpt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 GPT 系列的启示
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="gptgpt-2gpt-3">GPT，GPT-2，GPT-3<a class="headerlink" href="#gptgpt-2gpt-3" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>📄 涉及论文链接：
+- <a href="https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf">GPT-1: Improving Language Understanding by Generative Pre-Training</a>
+- <a href="https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf">GPT-2: Language Models are Unsupervised Multitask Learners</a>
+- <a href="https://arxiv.org/abs/2005.14165">GPT-3: Language Models are Few-Shot Learners</a></p>
+</blockquote>
+<h2 id="_1">目录<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#核心要点">核心要点</a></li>
+<li><a href="#1-gpt-1使用生成式预训练提升语言理解">1. GPT-1：使用生成式预训练提升语言理解</a></li>
+<li><a href="#2-gpt-2语言模型是无监督的多任务学习器">2. GPT-2：语言模型是无监督的多任务学习器</a></li>
+<li><a href="#3-gpt-3语言模型是少样本学习器">3. GPT-3：语言模型是少样本学习器</a></li>
+<li><a href="#4-总结与对比">4. 总结与对比</a></li>
+</ul>
+<h2 id="_2">核心要点<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<blockquote>
+<ol>
+<li><strong>GPT 系列的技术路线</strong>：坚持使用 Transformer <strong>解码器</strong>（decoder-only）做自回归语言模型预训练，与 BERT 的编码器（encoder + MLM）路线形成鲜明对比。GPT 选择了一条更难的路线——预测未来（next token prediction）而非完形填空（masked language model），但天花板也更高。</li>
+<li><strong>从微调到上下文学习的范式演进</strong>：GPT-1 提出"预训练 + 微调"范式；GPT-2 探索 <strong>Zero-Shot</strong>（不做任何微调）；GPT-3 通过 175B 参数实现 <strong>In-Context Learning</strong>（Few-Shot 但不更新权重），开辟了大模型新范式。</li>
+<li><strong>暴力出奇迹</strong>：GPT-1（117M）→ GPT-2（1.5B）→ GPT-3（175B），数据和模型规模各增长约 100 倍，性能持续突破。GPT-3 的炸裂效果证明了 scale 的力量。</li>
+<li><strong>GPT vs BERT 的设计哲学差异</strong>：GPT 用解码器做自回归语言模型（预测下一个词），BERT 用编码器做掩码语言模型（完形填空）。前者更难训练但泛化天花板更高，后者在同规模下精度更好但受限于双向注意力的任务适配性。</li>
+</ol>
+</blockquote>
+<h3 id="_3">各代核心创新点<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p><strong>GPT-1</strong>：提出"<strong>预训练 + 微调</strong>"范式，借鉴 CV 领域思路，先在无标注文本上训练自回归语言模型再微调；通过构造任务相关的输入序列（用 <code>&lt;s&gt;</code>、<code>&lt;/s&gt;</code>、<code>&lt;delim&gt;</code> 三个特殊标记），使同一个 Transformer 模型无需改变架构即可适配分类、蕴含、相似度、多选题四类任务。</p>
+<p><strong>GPT-2</strong>：在被 BERT 打败后坚持解码器路线，提出 <strong>Zero-Shot</strong> 评估范式——不在下游任务上做任何微调，直接用预训练模型预测；同时提出 <strong>Prompt</strong> 思想（如 <code>translate English to French:</code>），让输入形式与预训练时的文本分布一致，为后续 In-Context Learning 埋下种子。</p>
+<p><strong>GPT-3</strong>：开辟 <strong>In-Context Learning</strong> 范式——给少量示例作为 prompt，不做任何梯度更新，模型仅通过前向推理时的注意力机制从上下文示例中提取信息；将数据和模型规模各放大约 100 倍（117M → 1.5B → 175B），证明了 <strong>Scale</strong> 的力量——Few-Shot GPT-3 175B 的平均精度比 Zero-Shot GPT-2 1.5B 翻倍，大量任务接近甚至超过微调 SOTA；同时提出大规模数据清洗方法论（用 GPT-2 的 WebText 训练分类器过滤 Common Crawl + LSH 去重）。</p>
+<p><strong>贯穿三代</strong>：始终坚持 Transformer 解码器 + 自回归语言模型（预测下一个词）这条更难但天花板更高的路线，而非 BERT 的编码器 + 掩码语言模型（完形填空）。GPT-3 的炸裂效果最终证明了这条路线的正确性，直接催生了 GPT-4、ChatGPT 等大模型应用。</p>
+<hr />
+<h2 id="1-gpt-1">1. GPT-1：使用生成式预训练提升语言理解<a class="headerlink" href="#1-gpt-1" title="Permanent link">&para;</a></h2>
+<h3 id="11">1.1 背景与动机<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<p>在 GPT-1 之前，NLP 领域面临两大困难：</p>
+<ul>
+<li><strong>标注数据稀缺</strong>：虽然有大量无标注文本，但标注好的数据很少，使得监督学习训练出的模型泛化能力有限。NLP 不像计算机视觉有 ImageNet 那样大规模的标注数据集。</li>
+<li><strong>迁移学习困难</strong>：NLP 子任务差异极大（分类、蕴含、相似度、问答、生成等），没有统一的模型架构能适配所有任务。之前的词嵌入（如 Word2Vec）只在词级别学习表示，下游任务仍需各自设计模型。</li>
+</ul>
+<p>GPT-1 的核心思路是借鉴计算机视觉中成熟的"<strong>预训练 + 微调</strong>"范式：先在大量无标注文本上训练一个语言模型（预训练），再在各子任务上微调。关键创新在于——<strong>通过构造任务相关的输入序列，使得同一个 Transformer 模型无需改变架构就能适配各种不同的 NLP 任务</strong>。</p>
+<h3 id="12">1.2 方法<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
+<h4 id="121">1.2.1 预训练：自回归语言模型<a class="headerlink" href="#121" title="Permanent link">&para;</a></h4>
+<p>GPT 使用标准的<strong>因果语言模型</strong>（Causal Language Model）目标函数，给定前 <span class="arithmatex">\(k\)</span> 个词预测下一个词，最大化似然：</p>
+<div class="arithmatex">\[\mathcal{L}_1(\mathcal{U}) = \sum_i \log P(u_i | u_{i-k}, \ldots, u_{i-1}; \Theta)\]</div>
+<p>其中 <span class="arithmatex">\(\mathcal{U} = \{u_1, \ldots, u_n\}\)</span> 是无标注文本序列，<span class="arithmatex">\(k\)</span> 是上下文窗口大小，<span class="arithmatex">\(\Theta\)</span> 是模型参数。</p>
+<p>与 BERT 的 <strong>Masked Language Model</strong>（MLM，完形填空）对比：
+- <strong>GPT</strong>：只看前面的词预测下一个词（单向/自回归），使用 Transformer <strong>解码器</strong>（带因果掩码）
+- <strong>BERT</strong>：同时看前后文预测被遮蔽的词（双向），使用 Transformer <strong>编码器</strong></p>
+<blockquote>
+<p>预测未来远比完形填空更难——好比给你到今天为止的股票信息预测明天的价格，远比告诉你前后信息推测中间缺失值要难。这也是 GPT 在同规模下效果不如 BERT 的原因之一，但如果模型足够强大，预测未来的能力意味着更强的泛化性。</p>
+</blockquote>
+<h4 id="122">1.2.2 模型架构<a class="headerlink" href="#122" title="Permanent link">&para;</a></h4>
+<p>GPT 使用 <strong>Transformer 解码器</strong>，具体配置：
+- <strong>12 层</strong> Transformer 块
+- 每层隐藏维度 <span class="arithmatex">\(d_{model} = 768\)</span>
+- <strong>12 个</strong>注意力头
+- 可学习参数约 <strong>1.17 亿</strong>（117M）
+- 上下文窗口大小 <span class="arithmatex">\(k = 512\)</span>
+- 使用 Byte-Pair Encoding（BPE）词元化，词汇表约 40,000</p>
+<h4 id="123">1.2.3 微调：任务相关的输入构造<a class="headerlink" href="#123" title="Permanent link">&para;</a></h4>
+<p>GPT 的核心创新之一是通过<strong>构造不同的输入序列格式</strong>来适配不同的 NLP 任务，而无需改变模型架构。引入三种特殊标记：<code>&lt;s&gt;</code>（起始符）、<code>&lt;/s&gt;</code>（结束符）、<code>&lt;delim&gt;</code>（分隔符）。</p>
+<p><img alt="image-20260626155321520" src="/Users/qinghuo/Library/Application Support/typora-user-images/image-20260626155321520.png" /></p>
+<p><em>Figure 1: GPT-1 将四类 NLP 任务统一表示为序列输入。(a) 文本分类：单个文本加首尾标记；(b) 文本蕴含：前提和假设用分隔符连接；(c) 文本相似度：两段文本交换顺序分别输入再合并；(d) 多选题：问题和每个选项分别组合。</em></p>
+<p><strong>四类任务的输入构造</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>任务类型</th>
+<th>输入构造</th>
+<th>输出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>分类</strong>（如情感分析）</td>
+<td><code>&lt;s&gt; text &lt;/s&gt;</code></td>
+<td>取最后一个 token 的特征，经线性层分类</td>
+</tr>
+<tr>
+<td><strong>蕴含</strong>（如 NLI）</td>
+<td><code>&lt;s&gt; premise &lt;delim&gt; hypothesis &lt;/s&gt;</code></td>
+<td>同上，三分类</td>
+</tr>
+<tr>
+<td><strong>相似度</strong></td>
+<td>正反两个序列：<code>&lt;s&gt; t1 &lt;delim&gt; t2 &lt;/s&gt;</code> 和 <code>&lt;s&gt; t2 &lt;delim&gt; t1 &lt;/s&gt;</code></td>
+<td>两个输出相加后经线性层，二分类</td>
+</tr>
+<tr>
+<td><strong>多选题</strong></td>
+<td><span class="arithmatex">\(n\)</span> 个序列：<code>&lt;s&gt; question &lt;delim&gt; answer_i &lt;/s&gt;</code></td>
+<td>每个选项的置信度，取 argmax</td>
+</tr>
+</tbody>
+</table>
+<p>微调时使用<strong>双目标函数</strong>：语言模型损失 + 分类损失，通过超参数 <span class="arithmatex">\(\lambda\)</span> 加权：</p>
+<div class="arithmatex">\[\mathcal{L}_2 = \sum_{(x,y)} \log P(y | x_1, \ldots, x_m) + \lambda \cdot \mathcal{L}_1\]</div>
+<h3 id="13">1.3 数据集与训练<a class="headerlink" href="#13" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>预训练数据</strong>：<strong>BooksCorpus</strong>——包含约 7,000 本未出版的书，约 <strong>8 亿词</strong></li>
+<li><strong>训练方式</strong>：标准自回归语言模型训练</li>
+</ul>
+<h3 id="14-gpt-1-vs-bert">1.4 GPT-1 vs BERT 对比<a class="headerlink" href="#14-gpt-1-vs-bert" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>GPT-1</strong></th>
+<th><strong>BERT-Base</strong></th>
+<th><strong>BERT-Large</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>架构</td>
+<td>Transformer 解码器</td>
+<td>Transformer 编码器</td>
+<td>Transformer 编码器</td>
+</tr>
+<tr>
+<td>层数</td>
+<td>12</td>
+<td>12</td>
+<td>24</td>
+</tr>
+<tr>
+<td>隐藏维度</td>
+<td>768</td>
+<td>768</td>
+<td>1024</td>
+</tr>
+<tr>
+<td>参数量</td>
+<td>~117M</td>
+<td>~110M</td>
+<td>~340M</td>
+</tr>
+<tr>
+<td>预训练目标</td>
+<td>自回归 LM（预测下一个词）</td>
+<td>MLM（掩码语言模型）+ NSP</td>
+<td>同左</td>
+</tr>
+<tr>
+<td>预训练数据</td>
+<td>BooksCorpus（8亿词）</td>
+<td>BooksCorpus + Wikipedia（~30亿词）</td>
+<td>同左</td>
+</tr>
+<tr>
+<td>下游适配</td>
+<td>构造输入 + 微调</td>
+<td>微调</td>
+<td>微调</td>
+</tr>
+</tbody>
+</table>
+<p>BERT-Base 故意使用与 GPT 相同的层数和维度，就是为了做公平对比。结果上 BERT-Base 优于 GPT，BERT-Large 又大幅优于 BERT-Base——更大的模型 + 更大的数据 = 更好的效果。</p>
+<hr />
+<h2 id="2-gpt-2">2. GPT-2：语言模型是无监督的多任务学习器<a class="headerlink" href="#2-gpt-2" title="Permanent link">&para;</a></h2>
+<h3 id="21">2.1 背景与动机<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<p>GPT-1 被 BERT 以更大数据和更大模型打败后，OpenAI 团队面临选择：是换回编码器路线，还是坚持解码器？</p>
+<p>作者选择了<strong>坚持解码器路线</strong>，但做了两个关键改变：</p>
+<ol>
+<li><strong>更大的数据和模型</strong>：构建新数据集 WebText，训练更大的模型</li>
+<li><strong>新的评估范式——Zero-Shot</strong>：不在下游任务上做任何微调或参数更新，直接用预训练模型做预测</li>
+</ol>
+<blockquote>
+<p>一篇论文的价值 ≈ 新意度 × 有效性 × 问题大小。如果仅在同等条件下做工程优化（更大模型更好效果），新意度不足。GPT-2 通过转向 Zero-Shot 设定，在新意度上拉开了差距——虽然有效性（精度）暂时不如微调方法，但提出了一个全新的问题角度。</p>
+</blockquote>
+<h3 id="22-zero-shot-prompt">2.2 核心方法：Zero-Shot 与 Prompt<a class="headerlink" href="#22-zero-shot-prompt" title="Permanent link">&para;</a></h3>
+<h4 id="221-zero-shot">2.2.1 Zero-Shot 的挑战<a class="headerlink" href="#221-zero-shot" title="Permanent link">&para;</a></h4>
+<p>GPT-1 在微调时引入了 <code>&lt;s&gt;</code>、<code>&lt;/s&gt;</code>、<code>&lt;delim&gt;</code> 等特殊标记，模型通过微调学会理解它们。但在 Zero-Shot 设定下，模型不做任何更新，如果输入包含模型未见过的特殊标记，模型会困惑。</p>
+<p><strong>解决方案</strong>：使用自然语言作为 <strong>prompt</strong>（提示），让输入形式与预训练时看到的文本尽量一致。</p>
+<p>例如：
+- <strong>机器翻译</strong>：<code>translate English to French: [英文文本] =&gt;</code>，模型接着生成法语
+- <strong>阅读理解</strong>：<code>answer the question: [文本] Q: [问题] A:</code>，模型接着生成答案</p>
+<h4 id="222-in-context">2.2.2 In-Context 的思想来源<a class="headerlink" href="#222-in-context" title="Permanent link">&para;</a></h4>
+<p>作者讨论了为什么 prompt 可能有效：如果语言模型足够强大，它能理解 prompt 中的任务描述；而且训练数据中本身就包含很多类似"问-答"、"英文-法文对照"的文本模式。</p>
+<h3 id="23-webtext">2.3 数据集：WebText<a class="headerlink" href="#23-webtext" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>来源</strong>：从 Reddit 上收集用户提交且 karma ≥ 3 的链接（至少 3 个赞），过滤掉低质量网页</li>
+<li><strong>规模</strong>：约 <strong>800 万个文档</strong>，<strong>40GB</strong> 文本</li>
+<li><strong>优势</strong>：Reddit 社区已帮忙做了质量筛选，信噪比远高于 Common Crawl</li>
+</ul>
+<h3 id="24">2.4 模型架构<a class="headerlink" href="#24" title="Permanent link">&para;</a></h3>
+<p>GPT-2 沿用 Transformer 解码器，但做了以下改进：
+- <strong>Pre-Norm</strong>：将 Layer Normalization 移到每个子层之前（而非之后），受 Sparse Transformer 启发
+- <strong>可学习的词元反转</strong>（reversible tokens）
+- 设计了 4 个不同规模的模型：</p>
+<table>
+<thead>
+<tr>
+<th>模型名</th>
+<th>层数</th>
+<th>隐藏维度 (<span class="arithmatex">\(d_{model}\)</span>)</th>
+<th>参数量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Small</strong></td>
+<td>12</td>
+<td>768</td>
+<td>117M</td>
+</tr>
+<tr>
+<td><strong>Medium</strong></td>
+<td>24</td>
+<td>1024</td>
+<td>345M</td>
+</tr>
+<tr>
+<td><strong>Large</strong></td>
+<td>36</td>
+<td>1280</td>
+<td>762M</td>
+</tr>
+<tr>
+<td><strong>XL</strong></td>
+<td>48</td>
+<td>1600</td>
+<td><strong>1.5B</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="25">2.5 实验结果<a class="headerlink" href="#25" title="Permanent link">&para;</a></h3>
+<p>GPT-2 在多个任务上的 Zero-Shot 表现：</p>
+<ul>
+<li><strong>阅读理解</strong>：与当时 Zero-Shot SOTA 相当或更好</li>
+<li><strong>文本摘要</strong>：略逊于有监督的 Seq2Seq+Attention 模型</li>
+<li><strong>问答</strong>：与微调模型差距较大</li>
+<li><strong>关键发现</strong>：随着模型规模增大，性能持续上升，暗示更大的模型还有更大潜力</li>
+</ul>
+<blockquote>
+<p>GPT-2 的效果"差一点意思"，但方向是对的。它为 GPT-3 铺平了道路——只需要把数据和模型再放大 100 倍。</p>
+</blockquote>
+<hr />
+<h2 id="3-gpt-3">3. GPT-3：语言模型是少样本学习器<a class="headerlink" href="#3-gpt-3" title="Permanent link">&para;</a></h2>
+<h3 id="31">3.1 背景与动机<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
+<p>GPT-2 在新意度上拉得很高（Zero-Shot），但有效性（精度）不足。GPT-3 的目标是<strong>同时拥有高新意度和高有效性</strong>：</p>
+<ul>
+<li>回到 <strong>Few-Shot</strong> 设定（给少量示例，但不做梯度更新）</li>
+<li>将数据和模型规模各放大约 <strong>100 倍</strong></li>
+</ul>
+<blockquote>
+<p>GPT-3 不做任何梯度更新/微调来处理下游任务——因为 175B 参数的模型计算梯度极其昂贵。这也是为什么它被称为 <strong>In-Context Learning</strong>：模型的学习仅发生在前向推理时的上下文中，通过注意力机制从 prompt 里的示例提取信息。</p>
+</blockquote>
+<h3 id="32">3.2 三种评估模式<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
+<p><img alt="Figure 2.1: Fine-tuning vs In-Context Learning" src="../images/gpt3_fig1.png" />
+<em>Figure 2.1: GPT-3 的三种使用模式对比。右：Fine-tuning（传统微调，需要梯度更新）；中：Few-Shot（给 K 个示例作为上下文，不更新权重）；左：One-Shot / Zero-Shot（给 1 个或 0 个示例）。GPT-3 主要使用中间的 In-Context Learning 模式。</em></p>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>定义</th>
+<th>是否更新权重</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Fine-tuning</strong></td>
+<td>在下游任务训练集上做梯度更新</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>Few-Shot</strong></td>
+<td>给 10-100 个示例作为 prompt，不更新权重</td>
+<td>❌</td>
+</tr>
+<tr>
+<td><strong>One-Shot</strong></td>
+<td>只给 1 个示例</td>
+<td>❌</td>
+</tr>
+<tr>
+<td><strong>Zero-Shot</strong></td>
+<td>只给任务描述（如 <code>translate English to French:</code>）</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+<h3 id="33">3.3 模型架构<a class="headerlink" href="#33" title="Permanent link">&para;</a></h3>
+<p>GPT-3 的模型架构与 GPT-2 基本相同（Pre-Norm Transformer 解码器），但规模大增。设计了 8 个不同规模的模型：</p>
+<table>
+<thead>
+<tr>
+<th>模型名</th>
+<th>参数量</th>
+<th>层数</th>
+<th><span class="arithmatex">\(d_{model}\)</span></th>
+<th>头数</th>
+<th><span class="arithmatex">\(d_{head}\)</span></th>
+<th>Batch Size</th>
+<th>学习率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPT-3 Small</td>
+<td>125M</td>
+<td>12</td>
+<td>768</td>
+<td>12</td>
+<td>64</td>
+<td>0.5M</td>
+<td><span class="arithmatex">\(6.0 \times 10^{-4}\)</span></td>
+</tr>
+<tr>
+<td>GPT-3 Medium</td>
+<td>350M</td>
+<td>24</td>
+<td>1024</td>
+<td>16</td>
+<td>64</td>
+<td>0.5M</td>
+<td><span class="arithmatex">\(3.0 \times 10^{-4}\)</span></td>
+</tr>
+<tr>
+<td>GPT-3 Large</td>
+<td>760M</td>
+<td>24</td>
+<td>1536</td>
+<td>16</td>
+<td>96</td>
+<td>1M</td>
+<td><span class="arithmatex">\(2.5 \times 10^{-4}\)</span></td>
+</tr>
+<tr>
+<td>GPT-3 XL</td>
+<td>1.3B</td>
+<td>24</td>
+<td>2048</td>
+<td>32</td>
+<td>64</td>
+<td>1M</td>
+<td><span class="arithmatex">\(2.0 \times 10^{-4}\)</span></td>
+</tr>
+<tr>
+<td>GPT-3 2.7B</td>
+<td>2.7B</td>
+<td>32</td>
+<td>2560</td>
+<td>32</td>
+<td>80</td>
+<td>2M</td>
+<td><span class="arithmatex">\(1.6 \times 10^{-4}\)</span></td>
+</tr>
+<tr>
+<td>GPT-3 6.7B</td>
+<td>6.7B</td>
+<td>32</td>
+<td>4096</td>
+<td>32</td>
+<td>128</td>
+<td>2M</td>
+<td><span class="arithmatex">\(1.2 \times 10^{-4}\)</span></td>
+</tr>
+<tr>
+<td>GPT-3 13B</td>
+<td>13B</td>
+<td>40</td>
+<td>5140</td>
+<td>40</td>
+<td>128</td>
+<td>2M</td>
+<td><span class="arithmatex">\(1.0 \times 10^{-4}\)</span></td>
+</tr>
+<tr>
+<td><strong>GPT-3 175B</strong></td>
+<td><strong>175B</strong></td>
+<td><strong>96</strong></td>
+<td><strong>12288</strong></td>
+<td><strong>96</strong></td>
+<td><strong>128</strong></td>
+<td><strong>3.2M</strong></td>
+<td><span class="arithmatex">\(0.6 \times 10^{-4}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>关键观察：
+- GPT-3 175B 是 GPT-2 XL（1.5B）的 <strong>100 倍以上</strong>
+- 模型设计偏<strong>扁宽</strong>（层数 96 但宽度 12288），因为计算复杂度与宽度平方成正比、与层数线性成正比
+- 最大模型的 batch size 高达 <strong>320 万</strong>，使用微软的 DGX-1 集群（高带宽 V100）分布式训练
+- 学习率随模型增大而<strong>递减</strong>（与 Facebook 的线性缩放规则相反）</p>
+<h3 id="34">3.4 训练数据<a class="headerlink" href="#34" title="Permanent link">&para;</a></h3>
+<p>GPT-3 的训练数据规模比 GPT-2 大约 <strong>100 倍</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>数据源</th>
+<th>词数</th>
+<th>采样权重</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Common Crawl</strong>（过滤版）</td>
+<td>~4 万亿</td>
+<td>60%</td>
+</tr>
+<tr>
+<td><strong>WebText2</strong>（GPT-2 数据集升级版）</td>
+<td>~190 亿</td>
+<td>22%</td>
+</tr>
+<tr>
+<td><strong>Books1</strong></td>
+<td>~120 亿</td>
+<td>8%</td>
+</tr>
+<tr>
+<td><strong>Books2</strong></td>
+<td>~120 亿</td>
+<td>8%</td>
+</tr>
+<tr>
+<td><strong>Wikipedia</strong></td>
+<td>~30 亿</td>
+<td>3%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Common Crawl 的清洗</strong>（GPT-2 曾因其质量差而放弃，GPT-3 不得不使用）：
+1. <strong>质量过滤</strong>：用 GPT-2 的 WebText 作为正例、Common Crawl 作为负例，训练 Logistic Regression 分类器，保留被判定为高质量的文档
+2. <strong>去重</strong>：使用 LSH（Locality-Sensitive Hashing）算法快速检测和去除重复文档
+3. <strong>混合高质量数据</strong>：加入 Books 和 Wikipedia 等已知高质量数据源</p>
+<p>虽然 Common Crawl 数据量占绝对多数（~80%），但采样时仅以 60% 的概率采样，而 Wikipedia 等小数据源被过采样，保证训练质量。</p>
+<h3 id="35-scaling-laws">3.5 Scaling Laws<a class="headerlink" href="#35-scaling-laws" title="Permanent link">&para;</a></h3>
+<p><img alt="Figure 3.1: 计算量与验证损失的关系" src="../images/gpt3_fig3.png" />
+<em>Figure 3.1: 不同规模模型的训练曲线。x 轴为累计计算量（FLOPs），y 轴为验证损失。每条线代表一个模型规模。关键发现：最优模型的性能与计算量遵循 </em><em>Power Law</em><em> 分布——计算量指数增长时，损失线性下降。</em></p>
+<p>关键发现：
+- 每个模型规模都有一个"甜蜜点"——训练到某个程度后损失不再下降，继续训练浪费算力
+- 将所有模型的最优点连成一条线，呈 <strong>Power Law</strong> 关系：要线性降低损失，需要指数增加计算量
+- 这与人类学习形成鲜明对比：人脑仅消耗约 60 瓦能量，学会阅读只需几本书，而 GPT-3 需要整个互联网的数据和数百台机器训练多日</p>
+<h3 id="36">3.6 实验结果<a class="headerlink" href="#36" title="Permanent link">&para;</a></h3>
+<p>GPT-3 在大量 NLP 任务上测试了 Zero-Shot、One-Shot、Few-Shot 三种模式：</p>
+<ul>
+<li><strong>综合性能</strong>：Few-Shot GPT-3 175B 的平均精度接近 60%，相比 GPT-2 1.5B Zero-Shot 的 ~30% <strong>翻倍</strong></li>
+<li><strong>阅读理解</strong>（如 NaturalQuestions、TriviaQA）：接近甚至超过微调的 SOTA 模型（如 T5）</li>
+<li><strong>机器翻译</strong>：低资源语言翻译表现出色，翻译到英语优于翻译到其他语言</li>
+<li><strong>文本生成</strong>：生成的新闻文章人类难以区分是机器还是人类写的</li>
+<li><strong>算术推理</strong>：在加减乘除等基础数学运算上表现出一定能力</li>
+</ul>
+<h3 id="37">3.7 局限性<a class="headerlink" href="#37" title="Permanent link">&para;</a></h3>
+<p>GPT-3 论文花了大量篇幅讨论局限性：</p>
+<ol>
+<li><strong>长文本生成弱</strong>：生成较长文本时容易重复前面的内容，难以推进情节</li>
+<li><strong>单向注意力限制</strong>：只能看前面的词（解码器的因果掩码），不像 BERT 能看双向</li>
+<li><strong>均匀预测的浪费</strong>：语言模型对每个词（包括虚词）投入同等的计算，不像人类学习能区分重点和非重点</li>
+<li><strong>纯文本模态</strong>：没见过视频、物理交互等多模态信息</li>
+<li><strong>样本有效性低</strong>：需要整个互联网的数据才能学到人类几本书就能掌握的知识</li>
+<li><strong>In-Context Learning 的本质存疑</strong>：Few-Shot 时模型是真的"从头学习"，还是只是从训练记忆中"检索"相关内容？如果是后者，泛化到全新任务的能力有限</li>
+<li><strong>训练成本极高</strong>：数百台机器训练多日，能耗巨大</li>
+<li><strong>不可解释性</strong>：175B 参数的模型无法解释其决策过程</li>
+</ol>
+<hr />
+<h2 id="4">4. 总结与对比<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<h3 id="41-gpt-123">4.1 GPT 1→2→3 版本演进<a class="headerlink" href="#41-gpt-123" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>GPT-1</strong></th>
+<th><strong>GPT-2</strong></th>
+<th><strong>GPT-3</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>发布时间</td>
+<td>2018.06</td>
+<td>2019.02</td>
+<td>2020.05</td>
+</tr>
+<tr>
+<td>最大参数量</td>
+<td>117M</td>
+<td>1.5B</td>
+<td><strong>175B</strong></td>
+</tr>
+<tr>
+<td>数据规模</td>
+<td>BooksCorpus（8亿词）</td>
+<td>WebText（40GB）</td>
+<td>Common Crawl+（~5万亿词）</td>
+</tr>
+<tr>
+<td>下游适配方式</td>
+<td>微调（Fine-tuning）</td>
+<td>Zero-Shot（Prompt）</td>
+<td><strong>In-Context Learning</strong>（Few-Shot/One-Shot/Zero-Shot，不更新权重）</td>
+</tr>
+<tr>
+<td>核心卖点</td>
+<td>预训练+微调范式</td>
+<td>无需微调的 Zero-Shot</td>
+<td>暴力出奇迹 + Few-Shot 炸裂效果</td>
+</tr>
+<tr>
+<td>论文性质</td>
+<td>正式论文</td>
+<td>技术报告</td>
+<td>技术报告（63页）</td>
+</tr>
+<tr>
+<td>核心创新</td>
+<td>统一输入格式适配多任务</td>
+<td>Prompt 思想的提出</td>
+<td>Scale 的力量 + In-Context Learning 范式</td>
+</tr>
+</tbody>
+</table>
+<h3 id="42-gpt-vs-bert">4.2 GPT vs BERT 设计哲学对比<a class="headerlink" href="#42-gpt-vs-bert" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th><strong>GPT 系列</strong></th>
+<th><strong>BERT 系列</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>架构</td>
+<td>Transformer <strong>解码器</strong>（Decoder-only）</td>
+<td>Transformer <strong>编码器</strong>（Encoder-only）</td>
+</tr>
+<tr>
+<td>注意力</td>
+<td>因果注意力（只看前面）</td>
+<td>双向注意力（看全部）</td>
+</tr>
+<tr>
+<td>预训练目标</td>
+<td>自回归语言模型（预测下一个词）</td>
+<td>掩码语言模型（完形填空）+ NSP</td>
+</tr>
+<tr>
+<td>难度</td>
+<td>更难（预测未来）</td>
+<td>较易（完形填空）</td>
+</tr>
+<tr>
+<td>同规模效果</td>
+<td>稍差</td>
+<td>更好</td>
+</tr>
+<tr>
+<td>泛化天花板</td>
+<td>更高（预测未来→通用能力）</td>
+<td>受限（完形填空→特定任务）</td>
+</tr>
+<tr>
+<td>下游适配</td>
+<td>构造输入/Prompt</td>
+<td>微调</td>
+</tr>
+<tr>
+<td>团队</td>
+<td>OpenAI</td>
+<td>Google</td>
+</tr>
+<tr>
+<td>引用量</td>
+<td>~11,000（三篇合计）</td>
+<td>~27,000</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>GPT 系列引用量低于 BERT 并非因为创新度或效果不如 BERT，而是因为 GPT 选择了更难的技术路线——要做到炸裂效果需要做到 GPT-3 的规模，几乎没有其他团队能复现。而 BERT 的门槛更低，大家咬咬牙就能跑起来。</p>
+</blockquote>
+<h3 id="43-gpt">4.3 GPT 系列的启示<a class="headerlink" href="#43-gpt" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>技术路线的选择</strong>：GPT 选择了解码器 + 自回归语言模型这条更难的路线，虽然初期效果不如 BERT，但坚持做下去后天花板更高，最终引领了大语言模型的潮流。</li>
+<li><strong>Scale 的重要性</strong>：GPT-2 效果平平，但把数据和模型各放大 100 倍后 GPT-3 效果炸裂。这证明了在某些方向上，暴力确实能出奇迹。</li>
+<li><strong>范式转移</strong>：GPT-3 开辟了 <strong>In-Context Learning</strong> 的新范式——不需要微调就能适配各种任务，这直接催生了后来的 GPT-4、ChatGPT 等大模型应用。</li>
+<li><strong>研究策略</strong>：GPT-2 在效果不佳时通过转换视角（从微调到 Zero-Shot）保持了论文的新意度，这是做研究的一个重要策略——不要在一条路上走到黑，尝试从新角度审视问题。</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.top", "navigation.instant", "search.highlight", "content.code.copy", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

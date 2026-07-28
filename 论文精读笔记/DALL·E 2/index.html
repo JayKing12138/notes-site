@@ -1,0 +1,3622 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../CLIP%20%E6%94%B9%E8%BF%9B%E5%B7%A5%E4%BD%9C%E4%B8%B2%E8%AE%B2%EF%BC%88%E4%B8%8B%EF%BC%89/">
+      
+      
+        <link rel="next" href="../DINO/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>DALL·E 2 - 学习资料库</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#dalle-2" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="学习资料库" class="md-header__button md-logo" aria-label="学习资料库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            学习资料库
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              DALL·E 2
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="学习资料库" class="md-nav__button md-logo" aria-label="学习资料库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    学习资料库
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    学习资料库
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GENIUS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    GENIUS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GENIUS/GENIUS%20%E6%80%BB%E7%BB%93/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GENIUS 总结
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RadAlign
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RadAlign
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RadAlign/RadVLM-GRPO%20%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RadVLM-GRPO 论文精读
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RadAlign/%E5%85%B3%E9%94%AE%E4%BB%A3%E7%A0%81%E8%AF%B4%E6%98%8E/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关键代码说明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    全模态大模型·出行安全项目
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    全模态大模型·出行安全项目
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/5.27%20Qwen3.7-Max%2BGeoLife%E8%AF%84%E4%BC%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.27 Qwen3.7-Max+GeoLife评估
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/Omni-%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Omni-出行安全项目
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%B1%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    全模态大模型·出行安全项目进展
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLUE
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    BLUE
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/BLUE/BLUE%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLUE论文笔记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    论文精读笔记
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    论文精读笔记
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AAAAA_Transformer%E3%80%81LLM%E4%B8%8EVLM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AAAAA_Transformer、LLM与VLM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BBBBB_%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BBBBB_强化学习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BERT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BERT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BEiT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BEiT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BLIP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLIP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLIP%20%26%20ALIGN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP & ALIGN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLIP%20%E6%94%B9%E8%BF%9B%E5%B7%A5%E4%BD%9C%E4%B8%B2%E8%AE%B2%EF%BC%88%E4%B8%8A%EF%BC%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP 改进工作串讲（上）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLIP%20%E6%94%B9%E8%BF%9B%E5%B7%A5%E4%BD%9C%E4%B8%B2%E8%AE%B2%EF%BC%88%E4%B8%8B%EF%BC%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP 改进工作串讲（下）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DALL·E 2
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DALL·E 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目录
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心要点
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-dalle-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. DALL·E 2 概述与展示
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. DALL·E 2 概述与展示">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 背景与动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 核心能力展示
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 安全与伦理考虑
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 相关工作发展时间线
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-dalle-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. DALL·E 2 论文结构
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-dalle-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. DALL·E 2 方法详解
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. DALL·E 2 方法详解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-unclip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 整体架构：两阶段 unCLIP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-decoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Decoder（解码器）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-prior" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Prior（先验模型）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 Prior（先验模型）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#331-auto-regressiveprior" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.1 自回归（Auto-Regressive）Prior
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#332-prior" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.2 扩散 Prior（最终采用）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 关键总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 图像生成模型发展历程
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 图像生成模型发展历程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-gangenerative-adversarial-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 GAN（Generative Adversarial Network）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-auto-encoderae-denoising-aedae" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Auto-Encoder（AE）与 Denoising AE（DAE）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-vaevariational-auto-encoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 VAE（Variational Auto-Encoder）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-vq-vaevector-quantised-vae" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 VQ-VAE（Vector Quantised VAE）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-dalle-v1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5 DALL·E v1
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-diffusion-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 扩散模型（Diffusion Model）详解
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 扩散模型（Diffusion Model）详解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 基本原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-u-net" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 网络结构：U-Net
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-ddpmdenoising-diffusion-probabilistic-model-2020" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 DDPM（Denoising Diffusion Probabilistic Model, 2020）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-improved-ddpm2020" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 Improved DDPM（2020年底）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55-diffusion-models-beat-gans2021" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5 Diffusion Models Beat GANs（2021）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#56-guidance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.6 Guidance 技术演进
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.6 Guidance 技术演进">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#classifier-guided-diffusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classifier-Guided Diffusion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classifier-free-guidanceglidedalle-2imagen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classifier-Free Guidance（GLIDE/DALL·E 2/Imagen 均采用）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#57-glide202112" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.7 GLIDE（2021.12）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#58-ddpm-vae" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.8 DDPM 与 VAE 的对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-dalle-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. DALL·E 2 应用能力
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. DALL·E 2 应用能力">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 图像变体生成
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-image-interpolation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 图像内插（Image Interpolation）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 文本-图像内插
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 零样本图像编辑
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 实验结果
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. 实验结果">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-ms-coco-zero-shot-fid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 定量对比（MS-COCO Zero-Shot FID）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 定性对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 局限性与不足
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. 局限性与不足">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 物体-属性绑定差
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 无法正确生成文字
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 复杂场景细节缺失
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4 安全与伦理风险
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#85" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.5 "秘密语言"问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        总结与对比
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="总结与对比">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心脉络
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        关键启示
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DINO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DINO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Flamingo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Flamingo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GPT%EF%BC%8CGPT-2%EF%BC%8CGPT-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPT，GPT-2，GPT-3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ImageBind%20%E4%B8%8E%20LanguageBind%20%E5%AF%B9%E6%AF%94/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ImageBind 与 LanguageBind 对比
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InternVL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    InternVL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLaMA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLaMA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLaVA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLaVA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MAE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MAE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MoCo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MoCo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OFA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OFA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PaLI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PaLI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Qwen-VL%E4%B8%8EOmni/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qwen-VL与Omni
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SAM3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SAM3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SigLIP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SigLIP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SimVLM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SimVLM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Swin%20Transformer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Swin Transformer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UniPerceiver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UniPerceiver
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Unified-IO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unified-IO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ViLT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ViLT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ViT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ViT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ZZZZZ%E5%85%AC%E5%BC%8F%E4%BB%A3%E7%A0%81%E7%AD%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ZZZZZ公式代码等
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%8E%9F%E7%94%9F%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    原生多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%90%8E%E8%AE%AD%E7%BB%83%E7%BB%BC%E8%BF%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多模态大模型后训练综述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%9A%E6%A8%A1%E6%80%81%E8%AE%BA%E6%96%87%E4%B8%B2%E8%AE%B2%C2%B7%E4%B8%8A/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多模态论文串讲·上
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%9A%E6%A8%A1%E6%80%81%E8%AE%BA%E6%96%87%E4%B8%B2%E8%AE%B2%C2%B7%E4%B8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多模态论文串讲·下
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%AF%B9%E6%AF%94%E5%AD%A6%E4%B9%A0%E7%BB%BC%E8%BF%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    对比学习综述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%B7%B7%E5%90%88%E7%B2%BE%E5%BA%A6%E8%AE%AD%E7%BB%83%E4%B8%8E%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    混合精度训练与分布式训练
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%A7%86%E9%A2%91%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    视频多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%9F%B3%E9%A2%91%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    音频多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目录
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心要点
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-dalle-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. DALL·E 2 概述与展示
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. DALL·E 2 概述与展示">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 背景与动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 核心能力展示
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 安全与伦理考虑
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 相关工作发展时间线
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-dalle-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. DALL·E 2 论文结构
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-dalle-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. DALL·E 2 方法详解
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. DALL·E 2 方法详解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-unclip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 整体架构：两阶段 unCLIP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-decoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Decoder（解码器）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-prior" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Prior（先验模型）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 Prior（先验模型）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#331-auto-regressiveprior" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.1 自回归（Auto-Regressive）Prior
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#332-prior" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.2 扩散 Prior（最终采用）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 关键总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 图像生成模型发展历程
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 图像生成模型发展历程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-gangenerative-adversarial-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 GAN（Generative Adversarial Network）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-auto-encoderae-denoising-aedae" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Auto-Encoder（AE）与 Denoising AE（DAE）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-vaevariational-auto-encoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 VAE（Variational Auto-Encoder）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-vq-vaevector-quantised-vae" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 VQ-VAE（Vector Quantised VAE）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-dalle-v1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5 DALL·E v1
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-diffusion-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 扩散模型（Diffusion Model）详解
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 扩散模型（Diffusion Model）详解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 基本原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-u-net" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 网络结构：U-Net
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-ddpmdenoising-diffusion-probabilistic-model-2020" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 DDPM（Denoising Diffusion Probabilistic Model, 2020）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-improved-ddpm2020" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 Improved DDPM（2020年底）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55-diffusion-models-beat-gans2021" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5 Diffusion Models Beat GANs（2021）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#56-guidance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.6 Guidance 技术演进
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.6 Guidance 技术演进">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#classifier-guided-diffusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classifier-Guided Diffusion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classifier-free-guidanceglidedalle-2imagen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classifier-Free Guidance（GLIDE/DALL·E 2/Imagen 均采用）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#57-glide202112" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.7 GLIDE（2021.12）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#58-ddpm-vae" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.8 DDPM 与 VAE 的对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-dalle-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. DALL·E 2 应用能力
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. DALL·E 2 应用能力">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 图像变体生成
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-image-interpolation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 图像内插（Image Interpolation）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 文本-图像内插
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 零样本图像编辑
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 实验结果
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. 实验结果">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-ms-coco-zero-shot-fid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 定量对比（MS-COCO Zero-Shot FID）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 定性对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 局限性与不足
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. 局限性与不足">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 物体-属性绑定差
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 无法正确生成文字
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 复杂场景细节缺失
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4 安全与伦理风险
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#85" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.5 "秘密语言"问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        总结与对比
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="总结与对比">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心脉络
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        关键启示
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="dalle-2">DALL·E 2<a class="headerlink" href="#dalle-2" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>📄 <strong>论文链接</strong>：<a href="https://arxiv.org/abs/2204.06125">arXiv:2204.06125</a> | <a href="https://arxiv.org/pdf/2204.06125">PDF</a></p>
+</blockquote>
+<h2 id="_1">目录<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#核心要点">核心要点</a></li>
+<li><a href="#1-dalle-2-概述与展示">1. DALL·E 2 概述与展示</a></li>
+<li><a href="#2-dalle-2-论文结构">2. DALL·E 2 论文结构</a></li>
+<li><a href="#3-dalle-2-方法详解">3. DALL·E 2 方法详解</a></li>
+<li><a href="#4-图像生成模型发展历程">4. 图像生成模型发展历程</a></li>
+<li><a href="#5-扩散模型diffusion-model详解">5. 扩散模型（Diffusion Model）详解</a></li>
+<li><a href="#6-dalle-2-应用能力">6. DALL·E 2 应用能力</a></li>
+<li><a href="#7-实验结果">7. 实验结果</a></li>
+<li><a href="#8-局限性与不足">8. 局限性与不足</a></li>
+<li><a href="#总结与对比">总结与对比</a></li>
+</ul>
+<h2 id="_2">核心要点<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<blockquote>
+<ul>
+<li><strong>DALL·E 2 是 OpenAI 文本到图像生成的最新力作</strong>，能够根据文本描述生成原创性、高分辨率（1024×1024）的逼真图片，并支持图像编辑、风格迁移等零样本应用。</li>
+<li><strong>核心架构为两阶段 unCLIP 框架</strong>：第一阶段 prior 模型将 CLIP 文本特征转换为 CLIP 图像特征；第二阶段 decoder（基于扩散模型）将图像特征解码为真实图像。CLIP 模型全程冻结。</li>
+<li><strong>扩散模型（Diffusion Model）是本视频的重点讲解内容</strong>，从 GAN → AE → VAE → VQ-VAE → DDPM → Improved DDPM → GLIDE → DALL·E 2 完整梳理了图像生成模型的发展脉络。</li>
+<li><strong>关键技术包括 classifier-free guidance、级联式上采样生成、预测噪声 vs 预测原始特征的取舍</strong>，这些技巧使扩散模型在保真度上首次超越 GAN，同时保持更好的多样性。</li>
+<li><strong>DALL·E 2 仍存在明显局限</strong>：物体-属性绑定差、无法正确生成文字、复杂场景细节缺失、存在安全风险和"秘密语言"问题，但整体推动了文本到图像生成领域的白热化竞争。</li>
+</ul>
+</blockquote>
+<hr />
+<h2 id="1-dalle-2">1. DALL·E 2 概述与展示<a class="headerlink" href="#1-dalle-2" title="Permanent link">&para;</a></h2>
+<p><img alt="Figure 1: DALL·E 2 生成样本展示" src="../images/dalle2_fig1.png" />
+<em>Figure 1: DALL·E 2 生成样本展示</em></p>
+<h3 id="11">1.1 背景与动机<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<ul>
+<li>DALL·E 2 是 OpenAI 文本-图像生成系列的最新工作：2021年1月推出 DALL·E，年底推出 GLIDE，2022年4月推出 DALL·E 2。</li>
+<li>DALL·E 2 发布后在社交媒体上引发轰动，生成的图片被广泛传播。</li>
+<li>OpenAI CEO 表示 DALL·E 2 改变了他对 AI 的理解——原本认为创造性工作是 AI 难以取代的，但现在艺术创作已触手可及。</li>
+</ul>
+<h3 id="12">1.2 核心能力展示<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>文本到图像生成</strong>：可根据概念、属性、风格的任意组合生成原创图片。例如"宇航员骑马+写实风格"、"一碗汤作为传送门+数字画风格"、"泰迪熊做AI研究+1980年代月球表面"。</li>
+<li><strong>图像编辑</strong>：可在已有图片中根据文本添加或移除物体，且能正确处理阴影、反射、纹理。例如在大厅不同位置添加火烈鸟，模型甚至能根据场景合理性生成火烈鸟形状的游泳圈而非真火烈鸟。</li>
+<li><strong>无文本的风格迁移</strong>：给定一张图片，可生成多张保持相同语义但风格细节不同的变体。</li>
+<li><strong>分辨率提升</strong>：DALL·E 2 可生成 DALL·E 四倍分辨率的图片，更清晰逼真。</li>
+<li><strong>用户评价</strong>：70% 的志愿者认为 DALL·E 2 生成的图片与文本更贴切，近 90% 认为比 DALL·E 更真实。</li>
+</ul>
+<h3 id="13">1.3 安全与伦理考虑<a class="headerlink" href="#13" title="Permanent link">&para;</a></h3>
+<ul>
+<li>OpenAI 暂不开源模型，甚至不开放 API，仅向少量用户开放内测。</li>
+<li>主要担忧：生成暴力、成人、政治敏感图片；训练数据中的偏见和公平性问题。</li>
+<li>开源替代方案：dalle-mini（GitHub 9000+ star），可通过 Hugging Face Space 直接体验，但模型较小、画质较粗糙。</li>
+</ul>
+<h3 id="14">1.4 相关工作发展时间线<a class="headerlink" href="#14" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>模型</th>
+<th>机构</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2021.01</td>
+<td>DALL·E</td>
+<td>OpenAI</td>
+<td>120亿参数，VQ-VAE + GPT</td>
+</tr>
+<tr>
+<td>2021.05</td>
+<td>CogView</td>
+<td>清华</td>
+<td>支持中文</td>
+</tr>
+<tr>
+<td>2021.11</td>
+<td>NÜWA（女娲）</td>
+<td>微软/北大</td>
+<td>支持图像和视频生成</td>
+</tr>
+<tr>
+<td>2021.12</td>
+<td>GLIDE</td>
+<td>OpenAI</td>
+<td>扩散模型，35亿参数</td>
+</tr>
+<tr>
+<td>2021.12</td>
+<td>ERNIE-ViLG</td>
+<td>百度</td>
+<td>支持中文，100亿参数</td>
+</tr>
+<tr>
+<td>2022.04</td>
+<td>DALL·E 2</td>
+<td>OpenAI</td>
+<td>CLIP + 扩散模型</td>
+</tr>
+<tr>
+<td>2022.04</td>
+<td>CogView 2</td>
+<td>清华</td>
+<td>改进版</td>
+</tr>
+<tr>
+<td>2022.05</td>
+<td>CogVideo</td>
+<td>清华</td>
+<td>视频生成</td>
+</tr>
+<tr>
+<td>2022.05</td>
+<td>Imagen</td>
+<td>Google</td>
+<td>扩散模型，效果与 DALL·E 2 相当甚至更好</td>
+</tr>
+<tr>
+<td>2022.06</td>
+<td>Parti</td>
+<td>Google</td>
+<td>自回归模型，200亿参数，超越 DALL·E 2</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>扩散模型预感将取代 GAN 的地位，当前状态类似 2017-2018 年的 GAN，至少还有 2-3 年的发展潜力。</li>
+</ul>
+<hr />
+<h2 id="2-dalle-2">2. DALL·E 2 论文结构<a class="headerlink" href="#2-dalle-2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>论文共 27 页（去除可视化和参考文献后约十几页），图多文少。</li>
+<li>结构：摘要 → 引言（含9张高清大图展示）→ 方法（仅两页）→ 应用展示（4-5页）→ 对比实验（4-5页）→ 相关工作 → 局限性与不足 → 参考文献 → 附录。</li>
+<li>方法部分极其精简，未讲解 CLIP（假设读者已知），主要讲 decoder 和 prior 的实现细节。</li>
+<li>论文内部自称 <strong>unCLIP</strong>（因为是 CLIP 的逆过程：从特征还原到数据）。</li>
+</ul>
+<hr />
+<h2 id="3-dalle-2">3. DALL·E 2 方法详解<a class="headerlink" href="#3-dalle-2" title="Permanent link">&para;</a></h2>
+<p><img alt="Figure 3: 通过 CLIP 特征生成图像变体" src="../images/dalle2_fig3.png" />
+<em>Figure 3: 通过 CLIP 特征生成图像变体</em></p>
+<p><img alt="Figure 2: unCLIP 架构（先验网络 + 扩散解码器）" src="../images/dalle2_fig2.png" />
+<em>Figure 2: unCLIP 架构（先验网络 + 扩散解码器）</em></p>
+<h3 id="31-unclip">3.1 整体架构：两阶段 unCLIP<a class="headerlink" href="#31-unclip" title="Permanent link">&para;</a></h3>
+<p>DALL·E 2 = CLIP（冻结）+ prior 模型 + decoder 模型</p>
+<p><strong>推理流程：</strong>
+1. 给定文本 → 通过冻结的 CLIP 文本编码器 → 得到文本特征 zt
+2. 文本特征 zt → 通过 prior 模型 → 生成图像特征 zi
+3. 图像特征 zi → 通过 decoder（扩散模型）→ 生成图像 x</p>
+<p><strong>训练时：</strong>
+- CLIP 模型完全冻结，不做任何训练或 fine-tune
+- 利用 CLIP 生成的图像特征作为 ground truth 来监督 prior 模型的训练</p>
+<p><strong>概率分解（Chain Rule）：</strong>
+- p(x|y) = ∫ p(zi|y) · p(x|y, zi) dzi
+- p(zi|y) 对应 prior 阶段
+- p(x|y, zi) 对应 decoder 阶段</p>
+<p><strong>为什么需要显式生成图像特征？</strong>
+- 直接从文本到图像的端到端生成不如两阶段效果好
+- 显式生成图像特征能显著提升图像的多样性（diversity），同时对写实程度和文本匹配度没有损失
+- 相比 GAN 的高保真但低多样性，扩散模型 + 两阶段设计兼顾了两者</p>
+<h3 id="32-decoder">3.2 Decoder（解码器）<a class="headerlink" href="#32-decoder" title="Permanent link">&para;</a></h3>
+<p>Decoder 本质上是 GLIDE 模型的升级版，主要改动：</p>
+<ul>
+<li><strong>CLIP Guidance</strong>：使用 CLIP 模型作为引导信号（具体操作有变化，需看代码）。</li>
+<li><strong>Classifier-Free Guidance</strong>：</li>
+<li>训练时 10% 的概率将 CLIP 特征置零</li>
+<li>训练时 50% 的概率丢弃文本特征</li>
+<li>让模型同时学习有条件和无条件的生成，推理时利用两者的差异进行引导</li>
+<li><strong>级联式生成（Cascaded Generation）</strong>：</li>
+<li>先生成 64×64 小图</li>
+<li>上采样到 256×256</li>
+<li>再上采样到 1024×1024 高清大图</li>
+<li>训练过程中加入大量噪声以保证稳定性</li>
+<li><strong>网络结构</strong>：使用 spatial convolution（CNN/U-Net），不使用 attention layers，因此可应用于任意尺寸的图像</li>
+</ul>
+<h3 id="33-prior">3.3 Prior（先验模型）<a class="headerlink" href="#33-prior" title="Permanent link">&para;</a></h3>
+<p>Prior 模型的目标：给定文本特征 zt，生成对应的 CLIP 图像特征 zi。</p>
+<p><strong>尝试了两种方案：</strong></p>
+<h4 id="331-auto-regressiveprior">3.3.1 自回归（Auto-Regressive）Prior<a class="headerlink" href="#331-auto-regressiveprior" title="Permanent link">&para;</a></h4>
+<ul>
+<li>类似 DALL·E/GPT 的方式：输入文本特征，遮住图像特征，自回归预测</li>
+<li>缺点：训练效率太低</li>
+<li>使用了 PCA 降维等加速技巧</li>
+<li>最终效果与扩散 prior 差不多，但训练更难</li>
+</ul>
+<h4 id="332-prior">3.3.2 扩散 Prior（最终采用）<a class="headerlink" href="#332-prior" title="Permanent link">&para;</a></h4>
+<ul>
+<li>使用 <strong>Transformer decoder</strong>（而非 U-Net），因为输入输出是 embedding 而非图像</li>
+<li><strong>模型输入</strong>：文本 + CLIP 文本特征 + time step embedding + 加噪后的 CLIP 图像特征 + Transformer 自身的 embedding（如 cls token）</li>
+<li><strong>预测目标</strong>：直接预测未加噪的 CLIP 图像特征 zi（而非预测噪声）</li>
+<li>这与 DDPM 以来"预测噪声"的主流做法不同</li>
+<li>作者发现对于特征重建任务，直接预测原始特征比预测噪声效果更好</li>
+<li>同样使用了 <strong>classifier-free guidance</strong></li>
+<li>扩散 prior 训练更容易、效果略好，因此论文主要围绕此方案展开</li>
+</ul>
+<h3 id="34">3.4 关键总结<a class="headerlink" href="#34" title="Permanent link">&para;</a></h3>
+<ul>
+<li>DALL·E 2 = CLIP + GLIDE 的结合体，但加入了大量工程技巧</li>
+<li>论文方法部分极短，很多细节需看代码才能理解</li>
+<li>各种技巧的有效性并不一致：有时预测噪声好，有时预测原始特征好；有时两阶段好，有时一阶段也行（如 Imagen）</li>
+<li>最终结论：<strong>scale matters</strong>——模型规模和数据规模才是决定性因素</li>
+</ul>
+<hr />
+<h2 id="4">4. 图像生成模型发展历程<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<p><img alt="Figure 5: 文本编辑操作（text diffs）" src="../images/dalle2_fig5.png" />
+<em>Figure 5: 文本编辑操作（text diffs）</em></p>
+<h3 id="41-gangenerative-adversarial-network">4.1 GAN（Generative Adversarial Network）<a class="headerlink" href="#41-gangenerative-adversarial-network" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>原理</strong>：Generator 从随机噪声生成图片，Discriminator 区分真假，两者对抗训练</li>
+<li><strong>优点</strong>：</li>
+<li>保真度极高，生成的图片人眼难辨真假（DeepFakes 的基础）</li>
+<li>经过多年改进，模型好用、数据需求相对较少</li>
+<li><strong>缺点</strong>：</li>
+<li>训练不稳定（两个网络的平衡问题，容易坍塌）</li>
+<li>多样性差（创造性不足，生成结果趋同）</li>
+<li>非概率模型，生成过程隐式，数学上不够优美</li>
+</ul>
+<h3 id="42-auto-encoderae-denoising-aedae">4.2 Auto-Encoder（AE）与 Denoising AE（DAE）<a class="headerlink" href="#42-auto-encoderae-denoising-aedae" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>AE</strong>：输入 x → 编码器 → bottleneck 特征 → 解码器 → 重建 x。目标是学习压缩特征，不用于生成（无法采样）。</li>
+<li><strong>DAE</strong>：先将输入加噪/扰动得到 corrupted x，再编码-解码重建原始 x。使模型更稳健、不易过拟合。</li>
+<li><strong>MAE（Masked Auto-Encoder）</strong>：mask 掉 75% 的图像区域仍能重建，说明图像冗余性高，验证了 denoising/masking 思路的有效性。</li>
+<li>AE/DAE/MAE 的核心目的是学特征用于下游任务（分类、检测等），而非生成。</li>
+</ul>
+<h3 id="43-vaevariational-auto-encoder">4.3 VAE（Variational Auto-Encoder）<a class="headerlink" href="#43-vaevariational-auto-encoder" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>与 AE 的关键区别</strong>：中间不再学习固定的 bottleneck 特征，而是学习一个概率分布（假设为高斯分布）</li>
+<li><strong>具体做法</strong>：编码器输出均值 μ 和方差 σ²，通过重参数化技巧 z = μ + σ ⊙ ε（ε ~ N(0,1)）采样得到 z</li>
+<li><strong>可用于生成</strong>：训练完成后扔掉编码器，直接从高斯分布采样 z，通过解码器生成图像</li>
+<li><strong>贝叶斯视角</strong>：编码器学的是后验概率 q(z|x)，先验分布 p(z) 为标准正态，解码器学的是似然 p(x|z)，整体优化目标是最大化 ELBO</li>
+<li><strong>优点</strong>：数学优美、多样性好（从分布采样）</li>
+<li><strong>后续工作</strong>：VQ-VAE、VQ-VAE-2、DALL·E v1</li>
+</ul>
+<h3 id="44-vq-vaevector-quantised-vae">4.4 VQ-VAE（Vector Quantised VAE）<a class="headerlink" href="#44-vq-vaevector-quantised-vae" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>动机</strong>：VAE 的连续分布不好学、模型难以做大；现实中信号都是离散化的</li>
+<li><strong>核心做法</strong>：用一个 codebook（K×D 的向量表，通常 K=8192, D=512/768）替代连续分布</li>
+<li>编码器输出特征图 → 每个位置的特征与 codebook 中最近的向量匹配 → 用该向量的 index 表示 → 再用 codebook 中的向量替换得到量化特征 fq</li>
+<li>量化特征可控、优化容易</li>
+<li><strong>生成需要额外的 prior 网络</strong>：VQ-VAE 原文使用 PixelCNN 作为 prior，学习 codebook index 的分布</li>
+<li><strong>应用</strong>：DALL·E v1 直接使用 VQ-VAE 的 codebook；BEiT 用 DALL·E 的 codebook 做视觉自监督学习；VL-BEiT 扩展到多模态</li>
+<li><strong>VQ-VAE-2</strong>：层级式建模 + attention + 更好的 prior，生成效果显著提升</li>
+</ul>
+<h3 id="45-dalle-v1">4.5 DALL·E v1<a class="headerlink" href="#45-dalle-v1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>架构</strong>：两阶段</li>
+<li>训练 VQ-VAE codebook（直接复用）</li>
+<li>将文本（BPE 编码，256 tokens）和图像（经 VQ-VAE 量化为 32×32=1024 tokens）拼接为 1280 tokens 的序列，用 GPT 自回归预测</li>
+<li><strong>推理</strong>：给定文本 → 自回归生成图像 tokens → 用 CLIP 排序选出最佳图片</li>
+<li><strong>特点</strong>：120亿参数，大力出奇迹，大量工程细节（分布式训练、数据收集）</li>
+</ul>
+<hr />
+<h2 id="5-diffusion-model">5. 扩散模型（Diffusion Model）详解<a class="headerlink" href="#5-diffusion-model" title="Permanent link">&para;</a></h2>
+<h3 id="51">5.1 基本原理<a class="headerlink" href="#51" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>前向扩散（Forward Diffusion）</strong>：从真实图片 X0 开始，逐步添加微小的高斯噪声，经过 T 步后变为纯噪声 XT（各向同性正态分布）。名称来自热力学中的扩散现象（高密度→低密度→平衡）。</li>
+<li><strong>反向扩散（Reverse Diffusion）</strong>：从纯噪声 XT 开始，训练一个网络逐步去噪，恢复出 X0。这就是图像生成的过程。</li>
+<li><strong>共享参数</strong>：所有时间步使用同一个模型，通过 time embedding 区分不同步骤。</li>
+<li><strong>推理速度慢</strong>：原始扩散模型需要 T=1000 步 forward，远慢于 GAN 的单次 forward。</li>
+</ul>
+<h3 id="52-u-net">5.2 网络结构：U-Net<a class="headerlink" href="#52-u-net" title="Permanent link">&para;</a></h3>
+<ul>
+<li>扩散模型的输入输出始终是同尺寸图像，因此采用 U-Net（编码器-解码器 + skip connection）</li>
+<li>后续改进：在 U-Net 中加入 attention 操作</li>
+<li>不一定要用 U-Net，但大部分扩散模型都采用此结构</li>
+</ul>
+<h3 id="53-ddpmdenoising-diffusion-probabilistic-model-2020">5.3 DDPM（Denoising Diffusion Probabilistic Model, 2020）<a class="headerlink" href="#53-ddpmdenoising-diffusion-probabilistic-model-2020" title="Permanent link">&para;</a></h3>
+<p>DDPM 是扩散模型的开山之作，两大贡献：</p>
+<ol>
+<li><strong>预测噪声而非预测图像</strong>：</li>
+<li>之前：用 Xt 预测 Xt-1（图像到图像）</li>
+<li>DDPM：用 Xt 预测添加的噪声 ε（类似 ResNet 的残差思想）</li>
+<li>大幅简化优化难度</li>
+<li>
+<p>目标函数：L = ||ε - ε_θ(Xt, t)||²，其中 ε 是已知的（前向过程中自己加的），ε_θ 是 U-Net 预测的噪声</p>
+</li>
+<li>
+<p><strong>方差无需学习</strong>：</p>
+</li>
+<li>预测正态分布只需学均值和方差</li>
+<li>
+<p>DDPM 发现方差设为常数即可，进一步降低优化难度</p>
+</li>
+<li>
+<p><strong>Time Embedding</strong>：正弦位置编码或傅里叶特征，告诉模型当前在哪一步。早期步骤生成粗略轮廓，后期步骤补充高频细节。</p>
+</li>
+</ol>
+<h3 id="54-improved-ddpm2020">5.4 Improved DDPM（2020年底）<a class="headerlink" href="#54-improved-ddpm2020" title="Permanent link">&para;</a></h3>
+<p>由 DALL·E 2 的二作和三作完成，改进点：
+- <strong>学习方差</strong>：不再用常数，而是让模型学习方差，提升采样和生成效果
+- <strong>余弦噪声 schedule</strong>：从线性改为余弦（类似学习率 schedule 的演进）
+- <strong>大模型可扩展性</strong>：验证了扩散模型 scale 得非常好，更大模型 = 更好结果</p>
+<h3 id="55-diffusion-models-beat-gans2021">5.5 Diffusion Models Beat GANs（2021）<a class="headerlink" href="#55-diffusion-models-beat-gans2021" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>模型加大</strong>：增加宽度、attention head 数量、multi-scale attention</li>
+<li><strong>Adaptive Group Normalization</strong>：根据步数做自适应归一化</li>
+<li><strong>Classifier Guidance</strong>（关键技巧）：</li>
+<li>同时训练一个噪声图像分类器（在加噪的 ImageNet 上训练）</li>
+<li>在反向扩散过程中，用分类器的梯度引导采样方向</li>
+<li>梯度暗含"当前图片是否像某类物体"的信息，促使生成更逼真</li>
+<li>可将采样步数从 1000 降至 25 步</li>
+<li><strong>代价</strong>：牺牲部分多样性换取保真度</li>
+<li><strong>里程碑</strong>：扩散模型首次在 IS/FID 分数上超越 BigGAN</li>
+</ul>
+<h3 id="56-guidance">5.6 Guidance 技术演进<a class="headerlink" href="#56-guidance" title="Permanent link">&para;</a></h3>
+<h4 id="classifier-guided-diffusion">Classifier-Guided Diffusion<a class="headerlink" href="#classifier-guided-diffusion" title="Permanent link">&para;</a></h4>
+<ul>
+<li>用额外分类器的梯度引导</li>
+<li>可扩展为 CLIP guidance（用 CLIP 替代分类器，实现文本控制）</li>
+<li>还可做像素级、特征级、风格级（Gram Matrix）、语言模型级的引导</li>
+<li><strong>缺陷</strong>：需要额外训练或使用预训练模型，成本高、不可控</li>
+</ul>
+<h4 id="classifier-free-guidanceglidedalle-2imagen">Classifier-Free Guidance（GLIDE/DALL·E 2/Imagen 均采用）<a class="headerlink" href="#classifier-free-guidanceglidedalle-2imagen" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>核心思想</strong>：不需要外部分类器，模型自身同时学习有条件和无条件的生成</li>
+<li><strong>训练时</strong>：</li>
+<li>有条件：输入 (Xt, t, y) → 生成 Xy</li>
+<li>无条件：随机将条件 y 替换为空集 → 生成 X</li>
+<li><strong>推理时</strong>：利用有条件和无条件输出的差异方向，放大条件的影响</li>
+<li><strong>优点</strong>：摆脱外部模型限制</li>
+<li><strong>缺点</strong>：训练成本翻倍（每次生成两个输出）</li>
+<li>被 GLIDE、DALL·E 2、Imagen 等一致认为是重要技巧</li>
+</ul>
+<h3 id="57-glide202112">5.7 GLIDE（2021.12）<a class="headerlink" href="#57-glide202112" title="Permanent link">&para;</a></h3>
+<ul>
+<li>35亿参数的扩散模型，效果直逼 120亿参数的 DALL·E v1</li>
+<li>融合了 classifier-free guidance 等多种技巧</li>
+<li>证明了扩散模型在文本到图像生成上的可行性</li>
+<li>促使 OpenAI 放弃 DALL·E v1 的 VQ-VAE 路线，转向扩散模型</li>
+</ul>
+<h3 id="58-ddpm-vae">5.8 DDPM 与 VAE 的对比<a class="headerlink" href="#58-ddpm-vae" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>扩散模型</th>
+<th>VAE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>编码器</td>
+<td>固定过程（加噪）</td>
+<td>学习的</td>
+</tr>
+<tr>
+<td>中间表示维度</td>
+<td>与输入相同</td>
+<td>远小于输入（bottleneck）</td>
+</tr>
+<tr>
+<td>步数概念</td>
+<td>有 time step / time embedding</td>
+<td>无</td>
+</tr>
+<tr>
+<td>参数共享</td>
+<td>所有步共享 U-Net</td>
+<td>不适用</td>
+</tr>
+<tr>
+<td>数学性质</td>
+<td>高斯分布，可做推理证明</td>
+<td>变分推断，ELBO</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="6-dalle-2">6. DALL·E 2 应用能力<a class="headerlink" href="#6-dalle-2" title="Permanent link">&para;</a></h2>
+<h3 id="61">6.1 图像变体生成<a class="headerlink" href="#61" title="Permanent link">&para;</a></h3>
+<ul>
+<li>给定一张图片，通过 CLIP 图像编码器得到特征 → prior 生成新的图像特征 → decoder 生成新图片</li>
+<li>保持语义和风格一致，但布局、细节各不相同</li>
+<li>应用场景：LOGO 设计迭代（画草图 → DALL·E 2 生成多个方案 → 挑选 → 再生成）</li>
+</ul>
+<h3 id="62-image-interpolation">6.2 图像内插（Image Interpolation）<a class="headerlink" href="#62-image-interpolation" title="Permanent link">&para;</a></h3>
+<ul>
+<li>在两张图片的 CLIP 图像特征之间做线性插值</li>
+<li>生成的图像平滑过渡：风格、物体、颜色均渐变</li>
+</ul>
+<h3 id="63-">6.3 文本-图像内插<a class="headerlink" href="#63-" title="Permanent link">&para;</a></h3>
+<ul>
+<li>在两个文本的 CLIP 文本特征之间做插值</li>
+<li>例如："一只猫" → "超级赛亚猫"，生成图像逐渐从正常猫变为头发炸起的猫</li>
+<li>其他例子：维多利亚建筑 → 现代建筑、成年雄狮 → 幼年狮子、冬天 → 秋天</li>
+</ul>
+<h3 id="64">6.4 零样本图像编辑<a class="headerlink" href="#64" title="Permanent link">&para;</a></h3>
+<ul>
+<li>通过 CLIP 作为桥梁，用文本引导对已有图像进行编辑</li>
+<li>无需额外训练，直接可用</li>
+</ul>
+<hr />
+<h2 id="7">7. 实验结果<a class="headerlink" href="#7" title="Permanent link">&para;</a></h2>
+<h3 id="71-ms-coco-zero-shot-fid">7.1 定量对比（MS-COCO Zero-Shot FID）<a class="headerlink" href="#71-ms-coco-zero-shot-fid" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>FID ↓</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DALL·E</td>
+<td>28.x</td>
+</tr>
+<tr>
+<td>GLIDE</td>
+<td>12.x</td>
+</tr>
+<tr>
+<td>unCLIP (AR prior)</td>
+<td>~10.x</td>
+</tr>
+<tr>
+<td>unCLIP (Diffusion prior)</td>
+<td>~10.x（略优于 AR）</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>扩散 prior 与 AR prior 分数接近，但扩散 prior 训练更容易</li>
+<li>DALL·E 2 相比 GLIDE 在 COCO 上 FID 从 12 降至 10</li>
+</ul>
+<h3 id="72">7.2 定性对比<a class="headerlink" href="#72" title="Permanent link">&para;</a></h3>
+<ul>
+<li>DALL·E 2 生成的图片在细节（反光、光影、纹理）上显著优于 DALL·E 和 GLIDE</li>
+<li>文本匹配度更高，场景理解更准确</li>
+</ul>
+<hr />
+<h2 id="8">8. 局限性与不足<a class="headerlink" href="#8" title="Permanent link">&para;</a></h2>
+<h3 id="81-">8.1 物体-属性绑定差<a class="headerlink" href="#81-" title="Permanent link">&para;</a></h3>
+<ul>
+<li>例如"红色方块在蓝色方块上面"，DALL·E 2 经常搞错颜色和位置关系，而 GLIDE 反而做得更好</li>
+<li><strong>原因分析</strong>：CLIP 只学习相似性，不理解空间关系（on top of）、逻辑关系（是/不是）等，导致下游生成时属性错位</li>
+</ul>
+<h3 id="82">8.2 无法正确生成文字<a class="headerlink" href="#82" title="Permanent link">&para;</a></h3>
+<ul>
+<li>生成的图片中文字顺序混乱、拼写错误</li>
+<li>可能原因：文本编码器使用 BPE（词根词缀编码），非整词编码</li>
+<li>即使偶尔出现正确字母，排列也不对</li>
+</ul>
+<h3 id="83">8.3 复杂场景细节缺失<a class="headerlink" href="#83" title="Permanent link">&para;</a></h3>
+<ul>
+<li>简单场景表现好，但复杂场景（如时代广场）放大后广告牌内容全是模糊色块，无任何语义信息</li>
+<li>倾向于生成近景、主体突出的图片，忽略背景细节</li>
+<li>可能与文本描述过短有关，更详细的 prompt 或许能改善</li>
+</ul>
+<h3 id="84">8.4 安全与伦理风险<a class="headerlink" href="#84" title="Permanent link">&para;</a></h3>
+<ul>
+<li>生成图片越来越逼真，难以辨别 AI 生成痕迹</li>
+<li>可能被用于制造虚假信息、政治操纵、歧视性内容</li>
+<li>呼吁更多安全性研究</li>
+</ul>
+<h3 id="85">8.5 "秘密语言"问题<a class="headerlink" href="#85" title="Permanent link">&para;</a></h3>
+<ul>
+<li>研究者发现 DALL·E 2 对某些无意义的字符串（Gibberish）能稳定生成特定语义的图片</li>
+<li>例如：某串乱码始终对应"鸟"，另一串对应"昆虫"</li>
+<li>鲸鱼讨论食物的字幕中的乱码输入 DALL·E 2 后生成了海鲜图片</li>
+<li><strong>安全隐患</strong>：这种"黑话"可能绕过内容过滤器，产生不可控的输出</li>
+<li>也反映了属性绑定的问题（讨论蔬菜的人实际对应的是鸟）</li>
+</ul>
+<hr />
+<h2 id="_3">总结与对比<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="_4">核心脉络<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>GAN</strong> → 高保真但低多样性、训练不稳定</li>
+<li><strong>VAE/VQ-VAE</strong> → 概率模型、多样性好但保真度不足</li>
+<li><strong>DALL·E v1</strong> → VQ-VAE + GPT，大力出奇迹，120亿参数</li>
+<li><strong>DDPM → Improved DDPM → Diffusion Beats GANs</strong> → 扩散模型崛起，保真度追平 GAN</li>
+<li><strong>GLIDE</strong> → 扩散模型 + classifier-free guidance，35亿参数超越 DALL·E v1</li>
+<li><strong>DALL·E 2</strong> → CLIP + 扩散模型两阶段，1024×1024 高清生成</li>
+<li><strong>Imagen / Parti</strong> → 竞争白热化，scale matters</li>
+</ol>
+<h3 id="_5">关键启示<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Scale matters</strong>：模型规模和数据规模是决定性因素，技巧和架构选择相对次要</li>
+<li><strong>扩散模型是当前主流</strong>：数学优美、多样性好、保真度高、可扩展性强</li>
+<li><strong>CLIP 是双刃剑</strong>：提供了强大的文本-图像对齐，但也引入了属性绑定差等问题</li>
+<li><strong>Classifier-free guidance 是通用技巧</strong>：被多篇顶会工作采用，值得广泛关注</li>
+<li><strong>安全性研究亟待加强</strong>：生成质量越高，滥用风险越大</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.top", "navigation.instant", "search.highlight", "content.code.copy", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

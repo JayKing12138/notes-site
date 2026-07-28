@@ -1,0 +1,3139 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../MAE/">
+      
+      
+        <link rel="next" href="../OFA/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>MoCo - 学习资料库</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#moco-momentum-contrast-for-unsupervised-visual-representation-learning" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="学习资料库" class="md-header__button md-logo" aria-label="学习资料库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            学习资料库
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              MoCo
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="学习资料库" class="md-nav__button md-logo" aria-label="学习资料库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    学习资料库
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    学习资料库
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GENIUS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    GENIUS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GENIUS/GENIUS%20%E6%80%BB%E7%BB%93/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GENIUS 总结
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RadAlign
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RadAlign
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RadAlign/RadVLM-GRPO%20%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RadVLM-GRPO 论文精读
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RadAlign/%E5%85%B3%E9%94%AE%E4%BB%A3%E7%A0%81%E8%AF%B4%E6%98%8E/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关键代码说明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    全模态大模型·出行安全项目
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    全模态大模型·出行安全项目
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/5.27%20Qwen3.7-Max%2BGeoLife%E8%AF%84%E4%BC%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.27 Qwen3.7-Max+GeoLife评估
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/Omni-%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Omni-出行安全项目
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%B1%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    全模态大模型·出行安全项目进展
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLUE
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    BLUE
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/BLUE/BLUE%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLUE论文笔记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    论文精读笔记
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    论文精读笔记
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AAAAA_Transformer%E3%80%81LLM%E4%B8%8EVLM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AAAAA_Transformer、LLM与VLM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BBBBB_%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BBBBB_强化学习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BERT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BERT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BEiT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BEiT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BLIP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLIP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLIP%20%26%20ALIGN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP & ALIGN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLIP%20%E6%94%B9%E8%BF%9B%E5%B7%A5%E4%BD%9C%E4%B8%B2%E8%AE%B2%EF%BC%88%E4%B8%8A%EF%BC%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP 改进工作串讲（上）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLIP%20%E6%94%B9%E8%BF%9B%E5%B7%A5%E4%BD%9C%E4%B8%B2%E8%AE%B2%EF%BC%88%E4%B8%8B%EF%BC%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP 改进工作串讲（下）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DALL%C2%B7E%202/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DALL·E 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DINO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DINO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Flamingo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Flamingo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GPT%EF%BC%8CGPT-2%EF%BC%8CGPT-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPT，GPT-2，GPT-3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ImageBind%20%E4%B8%8E%20LanguageBind%20%E5%AF%B9%E6%AF%94/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ImageBind 与 LanguageBind 对比
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InternVL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    InternVL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLaMA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLaMA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLaVA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLaVA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MAE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MAE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MoCo
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MoCo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目录
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心要点
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 背景与动机
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 背景与动机">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 对比学习的地位与意义
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 什么是对比学习
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-instance-discrimination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Instance Discrimination 代理任务
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-vs-nlp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 视觉 vs. NLP 无监督学习的差异
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.5 前人工作的局限性
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 方法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 对比学习作为字典查找
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-infonce-loss" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 InfoNCE Loss
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 InfoNCE Loss">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221-softmax-nce-infonce" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.1 从 Softmax 到 NCE 再到 InfoNCE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222-tau" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.2 温度参数 \(\tau\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-moco" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 MoCo 的核心设计
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 MoCo 的核心设计">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231-queue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.1 队列（Queue）作为动态字典
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#232-momentum-encoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.2 动量编码器（Momentum Encoder）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 与前人方法的对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-shuffling-bn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 Shuffling BN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6 伪代码流程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.7 代理任务选择
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 实验
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 实验">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 数据集与训练设置
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-linear-classification-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Linear Classification Protocol
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 消融实验
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 消融实验">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#331-figure-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.1 字典大小与三种方法对比（Figure 3）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#332-table-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.2 动量系数的影响（Table 1）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-imagenet-linear-classification-table-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 ImageNet Linear Classification 结果（Table 2）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 下游任务迁移学习（核心卖点）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.5 下游任务迁移学习（核心卖点）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#351" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5.1 归一化与训练策略
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#352-pascal-voc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5.2 Pascal VOC 目标检测
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#353-coco" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5.3 COCO 目标检测与实例分割
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#354" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5.4 其他下游任务
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6 扩展性验证
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 总结与讨论
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 总结与讨论">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 核心贡献回顾
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 历史意义与影响
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 局限与展望
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OFA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OFA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PaLI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PaLI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Qwen-VL%E4%B8%8EOmni/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qwen-VL与Omni
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SAM3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SAM3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SigLIP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SigLIP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SimVLM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SimVLM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Swin%20Transformer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Swin Transformer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UniPerceiver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UniPerceiver
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Unified-IO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unified-IO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ViLT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ViLT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ViT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ViT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ZZZZZ%E5%85%AC%E5%BC%8F%E4%BB%A3%E7%A0%81%E7%AD%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ZZZZZ公式代码等
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%8E%9F%E7%94%9F%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    原生多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%90%8E%E8%AE%AD%E7%BB%83%E7%BB%BC%E8%BF%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多模态大模型后训练综述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%9A%E6%A8%A1%E6%80%81%E8%AE%BA%E6%96%87%E4%B8%B2%E8%AE%B2%C2%B7%E4%B8%8A/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多模态论文串讲·上
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%9A%E6%A8%A1%E6%80%81%E8%AE%BA%E6%96%87%E4%B8%B2%E8%AE%B2%C2%B7%E4%B8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多模态论文串讲·下
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%AF%B9%E6%AF%94%E5%AD%A6%E4%B9%A0%E7%BB%BC%E8%BF%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    对比学习综述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%B7%B7%E5%90%88%E7%B2%BE%E5%BA%A6%E8%AE%AD%E7%BB%83%E4%B8%8E%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    混合精度训练与分布式训练
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%A7%86%E9%A2%91%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    视频多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%9F%B3%E9%A2%91%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    音频多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目录
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心要点
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 背景与动机
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 背景与动机">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 对比学习的地位与意义
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 什么是对比学习
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-instance-discrimination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Instance Discrimination 代理任务
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-vs-nlp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 视觉 vs. NLP 无监督学习的差异
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.5 前人工作的局限性
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 方法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 对比学习作为字典查找
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-infonce-loss" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 InfoNCE Loss
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 InfoNCE Loss">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221-softmax-nce-infonce" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.1 从 Softmax 到 NCE 再到 InfoNCE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222-tau" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.2 温度参数 \(\tau\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-moco" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 MoCo 的核心设计
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 MoCo 的核心设计">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231-queue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.1 队列（Queue）作为动态字典
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#232-momentum-encoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.2 动量编码器（Momentum Encoder）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 与前人方法的对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-shuffling-bn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 Shuffling BN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6 伪代码流程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.7 代理任务选择
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 实验
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 实验">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 数据集与训练设置
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-linear-classification-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Linear Classification Protocol
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 消融实验
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 消融实验">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#331-figure-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.1 字典大小与三种方法对比（Figure 3）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#332-table-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.2 动量系数的影响（Table 1）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-imagenet-linear-classification-table-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 ImageNet Linear Classification 结果（Table 2）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 下游任务迁移学习（核心卖点）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.5 下游任务迁移学习（核心卖点）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#351" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5.1 归一化与训练策略
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#352-pascal-voc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5.2 Pascal VOC 目标检测
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#353-coco" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5.3 COCO 目标检测与实例分割
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#354" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5.4 其他下游任务
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6 扩展性验证
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 总结与讨论
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 总结与讨论">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 核心贡献回顾
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 历史意义与影响
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 局限与展望
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="moco-momentum-contrast-for-unsupervised-visual-representation-learning">MoCo: Momentum Contrast for Unsupervised Visual Representation Learning<a class="headerlink" href="#moco-momentum-contrast-for-unsupervised-visual-representation-learning" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>📄 <strong>论文链接</strong>：<a href="https://arxiv.org/abs/1911.05722">arXiv:1911.05722</a> | <a href="https://arxiv.org/pdf/1911.05722">PDF</a></p>
+</blockquote>
+<h2 id="_1">目录<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#核心要点">核心要点</a></li>
+<li><a href="#1-背景与动机">1. 背景与动机</a></li>
+<li><a href="#2-方法">2. 方法</a></li>
+<li><a href="#3-实验">3. 实验</a></li>
+<li><a href="#4-总结与讨论">4. 总结与讨论</a></li>
+</ul>
+<h2 id="_2">核心要点<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<blockquote>
+<ul>
+<li><strong>MoCo（Momentum Contrast）</strong> 是 CVPR 2020 最佳论文提名，视觉领域对比学习的里程碑工作，由 FAIR 团队提出。</li>
+<li><strong>核心贡献</strong>：将对比学习重新建模为"动态字典查找"任务，通过 <strong>队列（Queue）</strong> 和 <strong>动量编码器（Momentum Encoder）</strong> 两大机制，构建一个既大又一致的字典，解决了此前方法在字典大小与特征一致性之间无法兼顾的矛盾。</li>
+<li><strong>关键方法</strong>：使用 InfoNCE loss 作为目标函数，采用 Instance Discrimination 作为代理任务；队列将字典大小与 batch size 解耦，动量更新（m=0.999）保证 key 编码器缓慢变化以维持特征一致性。</li>
+<li><strong>主要结论</strong>：MoCo 在 ImageNet Linear Classification 上达到或超过此前最优无监督方法；更重要的是，在 7 个下游视觉任务（检测、分割、关键点检测等）上全面超越 ImageNet 有监督预训练模型，首次在如此多主流任务上证明无监督表征学习可以匹敌甚至超越有监督预训练。</li>
+<li><strong>深远影响</strong>：证明了无监督学习在视觉领域的可行性，呼应了 Yann LeCun 关于"无监督学习才是蛋糕本体"的观点；其高效实现使普通 GPU 即可开展对比学习研究，激发了后续 SimCLR、BYOL、SimSiam、MAE 等一系列工作。</li>
+</ul>
+</blockquote>
+<h2 id="1">1. 背景与动机<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<h3 id="11">1.1 对比学习的地位与意义<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<ul>
+<li>MoCo 是视觉领域使用对比学习的里程碑式工作，CVPR 2020 最佳论文提名。</li>
+<li>对比学习自 2019 年起成为视觉乃至整个机器学习领域最热门的方向之一，简单、好用、强大，盘活了自 2017 年以来竞争激烈的计算机视觉领域。</li>
+<li>MoCo 作为无监督表征学习方法，不仅在分类任务上逼近有监督基线，还在检测、分割、人体关键点检测等多个主流视觉任务上超越 ImageNet 有监督预训练模型，部分数据集上大幅超越。</li>
+<li>从侧面验证了 Yann LeCun 在 NeurIPS 2016 演讲中的观点：如果把机器学习比作蛋糕，强化学习只是樱桃，有监督学习最多是糖霜，无监督学习才是蛋糕的本质。这一观点后来在 NLP 大模型（自监督预训练）和视觉领域逐步得到印证。</li>
+</ul>
+<h3 id="12">1.2 什么是对比学习<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>基本思想</strong>：给定若干图片，模型不需要知道具体类别标签，只需学会区分哪些图片相似、哪些不相似。将图片通过网络映射到特征空间后，相似图片的特征应尽量拉近，不相似图片的特征应尽量远离。</li>
+<li><strong>为何被称为无监督/自监督</strong>：虽然对比学习需要"相似/不相似"的监督信号，但在视觉领域，这一信号通过设计巧妙的 <strong>代理任务（Pretext Task）</strong> 人为定义，无需人工标注，因此属于自监督训练。</li>
+<li><strong>灵活性</strong>：只要能定义正负样本的规则，对比学习框架就成立。例如：</li>
+<li>视频领域：同一视频的任意两帧为正样本，其他视频帧为负样本。</li>
+<li>NLP 领域（SimCSE）：同一句子经两次不同 dropout forward 得到的特征为正样本。</li>
+<li>CMC：同一物体的不同视角（正面/背面、RGB/深度图）为正样本。</li>
+<li>多模态领域：CLIP 即为对比学习扩展到图文多模态的代表。</li>
+</ul>
+<h3 id="13-instance-discrimination">1.3 Instance Discrimination 代理任务<a class="headerlink" href="#13-instance-discrimination" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>定义</strong>：对于无标注数据集中的每张图片 <span class="arithmatex">\(x_i\)</span>，对其进行两次随机裁剪和数据增广（Transformation），得到 <span class="arithmatex">\(x_{i1}\)</span> 和 <span class="arithmatex">\(x_{i2}\)</span>，二者互为正样本对；数据集中其余所有图片均为负样本。</li>
+<li><strong>名称含义</strong>："个体判别"——每张图片自成一类，其余所有图片都属于不同类别。以 ImageNet 为例，不再是 1000 类，而是 128 万类（每张图片一个类）。</li>
+<li>有了正负样本定义后，通过编码器提取特征，再使用对比学习目标函数（如 NCE Loss）进行训练即可。</li>
+</ul>
+<h3 id="14-vs-nlp">1.4 视觉 vs. NLP 无监督学习的差异<a class="headerlink" href="#14-vs-nlp" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>NLP</strong>：原始信号空间是离散的（单词、词根词缀），容易建立 Tokenize 字典，无监督学习易于建模和优化。</li>
+<li><strong>视觉</strong>：原始信号空间是连续且高维的，不像单词那样具有强语义信息和简洁表示，不适合直接建字典，导致无监督学习远不如有监督学习成熟。</li>
+</ul>
+<h3 id="15">1.5 前人工作的局限性<a class="headerlink" href="#15" title="Permanent link">&para;</a></h3>
+<p>作者将对比学习统一视为"动态字典查找"问题，并指出好的字典需具备两个特性：</p>
+<ol>
+<li><strong>大</strong>：字典越大，越能从连续高维视觉空间中充分抽样，提供更丰富的负样本，避免模型学到 Shortcut Solution，提升泛化能力。</li>
+<li><strong>一致</strong>：字典中的所有 key 应由相同或相似的编码器生成，否则 query 可能匹配到使用相同编码器的 key 而非语义相同的 key，引入捷径解。</li>
+</ol>
+<p>此前的对比学习方法至少受限于上述两个方面中的一个，这构成了 MoCo 的研究动机。</p>
+<h2 id="2">2. 方法<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<p><img alt="Figure 1: MoCo 动量对比学习框架" src="../images/moco_fig1.png" />
+<em>Figure 1: MoCo 动量对比学习框架</em></p>
+<h3 id="21">2.1 对比学习作为字典查找<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<p><img alt="Figure 2: 三种对比学习机制对比" src="../images/moco_fig2.png" />
+<em>Figure 2: 三种对比学习机制对比</em></p>
+<ul>
+<li>将已编码的 query <span class="arithmatex">\(q\)</span> 与字典中的一系列 key <span class="arithmatex">\(\{k_0, k_1, ..., k_K\}\)</span> 进行匹配：让 <span class="arithmatex">\(q\)</span> 与匹配的正样本 key <span class="arithmatex">\(k_+\)</span> 相似，与其他负样本 key 远离。</li>
+<li>整个学习过程转化为最小化对比学习目标函数的问题。</li>
+<li>MoCo 论文中较少使用 anchor/positive/negative 等术语，而统一使用 query 和 key。</li>
+</ul>
+<h3 id="22-infonce-loss">2.2 InfoNCE Loss<a class="headerlink" href="#22-infonce-loss" title="Permanent link">&para;</a></h3>
+<h4 id="221-softmax-nce-infonce">2.2.1 从 Softmax 到 NCE 再到 InfoNCE<a class="headerlink" href="#221-softmax-nce-infonce" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Softmax + Cross Entropy</strong>：在有监督学习中，类别数 <span class="arithmatex">\(K\)</span> 固定（如 ImageNet 为 1000）。但在 Instance Discrimination 下，<span class="arithmatex">\(K\)</span> 等于数据集图片数量（如 128 万），softmax 计算复杂度过高，无法直接使用。</li>
+<li><strong>NCE（Noise Contrastive Estimation）</strong>：将超多类分类简化为二分类问题（数据样本 vs. 噪声样本），但仍需在整个数据集上计算，复杂度未降低。</li>
+<li><strong>Estimation（近似）</strong>：从数据集中采样部分负样本计算 loss，样本越多近似越好，效果越好——这就是 MoCo 强调字典要大的原因。</li>
+<li><strong>InfoNCE</strong>：NCE 的变体，仍将问题视为多分类（而非纯二分类），公式如下：</li>
+</ul>
+<div class="arithmatex">\[\mathcal{L}_{\text{InfoNCE}} = -\log \frac{\exp(q \cdot k_+ / \tau)}{\sum_{i=0}^{K} \exp(q \cdot k_i / \tau)}\]</div>
+<ul>
+<li>本质上就是 <span class="arithmatex">\((K+1)\)</span> 类交叉熵损失，其中 <span class="arithmatex">\(K\)</span> 为负样本数量，<span class="arithmatex">\(\tau\)</span> 为温度超参数。</li>
+</ul>
+<h4 id="222-tau">2.2.2 温度参数 <span class="arithmatex">\(\tau\)</span><a class="headerlink" href="#222-tau" title="Permanent link">&para;</a></h4>
+<ul>
+<li><span class="arithmatex">\(\tau\)</span> 控制分布形状：<span class="arithmatex">\(\tau\)</span> 大 → 分布平滑，对所有负样本一视同仁，学习缺乏轻重；<span class="arithmatex">\(\tau\)</span> 小 → 分布尖锐（peaky），模型过度关注困难负样本（可能是潜在正样本），导致难收敛或泛化差。</li>
+<li>忽略 <span class="arithmatex">\(\tau\)</span> 后，InfoNCE 即为标准的 cross entropy loss。</li>
+</ul>
+<h3 id="23-moco">2.3 MoCo 的核心设计<a class="headerlink" href="#23-moco" title="Permanent link">&para;</a></h3>
+<h4 id="231-queue">2.3.1 队列（Queue）作为动态字典<a class="headerlink" href="#231-queue" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>动机</strong>：GPU 显存有限，无法在单个 mini-batch 中放入成千上万个样本。需要将字典大小与 batch size 解耦。</li>
+<li><strong>做法</strong>：使用队列（FIFO 数据结构）存储已编码的 key。每次迭代，当前 mini-batch 编码的新 key 入队，最老的 mini-batch 的 key 出队。</li>
+<li><strong>优势</strong>：</li>
+<li>字典大小可独立设置为超参数（如 65536），不受 batch size 限制。</li>
+<li>复用之前 mini-batch 已编码的 key，计算开销极小（字典从几百增至上万，训练时间基本不变）。</li>
+<li>FIFO 特性保证最先移出的是最过时的 key（与当前 key 最不一致），有利于维持字典整体一致性。</li>
+</ul>
+<h4 id="232-momentum-encoder">2.3.2 动量编码器（Momentum Encoder）<a class="headerlink" href="#232-momentum-encoder" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>问题</strong>：队列中的 key 来自不同时刻的编码器，若 key 编码器随 query 编码器快速更新（如直接复制参数），会导致特征不一致，实验表明模型甚至无法收敛。</li>
+<li><strong>解决方案</strong>：key 编码器 <span class="arithmatex">\(\theta_k\)</span> 通过动量更新：</li>
+</ul>
+<div class="arithmatex">\[\theta_k \leftarrow m \cdot \theta_k + (1 - m) \cdot \theta_q\]</div>
+<ul>
+<li><span class="arithmatex">\(\theta_q\)</span> 通过梯度反向传播正常更新；<span class="arithmatex">\(\theta_k\)</span> 仅通过上述公式缓慢更新，初始化为 <span class="arithmatex">\(\theta_q\)</span> 的副本。</li>
+<li><strong>动量系数 <span class="arithmatex">\(m\)</span></strong>：取较大值（默认 0.999），意味着 <span class="arithmatex">\(\theta_k\)</span> 每次更新 99.9% 来自自身历史，仅 0.1% 来自 <span class="arithmatex">\(\theta_q\)</span>，更新极其缓慢，保证队列中所有 key 由高度相似的编码器生成，维持特征一致性。</li>
+<li>消融实验表明：<span class="arithmatex">\(m=0.999\)</span> 或 <span class="arithmatex">\(0.9999\)</span> 效果最佳（~59%）；<span class="arithmatex">\(m=0.9\)</span> 性能明显下降；<span class="arithmatex">\(m=0\)</span>（直接复制）模型无法收敛。</li>
+</ul>
+<h3 id="24">2.4 与前人方法的对比<a class="headerlink" href="#24" title="Permanent link">&para;</a></h3>
+<p>作者将已有对比学习方法归纳为两种架构：</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>字典大小</th>
+<th>特征一致性</th>
+<th>局限</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>端到端学习</strong>（如 SimCLR）</td>
+<td>受限于 batch size（GPU 内存瓶颈）</td>
+<td>高（同一编码器、同一 batch）</td>
+<td>字典不够大</td>
+</tr>
+<tr>
+<td><strong>Memory Bank</strong></td>
+<td>可非常大（存储全数据集特征）</td>
+<td>低（不同时刻编码器差异大，一个 epoch 才更新一遍）</td>
+<td>特征不一致</td>
+</tr>
+<tr>
+<td><strong>MoCo</strong></td>
+<td>大（队列解耦 batch size）</td>
+<td>高（动量编码器缓慢更新）</td>
+<td>兼顾两者优势</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>SimCLR</strong> 属于端到端学习方式，依赖 TPU 大内存支持 batch size=8192。</li>
+<li><strong>Memory Bank</strong> 存储 ImageNet 全部 128 万特征仅需 600MB，但扩展性差（亿级数据需数十 GB 内存），且特征不一致。MoCo 的动量更新与 Memory Bank 的 proximal optimization 异曲同工，但 MoCo 动量更新的是编码器而非特征。</li>
+</ul>
+<h3 id="25-shuffling-bn">2.5 Shuffling BN<a class="headerlink" href="#25-shuffling-bn" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>问题</strong>：BatchNorm 计算 running mean/variance 时可能导致当前 batch 内信息泄露，模型走捷径找到正样本而无需学习好的特征。</li>
+<li><strong>解决</strong>：多卡训练前先将样本顺序打乱再分配到各 GPU，计算完特征后恢复顺序再算 loss。这样每个 GPU 上的 BN 统计量不再对应原始 batch 内的样本，消除信息泄露。</li>
+<li>注：后续工作（SimSiam、BYOL 等）逐渐弃用此操作，转向 Layer Norm 或其他方案。</li>
+</ul>
+<h3 id="26">2.6 伪代码流程<a class="headerlink" href="#26" title="Permanent link">&para;</a></h3>
+<p>算法核心步骤：</p>
+<ol>
+<li><strong>初始化</strong>：随机初始化 query 编码器 <span class="arithmatex">\(f_q\)</span>，将参数复制给 key 编码器 <span class="arithmatex">\(f_k\)</span>；初始化队列为 <span class="arithmatex">\(C \times K\)</span> 矩阵。</li>
+<li><strong>每个训练迭代</strong>：</li>
+<li>对一个 mini-batch 数据做两次随机数据增广，得到 <span class="arithmatex">\(x_q\)</span> 和 <span class="arithmatex">\(x_k\)</span>（正样本对）。</li>
+<li><span class="arithmatex">\(q = f_q(x_q)\)</span>，<span class="arithmatex">\(k = f_k(x_k).\text{detach()}\)</span>（key 不回传梯度）。</li>
+<li>计算正样本 logit：<span class="arithmatex">\(l_{pos} = q \cdot k_+\)</span>（维度 <span class="arithmatex">\(N \times 1\)</span>）。</li>
+<li>计算负样本 logit：<span class="arithmatex">\(l_{neg} = q \cdot \text{queue}\)</span>（维度 <span class="arithmatex">\(N \times K\)</span>）。</li>
+<li>拼接 logits（<span class="arithmatex">\(N \times (K+1)\)</span>），构造全零 ground truth（正样本始终在位置 0），用 CrossEntropyLoss 计算 loss。</li>
+<li>反向传播更新 <span class="arithmatex">\(f_q\)</span>。</li>
+<li>动量更新 <span class="arithmatex">\(f_k\)</span>：<span class="arithmatex">\(\theta_k \leftarrow m \cdot \theta_k + (1-m) \cdot \theta_q\)</span>。</li>
+<li>将当前 batch 的 key 入队，最老的 key 出队。</li>
+</ol>
+<h3 id="27">2.7 代理任务选择<a class="headerlink" href="#27" title="Permanent link">&para;</a></h3>
+<ul>
+<li>MoCo 框架灵活，可与多种代理任务结合。</li>
+<li>本文选用简单的 Instance Discrimination：同一图片的不同随机裁剪视为正样本对。</li>
+<li>该任务简单且效果好，足以验证 MoCo 框架的有效性。</li>
+</ul>
+<h2 id="3">3. 实验<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<p><img alt="Figure 3: 三种对比学习机制的实验对比" src="../images/moco_fig3.png" />
+<em>Figure 3: 三种对比学习机制的实验对比</em></p>
+<h3 id="31">3.1 数据集与训练设置<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>预训练数据集</strong>：</li>
+<li>ImageNet-1M（标准 ImageNet，约 128 万张图片）。</li>
+<li>Instagram-1B（Facebook 自有数据集，10 亿张图片），展示真实世界数据特性：长尾分布、类别不均衡、单图多物体、场景丰富、未经精心筛选。</li>
+<li><strong>训练配置</strong>：SGD 优化器，batch size=256，8 卡 V100（32GB），ResNet-50 训练 200 epoch 约 53 小时。相比 SimCLR、SwAV、BYOL 等后续工作，MoCo 在硬件需求和训练时长上最为亲民。</li>
+</ul>
+<h3 id="32-linear-classification-protocol">3.2 Linear Classification Protocol<a class="headerlink" href="#32-linear-classification-protocol" title="Permanent link">&para;</a></h3>
+<ul>
+<li>冻结预训练 backbone，仅训练全连接分类头（100 epoch）。</li>
+<li>在 ImageNet 测试集上报告 one-crop top-1 准确率。</li>
+<li><strong>重要发现</strong>：最佳学习率为 30，远超常规微调学习率（通常 ≤0.1），暗示对比学习学到的特征分布与有监督学习差异显著。</li>
+</ul>
+<h3 id="33">3.3 消融实验<a class="headerlink" href="#33" title="Permanent link">&para;</a></h3>
+<h4 id="331-figure-3">3.3.1 字典大小与三种方法对比（Figure 3）<a class="headerlink" href="#331-figure-3" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>端到端学习</strong>：受限于 GPU 内存，最大 batch size=1024（8×V100-32GB），仅有 3 个数据点。</li>
+<li><strong>Memory Bank</strong>：可使用很大字典，但整体性能低于端到端和 MoCo，归因于特征不一致。</li>
+<li><strong>MoCo</strong>：字典可达 65536，性能在 10000~60000 区间趋于饱和；在小字典区间与端到端曲线高度重合，且远超 Memory Bank。</li>
+<li>结论：MoCo 性能最好、硬件要求最低、扩展性最好。</li>
+</ul>
+<h4 id="332-table-1">3.3.2 动量系数的影响（Table 1）<a class="headerlink" href="#332-table-1" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>动量 <span class="arithmatex">\(m\)</span></th>
+<th>Top-1 Acc (%)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.9999</td>
+<td>~59.0</td>
+</tr>
+<tr>
+<td>0.999</td>
+<td>~59.0</td>
+</tr>
+<tr>
+<td>0.99</td>
+<td>明显下降</td>
+</tr>
+<tr>
+<td>0.9</td>
+<td>明显下降</td>
+</tr>
+<tr>
+<td>0（直接复制）</td>
+<td>模型无法收敛，loss 震荡</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>有力证明了缓慢更新的 key 编码器对维持字典一致性至关重要。</li>
+</ul>
+<h3 id="34-imagenet-linear-classification-table-2">3.4 ImageNet Linear Classification 结果（Table 2）<a class="headerlink" href="#34-imagenet-linear-classification-table-2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>对比学习整体优于非对比学习方法。</li>
+<li>标准 ResNet-50（24M 参数）：MoCo 达 60.6%，比此前最优（58.8%）高近 2 个百分点。</li>
+<li>更大模型（Wider ResNet）：MoCo 以 375M 参数达 68.6%，仍优于此前最优。</li>
+<li>部分对比方法使用了 Fast AutoAugment（基于有监督搜索得到）或多编码器（如 CMC 用两个网络），MoCo 在公平比较下仍取得最优。</li>
+</ul>
+<h3 id="35">3.5 下游任务迁移学习（核心卖点）<a class="headerlink" href="#35" title="Permanent link">&para;</a></h3>
+<h4 id="351">3.5.1 归一化与训练策略<a class="headerlink" href="#351" title="Permanent link">&para;</a></h4>
+<ul>
+<li>MoCo 特征分布与有监督特征差异大，直接微调需极大学习率（如 30），不便在每个下游任务上重新搜索超参。</li>
+<li><strong>解决</strong>：使用 SyncBN（跨 GPU 同步 BN 统计量）和新加层中的 BN 进行特征归一化，使 MoCo 可直接沿用有监督预训练的微调超参，保证公平对比。</li>
+<li><strong>训练时长</strong>：仅在 1× 或 2× schedule 下比较（短时训练中预训练的价值更显著），避免长时训练抹平预训练差异。</li>
+</ul>
+<h4 id="352-pascal-voc">3.5.2 Pascal VOC 目标检测<a class="headerlink" href="#352-pascal-voc" title="Permanent link">&para;</a></h4>
+<ul>
+<li>使用 Faster R-CNN 等检测框架，对比随机初始化、ImageNet 有监督预训练、MoCo（ImageNet）、MoCo（Instagram-1B）。</li>
+<li>MoCo（ImageNet）在绝大多数指标上超越有监督预训练；Instagram-1B 进一步提升（幅度较小，约零点几个点）。</li>
+<li>三种对比学习方法对比：仅 MoCo 超越有监督预训练，端到端和 Memory Bank 均未超越。</li>
+</ul>
+<h4 id="353-coco">3.5.3 COCO 目标检测与实例分割<a class="headerlink" href="#353-coco" title="Permanent link">&para;</a></h4>
+<ul>
+<li>四种设置（ResNet-50-FPN 1×/2×、ResNet-50-C4 1×/2×）中，MoCo 在三种设置下优于有监督预训练，一种设置略逊。</li>
+</ul>
+<h4 id="354">3.5.4 其他下游任务<a class="headerlink" href="#354" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>人体关键点检测</strong>、<strong>姿态估计</strong>、<strong>LVIS 实例分割</strong>、<strong>Cityscapes 语义分割</strong>等 7 个任务全面测试。</li>
+<li>大部分任务上 MoCo 优于 ImageNet 有监督预训练；少数任务（主要是实例分割和语义分割）略逊，引发后续对 Dense Prediction 任务适配性的讨论（如 Dense Contrast、Pixel Contrast 等工作）。</li>
+</ul>
+<h3 id="36">3.6 扩展性验证<a class="headerlink" href="#36" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Instagram-1B 预训练在所有下游任务上普遍优于 ImageNet 预训练，证明 MoCo 能从更多数据中获益，扩展性好，与 NLP 领域的 scaling law 趋势一致。</li>
+<li>但提升幅度相对较小（数据量增大 1000 倍，性能仅提升约 1 个百分点），作者认为可能是 Instance Discrimination 代理任务未能充分利用大规模数据，更好的代理任务（如 Masked Auto-Encoding）可能解决这一问题——这一前瞻性想法后来在 MAE 中得到验证。</li>
+</ul>
+<h2 id="4">4. 总结与讨论<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<h3 id="41">4.1 核心贡献回顾<a class="headerlink" href="#41" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>队列机制</strong>：将字典大小与 batch size 解耦，使大字典在普通 GPU 上可行。</li>
+<li><strong>动量编码器</strong>：通过加权移动平均缓慢更新 key 编码器，维持字典特征一致性。</li>
+<li><strong>综合效果</strong>：同时实现"大"和"一致"的字典，在 Linear Classification 和多个下游任务上全面超越或匹敌有监督预训练。</li>
+</ol>
+<h3 id="42">4.2 历史意义与影响<a class="headerlink" href="#42" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>学术层面</strong>：首次在如此多主流视觉任务上证明无监督表征学习可超越有监督预训练，填补了二者之间的鸿沟。</li>
+<li><strong>工业层面</strong>：所有基于 ImageNet 预训练的应用均可尝试替换为 MoCo 无监督预训练模型，可能获得更好效果。</li>
+<li><strong>研究生态</strong>：高效实现降低了研究门槛，激发了大量后续工作：</li>
+<li>第一阶段：InstDis、CPC、CMC</li>
+<li>第二阶段：MoCo v1、SimCLR v1、MoCo v2、SimCLR v2</li>
+<li>第三阶段（无需负样本）：BYOL、SimSiam</li>
+<li>第四阶段（Vision Transformer）：MoCo v3、DINO、MAE</li>
+</ul>
+<h3 id="43">4.3 局限与展望<a class="headerlink" href="#43" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Dense Prediction 短板</strong>：在实例分割、语义分割等逐像素预测任务上偶有不如，后续工作针对此进行了改进。</li>
+<li><strong>大数据利用不足</strong>：Instagram-1B 带来的提升有限，可能需要更强的代理任务（如 Masked Auto-Encoding，即后来的 MAE）。</li>
+<li><strong>BN 的双刃剑</strong>：Shuffling BN 虽解决了信息泄露，但 BN 本身在对比学习中引发了诸多讨论（如 BYOL 中的"乌龙事件"），后续逐渐被 Layer Norm 替代。</li>
+<li><strong>特征分布差异</strong>：对比学习特征与有监督特征分布显著不同（体现为异常大的最佳学习率），值得进一步分析和理解。</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.top", "navigation.instant", "search.highlight", "content.code.copy", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

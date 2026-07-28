@@ -1,0 +1,3825 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Swin%20Transformer/">
+      
+      
+        <link rel="next" href="../Unified-IO/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>UniPerceiver - 学习资料库</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#uniperceiver" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="学习资料库" class="md-header__button md-logo" aria-label="学习资料库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            学习资料库
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              UniPerceiver
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="学习资料库" class="md-nav__button md-logo" aria-label="学习资料库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    学习资料库
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    学习资料库
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GENIUS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    GENIUS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GENIUS/GENIUS%20%E6%80%BB%E7%BB%93/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GENIUS 总结
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RadAlign
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RadAlign
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RadAlign/RadVLM-GRPO%20%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RadVLM-GRPO 论文精读
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RadAlign/%E5%85%B3%E9%94%AE%E4%BB%A3%E7%A0%81%E8%AF%B4%E6%98%8E/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关键代码说明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    全模态大模型·出行安全项目
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    全模态大模型·出行安全项目
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/5.27%20Qwen3.7-Max%2BGeoLife%E8%AF%84%E4%BC%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.27 Qwen3.7-Max+GeoLife评估
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/Omni-%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Omni-出行安全项目
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%B1%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    全模态大模型·出行安全项目进展
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLUE
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    BLUE
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/BLUE/BLUE%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLUE论文笔记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    论文精读笔记
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    论文精读笔记
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AAAAA_Transformer%E3%80%81LLM%E4%B8%8EVLM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AAAAA_Transformer、LLM与VLM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BBBBB_%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BBBBB_强化学习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BERT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BERT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BEiT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BEiT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BLIP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLIP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLIP%20%26%20ALIGN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP & ALIGN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLIP%20%E6%94%B9%E8%BF%9B%E5%B7%A5%E4%BD%9C%E4%B8%B2%E8%AE%B2%EF%BC%88%E4%B8%8A%EF%BC%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP 改进工作串讲（上）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLIP%20%E6%94%B9%E8%BF%9B%E5%B7%A5%E4%BD%9C%E4%B8%B2%E8%AE%B2%EF%BC%88%E4%B8%8B%EF%BC%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP 改进工作串讲（下）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DALL%C2%B7E%202/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DALL·E 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DINO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DINO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Flamingo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Flamingo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GPT%EF%BC%8CGPT-2%EF%BC%8CGPT-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPT，GPT-2，GPT-3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ImageBind%20%E4%B8%8E%20LanguageBind%20%E5%AF%B9%E6%AF%94/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ImageBind 与 LanguageBind 对比
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InternVL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    InternVL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLaMA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLaMA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLaVA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLaVA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MAE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MAE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MoCo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MoCo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OFA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OFA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PaLI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PaLI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Qwen-VL%E4%B8%8EOmni/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qwen-VL与Omni
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SAM3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SAM3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SigLIP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SigLIP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SimVLM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SimVLM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Swin%20Transformer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Swin Transformer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UniPerceiver
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UniPerceiver
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#uniperceiver" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UniPerceiver
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uniperceiver-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第一部分：UniPerceiver - 统一感知架构的通用感知预训练
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第一部分：UniPerceiver - 统一感知架构的通用感知预训练">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目录
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心要点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 背景与动机
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 背景与动机">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 现有方法的局限
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 生物智能的启发
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 与已有统一架构的区别
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 方法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 统一任务公式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-tokenization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Tokenization（标记化）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-transformer-encoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 模态无关的 Transformer Encoder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 预训练任务
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 下游适配策略
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 网络结构
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 网络结构">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 整体架构
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 关键设计细节
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 预训练配置
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-uniperceiver-v1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. UniPerceiver v1 总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uniperceiver-v2-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第二部分：UniPerceiver v2 - 面向大规模视觉与视觉语言任务的通才模型
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第二部分：UniPerceiver v2 - 面向大规模视觉与视觉语言任务的通才模型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心要点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 背景与动机
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 背景与动机">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-foundation-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Foundation Models 的矛盾
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 现有通才模型的不足
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-uniperceiver-v1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 UniPerceiver v1 的局限回顾
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 方法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 统一任务建模（继承与改进）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 通用区域提议编码图像（核心创新）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 语言模型编码文本
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 通用任务适配
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-mt-adamw" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 MT-AdamW 优化器（核心创新）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-conditional-moe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6 Conditional MoE 缓解任务干扰
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 网络结构
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 网络结构">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 三大组件
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 模型变体
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 训练配置
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-uniperceiver-v2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. UniPerceiver v2 总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        总结与对比
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="总结与对比">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        两代方法对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        架构差异深度分析
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="架构差异深度分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#v1-vs-v2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v1 vs v2 的本质区别
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v1-siamese" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v1：纯 Siamese 双塔
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v2encoder-decoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v2：Encoder-Decoder 结构
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        架构变化的根本原因
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v2 的本质
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v2-siamese" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v2 不是 Siamese 网络
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与其他方法的对比
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="与其他方法的对比">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vs-beit-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        vs. BEiT-3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs-ofa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        vs. OFA
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs-pali-coca" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        vs. PaLI / CoCa
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs-unified-io-pix2seq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        vs. Unified-IO / Pix2Seq
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        设计哲学差异总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Unified-IO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unified-IO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ViLT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ViLT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ViT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ViT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ZZZZZ%E5%85%AC%E5%BC%8F%E4%BB%A3%E7%A0%81%E7%AD%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ZZZZZ公式代码等
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%8E%9F%E7%94%9F%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    原生多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%90%8E%E8%AE%AD%E7%BB%83%E7%BB%BC%E8%BF%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多模态大模型后训练综述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%9A%E6%A8%A1%E6%80%81%E8%AE%BA%E6%96%87%E4%B8%B2%E8%AE%B2%C2%B7%E4%B8%8A/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多模态论文串讲·上
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%9A%E6%A8%A1%E6%80%81%E8%AE%BA%E6%96%87%E4%B8%B2%E8%AE%B2%C2%B7%E4%B8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多模态论文串讲·下
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%AF%B9%E6%AF%94%E5%AD%A6%E4%B9%A0%E7%BB%BC%E8%BF%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    对比学习综述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%B7%B7%E5%90%88%E7%B2%BE%E5%BA%A6%E8%AE%AD%E7%BB%83%E4%B8%8E%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    混合精度训练与分布式训练
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%A7%86%E9%A2%91%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    视频多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%9F%B3%E9%A2%91%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    音频多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#uniperceiver" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UniPerceiver
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uniperceiver-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第一部分：UniPerceiver - 统一感知架构的通用感知预训练
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第一部分：UniPerceiver - 统一感知架构的通用感知预训练">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目录
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心要点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 背景与动机
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 背景与动机">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 现有方法的局限
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 生物智能的启发
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 与已有统一架构的区别
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 方法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 统一任务公式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-tokenization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Tokenization（标记化）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-transformer-encoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 模态无关的 Transformer Encoder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 预训练任务
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 下游适配策略
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 网络结构
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 网络结构">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 整体架构
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 关键设计细节
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 预训练配置
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-uniperceiver-v1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. UniPerceiver v1 总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uniperceiver-v2-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第二部分：UniPerceiver v2 - 面向大规模视觉与视觉语言任务的通才模型
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第二部分：UniPerceiver v2 - 面向大规模视觉与视觉语言任务的通才模型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心要点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 背景与动机
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 背景与动机">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-foundation-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Foundation Models 的矛盾
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 现有通才模型的不足
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-uniperceiver-v1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 UniPerceiver v1 的局限回顾
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 方法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 统一任务建模（继承与改进）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 通用区域提议编码图像（核心创新）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 语言模型编码文本
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 通用任务适配
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-mt-adamw" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 MT-AdamW 优化器（核心创新）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-conditional-moe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6 Conditional MoE 缓解任务干扰
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 网络结构
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 网络结构">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 三大组件
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 模型变体
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 训练配置
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-uniperceiver-v2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. UniPerceiver v2 总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        总结与对比
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="总结与对比">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        两代方法对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        架构差异深度分析
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="架构差异深度分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#v1-vs-v2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v1 vs v2 的本质区别
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v1-siamese" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v1：纯 Siamese 双塔
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v2encoder-decoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v2：Encoder-Decoder 结构
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        架构变化的根本原因
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v2 的本质
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v2-siamese" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v2 不是 Siamese 网络
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与其他方法的对比
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="与其他方法的对比">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vs-beit-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        vs. BEiT-3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs-ofa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        vs. OFA
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs-pali-coca" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        vs. PaLI / CoCa
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs-unified-io-pix2seq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        vs. Unified-IO / Pix2Seq
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        设计哲学差异总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>UniPerceiver</h1>
+
+<h2 id="uniperceiver">UniPerceiver<a class="headerlink" href="#uniperceiver" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>本笔记涵盖 UniPerceiver → UniPerceiver v2 的演进历程。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>论文</th>
+<th>时间</th>
+<th>核心变化</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UniPerceiver v1</td>
+<td>Uni-Perceiver: Pre-training Unified Architecture for Generic Perception for Zero-shot and Few-shot Tasks</td>
+<td>CVPR 2022</td>
+<td>提出统一感知架构，用共享 Transformer + 模态专用 tokenizer 处理多模态多任务，支持 zero-shot/few-shot</td>
+</tr>
+<tr>
+<td>UniPerceiver v2</td>
+<td>Uni-Perceiver v2: A Generalist Model for Large-Scale Vision and Vision-Language Tasks</td>
+<td>CVPR 2023</td>
+<td>引入通用区域提议编码图像、集成预训练编码器、提出 MT-AdamW 优化器，首次同时支持检测/分割/检索/分类/生成等核心任务</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="uniperceiver-">第一部分：UniPerceiver - 统一感知架构的通用感知预训练<a class="headerlink" href="#uniperceiver-" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>📄 论文链接：arXiv:2112.01522 | <a href="../pdf/uniperceiver.pdf">PDF</a></p>
+</blockquote>
+<h3 id="_1">目录<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="#核心要点">核心要点</a></li>
+<li><a href="#1-背景与动机">1. 背景与动机</a></li>
+<li><a href="#2-方法">2. 方法</a></li>
+<li><a href="#3-网络结构">3. 网络结构</a></li>
+<li><a href="#4-uniperceiver-v1-总结">4. UniPerceiver v1 总结</a></li>
+<li><a href="#核心要点">核心要点</a></li>
+<li><a href="#1-背景与动机">1. 背景与动机</a></li>
+<li><a href="#2-方法">2. 方法</a></li>
+<li><a href="#3-网络结构">3. 网络结构</a></li>
+<li><a href="#4-uniperceiver-v2-总结">4. UniPerceiver v2 总结</a></li>
+<li><a href="#两代方法对比">两代方法对比</a></li>
+<li><a href="#架构差异深度分析">架构差异深度分析</a></li>
+<li><a href="#与其他方法的对比">与其他方法的对比</a></li>
+</ul>
+<h3 id="_2">核心要点<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<blockquote>
+<ol>
+<li><strong>统一建模范式</strong>：将不同模态（文本、图像、视频）和不同任务统一建模为"给定输入，通过表示相似度找到最大似然目标"的通用公式，无需任务特定的预测头</li>
+<li><strong>模态无关的共享 Transformer</strong>：所有模态的 token 序列通过同一个权重共享的 Transformer Encoder 编码到统一的表示空间，仅通过轻量级模态专用 tokenizer 做模态适配</li>
+<li><strong>Zero-shot 与 Few-shot 能力</strong>：预训练模型无需任何微调即可在未见过的任务上进行 zero-shot 推理；仅需 1% 数据的 prompt tuning 即可接近 SOTA 性能</li>
+<li><strong>统一任务公式替代任务特定设计</strong>：不同于以往方法需要为每个任务设计专门的输入格式和预测头，UniPerceiver 将所有感知任务统一为联合概率估计问题</li>
+<li><strong>跨模态协作</strong>：多任务联合预训练促进了不同模态和任务之间的知识共享，降低了开发新任务的边际成本</li>
+</ol>
+</blockquote>
+<h3 id="1">1. 背景与动机<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<h4 id="11">1.1 现有方法的局限<a class="headerlink" href="#11" title="Permanent link">&para;</a></h4>
+<p>传统的机器学习研究遵循<strong>任务特定范式</strong>（task-specific paradigm），即为每个感知任务单独设计模型架构、输入格式和预测头。这带来两个核心问题：</p>
+<ul>
+<li><strong>任务间协作低效</strong>：不同任务的专门设计阻碍了任务间的知识共享，可能损害表示能力</li>
+<li><strong>新任务开发成本高</strong>：当预训练模型应用于新任务时，需要重新设计输入格式和预测头，并在充足的下游数据上微调。随着任务数量和模型规模增长，所有参数都需要为每个下游任务复制和维护，变得低效且不便</li>
+</ul>
+<p>此外，当微调数据不足时，模型可能遗忘对下游任务有益的预训练知识，从而损害泛化性能。</p>
+<h4 id="12">1.2 生物智能的启发<a class="headerlink" href="#12" title="Permanent link">&para;</a></h4>
+<p>生物智能系统通过整合不同模态的信息并同时处理各种任务来感知世界。UniPerceiver 的目标是模拟这种能力，构建一个能够用<strong>统一建模和共享参数</strong>处理多种模态和任务的通用感知架构。</p>
+<h4 id="13">1.3 与已有统一架构的区别<a class="headerlink" href="#13" title="Permanent link">&para;</a></h4>
+<p>已有的多模态 Transformer 方法（如 ViLT、UNITER 等）虽然使用了统一的 Transformer 骨干网络，但仍然需要：
+- 针对目标任务设计的<strong>特定输入组合</strong>
+- 为每个任务专门设计和训练的<strong>预测头</strong></p>
+<p>UniPerceiver 的核心创新在于彻底消除了任务特定的预测头，将所有任务统一为表示相似度的计算。</p>
+<p><img alt="image-20260628032427115" src="/Users/qinghuo/Library/Application Support/typora-user-images/image-20260628032427115.png" />
+<em>Figure 1: 对比传统任务特定感知模型与 UniPerceiver。左侧传统方法为每个任务设计专门的模型和预测头；右侧 UniPerceiver 使用单一 Siamese 模型和共享参数处理所有模态和任务。</em></p>
+<h3 id="2">2. 方法<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<h4 id="21">2.1 统一任务公式<a class="headerlink" href="#21" title="Permanent link">&para;</a></h4>
+<p>UniPerceiver 将所有感知任务统一建模为以下公式：</p>
+<p>给定输入 <span class="arithmatex">\(x \in X\)</span> 和候选目标集合 <span class="arithmatex">\(Y\)</span>，任务目标是找到与输入具有最大似然的目标 <span class="arithmatex">\(\hat{y}\)</span>：</p>
+<div class="arithmatex">\[\hat{y} = \arg\max_{y \in Y} P(x, y)\]</div>
+<p>其中联合概率 <span class="arithmatex">\(P(x, y)\)</span> 通过输入和目标表示的余弦相似度来估计：</p>
+<div class="arithmatex">\[P(x, y) \propto \exp\{\cos(f(x), f(y)) / \tau\}\]</div>
+<p>这里 <span class="arithmatex">\(f(\cdot)\)</span> 是将原始输入编码到统一表示空间的函数，<span class="arithmatex">\(\tau\)</span> 是可学习的温度参数。</p>
+<p><strong>整个推理过程的直观理解</strong>：</p>
+<div class="highlight"><pre><span></span><code>输入 x → f(x)       （共享 Transformer 编码）
+目标 y → f(y)       （同一个 Transformer 编码）
+cos(f(x), f(y))     （余弦相似度）
+选最大相似度对应的 y 作为预测
+</code></pre></div>
+<p>输入 <span class="arithmatex">\(x\)</span> 和目标 <span class="arithmatex">\(y\)</span> 都经过<strong>同一个权重共享的 Transformer</strong> 编码到统一的表示空间，然后通过余弦相似度 <span class="arithmatex">\(\cos(f(x), f(y))\)</span> 计算它们的匹配程度。预测就是候选集中与输入最相似的那个目标。</p>
+<p><strong>x 和 y 可以是不同模态</strong>：这正是该设计的核心意义。通过模态专用 tokenizer + 共享 Transformer，不同模态的数据被编码到同一个向量空间，余弦相似度才有意义。论文中各任务的 x/y 模态组合如下：</p>
+<table>
+<thead>
+<tr>
+<th>任务</th>
+<th>x（输入）</th>
+<th>y（目标）</th>
+<th>跨模态？</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>图像分类</td>
+<td>图像</td>
+<td>文本（类别标签）</td>
+<td>✅ 视觉→语言</td>
+</tr>
+<tr>
+<td>视频分类</td>
+<td>视频</td>
+<td>文本（动作标签）</td>
+<td>✅ 视觉→语言</td>
+</tr>
+<tr>
+<td>图文检索</td>
+<td>图像 / 文本</td>
+<td>文本 / 图像</td>
+<td>✅ 双向跨模态</td>
+</tr>
+<tr>
+<td>语言建模</td>
+<td>文本（前文）</td>
+<td>文本（下一个 token）</td>
+<td>同模态</td>
+</tr>
+<tr>
+<td>带图像线索的语言建模</td>
+<td>图像 + 文本（含 mask）</td>
+<td>文本（被 mask 的 token）</td>
+<td>✅ 多模态→语言</td>
+</tr>
+<tr>
+<td>文本问答检索</td>
+<td>文本（问题）</td>
+<td>文本（答案）</td>
+<td>同模态</td>
+</tr>
+</tbody>
+</table>
+<p>模型能跨模态计算相似度，靠两件事配合：模态专用 tokenizer 负责把不同模态的原始数据统一成 token 序列格式，共享 Transformer 把这些 token 编码到同一个向量空间，使得图像特征和文本特征可以直接用余弦相似度比较。</p>
+<p>这一公式的关键优势在于：
+- <strong>不需要任务特定的预测头</strong>：所有任务都通过相同的相似度计算来完成
+- <strong>天然支持 zero-shot</strong>：只要能将新任务的输入和目标编码到同一表示空间，就可以直接推理
+- <strong>统一了生成和非生成任务</strong>：无论是分类、检索还是语言建模，都可以用同一公式表达</p>
+<h4 id="22-tokenization">2.2 Tokenization（标记化）<a class="headerlink" href="#22-tokenization" title="Permanent link">&para;</a></h4>
+<p>不同模态的原始输入通过<strong>模态专用 tokenizer</strong> 转换为统一的 token 序列：</p>
+<ul>
+<li><strong>文本 Tokenizer</strong>：使用 BPE tokenizer，将文本分割为子词并通过线性嵌入层投影。添加可学习的 1D 位置嵌入（最大长度 256）和文本模态嵌入 <code>&lt;T&gt;</code></li>
+<li><strong>图像 Tokenizer</strong>：使用 image patch tokenizer，将图像调整为 224×224，展平为 16×16 的 patch 序列并线性投影。添加可学习的图像位置嵌入（14×14=196）和视觉模态嵌入 <code>&lt;V&gt;</code></li>
+<li><strong>视频 Tokenizer</strong>：使用时间帧 patch tokenizer，每帧展平为图像 patch。对于 N 帧视频（默认 N=8），token 数量为 N×14×14。添加空间位置嵌入和 1D 时间位置嵌入，以及视觉模态嵌入 <code>&lt;V&gt;</code></li>
+</ul>
+<p>所有 tokenizer 的输出都附加了<strong>模态类型嵌入</strong>以标识原始输入的模态。</p>
+<h4 id="23-transformer-encoder">2.3 模态无关的 Transformer Encoder<a class="headerlink" href="#23-transformer-encoder" title="Permanent link">&para;</a></h4>
+<p>所有模态的 token 序列通过<strong>同一个权重共享的 Transformer Encoder</strong> 进行编码。Encoder 不区分模态，仅通过模态类型嵌入来感知模态信息。这使得模型能够在统一的表示空间中学习跨模态的语义对齐。</p>
+<p><img alt="Figure 2: UniPerceiver 统一架构概览" src="../images/uniperceiver_fig2.png" />
+<em>Figure 2: UniPerceiver 统一架构概览。不同模态的输入和目标通过模态专用 tokenizer 转换为统一 token 序列，再通过权重共享的 Transformer Encoder 编码到共享表示空间。任意感知任务都可以建模为通过表示相似度找到最大似然目标。</em></p>
+<h4 id="24">2.4 预训练任务<a class="headerlink" href="#24" title="Permanent link">&para;</a></h4>
+<p>UniPerceiver 在多个单模态和多模态任务上进行联合预训练。所有任务都使用统一的公式，仅在输入和目标的构造上有所不同：</p>
+<p><img alt="Figure 3: 预训练任务的输入和目标格式" src="../images/uniperceiver_fig3.png" />
+<em>Figure 3: 预训练任务的输入和目标格式。左列为输入序列 x 的格式，右列为目标序列 y 的格式。包括图像分类、视频分类、语言建模、带图像线索的语言建模、文本问答检索、图文检索等多种任务。</em></p>
+<p>具体预训练任务包括：
+- <strong>图像分类</strong>：输入为图像，目标为类别标签文本
+- <strong>视频分类</strong>：输入为视频，目标为类别标签文本
+- <strong>自回归语言建模</strong>：输入为前文 token，目标为下一个 token
+- <strong>掩码语言建模</strong>：输入为含 mask 的句子，目标为被 mask 的 token
+- <strong>带图像线索的语言建模</strong>：输入为图像+含 mask 的句子，目标为被 mask 的 token
+- <strong>图文检索</strong>：输入为图像/文本，目标为对应的文本/图像
+- <strong>文本问答检索</strong>：输入为问题/答案，目标为答案/问题</p>
+<h4 id="25">2.5 下游适配策略<a class="headerlink" href="#25" title="Permanent link">&para;</a></h4>
+<p>UniPerceiver 提供三种下游适配方式：</p>
+<p><strong>Zero-shot 推理</strong>：直接将新任务的输入和目标编码后计算相似度，无需任何训练。也可以通过 prompt engineering 改善性能。</p>
+<p><strong>Prompt Tuning</strong>：冻结大部分预训练参数，仅在 Transformer 每层添加少量可学习的 prompt token。对于分类任务额外添加线性头。可学习参数仅占预训练参数的不到 1%（约 227K~995K）。采用 P-Tuning v2 方案，在每层 Transformer 添加可学习 prompt。</p>
+<p><strong>Full Fine-tuning</strong>：在充足的下游数据上微调整个模型。可以作为联合概率估计器（保持统一公式）或特征提取器（传统方式）使用。</p>
+<h3 id="3">3. 网络结构<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<h4 id="31">3.1 整体架构<a class="headerlink" href="#31" title="Permanent link">&para;</a></h4>
+<p>UniPerceiver 的网络结构由三部分组成：</p>
+<ol>
+<li><strong>模态专用 Tokenizer</strong>（轻量级）：负责将各模态原始数据转为 token 序列</li>
+<li><strong>共享 Transformer Encoder</strong>（主体）：权重共享的多层 Transformer，将不同模态的 token 编码到统一表示空间</li>
+<li><strong>统一相似度计算模块</strong>：通过余弦相似度计算输入和目标表示的联合概率</li>
+</ol>
+<p>整个模型没有任务特定的预测头，这是与传统方法最根本的区别。</p>
+<h4 id="32">3.2 关键设计细节<a class="headerlink" href="#32" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong><code>&lt;SPE&gt;</code> token</strong>：在每个输入和目标序列开头添加特殊的 sequence position embedding token，用于聚合整个序列的表示</li>
+<li><strong>模态类型嵌入</strong>：<code>&lt;T&gt;</code> 表示文本，<code>&lt;V&gt;</code> 表示视觉，帮助共享 Encoder 区分模态</li>
+<li><strong>自回归任务的 attention mask</strong>：对于语言建模等自回归任务，使用因果 attention mask 确保自回归性质</li>
+<li><strong>温度参数 <span class="arithmatex">\(\tau\)</span></strong>：可学习的标量参数，控制相似度分布的锐度</li>
+</ul>
+<h4 id="33">3.3 预训练配置<a class="headerlink" href="#33" title="Permanent link">&para;</a></h4>
+<ul>
+<li>图像分类数据：ImageNet-21k</li>
+<li>视频分类数据：Kinetics-700, Moments in Time</li>
+<li>语言建模数据：Books &amp; Wiki</li>
+<li>图文数据：YFCC, CC12M, CC3M, Visual Genome, COCO Caption, SBU, PAQ</li>
+<li>数据增强：RandAug, Random Erasing, Mixup, CutMix</li>
+</ul>
+<h3 id="4-uniperceiver-v1">4. UniPerceiver v1 总结<a class="headerlink" href="#4-uniperceiver-v1" title="Permanent link">&para;</a></h3>
+<p>UniPerceiver v1 的核心贡献是提出了一个真正统一的感知架构，通过消除任务特定的预测头，将所有感知任务统一为表示相似度的计算。这一设计使得模型具备了 zero-shot 能力和极低的新任务适配成本。然而，v1 仍存在以下局限：</p>
+<ul>
+<li><strong>不支持检测和分割任务</strong>：由于缺乏定位信息，无法处理需要空间定位的任务</li>
+<li><strong>未集成预训练编码器</strong>：从零开始训练编码器，未能利用已有的大规模预训练模型</li>
+<li><strong>多任务干扰问题</strong>：完全共享参数的多任务学习可能导致任务间的梯度冲突和性能下降</li>
+</ul>
+<hr />
+<h2 id="uniperceiver-v2-">第二部分：UniPerceiver v2 - 面向大规模视觉与视觉语言任务的通才模型<a class="headerlink" href="#uniperceiver-v2-" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>📄 论文链接：arXiv:2211.09808 | <a href="../pdf/uniperceiver_v2.pdf">PDF</a></p>
+</blockquote>
+<h3 id="_3">核心要点<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<blockquote>
+<ol>
+<li><strong>首个覆盖核心视觉任务的通才模型</strong>：首次同时支持图像分类、目标检测、实例分割、图文检索、图像描述等主要大规模视觉和视觉语言任务，且在无任务特定微调的情况下达到有竞争力的性能</li>
+<li><strong>通用区域提议编码</strong>：将图像编码为通用区域提议（包含语义、边界框和分割掩码表示），替代 v1 中的非重叠 patch 编码，使定位建模更具表达力和灵活性</li>
+<li><strong>集成预训练编码器</strong>：图像端使用预训练的 backbone（ResNet/Swin Transformer）+ Deformable DETR 区域提议网络，文本端使用预训练 RoBERTa，充分利用已有预训练知识</li>
+<li><strong>MT-AdamW 优化器</strong>：提出改进的多任务优化器，通过梯度归一化、任务特定补偿系数和解耦采样比率，确保不混合采样策略下的稳定多任务训练</li>
+<li><strong>Conditional MoE 缓解任务干扰</strong>：采用条件混合专家机制，允许冲突的模态和任务使用独立参数，在不引入任务特定模块的前提下缓解多任务干扰</li>
+</ol>
+</blockquote>
+<h3 id="1_1">1. 背景与动机<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h3>
+<h4 id="11-foundation-models">1.1 Foundation Models 的矛盾<a class="headerlink" href="#11-foundation-models" title="Permanent link">&para;</a></h4>
+<p>尽管基础模型取得了显著成功，但其<strong>任务特定微调范式</strong>与通用感知建模的目标不一致。每个下游任务都需要独立的微调流程和专用的解码器/预测头，导致：</p>
+<ul>
+<li>总参数量随任务数量线性增长</li>
+<li>不同任务之间无法共享适配参数</li>
+<li>违背了"一个模型处理所有任务"的通才目标</li>
+</ul>
+<h4 id="12_1">1.2 现有通才模型的不足<a class="headerlink" href="#12_1" title="Permanent link">&para;</a></h4>
+<p>已有的通才模型尝试（如 Pix2Seq、Unified-IO、Flamingo 等）存在两方面不足：</p>
+<ul>
+<li><strong>功能不全</strong>：无法处理某些核心任务，如图文检索、目标检测、实例分割等</li>
+<li><strong>性能差距大</strong>：准确率和推理速度仍显著落后于任务特定的 SOTA 方法</li>
+</ul>
+<h4 id="13-uniperceiver-v1">1.3 UniPerceiver v1 的局限回顾<a class="headerlink" href="#13-uniperceiver-v1" title="Permanent link">&para;</a></h4>
+<p>v1 虽然实现了统一建模，但：
+- 图像仅编码为非重叠 patch，缺乏定位信息，无法支持检测和分割
+- 未集成已有的预训练编码器，需要从零学习视觉表示
+- 多任务学习中存在严重的任务干扰问题</p>
+<p><img alt="Figure 1: Foundation Models 与 UniPerceiver v2 的对比" src="../images/uniperceiver_v2_fig1.png" />
+<em>Figure 1: Foundation Models 与 UniPerceiver v2 的对比。上方 Foundation Models 为每个下游任务使用专用解码器进行微调，总参数量随任务数增长；下方 UniPerceiver v2 使用通用解码器 D_general 共享所有参数，无需任务特定微调即可处理所有任务。</em></p>
+<h3 id="2_1">2. 方法<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h3>
+<h4 id="21_1">2.1 统一任务建模（继承与改进）<a class="headerlink" href="#21_1" title="Permanent link">&para;</a></h4>
+<p>v2 继承了 v1 的统一最大似然估计公式：</p>
+<div class="arithmatex">\[\hat{y} = \arg\max_{y \in Y} P(x, y)\]</div>
+<div class="arithmatex">\[P(x, y) \propto \exp\{\cos(g \circ f(x), g \circ f(y)) / \tau\}\]</div>
+<p>其中 <span class="arithmatex">\(f(\cdot)\)</span> 是模态专用编码器（<span class="arithmatex">\(f_{\text{image}}\)</span> 和 <span class="arithmatex">\(f_{\text{text}}\)</span>），<span class="arithmatex">\(g(\cdot)\)</span> 是模态无关的 Transformer 解码器（对应 v1 中的共享 Encoder）。</p>
+<p>多任务训练损失为：</p>
+<div class="arithmatex">\[\mathcal{L} = \sum_k s_k \cdot \mathbb{E}\left[-\omega_k \cdot \frac{\log P(x,y)}{\sum_z P(x,z)}\right]\]</div>
+<p>其中 <span class="arithmatex">\(s_k\)</span> 是第 <span class="arithmatex">\(k\)</span> 个任务的采样比率，<span class="arithmatex">\(\omega_k\)</span> 是损失权重。</p>
+<h4 id="22">2.2 通用区域提议编码图像（核心创新）<a class="headerlink" href="#22" title="Permanent link">&para;</a></h4>
+<p>v2 最重要的改进是将图像编码为<strong>通用区域提议</strong>（General Region Proposals），而非 v1 中的非重叠 patch：</p>
+<p><strong>Backbone Network</strong>：使用预训练的 ResNet-50 或 Swin Transformer 提取多尺度特征图 <span class="arithmatex">\(\{F_l\}\)</span>，空间分辨率分别为 <span class="arithmatex">\(H/4, H/8, H/16, H/32\)</span>。通过 <span class="arithmatex">\(1 \times 1\)</span> 卷积统一维度，再对 <span class="arithmatex">\(F_3\)</span> 施加 <span class="arithmatex">\(3 \times 3\)</span> stride-2 卷积得到 <span class="arithmatex">\(F'_4\)</span>（<span class="arithmatex">\(H/64\)</span> 分辨率）。</p>
+<p><strong>Region Proposal Network</strong>：基于 Deformable Transformer 的区域提议网络：
+- Encoder：对多尺度特征图 <span class="arithmatex">\(\{F'_l\}_{l=1}^{4}\)</span> 进行 Deformable Attention 编码
+- Decoder：从编码特征中预测 objectness 和边界框，选取 top-<span class="arithmatex">\(N\)</span> 特征作为 object queries 的初始值
+- 输出：<span class="arithmatex">\(N\)</span> 个候选区域提议，每个包含语义特征、边界框坐标和分割掩码</p>
+<p>最终选择 top-<span class="arithmatex">\(O\)</span> 个区域表示（按 objectness 排序）作为统一解码器的输入。</p>
+<p>这一设计的优势：
+- <strong>显式定位信息</strong>：每个区域提议自带边界框和掩码，天然支持检测和分割
+- <strong>灵活的粒度</strong>：区域提议可以适应不同尺度和形状的目标
+- <strong>兼容预训练检测器</strong>：可以直接利用 Mask DINO 等预训练检测器的知识</p>
+<h4 id="23">2.3 语言模型编码文本<a class="headerlink" href="#23" title="Permanent link">&para;</a></h4>
+<p>文本端使用预训练的 <strong>RoBERTa_BASE</strong> 作为编码器：
+- BPE tokenizer 将文本转为词嵌入序列
+- Transformer Encoder 提取文本特征序列
+- RoBERTa 与整个网络联合微调</p>
+<h4 id="24_1">2.4 通用任务适配<a class="headerlink" href="#24_1" title="Permanent link">&para;</a></h4>
+<p>v2 定义了各类任务的统一输入/目标格式：</p>
+<ul>
+<li><strong>图像分类</strong>：输入为图像区域提议，目标为类别名称文本</li>
+<li><strong>目标检测</strong>：输入为图像区域提议，目标为 "类别名称 + 边界框坐标" 的文本序列</li>
+<li><strong>实例分割</strong>：输入为图像区域提议，目标为 "类别名称 + 边界框 + 掩码" 的文本序列</li>
+<li><strong>图文检索</strong>：输入为图像区域提议/文本，目标为对应文本/图像区域提议</li>
+<li><strong>图像描述</strong>：输入为图像区域提议，目标为描述文本</li>
+</ul>
+<p><strong>不需要任何任务特定的预测头或微调</strong>：不同任务的区别完全体现在目标候选集 <span class="arithmatex">\(Y\)</span> 的构造上，Decoder 本身不做任何任务特定的处理。它只是把输入序列（区域提议 + 文本 token）编码到统一表示空间。</p>
+<p>各任务的 <span class="arithmatex">\(Y\)</span> 构造方式：</p>
+<table>
+<thead>
+<tr>
+<th>任务</th>
+<th>目标候选集 <span class="arithmatex">\(Y\)</span> 的内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>分类</td>
+<td>{"dog", "cat", "car", ...}（类别名称文本）</td>
+</tr>
+<tr>
+<td>检测</td>
+<td>{"dog [0.1, 0.2, 0.8, 0.9]", ...}（类别名 + 边界框坐标）</td>
+</tr>
+<tr>
+<td>分割</td>
+<td>{"dog [0.1, 0.2, 0.8, 0.9] [mask]", ...}（类别名 + 框 + 掩码）</td>
+</tr>
+<tr>
+<td>检索</td>
+<td>文本库 或 图像库</td>
+</tr>
+</tbody>
+</table>
+<p>这个设计和 v1 的逻辑完全一致——"所有任务都是编码后算相似度"，只是 v2 的图像表示从 patch 换成了区域提议，编码器从共享换成了独立预训练。</p>
+<h4 id="25-mt-adamw">2.5 MT-AdamW 优化器（核心创新）<a class="headerlink" href="#25-mt-adamw" title="Permanent link">&para;</a></h4>
+<p>多任务训练中，不同任务的梯度量级和方向差异会导致训练不稳定。v2 提出 <strong>MT-AdamW</strong> 优化器：</p>
+<ol>
+<li><strong>梯度归一化</strong>：对每个任务的原始梯度进行归一化，消除量级差异</li>
+<li><strong>任务缩放因子 <span class="arithmatex">\(\omega_k\)</span></strong>：作为损失权重控制各任务的贡献</li>
+<li><strong>任务特定补偿系数 <span class="arithmatex">\(1/s_k\)</span></strong>：解耦梯度贡献与采样比率，使动量估计无偏</li>
+</ol>
+<p>具体更新规则：
+- 先对采样任务的梯度归一化并乘以 <span class="arithmatex">\(\omega_k\)</span>
+- 用补偿系数 <span class="arithmatex">\(1/s_k\)</span> 修正一阶矩 <span class="arithmatex">\(m_t\)</span> 和二阶矩 <span class="arithmatex">\(n_t\)</span> 的移动平均估计
+- 当所有任务期望等贡献时，设所有 <span class="arithmatex">\(\omega_k = 1\)</span></p>
+<p>这一设计使得在不混合采样（unmixed sampling）策略下也能稳定训练，特别适合需要大批次训练的任务（如检索）。</p>
+<h4 id="26-conditional-moe">2.6 Conditional MoE 缓解任务干扰<a class="headerlink" href="#26-conditional-moe" title="Permanent link">&para;</a></h4>
+<p>继承 UniPerceiver-MoE 的条件混合专家机制：
+- 在统一解码器的每层设置多个专家
+- 对每个输入 token，根据属性级路由策略（attribute-level routing）计算路由决策
+- 稀疏激活少量专家处理该 token
+- 输出为所选专家的加权组合</p>
+<p>这允许冲突的模态和任务使用独立参数，在不引入任务特定模块的前提下缓解干扰。</p>
+<h3 id="3_1">3. 网络结构<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h3>
+<p><img alt="Figure 3: UniPerceiver v2 架构概览" src="../images/uniperceiver_v2_fig3.png" />
+<em>Figure 3: UniPerceiver v2 架构概览。图像通过预训练 Backbone + Deformable Transformer 区域提议网络编码为通用区域提议；文本通过预训练 RoBERTa 编码；两者通过统一的 Transformer 解码器进行交互。所有任务共享同一套参数。</em></p>
+<h4 id="31_1">3.1 三大组件<a class="headerlink" href="#31_1" title="Permanent link">&para;</a></h4>
+<ol>
+<li><strong>图像编码器</strong>：预训练 Backbone（ResNet-50/Swin-B/Swin-L）+ Deformable Transformer Region Proposal Network</li>
+<li>4 尺度特征提取</li>
+<li>Objectness 预测 + Top-N 选择</li>
+<li>Deformable Transformer Decoder 生成区域提议</li>
+<li>
+<p>最终输出 <span class="arithmatex">\(O=200\)</span> 个区域表示</p>
+</li>
+<li>
+<p><strong>文本编码器</strong>：预训练 RoBERTa_BASE</p>
+</li>
+<li>BPE tokenization</li>
+<li>
+<p>联合微调</p>
+</li>
+<li>
+<p><strong>统一解码器</strong>：6 层 Transformer</p>
+</li>
+<li>接收图像区域提议和文本 token 的拼接序列</li>
+<li>可选 Conditional MoE（每层 8 个专家）</li>
+<li>Stochastic depth drop rate = 0.1</li>
+</ol>
+<h4 id="32_1">3.2 模型变体<a class="headerlink" href="#32_1" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>变体</th>
+<th>Backbone</th>
+<th>参数量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UniPerceiver v2 BASE</td>
+<td>ResNet-50</td>
+<td>308M</td>
+</tr>
+<tr>
+<td>UniPerceiver v2 LARGE</td>
+<td>Swin-Large</td>
+<td>446M</td>
+</tr>
+</tbody>
+</table>
+<h4 id="33_1">3.3 训练配置<a class="headerlink" href="#33_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li>图像分类：ImageNet-1k</li>
+<li>检测/分割：COCO</li>
+<li>图文检索/描述：SBU + Visual Genome + COCO Caption + CC3M + CC12M + YFCC（约 29.9M 样本）</li>
+<li>语言建模：Books &amp; Wiki</li>
+<li>采样权重 <span class="arithmatex">\(s_k\)</span> 与数据集大小的平方根成正比</li>
+<li>图像分辨率：Swin 用 384×384，ResNet 用 224×224</li>
+<li>检测/分割训练：短边随机缩放至 200-1800，裁剪至 1600×1600</li>
+</ul>
+<h3 id="4-uniperceiver-v2">4. UniPerceiver v2 总结<a class="headerlink" href="#4-uniperceiver-v2" title="Permanent link">&para;</a></h3>
+<p>UniPerceiver v2 在 v1 的基础上实现了质的飞跃，成为首个能同时处理所有核心视觉和视觉语言任务的通才模型。其三大核心创新——通用区域提议编码、集成预训练编码器、MT-AdamW 优化器——分别解决了 v1 在定位能力、预训练知识利用和多任务稳定性方面的不足。</p>
+<hr />
+<h2 id="_4">总结与对比<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="_5">两代方法对比<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>UniPerceiver v1</th>
+<th>UniPerceiver v2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>图像编码</strong></td>
+<td>非重叠 patch（16×16）</td>
+<td>通用区域提议（语义+框+掩码）</td>
+</tr>
+<tr>
+<td><strong>文本编码</strong></td>
+<td>从头训练的 BPE + Linear</td>
+<td>预训练 RoBERTa_BASE</td>
+</tr>
+<tr>
+<td><strong>视觉 Backbone</strong></td>
+<td>无（从零训练）</td>
+<td>预训练 ResNet/Swin Transformer</td>
+</tr>
+<tr>
+<td><strong>定位能力</strong></td>
+<td>❌ 不支持</td>
+<td>✅ 原生支持检测和分割</td>
+</tr>
+<tr>
+<td><strong>支持任务</strong></td>
+<td>分类、检索、描述、语言建模</td>
+<td>分类、检测、分割、检索、描述、语言建模</td>
+</tr>
+<tr>
+<td><strong>多任务干扰处理</strong></td>
+<td>无</td>
+<td>Conditional MoE + MT-AdamW</td>
+</tr>
+<tr>
+<td><strong>优化器</strong></td>
+<td>标准 AdamW</td>
+<td>MT-AdamW（梯度归一化+补偿系数）</td>
+</tr>
+<tr>
+<td><strong>Zero-shot 能力</strong></td>
+<td>✅ 强（核心卖点）</td>
+<td>✅ 保留，但更强调无微调的通用性能</td>
+</tr>
+<tr>
+<td><strong>Few-shot 适配</strong></td>
+<td>Prompt Tuning（P-Tuning v2）</td>
+<td>无需适配（直接推理）</td>
+</tr>
+<tr>
+<td><strong>核心设计理念</strong></td>
+<td>统一公式 + 共享 Encoder</td>
+<td>统一公式 + 预训练编码器 + 区域提议</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_6">架构差异深度分析<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<h4 id="v1-vs-v2">v1 vs v2 的本质区别<a class="headerlink" href="#v1-vs-v2" title="Permanent link">&para;</a></h4>
+<p>虽然都叫 UniPerceiver，但两代的架构差异非常大，几乎是两个不同的模型：</p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>v1</th>
+<th>v2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>整体结构</strong></td>
+<td>Siamese 双塔（共享 Encoder）</td>
+<td>Encoder-Decoder（独立 Encoder + 共享 Decoder）</td>
+</tr>
+<tr>
+<td><strong>图像编码</strong></td>
+<td>共享 Transformer Encoder 从零训练</td>
+<td>ResNet/Swin + Deformable DETR（预训练）</td>
+</tr>
+<tr>
+<td><strong>文本编码</strong></td>
+<td>共享 Transformer Encoder 从零训练</td>
+<td>RoBERTa（预训练）</td>
+</tr>
+<tr>
+<td><strong>图像和文本是否共享 Encoder</strong></td>
+<td>✅ 是，同一个 Encoder</td>
+<td>❌ 否，各自独立的预训练 Encoder</td>
+</tr>
+<tr>
+<td><strong>输入和目标是否交互</strong></td>
+<td>❌ 独立编码，最后算相似度</td>
+<td>✅ 拼接后送入 Decoder，多层自注意力交互</td>
+</tr>
+<tr>
+<td><strong>图像表示</strong></td>
+<td>196 个 patch token</td>
+<td>top-<span class="arithmatex">\(O\)</span> 个区域提议（语义+框+掩码）</td>
+</tr>
+</tbody>
+</table>
+<h4 id="v1-siamese">v1：纯 Siamese 双塔<a class="headerlink" href="#v1-siamese" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>图像 → patch tokenizer → ┐
+                          ├→ 共享 Transformer Encoder → 余弦相似度
+文本 → BPE tokenizer  → ┘
+</code></pre></div>
+<p>v1 是典型的 Siamese 结构（类似 CLIP）：
+- 只有一个共享权重的 Transformer Encoder
+- 输入 <span class="arithmatex">\(x\)</span> 和目标 <span class="arithmatex">\(y\)</span> 分别独立通过同一个 Encoder
+- 两者在编码过程中<strong>完全不交互</strong>，只在最后计算余弦相似度
+- 所有参数从零训练，没有使用预训练 Backbone</p>
+<h4 id="v2encoder-decoder">v2：Encoder-Decoder 结构<a class="headerlink" href="#v2encoder-decoder" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>图像 → 预训练 Backbone + Deformable Transformer RPN → 区域提议 ┐
+                                                                ├→ 统一 Transformer Decoder → 余弦相似度
+文本 → 预训练 RoBERTa ─────────────────────────────────────────┘
+</code></pre></div>
+<p>v2 的架构完全不同：
+- 图像端和文本端各有<strong>独立的预训练 Encoder</strong>（Backbone/RPN 和 RoBERTa）
+- 编码后的区域提议和文本 token <strong>拼接成序列</strong>，送入 6 层共享 Transformer Decoder
+- 在 Decoder 的多层自注意力中，图像区域提议和文本 token <strong>深度交互</strong>
+- 最终通过相似度计算完成预测</p>
+<h4 id="_7">架构变化的根本原因<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<p>v1 的纯 Siamese Encoder 只能独立编码 <span class="arithmatex">\(x\)</span> 和 <span class="arithmatex">\(y\)</span>，两者之间没有交互，理解能力有限。v2 引入 Decoder 后，图像和文本可以在多层自注意力中深度交互，理解能力更强。</p>
+<p>这个变化和 CLIP vs BEiT-3 的区别是同一个道理：
+- <strong>CLIP</strong>（双塔无交互）：推理高效，可预计算特征库，适合检索
+- <strong>BEiT-3</strong>（交叉注意力深度交互）：理解更充分，适合复杂任务</p>
+<h4 id="v2">v2 的本质<a class="headerlink" href="#v2" title="Permanent link">&para;</a></h4>
+<p>v2 可以理解为：</p>
+<div class="highlight"><pre><span></span><code>v1 的思想（统一公式 + 无任务特定头）
+  + BEiT-3 的思路（预训练 Encoder + 多模态 Decoder 深度交互）
+  + DETR 系列的区域提议（定位能力）
+  + 多任务训练工程（MT-AdamW + Conditional MoE）
+</code></pre></div>
+<p>v1 更像是一个"概念验证"——证明统一公式可行；v2 才是一个真正能用的通才模型，把当时各种最好的组件都整合进来了。</p>
+<p>唯一真正继承的就是那个<strong>统一任务公式</strong> <span class="arithmatex">\(\hat{y} = \arg\max P(x,y) \propto \exp\{\cos(\cdot)/\tau\}\)</span>——"所有任务都是编码后算相似度"这个思想。</p>
+<h4 id="v2-siamese">v2 不是 Siamese 网络<a class="headerlink" href="#v2-siamese" title="Permanent link">&para;</a></h4>
+<p>v1 论文明确自称"siamese model and shared parameters"——图像和目标通过<strong>同一个共享权重的 Transformer Encoder</strong> 独立编码，最后算相似度。这是标准的 Siamese 双塔。</p>
+<p>v2 不满足 Siamese 的两个核心特征：</p>
+<ol>
+<li><strong>编码器不共享</strong>：图像端是 Backbone + Deformable Transformer RPN，文本端是 RoBERTa，结构和权重都不同</li>
+<li><strong>有深度交互</strong>：图像区域提议和文本 token 拼接后送入 Decoder，多层自注意力中深度交互，不是"独立编码最后算相似度"</li>
+</ol>
+<p>v2 的架构更接近 <strong>Encoder-Decoder 融合模型</strong>（类似 BEiT-3 的 Multiway Transformer），而不是 Siamese 双塔。</p>
+<h3 id="_8">与其他方法的对比<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<h4 id="vs-beit-3">vs. BEiT-3<a class="headerlink" href="#vs-beit-3" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>BEiT-3</strong> 采用 masked image/text modeling 作为统一预训练目标，本质上仍是自监督预训练 + 任务特定微调的范式</li>
+<li><strong>UniPerceiver</strong> 从一开始就将所有任务统一为最大似然估计，不需要任务特定的微调头</li>
+<li>BEiT-3 在下游任务上通常需要完整的 fine-tuning pipeline，而 UniPerceiver 可以直接 zero-shot 推理</li>
+</ul>
+<h4 id="vs-ofa">vs. OFA<a class="headerlink" href="#vs-ofa" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>OFA</strong> 将所有任务统一为 seq2seq 生成框架，通过指令模板区分任务</li>
+<li><strong>UniPerceiver v2</strong> 同样统一了任务，但不依赖自回归生成来处理非生成任务（如检索），避免了自回归解码的速度瓶颈</li>
+<li>OFA 不能有效处理图文检索等非生成任务，而 UniPerceiver v2 原生支持</li>
+</ul>
+<h4 id="vs-pali-coca">vs. PaLI / CoCa<a class="headerlink" href="#vs-pali-coca" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>PaLI/CoCa</strong> 是 vision-language 预训练模型，主要关注图文对齐和生成</li>
+<li><strong>UniPerceiver v2</strong> 覆盖面更广，额外支持目标检测、实例分割等纯视觉任务</li>
+<li>PaLI 等模型仍需任务特定微调才能达到最佳性能，UniPerceiver v2 追求无微调的通用性能</li>
+</ul>
+<h4 id="vs-unified-io-pix2seq">vs. Unified-IO / Pix2Seq<a class="headerlink" href="#vs-unified-io-pix2seq" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Unified-IO</strong> 也追求统一多任务，但在检测和分割方面能力有限</li>
+<li><strong>Pix2Seq</strong> 将检测转化为序列生成，但推理速度慢且难以处理检索任务</li>
+<li><strong>UniPerceiver v2</strong> 通过区域提议编码原生支持定位任务，同时保持了检索等非生成任务的高效处理</li>
+</ul>
+<h4 id="_9">设计哲学差异总结<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>统一方式</th>
+<th>是否需要任务特定微调</th>
+<th>任务覆盖</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BEiT-3</td>
+<td>统一预训练目标</td>
+<td>✅ 需要</td>
+<td>视觉+语言</td>
+</tr>
+<tr>
+<td>OFA</td>
+<td>统一 seq2seq 生成</td>
+<td>✅ 需要</td>
+<td>视觉+语言（不含检索）</td>
+</tr>
+<tr>
+<td>PaLI/CoCa</td>
+<td>统一 VL 预训练</td>
+<td>✅ 需要</td>
+<td>视觉+语言</td>
+</tr>
+<tr>
+<td>Unified-IO</td>
+<td>统一 IO 接口</td>
+<td>部分需要</td>
+<td>视觉+语言+音频</td>
+</tr>
+<tr>
+<td>Pix2Seq</td>
+<td>统一序列生成</td>
+<td>✅ 需要</td>
+<td>视觉（检测为主）</td>
+</tr>
+<tr>
+<td><strong>UniPerceiver v2</strong></td>
+<td><strong>统一最大似然 + 区域提议</strong></td>
+<td><strong>❌ 不需要</strong></td>
+<td><strong>视觉+语言（全任务）</strong></td>
+</tr>
+</tbody>
+</table>
+<p>UniPerceiver 系列的核心设计哲学是：<strong>真正的通才模型不应该需要任何任务特定的适配</strong>。从 v1 的统一公式到 v2 的区域提议编码和 MT-AdamW，每一代都在朝着"一个模型、一套参数、所有任务"的目标迈进。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.top", "navigation.instant", "search.highlight", "content.code.copy", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

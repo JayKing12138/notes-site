@@ -1,0 +1,86 @@
+flowchart TB
+    TITLE["Dual-Channel Forward 架构图<br/>Qwen3-Omni-30B-A3B · 信息类型分工：数值→冻结 Head · 模式→Latent Token · 语义→LLM"]:::title
+
+    GPS["<b>GPS 轨迹序列</b><br/>经纬度 / 时间戳 / 速度 / 航向角"]:::input
+
+    BLUE["<b>BLUE Encoder　冻结</b><br/>cls_latent (B,128) · pooled_latent (B,128)<br/>latent_seq (B,L,128)"]:::frozen
+
+    HAND["<b>手工运动学特征</b><br/>25维：速度 / 距离 / 点数 / 方向方差等"]:::input
+
+    TITLE --> GPS
+    GPS --> BLUE
+    GPS --> HAND
+
+    subgraph HEADS["冻结任务 Head"]
+        direction LR
+
+        ADH["<b>AD Head　冻结</b><br/>cls_latent(128) → 64 → 1<br/>sigmoid → ad_score (B,1)"]:::frozen
+
+        TMIH["<b>TMI Head　冻结</b><br/>[25d + pooled(128)] = 153d<br/>→ 256 → 256 → 128 → 6"]:::frozen
+
+        TTEH["<b>TTE Head　冻结</b><br/>[25d + pooled(128)] = 153d<br/>→ 512 → 512 → 128 → 1 (log1p)"]:::frozen
+    end
+
+    BLUE --> ADH
+    BLUE --> TMIH
+    BLUE --> TTEH
+    HAND --> TMIH
+    HAND --> TTEH
+
+    subgraph CHANNELS["双通道前向传递"]
+        direction LR
+
+        subgraph CH1["Channel 1：Dense Latent 通道"]
+            direction TB
+
+            TC["<b>TrajectoryConnector　可训练</b><br/>latent_seq (B,L,128)<br/>→ Linear(512) → GELU → LN<br/>→ Linear(2048) → LN<br/>→ adaptive pool<br/>→ N 个 latent token (B,N,2048)"]:::trainable
+        end
+
+        subgraph CH2["Channel 2：Perception Token 通道"]
+            direction LR
+
+            ADP["<b>AD Projector　可训练</b><br/>1 → 256 → 2048<br/>→ ad_token"]:::trainable
+
+            TMIP["<b>TMI Projector　可训练</b><br/>6 → 256 → 2048<br/>→ tmi_token"]:::trainable
+
+            TTEP["<b>TTE Projector　可训练</b><br/>1 → 256 → 2048<br/>→ tte_token"]:::trainable
+        end
+    end
+
+    BLUE --> TC
+    ADH --> ADP
+    TMIH --> TMIP
+    TTEH --> TTEP
+
+    PREFIX["<b>拼接 Prefix</b><br/>[latent(N) | ad_token | tmi_token | tte_token | text_embedding(T)]<br/>→ (B, N+3+T, 2048) → 输入 LLM"]:::concat
+
+    TC -->|"N 个 latent token"| PREFIX
+    ADP -->|"ad_token"| PREFIX
+    TMIP -->|"tmi_token"| PREFIX
+    TTEP -->|"tte_token"| PREFIX
+
+    LLM["<b>Qwen3-Omni-30B-A3B（thinker）</b><br/>冻结 base + LoRA 可训练<br/><br/>MoE，hidden_size=2048<br/>LoRA rank=8，alpha=16<br/>target=q/k/v/o × 48层，共192个 modules，约26MB<br/><br/>Sample-level CE + 2-way restricted CE（AD）<br/>+ anomaly token 加权"]:::llm
+
+    PREFIX -->|"N + 3 个前缀 token"| LLM
+
+    OUTPUT["<b>生成文本</b><br/>Report（含 TMI / AD / TTE / Caption）<br/>MP（目的地预测）"]:::output
+
+    LLM --> OUTPUT
+
+    FOOTER["总可训练参数：Connector 5.4M + 3×Projector 5.4M + LoRA 26MB ≈ 37MB<br/>4×A100 80GB · BF16 · gradient checkpointing"]:::note
+
+    OUTPUT --> FOOTER
+
+    classDef title fill:#ffffff,stroke:#ffffff,color:#1f2937,font-size:19px,font-weight:bold;
+    classDef input fill:#fff6e8,stroke:#f0ad4e,stroke-width:1.5px,color:#374151;
+    classDef frozen fill:#edf6fb,stroke:#6baed6,stroke-width:1.5px,color:#374151;
+    classDef trainable fill:#eefaf1,stroke:#55b987,stroke-width:1.5px,color:#374151;
+    classDef concat fill:#fbf0fb,stroke:#bc6fc4,stroke-width:1.5px,color:#374151;
+    classDef llm fill:#edf6fb,stroke:#6baed6,stroke-width:1.8px,color:#374151;
+    classDef output fill:#fff0f5,stroke:#ed6d9b,stroke-width:1.8px,color:#374151;
+    classDef note fill:#ffffff,stroke:#ffffff,color:#6b7280,font-size:12px;
+
+    style HEADS fill:#ffffff,stroke:#ffffff
+    style CHANNELS fill:#ffffff,stroke:#ffffff
+    style CH1 fill:#faf7ff,stroke:#9d83d5,stroke-width:1.5px,stroke-dasharray:6 4
+    style CH2 fill:#effcf8,stroke:#42bfa5,stroke-width:1.5px,stroke-dasharray:6 4

@@ -1,0 +1,6278 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../BEiT/">
+      
+      
+        <link rel="next" href="../CLIP%20%26%20ALIGN/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>BLIP - 学习资料库</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#blip" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="学习资料库" class="md-header__button md-logo" aria-label="学习资料库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            学习资料库
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              BLIP
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="学习资料库" class="md-nav__button md-logo" aria-label="学习资料库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    学习资料库
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    学习资料库
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GENIUS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    GENIUS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GENIUS/GENIUS%20%E6%80%BB%E7%BB%93/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GENIUS 总结
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RadAlign
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RadAlign
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RadAlign/RadVLM-GRPO%20%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RadVLM-GRPO 论文精读
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RadAlign/%E5%85%B3%E9%94%AE%E4%BB%A3%E7%A0%81%E8%AF%B4%E6%98%8E/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关键代码说明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    全模态大模型·出行安全项目
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    全模态大模型·出行安全项目
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/5.27%20Qwen3.7-Max%2BGeoLife%E8%AF%84%E4%BC%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.27 Qwen3.7-Max+GeoLife评估
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/Omni-%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Omni-出行安全项目
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%B1%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    全模态大模型·出行安全项目进展
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLUE
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    BLUE
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/BLUE/BLUE%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLUE论文笔记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    论文精读笔记
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    论文精读笔记
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AAAAA_Transformer%E3%80%81LLM%E4%B8%8EVLM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AAAAA_Transformer、LLM与VLM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BBBBB_%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BBBBB_强化学习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BERT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BERT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BEiT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BEiT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLIP
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLIP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#blip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BLIP
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第0部分：四代总览
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第0部分：四代总览">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        完整列表
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        四代演进主线
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#blip-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第一部分：BLIP-1
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第一部分：BLIP-1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目录
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心要点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 背景与动机
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 背景与动机">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 两大问题
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1 两大问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        理解任务与生成任务
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-blip-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 BLIP-1 的核心思想
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 方法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 多模态混合编码器
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 三目标预训练
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 三目标预训练">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#itc-itm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ITC 与 ITM 的区别
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三个损失函数
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-capfilt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 CapFilt 数据清洗
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 CapFilt 数据清洗">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        为什么要清洗数据
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        两个组件
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        完整流程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        为什么有效
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 训练流程
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4 训练流程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stage-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 1：大规模预训练
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 2：下游任务微调
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 总结
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 总结">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 核心贡献
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 局限性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 历史定位
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#blip-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第二部分：BLIP-2
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第二部分：BLIP-2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心要点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 背景与动机
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 背景与动机">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 核心挑战
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-blip-1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 与 BLIP-1 的关系
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 方法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-q-former" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Q-Former
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 Q-Former">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        整体结构
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="整体结构">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        输入组合的三种模式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        为什么这样设计
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#learnable-queries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learnable Queries
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#self-attentionqueries-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Self-Attention：Queries 与 Text 共享
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cross-attention-queries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cross-Attention：只作用于 Queries
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ffnqueries-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FFN：Queries 与 Text 分离
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        初始化与参数量
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三种训练模式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        任务头
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs-q-former" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第一阶段 vs 第二阶段的 Q-Former
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 第一阶段：表示学习
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 第二阶段：生成学习
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-q-former-vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Q-Former vs 线性投影
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 与相关方法的对比
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 与相关方法的对比">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vs-clip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        vs CLIP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs-blip-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        vs BLIP-1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs-flamingo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        vs Flamingo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs-frozen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        vs Frozen❓
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 总结
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 总结">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 核心贡献🚗
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 局限性
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instructblip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第三部分：InstructBLIP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第三部分：InstructBLIP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心要点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 背景与动机
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 背景与动机">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-blip-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 BLIP-2 的局限性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 指令微调的成功启示
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 方法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-q-former_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 指令感知 Q-Former
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 指令感知 Q-Former">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q-former" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        原始 Q-Former 的问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        指令感知机制
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        架构
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 指令微调数据的构建
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 指令微调数据的构建">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数据集
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        指令模板设计
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数据量与划分
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 训练流程
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 训练流程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#blip-2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        前置基座：来自 BLIP-2 的两阶段预训练
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="前置基座：来自 BLIP-2 的两阶段预训练">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stage-1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 1: 表示学习
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 2: 生成对齐
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        指令微调阶段
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="指令微调阶段">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#llm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        两种 LLM 变体
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 总结
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 总结">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 核心贡献
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 局限性
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#blip-3-xgen-mm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第四部分：BLIP-3 (XGen-MM)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第四部分：BLIP-3 (XGen-MM)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心要点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 背景与动机
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 背景与动机">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-blip-2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 BLIP-2 的局限性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-blip-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 与 BLIP-2 的关系
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 开源社区的痛点
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 方法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 架构对比
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 架构对比">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        结构创新总结🚗
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-perceiver-resampler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Perceiver Resampler
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 Perceiver Resampler">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        技术溯源
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心设计
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-any-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Any-Resolution
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 Any-Resolution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        全局缩略图如何获取
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 训练流程
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 实验
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 实验">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 主要结果
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 消融实验
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 多图理解能力
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 总结
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 总结">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 核心贡献
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 局限性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 与相关方法的对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        附录：架构演进对比
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="附录：架构演进对比">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#blip-2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        关于 BLIP-2 可训练参数的说明
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        演进主线
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心洞察
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blip-bootstrap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        附注：BLIP 系列中 "Bootstrap" 的含义
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="附注：BLIP 系列中 &#34;Bootstrap&#34; 的含义">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-blip-1-bootstrapcapfilt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. BLIP-1：数据层面的 Bootstrap（CapFilt）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-blip-2-bootstrap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. BLIP-2：模型层面的 Bootstrap（冻结预训练模型）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        小结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLIP%20%26%20ALIGN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP & ALIGN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLIP%20%E6%94%B9%E8%BF%9B%E5%B7%A5%E4%BD%9C%E4%B8%B2%E8%AE%B2%EF%BC%88%E4%B8%8A%EF%BC%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP 改进工作串讲（上）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLIP%20%E6%94%B9%E8%BF%9B%E5%B7%A5%E4%BD%9C%E4%B8%B2%E8%AE%B2%EF%BC%88%E4%B8%8B%EF%BC%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP 改进工作串讲（下）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DALL%C2%B7E%202/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DALL·E 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DINO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DINO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Flamingo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Flamingo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GPT%EF%BC%8CGPT-2%EF%BC%8CGPT-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPT，GPT-2，GPT-3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ImageBind%20%E4%B8%8E%20LanguageBind%20%E5%AF%B9%E6%AF%94/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ImageBind 与 LanguageBind 对比
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InternVL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    InternVL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLaMA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLaMA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLaVA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLaVA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MAE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MAE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MoCo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MoCo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OFA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OFA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PaLI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PaLI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Qwen-VL%E4%B8%8EOmni/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qwen-VL与Omni
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SAM3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SAM3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SigLIP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SigLIP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SimVLM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SimVLM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Swin%20Transformer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Swin Transformer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UniPerceiver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UniPerceiver
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Unified-IO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unified-IO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ViLT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ViLT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ViT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ViT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ZZZZZ%E5%85%AC%E5%BC%8F%E4%BB%A3%E7%A0%81%E7%AD%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ZZZZZ公式代码等
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%8E%9F%E7%94%9F%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    原生多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%90%8E%E8%AE%AD%E7%BB%83%E7%BB%BC%E8%BF%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多模态大模型后训练综述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%9A%E6%A8%A1%E6%80%81%E8%AE%BA%E6%96%87%E4%B8%B2%E8%AE%B2%C2%B7%E4%B8%8A/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多模态论文串讲·上
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%9A%E6%A8%A1%E6%80%81%E8%AE%BA%E6%96%87%E4%B8%B2%E8%AE%B2%C2%B7%E4%B8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多模态论文串讲·下
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%AF%B9%E6%AF%94%E5%AD%A6%E4%B9%A0%E7%BB%BC%E8%BF%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    对比学习综述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%B7%B7%E5%90%88%E7%B2%BE%E5%BA%A6%E8%AE%AD%E7%BB%83%E4%B8%8E%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    混合精度训练与分布式训练
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%A7%86%E9%A2%91%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    视频多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%9F%B3%E9%A2%91%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    音频多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#blip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BLIP
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第0部分：四代总览
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第0部分：四代总览">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        完整列表
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        四代演进主线
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#blip-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第一部分：BLIP-1
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第一部分：BLIP-1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目录
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心要点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 背景与动机
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 背景与动机">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 两大问题
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1 两大问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        理解任务与生成任务
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-blip-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 BLIP-1 的核心思想
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 方法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 多模态混合编码器
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 三目标预训练
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 三目标预训练">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#itc-itm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ITC 与 ITM 的区别
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三个损失函数
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-capfilt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 CapFilt 数据清洗
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 CapFilt 数据清洗">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        为什么要清洗数据
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        两个组件
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        完整流程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        为什么有效
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 训练流程
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4 训练流程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stage-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 1：大规模预训练
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 2：下游任务微调
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 总结
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 总结">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 核心贡献
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 局限性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 历史定位
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#blip-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第二部分：BLIP-2
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第二部分：BLIP-2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心要点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 背景与动机
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 背景与动机">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 核心挑战
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-blip-1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 与 BLIP-1 的关系
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 方法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-q-former" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Q-Former
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 Q-Former">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        整体结构
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="整体结构">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        输入组合的三种模式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        为什么这样设计
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#learnable-queries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learnable Queries
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#self-attentionqueries-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Self-Attention：Queries 与 Text 共享
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cross-attention-queries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cross-Attention：只作用于 Queries
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ffnqueries-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FFN：Queries 与 Text 分离
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        初始化与参数量
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三种训练模式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        任务头
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs-q-former" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第一阶段 vs 第二阶段的 Q-Former
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 第一阶段：表示学习
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 第二阶段：生成学习
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-q-former-vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Q-Former vs 线性投影
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 与相关方法的对比
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 与相关方法的对比">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vs-clip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        vs CLIP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs-blip-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        vs BLIP-1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs-flamingo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        vs Flamingo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs-frozen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        vs Frozen❓
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 总结
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 总结">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 核心贡献🚗
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 局限性
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instructblip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第三部分：InstructBLIP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第三部分：InstructBLIP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心要点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 背景与动机
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 背景与动机">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-blip-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 BLIP-2 的局限性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 指令微调的成功启示
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 方法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-q-former_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 指令感知 Q-Former
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 指令感知 Q-Former">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q-former" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        原始 Q-Former 的问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        指令感知机制
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        架构
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 指令微调数据的构建
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 指令微调数据的构建">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数据集
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        指令模板设计
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数据量与划分
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 训练流程
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 训练流程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#blip-2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        前置基座：来自 BLIP-2 的两阶段预训练
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="前置基座：来自 BLIP-2 的两阶段预训练">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stage-1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 1: 表示学习
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 2: 生成对齐
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        指令微调阶段
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="指令微调阶段">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#llm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        两种 LLM 变体
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 总结
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 总结">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 核心贡献
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 局限性
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#blip-3-xgen-mm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第四部分：BLIP-3 (XGen-MM)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第四部分：BLIP-3 (XGen-MM)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心要点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 背景与动机
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 背景与动机">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-blip-2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 BLIP-2 的局限性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-blip-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 与 BLIP-2 的关系
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 开源社区的痛点
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 方法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 架构对比
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 架构对比">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        结构创新总结🚗
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-perceiver-resampler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Perceiver Resampler
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 Perceiver Resampler">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        技术溯源
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心设计
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-any-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Any-Resolution
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 Any-Resolution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        全局缩略图如何获取
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 训练流程
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 实验
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 实验">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 主要结果
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 消融实验
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 多图理解能力
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 总结
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 总结">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 核心贡献
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 局限性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 与相关方法的对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        附录：架构演进对比
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="附录：架构演进对比">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#blip-2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        关于 BLIP-2 可训练参数的说明
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        演进主线
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心洞察
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blip-bootstrap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        附注：BLIP 系列中 "Bootstrap" 的含义
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="附注：BLIP 系列中 &#34;Bootstrap&#34; 的含义">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-blip-1-bootstrapcapfilt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. BLIP-1：数据层面的 Bootstrap（CapFilt）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-blip-2-bootstrap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. BLIP-2：模型层面的 Bootstrap（冻结预训练模型）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        小结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>BLIP</h1>
+
+<h2 id="blip">BLIP<a class="headerlink" href="#blip" title="Permanent link">&para;</a></h2>
+<p>本笔记涵盖 Salesforce Research 的 BLIP（Bootstrapping Language-Image Pre-training）系列四代工作，展示了视觉-语言预训练从端到端训练到冻结模型 bootstrap、从固定任务到通用指令微调、从粗粒度到细粒度视觉特征的完整演进历程。</p>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>论文</th>
+<th>时间</th>
+<th>核心变化</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>BLIP-1</strong></td>
+<td><a href="https://arxiv.org/abs/2201.12086">arXiv:2201.12086</a></td>
+<td>2022.01</td>
+<td>端到端 VLP + CapFilt 数据清洗 + ITC/ITM/LM 三目标</td>
+</tr>
+<tr>
+<td><strong>BLIP-2</strong></td>
+<td><a href="https://arxiv.org/abs/2301.12597">arXiv:2301.12597</a></td>
+<td>2023.01</td>
+<td>冻结模型 + Q-Former + 两阶段 bootstrap</td>
+</tr>
+<tr>
+<td><strong>InstructBLIP</strong></td>
+<td><a href="https://arxiv.org/abs/2305.06500">arXiv:2305.06500</a></td>
+<td>2023.05</td>
+<td>指令感知 Q-Former + 26 数据集指令微调</td>
+</tr>
+<tr>
+<td><strong>BLIP-3 (XGen-MM)</strong></td>
+<td><a href="https://arxiv.org/abs/2408.08872">arXiv:2408.08872</a></td>
+<td>2024.08</td>
+<td>精选开源框架 + Perceiver Resampler 替代 Q-Former + 任意分辨率 + 多图支持</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="0">第0部分：四代总览<a class="headerlink" href="#0" title="Permanent link">&para;</a></h2>
+<h3 id="_1">完整列表<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>BLIP-1</strong>（blip.pdf，12 页，ICML 2022）：MED 统一架构 + CapFilt 数据清洗 + ITC/ITM/LM 三目标</li>
+<li><strong>BLIP-2</strong>（blip2.pdf，13 页，ICML 2023）：冻结图像编码器 + Q-Former（188M 参数）+ 两阶段 bootstrap + 冻结 LLM</li>
+<li><strong>InstructBLIP</strong>（instructblip.pdf，15 页，2023）：指令感知 Q-Former + 26 数据集指令微调（665K 样本）</li>
+<li><strong>BLIP-3 / XGen-MM</strong>（xgen_mm.pdf，12 页，2024）：Perceiver Resampler 替代 Q-Former + Any-Resolution 任意分辨率 + 四阶段训练 + 多图支持</li>
+</ol>
+<h3 id="_2">四代演进主线<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>训练范式</strong>：端到端 → Bootstrap（冻结模型）→ 指令微调 → Bootstrap + 细粒度</li>
+<li><strong>连接器</strong>：共享 Transformer → Q-Former（32 queries）→ 指令感知 Q-Former → Perceiver Resampler（替代 Q-Former，&gt;5× 压缩比）</li>
+<li><strong>任务覆盖</strong>：固定任务 → Zero-shot → 通用指令跟随（26+ 任务）→ 理解 + 生成 + 多图</li>
+<li><strong>视觉特征</strong>：全部 patch → 32 queries（静态）→ 32 queries（指令感知）→ Perceiver Resampler 压缩（支持变长输入）</li>
+<li><strong>分辨率</strong>：固定 → 固定 → 固定 → Any-Resolution（最多 12 个 384×384 tile，长边 ≤ 1536px）</li>
+</ol>
+<hr />
+<h2 id="blip-1">第一部分：BLIP-1<a class="headerlink" href="#blip-1" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>📄 <strong>论文链接</strong>：<a href="https://arxiv.org/abs/2201.12086">arXiv:2201.12086</a> | <a href="https://arxiv.org/pdf/2201.12086">PDF</a></p>
+<p><strong>作者</strong>：Junnan Li, Dongxu Li, Caiming Xiong, Steven Hoi (Salesforce Research)</p>
+<p><strong>发表</strong>：ICML 2022</p>
+</blockquote>
+<h3 id="_3">目录<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="#核心要点">核心要点</a></li>
+<li><a href="#1-背景与动机">1. 背景与动机</a></li>
+<li><a href="#2-方法">2. 方法</a></li>
+<li><a href="#3-实验">3. 实验</a></li>
+<li><a href="#4-总结">4. 总结</a></li>
+</ul>
+<h3 id="_4">核心要点<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<blockquote>
+<ol>
+<li><strong>CapFilt 数据清洗方法</strong>：提出 Captioner + Filter 的双模型框架，用 captioner 生成合成描述、用 filter 过滤低质量文本，有效解决了网络爬取数据（web text）的噪声问题</li>
+<li><strong>多模态混合编码器（MED）</strong>：统一架构同时支持基于理解的 VLM（Vision-Language Model）和基于生成的 VLGM（Vision-Language Generative Model），通过参数共享实现多任务学习</li>
+<li><strong>三目标预训练</strong>：ITC（图文对比）+ ITM（图文匹配）+ LM（语言建模），在同一个模型中同时优化理解与生成能力</li>
+<li><strong>Bootstrap 思想的首次提出</strong>：通过预训练的 BLIP 模型生成伪标签，迭代提升数据质量，为后续 BLIP-2 的 bootstrap 范式奠定基础</li>
+</ol>
+</blockquote>
+<hr />
+<h3 id="1">1. 背景与动机<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<h4 id="11">1.1 两大问题<a class="headerlink" href="#11" title="Permanent link">&para;</a></h4>
+<p>视觉-语言预训练（VLP）面临两个核心挑战：</p>
+<ol>
+<li><strong>架构设计的割裂</strong>：</li>
+<li><strong>理解模型</strong>（如 CLIP、ALBEF）：使用双编码器架构，擅长检索和分类，但不支持生成</li>
+<li><strong>生成模型</strong>（如 SimVLM）：使用编码器-解码器架构，擅长 captioning 和 VQA，但不适合检索</li>
+<li>
+<p>两类模型无法共享参数，导致训练效率低</p>
+</li>
+<li>
+<p><strong>数据质量问题</strong>：</p>
+</li>
+<li>大规模图文对通常来自网络爬取（web-crawled），包含大量噪声文本</li>
+<li>人工标注数据（如 COCO）质量高但规模小</li>
+<li>如何高效清洗大规模噪声数据是关键瓶颈</li>
+</ol>
+<h5 id="_5">理解任务与生成任务<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h5>
+<p><strong>理解任务</strong>
+- 目标：对输入做出判断、选择或分类。
+- 输出：通常是一个标签、分数、答案选项，或从有限集合中选出的结果。
+- 例子：
+  - <strong>Image-Text Retrieval</strong>：给定图像，从候选文本中找出最匹配的一个。
+  - <strong>ITM（Image-Text Matching）</strong>：判断一张图和一段文字是否匹配。
+  - <strong>VQA（选择题形式）</strong>：从几个选项中选出正确答案。
+  - <strong>Visual Reasoning</strong>：判断两个图像-文本陈述的关系（如 NLVR2）。</p>
+<p><strong>生成任务</strong>
+- 目标：根据输入生成一段新的文本。
+- 输出：一个自由形式的 token 序列，需要逐词生成。
+- 例子：
+  - <strong>Image Captioning</strong>：给一张图生成描述。
+  - <strong>VQA（开放式）</strong>：根据图像和问题生成自然语言答案。
+  - <strong>Visual Dialogue</strong>：根据图像进行多轮对话回复。</p>
+<p><strong>注意</strong>：有些任务可以两边归类。例如 VQA 既可以把答案当作固定集合里的类别（理解），也可以让模型自由生成文本（生成）。BLIP 的 MED 同时支持两种形式，所以能统一处理这两类任务。</p>
+<h4 id="12-blip-1">1.2 BLIP-1 的核心思想<a class="headerlink" href="#12-blip-1" title="Permanent link">&para;</a></h4>
+<p>BLIP-1 的核心创新可以概括为两个方面：</p>
+<p><strong>1. MED（多模态混合编码器）</strong></p>
+<p>用一个统一的 BERT-like Transformer，通过不同的注意力掩码和特殊 token，同时承担三种角色：
+- <strong>文本编码器</strong>：提取文本特征，用于 ITC。
+- <strong>图文编码器</strong>：融合图像和文本，用于 ITM。
+- <strong>图文解码器</strong>：自回归生成描述，用于 LM。</p>
+<p>三种角色<strong>共享同一套参数</strong>，让理解和生成任务互相促进。</p>
+<p><strong>2. Bootstrap + CapFilt（自举数据清洗）</strong></p>
+<p>用模型自身的预测能力来提升训练数据质量，形成正向循环。</p>
+<blockquote>
+<p><strong>词源</strong>：bootstrap 来自英语谚语 "pull oneself up by one's bootstraps"，字面意思是"拽着自己的靴带把自己提起来"，比喻<strong>不靠外部帮助，靠自身力量把自己抬升起来</strong>。在 BLIP 中，它体现为：先用初始模型生成合成描述并过滤噪声 → 用清洗后的数据训练出更好的模型 → 再用更好的模型生成更高质量的数据 → 模型继续提升。</p>
+</blockquote>
+<hr />
+<h3 id="2">2. 方法<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<h4 id="21">2.1 多模态混合编码器<a class="headerlink" href="#21" title="Permanent link">&para;</a></h4>
+<p>BLIP 提出<strong>多模态混合编码器（Multimodal Mixture of Encoder-Decoder, MED）</strong>，统一两类模型：</p>
+<p><img alt="Figure 2: BLIP 预训练架构与目标" src="../images/blip1_fig2.png" /></p>
+<p><em>Figure 2: BLIP 的预训练模型架构和目标（相同颜色的参数共享）。提出多模态混合编码器（MED），统一了基于理解的 VLM 和基于生成的 VLGM。</em></p>
+<p><strong>MED 可以看作四个子模型组成</strong>，它们通过<strong><u><em>参数共享</em></u></strong>构成统一架构：</p>
+<table>
+<thead>
+<tr>
+<th>模块</th>
+<th>初始化</th>
+<th>输入格式</th>
+<th>注意力/交互方式</th>
+<th>训练目标</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>图像编码器</strong> (image encoder)</td>
+<td>ImageNet 预训练 ViT</td>
+<td>原始图像</td>
+<td>ViT 自注意力</td>
+<td>无单独命名损失，通过 ITC/ITM/LM 接收梯度</td>
+<td>提取视觉 token 序列</td>
+</tr>
+<tr>
+<td><strong>文本编码器</strong> (text encoder)</td>
+<td>BERT</td>
+<td><code>[CLS] + 文本 token</code></td>
+<td>标准自注意力</td>
+<td>ITC</td>
+<td>提取文本特征，与图像特征对齐</td>
+</tr>
+<tr>
+<td><strong>图文编码器</strong> (image-grounded text encoder)</td>
+<td>BERT</td>
+<td><code>[Encode]/[ENC] + 文本 token</code></td>
+<td>双向自注意力 + cross-attention（关注图像编码器输出）</td>
+<td>ITM</td>
+<td>判断图文对是否匹配</td>
+</tr>
+<tr>
+<td><strong>图文解码器</strong> (image-grounded text decoder)</td>
+<td>BERT</td>
+<td><code>[Decode]/BOS + 文本 token</code></td>
+<td>因果自注意力 + cross-attention（关注图像编码器输出）</td>
+<td>LM</td>
+<td>自回归生成图像描述</td>
+</tr>
+</tbody>
+</table>
+<p><strong>参数共享</strong>：后三个文本相关模块共享同一套 BERT-like Transformer 参数，通过不同的注意力掩码和特殊 token 切换功能；图像编码器独立。</p>
+<h4 id="22">2.2 三目标预训练<a class="headerlink" href="#22" title="Permanent link">&para;</a></h4>
+<p>BLIP 同时优化三个目标：</p>
+<table>
+<thead>
+<tr>
+<th>目标</th>
+<th>类型</th>
+<th>作用</th>
+<th>注意力掩码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ITC</strong>（Image-Text Contrastive）</td>
+<td>对比学习</td>
+<td>对齐图像和文本表示，支持检索</td>
+<td>单模态编码 + 对比损失</td>
+</tr>
+<tr>
+<td><strong>ITM</strong>（Image-Text Matching）</td>
+<td>二分类</td>
+<td>判断图文对是否匹配，支持细粒度理解</td>
+<td>多模态融合编码 + 分类头</td>
+</tr>
+<tr>
+<td><strong>LM</strong>（Language Modeling）</td>
+<td>生成</td>
+<td>给定图像生成描述文本，支持 captioning</td>
+<td>多模态生成解码 + 自回归损失</td>
+</tr>
+</tbody>
+</table>
+<h5 id="itc-itm">ITC 与 ITM 的区别<a class="headerlink" href="#itc-itm" title="Permanent link">&para;</a></h5>
+<p>两者都用于对齐图像和文本，但侧重点不同：</p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>ITC</th>
+<th>ITM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>任务类型</td>
+<td>对比学习</td>
+<td>二分类</td>
+</tr>
+<tr>
+<td>模态交互</td>
+<td>无 cross-attention，图像/文本分别编码</td>
+<td>有 cross-attention 深度融合</td>
+</tr>
+<tr>
+<td>核心目标</td>
+<td>配对样本靠近、非配对样本远离</td>
+<td>判断给定图文对是否匹配</td>
+</tr>
+<tr>
+<td>关注样本</td>
+<td>所有 in-batch 负样本</td>
+<td>重点学习 hard negatives</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>相似度分数</td>
+<td>匹配概率</td>
+</tr>
+</tbody>
+</table>
+<p>简言之：<strong>ITC 负责粗粒度全局对齐，ITM 负责细粒度判别性对齐</strong>。</p>
+<p><strong>为什么 ITM 重点学习 hard negatives？</strong></p>
+<ul>
+<li><strong>负样本（negatives）</strong>：在一个 batch 中，对于某张图像，其他不匹配的文本都是负样本。</li>
+<li><strong>Easy negatives</strong>：与图像语义明显不相关的文本，模型很容易判断它们不匹配。</li>
+<li><strong>Hard negatives</strong>：与图像语义相关、看起来很像正样本但实际上不匹配，容易让模型混淆的负样本。例如一张"狗在草地上"的图，正样本是"A dog is sitting on grass"，hard negative 可能是"A dog is running on beach"——都有狗，但场景不同。</li>
+<li><strong>在 BLIP 中</strong>：ITM 的 hard negatives 是从 ITC 的相似度分数中采样得到的。ITC 会给 batch 内所有图文对打分，分数高但不配对的那些就是 hard negatives，送给 ITM 做二分类训练。这样 ITM 就专门学习区分"高度相似但不匹配"的边界情况。</li>
+</ul>
+<h5 id="_6">三个损失函数<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h5>
+<p>下面三个损失都作用于 batch 内样本。其中 ITC 属于对比学习，其基础是 InfoNCE 损失。</p>
+<p><strong>0. InfoNCE 损失（噪声对比估计）</strong></p>
+<p>InfoNCE（Noise Contrastive Estimation，中文常译为<strong>噪声对比估计</strong>）把对比学习看作一个 <span class="arithmatex">\(N\)</span> 路分类任务：给定一个 query，模型需要从 <span class="arithmatex">\(N\)</span> 个候选中找出唯一匹配的正样本，其余候选被当作"噪声"。其一般形式为：</p>
+<div class="arithmatex">\[
+\mathcal{L}_{\text{InfoNCE}} = -\log \frac{\exp\left(s(q, k_+) / \tau\right)}{\exp\left(s(q, k_+) / \tau\right) + \sum_{k_-} \exp\left(s(q, k_-) / \tau\right)}
+\]</div>
+<p>其中 <span class="arithmatex">\(s(q, k)\)</span> 是 query 与候选的相似度，<span class="arithmatex">\(k_+\)</span> 为正样本，<span class="arithmatex">\(\{k_-\}\)</span> 为负样本，<span class="arithmatex">\(\tau\)</span> 为温度系数。<span class="arithmatex">\(\tau\)</span> 越小，分布越尖锐，训练越"硬"；<span class="arithmatex">\(\tau\)</span> 越大，分布越平缓，训练越稳定。通过最大化正样本的相对概率，模型学会拉近正样本、推开负样本。</p>
+<p>设批次大小为 <span class="arithmatex">\(N\)</span>，图像编码器输出 <span class="arithmatex">\(v_i\)</span>，文本编码器输出 <span class="arithmatex">\(w_i\)</span>，温度系数为 <span class="arithmatex">\(\tau\)</span>。</p>
+<p><strong>1. ITC（Image-Text Contrastive Loss）</strong></p>
+<p>ITC 本质上就是 InfoNCE 在图文对齐上的应用。图文相似度用点积或余弦相似度计算，再经过温度缩放：</p>
+<div class="arithmatex">\[
+s_{ij} = \frac{v_i^\top w_j}{\tau}
+\]</div>
+<p>对称形式的 ITC 同时优化图像→文本和文本→图像两个方向：</p>
+<div class="arithmatex">\[
+\mathcal{L}_{\text{ITC}} = -\frac{1}{N}\sum_{i=1}^{N}\left[\log\frac{\exp(s_{ii})}{\sum_{j=1}^{N}\exp(s_{ij})} + \log\frac{\exp(s_{ii})}{\sum_{j=1}^{N}\exp(s_{ji})}\right]
+\]</div>
+<blockquote>
+<p>❓BLIP-1 实现 ITC 时使用了 <strong>momentum encoder</strong> 和 <strong>momentum queue</strong>（queue size 57600），与 ALBEF 一致，用于扩大负样本集合并稳定对比学习。</p>
+</blockquote>
+<p><strong>2. ITM（Image-Text Matching Loss）</strong></p>
+<p>二分类交叉熵损失。</p>
+<p>对图文对 <span class="arithmatex">\((I_i, T_i)\)</span> 是否匹配进行二分类，<span class="arithmatex">\(y_i \in \{0,1\}\)</span> 为标签（1=匹配，0=不匹配）：</p>
+<div class="arithmatex">\[
+\mathcal{L}_{\text{ITM}} = -\frac{1}{N}\sum_{i=1}^{N}\left[y_i\log p_i + (1-y_i)\log(1-p_i)\right]
+\]</div>
+<p>其中 <span class="arithmatex">\(p_i = \sigma(W^\top h_i^{[\text{Encode}]} + b)\)</span>，<span class="arithmatex">\(h_i^{[\text{Encode}]}\)</span> 是图文编码器中 <code>[Encode]</code> token 的输出。</p>
+<p><strong>3. LM（Language Modeling Loss）</strong></p>
+<p><strong><u><em>标准的自回归交叉熵</em></u></strong>，最大化给定图像和历史文本条件下当前 token 的概率：
+$$
+\mathcal{L}<em i="1">{\text{LM}} = -\frac{1}{N}\sum</em>, I_i\right)
+$$}^{N}\sum_{t=1}^{L_i}\log P\left(t_i^{(t)} \mid t_i^{(&lt;t)</p>
+<p>其中 <span class="arithmatex">\(t_i^{(t)}\)</span> 是第 <span class="arithmatex">\(i\)</span> 条文本的第 <span class="arithmatex">\(t\)</span> 个 token，<span class="arithmatex">\(L_i\)</span> 是文本长度。</p>
+<p><strong>联合训练的优势</strong>：
+- ITC 学到的<u><strong><em>对齐能力</em></strong></u>帮助 ITM 和 LM 更好地理解图文关系
+- LM 学到的<strong><u><em>生成能力</em></u></strong>使模型能产出流畅的文本
+- ITM 学到的<strong><u><em>细粒度匹配能力</em></u></strong>提升整体表示质量</p>
+<h4 id="23-capfilt">2.3 CapFilt 数据清洗<a class="headerlink" href="#23-capfilt" title="Permanent link">&para;</a></h4>
+<p><img alt="Figure 1: BLIP CapFilt 框架" src="../images/blip1_fig1.png" />
+<em>Figure 1: BLIP 使用 Captioner（Cap）生成合成描述，使用 Filter（Filt）过滤低质量的网络文本。</em></p>
+<h5 id="_7">为什么要清洗数据<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h5>
+<p>大规模图文预训练数据通常来自网络爬取（如 Conceptual Captions），这些数据的文本质量很差：
+- 很多文本与图像内容<strong>弱相关</strong>或<strong>不相关</strong>
+- 存在大量<strong>语法错误</strong>、<strong>关键词堆砌</strong>、<strong>广告文本</strong>
+- 高质量的<strong>人工标注数据</strong>（如 COCO）规模又太小</p>
+<p>CapFilt 的核心思路是：<strong>用模型自身的能力来清洗和增强数据</strong>，而不是直接信任网络文本。</p>
+<h5 id="_8">两个组件<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h5>
+<p>CapFilt 由两个在 COCO 等高质量数据上微调的 BLIP 模型组成：</p>
+<ol>
+<li><strong>Captioner（Cap）</strong>：图像描述生成器</li>
+<li>输入：网络图像</li>
+<li>输出：多条高质量的<strong>合成描述</strong>（synthetic captions）</li>
+<li>
+<p>作用：为每张图补充更多、更干净、更贴近图像内容的文本</p>
+</li>
+<li>
+<p><strong>Filter（Filt）</strong>：图文匹配质量评估器</p>
+</li>
+<li>输入：图像 + 文本（网络文本或合成文本）</li>
+<li>输出：该图文对是否匹配的分数</li>
+<li>作用：过滤掉低质量的噪声文本</li>
+</ol>
+<h5 id="_9">完整流程<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h5>
+<ol>
+<li><strong>生成</strong>：对每张网络图像，Captioner 生成 <span class="arithmatex">\(N\)</span> 条合成描述，与原始网络文本一起组成候选池。</li>
+<li><strong>过滤</strong>：Filter 对候选池中的每条文本打分，按阈值保留高质量样本：</li>
+<li><strong>人工标注数据</strong>：全部保留（质量最高）</li>
+<li><strong>合成文本</strong>：保留 Filter 打分高的</li>
+<li><strong>网络文本</strong>：只保留打分高的，大量噪声被过滤掉</li>
+<li><strong>重训</strong>：用清洗后的数据集重新训练 BLIP。</li>
+<li><strong>迭代</strong>：用新的 BLIP 重新训练 Captioner 和 Filter，再清洗一轮数据，形成 bootstrap 正循环。</li>
+</ol>
+<p><img alt="Figure 3: BLIP 学习框架" src="../images/blip1_fig3.png" />
+<em>Figure 3: BLIP 的学习框架。引入 captioner 为网络图像生成合成描述，引入 filter 过滤低质量的网络文本和合成文本。</em></p>
+<p><img alt="Figure 4: 文本质量示例" src="../images/blip1_fig4.png" />
+<em>Figure 4: 网络文本（Tw）和合成文本（Ts）的示例。绿色文本被 filter 接受，红色文本被过滤。</em></p>
+<h5 id="_10">为什么有效<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>合成文本比网络文本更干净</strong>：Captioner 在 COCO 上微调后，生成的描述与图像内容高度相关。</li>
+<li><strong>过滤机制去噪</strong>：Filter 能识别出与图像不匹配的文本，避免模型学到错误对应关系。</li>
+<li><strong>数据量与质量兼得</strong>：既保留了大规模网络图像，又用合成描述和过滤机制提升了文本质量。</li>
+<li><strong>Bootstrap 思想</strong>：模型越好 → 生成的合成描述越好、过滤越准 → 下一轮训练数据越好 → 模型更好。</li>
+</ul>
+<h4 id="24">2.4 训练流程<a class="headerlink" href="#24" title="Permanent link">&para;</a></h4>
+<p>BLIP-1 采用<strong>两阶段训练</strong>范式：先在大规模数据上预训练通用能力，再在下游任务上微调。</p>
+<h5 id="stage-1">Stage 1：大规模预训练<a class="headerlink" href="#stage-1" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>数据</strong>：CapFilt 清洗后的网络图文对 + 保留的人工标注数据（如 COCO）。</li>
+<li><strong>损失</strong>：同时优化 ITC、ITM、LM 三个目标。</li>
+<li><strong>目的</strong>：</li>
+<li>ITC：把图像和文本映射到同一特征空间，建立粗粒度对齐。</li>
+<li>ITM：学习细粒度图文匹配，区分 hard negatives。</li>
+<li>LM：学会根据图像生成流畅、相关的文本描述。</li>
+</ul>
+<p>这一阶段让模型获得通用的视觉-语言理解和生成能力。</p>
+<h5 id="stage-2">Stage 2：下游任务微调<a class="headerlink" href="#stage-2" title="Permanent link">&para;</a></h5>
+<p>将 Stage 1 的预训练权重加载到模型，根据不同任务选择 MED 的不同模块：</p>
+<table>
+<thead>
+<tr>
+<th>任务</th>
+<th>主要使用模块</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Image-Text Retrieval</strong></td>
+<td>图像编码器 + 文本编码器（ITC）<br>图文编码器（ITM）</td>
+<td>用 ITC 做相似度排序，ITM 可辅助精排</td>
+</tr>
+<tr>
+<td><strong>Image Captioning</strong></td>
+<td>图文解码器（LM）</td>
+<td>自回归生成图像描述</td>
+</tr>
+<tr>
+<td><strong>VQA</strong></td>
+<td>图文编码器 + 图文解码器</td>
+<td>把问题作为文本输入，先融合图像信息，再生成答案</td>
+</tr>
+</tbody>
+</table>
+<p>微调阶段数据量小，但任务标注质量高，能把 Stage 1 学到的通用能力适配到具体任务。</p>
+<hr />
+<h3 id="3">3. 总结<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<h4 id="41">4.1 核心贡献<a class="headerlink" href="#41" title="Permanent link">&para;</a></h4>
+<ol>
+<li><strong>MED 统一架构</strong>：首次在一个模型中同时支持理解和生成任务，参数共享提升效率</li>
+<li><strong>CapFilt 数据清洗</strong>：用模型自身能力提升数据质量，开创了 bootstrap 范式</li>
+<li><strong>三目标联合训练</strong>：ITC + ITM + LM 的联合优化使模型具备全面的多模态能力</li>
+</ol>
+<h4 id="42">4.2 局限性<a class="headerlink" href="#42" title="Permanent link">&para;</a></h4>
+<ul>
+<li>端到端训练计算成本高（需要同时训练 ViT 和 Transformer）</li>
+<li>CapFilt 需要迭代训练，流程复杂</li>
+<li>模型规模受限于训练资源，无法充分利用更大的预训练 LLM</li>
+</ul>
+<h4 id="43">4.3 历史定位<a class="headerlink" href="#43" title="Permanent link">&para;</a></h4>
+<p>BLIP-1 是多模态模型统一完成不同任务的早期成功尝试。它的基本思路很直接：既然编码器适合理解任务、解码器适合生成任务，那就用一个共享 Transformer 同时承担这两种角色，按任务切换使用。</p>
+<p>从这个角度看，BLIP-1 有两点值得注意的历史意义：</p>
+<ol>
+<li><strong>参数共享的初步一体化</strong>：MED 不是简单拼接多个独立模型，而是通过注意力掩码和特殊 token 让三种功能共享同一套参数，迈出了多模态统一建模的一步。</li>
+<li><strong>尚未进入 LLM 时代</strong>：BLIP-1 发表于 2022 年 1 月，文本 backbone 仍是 BERT 规模，没有以 LLM 为中心。与后来的多模态大模型（如 BLIP-2、LLaVA、GPT-4V）相比，它的任务切换仍显机械，一体化程度也有限。</li>
+</ol>
+<p>但 BLIP-1 开源、效果好，为后续多模态大模型的发展奠定了重要基础——尤其是 MED 的架构思想和 CapFilt 的 bootstrap 数据清洗范式，在后续工作中不断被继承和扩展。</p>
+<hr />
+<h2 id="blip-2">第二部分：BLIP-2<a class="headerlink" href="#blip-2" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>📄 <strong>论文链接</strong>：<a href="https://arxiv.org/abs/2301.12597">arXiv:2301.12597</a> | <a href="https://arxiv.org/pdf/2301.12597">PDF</a></p>
+<p><strong>作者</strong>：Junnan Li, Dongxu Li, Silvio Savarese, Steven Hoi (Salesforce Research)</p>
+<p><strong>发表</strong>：ICML 2023</p>
+</blockquote>
+<h3 id="_11">核心要点<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<blockquote>
+<ol>
+<li><strong>提出 Bootstrap VLP 范式</strong>：首次成功地将冻结的图像编码器和冻结的 LLM 同时有效地用于视觉-语言预训练，开创了"冻结单模态模型 + 轻量桥接模块"的新研究范式</li>
+<li><strong>Q-Former + 两阶段预训练</strong>：设计了一个轻量级 Transformer（188M 参数）作为信息瓶颈，通过 ITC+ITM+ITG 三目标让 queries 学会提取语言相关的视觉表示，再注入冻结的 LLM</li>
+<li><strong>极高的计算效率</strong>：可训练参数仅 188M，远少于同期所有 SOTA 方法（如 Flamingo 的 10.2B），单台 16-A100 机器 9 天内可完成最大模型的全部预训练</li>
+<li><strong>全面超越 Flamingo</strong>：在 zero-shot VQAv2 上超越 Flamingo80B 8.7%，同时可训练参数少 54 倍</li>
+<li><strong>缓解灾难性遗忘</strong>：通过信息瓶颈设计，Q-Former 提取与文本最相关的视觉信息，减少 LLM 的对齐负担，有效保护了 LLM 原有的语言能力</li>
+</ol>
+</blockquote>
+<p><img alt="Figure 1: BLIP-2 框架概览" src="../images/blip2_fig1.png" />
+<em>Figure 1: BLIP-2 框架概览——冻结的图像编码器 + Q-Former + 冻结的 LLM</em></p>
+<hr />
+<h3 id="1_1">1. 背景与动机<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h3>
+<p>2022 年底 ChatGPT 的爆火，进一步证明了文本模型具备较强的通用性。同期/稍早的多模态工作 Flamingo 也以 LLM 为核心，通过交叉注意力机制让 LLM 关注视觉特征，来填补文本与视觉之间的 gap。</p>
+<p>BLIP-2 同样选择冻结 LLM、专注于跨模态对齐。但与 Flamingo 不同，它设计了位于 LLM 外部的 Q-Former，将视觉特征转换为 LLM 可理解的 soft prompt，从而避免修改 LLM 内部结构，大幅降低可训练参数。</p>
+<h4 id="11_1">1.1 核心挑战<a class="headerlink" href="#11_1" title="Permanent link">&para;</a></h4>
+<p>论文指出当前视觉-语言预训练（VLP）面临三大挑战：</p>
+<blockquote>
+<p>"The cost of vision-and-language pre-training has become increasingly prohibitive due to end-to-end training of large-scale models."</p>
+</blockquote>
+<ol>
+<li><strong>计算成本过高</strong>：现有 SOTA 方法（如 BEIT-3、OFA 等）需要端到端地联合训练大规模视觉模型和语言模型，预训练代价极其昂贵</li>
+<li><strong>无法灵活利用现成的单模态预训练模型</strong>：视觉社区和 NLP 社区已有大量高质量预训练模型（如 CLIP ViT、OPT、FlanT5），但端到端 VLP 方法难以直接复用它们</li>
+<li><strong>灾难性遗忘（Catastrophic Forgetting）</strong>：如果直接微调 LLM 来做视觉-语言对齐，LLM 原有的语言能力会严重退化</li>
+</ol>
+<h4 id="12-blip-1_1">1.2 与 BLIP-1 的关系<a class="headerlink" href="#12-blip-1_1" title="Permanent link">&para;</a></h4>
+<p>BLIP-2 是 BLIP-1 的直接后续工作。关键区别在于：</p>
+<ul>
+<li><strong>BLIP-1</strong>：采用端到端的视觉-语言预训练，同时训练图像编码器和语言模型</li>
+<li><strong>BLIP-2</strong>：<strong>不再端到端训练</strong>，而是将图像编码器和 LLM 都冻结（frozen），仅训练一个轻量级的 Q-Former 模块来桥接两个冻结模型之间的模态鸿沟</li>
+</ul>
+<p>核心思想是"<strong>bootstrap</strong>"（自举/引导）——从已有的冻结单模态模型出发，用最小的可训练参数实现跨模态对齐。</p>
+<hr />
+<h3 id="2_1">2. 方法<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h3>
+<h4 id="21-q-former">2.1 Q-Former<a class="headerlink" href="#21-q-former" title="Permanent link">&para;</a></h4>
+<p>Q-Former（Querying Transformer）是 BLIP-2 的核心可训练模块：</p>
+<blockquote>
+<p>"Q-Former is a lightweight transformer which employs a set of learnable query vectors to extract visual features from the frozen image encoder. It acts as an information bottleneck between the frozen image encoder and the frozen LLM."</p>
+</blockquote>
+<p><img alt="Figure 2: Q-Former 架构与第一阶段预训练目标" src="../images/blip2_fig2.png" />
+<em>Figure 2: Q-Former 架构与第一阶段的三个预训练目标（ITC、ITG、ITM）</em></p>
+<h5 id="_12">整体结构<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h5>
+<p>Q-Former 是一个轻量级的 <strong>BERT-like Transformer</strong>（从 <code>bert-base-uncased</code> 初始化），外加 <strong>32 个可学习的 query tokens</strong>。它不是两个独立的子模块，而是一个统一的模型。理解 Q-Former 的关键在于：它既能单独处理 queries，也能单独处理文本，还能把 queries 和文本拼接在一起处理。通过这三种不同的输入组合，Q-Former 在第一阶段分别完成 ITC、ITM、ITG 三个目标，在第二阶段只输出 queries 作为视觉软提示给 LLM。</p>
+<h6 id="_13">输入组合的三种模式<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h6>
+<ul>
+<li><strong>只输入 queries</strong>：此时 queries 通过 cross-attention 关注冻结图像编码器的输出，从图像特征中提取信息。这是第二阶段连接 LLM 时的主要模式。</li>
+<li><strong>只输入 text</strong>：此时 Q-Former 退化为一个文本编码器，输出文本的上下文表示。第一阶段 ITC 中的文本侧编码就采用这种模式。</li>
+<li><strong>同时输入 queries 和 text</strong>：queries 和 text tokens 在 embedding 层被拼接为 <code>[queries; text]</code> 的序列，然后一起进入 Transformer。此时 cross-attention 仍然只作用于 queries，而 self-attention 则同时覆盖 queries 和 text。第一阶段 ITM 和 ITG 采用这种模式。</li>
+</ul>
+<h6 id="_14">为什么这样设计<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h6>
+<p>这种统一架构的好处是：
+- <strong>参数共享最大化</strong>：queries 和 text 共享 self-attention，使模型学到的对齐和生成能力可以互相迁移。
+- <strong>信息瓶颈</strong>：queries 是固定数量的视觉摘要 token，而 text 是变长的语言序列。通过让 text token 直接 attention 到 queries，模型不需要直接处理高维、可变长度的原始图像特征。
+- <strong>训练目标统一</strong>：同一个模型通过切换输入和掩码，就能分别完成对比、匹配、生成三类任务。</p>
+<h5 id="learnable-queries">Learnable Queries<a class="headerlink" href="#learnable-queries" title="Permanent link">&para;</a></h5>
+<ul>
+<li>使用 <strong>32 个可学习的 query embeddings</strong> 作为 Q-Former 的 query 输入。</li>
+<li>每个 query 维度为 768，与 Q-Former 隐藏层维度一致。</li>
+<li>Query 被视为模型参数的一部分，在训练过程中不断更新。</li>
+<li>输出表示记为 Z，大小为 32 × 768。</li>
+</ul>
+<blockquote>
+<p>"The size of Z (32 × 768) is much smaller than the size of frozen image features (e.g. 257 × 1024 for ViT-L/14). This bottleneck architecture works together with our pre-training objectives into forcing the queries to extract visual information that is most relevant to the text."</p>
+</blockquote>
+<p>queries 的作用可以类比为信息检索中的"查询请求"：它们不是从图像中被动读取所有特征，而是主动通过 cross-attention 向图像特征"提问"，筛选出与当前任务最相关的视觉信息。ITC、ITM、ITG 三个损失共同约束这些查询向量，使它们学会提取"与文本语义匹配"的视觉内容。</p>
+<h5 id="self-attentionqueries-text">Self-Attention：Queries 与 Text 共享<a class="headerlink" href="#self-attentionqueries-text" title="Permanent link">&para;</a></h5>
+<p>Q-Former 内部只有一套 self-attention 参数。当 queries 和 text 同时输入时，它们会进入同一个 self-attention 计算：</p>
+<ul>
+<li>queries 可以看到彼此，也可以看到 text tokens；</li>
+<li>text tokens 可以看到彼此，也可以看到 queries；</li>
+<li>具体能看到多少，由注意力掩码控制。</li>
+</ul>
+<p>这种共享设计让 queries 和 text 能够充分交互。例如，在 ITM 中，queries 携带的视觉信息与 text tokens 携带的语言信息可以双向融合，从而判断图文是否匹配；在 ITG 中，text token 可以 attend 到 queries 获取视觉上下文，从而生成与图像相关的描述。</p>
+<h5 id="cross-attention-queries">Cross-Attention：只作用于 Queries<a class="headerlink" href="#cross-attention-queries" title="Permanent link">&para;</a></h5>
+<p>cross-attention 是 Q-Former 与冻结图像编码器之间的桥梁：</p>
+<ul>
+<li><strong>插入频率</strong>：默认每隔一个 transformer block 插入一层 cross-attention，即在 12 层中大约有 6 层包含 cross-attention。</li>
+<li><strong>作用对象</strong>：cross-attention 只作用于 queries，text tokens 不直接参与 cross-attention。这意味着 text 不会直接看到原始图像 patch 特征，只能通过 queries 间接获取视觉信息。</li>
+<li><strong>设计意图</strong>：强制 queries 成为视觉信息的唯一"代言人"。模型必须训练 queries 把图像中所有与文本相关的信息都压缩到这 32 个向量中，然后 text 再去读取这些 queries。</li>
+</ul>
+<h5 id="ffnqueries-text">FFN：Queries 与 Text 分离<a class="headerlink" href="#ffnqueries-text" title="Permanent link">&para;</a></h5>
+<p>虽然 self-attention 共享，但 Q-Former 为 queries 和 text tokens 配备了各自独立的前馈网络（FFN）：</p>
+<ul>
+<li>queries 使用一套 FFN（在源码中对应带 <code>_query</code> 后缀的参数）；</li>
+<li>text tokens 使用另一套 FFN（标准 BERT 的 FFN）。</li>
+<li>初始化时，query 的 FFN 从 BERT 原始 FFN 复制，但在训练过程中会逐渐分化。</li>
+</ul>
+<p>为什么要分离？因为 queries 和 text tokens 的角色不同：queries 是视觉摘要，text tokens 是语言 token，它们需要的非线性变换可能不同。分离 FFN 给模型更大的灵活性，让 queries 可以专门优化视觉信息提取，text 可以专门优化语言表示。</p>
+<h5 id="_15">初始化与参数量<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>主体初始化</strong>：Q-Former 的 Transformer 主体从 <code>bert-base-uncased</code> 加载预训练权重，使其具备良好的语言先验。</li>
+<li><strong>Cross-attention 初始化</strong>：新增的 cross-attention 层随机初始化，因为 BERT 原本没有 cross-attention。</li>
+<li><strong>Query tokens 初始化</strong>：32 个 query embeddings 随机初始化，从零开始学习。</li>
+<li><strong>总参数量</strong>：188M。</li>
+</ul>
+<p><strong>Q-Former 比 BERT-base 更大吗？</strong> 是的。BERT-base 约有 110M 参数，而 Q-Former 达到 188M。新增的参数主要来自两个部分：一是 queries 的独立 FFN（12 层，每层额外一个 <code>intermediate_query</code> + <code>output_query</code>），大约增加 57M；二是每隔一层插入的 cross-attention（约 6 层），大约增加 14M。32 个 learnable query embeddings 本身只有约 25K 参数，可以忽略。因此 Q-Former 虽然继承 BERT-base 的语言先验，但为了同时服务 queries 和 text、并建立与冻结图像编码器的 cross-attention，总参数量明显大于 BERT-base。</p>
+<h5 id="_16">三种训练模式<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h5>
+<table>
+<thead>
+<tr>
+<th>目标</th>
+<th>输入方式</th>
+<th>Query-Text 交互方式</th>
+<th>设计目的</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ITC</strong></td>
+<td>queries 和 text 分别走<strong><u><em>两次独立 forward</em></u></strong></td>
+<td>不在同一个 self-attention 中计算，天然隔离</td>
+<td>让图像表示和文本表示分别独立编码，再计算相似度。如果它们共享 self-attention，相似度计算会信息泄露，失去对比意义。</td>
+</tr>
+<tr>
+<td><strong>ITG</strong></td>
+<td>queries 和 text <strong><u><em>拼接</em></u></strong>，text 自回归生成</td>
+<td>Queries 可见彼此但不可见 text；每个 text token 可见所有 queries 及其前面的 text tokens</td>
+<td>让模型像语言模型一样自回归生成文本，同时通过 queries 获取视觉上下文。queries 作为视觉前缀，对所有 text token 可见。</td>
+</tr>
+<tr>
+<td><strong>ITM</strong></td>
+<td>queries 和 text <strong><u><em>拼接</em></u></strong>在同一个 forward 中</td>
+<td>所有 queries 和 text tokens 互相可见（双向 attention）</td>
+<td>让视觉信息和文本信息充分融合，从而判断当前图文对是否匹配。</td>
+</tr>
+</tbody>
+</table>
+<h5 id="_17">任务头<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h5>
+<p>Q-Former 的 Transformer 主体是共享的，但三个预训练目标需要不同的输出语义，因此分别为它们配备了独立的任务头：</p>
+<ul>
+<li>
+<p><strong>ITC 头</strong>：一对线性投影层，分别把 query 输出和文本 <code>[CLS]</code> 输出映射到一个共同的低维对比空间。图像侧投影把 32 个 query 向量变成对比向量，文本侧投影把 <code>[CLS]</code> 向量也变成同一空间的向量；图文相似度通过计算两组向量之间的余弦相似度得到。因为每个图像有 32 个 query，实际计算时会取与文本表示最相似的那个 query 作为该图像的代表。</p>
+</li>
+<li>
+<p><strong>ITM 头</strong>：一个二分类线性层，输入是 query 向量，输出两个 logit。在 ITM 中，queries 和 text 拼接后经过双向 self-attention 充分交互，每个 query 都获得了融合后的图文信息；随后每个 query 独立过这个二分类头，最后把所有 query 的 logit 取平均，作为整张图与整段文本是否匹配的预测分数。</p>
+</li>
+<li>
+<p><strong>ITG 头</strong>：一个自回归语言建模头，本质上把每个隐藏状态投影到词表维度，用来预测下一个文本 token。ITG 采用 queries 与 text 拼接的输入方式，text token 只能看到前面的 text 和全部 queries，从而迫使模型在生成每个词时都从 queries 中读取视觉信息。这个头与 Q-Former 内部的文本生成能力是同一套参数，只是通过不同的输入掩码切换到生成模式。</p>
+</li>
+</ul>
+<p>这三个头都挂接在同一个 BERT-like Transformer 之上。第一阶段训练时，模型会根据当前目标选择对应的输入组合和任务头，三个损失同时反向传播并更新共享的 Transformer 参数。这种设计让 Q-Former 既能学习图文对齐（ITC），又能学习细粒度匹配（ITM），还能学习基于图像的文本生成（ITG），而这些能力最终都沉淀在共享的 query 表示中。</p>
+<h5 id="vs-q-former">第一阶段 vs 第二阶段的 Q-Former<a class="headerlink" href="#vs-q-former" title="Permanent link">&para;</a></h5>
+<p><strong>第一阶段（表示学习）</strong>：
+- Q-Former 连接到冻结的图像编码器。
+- 根据 ITC/ITM/ITG 的需要，灵活选择输入组合：
+  - ITC：queries 和 text 分别编码；
+  - ITM/ITG：queries 和 text 拼接编码。
+- 通过三个损失训练 queries，使其学会从图像中提取语言相关的视觉信息。</p>
+<p><strong>第二阶段（生成学习）</strong>：
+- Q-Former 仍然连接到冻结的图像编码器，但不再输入任何外部文本。
+- 只输入 32 个 queries，输出 32 个提纯后的视觉 token。
+- 这些视觉 token 经过一个线性投影层，映射到 LLM 的文本嵌入维度，作为 soft visual prompts 拼接到 LLM 输入前面。
+- 用户的文本 prompt 直接输入 LLM，不经过 Q-Former。</p>
+<p>两个阶段 Q-Former 的权重是共享并继续微调的：第一阶段学到的"如何从图像中提取语言相关信息"的能力，在第二阶段被用来生成高质量视觉提示，驱动冻结 LLM 完成视觉-语言生成任务。</p>
+<h4 id="22_1">2.2 第一阶段：表示学习<a class="headerlink" href="#22_1" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>"In the representation learning stage, we connect Q-Former to a frozen image encoder and perform pre-training using image-text pairs. We aim to train the Q-Former such that the queries can learn to extract visual representation that is most informative of the text."</p>
+</blockquote>
+<p>连接方式：Q-Former 连接到冻结的图像编码器（ViT-L/14 from CLIP 或 ViT-g/14 from EVA-CLIP）。</p>
+<p><strong>三个联合优化目标</strong>（继承自 BLIP-1，共享相同输入格式和模型参数）：</p>
+<p><strong>（1）Image-Text Contrastive Learning (ITC)</strong>
+- 学习对齐图像表示和文本表示，最大化互信息
+- 将 query 输出 Z 与文本 [CLS] token 的输出 t 进行对比
+- 由于 Z 包含多个 query 输出，<strong><u><em>先计算每个 query 与 t 的相似度，取最高值作为图文相似度</em></u></strong>
+- queries 和 text <strong>分别走两次独立的 Q-Former forward</strong>，避免信息泄露
+- 由于图像编码器冻结，每 GPU 可容纳更多样本，因此使用 <strong>in-batch negatives</strong> 代替 BLIP-1 中的 momentum queue</p>
+<p><strong>（2）Image-grounded Text Generation (ITG)</strong>
+- 训练 Q-Former 在给定图像条件下生成文本
+- 由于架构不允许冻结图像编码器与 text tokens 直接交互，生成文本所需的信息必须先被 queries 提取，再通过 self-attention 传递给 text tokens
+- 这迫使 queries 提取捕获文本所有信息的视觉特征
+- 使用 <strong>multimodal causal self-attention mask</strong>（类似 UniLM）
+- 用新的 [DEC] token 替换 [CLS] token 以标识解码任务
+- 与 ITC 取最大相似度、ITM 对 query logit 取平均不同，<strong>ITG 不聚合多个 query 为一个标量</strong>。所有 32 个 query 作为固定长度的视觉前缀与 text tokens 拼接，每个 text token 在预测下一个词时都能看到全部 queries，把视觉信息当作上下文来生成文本</p>
+<blockquote>
+<p><strong>ITG 与 BLIP-1 的 LM 是什么关系？</strong></p>
+<p>两者本质上是<strong>同一个目标函数</strong>，都是自回归的文本生成损失 <span class="arithmatex">\(-\log P(t_t \mid t_{&lt;t}, \text{image})\)</span>，也都使用因果自注意力掩码。</p>
+<p>区别在于架构：
+- <strong>BLIP-1 的 LM</strong>：文本 decoder 直接 cross-attention 到完整图像 patch 特征。
+- <strong>BLIP-2 的 ITG</strong>：文本 token 先 attention 到压缩后的 query 向量，query 再 cross-attention 到图像特征。这强制 query 提取出生成文本所需的全部视觉信息。</p>
+<p>因此可以把 ITG 看作 LM 在 Q-Former bottleneck 架构下的等价变体。</p>
+</blockquote>
+<p><strong>（3）Image-Text Matching (ITM)</strong>
+- 二分类任务：预测图文对是否匹配
+- 使用 <strong>bi-directional self-attention mask</strong>，所有 queries 和 text 互相可见
+- <u><em>每个 query</em></u> embedding 送入二分类线性分类器，<strong><u><em>logits 取平均作为匹配分数</em></u></strong>
+- 采用 hard negative mining 策略</p>
+<p><strong>预训练设置</strong>：250k steps，batch size 2320 (ViT-L) / 1680 (ViT-g)。</p>
+<h4 id="23">2.3 第二阶段：生成学习<a class="headerlink" href="#23" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>"In the generative pre-training stage, we connect Q-Former (with the frozen image encoder attached) to a frozen LLM to harvest the LLM's generative language capability."</p>
+</blockquote>
+<p><img alt="Figure 3: 第二阶段视觉-语言生成预训练" src="../images/blip2_fig3.png" />
+<em>Figure 3: BLIP-2 的第二阶段视觉到语言生成预训练，从冻结的大语言模型中引导生成能力</em></p>
+<p><strong>连接方式</strong>：
+- 使用一个<strong>全连接层（FC layer）</strong> 将 Q-Former 输出的 query embeddings Z 线性投影到 LLM 文本嵌入的维度
+- 投影后的 query embeddings 被<strong>前置拼接（prepended）</strong> 到输入文本嵌入之前
+- 它们充当 <strong>soft visual prompts</strong>，使 LLM 以 Q-Former 提取的视觉表示为条件</p>
+<blockquote>
+<p>"Since the Q-Former has been pre-trained to extract language-informative visual representation, it effectively functions as an information bottleneck that feeds the most useful information to the LLM while removing irrelevant visual information. This reduces the burden of the LLM to learn vision-language alignment, thus mitigating the catastrophic forgetting problem."</p>
+</blockquote>
+<p><strong>两种 LLM 类型的适配</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>LLM 类型</th>
+<th>代表模型</th>
+<th>输入结构</th>
+<th>注意力方式</th>
+<th>预训练损失</th>
+<th>具体做法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Decoder-based</td>
+<td>OPT</td>
+<td><code>[visual prompts] + [text prompt] + [target text]</code> 拼成一条完整序列</td>
+<td>整个序列采用<strong>因果自注意力</strong></td>
+<td>Language Modeling loss</td>
+<td>视觉 prompt、文本 prompt 和目标文本全部输入 decoder-only 的 OPT；训练时把视觉 prompt 和文本 prompt 对应的 label 设为 <code>-100</code>，只让模型学习预测后面的目标文本</td>
+</tr>
+<tr>
+<td>Encoder-Decoder-based</td>
+<td>FlanT5</td>
+<td>Encoder: <code>[visual prompts] + [prefix]</code>；Decoder: <code>[suffix]</code></td>
+<td>Encoder 内部是<strong>双向注意力</strong>，Decoder 是<strong>因果自注意力</strong></td>
+<td>Prefix Language Modeling loss</td>
+<td>文本显式拆成 prefix（条件/问题）和 suffix（目标/答案）；prefix 与视觉 prompt 一起输入 encoder；decoder 以 encoder 输出为上下文，自回归生成 suffix，损失只作用于 suffix 的 token</td>
+</tr>
+</tbody>
+</table>
+<p>两种适配方式的核心差异可以概括如下：</p>
+<ul>
+<li>
+<p><strong>Decoder-based（OPT）——标准语言建模损失</strong>：视觉 prompt 与文本 prompt、目标文本拼接成一个完整序列，整体输入给 decoder-only 的 OPT。OPT 用因果自注意力逐个预测下一个 token，训练时 prompt 部分不参与损失，损失只作用于目标文本。它适用于直接生成一段完整文本，例如图像描述。</p>
+</li>
+<li>
+<p><strong>Encoder-Decoder-based（FlanT5）——Prefix 语言建模损失</strong>：文本被拆成 prefix（输入/问题）和 suffix（目标/答案）。prefix 和视觉 prompt 一起输入 encoder，encoder 内部是双向注意力；decoder 以 encoder 输出为条件，自回归生成 suffix，损失只作用于 suffix 的 token。它适用于有明确输入-输出结构的任务，例如 VQA（问题作为 prefix，答案作为 suffix）。</p>
+</li>
+</ul>
+<p>简单说：<strong>OPT 是整个序列一起因果生成；FlanT5 是 encoder 双向理解 prefix+视觉信息，decoder 专门生成 suffix。</strong></p>
+<p><strong>预训练设置</strong>：80k steps，batch size 1920 (OPT) / 1520 (FlanT5)。</p>
+<p><strong>训练效率</strong>：使用单台 16-A100 (40G) 机器，最大模型（ViT-g + FlanT5-XXL）第一阶段不到 6 天，第二阶段不到 3 天。</p>
+<h4 id="24-q-former-vs">2.4 Q-Former vs 线性投影<a class="headerlink" href="#24-q-former-vs" title="Permanent link">&para;</a></h4>
+<p>论文虽未直接用一段话对比"线性投影 vs Q-Former"，但从多处论述可以归纳出以下原因：</p>
+<p><img alt="Figure 5: 视觉-语言表示学习的效果" src="../images/blip2_fig5.png" />
+<em>Figure 5: 视觉-语言表示学习对性能的影响——没有第一阶段会导致性能大幅下降和灾难性遗忘</em></p>
+<ol>
+<li>
+<p>🚗<strong>信息瓶颈的必要性</strong>：冻结图像编码器的输出（如 ViT-L/14 的 257×1024）包含大量与文本无关的视觉信息。简单线性投影无法有效筛选信息，会将大量噪声传给 LLM，加重 LLM 的对齐负担并导致灾难性遗忘。Q-Former 通过 32 个 learnable queries + bottleneck 架构 + 三目标预训练，<strong>强制提取"与文本最相关的视觉信息"</strong></p>
+</li>
+<li>
+<p><strong>两阶段设计的需要</strong>：Q-Former 不仅要做维度映射，还要在<strong>第一阶段学会"理解"视觉-语言对齐关系（通过 ITC+ITM+ITG）</strong>，然后在<strong>第二阶段将这种理解传递给 LLM</strong>。简单线性投影没有这种学习能力🚗</p>
+</li>
+<li>
+<p><strong>实验证据</strong>：Figure 5 显示，如果没有第一阶段的表示学习（相当于退化为类似 Flamingo Perceiver Resampler 的纯生成学习方式），性能大幅下降，OPT 甚至出现严重的灾难性遗忘。这说明 Q-Former 配合两阶段预训练的设计是不可替代的</p>
+</li>
+<li>
+<p><strong>固定长度输出</strong>：Q-Former 输出固定数量的特征（32 个），与输入图像分辨率无关，这为连接不同 LLM 提供了统一的接口</p>
+</li>
+</ol>
+<hr />
+<h3 id="3_1">3. 与相关方法的对比<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h3>
+<h4 id="vs-clip">vs CLIP<a class="headerlink" href="#vs-clip" title="Permanent link">&para;</a></h4>
+<ul>
+<li>CLIP 是双编码器架构，仅支持检索类任务，不支持生成任务</li>
+<li>BLIP-2 通过 Q-Former + LLM 实现了生成能力，且在检索任务上也超越 CLIP</li>
+</ul>
+<h4 id="vs-blip-1">vs BLIP-1<a class="headerlink" href="#vs-blip-1" title="Permanent link">&para;</a></h4>
+<ul>
+<li>BLIP-1 端到端训练，可训练参数多（385M-583M）</li>
+<li>BLIP-2 冻结单模态模型，仅训练 188M 参数的 Q-Former，计算效率大幅提升</li>
+<li>BLIP-2 在所有 benchmark 上全面超越 BLIP-1</li>
+</ul>
+<h4 id="vs-flamingo">vs Flamingo<a class="headerlink" href="#vs-flamingo" title="Permanent link">&para;</a></h4>
+<p>需要明确的是，<strong>BLIP-2 把 Flamingo 当作相关工作和对比基线，而不是灵感来源</strong>。两者属于同一研究方向（连接冻结视觉编码器与冻结 LLM）下的不同技术路线。</p>
+<ul>
+<li><strong>Flamingo</strong>：在 LLM 内部插入新的 cross-attention 层，需要在数十亿图文对上预训练这些新层，可训练参数高达 10.2B。</li>
+<li><strong>BLIP-2</strong>：在 LLM 外部使用 Q-Former 作为信息瓶颈，仅需 108M 可训练参数，在 zero-shot VQAv2 上超越 Flamingo80B 8.7%。</li>
+<li><strong>对齐方式不同</strong>：Flamingo 仅使用 language modeling loss 做对齐，BLIP-2 认为这不足以桥接模态鸿沟，因此采用两阶段策略（先表示学习，再生成学习），效果更好。</li>
+</ul>
+<h4 id="vs-frozen">vs Frozen❓<a class="headerlink" href="#vs-frozen" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Frozen 直接微调图像编码器使其输出作为 LLM 的 soft prompts，对齐效果有限</li>
+<li>BLIP-2 通过 Q-Former 的两阶段预训练实现了远优于 Frozen 的对齐效果（VQA acc: 65.0 vs 29.6）</li>
+</ul>
+<hr />
+<h3 id="4">4. 总结<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<h4 id="41_1">4.1 核心贡献🚗<a class="headerlink" href="#41_1" title="Permanent link">&para;</a></h4>
+<ol>
+<li>
+<p><strong>提出了通用的 Bootstrap VLP 范式</strong>：首次成功地将冻结的图像编码器和冻结的 LLM 同时有效地用于视觉-语言预训练，开创了"冻结单模态模型 + 轻量桥接模块"的新研究范式</p>
+</li>
+<li>
+<p><strong>设计了 Q-Former + 两阶段预训练策略</strong>：</p>
+</li>
+<li>第一阶段通过 ITC+ITM+ITG 三目标让 queries 学会提取语言相关的视觉表示</li>
+<li>第二阶段通过 FC 层将 queries 输出作为 soft visual prompts 注入 LLM</li>
+<li>
+<p>信息瓶颈设计有效缓解了灾难性遗忘</p>
+</li>
+<li>
+<p><strong>极高的计算效率</strong>：可训练参数约 188M（与 Q-Former 参数量一致），远少于同期 SOTA 方法（如 Flamingo80B 的 10.2B，约 54 倍），单台 16-A100 机器 9 天内可完成最大模型的全部预训练。论文 Table 2 中部分 LLM 组合（ViT-g + OPT6.7B / FlanT5XXL）列出的可训练参数约为 103M–108M，但论文未明确解释该口径与 Q-Former 188M 的差异，因此统一以 188M 作为 BLIP-2 可训练参数的代表性数字。</p>
+</li>
+<li>
+<p><strong>Zero-shot instructed image-to-text generation</strong>：展示了遵循自然语言指令的零样本图像到文本生成能力，包括视觉知识推理、视觉对话、视觉常识推理、故事创作等涌现能力</p>
+</li>
+<li>
+<p><strong>可扩展性验证</strong>：证明了更强的图像编码器或更强的 LLM 都能带来性能提升，验证了该框架能持续受益于单模态领域的进展</p>
+</li>
+</ol>
+<h4 id="42_1">4.2 局限性<a class="headerlink" href="#42_1" title="Permanent link">&para;</a></h4>
+<p><img alt="Figure 6: 错误输出示例" src="../images/blip2_fig6.png" />
+<em>Figure 6: BLIP-2 在指令式 zero-shot 图像到文本生成中的错误输出示例</em></p>
+<ul>
+<li>未观察到 in-context learning 能力提升 VQA 性能，归因于预训练数据每条样本仅含单个图文对</li>
+<li>图像到文本生成可能因 LLM 知识不准确、推理路径错误或信息过时而产生错误输出（如 Figure 6 所示）</li>
+<li>继承了冻结 LLM 的风险（攻击性语言、社会偏见、隐私泄露等）</li>
+<li><strong>视觉特征静态化</strong>：Q-Former 提取的 32 个 query embeddings 是任务无关的，无论用户指令如何变化，提取的视觉表示都相同，限制了模型根据不同指令关注图像不同方面的能力</li>
+</ul>
+<hr />
+<h2 id="instructblip">第三部分：InstructBLIP<a class="headerlink" href="#instructblip" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>📄 <strong>论文链接</strong>：<a href="https://arxiv.org/abs/2305.06500">arXiv:2305.06500</a> | <a href="https://arxiv.org/pdf/2305.06500">PDF</a></p>
+<p><strong>作者</strong>：Wenliang Dai, Junnan Li, Dongxu Li 等 (Salesforce AI Research, HKUST, NUS)</p>
+<p><strong>发表</strong>：2023</p>
+</blockquote>
+<h3 id="_18">核心要点<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<blockquote>
+<ol>
+<li><strong>提出指令感知的 Q-Former</strong>：首次将指令信息注入视觉特征提取过程，使模型能够根据自然语言指令动态地从图像中提取任务相关的视觉表示</li>
+<li><strong>构建大规模视觉语言指令微调数据集</strong>：整合 26 个数据集、约 665K 条样本，覆盖图像和视频的多种任务类型，并设计了多样化的指令模板</li>
+<li><strong>实现通用视觉语言模型</strong>：通过指令微调和指令感知机制，InstructBLIP 在 26+ 个基准测试上展现了强大的零样本泛化能力，显著超越了 BLIP-2 和 LLaVA</li>
+<li><strong>核心洞察</strong>：视觉特征的提取不应该是静态的，而应该根据用户的意图动态调整</li>
+</ol>
+</blockquote>
+<p><img alt="Figure 3: InstructBLIP 模型架构" src="../images/instructblip_fig3.png" />
+<em>Figure 3: InstructBLIP 的模型架构。Q-Former 提取指令感知的视觉特征，根据文本指令适应不同的视觉语言任务。</em></p>
+<hr />
+<h3 id="1_2">1. 背景与动机<a class="headerlink" href="#1_2" title="Permanent link">&para;</a></h3>
+<h4 id="11-blip-2">1.1 BLIP-2 的局限性<a class="headerlink" href="#11-blip-2" title="Permanent link">&para;</a></h4>
+<p>BLIP-2 虽然在 zero-shot 任务上表现出色，但存在两个关键问题：</p>
+<ol>
+<li>
+<p><strong>缺乏通用性</strong>：BLIP-2 主要面向固定的、预定义的任务（如 image captioning、VQA），无法灵活地根据用户的自然语言指令来完成多样化的视觉语言任务</p>
+</li>
+<li>
+<p><strong>视觉特征静态化</strong>：Q-Former 使用一组固定的 learnable queries 从视觉编码器中提取视觉特征。这些 queries 是<strong>任务无关的</strong>，无论用户想要什么信息，提取的视觉表示都是相同的</p>
+</li>
+</ol>
+<h4 id="12">1.2 指令微调的成功启示<a class="headerlink" href="#12" title="Permanent link">&para;</a></h4>
+<p>NLP 领域中，instruction tuning 被证明能显著提升 LLM 的泛化能力和对人类意图的理解能力（如 InstructGPT、FLAN）。InstructBLIP 将这一思想引入视觉语言领域。</p>
+<hr />
+<h3 id="2_2">2. 方法<a class="headerlink" href="#2_2" title="Permanent link">&para;</a></h3>
+<h4 id="21-q-former_1">2.1 指令感知 Q-Former<a class="headerlink" href="#21-q-former_1" title="Permanent link">&para;</a></h4>
+<p>这是 InstructBLIP 最核心的技术创新。</p>
+<h5 id="q-former">原始 Q-Former 的问题<a class="headerlink" href="#q-former" title="Permanent link">&para;</a></h5>
+<p>BLIP-2 中的 Q-Former 使用一组固定的 learnable queries 从视觉编码器中提取视觉特征。这些 queries 是<strong>任务无关的</strong>，无论用户想要什么信息，提取的视觉表示都是相同的。这导致模型无法根据不同指令关注图像的不同方面。</p>
+<h5 id="_19">指令感知机制<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h5>
+<p>InstructBLIP 把<strong>指令文本的 token 和 learnable queries 一起输入同一个 Q-Former</strong>，让 queries 在 self-attention 阶段就能感知到指令内容，从而提取与当前指令相关的视觉特征。具体做法如下：</p>
+<ol>
+<li>
+<p><strong>共享词嵌入层</strong>：指令文本和 BLIP-2 中的普通文本一样，先经过 Q-Former 的 word embedding 层得到 token embeddings。<strong>不存在一个独立于 Q-Former 之外的指令编码器</strong>。</p>
+</li>
+<li>
+<p><strong>queries 与指令 token 拼接</strong>：32 个 learnable query embeddings 与指令 token embeddings 在序列维度上拼接为 <code>[queries; instruction]</code>，然后一起进入 Q-Former 的 Transformer 层。</p>
+</li>
+<li>
+<p><strong>通过 self-attention 交互</strong>：在每一层中，queries 和 instruction tokens <strong>共享同一套 self-attention</strong>。这意味着 queries 可以看到所有指令 token，指令 token 也可以看到所有 queries，二者在 self-attention 中完成信息融合。Queries 借此“理解”指令意图。</p>
+</li>
+<li>
+<p><strong>Cross-attention 仍只作用于 query 位置</strong>：Q-Former 中的 image cross-attention 与 BLIP-2 保持一致，仍然只把前 32 个 query 位置作为 query 去 attend 冻结图像编码器的输出，并每隔一个 transformer block 插入一层。Instruction tokens 虽然和 queries 在同一个序列中参与 self-attention，但它们本身并不直接对图像做 cross-attention。并没有新增的“instruction cross-attention”层。</p>
+</li>
+<li>
+<p><strong>效果</strong>：经过指令条件化后，queries 会根据指令语义“知道”应该从图像中提取什么信息。例如：</p>
+</li>
+<li>当指令是“描述图中人物的表情”时，queries 会更关注人脸区域；</li>
+<li>当指令是“识别图中的文字”时，queries 会更关注文本区域。</li>
+</ol>
+<h5 id="_20">架构<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>Q-Former</strong>：直接继承 BLIP-2 的 Q-Former，包含 <strong>32 个 learnable queries</strong>、<strong>12 层 BERT-like Transformer</strong>，self-attention 由 queries 和指令 token 共享，cross-attention 每隔一层插入且只面向冻结图像编码器。</li>
+<li><strong>指令输入</strong>：用户的自然语言指令被 tokenize 后，与 queries 拼接进入 Q-Former；没有新增独立的指令编码器或指令 cross-attention。</li>
+<li><strong>输出投影</strong>：最终输出的 32 个 query embeddings 通过一个<strong>全连接投影层</strong>映射到 LLM 的输入空间，作为 LLM 的 soft visual prompt。</li>
+<li><strong>冻结组件</strong>：视觉编码器和 LLM 在指令微调阶段保持冻结，只有 Q-Former 和投影层参与训练。</li>
+</ul>
+<h4 id="22_2">2.2 指令微调数据的构建<a class="headerlink" href="#22_2" title="Permanent link">&para;</a></h4>
+<h5 id="_21">数据集<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h5>
+<p>InstructBLIP 构建了涵盖 <strong>26 个数据集</strong>的指令微调语料库，覆盖以下任务类型：</p>
+<p><img alt="Figure 2: 指令微调任务与数据集" src="../images/instructblip_fig2.png" />
+<em>Figure 2: 用于视觉语言指令微调的任务及其对应的数据集。数据集涵盖了多样化的任务类型和指令形式。</em></p>
+<table>
+<thead>
+<tr>
+<th>任务类别（论文中的 11 类）</th>
+<th>数据集示例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Image Captioning</td>
+<td>COCO Caption, NoCaps, Flickr30K</td>
+<td>图像描述生成</td>
+</tr>
+<tr>
+<td>Image Captioning with Reading Comprehension</td>
+<td>TextCaps</td>
+<td>需阅读图中文字后生成描述</td>
+</tr>
+<tr>
+<td>Visual Reasoning</td>
+<td>GQA, VSR, IconQA</td>
+<td>视觉推理</td>
+</tr>
+<tr>
+<td>Image Question Answering</td>
+<td>VQAv2, VizWiz</td>
+<td>视觉问答</td>
+</tr>
+<tr>
+<td>Knowledge-grounded Image QA</td>
+<td>OK-VQA, A-OKVQA, ScienceQA</td>
+<td>知识驱动的视觉问答</td>
+</tr>
+<tr>
+<td>Image Question Answering with Reading Comprehension</td>
+<td>OCR-VQA, TextVQA</td>
+<td>需阅读图中文字的问答</td>
+</tr>
+<tr>
+<td>Image Question Generation</td>
+<td>VQAv2, OKVQA, A-OKVQA</td>
+<td>根据图像生成问题</td>
+</tr>
+<tr>
+<td>Visual Conversational QA</td>
+<td>Visual Dialog</td>
+<td>视觉对话问答</td>
+</tr>
+<tr>
+<td>Video Question Answering</td>
+<td>MSVD-QA, MSRVTT-QA, iVQA</td>
+<td>视频问答</td>
+</tr>
+<tr>
+<td>Image Classification</td>
+<td>HatefulMemes</td>
+<td>图像分类</td>
+</tr>
+<tr>
+<td>LLaVA-Instruct-150K</td>
+<td>LLaVA-Instruct-150K</td>
+<td>开放式指令跟随对话与推理</td>
+</tr>
+</tbody>
+</table>
+<h5 id="_22">指令模板设计<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h5>
+<p>对于每个数据集，作者设计了<strong>多样化的指令模板</strong>，将原始数据转换为指令-响应对：</p>
+<ul>
+<li><strong>同一任务多种表述</strong>：例如图像描述可以有 "Describe this image." "What is shown in this picture?" "Provide a detailed description of the image." 等多种指令形式。</li>
+<li><strong>任务特定的指令</strong>：VQA 任务直接使用问题作为指令；分类任务使用 "What is this?" 等。</li>
+<li><strong>上下文丰富的指令</strong>：部分指令包含额外上下文信息，如 "Based on the image, answer the following question: ..."</li>
+</ul>
+<h5 id="_23">数据量与划分<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h5>
+<ul>
+<li>共整合 <strong>26 个公开数据集</strong>，覆盖 <strong>11 类任务</strong>。</li>
+<li>其中 <strong>13 个 held-in 数据集</strong>用于指令微调，<strong>13 个 held-out 数据集</strong>用于 zero-shot 泛化评估。</li>
+<li>视频数据（MSVD-QA、MSRVTT-QA、iVQA）在输入时均匀采样 4 帧，分别过图像编码器和 Q-Former，再把视觉特征拼接后送入 LLM。</li>
+</ul>
+<h4 id="23_1">2.3 训练流程<a class="headerlink" href="#23_1" title="Permanent link">&para;</a></h4>
+<p>InstructBLIP 的训练分为两大阶段：<strong>BLIP-2 前置预训练</strong>（直接继承）+ <strong>InstructBLIP 指令微调</strong>。</p>
+<h5 id="blip-2_1">前置基座：来自 BLIP-2 的两阶段预训练<a class="headerlink" href="#blip-2_1" title="Permanent link">&para;</a></h5>
+<p>这两步不是 InstructBLIP 新提出的，而是直接复用 BLIP-2 的训练流程：</p>
+<h6 id="stage-1_1">Stage 1: 表示学习<a class="headerlink" href="#stage-1_1" title="Permanent link">&para;</a></h6>
+<ul>
+<li>使用 ITC、ITM、ITG 三个目标在大规模图文对上进行预训练。</li>
+<li>这一阶段的 Q-Former 可输入 text tokens 与 queries 共同处理，但尚未引入指令感知机制，提取的是静态、任务无关的视觉特征。</li>
+</ul>
+<h6 id="stage-2_1">Stage 2: 生成对齐<a class="headerlink" href="#stage-2_1" title="Permanent link">&para;</a></h6>
+<ul>
+<li>冻结视觉编码器（EVA-CLIP ViT-g/14）和 LLM（FlanT5 / OPT），仅微调 Q-Former 与末尾投影层。</li>
+<li>Q-Former 不再输入外部文本，只输出 32 个固定视觉 token 拼接至 LLM 输入端，完成模态空间对齐。</li>
+<li>InstructBLIP 的 FlanT5 变体直接加载 BLIP-2 的 FlanT5 预训练权重；Vicuna 变体由于 BLIP-2 原模型没有 Vicuna  checkpoint，因此需要用 Vicuna 按照同样的 BLIP-2 流程重新做一遍前置预训练。</li>
+</ul>
+<hr />
+<h5 id="_24">指令微调阶段<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>冻结组件</strong>：视觉编码器（EVA-CLIP ViT-g/14）和 LLM（Vicuna / FlanT5）均保持冻结，全程不参与梯度更新。</li>
+<li><strong>可训练组件</strong>：Q-Former（将<strong><u><em>指令文本与 queries 一起输入</em></u></strong>，共享 self-attention，无独立指令编码器，也无新增 instruction cross-attention）和投影层。🚗</li>
+<li><strong>训练目标</strong>：标准的 next-token prediction loss，输入组合为「指令文本 + 指令感知视觉 tokens」，预测模型的回复文本。</li>
+<li><strong>训练数据</strong>：13 个 held-in 数据集，采用<strong>平方根平衡采样</strong>（按数据集大小的平方根成比例采样，并辅以人工权重调整）。</li>
+<li><strong>超参数</strong>：最大 <strong>60K steps</strong>；batch size 视模型大小分别为 <strong>192（FlanT5-XL 3B）、128（Vicuna-7B）、64（FlanT5-XXL 11B / Vicuna-13B）</strong>；learning rate <strong>1e-4</strong>；optimizer <strong>AdamW</strong>；weight decay 0.05；warmup 1K steps；cosine decay；使用 16 张 A100 40G，全部训练在 <strong>1.5 天内</strong>完成。</li>
+</ul>
+<h6 id="llm">两种 LLM 变体<a class="headerlink" href="#llm" title="Permanent link">&para;</a></h6>
+<ul>
+<li><strong>InstructBLIP-Vicuna</strong>：基于 Vicuna-7B/13B</li>
+<li><strong>InstructBLIP-FlanT5</strong>：基于 FlanT5-XL/XXL</li>
+</ul>
+<hr />
+<h3 id="5">5. 总结<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
+<h4 id="51">5.1 核心贡献<a class="headerlink" href="#51" title="Permanent link">&para;</a></h4>
+<ol>
+<li>
+<p><strong>提出指令感知的 Q-Former</strong>：首次将指令信息注入视觉特征提取过程，使模型能够根据自然语言指令动态地从图像中提取任务相关的视觉表示，这是架构层面的重要创新</p>
+</li>
+<li>
+<p><strong>构建大规模视觉语言指令微调数据集</strong>：整合 26 个公开数据集、覆盖 11 类图像/视频任务（13 个 held-in 用于微调、13 个 held-out 用于 zero-shot 评估），并设计了多样化的指令模板，为视觉语言指令微调研究提供了宝贵的资源</p>
+</li>
+<li>
+<p><strong>实现通用视觉语言模型</strong>：通过指令微调和指令感知机制，InstructBLIP 在 26+ 个基准测试上展现了强大的零样本泛化能力，显著超越了 BLIP-2 和 LLaVA，推动了通用 VLM 的发展</p>
+</li>
+<li>
+<p><strong>系统的消融研究与分析</strong>：深入分析了指令感知机制、数据多样性、LLM 选择等因素对模型性能的影响，为后续研究提供了重要参考</p>
+</li>
+<li>
+<p><strong>开源贡献</strong>：开放了模型权重、代码和数据集，促进了社区研究</p>
+</li>
+</ol>
+<h4 id="52">5.2 局限性<a class="headerlink" href="#52" title="Permanent link">&para;</a></h4>
+<ul>
+<li>对于某些任务（如精细的物体计数、空间关系推理），指令感知机制的提升有限</li>
+<li>仍然受限于 Q-Former 输出的 32 个 token 数量，无法提供像素级的细粒度视觉信息</li>
+</ul>
+<hr />
+<h2 id="blip-3-xgen-mm">第四部分：BLIP-3 (XGen-MM)<a class="headerlink" href="#blip-3-xgen-mm" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>📄 <strong>论文链接</strong>：<a href="https://arxiv.org/abs/2408.08872">arXiv:2408.08872</a> | <a href="https://arxiv.org/pdf/2408.08872">PDF</a></p>
+<p><strong>作者</strong>：Le Xue, Manli Shu, Anas Awadalla, Jun Wang, An Yan, Senthil Purushwalkam, Honglu Zhou, Viraj Prabhu, Yutong Dai, Michael S Ryoo, Shrikant Kendre, Jieyu Zhang, Can Qin, Shu Zhang, Chia-Chih Chen, Ning Yu, Juntao Tan, Tulika Manoj Awalgaonkar, Shelby Heinecke, Huan Wang, Yejin Choi, Ludwig Schmidt, Zeyuan Chen, Silvio Savarese, Juan Carlos Niebles, Caiming Xiong, Ran Xu（Salesforce AI Research, University of Washington）</p>
+<p><strong>发表</strong>：2024</p>
+</blockquote>
+<h3 id="_25">核心要点<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h3>
+<blockquote>
+<ol>
+<li><strong>精选开源框架</strong>：BLIP-3 不仅是一个模型，而是一个<strong>精选框架（curated framework）</strong>，包含精选数据集、训练配方、模型架构及一系列开源 LMMs（4B 和 14B 规模，含 base 和 instruction-tuned 版本），解决开源社区在高质量基座模型、训练细节和数据集方面的缺失，推动 LMM 研究的透明度和可复现性</li>
+<li><strong>架构简化：Perceiver Resampler 替代 Q-Former</strong>：用更简单、更可扩展的 Perceiver Resampler <strong>替代</strong>复杂的 Q-Former，训练目标从 BLIP-2 的三种损失（ITM + ITC + ITG）简化为<strong>单一的自回归文本生成损失</strong>，大幅降低训练复杂度</li>
+<li><strong>任意分辨率策略（Any-Resolution）</strong>：采用动态高分辨率图像编码，将图像切分为多个 patch 分别编码，再与缩略图拼接，最多支持 12 个 patches，长边最大 1536px，在保留细节和控制 token 数量之间取得平衡</li>
+<li><strong>高效 Token 压缩与多图支持</strong>：Perceiver Resampler 使用 128 个可学习 latent queries 对每个图像 patch 进行压缩（例如 384×384 tile 的 729 个 SigLIP patch tokens → 128 个视觉 tokens，压缩比约 5.7×），显著降低 LLM 处理多图或高分辨率图像时的计算开销，使模型能够高效支持交错多模态数据（interleaved image-text）</li>
+<li><strong>四阶段训练流程</strong>：基础分辨率预训练 → 高分辨率预训练 → 单图指令微调 → 交错多图指令微调，逐步引入高分辨率和多图能力</li>
+</ol>
+</blockquote>
+<p><img alt="Figure 1: BLIP-3 框架对比" src="../images/xgen_mm_fig1.png" />
+<em>Figure 1: BLIP-3 框架（b）与现有 LMM 框架（a）的对比。BLIP-3 用 Perceiver Resampler 替代 Q-Former，训练目标简化为单一的自回归文本生成损失。</em></p>
+<hr />
+<h3 id="1_3">1. 背景与动机<a class="headerlink" href="#1_3" title="Permanent link">&para;</a></h3>
+<h4 id="11-blip-2_1">1.1 BLIP-2 的局限性<a class="headerlink" href="#11-blip-2_1" title="Permanent link">&para;</a></h4>
+<p>BLIP-2 开创了”冻结单模态模型 + 轻量连接器”的 bootstrap 范式，但在实际应用中暴露了几个问题：</p>
+<ol>
+<li><strong>Q-Former 结构复杂</strong>：需要三种预训练目标（ITM, ITC, ITG），训练流程繁琐，难以扩展</li>
+<li><strong>仅支持单图输入</strong>：无法处理交错多图（interleaved image-text）数据格式</li>
+<li><strong>固定分辨率</strong>：无法支持高分辨率图像理解，丢失细节信息</li>
+<li><strong>训练目标复杂</strong>：多种损失函数联合优化，调参难度大</li>
+</ol>
+<h4 id="12-blip-2">1.2 与 BLIP-2 的关系<a class="headerlink" href="#12-blip-2" title="Permanent link">&para;</a></h4>
+<p>XGen-MM / BLIP-3 是 BLIP-2 的<strong>直接继承者和重大升级</strong>：
+- <strong>延续</strong>：保持了”冻结视觉编码器 + 连接器 + 冻结/微调 LLM”的整体范式
+- <strong>突破</strong>：用更简单、更可扩展的 Perceiver Resampler <strong>替代</strong>复杂的 Q-Former，大幅简化训练流程
+- <strong>目标升级</strong>：在理解和生成文本的基础上，进一步增强了 OCR、图表理解、空间定位等细粒度视觉理解能力</p>
+<h4 id="13">1.3 开源社区的痛点<a class="headerlink" href="#13" title="Permanent link">&para;</a></h4>
+<p>论文指出开源社区在 LMM 研究方面面临三大痛点：
+1. <strong>高质量基座模型稀缺</strong>：多数 SOTA 模型闭源，开源模型质量参差不齐
+2. <strong>训练细节不透明</strong>：论文往往省略关键的训练配方（training recipe），难以复现
+3. <strong>数据集不公开</strong>：高质量训练数据难以获取，阻碍研究进展</p>
+<p>BLIP-3 的目标是提供一个<strong>完整的、可复现的开源框架</strong>，推动 LMM 研究的透明度和可复现性。</p>
+<hr />
+<h3 id="2_3">2. 方法<a class="headerlink" href="#2_3" title="Permanent link">&para;</a></h3>
+<h4 id="21_1">2.1 架构对比<a class="headerlink" href="#21_1" title="Permanent link">&para;</a></h4>
+<p><img alt="Figure 2: BLIP-3 架构概览" src="../images/xgen_mm_fig2.png" />
+<em>Figure 2: BLIP-3 架构概览。Free-form 输入（图像+文本）通过 Perceiver Resampler 压缩后输入 LLM，支持多模态理解和生成。</em></p>
+<p><strong>三大组件</strong>：
+- <strong>Vision Encoder</strong>：<code>google/siglip-so400m-patch14-384</code>（冻结），提取视觉特征
+- <strong>Vision Token Sampler</strong>：Perceiver Resampler（替代 Q-Former），使用 128 个可学习 latent queries 对每个图像 patch 做交叉注意力压缩
+- <strong>LLM</strong>：Phi-3 系列（例如开源脚本使用 <code>microsoft/Phi-3-mini-4k-instruct</code>；论文报告 4B / 14B 两个规模）。与 BLIP-2 不同，源码中 <code>set_trainable()</code> 把除 Vision Encoder 外的所有参数（含 LLM 与 Perceiver Resampler）都设为可训练</p>
+<p>🚗<strong>相比 BLIP-2 的主要改进</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>BLIP-2</th>
+<th>BLIP-3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>连接器架构</strong></td>
+<td>Q-Former（复杂，需要 ITM+ITC+ITG 三种预训练目标）</td>
+<td>Perceiver Resampler（简单，仅需自回归生成损失）</td>
+</tr>
+<tr>
+<td><strong>训练目标</strong></td>
+<td>多种损失函数（ITM, ITC, ITG）</td>
+<td>单一的自回归文本生成损失</td>
+</tr>
+<tr>
+<td><strong>输入支持</strong></td>
+<td>仅单图</td>
+<td>交错多图（interleaved image-text）</td>
+</tr>
+<tr>
+<td><strong>分辨率处理</strong></td>
+<td>固定分辨率</td>
+<td>任意分辨率（Any-Resolution）</td>
+</tr>
+<tr>
+<td><strong>Token 压缩</strong></td>
+<td>32 个固定 queries</td>
+<td>每个图像 patch 用 128 个 queries，压缩比约 5.7×（729→128）</td>
+</tr>
+<tr>
+<td><strong>LLM 训练策略</strong></td>
+<td>冻结 LLM，只训练 Q-Former</td>
+<td>除 Vision Encoder 外全部可训练（含 LLM）</td>
+</tr>
+<tr>
+<td><strong>开源程度</strong></td>
+<td>部分开源</td>
+<td>完整开源框架（数据集 + 训练配方 + 模型架构 + 模型权重）</td>
+</tr>
+</tbody>
+</table>
+<h5 id="_26">结构创新总结🚗<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h5>
+<ol>
+<li>
+<p><strong>用 Perceiver Resampler 替代 Q-Former</strong><br />
+   不再依赖 ITM/ITC/ITG 三种预训练目标，仅靠单一自回归文本损失训练视觉-语言连接器，结构更简单、更易扩展。</p>
+</li>
+<li>
+<p><strong>Any-Resolution 高分辨率编码</strong><br />
+   图像被切分为多个 384×384 的 tile（论文 Stage-2 最多 12 个，长边最大 1536px），每个 tile 独立过冻结的 SigLIP ViT，再与全局缩略图拼接，兼顾细节保留与 token 数量控制。</p>
+</li>
+<li>
+<p><strong>patch-wise token 压缩</strong><br />
+   每个 tile 产生 27×27=729 个 SigLIP patch tokens，经 Perceiver Resampler 压缩为 128 个视觉 tokens，压缩比约 5.7×，使高分辨率或多图输入能在 LLM 中高效处理。</p>
+</li>
+<li>
+<p><strong>交错多图（interleaved image-text）支持</strong><br />
+   模型能处理自由形式的多图-文本交错序列，支持多图推理、跨图关系理解与多模态上下文学习。</p>
+</li>
+<li>
+<p><strong>端到端训练（除 Vision Encoder）</strong><br />
+   与 BLIP-2 冻结 LLM 不同，BLIP-3 只冻结视觉编码器，LLM 与 Perceiver Resampler 一起参与训练，提升模态对齐与任务适应能力。</p>
+</li>
+</ol>
+<h4 id="22-perceiver-resampler">2.2 Perceiver Resampler<a class="headerlink" href="#22-perceiver-resampler" title="Permanent link">&para;</a></h4>
+<h5 id="_27">技术溯源<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h5>
+<p>Perceiver Resampler 的技术思想经历了以下演进：</p>
+<p><strong>1. 直接前身：Perceiver (Jaegle et al., 2021)</strong></p>
+<blockquote>
+<p>📄 论文：<a href="https://arxiv.org/abs/2103.03206">arXiv:2103.03206</a></p>
+</blockquote>
+<p>Perceiver 的核心思想是解决 Transformer 处理变长序列的计算复杂度问题。</p>
+<p><strong>传统 Transformer 的问题</strong>：
+<div class="highlight"><pre><span></span><code>输入序列长度 N → 自注意力复杂度 O(N²)
+- 图像：224×224 → 196 个 patches → 196² 次计算
+- 视频：16 帧 × 196 patches → 3136 个 tokens → 3136² 次计算
+- 点云：数千个点 → 数千² 次计算
+</code></pre></div></p>
+<p><strong>Perceiver 的解决方案</strong>：
+<div class="highlight"><pre><span></span><code>输入：可变长度的输入序列（如 196 个图像 patches）
+        ↓
+一组固定数量的 latent array（如 512 个 latent tokens）
+        ↓
+Cross-Attention：latent tokens 作为 Q，输入序列作为 K/V
+        ↓
+输出：固定长度的表示（512 个 tokens）
+</code></pre></div></p>
+<p><strong>关键洞察</strong>：
+- 不管输入多长，都用固定数量的 latent tokens 来"压缩"信息
+- 复杂度从 O(N²) 降为 O(N × L)，其中 L 是固定的 latent 数量
+- 可以处理任意长度的输入（图像、视频、音频、点云等）</p>
+<p><img alt="Figure 1: Perceiver 架构" src="../images/perceiver_fig1.png" />
+<em>Figure 1: Perceiver 架构概览。使用固定数量的 latent array 通过 cross-attention 从可变长度的输入字节数组中提取信息，再通过 self-attention 层进行迭代处理。</em></p>
+<p><img alt="Figure 2: Perceiver 多模态应用" src="../images/perceiver_fig2.png" />
+<em>Figure 2: Perceiver 架构可以直接应用于不同模态的数据，无需针对特定领域进行架构修改。左：ImageNet 图像分类；中：AudioSet 视频和音频；右：ModelNet40 3D 点云分类。</em></p>
+<p><strong>2. Flamingo 中的 Perceiver Resampler (Alayrac et al., 2022)</strong></p>
+<blockquote>
+<p>📄 论文：<a href="https://arxiv.org/abs/2204.14198">arXiv:2204.14198</a></p>
+</blockquote>
+<p>Flamingo 面临的核心问题：
+- 需要处理可变数量的视觉特征（不同图片可能产生不同数量的 patches）
+- 需要将视觉特征高效地注入冻结的语言模型
+- 视觉特征数量不固定，但语言模型的输入长度需要控制</p>
+<p><strong>Perceiver Resampler 的设计</strong>（Flamingo 论文第 4 页）：</p>
+<div class="highlight"><pre><span></span><code>可变数量的视觉特征（如 256 个、576 个、1024 个）
+        ↓
+┌─────────────────────────────────────┐
+│   Perceiver Resampler               │
+│   - 64 个可学习的 latent queries    │
+│   - 多层 Cross-Attention            │
+│   - 将变长输入压缩为固定长度输出     │
+└─────────────────────────────────────┘
+        ↓
+固定数量的视觉 tokens（64 个）
+        ↓
+注入语言模型
+</code></pre></div>
+<p><img alt="Figure 5: Flamingo Perceiver Resampler" src="../images/flamingo_fig5.png" />
+<em>Figure 5: Perceiver Resampler 模块将 Vision Encoder 输出的可变大小 spatio-temporal 视觉特征映射为固定数量的输出 token（图中示意 5 个）。该 Transformer 模块使用可学习的 latent queries 通过 cross-attention 从视觉特征中提取信息。</em></p>
+<p><strong>为什么叫 "Resampler"？</strong>
+- 将可变长度的输入"重采样"为固定长度的输出
+- 类似于信号处理中的重采样：不同采样率的信号 → 统一采样率</p>
+<p><strong>3. 技术演进路线</strong></p>
+<div class="highlight"><pre><span></span><code>Transformer (2017)
+    ↓ Cross-Attention 机制
+Perceiver (2021)
+    ↓ 用固定长度 latent 处理变长输入
+Flamingo (2022)
+    ↓ 首次用于多模态，处理可变视觉特征
+BLIP-3 (2024)
+    ↓ 支持任意分辨率策略
+</code></pre></div>
+<p><strong>核心思想</strong>：用固定数量的可学习 queries 通过 cross-attention 从可变长度的输入中提取信息，实现信息压缩和长度归一化。</p>
+<h5 id="_28">核心设计<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h5>
+<p>论文用 Perceiver Resampler <strong>完全替代</strong>了 BLIP-2 的 Q-Former。Perceiver Resampler 的结构如下：</p>
+<div class="highlight"><pre><span></span><code>ViT 输出的视觉特征（可变长度，取决于图像分辨率 / tile 数量）
+        ↓
+┌─────────────────────────────────────────────────────┐
+│   Perceiver Resampler（默认 depth=6, heads=16）      │
+│   - 128 个可学习 latent queries（num_latents）        │
+│   - PerceiverAttention：latents 做 Q，视觉特征做 K/V  │
+│   - 输出投影到 LLM embedding 维度（dim_inner）         │
+└─────────────────────────────────────────────────────┘
+        ↓
+压缩后的视觉 tokens（每个图像 patch 输出 128 tokens）
+        ↓
+送入 LLM
+</code></pre></div>
+<p><img alt="Figure 2: BLIP-3 架构概览" src="../images/xgen_mm_fig2.png" />
+<em>Figure 2: BLIP-3 架构概览。Free-form 输入（图像+文本）通过 Perceiver Resampler 压缩后输入 LLM，支持多模态理解和生成。</em></p>
+<p><strong>关键设计细节</strong>：</p>
+<ol>
+<li><strong>可学习 queries</strong>：源码中默认使用 128 个 learnable query embeddings（<code>num_vision_tokens=128</code>）。对每个 384×384 tile，SigLIP 输出 27×27=729 个 patch tokens，经 Perceiver Resampler 后变为 128 个视觉 tokens，压缩比约 5.7×</li>
+<li>🚗<strong>变长输入支持</strong>：Perceiver Resampler 被设计为能够处理可变长度的输入序列。当输入高分辨率图像时，ViT 会产生更多的 patch tokens，Perceiver Resampler 能够有效地将这些变长序列聚合为固定数量的输出 tokens</li>
+</ol>
+<p><strong>为什么用 Perceiver Resampler 替代 Q-Former？</strong></p>
+<table>
+<thead>
+<tr>
+<th>对比</th>
+<th>Q-Former (BLIP-2)</th>
+<th>Perceiver Resampler (BLIP-3)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>结构复杂度</strong></td>
+<td>复杂（单 Transformer + 独立 query FFN，32 queries）</td>
+<td>简单（单 Transformer，128 个 queries）</td>
+</tr>
+<tr>
+<td><strong>训练目标</strong></td>
+<td>三种损失（ITM, ITC, ITG）</td>
+<td>单一损失（自回归文本生成）</td>
+</tr>
+<tr>
+<td><strong>可扩展性</strong></td>
+<td>低（结构固定，难以扩展）</td>
+<td>高（结构简单，易于扩展）</td>
+</tr>
+<tr>
+<td><strong>变长输入支持</strong></td>
+<td>不支持（固定 32 queries）</td>
+<td>支持（可变长度输入，固定数量输出）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>消融实验结果</strong>（论文 Figure 7a / Table 5）：
+- Perceiver Resampler 的 patch-wise sampling 在 OCR 任务上优于 fixed-sampling 和 MLP 投影层
+- Fixed-sampling 效果不如 patch-wise sampling，论文推测原因有二：(a) 压缩比过高，丢失文本丰富的视觉信息；(b) Perceiver Resampler 对不同图像块的拼接序列处理效果不佳</p>
+<h4 id="23-any-resolution">2.3 Any-Resolution<a class="headerlink" href="#23-any-resolution" title="Permanent link">&para;</a></h4>
+<p><strong>核心思想</strong>：采用动态高分辨率图像编码，在保留细节和控制 token 数量之间取得平衡。</p>
+<p><strong>术语澄清</strong>：本节中提到的"patch"指的是将原图切分成的<strong>大块图像区域</strong>（每个 384×384 像素），更准确的称呼是 <strong>"tile"（图像块）</strong> 或 <strong>"crop"（裁剪块）</strong>，与 ViT 内部将图像切成的最小编码单元（14×14 像素的 patch token）完全不同。</p>
+<table>
+<thead>
+<tr>
+<th>概念</th>
+<th>传统 ViT Patch</th>
+<th>BLIP-3 Any-Resolution Tile</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>尺寸</strong></td>
+<td>14×14 像素（SigLIP patch14）</td>
+<td><strong>384×384 像素</strong></td>
+</tr>
+<tr>
+<td><strong>作用</strong></td>
+<td>ViT 内部的最小特征提取单元</td>
+<td><strong>送入 ViT 的完整输入图像单元</strong></td>
+</tr>
+<tr>
+<td><strong>数量</strong></td>
+<td>一张 384×384 图 → 729 个 patches</td>
+<td>论文 Stage-2 最多 12 个 tiles；开源示例默认最多 5 个 tiles（base + 2×2 / 3×1 / 1×3）</td>
+</tr>
+<tr>
+<td><strong>编码方式</strong></td>
+<td>线性投影 + 位置嵌入</td>
+<td><strong>每个 tile 独立通过完整的 SigLIP ViT</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>为什么选择 384×384？</strong>
+- <strong>复用预训练权重</strong>：SigLIP 是在 384×384 分辨率上预训练的，将 tile 设为 384×384 可以直接冻结并使用原始 ViT 权重，无需任何插值或微调视觉骨干
+- <strong>语义完整性</strong>：384×384 已经是一个包含丰富语义信息的完整图像区域（而非一个纹理碎片）
+- <strong>计算可控</strong>：如果 tile 太小，处理一张 1536×1536 的图需要几十个 tile，显存爆炸；如果太大，则失去了"切分"的意义</p>
+<p><strong>两者的关系</strong>：原图 → 切分为多个 image patches（tiles，384×384）→ 每个 tile 独立送入 ViT → ViT 再将每个 tile 切为 27×27 = 729 个 ViT patch tokens（SigLIP patch14）。</p>
+<p><strong>具体实现</strong>：</p>
+<div class="highlight"><pre><span></span><code>输入图像（任意尺寸，论文 Stage-2 长边 ≤ 1536px）
+        ↓
+┌─────────────────────────────────────────────────────────┐
+│   Any-Resolution 策略                                    │
+│   1. 生成 downsized original image（提供全局信息）       │
+│   2. 将原图切分为多个 image patches（每个 384×384）      │
+│      （论文最多 12 个 patches；开源示例默认 grid 为      │
+│       (1,2),(2,1),(2,2),(3,1),(1,3)，即最多 5 个）      │
+│   3. 所有 patches 和缩略图分别独立送入 ViT 编码          │
+└─────────────────────────────────────────────────────────┘
+        ↓
+每个 image patch 独立通过 Perceiver Resampler 压缩
+        ↓
+所有压缩后的 tokens 拼接 → 送入 LLM
+</code></pre></div>
+<h5 id="_29">全局缩略图如何获取<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h5>
+<p>源码 <code>open_flamingo/train/any_res_data_utils.py</code> 中的 <code>process_anyres_image</code> 把原图直接 resize 到 384×384，作为第一个 patch（<code>image_original_resize</code>），然后才接上高分辨率切分出的 tiles：</p>
+<div class="highlight"><pre><span></span><code><span class="n">processor_size</span> <span class="o">=</span> <span class="n">processor</span><span class="o">.</span><span class="n">transforms</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">size</span>
+<span class="n">image_original_resize</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">resize</span><span class="p">((</span><span class="n">processor_size</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">processor_size</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<span class="n">image_patches</span> <span class="o">=</span> <span class="p">[</span><span class="n">image_original_resize</span><span class="p">]</span> <span class="o">+</span> <span class="n">patches</span>
+</code></pre></div>
+<p>也就是说，全局缩略图是<strong>直接 resize 到 384×384 的正方形图像</strong>，不保持原始长宽比，因此会有一定形变；它的作用是提供全局语义上下文，细节则由后续的真实分辨率 tiles 补充。</p>
+<p><strong>为什么需要这个缩略图？</strong>
+- 多个高分辨率 tile 只保留局部信息，容易丢失整张图的全局布局与场景上下文
+- 一个低分辨率的完整图可以帮助模型理解“这张图整体在说什么”
+- 缩略图与 tiles 分别编码后再拼接，兼顾全局与局部</p>
+<p><strong>为什么需要 Any-Resolution？</strong></p>
+<ul>
+<li><strong>传统固定分辨率方案</strong>：丢失细节（如小文字、细粒度物体）</li>
+<li><strong>简单提高分辨率</strong>：导致 token 数量爆炸，计算成本过高</li>
+<li><strong>Any-Resolution</strong>：在保留细节和控制 token 数量之间取得平衡</li>
+<li>Downsized original image 提供全局上下文</li>
+<li>多个 image patches 保持原始分辨率，提供局部细节</li>
+<li>Perceiver Resampler 压缩后送入 LLM，控制 token 数量</li>
+</ul>
+<p><strong>关键参数</strong>：
+- Any-Resolution 网格：最多 12 个 image patches
+- 长边最大像素：1536px
+- Stage-1 基础分辨率：384×384（与 SigLIP 默认分辨率对齐）</p>
+<h4 id="24_1">2.4 训练流程<a class="headerlink" href="#24_1" title="Permanent link">&para;</a></h4>
+<p>论文描述的完整训练流程：</p>
+<p><strong>Stage-1：基础分辨率预训练</strong>
+- 数据规模：约 100B 多模态 tokens（来自 MINT-1T、OBELICS、BLIP3-KALE、BLIP3-OCR-200M、BLIP3-GROUNDING-50M 等混合）
+- 分辨率：384×384（固定）
+- 目标：基础图文对齐
+- 训练目标：单一的自回归文本生成损失（源码中 <code>NextTokenPrediction</code> / <code>SupervisedPrediction</code>）</p>
+<p><strong>Stage-2：高分辨率预训练</strong>
+- 数据：在 Stage-1 基础上加入 BLIP3-OCR-HD-30M 等高分辨率、文本丰富的数据
+- 分辨率：Any-Resolution 策略（论文最多 12 个 patches，长边最大 1536px）
+- 目标：引入高分辨率能力</p>
+<p><strong>Stage-3：单图指令微调 (Single-Image SFT)</strong>
+- 数据：约 300 万条公开可用的指令微调样本
+- 目标：提升单图理解能力，保持高分辨率处理能力</p>
+<p><strong>Stage-4：交错多图指令微调 (Interleaved Multi-Image SFT)</strong>
+- 数据：混合多图和单图指令数据（防止单图能力退化）
+- 目标：增强多图理解、多模态上下文学习等能力</p>
+<p><strong>与 BLIP-2 的区别</strong>：BLIP-2 只有两阶段（表示学习 + 生成学习），BLIP-3 细化为四阶段，逐步引入高分辨率和多图能力；且 BLIP-3 不再冻结 LLM，而是对视觉编码器以外的参数进行端到端训练。</p>
+<hr />
+<h3 id="3_2">3. 实验<a class="headerlink" href="#3_2" title="Permanent link">&para;</a></h3>
+<h4 id="31">3.1 主要结果<a class="headerlink" href="#31" title="Permanent link">&para;</a></h4>
+<p>论文在多个基准上评估了 BLIP-3 的性能：</p>
+<p><strong>Zero-shot VQA</strong>（Table 1）：
+- BLIP-3-4B 在 VQAv2 test-dev 上达到 74.5%
+- BLIP-3-14B 在 VQAv2 test-dev 上达到 77.2%
+- 在同等规模的开源 LMM 中表现出竞争力的性能</p>
+<p><strong>Image Captioning</strong>（Table 2）：
+- BLIP-3 在 COCO Captioning 和 NoCaps 上表现优异
+- 特别是在需要细粒度理解的 OCR 和图表理解任务上，BLIP-3 显著优于 BLIP-2</p>
+<h4 id="32">3.2 消融实验<a class="headerlink" href="#32" title="Permanent link">&para;</a></h4>
+<p><strong>Vision Token Sampler 的选择</strong>（Table 3）：
+- Perceiver Resampler 优于简单的 MLP 投影层
+- MLP 缺乏对变长序列的聚合能力
+- Perceiver Resampler 通过 Cross-Attention 有效聚合可变长度的视觉特征</p>
+<p><strong>Any-Resolution 的效果</strong>（Table 4）：
+- Any-Resolution 策略在高分辨率任务上显著优于固定分辨率
+- 特别是在 OCR 和图表理解任务上，Any-Resolution 带来了显著的性能提升</p>
+<h4 id="33">3.3 多图理解能力<a class="headerlink" href="#33" title="Permanent link">&para;</a></h4>
+<p>论文展示了 BLIP-3 在交错多图输入上的能力：
+- 能够理解多个图像之间的关系
+- 支持多模态上下文学习（multimodal in-context learning）
+- 在多图推理任务上表现优异</p>
+<hr />
+<h3 id="4_1">4. 总结<a class="headerlink" href="#4_1" title="Permanent link">&para;</a></h3>
+<h4 id="41_2">4.1 核心贡献<a class="headerlink" href="#41_2" title="Permanent link">&para;</a></h4>
+<ol>
+<li>
+<p><strong>精选开源框架</strong>：提供了完整的、可复现的 LMM 框架，包含数据集、训练配方、模型架构和模型权重（4B 和 14B），推动 LMM 研究的透明度和可复现性</p>
+</li>
+<li>
+<p><strong>架构简化</strong>：用 Perceiver Resampler 替代复杂的 Q-Former，训练目标从三种损失简化为单一的自回归文本生成损失，大幅降低训练复杂度</p>
+</li>
+<li>
+<p><strong>任意分辨率策略</strong>：采用动态高分辨率图像编码，在保留细节和控制 token 数量之间取得平衡，支持高分辨率图像理解</p>
+</li>
+<li>
+<p><strong>高效 Token 压缩与多图支持</strong>：Perceiver Resampler 充当下采样器，压缩比超过 5 倍，显著降低 LLM 处理多图或高分辨率图像时的计算开销，使模型能够高效支持交错多模态数据</p>
+</li>
+<li>
+<p><strong>四阶段训练流程</strong>：基础分辨率预训练 → 高分辨率预训练 → 单图指令微调 → 交错多图指令微调，逐步引入高分辨率和多图能力</p>
+</li>
+</ol>
+<h4 id="42_2">4.2 局限性<a class="headerlink" href="#42_2" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>模型规模</strong>：论文发布的 4B 和 14B 模型在超大规模任务上仍有差距</li>
+<li><strong>训练资源</strong>：四阶段训练流程需要大量计算资源</li>
+<li><strong>多图理解</strong>：虽然支持多图输入，但在复杂的多图推理任务上仍有提升空间</li>
+</ul>
+<h4 id="43_1">4.3 与相关方法的对比<a class="headerlink" href="#43_1" title="Permanent link">&para;</a></h4>
+<p><strong>vs BLIP-2</strong>：
+- BLIP-2 使用复杂的 Q-Former（ITM+ITC+ITG 三种损失），BLIP-3 用简单的 Perceiver Resampler（单一自回归损失）
+- BLIP-2 仅支持单图，BLIP-3 支持交错多图
+- BLIP-2 固定分辨率，BLIP-3 支持 Any-Resolution</p>
+<p><strong>vs LLaVA</strong>：
+- LLaVA 使用简单的 MLP 投影层，BLIP-3 使用 Perceiver Resampler（更强的空间位置感知）
+- LLaVA 仅支持单图，BLIP-3 支持交错多图
+- BLIP-3 在 OCR 和图表理解等细粒度任务上显著优于 LLaVA</p>
+<p><strong>vs Flamingo</strong>：
+- Flamingo 使用 Perceiver Resampler + Gated Cross-Attention，BLIP-3 仅使用 Perceiver Resampler
+- Flamingo 模型规模更大（80B），BLIP-3 更轻量（4B/14B）
+- BLIP-3 在同等规模下性能接近或优于 Flamingo</p>
+<hr />
+<h2 id="_30">附录：架构演进对比<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h2>
+<p><img alt="Figure 2: BLIP 预训练架构与目标" src="../images/blip1_fig2.png" /></p>
+<p><em>Figure 2: BLIP 预训练架构与目标</em></p>
+<p><strong>BLIP-1 主要创新点</strong></p>
+<ol>
+<li><strong>CapFilt 数据清洗方法</strong>：提出 Captioner + Filter 的双模型框架，用 captioner 生成合成描述、用 filter 过滤低质量文本，有效解决了网络爬取数据（web text）的噪声问题。</li>
+<li><strong>多模态混合编码器（MED）</strong>：统一架构同时支持基于理解的 VLM（Vision-Language Model）和基于生成的 VLGM（Vision-Language Generative Model），通过参数共享实现多任务学习。</li>
+<li><strong>三目标预训练</strong>：ITC（图文对比）+ ITM（图文匹配）+ LM（语言建模），在同一个模型中同时优化理解与生成能力。</li>
+<li><strong>Bootstrap 思想的首次提出</strong>：通过预训练的 BLIP 模型生成伪标签，迭代提升数据质量，为后续 BLIP-2 的 bootstrap 范式奠定基础。</li>
+</ol>
+<p><img alt="Figure 2: Q-Former 架构与第一阶段预训练目标" src="../images/blip2_fig2.png" /></p>
+<p><em>Figure 2: Q-Former 架构与第一阶段预训练目标</em></p>
+<p><strong>BLIP-2 主要创新点</strong></p>
+<ol>
+<li><strong>提出了通用的 Bootstrap VLP 范式</strong>：首次成功地将冻结的图像编码器和冻结的 LLM 同时有效地用于视觉-语言预训练，开创了"冻结单模态模型 + 轻量桥接模块"的新研究范式。</li>
+<li><strong>设计了 Q-Former + 两阶段预训练策略</strong>：</li>
+<li>第一阶段通过 ITC+ITM+ITG 三目标让 queries 学会提取语言相关的视觉表示；</li>
+<li>第二阶段通过 FC 层将 queries 输出作为 soft visual prompts 注入 LLM；</li>
+<li>信息瓶颈设计有效缓解了灾难性遗忘。</li>
+</ol>
+<p><img alt="Figure 2: BLIP-3 架构概览" src="../images/xgen_mm_fig2.png" /></p>
+<p><em>Figure 2: BLIP-3 架构概览</em></p>
+<p><strong>BLIP-3 主要创新点</strong></p>
+<ol>
+<li><strong>用 Perceiver Resampler 替代 Q-Former</strong>：不再依赖 ITM/ITC/ITG 三种预训练目标，仅靠单一自回归文本损失训练视觉-语言连接器，结构更简单、更易扩展。</li>
+<li><strong>Any-Resolution 高分辨率编码</strong>：图像被切分为多个 384×384 的 tile（论文 Stage-2 最多 12 个，长边最大 1536px），每个 tile 独立过冻结的 SigLIP ViT，再与全局缩略图拼接，兼顾细节保留与 token 数量控制。</li>
+<li><strong>patch-wise token 压缩</strong>：每个 tile 产生 27×27=729 个 SigLIP patch tokens，经 Perceiver Resampler 压缩为 128 个视觉 tokens，压缩比约 5.7×，使高分辨率或多图输入能在 LLM 中高效处理。</li>
+<li><strong>交错多图（interleaved image-text）支持</strong>：模型能处理自由形式的多图-文本交错序列，支持多图推理、跨图关系理解与多模态上下文学习。</li>
+<li><strong>端到端训练（除 Vision Encoder）</strong>：与 BLIP-2 冻结 LLM 不同，BLIP-3 只冻结视觉编码器，LLM 与 Perceiver Resampler 一起参与训练，提升模态对齐与任务适应能力。</li>
+</ol>
+<h4 id="blip-2_2">关于 BLIP-2 可训练参数的说明<a class="headerlink" href="#blip-2_2" title="Permanent link">&para;</a></h4>
+<p>BLIP-2 论文中同时出现了两个可训练参数数字：<strong>~188M</strong> 和 <strong>~103M–108M</strong>。这是因为两个数字的统计口径不同：</p>
+<ul>
+<li><strong>~188M</strong>：论文正文/Table 1 中常作为代表性数字出现，指的是整个 Q-Former 模块的总参数量。Q-Former 是 BLIP-2 中新引入的可训练连接器，包含 BERT 双塔结构、32 个可学习 queries、以及内部 cross-attention 等。</li>
+<li><strong>~103M–108M</strong>：来自论文 Table 2 中各具体 variant 的 <code>#Trainable Params</code> 列。Table 2 统计的是 Stage 2（将 Q-Former 接到冻结 LLM 上训练）时<strong>实际参与梯度更新</strong>的参数。这个数量比完整 Q-Former 少，因为 Stage 2 主要训练 Q-Former 输出到 LLM embedding 空间的投影层，以及 Q-Former 中需要适配 LLM 的部分；同时不同 LLM backbone（OPT 系列 vs FlanT5 系列、不同尺寸）的 hidden size 不同，导致投影层参数量有差异，因此各 variant 在 103M–108M 之间略有浮动。</li>
+</ul>
+<p>简言之：<strong>188M 是 Q-Former 模块规模，103M–108M 是 Stage 2 各 variant 真实可训练参数</strong>。ViT 和 LLM 始终冻结，所以它们虽然占模型总参数量的大头，但不计入 <code>#Trainable Params</code>。</p>
+<h3 id="_31">演进主线<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>训练范式</strong>：端到端 + 数据自举 → 模型自举（冻结模型）→ 指令微调 → 端到端细粒度（除 Vision Encoder）</li>
+<li>BLIP-1 需要端到端训练整个模型，同时用 CapFilt 做数据自举/清洗</li>
+<li>BLIP-2 开创了冻结单模态模型 + 轻量连接器的模型自举范式</li>
+<li>InstructBLIP 在 BLIP-2 基础上加入指令微调</li>
+<li>
+<p>BLIP-3 进一步引入细粒度视觉特征，且除 Vision Encoder 外全部端到端训练（含 LLM）</p>
+</li>
+<li>
+<p><strong>视觉特征处理</strong>：全部 patch → 32 queries（粗粒度）→ 32 queries（指令感知）→ Perceiver Resampler 压缩（&gt;5× 压缩比）</p>
+</li>
+<li>BLIP-1 使用 ViT 的全部 patch features</li>
+<li>BLIP-2 通过 Q-Former 压缩为 32 个高度抽象的 token</li>
+<li>InstructBLIP 保持 32 个 token 但使其指令感知</li>
+<li>
+<p>BLIP-3 用 Perceiver Resampler 替代 Q-Former，实现更高效的 token 压缩，支持多图和高分辨率</p>
+</li>
+<li>
+<p><strong>任务覆盖</strong>：固定任务 → Zero-shot → 通用指令跟随 → 理解 + 生成</p>
+</li>
+<li>BLIP-1 支持 Captioning、VQA、Retrieval 等固定任务</li>
+<li>BLIP-2 展现了强大的 zero-shot 能力</li>
+<li>InstructBLIP 通过指令微调实现通用化，覆盖 26+ 任务</li>
+<li>
+<p>BLIP-3 进一步统一理解与生成能力</p>
+</li>
+<li>
+<p><strong>数据与训练</strong>：CapFilt 数据自举/清洗 → 大规模图文对 → 指令微调数据 → 精选框架与四阶段训练</p>
+</li>
+<li>BLIP-1 提出 CapFilt 解决数据噪声问题（数据层面的 bootstrap）</li>
+<li>BLIP-2 利用大规模图文对进行模型自举（冻结 Vision Encoder + LLM）</li>
+<li>InstructBLIP 构建了 665K 指令微调数据</li>
+<li>BLIP-3 构建了完整的精选开源框架，包含四阶段训练流程（基础预训练 → 高分辨率预训练 → 单图指令微调 → 多图指令微调）</li>
+</ol>
+<h3 id="_32">核心洞察<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>BLIP-1</strong>：证明了统一架构和数据自举清洗（CapFilt）的重要性</li>
+<li><strong>BLIP-2</strong>：证明了冻结大模型 + 轻量连接器的可行性，开创了<strong>模型层面</strong>的 bootstrap 范式</li>
+<li><strong>InstructBLIP</strong>：证明了视觉特征应该根据指令动态调整，实现了通用化</li>
+<li><strong>BLIP-3</strong>：证明了架构简化和可复现性的重要性，通过 Perceiver Resampler 替代 Q-Former、统一训练目标、支持多图和任意分辨率，推动了 LMM 研究的透明度和可扩展性</li>
+</ul>
+<p>BLIP 系列展示了视觉-语言预训练从「端到端 + 数据自举」到「模型自举」、从固定任务到通用指令、从复杂架构到简化架构的完整演进路径，是多模态大模型领域最具影响力的研究系列之一。</p>
+<hr />
+<h3 id="blip-bootstrap">附注：BLIP 系列中 "Bootstrap" 的含义<a class="headerlink" href="#blip-bootstrap" title="Permanent link">&para;</a></h3>
+<p>BLIP-1 和 BLIP-2 的论文标题里都用了 <em>Bootstrapping Language-Image Pre-training</em>，但二者指的并不是同一件事：</p>
+<h4 id="1-blip-1-bootstrapcapfilt">1. BLIP-1：数据层面的 Bootstrap（CapFilt）<a class="headerlink" href="#1-blip-1-bootstrapcapfilt" title="Permanent link">&para;</a></h4>
+<p>BLIP-1 标题为：</p>
+<blockquote>
+<p>“BLIP: <strong>Bootstrapping Language-Image Pre-training</strong> for Unified Vision-Language Understanding and Generation”</p>
+</blockquote>
+<p>这里的 bootstrap 指的是 <strong>CapFilt（Captioning and Filtering）</strong>：用模型自己生成 caption，再用另一个模型过滤掉噪声 caption，从而“自举”出高质量的训练数据。它发生在<strong>数据侧</strong>，不改变模型训练方式（BLIP-1 仍是端到端训练视觉和语言编码器）。</p>
+<h4 id="2-blip-2-bootstrap">2. BLIP-2：模型层面的 Bootstrap（冻结预训练模型）<a class="headerlink" href="#2-blip-2-bootstrap" title="Permanent link">&para;</a></h4>
+<p>BLIP-2 标题为：</p>
+<blockquote>
+<p>“BLIP-2: <strong>Bootstrapping Language-Image Pre-training</strong> with Frozen Image Encoders and Large Language Models”</p>
+</blockquote>
+<p>这里的 bootstrap 指的是<strong>利用已经训练好的、冻结的预训练单模态模型</strong>，只训练一个轻量连接模块，从而构建出多模态能力。它发生在<strong>模型侧</strong>。</p>
+<ul>
+<li><strong>被 bootstrap 的对象</strong>：现成的冻结单模态大模型，即 EVA-CLIP ViT-g/14 / CLIP ViT-L/14（图像编码器）和 OPT / FlanT5（语言模型）。</li>
+<li><strong>新建/训练的模块</strong>：轻量的 Q-Former，用于桥接两个冻结模型之间的模态鸿沟。</li>
+<li><strong>目的</strong>：避免从头训练巨大的多模态模型，以极低的可训练参数成本获得强大的视觉-语言能力。</li>
+</ul>
+<p>论文原文也明确写道：</p>
+<blockquote>
+<p>“This paper proposes BLIP-2, a generic and efficient pre-training strategy that <strong>bootstraps vision-language pre-training from off-the-shelf frozen pre-trained image encoders and frozen large language models</strong>.”</p>
+</blockquote>
+<h4 id="_33">小结<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>BLIP-1 CapFilt</th>
+<th>BLIP-2 Bootstrap</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>层面</strong></td>
+<td>数据</td>
+<td>模型</td>
+</tr>
+<tr>
+<td><strong>做法</strong></td>
+<td>生成伪 caption → 过滤噪声</td>
+<td>冻结 Vision Encoder + LLM，只训练 Q-Former</td>
+</tr>
+<tr>
+<td><strong>目的</strong></td>
+<td>提升训练数据质量</td>
+<td>降低训练成本，复用已有单模态大模型能力</td>
+</tr>
+</tbody>
+</table>
+<p>因此，BLIP-2 的 bootstrap 不是“左脚踩右脚升天”式的自我生成，而是<strong>“站在巨人肩膀上”——用现成的单模态大模型搭出多模态能力</strong>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.top", "navigation.instant", "search.highlight", "content.code.copy", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

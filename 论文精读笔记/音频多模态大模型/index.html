@@ -1,0 +1,4020 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../%E8%A7%86%E9%A2%91%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>音频多模态大模型 - 学习资料库</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="学习资料库" class="md-header__button md-logo" aria-label="学习资料库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            学习资料库
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              音频多模态大模型
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="学习资料库" class="md-nav__button md-logo" aria-label="学习资料库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    学习资料库
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    学习资料库
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GENIUS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    GENIUS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GENIUS/GENIUS%20%E6%80%BB%E7%BB%93/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GENIUS 总结
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RadAlign
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RadAlign
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RadAlign/RadVLM-GRPO%20%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RadVLM-GRPO 论文精读
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RadAlign/%E5%85%B3%E9%94%AE%E4%BB%A3%E7%A0%81%E8%AF%B4%E6%98%8E/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关键代码说明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    全模态大模型·出行安全项目
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    全模态大模型·出行安全项目
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/5.27%20Qwen3.7-Max%2BGeoLife%E8%AF%84%E4%BC%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.27 Qwen3.7-Max+GeoLife评估
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/Omni-%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Omni-出行安全项目
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%B1%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    全模态大模型·出行安全项目进展
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLUE
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    BLUE
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/BLUE/BLUE%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLUE论文笔记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    论文精读笔记
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    论文精读笔记
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AAAAA_Transformer%E3%80%81LLM%E4%B8%8EVLM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AAAAA_Transformer、LLM与VLM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BBBBB_%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BBBBB_强化学习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BERT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BERT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BEiT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BEiT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BLIP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLIP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLIP%20%26%20ALIGN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP & ALIGN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLIP%20%E6%94%B9%E8%BF%9B%E5%B7%A5%E4%BD%9C%E4%B8%B2%E8%AE%B2%EF%BC%88%E4%B8%8A%EF%BC%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP 改进工作串讲（上）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLIP%20%E6%94%B9%E8%BF%9B%E5%B7%A5%E4%BD%9C%E4%B8%B2%E8%AE%B2%EF%BC%88%E4%B8%8B%EF%BC%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP 改进工作串讲（下）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DALL%C2%B7E%202/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DALL·E 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DINO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DINO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Flamingo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Flamingo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GPT%EF%BC%8CGPT-2%EF%BC%8CGPT-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPT，GPT-2，GPT-3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ImageBind%20%E4%B8%8E%20LanguageBind%20%E5%AF%B9%E6%AF%94/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ImageBind 与 LanguageBind 对比
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InternVL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    InternVL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLaMA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLaMA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLaVA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLaVA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MAE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MAE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MoCo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MoCo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OFA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OFA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PaLI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PaLI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Qwen-VL%E4%B8%8EOmni/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qwen-VL与Omni
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SAM3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SAM3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SigLIP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SigLIP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SimVLM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SimVLM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Swin%20Transformer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Swin Transformer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UniPerceiver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UniPerceiver
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Unified-IO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unified-IO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ViLT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ViLT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ViT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ViT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ZZZZZ%E5%85%AC%E5%BC%8F%E4%BB%A3%E7%A0%81%E7%AD%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ZZZZZ公式代码等
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%8E%9F%E7%94%9F%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    原生多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%90%8E%E8%AE%AD%E7%BB%83%E7%BB%BC%E8%BF%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多模态大模型后训练综述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%9A%E6%A8%A1%E6%80%81%E8%AE%BA%E6%96%87%E4%B8%B2%E8%AE%B2%C2%B7%E4%B8%8A/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多模态论文串讲·上
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%9A%E6%A8%A1%E6%80%81%E8%AE%BA%E6%96%87%E4%B8%B2%E8%AE%B2%C2%B7%E4%B8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多模态论文串讲·下
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%AF%B9%E6%AF%94%E5%AD%A6%E4%B9%A0%E7%BB%BC%E8%BF%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    对比学习综述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%B7%B7%E5%90%88%E7%B2%BE%E5%BA%A6%E8%AE%AD%E7%BB%83%E4%B8%8E%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    混合精度训练与分布式训练
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%A7%86%E9%A2%91%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    视频多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    音频多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    音频多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目录
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心要点
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        音频多模态 vs 文本多模态：核心技术差异
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第0章：音频领域基础知识
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第0章：音频领域基础知识">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.1 时域与频域
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#02-stft" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.2 傅里叶变换与 STFT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#03" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.3 频谱图
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#04-mel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.4 mel 频谱图
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#05-log-mel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.5 log-mel 频谱图
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#06" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.6 音频特征处理链路
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第一部分：语音识别基础
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第一部分：语音识别基础">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-whisper-2022" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Whisper - 大规模弱监督语音识别 (2022)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Whisper - 大规模弱监督语音识别 (2022)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 背景与动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-log-mel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 音频预处理：log-Mel 频谱图
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-transformer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 模型架构：编码器-解码器 Transformer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 多任务训练格式：特殊 token 序列
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-680k" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.5 数据：680k 小时弱监督数据
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.6 总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第二部分：音频语言模型 ❓
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第二部分：音频语言模型 ❓">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2-audiolm-2022" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. AudioLM - 语言模型方法的音频生成 (2022)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. AudioLM - 语言模型方法的音频生成 (2022)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 背景与动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-tokenization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 核心方法：混合 Tokenization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 三阶段层级生成
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 条件生成：音频续写
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-vall-e-2023" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. VALL-E - 零样本文本转语音 (2023)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. VALL-E - 零样本文本转语音 (2023)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 背景与动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-encodec-ar-nar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 核心方法：EnCodec + AR + NAR
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-in-context-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 推理：In-Context Learning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第三部分：全模态感知
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第三部分：全模态感知">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#4-qwen25-omni-2025" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Qwen2.5-Omni - 全模态感知与流式语音生成 (2025)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Qwen2.5-Omni - 全模态感知与流式语音生成 (2025)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 背景与动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-thinker-talker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 架构概览：Thinker-Talker
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 音频处理：频谱图提取
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-tmrope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 TMRoPE：时间对齐多模态位置编码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5 流式设计：低延迟语音生成
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6 训练流程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#47-qwen2-vl-qwen25-vl-qwen25-omni" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.7 Qwen2-VL → Qwen2.5-VL → Qwen2.5-Omni 的演进
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#48" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.8 总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        技术路线对比与总结
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="技术路线对比与总结">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        音频表征的演进
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tokenization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        音频 Tokenization 的技术路线
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        关键洞察总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        学习建议
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目录
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心要点
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        音频多模态 vs 文本多模态：核心技术差异
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第0章：音频领域基础知识
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第0章：音频领域基础知识">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.1 时域与频域
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#02-stft" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.2 傅里叶变换与 STFT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#03" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.3 频谱图
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#04-mel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.4 mel 频谱图
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#05-log-mel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.5 log-mel 频谱图
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#06" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.6 音频特征处理链路
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第一部分：语音识别基础
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第一部分：语音识别基础">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-whisper-2022" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Whisper - 大规模弱监督语音识别 (2022)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Whisper - 大规模弱监督语音识别 (2022)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 背景与动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-log-mel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 音频预处理：log-Mel 频谱图
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-transformer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 模型架构：编码器-解码器 Transformer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 多任务训练格式：特殊 token 序列
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-680k" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.5 数据：680k 小时弱监督数据
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.6 总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第二部分：音频语言模型 ❓
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第二部分：音频语言模型 ❓">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2-audiolm-2022" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. AudioLM - 语言模型方法的音频生成 (2022)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. AudioLM - 语言模型方法的音频生成 (2022)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 背景与动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-tokenization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 核心方法：混合 Tokenization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 三阶段层级生成
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 条件生成：音频续写
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-vall-e-2023" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. VALL-E - 零样本文本转语音 (2023)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. VALL-E - 零样本文本转语音 (2023)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 背景与动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-encodec-ar-nar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 核心方法：EnCodec + AR + NAR
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-in-context-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 推理：In-Context Learning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第三部分：全模态感知
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第三部分：全模态感知">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#4-qwen25-omni-2025" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Qwen2.5-Omni - 全模态感知与流式语音生成 (2025)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Qwen2.5-Omni - 全模态感知与流式语音生成 (2025)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 背景与动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-thinker-talker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 架构概览：Thinker-Talker
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 音频处理：频谱图提取
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-tmrope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 TMRoPE：时间对齐多模态位置编码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5 流式设计：低延迟语音生成
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6 训练流程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#47-qwen2-vl-qwen25-vl-qwen25-omni" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.7 Qwen2-VL → Qwen2.5-VL → Qwen2.5-Omni 的演进
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#48" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.8 总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        技术路线对比与总结
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="技术路线对比与总结">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        音频表征的演进
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tokenization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        音频 Tokenization 的技术路线
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        关键洞察总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        学习建议
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1">音频多模态大模型<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>📄 涉及论文链接：
+- <a href="https://arxiv.org/abs/2212.04356">Robust Speech Recognition via Large-Scale Weak Supervision (Whisper)</a> (2022)
+- <a href="https://arxiv.org/abs/2209.03143">AudioLM: a Language Modeling Approach to Audio Generation</a> (2022)
+- <a href="https://arxiv.org/abs/2301.02111">Neural Codec Language Models are Zero-Shot Text to Speech Synthesizers (VALL-E)</a> (2023)
+- <a href="https://arxiv.org/abs/2503.20026">Qwen2.5-Omni Technical Report</a> (2025)</p>
+</blockquote>
+<h2 id="_2">目录<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#核心要点">核心要点</a></li>
+<li><a href="#音频多模态-vs-文本多模态核心技术差异">音频多模态 vs 文本多模态：核心技术差异</a></li>
+<li><a href="#第0章音频领域基础知识">第0章：音频领域基础知识</a></li>
+<li><a href="#01-时域与频域">0.1 时域与频域</a></li>
+<li><a href="#02-傅里叶变换与-stft">0.2 傅里叶变换与 STFT</a></li>
+<li><a href="#03-频谱图">0.3 频谱图</a></li>
+<li><a href="#04-mel-频谱图">0.4 mel 频谱图</a></li>
+<li><a href="#05-log-mel-频谱图">0.5 log-mel 频谱图</a></li>
+<li><a href="#06-音频特征处理链路">0.6 音频特征处理链路</a></li>
+<li><a href="#第一部分语音识别基础">第一部分：语音识别基础</a></li>
+<li><a href="#1-whisper---大规模弱监督语音识别-2022">1. Whisper</a></li>
+<li><a href="#第二部分音频语言模型">第二部分：音频语言模型</a></li>
+<li><a href="#2-audiolm---语言模型方法的音频生成-2022">2. AudioLM</a></li>
+<li><a href="#3-vall-e---零样本文本转语音-2023">3. VALL-E</a></li>
+<li><a href="#第三部分全模态感知">第三部分：全模态感知</a></li>
+<li><a href="#4-qwen25-omni---全模态感知与流式语音生成-2025">4. Qwen2.5-Omni</a></li>
+<li><a href="#技术路线对比与总结">技术路线对比与总结</a></li>
+</ul>
+<h2 id="_3">核心要点<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<blockquote>
+<ol>
+<li><strong>音频表征的核心</strong>：将原始波形转为 <strong>80/128 通道 log-Mel 频谱图</strong>，用 25ms 窗口 + 10ms 跳步提取时频特征，再用 Transformer 编码器处理</li>
+<li><strong>音频 tokenization 的两类路线</strong>：① 语义 token（如 w2v-BERT 中间层 → k-means 离散化）捕捉语言内容；② 声学 token（如 SoundStream/EnCodec RVQ）捕捉音色和音质，两者互补</li>
+<li><strong>AudioLM 的范式突破</strong>：将音频生成转化为语言建模问题，用混合 tokenization（语义 + 声学）+ 三阶段层级生成解决长期一致性与高保真重建的矛盾</li>
+<li><strong>VALL-E 的零样本 TTS</strong>：EnCodec 8 级 RVQ tokenize 音频，AR 模型生成第一级量化器 token（内容+时长）→ NAR 模型并行生成其余 7 级（音色+音质），仅需 3 秒参考音频即可克隆说话人声音</li>
+<li><strong>Qwen2.5-Omni 的架构设计</strong>：Thinker（LLM，理解+文本生成）+ Talker（双轨 AR，流式语音生成），TMRoPE 对齐音频（每 40ms 一个时间 ID）和视频（每帧一个时间 ID）的时序</li>
+</ol>
+</blockquote>
+<h2 id="vs">音频多模态 vs 文本多模态：核心技术差异<a class="headerlink" href="#vs" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>挑战</th>
+<th>文本/图像模型</th>
+<th>音频模型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>输入表示</strong></td>
+<td>离散 token / 2D patch</td>
+<td>连续波形 → log-Mel 频谱图 → 离散 token</td>
+</tr>
+<tr>
+<td><strong>时间分辨率</strong></td>
+<td>不适用</td>
+<td>25ms 窗口，10ms 跳步，每秒 100 帧特征</td>
+</tr>
+<tr>
+<td><strong>信息结构</strong></td>
+<td>语义信息明确</td>
+<td>语义信息（内容）与声学信息（音色、韵律）耦合</td>
+</tr>
+<tr>
+<td><strong>生成目标</strong></td>
+<td>离散 token 序列</td>
+<td>波形（连续）或离散声学 token → 解码为波形</td>
+</tr>
+<tr>
+<td><strong>对齐问题</strong></td>
+<td>文本有自然边界（词、句）</td>
+<td>音频与文本对齐复杂，说话速度因人而异</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="0">第0章：音频领域基础知识<a class="headerlink" href="#0" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>本章为 VLM 背景的读者提供音频信号处理的核心概念，为后续理解 Whisper、AudioLM、VALL-E、Qwen2.5-Omni 等模型的输入表示打下基础。</p>
+</blockquote>
+<h3 id="01">0.1 时域与频域<a class="headerlink" href="#01" title="Permanent link">&para;</a></h3>
+<p><strong>时域</strong>是音频最直观的表示：横轴时间，纵轴幅度，就是一条波形曲线。WAV 文件存的就是这种 PCM 数据。16kHz 采样率意味着每秒 16000 个采样点，直接记录气压随时间的变化。</p>
+<p>时域的问题在于：相邻采样点高度冗余，且看不出声音由哪些频率成分构成。</p>
+<p><strong>频域</strong>换个角度看同一段信号：横轴频率，纵轴能量。一段音频的频谱能看出"低音多还是高音多"，但完全丢了时间信息——看不出"前 3 秒是鼓声、后 5 秒是钢琴"。</p>
+<p>语音这种时变信号需要<strong>时频联合表示</strong>，同时保留时间和频率信息。</p>
+<h3 id="02-stft">0.2 傅里叶变换与 STFT<a class="headerlink" href="#02-stft" title="Permanent link">&para;</a></h3>
+<p><strong>傅里叶变换</strong>的核心思想：任何复杂波形都可以分解成一组正弦波的叠加，每个正弦波有固定的频率、幅度、相位。对整段音频做傅里叶变换得到<strong>频谱</strong>，对一短段音频做傅里叶变换得到<strong>短时频谱</strong>。</p>
+<p><strong>短时傅里叶变换（STFT）</strong> 是音频处理的基石：把音频切成一段段重叠的短窗，对每个窗分别做傅里叶变换，得到"该时段内各频率的能量"。</p>
+<p>STFT 有两个核心参数：</p>
+<ul>
+<li><strong>窗口大小</strong>：每个短窗覆盖多长时间。常见值 <strong>25ms</strong>（语音）、50ms（音乐）。窗越长频率分辨率越高但时间分辨率越低，两者不能兼得（时频不确定性原理）</li>
+<li><strong>帧移</strong>：相邻窗起点的时间间隔。常见值 <strong>10ms</strong>，通常为窗口大小的 25%~50%。窗间重叠是为了平滑过渡，避免边界处信号丢失</li>
+</ul>
+<p>Whisper、Qwen-Audio 的标准配置：<strong>25ms 窗口 + 10ms 帧移</strong>。</p>
+<h3 id="03">0.3 频谱图<a class="headerlink" href="#03" title="Permanent link">&para;</a></h3>
+<p>STFT 的输出堆叠起来就是一张<strong>频谱图（spectrogram）</strong>：横轴时间帧，纵轴频率，每个像素的明暗代表该时频单元的能量大小。</p>
+<p>本质就是一张单通道图像，可以直接用 CNN 或 Transformer 处理。Whisper 编码器就是把频谱图当成 token 序列——每个时间帧是一个 token，频率维度是它的特征向量。</p>
+<p>一帧 STFT 输出的是复数值（含幅度和相位）。频谱图通常只取<strong>幅度谱</strong>或<strong>功率谱</strong>（幅度的平方），丢弃相位。相位在听感上重要但识别任务里用得少。</p>
+<h3 id="04-mel">0.4 mel 频谱图<a class="headerlink" href="#04-mel" title="Permanent link">&para;</a></h3>
+<p>STFT 直接输出的频率轴是<strong>线性</strong>的：0~8000Hz 均匀分布。但人耳对低频敏感（100Hz 和 200Hz 差别明显）、对高频迟钝（8000Hz 和 8100Hz 几乎听不出区别）。</p>
+<p><strong>mel 尺度</strong>模拟人耳感知：低频部分分辨率高，高频部分被压缩。1000Hz 对应 1000 mel 是参考点，100Hz 约 150 mel，8000Hz 约 2840 mel。</p>
+<p><strong>mel 滤波器组</strong>在频率轴上布一组<strong>三角形带通滤波器</strong>（通常 <strong>80</strong> 个），低频窄而密集、高频宽而稀疏。每个滤波器只让一个 mel 频带内的能量通过，把线性频谱从 201 维压缩成 <strong>80 维</strong>。</p>
+<p>效果：低频信息高分辨率保留，高频冗余信息被合并，维度降低计算量也降低。这就是 Whisper、Qwen-Audio 输入的"80 通道 mel 频谱"。</p>
+<h3 id="05-log-mel">0.5 log-mel 频谱图<a class="headerlink" href="#05-log-mel" title="Permanent link">&para;</a></h3>
+<p>mel 频谱的原始能量值跨度很大（从 0 到几百万），人耳对响度的感知又是对数的：能量翻倍听起来不是"响一倍"。</p>
+<p>标准做法是对 mel 频谱每个值取对数，得到 <strong>log-mel 频谱图</strong>。好处：</p>
+<ul>
+<li>数值范围紧凑（0~几十 dB），训练更稳定</li>
+<li>模拟人耳感知，对小响度变化更敏感</li>
+<li>数值接近正态分布，适合神经网络</li>
+</ul>
+<p><strong>Whisper、Qwen-Audio、大多数现代 ASR 都用 log-mel 频谱图作为输入</strong>。论文里写"80 通道 mel 频谱"几乎都默认是 log-mel。</p>
+<h3 id="06">0.6 音频特征处理链路<a class="headerlink" href="#06" title="Permanent link">&para;</a></h3>
+<p>从原始音频到模型输入的标准流程：</p>
+<div class="highlight"><pre><span></span><code>原始波形（16kHz，每秒 16000 个采样点）
+  ↓ 加窗分帧（STFT，25ms 窗，10ms 帧移）
+  ↓ 功率谱（每帧 ~201 个频率点）
+  ↓ mel 滤波器组（80 通道三角形滤波器）
+  ↓ 对数变换
+log-mel 频谱图（80 通道 × T 帧）
+  ↓ 喂给编码器（Whisper / Qwen-Audio）
+音频表征序列（T&#39; × d，d 为模型隐藏维度）
+</code></pre></div>
+<p>另一条路线是<strong>离散 token 化</strong>（AudioLM、VALL-E 使用）：</p>
+<div class="highlight"><pre><span></span><code>波形 → 神经编解码器（EnCodec / SoundStream）→ 离散 token 序列 → 当成&quot;音频文字&quot;喂 LLM
+</code></pre></div>
+<p><strong>关键参数速查</strong>（Whisper / Qwen-Audio 默认）：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>采样率</td>
+<td>16kHz</td>
+</tr>
+<tr>
+<td>窗口大小</td>
+<td>25ms（约 400 采样点）</td>
+</tr>
+<tr>
+<td>帧移</td>
+<td>10ms（每秒 100 帧）</td>
+</tr>
+<tr>
+<td>mel 通道数</td>
+<td>80</td>
+</tr>
+</tbody>
+</table>
+<p>掌握这条链路后，再看 Whisper 就是把 80×T 的 log-mel 频谱图喂进 Transformer，输出 T'×d 的表征序列，和 ViT 把图像切成 patch 再编码是完全同构的思路。</p>
+<hr />
+<h2 id="_4">第一部分：语音识别基础<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="1-whisper-2022">1. Whisper - 大规模弱监督语音识别 (2022)<a class="headerlink" href="#1-whisper-2022" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>📄 <strong>论文</strong>：<a href="https://arxiv.org/abs/2212.04356">Robust Speech Recognition via Large-Scale Weak Supervision</a><br />
+<strong>作者</strong>：Alec Radford, Jong Wook Kim, Tao Xu, Greg Brockman, Christine McLeavey, Ilya Sutskever (OpenAI)<br />
+<strong>发表</strong>：ICML 2023</p>
+</blockquote>
+<p><strong>核心思想</strong>：用 <strong>680,000 小时的弱监督音频-文本对数据</strong> 训练编码器-解码器 Transformer，将语音识别、翻译、语言识别、语音活动检测统一为<strong>多任务序列到序列学习</strong>，在零样本迁移设置下达到接近人类的鲁棒性。</p>
+<h4 id="11">1.1 背景与动机<a class="headerlink" href="#11" title="Permanent link">&para;</a></h4>
+<p>在 Whisper 之前，语音识别的主流范式是：
+- <strong>无监督预训练</strong>（如 Wav2Vec 2.0）：在无标注音频上预训练，再在标注数据上微调
+- <strong>有监督训练</strong>：使用高质量的人工标注数据（如 LibriSpeech），数据规模有限（960 小时）</p>
+<p>两种方法的共同问题：<strong>在训练分布之外泛化能力弱</strong>——在干净的 LibriSpeech 上表现好，但在噪声、口音、录音条件变化时性能大幅下降。</p>
+<p><strong>关键洞察</strong>：大规模但质量不完美的弱监督数据（互联网上的音频-字幕对）能带来比小规模高质量数据更好的鲁棒性，前提是数据规模足够大（680k 小时）。</p>
+<h4 id="12-log-mel">1.2 音频预处理：log-Mel 频谱图<a class="headerlink" href="#12-log-mel" title="Permanent link">&para;</a></h4>
+<p>Whisper 处理音频的标准流程：</p>
+<ol>
+<li>所有音频重采样到 <strong>16,000 Hz</strong></li>
+<li>用 <strong>25 毫秒窗口</strong>（帧）、<strong>10 毫秒跳步</strong>计算短时傅里叶变换（STFT）</li>
+<li>将 STFT 结果映射到 <strong>80 通道 Mel 频率</strong>（模拟人耳对频率的对数感知）</li>
+<li>取对数：<span class="arithmatex">\(\log(\text{Mel 功率谱} + \epsilon)\)</span></li>
+<li>全局归一化到 <span class="arithmatex">\([-1, +1]\)</span>（均值约为零）</li>
+</ol>
+<p><strong>为什么用 Mel 频谱图</strong>：
+- 原始波形长度 = 采样率 × 时长，1 秒 = 16000 个采样点，序列太长
+- Mel 频谱图降维：1 秒音频 → 100 帧（10ms/帧）× 80 通道，信息密度远高于原始波形
+- 80 通道 Mel 滤波器组模拟人耳的频率感知，对语音内容捕捉更有效</p>
+<h4 id="13-transformer">1.3 模型架构：编码器-解码器 Transformer<a class="headerlink" href="#13-transformer" title="Permanent link">&para;</a></h4>
+<p><strong>编码器</strong>：</p>
+<div class="highlight"><pre><span></span><code>log-Mel 频谱图 (80 × T)
+    ↓ 2 × Conv1D + GELU（两层卷积 stem，卷积核宽 3）
+    ↓ 正弦位置编码（sinusoidal positional encoding）
+    ↓ Transformer Encoder（多层）
+音频特征序列
+</code></pre></div>
+<ul>
+<li>两层 1D 卷积将 80-channel Mel 特征映射到模型维度，同时进行时间下采样</li>
+<li><strong>正弦位置编码</strong>（固定，非可学习）</li>
+<li>标准 Transformer encoder blocks（自注意力 + MLP）</li>
+</ul>
+<p><strong>卷积 stem 详解（源码级）</strong></p>
+<p>频谱图 (80 × T) 是二维矩阵：纵轴 80 行对应 80 个 mel 滤波器（频率维度），横轴 T 列对应时间帧（10ms/帧，30 秒 = 3000 帧）。但 Whisper 不把它当"图像"，而是当作<strong>长度 T 的序列，每个时间步有 80 维特征</strong>——80 作为 Conv1d 的输入通道（in_channels），卷积核只沿时间轴滑动。</p>
+<p><strong>为什么用 Conv1D 而不是 Conv2D</strong>：</p>
+<ul>
+<li><strong>时间轴有平移不变性</strong>：同一个音素出现在第 1 秒或第 5 秒，模式相同，适合卷积滑动</li>
+<li><strong>频率轴没有平移不变性</strong>：低频的能量模式平移到高频含义完全不同（男声变成另一种声音），不适合滑动，应当作特征通道整体处理</li>
+<li>图像的高、宽都有平移不变性，所以用 Conv2D 双向滑动；频谱图两轴异质，只滑时间轴</li>
+</ul>
+<p>openai/whisper 仓库 <code>model.py</code> 中 <code>AudioEncoder</code> 的真实源码：</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">AudioEncoder</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_mels</span><span class="p">,</span> <span class="n">n_ctx</span><span class="p">,</span> <span class="n">n_state</span><span class="p">,</span> <span class="n">n_head</span><span class="p">,</span> <span class="n">n_layer</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conv1</span> <span class="o">=</span> <span class="n">Conv1d</span><span class="p">(</span><span class="n">n_mels</span><span class="p">,</span> <span class="n">n_state</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conv2</span> <span class="o">=</span> <span class="n">Conv1d</span><span class="p">(</span><span class="n">n_state</span><span class="p">,</span> <span class="n">n_state</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">&quot;positional_embedding&quot;</span><span class="p">,</span> <span class="n">sinusoids</span><span class="p">(</span><span class="n">n_ctx</span><span class="p">,</span> <span class="n">n_state</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">blocks</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ModuleList</span><span class="p">(</span>
+            <span class="p">[</span><span class="n">ResidualAttentionBlock</span><span class="p">(</span><span class="n">n_state</span><span class="p">,</span> <span class="n">n_head</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_layer</span><span class="p">)]</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ln_post</span> <span class="o">=</span> <span class="n">LayerNorm</span><span class="p">(</span><span class="n">n_state</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="c1"># x: (batch_size, n_mels, n_ctx) —— mel 频谱图</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">gelu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">conv1</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">gelu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">conv2</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">positional_embedding</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">blocks</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">block</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ln_post</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">x</span>
+</code></pre></div>
+<p><strong>形状变化</strong>（以 large 模型为例：n_mels=80，n_state=1280，30 秒输入）：</p>
+<table>
+<thead>
+<tr>
+<th>步骤</th>
+<th>操作</th>
+<th>形状变化</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>conv1</td>
+<td>80 通道 → 1280 通道，核宽 3，padding=1 保长度</td>
+<td><code>(B, 80, 3000)</code> → <code>(B, 1280, 3000)</code></td>
+</tr>
+<tr>
+<td>conv2</td>
+<td>通道不变，<strong>stride=2 时间减半</strong></td>
+<td><code>(B, 1280, 3000)</code> → <code>(B, 1280, 1500)</code></td>
+</tr>
+<tr>
+<td>permute</td>
+<td>转成 (batch, 序列, 特征)</td>
+<td><code>(B, 1280, 1500)</code> → <code>(B, 1500, 1280)</code></td>
+</tr>
+<tr>
+<td>+ 位置编码</td>
+<td>加固定正弦位置编码（<code>register_buffer</code>，不可学习）</td>
+<td>不变</td>
+</tr>
+<tr>
+<td>Transformer</td>
+<td>32 层 encoder block + 最终 LayerNorm</td>
+<td>输出 <code>(B, 1500, 1280)</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>帧 → token 的转换</strong>：输入的 3000 个时间帧（每帧 10ms 的 80 维 mel 向量）还不是 token，只是卷积的"原材料"；经过卷积 stem 后的 <strong>1500 个 1280 维向量才是进入自注意力的 token</strong>，每个 token 对应约 20ms 音频（两层核宽 3 的卷积使实际感受野约 50ms）。这与 ViT 把像素合并成 patch token 完全同构：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>ViT</th>
+<th>Whisper</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>原始输入</td>
+<td>224×224 像素</td>
+<td>3000 帧 mel</td>
+</tr>
+<tr>
+<td>token 化操作</td>
+<td>16×16 patch 投影</td>
+<td>两层 Conv1D（含 2× 下采样）</td>
+</tr>
+<tr>
+<td>最终 token 数</td>
+<td>196 个</td>
+<td>1500 个</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Conv1d 的关键参数</strong>（<code>nn.Conv1d</code>）：</p>
+<ul>
+<li><strong>in_channels / out_channels</strong>：输入/输出通道数（特征维度变换），卷积核在全部输入通道上加权求和，通道维不滑动</li>
+<li><strong>kernel_size</strong>：核宽，每次看几个相邻时间步（局部感受野）</li>
+<li><strong>stride</strong>：滑动步长，&gt;1 即下采样（conv2 用 2）</li>
+<li><strong>padding</strong>：两端补零，一般取 (kernel_size−1)/2 配平长度</li>
+<li>输出长度公式：<span class="arithmatex">\(L_{out} = \lfloor (L_{in} + 2 \times padding - kernel\_size) / stride \rfloor + 1\)</span>，验证 conv2：(3000 + 2 − 3)/2 + 1 = 1500</li>
+</ul>
+<p><strong>解码器</strong>：</p>
+<div class="highlight"><pre><span></span><code>特殊 token 序列 + 文本 token
+    ↓ 可学习位置编码（learned positional encoding）
+    ↓ Transformer Decoder（多层）
+      - 自注意力（masked）
+      - 交叉注意力（关注编码器输出）
+      - MLP
+    ↓ 下一个 token 预测
+</code></pre></div>
+<p><strong>模型规模</strong>（Whisper 模型家族）：</p>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>Transformer 层数</th>
+<th>隐藏维度</th>
+<th>注意力头数</th>
+<th>参数量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tiny</td>
+<td>4</td>
+<td>384</td>
+<td>6</td>
+<td>39M</td>
+</tr>
+<tr>
+<td>Base</td>
+<td>6</td>
+<td>512</td>
+<td>8</td>
+<td>74M</td>
+</tr>
+<tr>
+<td>Small</td>
+<td>12</td>
+<td>768</td>
+<td>12</td>
+<td>244M</td>
+</tr>
+<tr>
+<td>Medium</td>
+<td>24</td>
+<td>1024</td>
+<td>16</td>
+<td>769M</td>
+</tr>
+<tr>
+<td>Large</td>
+<td>32</td>
+<td>1280</td>
+<td>20</td>
+<td>1550M</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Figure 1: Whisper 的编码器-解码器 Transformer 架构与多任务序列到序列训练框架" src="../images/whisper_fig1.png" />
+<em>Figure 1: Whisper 的编码器-解码器 Transformer 架构与多任务序列到序列训练框架。</em></p>
+<h4 id="14-token">1.4 多任务训练格式：特殊 token 序列<a class="headerlink" href="#14-token" title="Permanent link">&para;</a></h4>
+<p>Whisper 的关键设计是将所有语音任务统一为序列到序列问题，通过解码器输入的<strong>特殊 token 序列</strong>指定任务：</p>
+<div class="highlight"><pre><span></span><code>&lt;|startoftranscript|&gt; &lt;|语言标签|&gt; &lt;|任务标签|&gt; [时间戳 token] 文本 token &lt;|endoftext|&gt;
+</code></pre></div>
+<p><strong>特殊 token 的含义</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>Token</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;|startoftranscript|&gt;</code></td>
+<td>转录开始（SOT）</td>
+</tr>
+<tr>
+<td><code>&lt;|en|&gt;</code>, <code>&lt;|zh|&gt;</code> 等</td>
+<td>源语言标签（96 种语言）</td>
+</tr>
+<tr>
+<td><code>&lt;|transcribe|&gt;</code></td>
+<td>任务：识别原语言</td>
+</tr>
+<tr>
+<td><code>&lt;|translate|&gt;</code></td>
+<td>任务：翻译成英语</td>
+</tr>
+<tr>
+<td><code>&lt;|nospeech|&gt;</code></td>
+<td>无语音（语音活动检测）</td>
+</tr>
+<tr>
+<td><code>&lt;|notimestamps|&gt;</code></td>
+<td>无时间戳输出</td>
+</tr>
+<tr>
+<td><code>&lt;|0.00|&gt;</code> ~ <code>&lt;|30.00|&gt;</code></td>
+<td>时间戳 token（每 20ms 一个级别）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>支持的任务</strong>：
+- <strong>X → X 转录</strong>（语言识别 + 识别）
+- <strong>X → 英语翻译</strong>（任意语言翻译成英语）
+- <strong>语音活动检测</strong>（无语音时输出 <code>&lt;|nospeech|&gt;</code>）
+- <strong>时间对齐转录</strong>（输出带时间戳的文本）</p>
+<p><strong>为什么这个格式有效</strong>：
+- 统一格式让一个模型可以处理所有任务，无需为每个任务设计独立结构
+- 特殊 token 作为任务提示（task prompt），推理时可以灵活控制输出类型
+- 支持 in-context learning：将前一段文本作为 <code>&lt;|prev|&gt;</code> token 输入，利用上下文提高连续识别质量</p>
+<h4 id="15-680k">1.5 数据：680k 小时弱监督数据<a class="headerlink" href="#15-680k" title="Permanent link">&para;</a></h4>
+<p><strong>数据来源</strong>：互联网上的音频-文字配对（视频字幕、播客字幕等）</p>
+<ul>
+<li>总计 <strong>680,000 小时</strong>（比 LibriSpeech 多 700 倍）</li>
+<li>其中 117,000 小时覆盖 96 种非英语语言</li>
+<li>125,000 小时为 X→英语翻译数据</li>
+</ul>
+<p><strong>数据清洗</strong>：
+- 过滤机器生成字幕（音频-文本对齐质量差）
+- 语言检测过滤（避免语言标签错误）
+- 重复数据去除（防止与评测集重叠）</p>
+<p><strong>弱监督 vs 强监督</strong>：
+- 数据质量不如人工标注（存在对齐错误、标注噪声）
+- 但数量优势（680k 小时）带来更强的鲁棒性
+- 零样本迁移不需要在目标数据集上微调</p>
+<h4 id="16">1.6 总结<a class="headerlink" href="#16" title="Permanent link">&para;</a></h4>
+<p>Whisper 的核心贡献：
+- <strong>大规模弱监督</strong>：680k 小时弱标注数据带来前所未有的鲁棒性
+- <strong>多任务统一格式</strong>：单一模型覆盖识别、翻译、检测等任务
+- <strong>特殊 token 设计</strong>：灵活控制任务类型，支持 in-context learning
+- <strong>零样本迁移</strong>：无需数据集特定微调即可在多种条件下达到强性能
+- 成为后续音频多模态模型的标准音频编码器基础（如 Qwen2.5-Omni 使用 Whisper-large-v3 初始化音频编码器）</p>
+<hr />
+<h2 id="_5">第二部分：音频语言模型 ❓<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h3 id="2-audiolm-2022">2. AudioLM - 语言模型方法的音频生成 (2022)<a class="headerlink" href="#2-audiolm-2022" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>📄 <strong>论文</strong>：<a href="https://arxiv.org/abs/2209.03143">AudioLM: a Language Modeling Approach to Audio Generation</a><br />
+<strong>作者</strong>：Zalán Borsos, Raphaël Marinier, Damien Vincent, Eugene Kharitonov 等 (Google Research)<br />
+<strong>发表</strong>：IEEE/ACM TASLP 2023</p>
+</blockquote>
+<p><strong>核心思想</strong>：将音频生成转化为<strong>离散 token 序列上的语言建模</strong>问题，用<strong>混合 tokenization</strong>（语义 token + 声学 token）和<strong>三阶段层级生成</strong>解决长期一致性与高保真重建之间的矛盾。</p>
+<h4 id="21">2.1 背景与动机<a class="headerlink" href="#21" title="Permanent link">&para;</a></h4>
+<p>音频生成面临两个相互矛盾的需求：</p>
+<ol>
+<li><strong>长期一致性</strong>：生成的音频要保持连贯的语义内容（说话人在说完整的句子，而非乱语）</li>
+<li><strong>高保真音质</strong>：音频的音色、韵律、环境音等细节要真实</li>
+</ol>
+<p><strong>已有方法的困境</strong>：
+- 神经音频 codec（如 SoundStream）可以高质量重建音频，但编码的 token 主要是<strong>声学 token</strong>，包含大量音色/音质信息，缺乏语言层面的结构性约束，直接用语言模型生成这些 token 很难保持长期语义一致性
+- 自监督语音模型（如 wav2vec 2.0、w2v-BERT）学到的是<strong>语义 token</strong>，对语言内容敏感，但丢失了音色和音质信息，重建质量差</p>
+<p><strong>关键洞察</strong>：
+- 语义 token 和声学 token 捕捉音频的<strong>不同层次信息</strong>，两者互补
+- 用<strong>层级语言模型</strong>——先生成语义 token（高层结构），再条件性地生成声学 token（低层细节），可以同时满足两个需求</p>
+<h4 id="22-tokenization">2.2 核心方法：混合 Tokenization<a class="headerlink" href="#22-tokenization" title="Permanent link">&para;</a></h4>
+<p>AudioLM 使用两种完全不同的 tokenizer：</p>
+<p><strong>语义 token（来自 w2v-BERT）</strong>：</p>
+<ul>
+<li>模型：w2v-BERT XL（6 亿参数）——在无标注语音上用 masked language modeling 预训练</li>
+<li>提取方式：取 MLM 模块第 <strong>7 层</strong>的中间表示（通过 ABX 和 sWUGGY/sBLIMP 指标选出最优层）</li>
+<li>离散化：对提取的连续特征做 <strong>k-means 聚类</strong>，<span class="arithmatex">\(K=1024\)</span> 个聚类中心</li>
+<li>码率：约 <strong>250 bps</strong>（每秒 25 个 token，每个 40ms）</li>
+<li>捕捉信息：<strong>音素内容、语言结构</strong>（ABX 音素辨别率低，语言模型困惑度低）</li>
+<li>损失信息：说话人身份、录音环境、音质细节</li>
+</ul>
+<p><strong>声学 token（来自 SoundStream）</strong>：</p>
+<ul>
+<li>模型：SoundStream 神经音频 codec，用残差向量量化（RVQ）压缩音频</li>
+<li>配置：<strong>12 级 RVQ</strong>，每级码本大小 1024，步长 (2, 4, 5, 8)</li>
+<li>采样率：输出 50 Hz 嵌入（16 kHz 音频的 <span class="arithmatex">\(320×\)</span> 压缩）</li>
+<li>码率：<strong>6000 bps</strong>（50 Hz × 12 级 × <span class="arithmatex">\(\log_2 1024\)</span> = 6000 bit/s）</li>
+<li>捕捉信息：<strong>全部音频细节</strong>（音色、音质、环境音、高保真音频内容）</li>
+<li>RVQ 的层级特性：<strong>第一级量化器对重建质量贡献最大</strong>，后续量化器逐级补充细节</li>
+</ul>
+<p><strong>两类 token 的比较</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>语义 token（w2v-BERT）</th>
+<th>声学 token（SoundStream）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>来源</strong></td>
+<td>无监督语音预训练模型中间层</td>
+<td>神经音频 codec（RVQ）</td>
+</tr>
+<tr>
+<td><strong>码率</strong></td>
+<td>~250 bps</td>
+<td>6000 bps</td>
+</tr>
+<tr>
+<td><strong>音素辨别性</strong></td>
+<td>高（内容敏感）</td>
+<td>低（内容不敏感）</td>
+</tr>
+<tr>
+<td><strong>重建质量</strong></td>
+<td>差（ViSQOL ~1.1）</td>
+<td>好（ViSQOL ~3.9）</td>
+</tr>
+<tr>
+<td><strong>建模难度</strong></td>
+<td>低（序列短，结构性强）</td>
+<td>高（序列长，细节多）</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Figure 2: AudioLM 的混合 tokenization 框架：w2v-BERT 语义 token 与 SoundStream 声学 token 各司其职" src="../images/audiolm_fig1.png" />
+<em>Figure 2: AudioLM 的混合 tokenization 框架：w2v-BERT 语义 token 与 SoundStream 声学 token 各司其职。</em></p>
+<h4 id="23">2.3 三阶段层级生成<a class="headerlink" href="#23" title="Permanent link">&para;</a></h4>
+<p>AudioLM 的生成过程分三个独立的 Transformer 语言模型：</p>
+<div class="highlight"><pre><span></span><code>阶段 1：语义语言模型
+输入：音频前缀（条件）
+输出：语义 token 序列
+→ 建立长期语言/语义结构
+
+阶段 2：粗声学语言模型
+输入：语义 token（来自阶段 1）
+输出：粗声学 token（RVQ 前 Q&#39;=4 级，flattened）
+→ 将语义结构映射到音色/韵律
+
+阶段 3：精细声学语言模型
+输入：粗声学 token（来自阶段 2）
+输出：精细声学 token（RVQ 剩余 Q-Q&#39;=8 级）
+→ 增加高频细节，去除压缩伪影
+</code></pre></div>
+<p><strong>为什么需要三个阶段</strong>：</p>
+<ul>
+<li><strong>阶段 1 + 阶段 2 分离</strong>：语义 token 序列短（250 bps），语言模型可以高效学习长期结构；声学 token 序列长（6000 bps），条件生成比联合生成更可控</li>
+<li><strong>阶段 2 + 阶段 3 分离</strong>：精细声学 token 在条件于粗声学 token 时，<strong>对语义 token 条件独立</strong>（精细细节由局部声学结构决定），因此阶段 3 可以忽略语义 token，大幅减少序列长度</li>
+<li>阶段 3 在非重叠的 3 秒音频 chunk 上独立运行，可以并行化，且不受目标音频长度影响</li>
+</ul>
+<p><strong>生成的数学形式</strong>：</p>
+<div class="arithmatex">\[p(\mathbf{A}) = p(\mathbf{s}) \cdot p(\mathbf{C}_{\text{coarse}} | \mathbf{s}) \cdot p(\mathbf{C}_{\text{fine}} | \mathbf{C}_{\text{coarse}})\]</div>
+<p>其中 <span class="arithmatex">\(\mathbf{s}\)</span> 是语义 token，<span class="arithmatex">\(\mathbf{C}_{\text{coarse}}\)</span> 是粗声学 token，<span class="arithmatex">\(\mathbf{C}_{\text{fine}}\)</span> 是精细声学 token。</p>
+<p><img alt="Figure 3: AudioLM 的三阶段层级生成：从语义结构到粗声学再到精细声学" src="../images/audiolm_fig2.png" />
+<em>Figure 3: AudioLM 的三阶段层级生成：从语义结构到粗声学再到精细声学。</em></p>
+<h4 id="24">2.4 条件生成：音频续写<a class="headerlink" href="#24" title="Permanent link">&para;</a></h4>
+<p>在推理时，给定一段音频前缀（如前 5 秒），AudioLM 可以<strong>无缝续写</strong>：</p>
+<ol>
+<li>将前缀音频编码为语义 token（由 w2v-BERT 提取）</li>
+<li>以前缀的语义 token 为条件，语义 LM 继续生成后续语义 token</li>
+<li>以所有语义 token 为条件，粗声学 LM 生成粗声学 token</li>
+<li>以粗声学 token 为条件，精细声学 LM 生成精细声学 token</li>
+<li>SoundStream 解码器将声学 token 解码为波形</li>
+</ol>
+<p><strong>关键特性</strong>：
+- <strong>语义内容一致</strong>：续写的语音语义上与前缀连贯（说话人说的是有意义的句子）
+- <strong>音色保持</strong>：说话人的声音特征（音色、口音）在续写中得到保持
+- <strong>无需任何文本标注</strong>：AudioLM 是纯音频语言模型，不依赖文本</p>
+<h4 id="25">2.5 总结<a class="headerlink" href="#25" title="Permanent link">&para;</a></h4>
+<p>AudioLM 的核心贡献：
+- <strong>混合 tokenization 范式</strong>：语义 token 负责结构，声学 token 负责重建，两类 token 各司其职
+- <strong>三阶段层级生成</strong>：从高层语义结构到低层声学细节的渐进生成，解决长短期一致性矛盾
+- <strong>纯音频语言模型</strong>：无需文本标注，完全从音频数据学习
+- 为后续音频语言模型（VALL-E 等）提供了混合 tokenization 的范式基础</p>
+<hr />
+<h3 id="3-vall-e-2023">3. VALL-E - 零样本文本转语音 (2023)<a class="headerlink" href="#3-vall-e-2023" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>📄 <strong>论文</strong>：<a href="https://arxiv.org/abs/2301.02111">Neural Codec Language Models are Zero-Shot Text to Speech Synthesizers</a><br />
+<strong>作者</strong>：Chengyi Wang, Sanyuan Chen, Yu Wu, Ziqiang Zhang 等 (Microsoft)<br />
+<strong>发表</strong>：arXiv 2023</p>
+</blockquote>
+<p><strong>核心思想</strong>：将 TTS（文本转语音）视为<strong>条件 codec 语言建模</strong>任务，用 <strong>EnCodec 8 级 RVQ</strong> tokenize 音频，用 <strong>AR（自回归）模型生成第一级量化 token</strong> + <strong>NAR（非自回归）模型并行生成剩余 7 级 token</strong>，仅需 <strong>3 秒参考音频</strong>即可零样本克隆说话人声音。</p>
+<h4 id="31">3.1 背景与动机<a class="headerlink" href="#31" title="Permanent link">&para;</a></h4>
+<p>零样本 TTS 的目标：给定文本内容和 3 秒目标说话人的参考音频，合成目标说话人声音说出该文本。</p>
+<p><strong>前人方法的局限</strong>：
+- <strong>说话人自适应方法</strong>：需要额外微调，耗时且需要标注数据
+- <strong>说话人编码方法</strong>：用固定的说话人嵌入，泛化能力有限
+- 训练数据规模小（通常 &lt; 1000 小时），导致零样本泛化差</p>
+<p><strong>VALL-E 的核心思路</strong>：借鉴 GPT-3 的成功——<strong>大规模数据 + 语言模型 = 强大的 in-context learning</strong>。用 60,000 小时 LibriLight 数据训练，让模型学会"给定参考音频，自动适配说话人风格"。</p>
+<h4 id="32-encodec-ar-nar">3.2 核心方法：EnCodec + AR + NAR<a class="headerlink" href="#32-encodec-ar-nar" title="Permanent link">&para;</a></h4>
+<p><strong>音频 Tokenizer：EnCodec</strong></p>
+<p>EnCodec 是一个卷积编码器-解码器模型，支持 24 kHz 音频，支持可变比特率：</p>
+<ul>
+<li><strong>编码器</strong>产生 <strong>75 Hz</strong> 的嵌入（24 kHz 音频的 320× 下采样）</li>
+<li>每个嵌入用 <strong>8 级 RVQ</strong> 量化，每级码本大小 <strong>1024</strong></li>
+<li>这一配置对应 <strong>6K 比特率</strong>（<span class="arithmatex">\(75 \times 8 \times \log_2 1024 = 6000\)</span> bps）</li>
+<li>给定 10 秒波形，离散表示为 <span class="arithmatex">\(750 \times 8\)</span> 的矩阵（750 = 24000×10/320 个时间步，8 个量化器）</li>
+</ul>
+<p><img alt="Figure 4: VALL-E 使用的 EnCodec 8 级 RVQ 将音频编码为多级离散 token" src="../images/valle_fig2.png" />
+<em>Figure 4: VALL-E 使用的 EnCodec 8 级 RVQ 将音频编码为多级离散 token。</em></p>
+<p><strong>RVQ 的层级结构</strong>：</p>
+<div class="arithmatex">\[\mathbf{c}_t = (c_{t,1}, c_{t,2}, ..., c_{t,8})\]</div>
+<p>其中 <span class="arithmatex">\(c_{t,j}\)</span> 是时间步 <span class="arithmatex">\(t\)</span> 第 <span class="arithmatex">\(j\)</span> 级量化器的 token。第 1 级对重建质量贡献最大，后续级别逐步补充细节残差。</p>
+<p><strong>问题形式化</strong>：</p>
+<p>给定数据集 <span class="arithmatex">\(\mathcal{D} = \{(\mathbf{x}_i, \mathbf{y}_i)\}\)</span>，其中 <span class="arithmatex">\(\mathbf{y}\)</span> 是音频样本，<span class="arithmatex">\(\mathbf{x} = \{x_0, x_1, ..., x_L\}\)</span> 是对应的<strong>音素序列</strong>（由 G2P 从文本转换）。</p>
+<p>目标：学习</p>
+<div class="arithmatex">\[p(\mathbf{C} | \mathbf{x}, \tilde{\mathbf{C}})\]</div>
+<p>其中 <span class="arithmatex">\(\mathbf{C}\)</span> 是目标音频的 codec token 矩阵，<span class="arithmatex">\(\tilde{\mathbf{C}}\)</span> 是说话人参考音频（声学提示，3 秒）的 codec token。</p>
+<p><strong>AR 模型（自回归）—— 生成第一级量化 token</strong>：</p>
+<div class="arithmatex">\[p(\mathbf{c}_{:,1} | \mathbf{x}, \tilde{\mathbf{C}}_{:,1}; \theta_{AR})\]</div>
+<ul>
+<li>输入：音素序列 <span class="arithmatex">\(\mathbf{x}\)</span> + 参考音频的第一级 token <span class="arithmatex">\(\tilde{\mathbf{c}}_{:,1}\)</span></li>
+<li>输出：目标音频的第一级 token 序列 <span class="arithmatex">\(\mathbf{c}_{:,1}\)</span>（<strong>自回归</strong>逐步生成）</li>
+<li>架构：Transformer 解码器（12 层，16 头，隐藏维度 1024）</li>
+<li><strong>因果自注意力</strong>：每个 token 只能 attend 到左边的 token</li>
+<li><strong>为什么用 AR</strong>：第一级量化 token 决定了音频的时长结构，不同说话人速度差异大，需要 AR 的灵活性来预测可变长度的序列</li>
+</ul>
+<p><strong>NAR 模型（非自回归）—— 生成第 2-8 级量化 token</strong>：</p>
+<div class="arithmatex">\[p(\mathbf{C}_{:,2:8} | \mathbf{x}, \tilde{\mathbf{C}}; \theta_{NAR}) = \prod_{j=2}^{8} p(\mathbf{c}_{:,j} | \mathbf{C}_{:,&lt;j}, \mathbf{x}, \tilde{\mathbf{C}}; \theta_{NAR})\]</div>
+<ul>
+<li>输入：音素序列 <span class="arithmatex">\(\mathbf{x}\)</span> + 参考音频全部 8 级 token <span class="arithmatex">\(\tilde{\mathbf{C}}\)</span> + 已生成的第 <span class="arithmatex">\(1\)</span> 到 <span class="arithmatex">\(j-1\)</span> 级 token</li>
+<li>输出：第 <span class="arithmatex">\(j\)</span> 级 token（<strong>并行</strong>生成序列中所有时间步的第 <span class="arithmatex">\(j\)</span> 级 token）</li>
+<li>架构：与 AR 模型相同（12 层），但有 8 个独立的声学 embedding 层</li>
+<li><strong>全注意力</strong>（非因果）：每个 token 可以 attend 到所有 token</li>
+<li><strong>AdaLN 注入训练阶段 <span class="arithmatex">\(j\)</span></strong>：<span class="arithmatex">\(\text{AdaLN}(h, j) = a_j \text{LayerNorm}(h) + b_j\)</span></li>
+<li><strong>为什么用 NAR</strong>：给定第 1 级 token（已知时长结构），后续级别的 token 数量固定，NAR 将时间复杂度从 <span class="arithmatex">\(O(T)\)</span> 降至 <span class="arithmatex">\(O(1)\)</span></li>
+</ul>
+<p><strong>参数共享</strong>：AR 和 NAR 模型共享声学 embedding 层和输出预测层（第 <span class="arithmatex">\(j\)</span> 级预测层权重 = 第 <span class="arithmatex">\(j+1\)</span> 级 embedding 层权重），减少参数量。</p>
+<p><img alt="Figure 5: VALL-E 的 AR + NAR 条件 codec 语言模型：AR 生成第一级 token，NAR 并行生成其余级别" src="../images/valle_fig3.png" />
+<em>Figure 5: VALL-E 的 AR + NAR 条件 codec 语言模型：AR 生成第一级 token，NAR 并行生成其余级别。</em></p>
+<h4 id="33-in-context-learning">3.3 推理：In-Context Learning<a class="headerlink" href="#33-in-context-learning" title="Permanent link">&para;</a></h4>
+<p>推理时，给定新的说话人参考音频（3 秒），VALL-E 无需微调，直接利用 in-context learning：</p>
+<ol>
+<li>将参考音频用 EnCodec 编码为 <span class="arithmatex">\(\tilde{\mathbf{C}}\)</span>（声学提示）</li>
+<li>将目标文本转为音素序列 <span class="arithmatex">\(\mathbf{x}\)</span></li>
+<li><strong>AR 模型</strong>以 <span class="arithmatex">\((\mathbf{x}, \tilde{\mathbf{c}}_{:,1})\)</span> 为条件，生成 <span class="arithmatex">\(\mathbf{c}_{:,1}\)</span></li>
+<li><strong>NAR 模型</strong>以 <span class="arithmatex">\((\mathbf{x}, \tilde{\mathbf{C}}, \mathbf{c}_{:,&lt;j})\)</span> 为条件，逐级生成 <span class="arithmatex">\(\mathbf{c}_{:,2}\)</span> 到 <span class="arithmatex">\(\mathbf{c}_{:,8}\)</span></li>
+<li>EnCodec 解码器将 <span class="arithmatex">\(\mathbf{C}\)</span> 解码为音频波形</li>
+</ol>
+<p><strong>多样性输出</strong>：对同一输入多次采样 AR 模型，可以生成说话方式不同但说话人身份相同的多种语音。</p>
+<p><strong>音频环境保持</strong>：VALL-E 能保持参考音频的<strong>录音环境</strong>（如混响），因为声学提示包含了这些信息。</p>
+<h4 id="34">3.4 总结<a class="headerlink" href="#34" title="Permanent link">&para;</a></h4>
+<p>VALL-E 的核心贡献：
+- <strong>TTS 即语言建模</strong>：将 TTS 从信号回归问题转化为条件 codec token 序列预测
+- <strong>AR + NAR 双模型</strong>：AR 处理可变长度（时长不确定），NAR 提升推理效率（<span class="arithmatex">\(O(T) \rightarrow O(1)\)</span>）
+- <strong>零样本说话人克隆</strong>：3 秒参考音频即可克隆音色，无需微调
+- <strong>大规模弱监督训练</strong>：60k 小时数据使模型泛化到任意说话人
+- EnCodec 作为通用音频 tokenizer 的范式被后续工作广泛采用</p>
+<hr />
+<h2 id="_6">第三部分：全模态感知<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h3 id="4-qwen25-omni-2025">4. Qwen2.5-Omni - 全模态感知与流式语音生成 (2025)<a class="headerlink" href="#4-qwen25-omni-2025" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>📄 <strong>论文</strong>：<a href="https://arxiv.org/abs/2503.20026">Qwen2.5-Omni Technical Report</a><br />
+<strong>作者</strong>：Qwen Team, Alibaba Group<br />
+<strong>发表</strong>：arXiv 2025</p>
+</blockquote>
+<p><strong>核心思想</strong>：用 <strong>Thinker-Talker 双模块架构</strong> 实现端到端全模态感知（文本 + 图像 + 音频 + 视频）与流式语音生成，用 <strong>TMRoPE（时间对齐多模态 RoPE）</strong> 统一音频和视频的时序位置编码，用<strong>滑动窗口 DiT</strong> 实现低延迟流式语音解码。</p>
+<h4 id="41">4.1 背景与动机<a class="headerlink" href="#41" title="Permanent link">&para;</a></h4>
+<p>现有全模态模型面临两个核心挑战：</p>
+<ol>
+<li><strong>模态对齐问题</strong>：视频和音频有时序关联（视频中的人物说话），需要时间对齐的位置编码；但此前的方法（如 M-RoPE）只用帧索引作时间 ID，无法精确对齐音频（25fps 音频帧）和视频（动态帧率）</li>
+<li><strong>文本与语音的干扰</strong>：同时生成文本和语音时，两种输出模态容易相互干扰，导致语音质量下降或文本不准确</li>
+</ol>
+<p><strong>解决思路</strong>：
+- 用绝对时间戳统一音频和视频的位置编码（TMRoPE）
+- 将文本生成（Thinker）和语音生成（Talker）分离为两个模块，但共享 Thinker 的高层语义表示</p>
+<h4 id="42-thinker-talker">4.2 架构概览：Thinker-Talker<a class="headerlink" href="#42-thinker-talker" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>音频 ──────────────────────────────────────────────┐
+图像 ──→ 视觉编码器（Qwen2.5-VL ViT，675M）──→      │
+视频帧 ─────────────────────────────────────────→  ├──→ Thinker（LLM Transformer 解码器）
+                                                   │     ↓ 文本输出
+音频 ──→ 音频编码器（Whisper-large-v3 初始化）──→  ┘     ↓ 高层语义表示（hidden states）
+文本 ──→ Qwen 分词器 ──────────────────────────────→  │
+                                                       ↓
+                                              Talker（双轨 AR 解码器）
+                                                  接收 Thinker 的
+                                                  hidden states + 文本 token
+                                                       ↓
+                                             qwen-tts-tokenizer token
+                                                       ↓
+                                             流式语音输出（causal 音频解码器）
+</code></pre></div>
+<p><strong>Thinker</strong>：
+- 标准 Transformer 解码器（基于 Qwen2.5 LLM 初始化）
+- 负责理解所有输入模态，生成文本响应
+- 同时向 Talker 提供<strong>高维语义表示</strong>（hidden states）</p>
+<p><strong>Talker</strong>：
+- <strong>双轨自回归 Transformer 解码器</strong>（dual-track autoregressive）
+- 同时接收：① Thinker 的 hidden states（语义信息，流式传输）；② Thinker 采样的文本 token（精确的语音内容）
+- 输出 qwen-tts-tokenizer 的离散 speech token
+- 通过 causal 音频解码器实时解码为波形</p>
+<p><strong>为什么需要同时输入 hidden states 和文本 token</strong>：
+- Hidden states 提前传递<strong>语气、情感、态度</strong>等高层信息（在文本生成完成之前就可以开始语音生成）
+- 文本 token 提供<strong>精确的语义内容</strong>（hidden states 中语义相近的词可能有相似的表示，仅靠 hidden states 无法区分）</p>
+<p><img alt="Figure 6: Qwen2.5-Omni 的 Thinker-Talker 架构：Thinker 负责全模态理解与文本生成，Talker 负责流式语音生成" src="../images/qwen25omni_fig2.png" />
+<em>Figure 6: Qwen2.5-Omni 的 Thinker-Talker 架构：Thinker 负责全模态理解与文本生成，Talker 负责流式语音生成。</em></p>
+<h4 id="43">4.3 音频处理：频谱图提取<a class="headerlink" href="#43" title="Permanent link">&para;</a></h4>
+<p>音频输入的预处理（与 Qwen2-Audio 一致）：</p>
+<ol>
+<li>重采样到 <strong>16 kHz</strong></li>
+<li>计算 <strong>128 通道 Mel 频谱图</strong>（注：比 Whisper 的 80 通道多）</li>
+<li>窗口大小：<strong>25ms</strong></li>
+<li>跳步：<strong>10ms</strong></li>
+<li>音频编码器（基于 Whisper-large-v3 初始化）将每帧音频表示对应约 <strong>40ms</strong> 的原始音频</li>
+</ol>
+<p><strong>为什么是 40ms / 帧</strong>：Whisper 编码器中有时间下采样（卷积 stem），使得编码器输出的每个 token 对应约 40ms 的音频。</p>
+<h4 id="44-tmrope">4.4 TMRoPE：时间对齐多模态位置编码<a class="headerlink" href="#44-tmrope" title="Permanent link">&para;</a></h4>
+<p>TMRoPE（Time-aligned Multimodal RoPE）是 Qwen2.5-VL 的 M-RoPE 的扩展，核心改变是将<strong>绝对时间戳</strong>引入音频的位置编码：</p>
+<p><strong>三分量结构（时间、高度、宽度）与各模态的 ID 分配</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>模态</th>
+<th>时间 ID</th>
+<th>高度 ID</th>
+<th>宽度 ID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>文本</strong></td>
+<td>与文本位置相同</td>
+<td>与文本位置相同</td>
+<td>与文本位置相同</td>
+</tr>
+<tr>
+<td><strong>图像</strong></td>
+<td>固定为同一值</td>
+<td>按 patch 行位置</td>
+<td>按 patch 列位置</td>
+</tr>
+<tr>
+<td><strong>音频</strong></td>
+<td><strong>绝对时间戳（每 40ms 一个 ID）</strong></td>
+<td>与时间 ID 相同</td>
+<td>与时间 ID 相同</td>
+</tr>
+<tr>
+<td><strong>视频帧</strong></td>
+<td><strong>绝对时间戳（每帧对应实际时间）</strong></td>
+<td>按 patch 行位置</td>
+<td>按 patch 列位置</td>
+</tr>
+</tbody>
+</table>
+<p><strong>音频-视频时间交错（time-interleaving）</strong>：</p>
+<p>当输入同时包含视频和音频时（如带音轨的视频），按<strong>实际时间每 2 秒切成一个 chunk</strong>，每个 chunk 内<strong>视觉表示排在前、音频表示排在后</strong>，逐 chunk 交错组织成序列：</p>
+<div class="highlight"><pre><span></span><code>chunk 0（0~2 秒）: [该 2 秒内的视频帧 token（t 按实际时间戳 ÷ 40ms）]
+                   [该 2 秒内的音频 token（50 个，t = 0..49）]
+chunk 1（2~4 秒）: [视频帧 token] [音频 token（t = 50..99）]
+...
+</code></pre></div>
+<p>交错的粒度是 <strong>2 秒 chunk，不是逐帧</strong>；音频始终每 40ms 一个 token，视频帧的时间 ID 按真实时间戳换算。</p>
+<p><strong>为什么交错有效</strong>：
+- 对齐音频和视频的时间戳，使模型感知"此时此刻画面中的人正在说话"
+- 统一的时间 ID 让 LLM 可以学习跨模态的时序依赖</p>
+<p><img alt="Figure 7: Qwen2.5-Omni 的 TMRoPE：用绝对时间戳统一音频（40ms/ID）和视频帧的位置编码" src="../images/qwen25omni_fig3.png" />
+<em>Figure 7: Qwen2.5-Omni 的 TMRoPE：用绝对时间戳统一音频（40ms/ID）和视频帧的位置编码。</em></p>
+<h4 id="45">4.5 流式设计：低延迟语音生成<a class="headerlink" href="#45" title="Permanent link">&para;</a></h4>
+<p>Qwen2.5-Omni 是一个<strong>流式系统</strong>，需要尽量降低初始包延迟：</p>
+<p><strong>块处理（Block-wise Processing）</strong>：
+- 音频和视觉编码器支持沿时间维度的<strong>块注意力（block-wise attention）</strong>
+- 不等待全部输入，可以边接收边处理，降低编码延迟</p>
+<p><strong>Chunked Prefill</strong>：
+- 修改音频和视觉编码器，支持时间维度的分块注意力
+- 兼容现代推理框架的 chunked-prefill 机制</p>
+<p><strong>滑动窗口 DiT（Sliding-window DiT）</strong>：
+- 将 Talker 生成的 speech token 解码为波形，分两步：<strong>Flow-Matching DiT</strong> 将 code 转为 mel 频谱，改进版 <strong>BigVGAN</strong> 将 mel 重建为波形
+- 相邻 code 分组为块，DiT 感受野限制为 <strong>4 块：回看 2 块 + 当前块 + 前看 1 块</strong>（有 lookahead，非严格因果）
+- 逐 chunk 生成 mel 频谱，BigVGAN 也按 chunk 流式出波形
+- 效果：无需等待全部 speech token 生成即可开始输出音频，降低首包延迟</p>
+<p><strong>延迟的四个来源</strong>：
+1. 多模态输入处理延迟（块处理降低）
+2. 第一个语音 token 的生成延迟（Thinker-Talker pipeline 缩短）
+3. 第一段语音的解码延迟（滑动窗口 DiT 降低）
+4. 模型计算本身的延迟（模型大小和计算量）</p>
+<h4 id="46">4.6 训练流程<a class="headerlink" href="#46" title="Permanent link">&para;</a></h4>
+<p><strong>三阶段预训练</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>冻结参数</th>
+<th>训练目标</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>阶段 1</strong></td>
+<td>LLM 参数冻结</td>
+<td>训练视觉编码器和音频编码器（及 adapter），学习图文/音文对齐</td>
+</tr>
+<tr>
+<td><strong>阶段 2</strong></td>
+<td>全参数解冻</td>
+<td>更广泛的多模态数据混合训练（800B 图像/视频 token，300B 音频 token，100B 视频+音频 token）</td>
+</tr>
+<tr>
+<td><strong>阶段 3</strong></td>
+<td>-</td>
+<td>长序列（32k）训练，增强复杂长序列理解</td>
+</tr>
+</tbody>
+</table>
+<p><strong>初始化</strong>：
+- LLM（Thinker）：Qwen2.5 LLM 参数
+- 视觉编码器：Qwen2.5-VL 的 ViT（675M）
+- 音频编码器：<strong>Whisper-large-v3</strong> 参数初始化</p>
+<p><strong>Talker 的三阶段训练</strong>：</p>
+<ol>
+<li><strong>阶段 1（In-Context Learning）</strong>：训练语音续写任务，建立语义表示到语音的单调映射，学习表达韵律、情感、口音等</li>
+<li><strong>阶段 2（DPO 强化）</strong>：用 DPO（Direct Preference Optimization）提升语音生成稳定性，基于 WER 和标点停顿错误率构建奖励信号</li>
+<li><strong>阶段 3（多说话人微调）</strong>：扩展说话人覆盖范围，增强自然度和可控性</li>
+</ol>
+<h4 id="47-qwen2-vl-qwen25-vl-qwen25-omni">4.7 Qwen2-VL → Qwen2.5-VL → Qwen2.5-Omni 的演进<a class="headerlink" href="#47-qwen2-vl-qwen25-vl-qwen25-omni" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>Qwen2-VL</th>
+<th>Qwen2.5-VL</th>
+<th>Qwen2.5-Omni</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>位置编码</strong></td>
+<td>M-RoPE（帧索引）</td>
+<td>绝对时间 M-RoPE（毫秒）</td>
+<td>TMRoPE（音视频交错，绝对时间）</td>
+</tr>
+<tr>
+<td><strong>音频支持</strong></td>
+<td>无</td>
+<td>无</td>
+<td><strong>有</strong>（128ch Mel + Whisper 编码器）</td>
+</tr>
+<tr>
+<td><strong>语音输出</strong></td>
+<td>无</td>
+<td>无</td>
+<td><strong>有</strong>（Talker 流式生成）</td>
+</tr>
+<tr>
+<td><strong>视频处理</strong></td>
+<td>动态帧率</td>
+<td>3D patch + 动态 FPS</td>
+<td>动态帧率 + 音视频时间对齐</td>
+</tr>
+<tr>
+<td><strong>流式推理</strong></td>
+<td>无</td>
+<td>无</td>
+<td><strong>有</strong>（块处理 + 滑动窗口 DiT）</td>
+</tr>
+</tbody>
+</table>
+<h4 id="48">4.8 总结<a class="headerlink" href="#48" title="Permanent link">&para;</a></h4>
+<p>Qwen2.5-Omni 的核心贡献：
+- <strong>Thinker-Talker 架构</strong>：分离理解（Thinker）和语音生成（Talker），通过共享 hidden states 避免模态干扰
+- <strong>TMRoPE</strong>：将 M-RoPE 扩展到音频（40ms/ID），实现音频-视频时间对齐
+- <strong>流式语音生成</strong>：块处理编码器 + 滑动窗口 DiT 解码器，降低首包延迟
+- <strong>qwen-tts-tokenizer</strong>：高效的语音 codec，支持流式解码
+- <strong>统一多模态预训练</strong>：文本 + 图像 + 视频 + 音频在统一框架下训练，各模态互相增强</p>
+<hr />
+<h2 id="_7">技术路线对比与总结<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h3 id="_8">音频表征的演进<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>Whisper (2022)</th>
+<th>AudioLM (2022)</th>
+<th>VALL-E (2023)</th>
+<th>Qwen2.5-Omni (2025)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>核心任务</strong></td>
+<td>语音识别 + 翻译</td>
+<td>音频续写（无条件生成）</td>
+<td>零样本 TTS</td>
+<td>全模态理解 + 语音生成</td>
+</tr>
+<tr>
+<td><strong>音频输入表示</strong></td>
+<td>80ch log-Mel</td>
+<td>无（直接 tokenize）</td>
+<td>无（直接 tokenize）</td>
+<td><strong>128ch Mel</strong>（25ms/10ms）</td>
+</tr>
+<tr>
+<td><strong>音频编码器</strong></td>
+<td>Enc-Dec Transformer</td>
+<td>w2v-BERT + SoundStream</td>
+<td>EnCodec</td>
+<td><strong>Whisper-large-v3 初始化</strong></td>
+</tr>
+<tr>
+<td><strong>Token 类型</strong></td>
+<td>无离散 token（端到端）</td>
+<td>语义 token + 声学 token</td>
+<td>声学 token（8 级 RVQ）</td>
+<td>自定义 qwen-tts-tokenizer</td>
+</tr>
+<tr>
+<td><strong>生成范式</strong></td>
+<td>Seq2Seq（文字输出）</td>
+<td>3 阶段 LM 层级生成</td>
+<td>AR（第 1 级）+ NAR（第 2-8 级）</td>
+<td>Thinker（文本）+ Talker（语音）</td>
+</tr>
+<tr>
+<td><strong>时间对齐</strong></td>
+<td>时间戳 token</td>
+<td>无</td>
+<td>音素对齐（G2P）</td>
+<td><strong>TMRoPE（40ms/ID）</strong></td>
+</tr>
+<tr>
+<td><strong>零样本能力</strong></td>
+<td>语音识别零样本迁移</td>
+<td>音频续写</td>
+<td><strong>3s 参考音频克隆说话人</strong></td>
+<td>多模态理解 + 任意语音输出</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tokenization">音频 Tokenization 的技术路线<a class="headerlink" href="#tokenization" title="Permanent link">&para;</a></h3>
+<p><strong>两条技术路线的对比</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>路线</th>
+<th>代表模型</th>
+<th>Token 类型</th>
+<th>捕捉信息</th>
+<th>适用任务</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>语义 token</strong></td>
+<td>w2v-BERT（AudioLM 使用）</td>
+<td>无监督模型中间层 + k-means</td>
+<td>音素、语言结构</td>
+<td>音频理解、语义生成</td>
+</tr>
+<tr>
+<td><strong>声学 token（RVQ）</strong></td>
+<td>SoundStream, EnCodec</td>
+<td>残差向量量化</td>
+<td>全部音频细节</td>
+<td>高保真音频生成</td>
+</tr>
+<tr>
+<td><strong>混合 token</strong></td>
+<td>AudioLM</td>
+<td>语义 + 声学</td>
+<td>两者兼顾</td>
+<td>长期一致 + 高保真</td>
+</tr>
+</tbody>
+</table>
+<p><strong>关键认识</strong>：
+- 单用语义 token：无法高保真重建（音色丢失）
+- 单用声学 token：难以建模长期语言结构（RVQ token 序列太密集）
+- AudioLM 的混合策略是目前音频语言模型的最优解，VALL-E 在此基础上加入文本条件和说话人克隆</p>
+<h3 id="_9">关键洞察总结<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>音频表示的挑战</strong>：原始波形信息密度太低（16,000 采样点/秒），必须转为 Mel 频谱图再进一步离散化。离散化方向有两条路：语义 token（捕捉内容）和声学 token（捕捉音质），分别对应不同的下游任务。</p>
+</li>
+<li>
+<p><strong>语言模型范式的统一</strong>：Whisper 证明 seq2seq Transformer 可以统一语音识别任务；AudioLM 证明 decoder-only LM 可以在纯音频 token 上做无监督生成；VALL-E 证明 codec LM 可以做高质量零样本 TTS；Qwen2.5-Omni 将语音理解和生成都纳入同一 LLM 框架。</p>
+</li>
+<li>
+<p><strong>AR vs NAR 的权衡</strong>：AR 生成可变长度序列（VALL-E 第一级 RVQ），保持说话速率的灵活性；NAR 在序列长度已知时大幅提升效率（VALL-E 第 2-8 级 RVQ，时间复杂度从 <span class="arithmatex">\(O(T)\)</span> 降至 <span class="arithmatex">\(O(1)\)</span>）。</p>
+</li>
+<li>
+<p><strong>时间对齐是全模态模型的关键</strong>：Qwen2.5-Omni 的 TMRoPE 解决了音频（40ms/token）和视频（帧率可变）的时间对齐问题，是比视频中仅有图像的 M-RoPE 更完整的解决方案。</p>
+</li>
+<li>
+<p><strong>流式生成是工程关键</strong>：对话式语音助手需要低延迟，Qwen2.5-Omni 通过块处理编码器和滑动窗口 DiT 解码器将首包延迟降至可接受水平，这是从研究系统走向实际产品的关键工程决策。</p>
+</li>
+</ol>
+<h3 id="_10">学习建议<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>基础概念</strong>：先理解 Mel 频谱图的提取原理（STFT + Mel 滤波器组），再理解 Transformer encoder-decoder 在语音识别中的应用（Whisper）</li>
+<li><strong>音频 Tokenization</strong>：理解 RVQ（残差向量量化）如何多级压缩音频（EnCodec / SoundStream），理解 k-means 如何从预训练模型中间层提取语义 token（AudioLM）</li>
+<li><strong>条件生成</strong>：从 AudioLM 的无条件音频续写，到 VALL-E 的文本条件 + 说话人条件的零样本 TTS，理解 AR + NAR 的结合方式</li>
+<li><strong>全模态统一</strong>：理解 Qwen2.5-Omni 如何在同一 LLM 框架下统一处理四种模态，TMRoPE 如何扩展 M-RoPE 到音频时间对齐</li>
+<li><strong>对比学习</strong>：对比 Whisper（seq2seq）vs AudioLM（decoder-only LM）vs VALL-E（codec LM），理解语言模型范式在音频领域的演进</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.top", "navigation.instant", "search.highlight", "content.code.copy", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

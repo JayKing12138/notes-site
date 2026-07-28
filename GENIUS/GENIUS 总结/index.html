@@ -1,0 +1,4893 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../..">
+      
+      
+        <link rel="next" href="../../RadAlign/RadVLM-GRPO%20%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>GENIUS 总结 - 学习资料库</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#genius" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="学习资料库" class="md-header__button md-logo" aria-label="学习资料库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            学习资料库
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              GENIUS 总结
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="学习资料库" class="md-nav__button md-logo" aria-label="学习资料库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    学习资料库
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    学习资料库
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GENIUS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    GENIUS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GENIUS 总结
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GENIUS 总结
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📋 简历版项目介绍
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 项目概述
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 项目概述">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心优势
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 方法架构
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 方法架构">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-clip-sf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 多模态编码器（CLIP-SF）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 多模态编码器（CLIP-SF）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clip-sf-clip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLIP-SF 与原版 CLIP 的架构对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clip-sf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLIP-SF 训练流程
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-rq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 残差量化器（RQ）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 残差量化器（RQ）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心概念：码本与码字
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        两大子模块
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        残差量化的工作原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        实际配置：9 层
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        层数在哪发挥作用
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第一层模态指示的设计意义
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        训练过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        碰撞问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-t5-id-generator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 T5 生成器（ID Generator）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 T5 生成器（ID Generator）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        模型组成
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#t5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        输入怎么喂给 T5
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        训练流程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query-augmentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        查询增强（Query Augmentation）❓
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        推理流程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trie-beam-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trie（前缀树）+ Beam Search 配合
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Trie（前缀树）+ Beam Search 配合">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-trie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 前缀树（Trie）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-beam-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Beam Search（束搜索）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 两者如何配合
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tokenizer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        自定义 Tokenizer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        评估指标
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三组件协作全景
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 训练流程
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4 训练流程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三阶段训练全景图
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 端到端推理流程
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.5 端到端推理流程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1：离线索引构建（一次性，离线）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2query" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2：Query 编码（在线）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3t5-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3：T5 自回归生成 ID（在线，核心）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4embedding-based-re-ranking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4：Embedding-based Re-ranking（在线，论文新增）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一图总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三组件在推理时的角色
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        推理全景图
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-rq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6 码本与 RQ 的作用：为什么推理不用也得训
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.6 码本与 RQ 的作用：为什么推理不用也得训">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#261-rq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6.1 训练 RQ + 码本的三大不可替代用途
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.6.1 训练 RQ + 码本的三大不可替代用途">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-candidate-id-t5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        用途 1：给所有 candidate 分配 ID（这是 T5 的"标签"）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-trie-t5-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        用途 2：构 Trie（约束 T5 只能生成合法 ID）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-id-t5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        用途 3：让 ID 有"语义结构"（T5 才学得会）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#262-t5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6.2 T5 运行时用到码本了吗？
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.6.2 T5 运行时用到码本了吗？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        间接参与方式 1：训练标签
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        间接参与方式 2：词表初始化（关键）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3tokenizer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        间接参与方式 3：Tokenizer 解码
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#263-t5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6.3 一图总结"T5 和码本的关系"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#264" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6.4 终极类比：摩尔斯电码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#265-rq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6.5 从码本视角看 RQ 在训练与推理中的作用
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.6.5 从码本视角看 RQ 在训练与推理中的作用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0. 码本是什么（先定义主角）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 码本的生命周期：从无到有，再到"退居幕后"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 训练阶段：码本"被学习 + 被使用"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 推理阶段：码本"退居幕后"，但灵魂仍在
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 一张图看完码本的角色演变
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 类比：码本 = 公司的"产品编码体系"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 一句话总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 代码结构
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 数据集与评估
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 数据集与评估">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-m-beir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 M-BEIR 基准
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 支持的检索任务
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 效率优势
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 模型检查点
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 快速上手
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 对搜索业务的启示
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RadAlign
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RadAlign
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RadAlign/RadVLM-GRPO%20%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RadVLM-GRPO 论文精读
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RadAlign/%E5%85%B3%E9%94%AE%E4%BB%A3%E7%A0%81%E8%AF%B4%E6%98%8E/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关键代码说明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    全模态大模型·出行安全项目
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    全模态大模型·出行安全项目
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/5.27%20Qwen3.7-Max%2BGeoLife%E8%AF%84%E4%BC%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.27 Qwen3.7-Max+GeoLife评估
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/Omni-%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Omni-出行安全项目
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%B1%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    全模态大模型·出行安全项目进展
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLUE
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    BLUE
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/BLUE/BLUE%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLUE论文笔记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    论文精读笔记
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    论文精读笔记
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/AAAAA_Transformer%E3%80%81LLM%E4%B8%8EVLM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AAAAA_Transformer、LLM与VLM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/BBBBB_%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BBBBB_强化学习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/BERT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BERT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/BEiT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BEiT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/BLIP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLIP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/CLIP%20%26%20ALIGN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP & ALIGN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/CLIP%20%E6%94%B9%E8%BF%9B%E5%B7%A5%E4%BD%9C%E4%B8%B2%E8%AE%B2%EF%BC%88%E4%B8%8A%EF%BC%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP 改进工作串讲（上）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/CLIP%20%E6%94%B9%E8%BF%9B%E5%B7%A5%E4%BD%9C%E4%B8%B2%E8%AE%B2%EF%BC%88%E4%B8%8B%EF%BC%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP 改进工作串讲（下）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/DALL%C2%B7E%202/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DALL·E 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/DINO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DINO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/Flamingo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Flamingo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/GPT%EF%BC%8CGPT-2%EF%BC%8CGPT-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPT，GPT-2，GPT-3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/ImageBind%20%E4%B8%8E%20LanguageBind%20%E5%AF%B9%E6%AF%94/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ImageBind 与 LanguageBind 对比
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/InternVL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    InternVL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/LLaMA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLaMA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/LLaVA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLaVA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/MAE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MAE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/MoCo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MoCo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/OFA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OFA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/PaLI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PaLI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/Qwen-VL%E4%B8%8EOmni/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qwen-VL与Omni
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/SAM3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SAM3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/SigLIP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SigLIP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/SimVLM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SimVLM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/Swin%20Transformer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Swin Transformer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/UniPerceiver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UniPerceiver
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/Unified-IO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unified-IO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/ViLT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ViLT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/ViT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ViT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/ZZZZZ%E5%85%AC%E5%BC%8F%E4%BB%A3%E7%A0%81%E7%AD%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ZZZZZ公式代码等
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/%E5%8E%9F%E7%94%9F%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    原生多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%90%8E%E8%AE%AD%E7%BB%83%E7%BB%BC%E8%BF%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多模态大模型后训练综述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/%E5%A4%9A%E6%A8%A1%E6%80%81%E8%AE%BA%E6%96%87%E4%B8%B2%E8%AE%B2%C2%B7%E4%B8%8A/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多模态论文串讲·上
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/%E5%A4%9A%E6%A8%A1%E6%80%81%E8%AE%BA%E6%96%87%E4%B8%B2%E8%AE%B2%C2%B7%E4%B8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多模态论文串讲·下
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/%E5%AF%B9%E6%AF%94%E5%AD%A6%E4%B9%A0%E7%BB%BC%E8%BF%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    对比学习综述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/%E6%B7%B7%E5%90%88%E7%B2%BE%E5%BA%A6%E8%AE%AD%E7%BB%83%E4%B8%8E%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    混合精度训练与分布式训练
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/%E8%A7%86%E9%A2%91%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    视频多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0/%E9%9F%B3%E9%A2%91%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    音频多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📋 简历版项目介绍
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 项目概述
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 项目概述">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心优势
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 方法架构
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 方法架构">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-clip-sf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 多模态编码器（CLIP-SF）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 多模态编码器（CLIP-SF）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clip-sf-clip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLIP-SF 与原版 CLIP 的架构对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clip-sf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLIP-SF 训练流程
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-rq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 残差量化器（RQ）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 残差量化器（RQ）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心概念：码本与码字
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        两大子模块
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        残差量化的工作原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        实际配置：9 层
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        层数在哪发挥作用
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第一层模态指示的设计意义
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        训练过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        碰撞问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-t5-id-generator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 T5 生成器（ID Generator）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 T5 生成器（ID Generator）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        模型组成
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#t5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        输入怎么喂给 T5
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        训练流程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query-augmentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        查询增强（Query Augmentation）❓
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        推理流程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trie-beam-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trie（前缀树）+ Beam Search 配合
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Trie（前缀树）+ Beam Search 配合">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-trie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 前缀树（Trie）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-beam-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Beam Search（束搜索）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 两者如何配合
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tokenizer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        自定义 Tokenizer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        评估指标
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三组件协作全景
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 训练流程
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4 训练流程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三阶段训练全景图
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 端到端推理流程
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.5 端到端推理流程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1：离线索引构建（一次性，离线）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2query" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2：Query 编码（在线）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3t5-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3：T5 自回归生成 ID（在线，核心）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4embedding-based-re-ranking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4：Embedding-based Re-ranking（在线，论文新增）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一图总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三组件在推理时的角色
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        推理全景图
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-rq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6 码本与 RQ 的作用：为什么推理不用也得训
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.6 码本与 RQ 的作用：为什么推理不用也得训">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#261-rq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6.1 训练 RQ + 码本的三大不可替代用途
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.6.1 训练 RQ + 码本的三大不可替代用途">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-candidate-id-t5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        用途 1：给所有 candidate 分配 ID（这是 T5 的"标签"）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-trie-t5-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        用途 2：构 Trie（约束 T5 只能生成合法 ID）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-id-t5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        用途 3：让 ID 有"语义结构"（T5 才学得会）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#262-t5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6.2 T5 运行时用到码本了吗？
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.6.2 T5 运行时用到码本了吗？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        间接参与方式 1：训练标签
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        间接参与方式 2：词表初始化（关键）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3tokenizer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        间接参与方式 3：Tokenizer 解码
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#263-t5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6.3 一图总结"T5 和码本的关系"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#264" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6.4 终极类比：摩尔斯电码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#265-rq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6.5 从码本视角看 RQ 在训练与推理中的作用
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.6.5 从码本视角看 RQ 在训练与推理中的作用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0. 码本是什么（先定义主角）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 码本的生命周期：从无到有，再到"退居幕后"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 训练阶段：码本"被学习 + 被使用"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 推理阶段：码本"退居幕后"，但灵魂仍在
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 一张图看完码本的角色演变
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 类比：码本 = 公司的"产品编码体系"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 一句话总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 代码结构
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 数据集与评估
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 数据集与评估">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-m-beir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 M-BEIR 基准
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 支持的检索任务
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 效率优势
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 模型检查点
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 快速上手
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 对搜索业务的启示
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="genius">GENIUS：面向通用多模态搜索的生成式检索框架<a class="headerlink" href="#genius" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>论文：GENIUS: A Generative Framework for Universal Multimodal Search (CVPR 2025)
+论文链接：https://arxiv.org/abs/2503.19868
+代码链接：https://github.com/sung-yeon-kim/GENIUS-CVPR25
+作者：Sungyeon Kim, Xinliang Zhu, Xiaofan Lin, Muhammet Bastan, Douglas Gray, Suha Kwak</p>
+</blockquote>
+<h2 id="_1">📋 简历版项目介绍<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>▪ <strong>GENIUS：面向通用多模态搜索的生成式检索框架</strong>（CVPR 2025）</p>
+<p><strong>技术栈</strong>：PyTorch、Transformers、CLIP、T5、ResidualVQ、Trie、Beam Search</p>
+<p><strong>项目概述</strong>：面向搜索系统中"多种查询形态共用一套召回链路"的需求，基于 CLIP-SF + RVQ + T5 构建生成式检索框架，训练拆为三阶段流水线，各阶段独立迭代、按需升级。</p>
+<p>三阶段训练流水线：Feature Extraction → Quantizer Training → Generator Training，分别解决多模态理解、候选编码、高效检索三大问题，组件冻结解耦，便于工程维护与局部升级。</p>
+<p>多模态理解：基于 CLIP-SF 双塔提取图文特征，设计 Combiner按查询内容自适应调节图文融合权重，支持图搜、文搜、图文混合搜等多种 query 形态统一接入。</p>
+<p>候选编码：基于 ResidualVQ 将融合向量映射为分层离散码，首层标记模态、后续层由粗到细编码语义，相似候选共享前缀。</p>
+<p>高效检索：基于 T5 decoder 自回归生成候选码，用 Trie-constrained Beam Search 保证生成结果必指向真实候选，避免无效召回；inference 阶段配合 embedding-based re-ranking 纠偏，兼顾速度与准确性。</p>
+<hr />
+<h2 id="1">1. 项目概述<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p>GENIUS 是一个<strong>通用生成式多模态检索框架</strong>，用单一模型支持多种跨模态检索任务，包括图文搜图、图文搜文、文搜图、图搜文、图文搜图文等。与传统基于嵌入向量+最近邻检索的方法不同，GENIUS 将多模态内容编码为离散的分层 ID，通过生成式检索实现常数时间查找，检索速度不随候选库规模增长而变慢。</p>
+<h3 id="_2">核心优势<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>通用检索</strong>：单一模型处理图搜图、文搜文、图搜文、文搜图及组合查询</li>
+<li><strong>快速检索</strong>：基于离散 ID 匹配的常数时间查找，与候选库大小无关</li>
+<li><strong>有竞争力的精度</strong>：在多个任务上与嵌入方法相当甚至更优，同时大幅降低推理成本</li>
+</ul>
+<hr />
+<h2 id="2">2. 方法架构<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<p>GENIUS 由三个核心组件构成，采用三阶段训练流程：</p>
+<h3 id="21-clip-sf">2.1 多模态编码器（CLIP-SF）<a class="headerlink" href="#21-clip-sf" title="Permanent link">&para;</a></h3>
+<p>使用 UniIR 的分数融合（Score Fusion）CLIP 模型作为多模态编码器，将图像和文本特征编码到共享的嵌入空间。该模型已在 M-BEIR 数据集上预训练，无需额外预训练步骤。</p>
+<h4 id="clip-sf-clip">CLIP-SF 与原版 CLIP 的架构对比<a class="headerlink" href="#clip-sf-clip" title="Permanent link">&para;</a></h4>
+<p>CLIP-SF 的骨干架构与原版 CLIP <strong>完全一致</strong>（ViT 图像塔 + Transformer 文本塔的双塔结构），区别在于融合策略和训练数据：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>原版 CLIP</th>
+<th>CLIP-SF（GENIUS 使用）</th>
+<th>CLIP-FF</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>骨干架构</strong></td>
+<td>ViT + Transformer 双塔</td>
+<td>同原版 CLIP</td>
+<td>同 CLIP + 额外 T5 交叉注意力层</td>
+</tr>
+<tr>
+<td><strong>融合方式</strong></td>
+<td>仅在损失函数层算相似度</td>
+<td>图像向量 + 文本向量直接相加</td>
+<td>token 级拼接 → T5 交叉注意力 → 均值池化</td>
+</tr>
+<tr>
+<td><strong>交互深度</strong></td>
+<td>无交互（独立编码）</td>
+<td>浅交互（向量加法）</td>
+<td>深交互（token 级注意力）</td>
+</tr>
+<tr>
+<td><strong>训练数据</strong></td>
+<td>4 亿图文对</td>
+<td>M-BEIR 多模态检索集</td>
+<td>M-BEIR 多模态检索集</td>
+</tr>
+</tbody>
+</table>
+<p>三种融合方式的代码实现对比：</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># CLIP-SF：向量直接相加（clip_sf.py:49）</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">fuse_embeddings</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_emb</span><span class="p">,</span> <span class="n">txt_emb</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">img_emb</span> <span class="o">+</span> <span class="n">txt_emb</span>
+
+<span class="c1"># CLIP-FF：token 级拼接 + T5 交叉注意力（clip_ff.py:178）</span>
+<span class="n">combined</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">txt_feat</span><span class="p">,</span> <span class="n">img_feat</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># [bs, 127, 512]</span>
+<span class="n">output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">t5_layers</span><span class="p">(</span><span class="n">inputs_embeds</span><span class="o">=</span><span class="n">combined</span><span class="p">)</span>
+<span class="n">multimodal_emb</span> <span class="o">=</span> <span class="n">mean_pooling</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+</code></pre></div>
+<p>GENIUS 选择 CLIP-SF 的原因：架构简单高效，且 UniIR 实验表明 Score Fusion 在多模态检索任务上效果优于 Feature Fusion。在 GENIUS 中 CLIP-SF 参数完全冻结，仅作为特征提取器使用。</p>
+<h4 id="clip-sf">CLIP-SF 训练流程<a class="headerlink" href="#clip-sf" title="Permanent link">&para;</a></h4>
+<p>CLIP-SF 不是从头训练，而是在预训练 CLIP 基础上微调：</p>
+<p><strong>起点</strong>：OpenAI 预训练好的 CLIP（4 亿图文对，对比学习），图像塔和文本塔的输出已在同一向量空间。</p>
+<p><strong>微调</strong>：在 M-BEIR 上用对比学习继续训练。每条数据是一个 query-target 对，例如：
+<div class="highlight"><pre><span></span><code>query:  一张红色运动鞋图片 + &quot;找蓝色款&quot;
+target: 一张蓝色运动鞋图片
+</code></pre></div></p>
+<p>每一步的训练过程：</p>
+<div class="highlight"><pre><span></span><code>Step 1 编码：
+  query 的图片 → 图像塔 → q_img
+  query 的文本 → 文本塔 → q_txt
+  target 的图片 → 图像塔 → p_img
+  target 无文本 → p_txt = 0（mask 置零）
+
+Step 2 相加融合：
+  q = q_img + q_txt    （query 融合向量）
+  p = p_img + p_txt    （target 融合向量，此处 p = p_img）
+
+Step 3 算相似度矩阵：
+  score[i][j] = cos(q_i, p_j)    一个 batch 内所有 query 和 target 两两计算
+
+Step 4 对比损失：
+  对角线 score[i][i] 是正例，其余是负例（in-batch negatives）
+  交叉熵损失让正例相似度最大、负例相似度最小
+  反向传播更新图像塔和文本塔的参数
+</code></pre></div>
+<p><strong>训完后</strong>：导出为 <code>clip_sf_large.pth</code>，GENIUS 直接加载并冻结参数，仅做特征提取。</p>
+<p><strong>为什么需要微调</strong>：原版 CLIP 训练的是"图片-描述"配对，而 M-BEIR 的场景是"用图/文/图文混合去检索"，微调让模型适应检索任务，比如学会理解"找蓝色款"这类指令性文本。</p>
+<h3 id="22-rq">2.2 残差量化器（RQ）<a class="headerlink" href="#22-rq" title="Permanent link">&para;</a></h3>
+<p><strong>RQ = Residual Quantization（残差量化）</strong>，作用是将 CLIP-SF 输出的 768 维连续 embedding 映射为离散 ID 序列，使后续的 T5 可以像生成文本一样"说出"文档编号。</p>
+<h4 id="_3">核心概念：码本与码字<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>码本（Codebook）= 一本词典，包含固定数量的向量
+码字（Codeword）= 词典里的一个词条，是一个具体的向量
+
+码本（例如 4096 个码字）：
+┌─────────────────────────────────────┐
+│ 编号 0:    [0.12, -0.34, 0.56, ...] │  ← 一个码字
+│ 编号 1:    [0.78, 0.22, -0.11, ...] │
+│ ...                                 │
+│ 编号 4095: [0.05, -0.89, 0.12, ...] │
+└─────────────────────────────────────┘
+
+量化 = 查词典：输入向量 → 找码本里最近的码字 → 输出该码字的编号（ID）
+</code></pre></div>
+<p>码本不是手动设计的，而是训练出来的：用 k-means 对训练数据聚类得到初始码字，训练过程中用 EMA（指数移动平均）持续更新——被频繁分配的码字会向输入均值方向移动，长期不用的"死码字"会被重新激活。</p>
+<h4 id="_4">两大子模块<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<p><strong>Combiner（图文特征融合）</strong>：CLIP-SF 在特征提取时存的是分开的 img 和 txt 向量（没有预先相加），Combiner 在 Stage 1 训练时将它们融合。来自 CLIP4Cir，本质是 4 个 MLP + 一个动态门控机制（<code>residual_quantization.py:117</code>）。</p>
+<p>架构如下：</p>
+<div class="highlight"><pre><span></span><code>  image_features [bs, 768]          text_features [bs, 768]
+        │                                  │
+        │ × img_mask                       │ × txt_mask
+        ▼                                  ▼
+  ┌──────────────┐                  ┌──────────────┐
+  │ Linear 768→2560│                │ Linear 768→2560│
+  │     ReLU      │                 │     ReLU      │
+  │   Dropout     │                 │   Dropout     │
+  └──────┬───────┘                  └──────┬───────┘
+         │                                 │
+   img_proj [bs, 2560]              txt_proj [bs, 2560]
+         │                                 │
+         └────────────┐   ┌────────────────┘
+                      ▼   ▼
+                 cat(txt_proj, img_proj)
+                       │
+              raw_combined [bs, 5120]
+                       │
+              ┌────────┴────────┐
+              ▼                 ▼
+     ┌──────────────┐   ┌──────────────┐
+     │ Linear 5120→5120│   │ Linear 5120→5120│
+     │     ReLU      │   │     ReLU      │
+     │   Dropout     │   │   Dropout     │
+     └──────┬───────┘   │ Linear 5120→1 │
+            │            │    Sigmoid    │
+     combined [bs,5120]  └──────┬───────┘
+            │                   │
+            ▼              w [bs, 1] (0~1)
+     ┌──────────────┐           │
+     │ Linear 5120→768│          │
+     └──────┬───────┘           │
+            │                   │
+      combined_out [bs,768]     │
+            │                   │
+            ▼                   ▼
+  ┌─────────────────────────────────────────┐
+  │  combined_out                           │
+  │  + w × text_features     (原始文本)      │
+  │  + (1-w) × image_features (原始图像)     │
+  └────────────────┬────────────────────────┘
+                   ▼
+            output [bs, 768]
+</code></pre></div>
+<p>本质就是 4 个 MLP：</p>
+<div class="highlight"><pre><span></span><code>MLP 1: Linear(768→2560) + ReLU    # 投影图像
+MLP 2: Linear(768→2560) + ReLU    # 投影文本
+MLP 3: Linear(5120→5120) + ReLU → Linear(5120→768)  # 融合
+MLP 4: Linear(5120→5120) + ReLU → Linear(5120→1) + Sigmoid  # 门控权重 w
+
+最终: output = MLP3(拼接) + w × txt + (1-w) × img
+</code></pre></div>
+<p><strong>动态权重 w 的作用</strong>：w 是一个自动调节的旋钮，根据当前输入内容决定"更信图还是更信文"：</p>
+<div class="highlight"><pre><span></span><code>w = 0.85 → 85% 信文本 + 15% 信图像（文本信息量更大时）
+w = 0.2  → 20% 信文本 + 80% 信图像（图像信息量更大时）
+w = 0.5  → 各一半
+</code></pre></div>
+<p>w 是通过 MLP 4 从当前的图文内容中算出来的，每个样本的 w 值都不同。例如查询是"一张鞋图 + 换个蓝色"时，文本指令信息量更大，w 会偏向文本。当输入是纯图（txt_mask=0）或纯文（img_mask=0）时，mask 会将缺失模态置零，w 值自动失效。</p>
+<p><strong>与 CLIP-SF 简单相加的对比</strong>：CLIP-SF 的 <code>fuse_embeddings</code> 是等权重 1:1 直接相加（<code>img + txt</code>），没有可学习的权重调节；Combiner 用 w 实现自适应权重 + MLP3 提供非线性交叉特征，融合效果更好。CLIP-SF 的参数是冻结的，而 Combiner 随 RQ 一起训练。</p>
+<p><strong>残差向量量化</strong>：分两部分——第一层 <code>VectorQuantize</code>（码本大小=3，模态指示）和后续层 <code>ResidualVQ</code>（码本大小=4096，语义编码）。</p>
+<h4 id="_5">残差量化的工作原理<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<p>每一层量化上一层留下的残差（未编码的部分），逐层逼近原始向量：</p>
+<div class="highlight"><pre><span></span><code>输入向量 v = [0.8, 0.3, -0.2, ...]（768 维）
+
+第 1 层（码本 A，3 个码字）：
+  找最近码字 → 码字 0 = [0.75, 0.28, -0.18, ...]
+  输出：ID_1 = 0（图像）
+  残差：r1 = v - 码字0 = [0.05, 0.02, -0.02, ...]  ← 很小
+
+第 2 层（码本 B，4096 个码字）：
+  在码本 B 里找离 r1 最近的码字
+  输出：ID_2 = 1234
+  残差：r2 = r1 - 码字1234 = [0.01, 0.01, -0.01, ...]  ← 更小
+
+第 3 层（码本 C，4096 个码字）：
+  在码本 C 里找离 r2 最近的码字
+  输出：ID_3 = 567
+  残差：r3 ≈ [0.001, ...]  ← 几乎为零
+
+...以此类推，每层有独立的码本
+</code></pre></div>
+<h4 id="9">实际配置：9 层<a class="headerlink" href="#9" title="Permanent link">&para;</a></h4>
+<p>从配置文件 <code>inbatch.yaml</code> 中：<code>codebook_level: 8</code>，加上 <code>modality_index=True</code> 会在代码中 +1，实际是 <strong>9 层</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>层</th>
+<th>码本大小</th>
+<th>作用</th>
+<th>输出示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第 1 层</td>
+<td>3</td>
+<td>模态指示（0=图/1=文/2=图文）</td>
+<td><code>&lt;a0&gt;</code></td>
+</tr>
+<tr>
+<td>第 2~9 层</td>
+<td>各 4096</td>
+<td>语义编码（从粗到细）</td>
+<td><code>&lt;b1234&gt;&lt;c567&gt;...&lt;i1500&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<p>完整 ID 示例：一张红鞋图片 → <code>&lt;a0&gt;&lt;b1234&gt;&lt;c567&gt;&lt;d890&gt;&lt;e2345&gt;&lt;f100&gt;&lt;g3000&gt;&lt;h2000&gt;&lt;i1500&gt;</code></p>
+<h4 id="_6">层数在哪发挥作用<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
+<ol>
+<li><strong>决定 ID 长度</strong>：9 层 = 每个文档用 9 个 token 表示，层数越多信息越精确但 T5 生成更难</li>
+<li><strong>决定重建精度</strong>：层数越多，残差越小，量化后的向量越接近原始向量</li>
+<li><strong>决定 T5 生成序列长度</strong>：T5 需要生成恰好 9 个 token 来描述一个文档</li>
+</ol>
+<h4 id="_7">第一层模态指示的设计意义<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># residual_quantization.py:235</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">vq</span> <span class="o">=</span> <span class="n">VectorQuantize</span><span class="p">(</span><span class="n">codebook_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>    <span class="c1"># 第 1 层，只有 3 个码字</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">residual_rq</span> <span class="o">=</span> <span class="n">ResidualVQ</span><span class="p">(</span><span class="n">codebook_size</span><span class="o">=</span><span class="mi">4096</span><span class="p">)</span>  <span class="c1"># 第 2~9 层，4096 个码字</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">residual_rq</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vq</span>               <span class="c1"># 替换第 1 层</span>
+</code></pre></div>
+<p>强制第一层只能输出 0、1、2 三个 ID，让 T5 生成时第一个 token 就确定模态，后续 token 只需在该模态下编码语义，减少搜索空间。</p>
+<h4 id="_8">训练过程<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">compute_single_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+    <span class="c1"># 1. Combiner 融合图文特征</span>
+    <span class="n">encode_feature</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">encoder</span><span class="p">(</span><span class="n">all_img_emb</span><span class="p">,</span> <span class="n">all_txt_emb</span><span class="p">,</span> <span class="n">img_mask</span><span class="p">,</span> <span class="n">txt_mask</span><span class="p">)</span>
+
+    <span class="c1"># 2. 残差量化：得到量化向量、离散 ID、量化误差</span>
+    <span class="n">quant</span><span class="p">,</span> <span class="n">Is</span><span class="p">,</span> <span class="n">rq_loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">residual_rq</span><span class="p">(</span><span class="n">encode_feature</span><span class="p">)</span>
+
+    <span class="c1"># 3. 三个损失联合优化</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">cl_loss</span> <span class="o">+</span> <span class="n">rq_loss</span> <span class="o">+</span> <span class="n">mse_loss</span>
+</code></pre></div>
+<ul>
+<li><strong>对比损失（l_cl）</strong>：作用于 Combiner 的输出 q_emb 和 p_emb（不是 CLIP-SF 的原始向量）。拉近 query 和 target 的融合向量，推远 batch 内其他负例。保证融合后的特征空间中检索关系正确。</li>
+<li><strong>量化损失（l_rq）</strong>：作用于量化前后。让量化后的向量尽量还原原始融合向量，减少信息损失。是残差量化本身的训练信号。</li>
+<li><strong>MSE 损失（l_mse）</strong>：作用于量化后的向量 q_decode 和 p_decode。计算 <code>MSE(q_decode, p_decode)</code>，直接约束 query 和 target 量化后也要接近。</li>
+</ul>
+<p>为什么需要 l_mse：l_cl 保证原始向量层面 query ≈ target，l_rq 保证量化前后信息损失小，但两者合起来不保证量化后的 query 和 target 仍然接近。l_mse 补上这个缺口，确保离散 ID 层面也能保持检索关系。类比：两个人（query 和 target）本来长得很像（l_cl），各自化妆后（量化）也不应该变得不像（l_mse）。</p>
+<p>码本通过 EMA 更新（<code>decay=0.9</code>），不走梯度反传。</p>
+<h4 id="_9">碰撞问题<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
+<p>多个不同文档可能被量化成相同的 ID 序列（碰撞），代码中用 <code>collision_update</code> 跟踪碰撞数量。碰撞越少，ID 的区分度越高，检索越准确。</p>
+<h3 id="23-t5-id-generator">2.3 T5 生成器（ID Generator）<a class="headerlink" href="#23-t5-id-generator" title="Permanent link">&para;</a></h3>
+<p>T5 生成器的作用：输入查询向量（768 维），输出目标文档的 9 个 ID token。训练时学会"查询 → 目标 ID"的映射，推理时只给查询，生成 ID 后去候选库查出文档。</p>
+<h4 id="_10">模型组成<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
+<p>整个组件里有冻结和可训练两类部分：</p>
+<p><strong>冻结的（不训练）</strong>：
+- CLIP-SF：提特征用
+- RQ：量化为离散 ID，加载 Stage 1 训好的权重</p>
+<p><strong>可训练的（Stage 2 训练这些）</strong>：
+- <strong>embed_projector</strong>：一个线性层 <code>Linear(768, 512×30)</code>，把 768 维向量变成 30 个 T5 token
+- <strong>T5 decoder</strong>：生成 ID 序列。<code>num_layers = 0</code> 表示 encoder 层数为 0，只用 decoder，因为输入不是文本 token 而是连续向量，不需要 encoder
+- <strong>自定义 tokenizer</strong>：让 T5 能识别 <code>&lt;a0&gt;&lt;b1234&gt;</code> 这类 ID token</p>
+<h4 id="t5">输入怎么喂给 T5<a class="headerlink" href="#t5" title="Permanent link">&para;</a></h4>
+<p>T5 通常吃文本 token，但这里喂连续向量：查询经过 RQ 编码得到 768 维向量 → 通过线性投影展开成 30 个 token（一个向量压缩太多信息会丢失，30 个 token 给 T5 足够容量）→ 直接作为 T5 decoder 的 inputs_embeds，不走文本 tokenize 流程。</p>
+<h4 id="_11">训练流程<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>                    Stage 2 训练流程
+                    ================
+
+  查询（图+文+指令）                    目标文档（图/文/图文）
+        │                                    │
+        ▼                                    ▼
+  ┌───────────┐                        ┌───────────┐
+  │ CLIP-SF   │                        │ CLIP-SF   │
+  │ (冻结)    │                        │ (冻结)    │
+  └─────┬─────┘                        └─────┬─────┘
+        │                                    │
+        ▼                                    ▼
+  ┌───────────┐                        ┌───────────┐
+  │  RQ       │                        │  RQ       │
+  │ (冻结)    │                        │ (冻结)    │
+  └─────┬─────┘                        └─────┬─────┘
+        │                                    │
+   q_emb [768]                          p_emb [768]
+        │                                    │
+        ▼                                    │
+  ┌─────────────────────────────┐            │
+  │  查询增强（Beta 混合）       │            │
+  │  s = Beta(2,2) 采样         │            │
+  │  aug = √s×q + √(1-s)×p     │────────────┘
+  └─────────────┬───────────────┘
+                │
+          aug_emb [768]
+                │
+                ▼
+  ┌─────────────────────────────┐
+  │  embed_projector（训练）     │
+  │  Linear(768 → 512×30)       │
+  └─────────────┬───────────────┘
+                │
+       30 个 prefix token [30, 512]
+                │
+                ▼
+  ┌─────────────────────────────┐
+  │  T5 decoder（训练）          │
+  │  逐 token 生成 ID           │
+  └─────────────┬───────────────┘
+                │
+          预测的 ID 序列
+                │
+                ▼
+  ┌─────────────────────────────┐
+  │  交叉熵损失                  │
+  │  预测 ID vs 真实 target ID   │
+  └─────────────────────────────┘
+</code></pre></div>
+<h4 id="query-augmentation">查询增强（Query Augmentation）❓<a class="headerlink" href="#query-augmentation" title="Permanent link">&para;</a></h4>
+<p>训练时不只给 T5 看纯 query，还给它看 query 和 target 的各种混合体，让模型学会从各种模糊输入中推断正确 ID：</p>
+<div class="highlight"><pre><span></span><code>纯 query:      100% query + 0% target    ← 正常情况
+混合 1:         70% query + 30% target    ← 模糊输入
+混合 2:         30% query + 70% target    ← 接近 target
+纯 target:       0% query + 100% target   ← 极端情况
+</code></pre></div>
+<p>Beta(2,2) 是一个概率分布，采样值集中在 0.5 附近（各半混合最常见），偶尔接近 0 或 1（偏向一端）：</p>
+<div class="highlight"><pre><span></span><code>  概率
+   ▲
+   │      ╭──╮
+   │    ╭─┘  ╰─╮
+   │  ╭─┘      ╰─╮
+   │──┘───────────╰──→ s (0~1)
+   0    0.5    1
+</code></pre></div>
+<p>公式：<code>aug = √s × q_emb + √(1-s) × p_emb</code>，用根号是为了让混合后的向量归一化后长度不变。同一个 query-target 对每次训练采到不同的 s，相当于数据增强。</p>
+<h4 id="_12">推理流程<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>                    Stage 2 推理流程
+                    ================
+
+  用户输入（一张鞋图 + &quot;换个蓝色&quot;）
+                │
+                ▼
+  ┌─────────────────────────────┐
+  │  CLIP-SF（冻结）             │
+  │  图片 → img_emb              │
+  │  文本 → txt_emb              │
+  └─────────────┬───────────────┘
+                │
+                ▼
+  ┌─────────────────────────────┐
+  │  RQ Combiner（冻结）         │
+  │  img + txt → 融合向量        │
+  └─────────────┬───────────────┘
+                │
+          q_emb [768]
+                │
+                ▼
+  ┌─────────────────────────────┐
+  │  embed_projector（已训好）    │
+  │  768 → 30 个 prefix token   │
+  └─────────────┬───────────────┘
+                │
+       [30, 512]
+                │
+                ▼
+  ┌─────────────────────────────┐
+  │  T5 decoder（已训好）        │
+  │                              │
+  │  每步问 Trie：               │
+  │  &quot;这一步允许走哪些分支？&quot;     │
+  │                              │
+  │  Step 1: Trie → &lt;a0&gt;&lt;a1&gt;&lt;a2&gt; │
+  │    T5 选 &lt;a0&gt;                 │
+  │  Step 2: Trie → &lt;b3&gt;&lt;b7&gt;...  │
+  │    T5 选 &lt;b3&gt;                 │
+  │  Step 3~9: 逐层约束生成       │
+  │                              │
+  │  Beam=10，保留 Top-10 路径    │
+  └─────────────┬───────────────┘
+                │
+     10 条完整 ID 序列
+                │
+                ▼
+  ┌─────────────────────────────┐
+  │  候选库查询                   │
+  │  ID → 对应的真实文档          │
+  └─────────────┬───────────────┘
+                │
+                ▼
+  ┌─────────────────────────────┐
+  │  Embedding Re-ranking        │
+  │  用 CLIP-SF 原始融合向量      │
+  │  对 Top-10 算余弦相似度重排   │
+  └─────────────┬───────────────┘
+                │
+                ▼
+          Top-1 检索结果
+</code></pre></div>
+<h4 id="trie-beam-search">Trie（前缀树）+ Beam Search 配合<a class="headerlink" href="#trie-beam-search" title="Permanent link">&para;</a></h4>
+<p>GENIUS 的解码阶段需要 T5 生成一条"合法的"9 位 ID 序列——即必须对应候选库里真实存在的某个文档。为此把<strong>前缀树（Trie）</strong>和<strong>束搜索（Beam Search）</strong>结合：Trie 负责"约束"（每步只允许走存在的分支），Beam Search 负责"搜索"（在合法空间内找概率最高的 K 条序列）。</p>
+<h5 id="1-trie">1. 前缀树（Trie）<a class="headerlink" href="#1-trie" title="Permanent link">&para;</a></h5>
+<p><strong>什么是前缀树</strong>：一种多叉树，从根到叶子的每条路径代表一个序列，<strong>共享前缀</strong>的序列会共用节点。天然适合存储和检索"由若干 token 组成的序列集合"。</p>
+<p><strong>候选库的 Trie 例子</strong>：假设候选库有 4 个文档，ID 分别是：</p>
+<ul>
+<li>Doc A: <code>&lt;a0&gt;&lt;b3&gt;&lt;c7&gt;</code></li>
+<li>Doc B: <code>&lt;a0&gt;&lt;b3&gt;&lt;c9&gt;</code></li>
+<li>Doc C: <code>&lt;a0&gt;&lt;b5&gt;&lt;c2&gt;</code></li>
+<li>Doc D: <code>&lt;a1&gt;&lt;b100&gt;&lt;c0&gt;</code></li>
+</ul>
+<p>构建出来的 Trie：</p>
+<div class="highlight"><pre><span></span><code>                        [root]
+                       /      \
+                    &lt;a0&gt;       &lt;a1&gt;
+                   /    \        |
+                &lt;b3&gt;   &lt;b5&gt;    &lt;b100&gt;
+               /   \     |       |
+            &lt;c7&gt;  &lt;c9&gt;  &lt;c2&gt;   &lt;c0&gt;
+             A      B     C      D
+</code></pre></div>
+<p><strong>关键性质</strong>：</p>
+<ul>
+<li><strong>共享前缀</strong>：Doc A 和 Doc B 的前缀 <code>&lt;a0&gt;&lt;b3&gt;</code> 共用节点，节省存储</li>
+<li><strong>路径 = ID</strong>：从 root 到叶子的路径就是一个完整 ID 序列</li>
+<li><strong>子节点集合 = 下一步的合法 token</strong>：走到某个节点时，它的所有子节点就是"下一步能选哪些 token"</li>
+</ul>
+<p><strong>在 GENIUS 中的作用</strong>：T5 生成第 k 个 token 时，已经从 root 走到了某个深度为 k-1 的节点。此时<strong>只允许在"该节点的子节点集合"里采样</strong>，其他所有 token 一律禁止（概率置为 -∞）。这从根本上杜绝了"生成一条不存在的 ID"的可能。</p>
+<p><strong>查询复杂度</strong>：每走一步是 O(1) 的子节点查找，生成完整 9 位 ID 是 O(9) = O(1)，与候选库大小 N 无关——这正是生成式检索快的根本原因。🚗</p>
+<p><strong>GENIUS 的三种实现</strong>（<code>retriever.py</code> 中）：</p>
+<ul>
+<li><code>trie_cpp</code>：C++ 编译版，查询最快，默认推荐</li>
+<li><code>trie</code>：纯 Python 实现，便于调试</li>
+<li><code>marisa</code>：压缩字典结构，内存更省，适合超大规模候选库</li>
+</ul>
+<h5 id="2-beam-search">2. Beam Search（束搜索）<a class="headerlink" href="#2-beam-search" title="Permanent link">&para;</a></h5>
+<p><strong>贪心解码的问题</strong>：每一步只选概率最高的 1 个 token → 容易陷入局部最优。比如第 1 步选 <code>&lt;a0&gt;</code> 的概率 0.6 高于 <code>&lt;a1&gt;</code> 的 0.4，但如果 <code>&lt;a1&gt;</code> 后面的路径整体概率更高，贪心就会错过。</p>
+<p><strong>Top-K 采样的问题</strong>：每一步随机从前 K 个 token 里采样 → 生成的序列不可复现，且可能选到概率较低的 token。</p>
+<p><strong>Beam Search 的思路</strong>：同时保留 <strong>beam_size = K</strong> 条当前最优的部分序列（每条叫一个"beam"），每步对每条 beam 都扩展所有合法 token，再在所有扩展结果中重新选 Top-K，直到生成结束。</p>
+<p><strong>具体过程</strong>（beam_size = 2，假设每步有 3 个合法 token）：</p>
+<div class="highlight"><pre><span></span><code>Step 1（从 root 出发）：
+  合法 token: &lt;a0&gt;(0.6), &lt;a1&gt;(0.3), &lt;a2&gt;(0.1)
+  保留 Top-2:
+    beam A: &lt;a0&gt;   累积 log P = -0.51
+    beam B: &lt;a1&gt;   累积 log P = -1.20
+
+Step 2：
+  beam A 扩展: &lt;a0&gt;&lt;b3&gt;(0.7), &lt;a0&gt;&lt;b5&gt;(0.2), &lt;a0&gt;&lt;b7&gt;(0.1)
+  beam B 扩展: &lt;a1&gt;&lt;b100&gt;(0.8), &lt;a1&gt;&lt;b200&gt;(0.15), &lt;a1&gt;&lt;b300&gt;(0.05)
+  所有 6 条中取 Top-2:
+    beam A1: &lt;a0&gt;&lt;b3&gt;     log P = -0.51 + (-0.36) = -0.87
+    beam B1: &lt;a1&gt;&lt;b100&gt;   log P = -1.20 + (-0.22) = -1.42
+
+Step 3：
+  beam A1 扩展: &lt;a0&gt;&lt;b3&gt;&lt;c7&gt;(0.5), &lt;a0&gt;&lt;b3&gt;&lt;c9&gt;(0.5)
+  beam B1 扩展: &lt;a1&gt;&lt;b100&gt;&lt;c0&gt;(1.0)
+  Top-2:
+    beam A1a: &lt;a0&gt;&lt;b3&gt;&lt;c7&gt;   log P = -1.56  ✓ Doc A
+    beam A1b: &lt;a0&gt;&lt;b3&gt;&lt;c9&gt;   log P = -1.56  ✓ Doc B
+
+生成结束 → 返回 Top-K 条完整序列。
+</code></pre></div>
+<p><strong>累积 log 概率</strong>：beam 的得分用各步 log 概率<strong>相加</strong>（而不是概率相乘），避免数值下溢。</p>
+<p><strong>beam_size 的影响</strong>：</p>
+<ul>
+<li>beam_size = 1 → 退化成贪心</li>
+<li>beam_size 越大 → 搜索越充分，精度越高，但速度线性下降，且 beam 间容易趋同</li>
+<li>GENIUS 默认 beam_size = 10，是实验上较好的平衡点</li>
+</ul>
+<h5 id="3">3. 两者如何配合<a class="headerlink" href="#3" title="Permanent link">&para;</a></h5>
+<p>Trie 和 Beam Search 在每一步形成"约束 + 搜索"的闭环：</p>
+<div class="highlight"><pre><span></span><code>每一步解码的循环：
+
+  当前 beam 集合
+       │
+       ▼
+  ┌────────────────────────┐
+  │ 对每条 beam：           │
+  │   T5 预测所有 token 概率 │  ← 模型给分
+  └────────────┬───────────┘
+               │
+               ▼
+  ┌────────────────────────┐
+  │ 问 Trie：               │
+  │   该 beam 当前节点下     │
+  │   有哪些合法子节点？      │  ← Trie 约束
+  └────────────┬───────────┘
+               │
+               ▼
+  ┌────────────────────────┐
+  │ 把不合法的 token        │
+  │ 概率设为 -∞（禁止）      │
+  └────────────┬───────────┘
+               │
+               ▼
+  ┌────────────────────────┐
+  │ 所有 beam 的所有合法扩展 │
+  │ 合并后取 Top-K          │  ← Beam 筛选
+  └────────────┬───────────┘
+               │
+               ▼
+       新的 beam 集合（继续下一步）
+</code></pre></div>
+<p>代码实现就在 <code>retriever.py</code> 的 <code>constrained_beam_search</code>：</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">prefix_allowed_tokens_fn</span><span class="p">(</span><span class="n">batch_id</span><span class="p">,</span> <span class="n">input_ids</span><span class="p">):</span>
+    <span class="n">prefix</span> <span class="o">=</span> <span class="n">input_ids</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+    <span class="n">valid_tokens</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">trie_index</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">prefix</span><span class="p">)</span>  <span class="c1"># 查 Trie 拿合法 token 集合</span>
+    <span class="k">return</span> <span class="n">valid_tokens</span> <span class="k">if</span> <span class="n">valid_tokens</span> <span class="k">else</span> <span class="p">[]</span>
+
+<span class="n">generated</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">id_generator</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span>
+    <span class="n">inputs_embeds</span><span class="o">=...</span><span class="p">,</span>
+    <span class="n">prefix_allowed_tokens_fn</span><span class="o">=</span><span class="n">prefix_allowed_tokens_fn</span><span class="p">,</span>  <span class="c1"># 注入约束</span>
+    <span class="n">num_beams</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+    <span class="n">max_new_tokens</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">codebook_level</span><span class="p">,</span>  <span class="c1"># 生成恰好 9 个 token</span>
+<span class="p">)</span>
+</code></pre></div>
+<p><strong>为什么必须配合</strong>：</p>
+<ul>
+<li>只用 Trie + 贪心 → 走局部最优，精度差</li>
+<li>只用 Beam Search 无 Trie → 可能生成"看似高概率但根本不存在"的 ID，无法检索</li>
+<li><strong>两者配合</strong> → 在"真实存在的文档集合"里找"概率最高的 K 个"，既合法又接近最优</li>
+</ul>
+<h4 id="tokenizer">自定义 Tokenizer<a class="headerlink" href="#tokenizer" title="Permanent link">&para;</a></h4>
+<p>T5 原始 tokenizer 不认识 <code>&lt;a0&gt;</code>、<code>&lt;b1234&gt;</code> 这类 token。需要为 9 层码本的每个码字创建特殊 token：第 1 层 3 个，第 2~9 层各 4096 个，总共约 32,771 个新 token。扩展词表后，用 RQ 码本中的向量初始化新 token 的 embedding 和 lm_head，让 T5 从一开始就"认识"这些 ID 的含义。</p>
+<h4 id="_13">评估指标<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h4>
+<p>训练时监控逐层准确率：Level1_acc（第 1 个 token 对不对，模态判断）、Level12_acc（前 2 个对不对）、Level123_acc（前 3 个对不对）、R@1（全部 9 个都对 = 检索到正确文档）。</p>
+<h4 id="_14">三组件协作全景<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>  ┌──────────────────────────────────────────────────────┐
+  │  Stage 0          Stage 1          Stage 2           │
+  │  ───────          ───────          ───────           │
+  │                                                      │
+  │  ┌────────┐      ┌────────┐      ┌────────┐         │
+  │  │CLIP-SF │─────→│   RQ   │─────→│   T5   │         │
+  │  │        │      │        │      │        │         │
+  │  │提特征  │      │编 ID   │      │生 ID   │         │
+  │  │768维   │      │9个token│      │Top-10  │         │
+  │  └────────┘      └────────┘      └────────┘         │
+  │   冻结            训练→冻结        训练               │
+  │                                                      │
+  │  输入：原始图文    输入：768维向量   输入：查询向量      │
+  │  输出：img/txt    输出：离散ID     输出：目标ID序列     │
+  └──────────────────────────────────────────────────────┘
+</code></pre></div>
+<h3 id="24">2.4 训练流程<a class="headerlink" href="#24" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stage 0</td>
+<td>特征提取</td>
+<td>使用预训练 CLIP-SF 提取训练集和候选库的嵌入特征</td>
+</tr>
+<tr>
+<td>Stage 1</td>
+<td>残差量化</td>
+<td>训练模态解耦量化器，学习将连续嵌入量化为离散分层 ID</td>
+</tr>
+<tr>
+<td>Stage 2</td>
+<td>生成器训练</td>
+<td>训练 T5 序列到序列模型，根据查询嵌入生成目标 ID</td>
+</tr>
+</tbody>
+</table>
+<p>训练中使用了<strong>查询增强</strong>（query-target mixing）策略来提升泛化能力。</p>
+<h4 id="_15">三阶段训练全景图<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>================================================================================
+                   GENIUS 三阶段训练流水线
+================================================================================
+
+  Stage 0 ─► Stage 1 ─► Stage 2 串成一条流水线，每阶段产出喂给下一阶段
+
+================================================================================
+                         STAGE 0 : CLIP-SF 预训练
+                         ────────────────────────
+                         目标：把 CLIP 适配到 M-BEIR 检索场景
+                         产出：clip_sf_large.pth（冻结）
+================================================================================
+
+                query 图文                              target 图文
+                     │                                       │
+        ┌────────────┼────────────┐             ┌────────────┼────────────┐
+        ▼            ▼            │             ▼            ▼            │
+   ┌─────────┐  ┌─────────┐      │        ┌─────────┐  ┌─────────┐      │
+   │  ViT    │  │ Trans.  │      │        │  ViT    │  │ Trans.  │      │
+   │ 图像塔  │  │ 文本塔  │      │        │ 图像塔  │  │ 文本塔  │      │
+   └────┬────┘  └────┬────┘      │        └────┬────┘  └────┬────┘      │
+        │            │           │             │            │            │
+     q_img        q_txt          │          p_img        p_txt           │
+        └──────┬─────┘           │             └──────┬─────┘            │
+               ▼                 │                    ▼                  │
+        q_img + q_txt            │             p_img + p_txt             │
+        （简单相加）              │             （简单相加）               │
+               │                 │                    │                  │
+               └────────────┬────┴────────────────────┘                  │
+                            ▼                                            │
+                   ┌────────────────┐                                    │
+                   │ 对比损失 (CL)   │ ──► 更新双塔参数                     │
+                   └────────────────┘                                    │
+                                                                         │
+                    ★ 训完冻结，Stage 1/2 复用                              │
+                    ★ 关键：img_emb 和 txt_emb 分开保存，不预先相加          │
+
+================================================================================
+                         STAGE 1 : RQ 训练
+                         ────────────────
+                         目标：给所有 candidate 分配&quot;有语义结构&quot;的 9 位 ID
+                              训练 Combiner 做自适应图文融合
+                         产出：Combiner 权重 + 9 层码本 + 候选库 Trie
+================================================================================
+
+  query 图文 ─► CLIP-SF ─► q_img, q_txt       target 图文 ─► CLIP-SF ─► p_img, p_txt
+                               │                                              │
+                               ▼                                              ▼
+                      ┌────────────────┐                             ┌────────────────┐
+                      │  Combiner       │  ★ 4 MLP + 动态权重 w      │  Combiner       │
+                      │  (训练)         │    自适应融合图文           │  (训练)         │
+                      └───────┬────────┘                             └───────┬────────┘
+                              │ q_emb [768]                                   │ p_emb [768]
+                              └─────────────────┬─────────────────────────────┘
+                                                ▼
+                              ┌──────────────────────────────────┐
+                              │      ResidualVQ (9 层码本)         │  ★ 训练
+                              │  ┌────────────────────────────┐  │
+                              │  │ L0: codebook=3   (模态)    │  │
+                              │  │ L1~L8: codebook=4096 (语义) │  │
+                              │  └────────────────────────────┘  │
+                              └─────────────┬────────────────────┘
+                                            │
+               ┌────────────────────────────┼────────────────────────────┐
+               ▼                            ▼                            ▼
+          quant [768]                 Is [9 位 ID]                  rq_loss
+               │                            │
+       ┌───────┴───────┐                    │                       │
+       ▼               ▼                    ▼                       │
+  q_decode        p_decode             用于建 Trie                   │
+       │               │                                            │
+       └───────┬───────┘                                            │
+               ▼                                                    │
+  ┌─────────────────────────────────────────────────────────────────┐
+  │                      三个损失联合优化                              │
+  │                                                                  │
+  │   l_cl  = contra_loss(q_emb, p_emb)         ← Combiner 输出层    │
+  │   l_rq  = 1e2 · rq_loss                     ← 量化前后           │
+  │   l_mse = 1e2 · MSE(q_decode, p_decode)     ← 量化后             │
+  │                                                                  │
+  │   loss = l_cl + l_rq + l_mse                                    │
+  └─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+          ┌────────────────────────────────────────────┐
+          │ 训完后：一次性离线索引                         │
+          │  所有 candidate ─► CLIP-SF ─► Combiner ─► RQ │
+          │                                           │
+          │             ─► 9 位 ID ─► 插入 Trie 前缀树    │
+          └────────────────────────────────────────────┘
+
+================================================================================
+                         STAGE 2 : T5 生成器训练
+                         ─────────────────────
+                         目标：学 &quot;query ─► target ID&quot; 的映射
+                         产出：embed_projector + T5 decoder
+================================================================================
+
+  query ─► CLIP-SF ─► Combiner ─► q_emb      target ─► CLIP-SF ─► Combiner ─► p_emb
+                                          │                                       │
+                                          └──────────────┐                        │
+                                                         ▼                        │
+                                ┌────────────────────────────────────┐            │
+                                │    查询增强（Beta 混合）              │            │
+                                │  s ~ Beta(2,2)                     │            │
+                                │  aug = √s·q + √(1-s)·p ───────────┼────────────┘
+                                └──────────────┬─────────────────────┘
+                                               │ aug_emb [768]
+                                               ▼
+                                ┌──────────────────────────────┐
+                                │   embed_projector (训练)       │
+                                │   Linear(768 → 512×30)        │
+                                └──────────────┬───────────────┘
+                                               │ [30, 512]
+                                               ▼
+                                ┌──────────────────────────────┐
+                                │      T5 decoder (训练)        │
+                                │  自回归逐 token 生成 9 位 ID   │
+                                └──────────────┬───────────────┘
+                                               │ 预测 ID
+                                               ▼
+                                ┌──────────────────────────────┐
+                                │ 交叉熵损失                      │
+                                │ 预测 ID vs Stage 1 分配的真实 ID │
+                                └──────────────────────────────┘
+
+================================================================================
+                       各组件在不同阶段的&quot;角色表&quot;
+================================================================================
+
+              CLIP-SF    Combiner     RQ       embed_proj     T5       Trie
+              ───────    ────────    ────       ──────────    ────     ────
+Stage 0        训练         ✗         ✗            ✗          ✗         ✗
+Stage 1        冻结        训练      训练           ✗          ✗        构建
+Stage 2        冻结        冻结       ✗            训练       训练       使用
+离线索引       冻结        冻结      使用           ✗          ✗        重建
+在线推理       使用        冻结       ✗            使用       使用       使用
+</code></pre></div>
+<h3 id="25">2.5 端到端推理流程<a class="headerlink" href="#25" title="Permanent link">&para;</a></h3>
+<p>结合论文 Figure 2 与代码 <code>retriever.py:497-538</code> 的 <code>inference()</code> 方法，推理分为 4 步：</p>
+<h4 id="step-1">Step 1：离线索引构建（一次性，离线）<a class="headerlink" href="#step-1" title="Permanent link">&para;</a></h4>
+<p>训练完成后，把所有 candidate（图片 / 文本 / 图文对）喂给 Stage 0 + Stage 1 的 encoder + RQ，得到每个 candidate 的 9 位离散 ID 序列，构建成 <strong>Trie 前缀树</strong>。</p>
+<ul>
+<li>Trie 只保留"真实存在的 ID 路径"</li>
+<li>后续 beam search 时用来约束 T5 不能生成无效 ID</li>
+<li>候选库更新时才需要重建</li>
+</ul>
+<h4 id="step-2query">Step 2：Query 编码（在线）<a class="headerlink" href="#step-2query" title="Permanent link">&para;</a></h4>
+<p>给定 query <code>q = (q_con, q_inst)</code>，经过 Stage 0 + Combiner 得到融合向量：</p>
+<div class="highlight"><pre><span></span><code>CLIP-SF (Stage 0)  →  Combiner (Stage 1)  →  q_emb [768-d]
+                                              ↓
+                                         ResidualVQ
+                                              ↓
+                                         q_code (9 位 ID，仅诊断用)
+</code></pre></div>
+<p><code>emb</code> = Combiner 输出的归一化融合向量，对应论文 Fig.2 右侧的"Query embedding"。</p>
+<h4 id="step-3t5-id">Step 3：T5 自回归生成 ID（在线，核心）<a class="headerlink" href="#step-3t5-id" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>emb [768] ──▶ embed_projector ──▶ [num_prefix=30, d_model=512]
+                                      ↓
+                              T5 decoder (num_beams=10)
+                                      ↓
+                          Trie 约束：每步只能走 Trie 中存在的边
+                                      ↓
+                          输出 top-K 个 candidate ID 序列（K=10）
+</code></pre></div>
+<p>对应论文公式 (1)：<code>t_k^c = argmax_t log p(t | q, t^c_{&lt;k}; θ)</code>，逐 token 自回归。代码中 <code>constrained_beam_search</code> 的 <code>prefix_allowed_tokens_fn</code> 就是 Trie 查找函数。</p>
+<h4 id="step-4embedding-based-re-ranking">Step 4：Embedding-based Re-ranking（在线，论文新增）<a class="headerlink" href="#step-4embedding-based-re-ranking" title="Permanent link">&para;</a></h4>
+<p>T5 生成 K=10 个候选 ID 后，每个 ID 对应一个真实候选文档。重排步骤：</p>
+<ol>
+<li><strong>取 query 的 rerank 向量</strong>：用 CLIP-SF 原始的 <code>img_emb * img_mask + txt_emb * txt_mask</code>（等权相加，<strong>不是 Combiner 输出</strong>）</li>
+<li><strong>取每个候选的 rerank 向量</strong>：离线索引时已经预存了每个候选的同样向量</li>
+<li><strong>算余弦相似度</strong>：<code>score_i = cos(query_rerank_emb, cand_i_rerank_emb)</code>，对 10 个候选逐一计算</li>
+<li><strong>按分数重排</strong>：取相似度最高的作为最终 Top-1 结果</li>
+</ol>
+<p><strong>离线索引时每个候选做了两件独立的事</strong>：</p>
+<div class="highlight"><pre><span></span><code>候选文档 → CLIP-SF → Combiner → 768维向量
+                                ├→ RQ 查码本 → 9位 ID → 插入 Trie
+                                └→ rerank 向量 → 存入单独的表
+</code></pre></div>
+<p>索引库里存了两样东西：<strong>ID 序列</strong>（用于 Trie 约束解码）和 <strong>rerank 向量</strong>（用于最终重排），两者都跟码本无关。</p>
+<p><strong>query 和候选的 rerank 向量算法相同，但输入不同</strong>：🚗</p>
+<div class="highlight"><pre><span></span><code>Query:  红色鞋图片 + &quot;换个蓝色&quot;  → CLIP-SF → [0.12, -0.34, ...]
+候选A: 蓝色鞋图片 + &quot;蓝色运动鞋&quot; → CLIP-SF → [0.45, 0.08, ...]
+候选B: 黑色包图片 + &quot;真皮手提包&quot; → CLIP-SF → [-0.22, 0.67, ...]
+</code></pre></div>
+<p>同样的公式 <code>img_emb * img_mask + txt_emb * txt_mask</code>，但喂进去的图片和文本不同，出来的向量就不同。重排就是算 query 向量和每个候选向量的余弦相似度，谁近谁排前面。</p>
+<p><strong>为什么用 CLIP-SF 原始向量而不是 Combiner 输出</strong>：Combiner 是为 RQ 量化优化的融合，不一定是最适合直接算相似度的空间；CLIP-SF 的等权相加更"原始"，用更朴素的相似度纠正生成式模型可能产生的偏差。</p>
+<ul>
+<li>代码 <code>retriever.py:538</code> 返回的就是这个用于 rerank 的 embedding：<code>F.normalize(img_emb*img_mask + txt_emb*txt_mask)</code></li>
+<li>注意：重排的向量是离线索引阶段和候选 ID 一起预存好的，在线只需要算 K 次余弦，开销很小</li>
+</ul>
+<h4 id="_16">一图总结<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>Query ─► CLIP-SF ─► Combiner ─► emb ─► projector ─► T5 decoder
+                                            │            │
+                                            │      Trie 约束
+                                            ▼            ▼
+                                       (rerank emb)   K 个 ID
+                                            │            │
+                                            └──► cosine ─┴──► Top-1
+</code></pre></div>
+<h4 id="_17">三组件在推理时的角色<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Encoder (CLIP-SF + Combiner)</strong>：产 emb（喂 T5）+ rerank 向量（最终排序）</li>
+<li><strong>RQ (Quantization module)</strong>：推理时实际<strong>可跳过</strong>——T5 直接生成 ID，不需要先量化 query；RQ 只在离线索引阶段给 candidate 分配 ID</li>
+<li><strong>Decoder (T5)</strong>：从 emb 自回归生成 candidate ID，Trie 保证 ID 合法</li>
+</ul>
+<h4 id="_18">推理全景图<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>================================================================================
+                       离线索引（候选库更新时才做）
+================================================================================
+
+  所有 candidate ─► CLIP-SF ─► Combiner ─► emb ─► RQ ─► 9 位 ID ─► 插入 Trie
+                                                      ▲
+                                                只有这一步用 RQ
+
+================================================================================
+                          在线查询（每次用户来查询）
+================================================================================
+
+  Query (图 + 文 + 指令)
+            │
+            ▼
+  ┌────────────────────┐
+  │  CLIP-SF (冻结)      │
+  │  img, txt 分开提取    │
+  └─────────┬──────────┘
+            │ img_emb, txt_emb
+            ├───────────────────────────────────────────────┐
+            ▼                                               │
+  ┌────────────────────┐                                    │
+  │  Combiner (冻结)    │                                    │
+  │  4 MLP + 动态 w     │                                    │
+  └─────────┬──────────┘                                    │
+            │ q_emb [768]                                   │
+            │                                               │
+            │ ★ 这一步跳过了 RQ                              │
+            │   不量化 query，直接把 emb 喂给 T5              │
+            │                                               │
+            ▼                                               ▼
+  ┌────────────────────┐                      rerank_emb = img·mask + txt·mask
+  │ embed_projector    │                      (CLIP-SF 原始相加，非 Combiner)
+  │ Linear(768→512×30)  │                                  │
+  └─────────┬──────────┘                                  │
+            │ [30, 512]                                   │ 暂存，用于最后 rerank
+            ▼                                             │
+  ┌────────────────────────────────────────────┐          │
+  │       T5 decoder  +  Trie 约束束搜索          │          │
+  │                                              │          │
+  │  ┌────────────────────────────────────────┐ │          │
+  │  │ 每步循环：                              │ │          │
+  │  │  1. T5 预测所有 token 概率              │ │          │
+  │  │  2. 查 Trie 取合法 token 集合           │ │          │
+  │  │  3. 非法 token 概率置 -∞                │ │          │
+  │  │  4. beam_size=10 保留 Top-10 路径       │ │          │
+  │  └────────────────────────────────────────┘ │          │
+  └─────────────────┬──────────────────────────┘          │
+                    │                                      │
+             K 个完整 ID 序列（K=10）                        │
+                    │                                      │
+                    ▼                                      │
+  ┌──────────────────────────────────────┐                │
+  │   Trie 查 ID → 真实 K 个 candidate     │                │
+  └─────────────────┬────────────────────┘                │
+                    │                                      │
+                    ▼                                      ▼
+  ┌──────────────────────────────────────────────────────────┐
+  │            Embedding Re-ranking (余弦相似度)                │
+  │   score_i = cos(query_rerank_emb, cand_i_rerank_emb)      │
+  │   按 score 重排 K 个 candidate                              │
+  └─────────────────┬────────────────────────────────────────┘
+                    │
+                    ▼
+              ★ Top-1 检索结果 ★
+</code></pre></div>
+<blockquote>
+<p>对应论文原话："At inference, GENIUS generates candidate IDs from a query using Trie-constrained beam search, additionally followed by embedding-based re-ranking to further enhance retrieval accuracy."</p>
+</blockquote>
+<h3 id="26-rq">2.6 码本与 RQ 的作用：为什么推理不用也得训<a class="headerlink" href="#26-rq" title="Permanent link">&para;</a></h3>
+<p>一个常见的疑问：<strong>既然在线推理时不调用 RQ / 码本，为什么还要费劲训练它？</strong> 答案是：RQ 和码本虽然<strong>运行时不出现</strong>，但它们产出的东西<strong>决定了整个系统能不能跑起来</strong>。</p>
+<h4 id="261-rq">2.6.1 训练 RQ + 码本的三大不可替代用途<a class="headerlink" href="#261-rq" title="Permanent link">&para;</a></h4>
+<h5 id="1-candidate-id-t5">用途 1：给所有 candidate 分配 ID（这是 T5 的"标签"）<a class="headerlink" href="#1-candidate-id-t5" title="Permanent link">&para;</a></h5>
+<p>T5 是有监督模型，训练必须有"标准答案"。这些标准答案就是 <strong>RQ 分配出来的 9 位 ID</strong>：</p>
+<div class="highlight"><pre><span></span><code>训练 T5 需要的数据格式：
+  输入：query 的 emb
+  标签：target 的 9 位 ID          ← 这个 ID 只有 RQ 能给！
+
+没有 RQ → 没有 ID → T5 没东西可学 → Stage 2 根本没法训
+</code></pre></div>
+<p>类比：教小孩识字必须有"字卡"，RQ 就是<strong>造字卡的机器</strong>。训完字卡后，机器可以收起来，但字卡要一直用。</p>
+<h5 id="2-trie-t5-id">用途 2：构 Trie（约束 T5 只能生成合法 ID）<a class="headerlink" href="#2-trie-t5-id" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code>离线索引时：
+  所有 candidate ─► CLIP-SF ─► Combiner ─► RQ ─► 9 位 ID ─► 插入 Trie
+                                               ▲
+                                         必须用 RQ，不然 ID 从哪来？
+</code></pre></div>
+<p>没有 Trie，T5 可能生成 <code>&lt;a9&gt;&lt;b9999&gt;...</code> 这种根本不存在于候选库的 ID，检索失败。<strong>Trie 里的所有路径，都是 RQ 跑出来的</strong>。</p>
+<h5 id="3-id-t5">用途 3：让 ID 有"语义结构"（T5 才学得会）<a class="headerlink" href="#3-id-t5" title="Permanent link">&para;</a></h5>
+<p><strong>这是最本质的一点</strong>。如果 ID 是随机哈希（比如 Doc A 的 ID 是 <code>31415926</code>，Doc B 是 <code>27182818</code>），T5 根本学不到"什么样的 query 应该生成什么样的 ID"——只能死记硬背，泛化能力为零。</p>
+<p>RQ 的残差量化天然产生<strong>层次化语义</strong>：</p>
+<div class="highlight"><pre><span></span><code>相似文档 → 共享前缀
+不同文档 → 前缀分叉
+
+例如训完后的 ID 分布：
+  红色运动鞋： &lt;a0&gt;&lt;b100&gt;&lt;c200&gt;&lt;d...&gt;
+  蓝色运动鞋： &lt;a0&gt;&lt;b100&gt;&lt;c201&gt;&lt;d...&gt;    ← 前缀 &lt;a0&gt;&lt;b100&gt; 相同
+  红色皮鞋：   &lt;a0&gt;&lt;b101&gt;&lt;c300&gt;&lt;d...&gt;    ← 类别不同，第 2 位就分叉
+</code></pre></div>
+<ul>
+<li><code>&lt;a0&gt;</code> = "这是图像"（模态）</li>
+<li><code>&lt;b100&gt;</code> = "属于鞋类"（粗语义）</li>
+<li><code>&lt;c200&gt;</code> = "运动鞋"（中语义）</li>
+<li><code>&lt;d...&gt;</code> = 更细的款式、颜色（细语义）</li>
+</ul>
+<p>正因为 ID 有这种"树状语义"，T5 才能学到规律："看到'蓝色运动鞋'查询，应该生成 <code>&lt;a0&gt;&lt;b100&gt;</code> 开头的 ID"。如果码本是随机的，T5 就学不出这种规律。</p>
+<p><strong>三大用途小结</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>用途</th>
+<th>产出</th>
+<th>后续使用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>给 candidate 分配 ID</td>
+<td><code>candidate_id_dict.json</code></td>
+<td>T5 训练的标签</td>
+</tr>
+<tr>
+<td>构 Trie</td>
+<td><code>trie.index</code></td>
+<td>推理时约束 T5 解码</td>
+</tr>
+<tr>
+<td>让 ID 有语义结构</td>
+<td>码本本身</td>
+<td>让 T5 能学到规律，不是死记</td>
+</tr>
+</tbody>
+</table>
+<h4 id="262-t5">2.6.2 T5 运行时用到码本了吗？<a class="headerlink" href="#262-t5" title="Permanent link">&para;</a></h4>
+<p><strong>直接答案</strong>：T5 运行时<strong>不调用码本查表</strong>（码本是 RQ 的组件，推理时 RQ 被跳过）。但码本以<strong>三种关键方式间接参与 T5 的训练和推理</strong>：</p>
+<h5 id="1_1">间接参与方式 1：训练标签<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h5>
+<p>T5 训练时的 ground-truth ID 来自 RQ 查码本的结果：</p>
+<div class="highlight"><pre><span></span><code>Stage 2 训练时：
+  target ─► RQ 查码本 ─► 真实 ID &quot;&lt;a0&gt;&lt;b100&gt;&lt;c200&gt;...&quot;
+                              │
+                              ▼
+  T5 预测 ID  vs  真实 ID    算交叉熵损失
+</code></pre></div>
+<p>T5 不查码本，但它要模仿 RQ 查码本的行为。</p>
+<h5 id="2_1">间接参与方式 2：词表初始化（关键）<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h5>
+<p>T5 原本只认识 "hello"、"world" 这类文本 token。为了让它认识 <code>&lt;a0&gt;</code>、<code>&lt;b1234&gt;</code> 这类 ID token，GENIUS 做了：</p>
+<ol>
+<li>给 T5 扩展词表：加入 32771 个新 token（第 1 层 3 个 + 第 2-9 层各 4096 个）</li>
+<li><strong>用码本里的码字向量初始化这些新 token 的 embedding</strong>：</li>
+</ol>
+<div class="highlight"><pre><span></span><code>码本中：&lt;b1234&gt; 的码字 = [0.12, -0.34, 0.56, ...] (768 维)
+                                  │
+                                  ▼ 投影到 T5 的 d_model 维度
+T5 词表中：&lt;b1234&gt; 的 embedding 初始值 = [0.08, -0.22, ...]
+</code></pre></div>
+<p>这一步让 T5 <strong>从一开始就"认识" ID token 的语义</strong>——相近的码字在 embedding 空间里也相近，T5 学得更快。同样用码字初始化 T5 的输出头 <code>lm_head</code>（预测下一个 token 的那一层）。</p>
+<h5 id="3tokenizer">间接参与方式 3：Tokenizer 解码<a class="headerlink" href="#3tokenizer" title="Permanent link">&para;</a></h5>
+<p>T5 生成的 token ID 要通过 tokenizer 映射回 <code>&lt;a0&gt;&lt;b1234&gt;</code> 这种字符串形式。这些特殊 token 是 Stage 2 开始前根据码本配置创建的。</p>
+<h4 id="263-t5">2.6.3 一图总结"T5 和码本的关系"<a class="headerlink" href="#263-t5" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>                ┌─────────────────┐
+                │    RQ 码本        │
+                │ (Stage 1 训出)   │
+                └────────┬────────┘
+                         │
+          ┌──────────────┼──────────────┐
+          │              │              │
+          ▼              ▼              ▼
+    离线索引         T5 词表初始化     T5 训练标签
+          │              │              │
+          ▼              ▼              ▼
+  candidate ID ─►  Trie    T5 认识 ID    T5 学习
+                                  token 语义    &quot;query→ID&quot;
+                         │              │              │
+                         └──────────────┴──────────────┘
+                                        │
+                                        ▼
+                              T5 训好后推理时
+                              不再查码本，但已内化
+                              了码本的语义结构
+</code></pre></div>
+<h4 id="264">2.6.4 终极类比：摩尔斯电码<a class="headerlink" href="#264" title="Permanent link">&para;</a></h4>
+<p>把码本想象成"摩尔斯电码表"：</p>
+<ul>
+<li><strong>RQ</strong> = 译报员，看着电码表把文档翻译成电码（离线）</li>
+<li><strong>Trie</strong> = 一本"所有合法电码"的清单</li>
+<li><strong>T5</strong> = 发报员，听到查询后直接发电码，不用查电码表</li>
+</ul>
+<p>发报员训练时：</p>
+<ul>
+<li>看过很多译报员的工作（码本产出的标签）</li>
+<li>记住了电码的含义（码本向量初始化 embedding）</li>
+<li>学会"听到什么查询 → 发什么电码"</li>
+</ul>
+<p>发报员上线后：</p>
+<ul>
+<li>不需要电码表（码本）了</li>
+<li>也不需要译报员（RQ）了</li>
+<li>只需要合法电码清单（Trie）防止乱发</li>
+<li>直接发电码，对面拿着电码表查是哪个文档</li>
+</ul>
+<p><strong>电码表虽然不再被查阅，但整个通信体系都是围绕它设计的</strong>。码本同理。</p>
+<h4 id="265-rq">2.6.5 从码本视角看 RQ 在训练与推理中的作用<a class="headerlink" href="#265-rq" title="Permanent link">&para;</a></h4>
+<p>把<strong>码本</strong>当作主角，其他组件（CLIP-SF、Combiner、T5、Trie）都围着它转。</p>
+<h5 id="0">0. 码本是什么（先定义主角）<a class="headerlink" href="#0" title="Permanent link">&para;</a></h5>
+<p>码本 = 一本"向量词典"，每个词条叫<strong>码字</strong>，有唯一编号（ID）：</p>
+<div class="highlight"><pre><span></span><code>RQ 包含 9 本码本（每层一本）：
+
+📘 码本 0 (L0)：3 个码字 ──► 模态指示
+  ID=0: [0.82, -0.31, ...]   ← 代表&quot;图像&quot;
+  ID=1: [0.15,  0.73, ...]   ← 代表&quot;文本&quot;
+  ID=2: [0.50,  0.22, ...]   ← 代表&quot;图文混合&quot;
+
+📗 码本 1 (L1)：4096 个码字 ──► 粗语义
+  ID=0:    [0.12, -0.34, ...]
+  ID=1234: [0.78,  0.22, ...]
+  ...
+
+📙 码本 2~8：各 4096 个码字 ──► 从粗到细的语义
+</code></pre></div>
+<p><strong>"查码本"</strong> = 输入一个向量 → 找最近码字 → 输出该码字的 ID。<strong>这就是量化</strong>。</p>
+<h5 id="1_2">1. 码本的生命周期：从无到有，再到"退居幕后"<a class="headerlink" href="#1_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code>┌─────────────┐
+│ Stage 1 训练 │ ──► k-means 初始化 + EMA 持续更新 ──► 🌱 码本成型
+└──────┬──────┘
+       │
+       ▼
+┌─────────────┐
+│ Stage 2 训练 │ ──► 码本被读出来：
+└──────┬──────┘     (1) 给所有 candidate 查表 → 9 位 ID → T5 训练标签
+                    (2) 码字向量 → 初始化 T5 词表 embedding + lm_head
+       │
+       ▼
+┌─────────────┐
+│   离线索引    │ ──► 所有 candidate 查 9 本码本 → 9 位 ID → 插入 Trie
+└──────┬──────┘
+       │
+       ▼
+┌─────────────┐
+│   在线推理    │ ──► 码本不再被查，但&quot;灵魂&quot;仍在工作：
+└─────────────┘     • Trie 是码本的&quot;产物&quot;
+                    • T5 词表 embedding 是码本的&quot;投影&quot;
+                    • T5 生成的 ID 对应码本里的词条
+</code></pre></div>
+<h5 id="2_2">2. 训练阶段：码本"被学习 + 被使用"<a class="headerlink" href="#2_2" title="Permanent link">&para;</a></h5>
+<p><strong>🌱 Stage 1：码本被学习</strong></p>
+<p>每次 forward，RQ 都要查码本：</p>
+<div class="highlight"><pre><span></span><code>输入向量 v = [0.8, 0.3, -0.2, ...]
+
+  第 1 层查码本 0：最近码字 = ID 0 = [0.75, 0.28, ...]
+      → 输出 ID: 0
+      → 残差 r1 = v - 码字0 = [0.05, 0.02, ...]
+
+  第 2 层查码本 1：在码本 1 里找离 r1 最近的码字
+      → 输出 ID: 1234
+      → 残差 r2 = r1 - 码字1234 = [0.01, 0.01, ...]
+
+  ... 9 层查 9 次码本 → 9 个 ID
+</code></pre></div>
+<p>码本通过 <strong>EMA 更新</strong>（<code>decay=0.9</code>）：</p>
+<ul>
+<li>被频繁分配的码字 → 向输入均值方向移动</li>
+<li>长期不用的"死码字" → 被重新激活</li>
+<li><strong>不是梯度反传</strong>，是统计式更新</li>
+</ul>
+<p>训完后，码本定型：每个码字代表一种<strong>语义原型</strong>（比如某个码字专门编码"红色"，某个专门编码"鞋类"）。</p>
+<p><strong>📖 Stage 2：码本被读出来用</strong></p>
+<p>码本虽然不再更新，但在 Stage 2 训练前被<strong>反复使用</strong>：</p>
+<p><strong>用法 1 · 分配标签</strong>：</p>
+<div class="highlight"><pre><span></span><code>对所有 candidate 前向一次 RQ：
+  candidate ─► Combiner ─► emb ─► ResidualVQ(emb) ─► 9 位 ID
+                                                       │
+                                     保存为 T5 的训练标签 ◄─┘
+</code></pre></div>
+<p><strong>用法 2 · 初始化 T5 词表</strong>：</p>
+<div class="highlight"><pre><span></span><code>码本中 ID=1234 的码字 = [0.12, -0.34, ...] (768 维)
+                                 │
+                                 ▼ 投影到 T5 的 d_model 维度
+T5 词表中 token &quot;&lt;b1234&gt;&quot; 的 embedding 初始值 = [0.08, -0.22, ...]
+</code></pre></div>
+<blockquote>
+<p>⭐ <strong>关键</strong>：码本的语义结构被"蒸馏"进 T5 的词表。T5 从第一天起就"知道" ID 1234 和 ID 1235 在语义上很接近（因为它们的码字向量本来就很接近）。</p>
+</blockquote>
+<h5 id="3_1">3. 推理阶段：码本"退居幕后"，但灵魂仍在<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h5>
+<p><strong>🚫 在线推理时，码本物理上不参与</strong></p>
+<div class="highlight"><pre><span></span><code>Query ─► CLIP-SF ─► Combiner ─► emb [768]
+                                   │
+                                   ▼
+                            embed_projector
+                                   │
+                                   ▼
+                              T5 decoder
+                                   │
+                             直接输出 9 位 ID
+                                   │
+                              查 Trie 验证
+</code></pre></div>
+<p><strong>没有任何一步查码本</strong>。T5 已经"内化"了码本的语义，可以独立生成合法 ID。</p>
+<p><strong>👻 但码本的"灵魂"通过两条通道继续工作</strong></p>
+<p><strong>通道 1 · Trie（码本的产物）</strong></p>
+<div class="highlight"><pre><span></span><code>码本 定义了所有合法 token：
+  L0: {0, 1, 2}
+  L1: {0, 1, ..., 4095}
+  ...
+
+Trie 存储的是&quot;实际被使用过的 token 组合&quot;：
+  合法路径 = 码本词汇空间 的 一个子集
+</code></pre></div>
+<p>T5 每步查 Trie 拿到的"合法 token 集合"，本质上就是"码本中被 candidate 用过的那些码字的索引"。<strong>Trie 是码本的"投影到现实候选集"的版本</strong>。</p>
+<p><strong>通道 2 · T5 的词表 embedding（码本的投影）</strong></p>
+<div class="highlight"><pre><span></span><code>T5 生成 token &quot;&lt;b1234&gt;&quot; 时：
+  T5 内部查自己的 embedding 表
+  这个 embedding = 码本 1 中 ID=1234 的码字向量的投影
+
+T5 预测下一个 token 时：
+  T5 的 lm_head 与所有 ID token 的 embedding 算相似度
+  这些 embedding 也都来自码本
+</code></pre></div>
+<p><strong>码本的语义已经融入 T5 的权重</strong>，T5 不查码本，但每次预测都在"隐式地使用码本的语义结构"。</p>
+<h5 id="4">4. 一张图看完码本的角色演变<a class="headerlink" href="#4" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code>┌────────────────────────────────────────────────────────────────┐
+│                    码本（Codebook）的角色演变                    │
+└────────────────────────────────────────────────────────────────┘
+
+ Stage 1 训练           Stage 2 训练          离线索引         在线推理
+ ──────────            ──────────           ────────         ────────
+
+ ┌────────────┐       ┌────────────┐      ┌────────────┐   ┌────────────┐
+ │ 🌱 被更新   │       │ 📖 被读取   │      │ 📋 被读取   │   │ 👻 不被访问 │
+ │  (EMA 调整   │       │  (查表分配   │      │  (查表给     │   │            │
+ │   码字位置)  │       │   标签)      │      │  candidate  │   │  (灵魂仍在 │
+ │            │       │            │      │   分配 ID)   │   │   起作用)   │
+ │ 🔍 被查询   │       │ 🎯 被投影   │      │            │   │            │
+ │  (量化时查   │       │  (初始化     │      │            │   │            │
+ │   最近码字)  │       │   T5 词表)   │      │            │   │            │
+ └────────────┘       └────────────┘      └────────────┘   └────────────┘
+
+      ↓                    ↓                   ↓                ↓
+  &quot;码本在成长&quot;          &quot;码本在传承&quot;         &quot;码本在产出&quot;      &quot;码本已内化&quot;
+                                                               ↓
+                                                         T5 和 Trie
+                                                         代替它工作
+</code></pre></div>
+<h5 id="5">5. 类比：码本 = 公司的"产品编码体系"<a class="headerlink" href="#5" title="Permanent link">&para;</a></h5>
+<p>想象一家电商公司要建一套商品检索系统：</p>
+<table>
+<thead>
+<tr>
+<th>角色</th>
+<th>对应</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>📘 <strong>码本</strong></td>
+<td>产品编码规范（如 <code>&lt;类目&gt;&lt;品牌&gt;&lt;型号&gt;&lt;颜色&gt;...</code>）</td>
+</tr>
+<tr>
+<td>🏭 <strong>Stage 1 训练 RQ</strong></td>
+<td>制定编码规范 + 把所有商品打上码</td>
+</tr>
+<tr>
+<td>📚 <strong>Trie</strong></td>
+<td>仓库里"实际存在的 SKU 列表"</td>
+</tr>
+<tr>
+<td>🎓 <strong>Stage 2 训练 T5</strong></td>
+<td>培训客服："用户描述 → 报 SKU"</td>
+</tr>
+<tr>
+<td>🤖 <strong>在线推理</strong></td>
+<td>客服直接报 SKU，不用翻编码规范本</td>
+</tr>
+</tbody>
+</table>
+<p>客服（T5）入职时：</p>
+<ul>
+<li>👀 看过编码规范本（码本初始化词表）</li>
+<li>🧠 背过所有商品的编码（训练标签）</li>
+<li>🎯 学会"听到'红色 iPhone 15'就报 <code>A01-APL-IP15-RED</code>"</li>
+</ul>
+<p>客服上线后：</p>
+<ul>
+<li>❌ 不用翻编码规范本（码本），因为已经内化了</li>
+<li>✅ 只需要查 SKU 清单（Trie），确认报的码真有货</li>
+<li>⭐ <strong>但整个系统之所以能工作，是因为编码规范（码本）设计得合理</strong>——类目清晰、层次分明、相似商品前缀相近</li>
+</ul>
+<blockquote>
+<p>💡 如果编码规范是随机的（iPhone 的码是 <code>X7J2P</code>，三星是 <code>M9K3Q</code>，毫无规律），客服永远背不下来，系统就崩了。<strong>码本的价值不在"被查阅"，而在"让 ID 体系有结构"</strong>。</p>
+</blockquote>
+<h5 id="6">6. 一句话总结<a class="headerlink" href="#6" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><strong>码本在 Stage 1 被"学习"出来，在 Stage 2 和离线索引阶段被"读"出来用，到在线推理时虽然"不被查阅"，但它的语义结构已经通过 T5 词表初始化和 Trie 两条路径"遗传"给了推理系统——码本退居幕后，灵魂仍在驱动整个框架。</strong></p>
+</blockquote>
+<hr />
+<h2 id="3_2">3. 代码结构<a class="headerlink" href="#3_2" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>GENIUS-CVPR25/
+├── src/
+│   ├── feature_extraction/        # Stage 0：CLIP-SF 特征提取
+│   │   ├── clip_feature_extration_train.py   # 训练集特征提取
+│   │   └── clip_feature_extraction_cand.py   # 候选库特征提取
+│   ├── models/
+│   │   ├── residual_quantization/  # Stage 1：残差量化
+│   │   │   ├── residual_quantization.py  # 量化器模型
+│   │   │   ├── loss.py                   # 损失函数
+│   │   │   ├── engine.py                 # 训练引擎
+│   │   │   └── train.py                  # 训练入口
+│   │   ├── generative_retriever/   # Stage 2：生成式检索
+│   │   │   ├── retriever.py              # 检索器模型（T5）
+│   │   │   ├── beam.py                   # 束搜索解码
+│   │   │   ├── engine.py                 # 训练引擎
+│   │   │   └── train.py                  # 训练入口
+│   │   ├── uniir_clip/             # UniIR CLIP 编码器
+│   │   │   ├── clip_scorefusion/         # 分数融合 CLIP
+│   │   │   ├── clip_featurefusion/       # 特征融合 CLIP
+│   │   │   └── clip_nofusion/            # 无融合 CLIP
+│   │   ├── uniir_blip/             # UniIR BLIP 编码器
+│   │   └── utils.py
+│   ├── common/                     # 公共工具
+│   └── data/                       # 数据处理
+├── checkpoint/                     # 模型检查点
+├── extracted_embed/                # 提取的嵌入特征
+├── misc/                           # 图片等资源
+├── genius_env.yml                  # Conda 环境配置
+└── README.md
+</code></pre></div>
+<hr />
+<h2 id="4_1">4. 数据集与评估<a class="headerlink" href="#4_1" title="Permanent link">&para;</a></h2>
+<h3 id="41-m-beir">4.1 M-BEIR 基准<a class="headerlink" href="#41-m-beir" title="Permanent link">&para;</a></h3>
+<p>使用 M-BEIR（Multimodal BEnchmark for Instructed Retrieval）进行训练和评估。该数据集涵盖多种模态的检索任务，数据可在 HuggingFace 下载。</p>
+<h3 id="42">4.2 支持的检索任务<a class="headerlink" href="#42" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>查询类型</th>
+<th>目标类型</th>
+<th>示例数据集</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>文本 → 图像</td>
+<td>T→I</td>
+<td>VisualNews, MSCOCO, Fashion200K</td>
+</tr>
+<tr>
+<td>文本 → 文本</td>
+<td>T→T</td>
+<td>WebQA</td>
+</tr>
+<tr>
+<td>文本 → 图文</td>
+<td>T→(I,T)</td>
+<td>EDIS, WebQA</td>
+</tr>
+<tr>
+<td>图像 → 文本</td>
+<td>I→T</td>
+<td>VisualNews, MSCOCO, Fashion200K</td>
+</tr>
+<tr>
+<td>图像 → 图像</td>
+<td>I→I</td>
+<td>NIGHTS, OVEN</td>
+</tr>
+<tr>
+<td>图文 → 文本</td>
+<td>(I,T)→T</td>
+<td>InfoSeek</td>
+</tr>
+<tr>
+<td>图文 → 图像</td>
+<td>(I,T)→I</td>
+<td>FashionIQ, CIRR</td>
+</tr>
+<tr>
+<td>图文 → 图文</td>
+<td>(I,T)→(I,T)</td>
+<td>OVEN, InfoSeek</td>
+</tr>
+</tbody>
+</table>
+<h3 id="43">4.3 效率优势<a class="headerlink" href="#43" title="Permanent link">&para;</a></h3>
+<p>当候选库规模增大时，基于嵌入的检索（如 CLIP + 最近邻）速度急剧下降，而 GENIUS 的离散 ID 生成几乎是常数时间。实验表明 GENIUS 比同类生成式方法 GRACE 快约 4 倍。</p>
+<hr />
+<h2 id="5_1">5. 模型检查点<a class="headerlink" href="#5_1" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>组件</th>
+<th>检查点</th>
+<th>来源</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CLIP-SF（Stage 0）</td>
+<td>clip_sf_large.pth</td>
+<td>HuggingFace: TIGER-Lab/UniIR</td>
+</tr>
+<tr>
+<td>残差量化（Stage 1）</td>
+<td>rq_clip_large.pth</td>
+<td>HuggingFace: Sungyeon/GENIUS</td>
+</tr>
+<tr>
+<td>生成器（Stage 2）</td>
+<td>GENIUS_t5small.pth</td>
+<td>HuggingFace: Sungyeon/GENIUS</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="6_1">6. 快速上手<a class="headerlink" href="#6_1" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># 1. 安装环境</span>
+conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>genius_env.yml
+
+<span class="c1"># 2. 下载 M-BEIR 数据集</span>
+git<span class="w"> </span>lfs<span class="w"> </span>install
+git<span class="w"> </span>clone<span class="w"> </span>https://huggingface.co/datasets/TIGER-Lab/M-BEIR
+
+<span class="c1"># 3. 下载 CLIP-SF 预训练权重</span>
+mkdir<span class="w"> </span>-p<span class="w"> </span>checkpoint/CLIP_SF
+wget<span class="w"> </span>https://huggingface.co/TIGER-Lab/UniIR/resolve/main/checkpoint/CLIP_SF/clip_sf_large.pth<span class="w"> </span>-O<span class="w"> </span>checkpoint/CLIP_SF/clip_sf_large.pth
+
+<span class="c1"># 4. Stage 0：特征提取</span>
+<span class="nb">cd</span><span class="w"> </span>src/feature_extraction
+bash<span class="w"> </span>run_feature_extraction_train.sh
+bash<span class="w"> </span>run_feature_extraction_cand.sh
+
+<span class="c1"># 5. Stage 1：残差量化训练</span>
+<span class="nb">cd</span><span class="w"> </span>src/models/residual_quantization
+bash<span class="w"> </span>configs_scripts/large/train/inbatch/run_inbatch.sh
+
+<span class="c1"># 6. Stage 2：生成器训练</span>
+<span class="nb">cd</span><span class="w"> </span>src/models/generative_retriever
+bash<span class="w"> </span>configs_scripts/large/train/inbatch/run_inbatch.sh
+
+<span class="c1"># 7. 推理评估</span>
+bash<span class="w"> </span>configs_scripts/large/eval/inbatch/run_eval.sh
+</code></pre></div>
+<p>推理时可选三种 trie 实现：trie_cpp（最快，C++编译）、trie（Python）、marisa（替代方案）。</p>
+<hr />
+<h2 id="7">7. 对搜索业务的启示<a class="headerlink" href="#7" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>生成式检索是新范式</strong>：不依赖向量索引，通过生成 ID 直接定位文档，在大规模候选库下有显著速度优势</li>
+<li><strong>模态解耦量化</strong>：将模态信息和语义信息分层编码到离散 ID 中，单一模型即可处理多种跨模态检索组合</li>
+<li><strong>约束解码保证合法性</strong>：通过 trie 约束束搜索，确保生成的 ID 序列只指向候选库中实际存在的文档</li>
+<li><strong>查询增强提升泛化</strong>：训练时混合 query 和 target 作为输入，增强模型对不同查询类型的适应能力</li>
+<li><strong>M-BEIR 基准可复用</strong>：多模态检索的标准评测集，适合作为搜索业务的离线评估基准</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.top", "navigation.instant", "search.highlight", "content.code.copy", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

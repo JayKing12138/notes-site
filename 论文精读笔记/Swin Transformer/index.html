@@ -1,0 +1,2991 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../SimVLM/">
+      
+      
+        <link rel="next" href="../UniPerceiver/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Swin Transformer - 学习资料库</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#swin-transformer" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="学习资料库" class="md-header__button md-logo" aria-label="学习资料库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            学习资料库
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Swin Transformer
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="学习资料库" class="md-nav__button md-logo" aria-label="学习资料库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    学习资料库
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    学习资料库
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GENIUS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    GENIUS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GENIUS/GENIUS%20%E6%80%BB%E7%BB%93/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GENIUS 总结
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RadAlign
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RadAlign
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RadAlign/RadVLM-GRPO%20%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RadVLM-GRPO 论文精读
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RadAlign/%E5%85%B3%E9%94%AE%E4%BB%A3%E7%A0%81%E8%AF%B4%E6%98%8E/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关键代码说明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    全模态大模型·出行安全项目
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    全模态大模型·出行安全项目
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/5.27%20Qwen3.7-Max%2BGeoLife%E8%AF%84%E4%BC%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.27 Qwen3.7-Max+GeoLife评估
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/Omni-%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Omni-出行安全项目
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%B1%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    全模态大模型·出行安全项目进展
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLUE
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    BLUE
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/BLUE/BLUE%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLUE论文笔记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    论文精读笔记
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    论文精读笔记
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AAAAA_Transformer%E3%80%81LLM%E4%B8%8EVLM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AAAAA_Transformer、LLM与VLM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BBBBB_%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BBBBB_强化学习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BERT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BERT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BEiT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BEiT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BLIP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLIP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLIP%20%26%20ALIGN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP & ALIGN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLIP%20%E6%94%B9%E8%BF%9B%E5%B7%A5%E4%BD%9C%E4%B8%B2%E8%AE%B2%EF%BC%88%E4%B8%8A%EF%BC%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP 改进工作串讲（上）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLIP%20%E6%94%B9%E8%BF%9B%E5%B7%A5%E4%BD%9C%E4%B8%B2%E8%AE%B2%EF%BC%88%E4%B8%8B%EF%BC%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP 改进工作串讲（下）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DALL%C2%B7E%202/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DALL·E 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DINO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DINO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Flamingo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Flamingo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GPT%EF%BC%8CGPT-2%EF%BC%8CGPT-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPT，GPT-2，GPT-3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ImageBind%20%E4%B8%8E%20LanguageBind%20%E5%AF%B9%E6%AF%94/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ImageBind 与 LanguageBind 对比
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InternVL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    InternVL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLaMA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLaMA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLaVA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLaVA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MAE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MAE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MoCo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MoCo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OFA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OFA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PaLI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PaLI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Qwen-VL%E4%B8%8EOmni/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qwen-VL与Omni
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SAM3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SAM3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SigLIP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SigLIP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SimVLM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SimVLM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Swin Transformer
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Swin Transformer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目录
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心要点
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 背景与动机
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 背景与动机">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-vit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 ViT 的局限性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-nlp-vision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 从 NLP 到 Vision 的挑战
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-swin-transformer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Swin Transformer 的目标
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 方法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 整体架构与前向过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-patch-merging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Patch Merging（下采样操作）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-window-self-attention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 基于窗口的自注意力（Window Self-Attention）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 基于窗口的自注意力（Window Self-Attention）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        窗口划分
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        复杂度分析
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-shifted-window" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 移动窗口（Shifted Window）自注意力
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4 移动窗口（Shifted Window）自注意力">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        解决方案
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swin-transformer-block" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Swin Transformer Block 的结构
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 高效的批量计算：循环移位与掩码
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.5 高效的批量计算：循环移位与掩码">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cyclic-shift" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        循环移位（Cyclic Shift）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#masked-self-attention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        掩码机制（Masked Self-Attention）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6 相对位置编码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.7 模型变体
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 实验
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 实验">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-imagenet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 ImageNet 图像分类
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-coco" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 COCO 目标检测
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-ade20k" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 ADE20K 语义分割
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 消融实验
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 总结
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 总结">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 核心贡献回顾
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 影响力与后续发展
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 个人评价
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UniPerceiver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UniPerceiver
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Unified-IO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unified-IO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ViLT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ViLT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ViT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ViT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ZZZZZ%E5%85%AC%E5%BC%8F%E4%BB%A3%E7%A0%81%E7%AD%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ZZZZZ公式代码等
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%8E%9F%E7%94%9F%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    原生多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%90%8E%E8%AE%AD%E7%BB%83%E7%BB%BC%E8%BF%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多模态大模型后训练综述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%9A%E6%A8%A1%E6%80%81%E8%AE%BA%E6%96%87%E4%B8%B2%E8%AE%B2%C2%B7%E4%B8%8A/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多模态论文串讲·上
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%9A%E6%A8%A1%E6%80%81%E8%AE%BA%E6%96%87%E4%B8%B2%E8%AE%B2%C2%B7%E4%B8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多模态论文串讲·下
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%AF%B9%E6%AF%94%E5%AD%A6%E4%B9%A0%E7%BB%BC%E8%BF%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    对比学习综述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%B7%B7%E5%90%88%E7%B2%BE%E5%BA%A6%E8%AE%AD%E7%BB%83%E4%B8%8E%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    混合精度训练与分布式训练
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%A7%86%E9%A2%91%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    视频多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%9F%B3%E9%A2%91%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    音频多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目录
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心要点
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 背景与动机
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 背景与动机">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-vit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 ViT 的局限性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-nlp-vision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 从 NLP 到 Vision 的挑战
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-swin-transformer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Swin Transformer 的目标
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 方法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 整体架构与前向过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-patch-merging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Patch Merging（下采样操作）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-window-self-attention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 基于窗口的自注意力（Window Self-Attention）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 基于窗口的自注意力（Window Self-Attention）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        窗口划分
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        复杂度分析
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-shifted-window" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 移动窗口（Shifted Window）自注意力
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4 移动窗口（Shifted Window）自注意力">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        解决方案
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swin-transformer-block" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Swin Transformer Block 的结构
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 高效的批量计算：循环移位与掩码
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.5 高效的批量计算：循环移位与掩码">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cyclic-shift" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        循环移位（Cyclic Shift）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#masked-self-attention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        掩码机制（Masked Self-Attention）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6 相对位置编码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.7 模型变体
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 实验
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 实验">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-imagenet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 ImageNet 图像分类
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-coco" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 COCO 目标检测
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-ade20k" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 ADE20K 语义分割
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 消融实验
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 总结
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 总结">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 核心贡献回顾
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 影响力与后续发展
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 个人评价
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="swin-transformer">Swin Transformer<a class="headerlink" href="#swin-transformer" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>📄 <strong>论文链接</strong>：<a href="https://arxiv.org/abs/2103.14030">arXiv:2103.14030</a> | <a href="https://arxiv.org/pdf/2103.14030">PDF</a></p>
+</blockquote>
+<h2 id="_1">目录<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#核心要点">核心要点</a></li>
+<li><a href="#1-背景与动机">1. 背景与动机</a></li>
+<li><a href="#2-方法">2. 方法</a></li>
+<li><a href="#3-实验">3. 实验</a></li>
+<li><a href="#4-总结">4. 总结</a></li>
+</ul>
+<h2 id="_2">核心要点<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<blockquote>
+<ul>
+<li><strong>Swin Transformer</strong> 是 ICCV 2021 最佳论文，提出了一个层级式（Hierarchical）的 Vision Transformer，可作为计算机视觉领域的通用骨干网络。</li>
+<li><strong>核心贡献是 Shifted Window（移动窗口）自注意力机制</strong>：在小窗口内计算自注意力以降低复杂度至线性，同时通过窗口移位实现跨窗口交互，变相达到全局建模能力。</li>
+<li><strong>引入 Patch Merging 操作</strong>实现类似 CNN 池化的下采样，使模型具备多尺度特征提取能力，从而适用于目标检测、语义分割等密集预测任务。</li>
+<li><strong>实验效果显著</strong>：在 ImageNet-1K 分类上达到 87.3% 准确率；在 COCO 目标检测上达到 58.7 AP（比之前最好方法高 2.7 个点）；在 ADE20K 语义分割上达到 53.5 mIoU（比之前最好方法高 3.2 个点）。</li>
+<li>Swin Transformer 将 CNN 的设计先验（局部性、层级结构）与 Transformer 有机结合，成为视觉领域绕不开的 Baseline，后续衍生出 Video-Swin、Swin MLP、SimMIM、Swin V2 等一系列工作。</li>
+</ul>
+</blockquote>
+<h2 id="1">1. 背景与动机<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<h3 id="11-vit">1.1 ViT 的局限性<a class="headerlink" href="#11-vit" title="Permanent link">&para;</a></h3>
+<p>ViT 虽然证明了 Transformer 在视觉分类任务上的潜力，但存在两个关键问题：</p>
+<ul>
+<li><strong>单一尺度特征</strong>：ViT 使用固定的 16×16 patch size，自始至终处理的都是 16 倍下采样率的特征，缺乏多尺度特征表示。而目标检测（如 FPN）和语义分割（如 UNet）等下游任务高度依赖多尺度特征。</li>
+<li><strong>全局自注意力的平方级复杂度</strong>：ViT 在整图上计算自注意力，计算复杂度随图像尺寸呈平方级增长。检测和分割任务通常需要 800×800 甚至更大的输入分辨率，此时即使使用 patch size 16，序列长度仍会上千，计算量难以承受。</li>
+</ul>
+<h3 id="12-nlp-vision">1.2 从 NLP 到 Vision 的挑战<a class="headerlink" href="#12-nlp-vision" title="Permanent link">&para;</a></h3>
+<p>直接将 Transformer 从 NLP 迁移到视觉领域面临两大挑战：</p>
+<ul>
+<li><strong>尺度变化</strong>：视觉场景中同一语义的物体（如行人、汽车）可能有截然不同的尺寸，这在 NLP 中不存在。</li>
+<li><strong>高分辨率</strong>：图像以像素为基本单位，序列长度极高。之前的工作通过使用后续特征图、patch 切分或窗口化等方式来减少序列长度。</li>
+</ul>
+<h3 id="13-swin-transformer">1.3 Swin Transformer 的目标<a class="headerlink" href="#13-swin-transformer" title="Permanent link">&para;</a></h3>
+<p>Swin Transformer 的研究动机是证明 Transformer 可以作为视觉领域的<strong>通用骨干网络</strong>，不仅在分类任务上有效，在检测、分割、视频等所有视觉任务上都能取代 CNN。</p>
+<h2 id="2">2. 方法<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<p><img alt="Figure 1: Swin Transformer 层级结构" src="../images/swin_fig1.png" />
+<em>Figure 1: Swin Transformer 层级结构</em></p>
+<h3 id="21">2.1 整体架构与前向过程<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<p><img alt="Figure 2: 移动窗口注意力机制" src="../images/swin_fig2.png" />
+<em>Figure 2: 移动窗口注意力机制</em></p>
+<p><img alt="Figure 3: Swin Transformer Block 详细结构" src="../images/swin_fig3.png" />
+<em>Figure 3: Swin Transformer Block 详细结构</em></p>
+<p>Swin Transformer 的整体架构分为四个 Stage，具有层级式结构：</p>
+<p><strong>Step 1: Patch Partition + Linear Embedding</strong></p>
+<ul>
+<li>输入图片为标准 224×224×3 的 ImageNet 图像。</li>
+<li><strong>Patch Size 为 4×4</strong>（而非 ViT 的 16×16），经过 Patch Partition 后得到 56×56×48 的特征图（56 = 224/4，48 = 4×4×3）。</li>
+<li>通过 Linear Embedding（一次卷积操作）将向量维度映射到预设值 C。对于 Swin-Tiny，C=96，输出变为 56×56×96。</li>
+<li>这一步等价于 ViT 中的 Patch Projection。</li>
+</ul>
+<p><strong>Step 2-4: 四个 Stage 的层级处理</strong></p>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>输入尺寸</th>
+<th>输出尺寸</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stage 1</td>
+<td>56×56×96</td>
+<td>56×56×96</td>
+<td>Swin Transformer Blocks</td>
+</tr>
+<tr>
+<td>Stage 2</td>
+<td>28×28×192</td>
+<td>28×28×192</td>
+<td>Patch Merging + Blocks</td>
+</tr>
+<tr>
+<td>Stage 3</td>
+<td>14×14×384</td>
+<td>14×14×384</td>
+<td>Patch Merging + Blocks</td>
+</tr>
+<tr>
+<td>Stage 4</td>
+<td>7×7×768</td>
+<td>7×7×768</td>
+<td>Patch Merging + Blocks</td>
+</tr>
+</tbody>
+</table>
+<p>每个 Stage 内部先做一次 Patch Merging（Stage 1 除外），再通过若干 Swin Transformer Block，输出尺寸不变。</p>
+<p><strong>分类头</strong>：Swin Transformer 不使用 CLS token，而是在最后对 7×7 特征图做 Global Average Pooling，得到 1×768 的向量，再接全连接层输出 1000 类分类结果。这与 CNN 的做法一致。</p>
+<h3 id="22-patch-merging">2.2 Patch Merging（下采样操作）<a class="headerlink" href="#22-patch-merging" title="Permanent link">&para;</a></h3>
+<p>Patch Merging 是 Swin Transformer 实现层级式结构的关键操作，类似于 CNN 中的池化：</p>
+<ol>
+<li><strong>隔点采样</strong>：对 H×W×C 的特征图，每隔一个点取一个样本，将其分成 4 个子张量，每个大小为 H/2 × W/2 × C。</li>
+<li><strong>通道拼接</strong>：将 4 个子张量在通道维度拼接，得到 H/2 × W/2 × 4C 的张量。</li>
+<li><strong>1×1 卷积降维</strong>：用 1×1 卷积将通道数从 4C 降至 2C，最终输出 H/2 × W/2 × 2C。</li>
+</ol>
+<p>这样实现了<strong>空间大小减半、通道数翻倍</strong>，与 ResNet 等 CNN 的行为完全一致。例如从 56×56×96 变为 28×28×192。</p>
+<h3 id="23-window-self-attention">2.3 基于窗口的自注意力（Window Self-Attention）<a class="headerlink" href="#23-window-self-attention" title="Permanent link">&para;</a></h3>
+<h4 id="_3">动机<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<p>全局自注意力的计算复杂度为 O((HW)²C)，当图像较大时不可承受。Swin Transformer 利用 CNN 的<strong>局部性先验（Locality Inductive Bias）</strong>——同一物体的不同部位或语义相近的物体大概率出现在相邻区域——将自注意力限制在小窗口内计算。</p>
+<h4 id="_4">窗口划分<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<ul>
+<li>将特征图均匀划分为不重叠的窗口，每个窗口包含 M×M 个 patch（默认 M=7，即 49 个 patch）。</li>
+<li>以 56×56 的特征图为例，每条边有 56/7=8 个窗口，共 64 个窗口。</li>
+<li>每个窗口内的自注意力序列长度固定为 49，计算复杂度大幅降低。</li>
+</ul>
+<h4 id="_5">复杂度分析<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<p>标准多头自注意力的计算复杂度：</p>
+<div class="arithmatex">\[\Omega_{global} = 4HWC^2 + 2(HW)^2C\]</div>
+<p>基于窗口的自注意力计算复杂度：</p>
+<div class="arithmatex">\[\Omega_{window} = 4HWC^2 + 2M^2HWC\]</div>
+<p>两者前一项相同，后一项从 (HW)² 降为 M²HW。当 H=W=56, M=7 时，相差数十至上百倍。整体计算复杂度随图像大小<strong>线性增长</strong>而非平方级增长。</p>
+<h3 id="24-shifted-window">2.4 移动窗口（Shifted Window）自注意力<a class="headerlink" href="#24-shifted-window" title="Permanent link">&para;</a></h3>
+<h4 id="_6">问题<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
+<p>纯窗口自注意力导致窗口之间完全隔离，无法进行跨窗口信息交互，丧失了 Transformer 的全局建模优势。</p>
+<h4 id="_7">解决方案<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<p>Swin Transformer 采用<strong>交替使用普通窗口和移动窗口</strong>的策略：</p>
+<ul>
+<li><strong>第 L 层</strong>：使用常规窗口划分，在窗口内计算自注意力。</li>
+<li><strong>第 L+1 层</strong>：将窗口向右下角移动 ⌊M/2⌋ 个 patch（默认移动 3 个），重新划分窗口后再计算自注意力。</li>
+</ul>
+<p>这样，第 L+1 层的窗口跨越了第 L 层的窗口边界，实现了 <strong>Cross-Window Connection</strong>。配合 Patch Merging 逐步增大感受野，到网络深层时，局部窗口注意力已变相等价于全局自注意力。</p>
+<h4 id="swin-transformer-block">Swin Transformer Block 的结构<a class="headerlink" href="#swin-transformer-block" title="Permanent link">&para;</a></h4>
+<p>一个基本的计算单元由<strong>两个连续的 Block</strong> 组成：</p>
+<ol>
+<li>LayerNorm → Window Multi-Head Self-Attention → LayerNorm → MLP</li>
+<li>LayerNorm → Shifted Window Multi-Head Self-Attention → LayerNorm → MLP</li>
+</ol>
+<p>因此模型配置中每个 Stage 的 Block 数量总是偶数（如 2, 2, 6, 2）。</p>
+<h3 id="25">2.5 高效的批量计算：循环移位与掩码<a class="headerlink" href="#25" title="Permanent link">&para;</a></h3>
+<h4 id="_8">问题<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
+<p>移动窗口后，原本 4 个窗口变成了 9 个大小不一的窗口，无法直接 batch 化处理。若用 padding 补齐，窗口数量增至 9 个，计算量增加两倍多。</p>
+<h4 id="cyclic-shift">循环移位（Cyclic Shift）<a class="headerlink" href="#cyclic-shift" title="Permanent link">&para;</a></h4>
+<p>作者提出巧妙的循环移位方案：</p>
+<ol>
+<li>将移动窗口后得到的 9 个窗口区域，通过循环移位重新排列：把右侧区域移到左侧，下方区域移到上方。</li>
+<li>重新划分为 4 个等大窗口，窗口数量和大小均保持不变。</li>
+</ol>
+<h4 id="masked-self-attention">掩码机制（Masked Self-Attention）<a class="headerlink" href="#masked-self-attention" title="Permanent link">&para;</a></h4>
+<p>循环移位后，某些窗口内包含了来自不相邻区域的 patch，这些 patch 之间不应计算自注意力。作者设计了掩码模板：</p>
+<ul>
+<li><strong>同一区域的 patch 之间</strong>：掩码值为 0，允许计算自注意力。</li>
+<li><strong>不同区域的 patch 之间</strong>：掩码值为 -100（负无穷近似），加到自注意力矩阵上后经 Softmax 变为 0，等效于屏蔽。</li>
+</ul>
+<p>具体而言：
+- <strong>Window 0</strong>（左上角）：所有 patch 来自同一区域，无需掩码。
+- <strong>Window 1</strong>（右上角）：包含左右两个不同区域，掩码呈左右分块形式。
+- <strong>Window 2</strong>（左下角）：包含上下两个不同区域，掩码呈上下分块形式。
+- <strong>Window 3</strong>（右下角）：包含四个不同区域，掩码呈四象限分块形式，最为复杂。</p>
+<p>计算完成后，还需执行<strong>反向循环移位</strong>将特征还原到原始位置，以保持图片的空间语义一致性。</p>
+<p>这一方案使得只需一次前向过程、仅计算 4 个窗口即可完成移动窗口自注意力，既高效又保持了窗口间的交互。</p>
+<h3 id="26">2.6 相对位置编码<a class="headerlink" href="#26" title="Permanent link">&para;</a></h3>
+<p>Swin Transformer 未使用绝对位置编码，而是采用<strong>相对位置编码（Relative Position Bias）</strong>。在每个窗口内计算自注意力时，根据 patch 之间的相对位置关系添加可学习的偏置项。这对下游密集预测任务尤为重要，因为位置和上下文信息对检测和分割至关重要。（注：相对位置编码已有大量资料详解，此处不再展开。）</p>
+<h3 id="27">2.7 模型变体<a class="headerlink" href="#27" title="Permanent link">&para;</a></h3>
+<p>Swin Transformer 提供了四种规模的变体，主要区别在于嵌入维度 C 和每个 Stage 的 Block 数量：</p>
+<table>
+<thead>
+<tr>
+<th>变体</th>
+<th>嵌入维度 C</th>
+<th>Stage Block 数</th>
+<th>对标 CNN</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Swin-Tiny</td>
+<td>96</td>
+<td>[2, 2, 6, 2]</td>
+<td>ResNet-50</td>
+</tr>
+<tr>
+<td>Swin-Small</td>
+<td>96</td>
+<td>[2, 2, 18, 2]</td>
+<td>ResNet-101</td>
+</tr>
+<tr>
+<td>Swin-Base</td>
+<td>128</td>
+<td>[2, 2, 18, 2]</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Swin-Large</td>
+<td>192</td>
+<td>[2, 2, 18, 2]</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p>Swin-Tiny 的计算复杂度与 ResNet-50 相当，Swin-Small 与 ResNet-101 相当，便于公平对比。</p>
+<h2 id="3">3. 实验<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<p><img alt="Figure 4: 高效 batch 计算方法" src="../images/swin_fig4.png" />
+<em>Figure 4: 高效 batch 计算方法</em></p>
+<h3 id="31-imagenet">3.1 ImageNet 图像分类<a class="headerlink" href="#31-imagenet" title="Permanent link">&para;</a></h3>
+<p><strong>ImageNet-1K 预训练</strong>：</p>
+<ul>
+<li>Swin-Base 在 384×384 分辨率下达到 <strong>84.5%</strong> Top-1 准确率，略高于 EfficientNet 的 84.3%（600×600 分辨率）。</li>
+<li>相比 DeiT-Base（83.1%），提升明显。</li>
+<li>参数量和 FLOPs 方面，Swin-Base（88M, 47G）略高于 EfficientNet（66M, 37G），总体伯仲之间。</li>
+</ul>
+<p><strong>ImageNet-22K 预训练 + ImageNet-1K 微调</strong>：</p>
+<ul>
+<li>Swin-Large 达到 <strong>87.3%</strong> Top-1 准确率，远超 ViT-Large 的 85.2%。</li>
+<li>这是在不使用 JFT-300M 等私有大规模数据集条件下的最优结果。</li>
+</ul>
+<h3 id="32-coco">3.2 COCO 目标检测<a class="headerlink" href="#32-coco" title="Permanent link">&para;</a></h3>
+<p><strong>不同算法框架下的对比（Table 2a）</strong>：</p>
+<ul>
+<li>在 Mask R-CNN、ATSS、RepPointsV2、Sparse R-CNN 四种算法中，将骨干网络从 ResNet-50 替换为 Swin-Tiny（参数量和 FLOPs 相当），<strong>全方位碾压</strong>，提升幅度达 3-4 个 AP 点。</li>
+</ul>
+<p><strong>同一算法下不同骨干网络的对比（Table 2b）</strong>：</p>
+<ul>
+<li>固定 Cascade Mask R-CNN 算法，Swin-Tiny/S/B 均优于同等规模的 ResNet-50/101 和 DeiT-S。</li>
+</ul>
+<p><strong>系统级对比（Table 2c）</strong>：</p>
+<ul>
+<li>Swin-Large 结合更强的数据增强和 TTA，在 COCO test-dev 上达到 <strong>58.7 AP</strong>，比此前最好的 Copy-Paste（56.0 AP）高出 2.7 个点。</li>
+</ul>
+<h3 id="33-ade20k">3.3 ADE20K 语义分割<a class="headerlink" href="#33-ade20k" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Swin-Large 在 ADE20K 上达到 <strong>53.5 mIoU</strong>，比此前最好的 SETR（ViT-Large, 50.3 mIoU）高出 3.2 个点。</li>
+<li>值得注意的是，Swin-Large 和 SETR 均使用了 ImageNet-22K 预训练。</li>
+</ul>
+<h3 id="34">3.4 消融实验<a class="headerlink" href="#34" title="Permanent link">&para;</a></h3>
+<p>消融实验验证了移动窗口和相对位置编码的作用：</p>
+<ul>
+<li><strong>分类任务</strong>：移动窗口和相对位置编码各自带来约 1 个点的提升（如从 80.2 到 81.3）。</li>
+<li><strong>下游任务（COCO / ADE20K）</strong>：两者各带来约 <strong>3 个点</strong>的提升，效果更为显著。这是因为密集预测任务对位置信息和上下文关系更加敏感。</li>
+</ul>
+<h2 id="4">4. 总结<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<h3 id="41">4.1 核心贡献回顾<a class="headerlink" href="#41" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>层级式 Transformer 架构</strong>：通过 Patch Merging 实现多尺度特征提取，使 Transformer 具备类似 CNN 的分层结构。</li>
+<li><strong>Shifted Window 自注意力</strong>：在线性复杂度下实现跨窗口交互，兼顾效率与全局建模能力。</li>
+<li><strong>通用视觉骨干网络</strong>：在分类、检测、分割等多个任务上全面超越 CNN 和此前的 Transformer 方法。</li>
+</ol>
+<h3 id="42">4.2 影响力与后续发展<a class="headerlink" href="#42" title="Permanent link">&para;</a></h3>
+<p>Swin Transformer 发表后，原作者团队以每月一篇的速度推出了系列工作：</p>
+<ul>
+<li><strong>MoBY</strong>（2021.05）：基于 MoCo + BYOL 的自监督 Swin Transformer。</li>
+<li><strong>Video-Swin-Transformer</strong>（2021.06）：扩展到视频理解，在 Kinetics-400 上达到 84.9% 准确率。</li>
+<li><strong>Swin MLP</strong>（2021.07）：将 Shifted Window 思想应用于 MLP 架构。</li>
+<li><strong>半监督目标检测</strong>（2021.08）：将 Swin Transformer 用于半监督检测。</li>
+<li><strong>SimMIM</strong>（2021.12）：受 BEiT/MAE 启发的掩码自监督学习版本。</li>
+<li><strong>Swin V2</strong>：30 亿参数的大规模版本，支持 1536×1536 分辨率预训练，COCO 刷到 63.1 AP。</li>
+</ul>
+<p>此外，Swin Transformer 还被广泛应用于人脸识别、图像超分（SwinIR）、Person ReID、StyleGAN（StyleSwin）等众多领域，并被 PaddlePaddle、timm、Hugging Face 等主流开源库收录。</p>
+<h3 id="43">4.3 个人评价<a class="headerlink" href="#43" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Swin Transformer 深度融合了 CNN 的先验知识（局部性、层级结构）与 Transformer 的强大表达能力，可以说是一个"披着 Transformer 皮的 CNN"。</li>
+<li>在模型大一统方面，ViT 因为不加任何先验就能在视觉和语言两个领域都表现良好，理论上更适合统一架构。但 Swin Transformer 凭借对视觉先验的充分利用，在视觉任务上的实际效果远优于 ViT。</li>
+<li>作者在结论中提到未来要将 Shifted Window 应用到 NLP 领域，如果成功，Swin Transformer 将成为真正的里程碑式工作。</li>
+<li>论文中对 CNN、Transformer、MLP 三种架构的深入理解和分析，为后续研究者提供了重要的思考方向，其影响力远超单一模型本身。</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.top", "navigation.instant", "search.highlight", "content.code.copy", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

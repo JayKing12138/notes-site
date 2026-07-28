@@ -1,0 +1,3064 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../SigLIP/">
+      
+      
+        <link rel="next" href="../Swin%20Transformer/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>SimVLM - 学习资料库</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#simvlm" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="学习资料库" class="md-header__button md-logo" aria-label="学习资料库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            学习资料库
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              SimVLM
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="学习资料库" class="md-nav__button md-logo" aria-label="学习资料库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    学习资料库
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    学习资料库
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GENIUS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    GENIUS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GENIUS/GENIUS%20%E6%80%BB%E7%BB%93/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GENIUS 总结
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RadAlign
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RadAlign
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RadAlign/RadVLM-GRPO%20%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RadVLM-GRPO 论文精读
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RadAlign/%E5%85%B3%E9%94%AE%E4%BB%A3%E7%A0%81%E8%AF%B4%E6%98%8E/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关键代码说明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    全模态大模型·出行安全项目
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    全模态大模型·出行安全项目
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/5.27%20Qwen3.7-Max%2BGeoLife%E8%AF%84%E4%BC%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.27 Qwen3.7-Max+GeoLife评估
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/Omni-%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Omni-出行安全项目
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%B1%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    全模态大模型·出行安全项目进展
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLUE
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    BLUE
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/BLUE/BLUE%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLUE论文笔记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    论文精读笔记
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    论文精读笔记
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AAAAA_Transformer%E3%80%81LLM%E4%B8%8EVLM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AAAAA_Transformer、LLM与VLM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BBBBB_%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BBBBB_强化学习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BERT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BERT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BEiT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BEiT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BLIP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLIP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLIP%20%26%20ALIGN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP & ALIGN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLIP%20%E6%94%B9%E8%BF%9B%E5%B7%A5%E4%BD%9C%E4%B8%B2%E8%AE%B2%EF%BC%88%E4%B8%8A%EF%BC%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP 改进工作串讲（上）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLIP%20%E6%94%B9%E8%BF%9B%E5%B7%A5%E4%BD%9C%E4%B8%B2%E8%AE%B2%EF%BC%88%E4%B8%8B%EF%BC%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP 改进工作串讲（下）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DALL%C2%B7E%202/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DALL·E 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DINO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DINO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Flamingo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Flamingo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GPT%EF%BC%8CGPT-2%EF%BC%8CGPT-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPT，GPT-2，GPT-3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ImageBind%20%E4%B8%8E%20LanguageBind%20%E5%AF%B9%E6%AF%94/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ImageBind 与 LanguageBind 对比
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InternVL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    InternVL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLaMA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLaMA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLaVA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLaVA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MAE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MAE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MoCo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MoCo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OFA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OFA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PaLI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PaLI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Qwen-VL%E4%B8%8EOmni/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qwen-VL与Omni
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SAM3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SAM3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SigLIP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SigLIP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SimVLM
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SimVLM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目录
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心要点
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 背景与动机
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 背景与动机">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-vlp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 现有 VLP 方法的四大痛点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-simvlm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 SimVLM 的设计目标
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 方法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-encoder-decoder-transformer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 模型架构：Encoder-Decoder Transformer
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 模型架构：Encoder-Decoder Transformer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        视觉编码器
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文本处理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参数共享策略
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-prefix-language-modelingprefixlm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 训练目标：Prefix Language Modeling（PrefixLM）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 训练目标：Prefix Language Modeling（PrefixLM）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prefixlm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PrefixLM 的定义
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        对于图像-文本对的处理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        对于纯文本语料
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prefixlm_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PrefixLM 的优势
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 训练数据：大规模弱监督
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 与之前方法的关键区别
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 实验
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 实验">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-vl-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 标准 VL 基准（预训练-微调）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 零样本/少样本图像描述
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 零样本跨模态迁移（全新实验范式）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-vqa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 开放式 VQA
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 单模态任务
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6 消融实验关键发现
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 总结
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 总结">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 核心贡献
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 局限性与讨论
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 对后续工作的影响
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Swin%20Transformer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Swin Transformer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UniPerceiver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UniPerceiver
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Unified-IO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unified-IO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ViLT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ViLT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ViT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ViT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ZZZZZ%E5%85%AC%E5%BC%8F%E4%BB%A3%E7%A0%81%E7%AD%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ZZZZZ公式代码等
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%8E%9F%E7%94%9F%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    原生多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%90%8E%E8%AE%AD%E7%BB%83%E7%BB%BC%E8%BF%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多模态大模型后训练综述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%9A%E6%A8%A1%E6%80%81%E8%AE%BA%E6%96%87%E4%B8%B2%E8%AE%B2%C2%B7%E4%B8%8A/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多模态论文串讲·上
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%9A%E6%A8%A1%E6%80%81%E8%AE%BA%E6%96%87%E4%B8%B2%E8%AE%B2%C2%B7%E4%B8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多模态论文串讲·下
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%AF%B9%E6%AF%94%E5%AD%A6%E4%B9%A0%E7%BB%BC%E8%BF%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    对比学习综述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%B7%B7%E5%90%88%E7%B2%BE%E5%BA%A6%E8%AE%AD%E7%BB%83%E4%B8%8E%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    混合精度训练与分布式训练
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%A7%86%E9%A2%91%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    视频多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%9F%B3%E9%A2%91%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    音频多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目录
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心要点
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 背景与动机
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 背景与动机">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-vlp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 现有 VLP 方法的四大痛点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-simvlm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 SimVLM 的设计目标
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 方法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-encoder-decoder-transformer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 模型架构：Encoder-Decoder Transformer
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 模型架构：Encoder-Decoder Transformer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        视觉编码器
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文本处理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参数共享策略
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-prefix-language-modelingprefixlm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 训练目标：Prefix Language Modeling（PrefixLM）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 训练目标：Prefix Language Modeling（PrefixLM）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prefixlm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PrefixLM 的定义
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        对于图像-文本对的处理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        对于纯文本语料
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prefixlm_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PrefixLM 的优势
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 训练数据：大规模弱监督
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 与之前方法的关键区别
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 实验
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 实验">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-vl-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 标准 VL 基准（预训练-微调）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 零样本/少样本图像描述
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 零样本跨模态迁移（全新实验范式）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-vqa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 开放式 VQA
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 单模态任务
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6 消融实验关键发现
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 总结
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 总结">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 核心贡献
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 局限性与讨论
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 对后续工作的影响
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="simvlm">SimVLM<a class="headerlink" href="#simvlm" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>📄 <strong>论文链接</strong>：<a href="https://arxiv.org/abs/2108.10904">arXiv:2108.10904</a> | <a href="https://arxiv.org/pdf/2108.10904">PDF</a></p>
+</blockquote>
+<h2 id="_1">目录<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#核心要点">核心要点</a></li>
+<li><a href="#1-背景与动机">1. 背景与动机</a></li>
+<li><a href="#2-方法">2. 方法</a></li>
+<li><a href="#3-实验">3. 实验</a></li>
+<li><a href="#4-总结">4. 总结</a></li>
+</ul>
+<h2 id="_2">核心要点<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<blockquote>
+<ul>
+<li><strong>极简主义视觉-语言预训练</strong>：SimVLM 仅用单一的 PrefixLM 目标函数，无需目标检测器、无需多种辅助损失，就能在所有主要 VL 基准上达到 SOTA，是对当时主流复杂 VLP 范式的根本性简化。</li>
+<li><strong>弱监督数据即可胜任</strong>：使用大规模噪声 image-alt-text 数据（ALIGN ~18亿对）+ 纯文本语料（C4 ~800GB）从头预训练，无需任何干净标注数据，性能超越所有使用精标数据的方法。</li>
+<li><strong>PrefixLM 目标的创新</strong>：巧妙融合 MLM 的双向理解和 LM 的生成能力——前缀部分用双向注意力（含图像），后缀部分用因果注意力（生成文本），使同一模型既能做判别式任务又能做生成式任务，且天然支持零样本推理。</li>
+<li><strong>零样本跨模态迁移</strong>：首次展示 VLP 模型可以仅在纯文本数据上微调，然后直接迁移到图像+文本任务上评估，性能接近全监督方法，证明学到了真正的统一多模态表示。</li>
+<li><strong>生成式 VLP 的全面胜利</strong>：在 VQA、Captioning、开放式问答等任务上全面超越之前基于 MLM 的方法，为后续生成式多模态大模型（如 CoCa、BLIP-2、Flamingo）的发展奠定了基础。</li>
+</ul>
+</blockquote>
+<h2 id="1">1. 背景与动机<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<h3 id="11-vlp">1.1 现有 VLP 方法的四大痛点<a class="headerlink" href="#11-vlp" title="Permanent link">&para;</a></h3>
+<p>在 SimVLM 之前，视觉-语言预训练（VLP）方法存在以下关键瓶颈：</p>
+<ol>
+<li><strong>依赖昂贵的标注数据</strong></li>
+<li>LXMERT、UNITER、OSCAR、VinVL 等方法普遍需要干净的图像描述（clean captions）和区域标签（regional labels）</li>
+<li>
+<p>这些精标数据规模有限（如 COCO ~12万图，Visual Genome ~10万图），严重限制了模型的可扩展性</p>
+</li>
+<li>
+<p><strong>依赖目标检测器</strong></p>
+</li>
+<li>大多数方法需要先训练一个有监督的目标检测器（如 Faster R-CNN，在 Visual Genome 上训练）</li>
+<li>用检测器提取图像的 ROI（Region-of-Interest）特征作为视觉输入</li>
+<li>
+<p>这增加了训练流水线的复杂度和成本，且检测器本身的性能上限会限制 VLP 模型</p>
+</li>
+<li>
+<p><strong>预训练目标过于复杂</strong></p>
+</li>
+<li>为了弥补标注数据的不足，引入了多种任务特定的辅助损失函数：<ul>
+<li>Masked Language Modeling (MLM)</li>
+<li>Image-Text Matching (ITM)</li>
+<li>Masked Region Classification (MRC)</li>
+<li>Word-Region Alignment (WRA)</li>
+<li>等等</li>
+</ul>
+</li>
+<li>
+<p>导致优化过程复杂，各个损失之间的权重难以平衡</p>
+</li>
+<li>
+<p><strong>缺乏零样本能力</strong></p>
+</li>
+<li>基于 MLM 的预训练-微调范式通常不具备零样本泛化能力</li>
+<li>不像 GPT-3 那样可以通过 prompt 进行零样本推理</li>
+<li>每个下游任务都需要专门的微调</li>
+</ol>
+<h3 id="12-simvlm">1.2 SimVLM 的设计目标<a class="headerlink" href="#12-simvlm" title="Permanent link">&para;</a></h3>
+<p>针对上述问题，SimVLM 的目标是构建一个<strong>极简主义</strong>的 VLP 框架，满足三个条件：</p>
+<ol>
+<li>能无缝接入预训练-微调范式，在标准 VL 基准上取得有竞争力的性能</li>
+<li>不需要复杂的预训练协议（单一目标函数即可）</li>
+<li>具备跨模态零样本泛化的潜力</li>
+</ol>
+<h2 id="2">2. 方法<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<p><img alt="Figure 1: SimVLM 模型架构与 PrefixLM 训练目标" src="../images/simvlm_fig1.png" />
+<em>Figure 1: SimVLM 模型架构与 PrefixLM 训练目标示意图</em></p>
+<h3 id="21-encoder-decoder-transformer">2.1 模型架构：Encoder-Decoder Transformer<a class="headerlink" href="#21-encoder-decoder-transformer" title="Permanent link">&para;</a></h3>
+<p>SimVLM 采用 <strong>Encoder-Decoder Transformer</strong> 架构，视觉和文本共享大部分参数。</p>
+<h4 id="_3">视觉编码器<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<p><strong>直接处理原始图像，不使用目标检测器</strong>：</p>
+<ul>
+<li><strong>Conv Stage</strong>：使用 ResNet 的前三个 block 提取上下文感知的 patch 特征</li>
+<li>Base 模型：ResNet-101</li>
+<li>Large 模型：ResNet-152</li>
+<li>Huge 模型：更大的 ResNet-152 变体</li>
+<li>
+<p>实验证明这种上下文化的 patch 表示优于 ViT 中简单的线性投影</p>
+</li>
+<li>
+<p><strong>图像分块</strong>：将图像分割为固定大小（16×16）的 patch，展平为 1D 序列</p>
+</li>
+<li>预训练分辨率：224×224</li>
+<li>
+<p>产生 14×14 = 196 个视觉 token</p>
+</li>
+<li>
+<p><strong>2D 相对位置注意力</strong>：在 Transformer 层内额外加入 2D 相对位置注意力，保留图像的空间结构信息</p>
+</li>
+</ul>
+<h4 id="_4">文本处理<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<ul>
+<li>使用 SentencePiece 分词器将文本切分为子词 token</li>
+<li>词表大小：32,000</li>
+<li>编码器和解码器的最大序列长度均为 256</li>
+</ul>
+<h4 id="_5">参数共享策略<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>编码器处理双向上下文</strong>（包括图像 patch 和文本前缀）</li>
+<li><strong>解码器进行自回归生成</strong></li>
+<li>除 Conv Stage 和位置嵌入外，<strong>视觉和文本输入之间共享所有参数</strong></li>
+<li>嵌入层与解码器 softmax 输出层也共享参数</li>
+</ul>
+<p><strong>为什么选择 Encoder-Decoder 而非 Decoder-only？</strong></p>
+<p>消融实验表明，Encoder-Decoder 架构显著优于同等规模的 Decoder-only 架构，说明将双向编码与单向解码解耦的归纳偏置对联合 VL 表示学习至关重要。</p>
+<h3 id="22-prefix-language-modelingprefixlm">2.2 训练目标：Prefix Language Modeling（PrefixLM）<a class="headerlink" href="#22-prefix-language-modelingprefixlm" title="Permanent link">&para;</a></h3>
+<p><strong>SimVLM 仅使用单一的预训练目标——PrefixLM</strong>，这是其"Simple"的核心体现。</p>
+<h4 id="prefixlm">PrefixLM 的定义<a class="headerlink" href="#prefixlm" title="Permanent link">&para;</a></h4>
+<p>给定输入序列 x，随机选择一个前缀长度 Tp，将序列分为：
+- <strong>前缀部分</strong> x&lt;Tp：使用<strong>双向注意力</strong>（类似 BERT）
+- <strong>后缀部分</strong> x≥Tp：使用<strong>自回归因果注意力</strong>（类似 GPT）</p>
+<p>训练目标是最小化后缀部分的负对数似然：</p>
+<div class="highlight"><pre><span></span><code>L_PrefixLM = -E[Σ log P(xt | x[Tp,t], x&lt;Tp)]，其中 t 从 Tp 到 T
+</code></pre></div>
+<h4 id="-">对于图像-文本对的处理<a class="headerlink" href="#-" title="Permanent link">&para;</a></h4>
+<ul>
+<li>将图像特征序列（长度 Ti）拼接在文本序列前面作为前缀</li>
+<li>强制采样前缀长度 Tp ≥ Ti，确保 LM loss 只在文本部分计算</li>
+<li>即：模型根据图像+部分文本来预测剩余文本</li>
+<li>这样图像自然地充当了文本描述的"前缀"，符合网页中图片通常出现在文字之前的规律</li>
+</ul>
+<h4 id="_6">对于纯文本语料<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
+<ul>
+<li>PrefixLM 是模态无关的，可以直接去掉图像 patch，仅使用文本 token 进行训练</li>
+<li>这使得模型可以在同一个目标下统一训练图像-文本数据和纯文本数据</li>
+</ul>
+<h4 id="prefixlm_1">PrefixLM 的优势<a class="headerlink" href="#prefixlm_1" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>对比目标</th>
+<th>PrefixLM 的优势</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MLM (BERT)</td>
+<td>多了生成能力（可以进行文本生成和零样本推理）</td>
+</tr>
+<tr>
+<td>纯 LM (GPT)</td>
+<td>多了双向上下文理解能力（前缀部分是双向注意力的）</td>
+</tr>
+<tr>
+<td>Span Corruption (T5)</td>
+<td>消融实验证实 PrefixLM 效果更好</td>
+</tr>
+</tbody>
+</table>
+<h3 id="23">2.3 训练数据：大规模弱监督<a class="headerlink" href="#23" title="Permanent link">&para;</a></h3>
+<p>SimVLM 使用大规模<strong>弱监督</strong>数据从头预训练，无需任何人工精标数据：</p>
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>来源</th>
+<th>规模</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>图像-文本对</td>
+<td>ALIGN 训练集</td>
+<td>~18 亿对</td>
+<td>从网络爬取的噪声 image-alt-text 对，仅做简单的随机裁剪，无额外过滤</td>
+</tr>
+<tr>
+<td>纯文本</td>
+<td>C4 (Colossal Clean Crawled Corpus)</td>
+<td>~800GB</td>
+<td>用于补偿 alt-text 中的噪声文本监督</td>
+</tr>
+</tbody>
+</table>
+<p><strong>训练配置</strong>：
+- 每个 batch 包含 <strong>4,096 个图像-文本对</strong> + <strong>512 个纯文本文档</strong>，两种数据在每个 batch 内混合
+- 使用 <strong>512 个 TPU v3</strong> 芯片训练约 <strong>100 万步</strong>
+- 优化器：AdamW（β1=0.9, β2=0.999, weight decay=0.01）
+- 学习率：预热 2% 后线性衰减至峰值 5×10⁻⁴
+- 预训练阶段不使用 Dropout</p>
+<h3 id="24">2.4 与之前方法的关键区别<a class="headerlink" href="#24" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>对比维度</th>
+<th>传统 VLP (LXMERT/UNITER/OSCAR/VinVL)</th>
+<th>CLIP/ALIGN</th>
+<th><strong>SimVLM</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>图像输入</td>
+<td>ROI 特征（需 Faster R-CNN）</td>
+<td>原始图像</td>
+<td><strong>原始图像（Conv+Transformer）</strong></td>
+</tr>
+<tr>
+<td>预训练目标</td>
+<td>MLM + ITM + MRC + 多种辅助损失</td>
+<td>对比学习（contrastive）</td>
+<td><strong>单一 PrefixLM</strong></td>
+</tr>
+<tr>
+<td>数据要求</td>
+<td>干净标注（COCO/VG等）</td>
+<td>大规模噪声数据</td>
+<td><strong>大规模噪声数据 + 纯文本</strong></td>
+</tr>
+<tr>
+<td>生成能力</td>
+<td>无（仅判别式）</td>
+<td>无（仅检索/分类）</td>
+<td><strong>有（自回归生成）</strong></td>
+</tr>
+<tr>
+<td>零样本能力</td>
+<td>无</td>
+<td>有限（仅分类/检索）</td>
+<td><strong>强（captioning、open-ended VQA、跨模态迁移）</strong></td>
+</tr>
+<tr>
+<td>预训练复杂度</td>
+<td>高（多阶段、多损失）</td>
+<td>中</td>
+<td><strong>低（端到端、单损失）</strong></td>
+</tr>
+<tr>
+<td>微调范式</td>
+<td>预训练-微调</td>
+<td>通常不微调</td>
+<td><strong>预训练-微调 + 零样本</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>核心区别</strong>：SimVLM 是第一个仅用<strong>单一语言建模目标</strong> + <strong>弱监督数据</strong>就能在判别式和生成式 VL 基准上全面超越之前所有方法的模型，同时具备零样本能力。</p>
+<h2 id="3">3. 实验<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<h3 id="31-vl-">3.1 标准 VL 基准（预训练-微调）<a class="headerlink" href="#31-vl-" title="Permanent link">&para;</a></h3>
+<p>SimVLM 在 6 个 VL 基准上全部达到 SOTA，且无需额外数据或任务特定定制：</p>
+<table>
+<thead>
+<tr>
+<th>任务</th>
+<th>指标</th>
+<th>之前 SOTA</th>
+<th>SimVLMhuge</th>
+<th>提升</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VQA v2</td>
+<td>vqa-score</td>
+<td>76.56 (VinVL)</td>
+<td><strong>80.34</strong></td>
+<td>+3.74%</td>
+</tr>
+<tr>
+<td>NLVR2</td>
+<td>accuracy</td>
+<td>84.84 (VinVL)</td>
+<td><strong>85.15</strong></td>
+<td>+1.17%</td>
+</tr>
+<tr>
+<td>SNLI-VE</td>
+<td>accuracy</td>
+<td>85.62 (VinVL)</td>
+<td><strong>86.32</strong></td>
+<td>+1.37%</td>
+</tr>
+<tr>
+<td>CoCo Caption</td>
+<td>CIDEr</td>
+<td>134.8 (SOHO)</td>
+<td><strong>143.3</strong></td>
+<td>+10.1%</td>
+</tr>
+<tr>
+<td>NoCaps</td>
+<td>CIDEr</td>
+<td>110.3 (SOHO)</td>
+<td><strong>115.2</strong></td>
+<td>—</td>
+</tr>
+<tr>
+<td>Multi30k En-De</td>
+<td>BLEU@4</td>
+<td>—</td>
+<td><strong>25.4</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>值得注意的是，即使是 SimVLMbase（较小模型）也已超越之前所有方法。</strong></p>
+<h3 id="32">3.2 零样本/少样本图像描述<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>零样本</strong>：直接在 CoCo/NoCaps 上解码，使用 prompt "A picture of" 提升质量</li>
+<li>SimVLMhuge 在 CoCo 上达到 CIDEr 32.2，接近全监督基线</li>
+<li><strong>少样本（1% 数据）</strong>：SimVLMhuge 在 CoCo 上达到 CIDEr 131.3，接近全监督 SOTA</li>
+<li>在概念丰富的 NoCaps 基准上表现尤为突出，展示了强大的域外泛化能力</li>
+</ul>
+<h3 id="33">3.3 零样本跨模态迁移（全新实验范式）<a class="headerlink" href="#33" title="Permanent link">&para;</a></h3>
+<p>这是一个全新的实验范式，验证模型是否学到了真正的统一多模态表示：</p>
+<p><strong>实验设计</strong>：
+- 仅在<strong>纯文本 NLI 数据</strong>（SNLI/MNLI）上微调
+- 然后直接在<strong>图像+文本</strong>的 SNLI-VE 测试集上评估</p>
+<p><strong>结果</strong>：
+- SimVLMhuge 达到 <strong>74.24% 准确率</strong>
+- 接近全监督 UNITER（78.59%）
+- 在 Multi30k 英德翻译任务上，仅在纯文本翻译数据上微调，直接用图像输入解码德语描述，达到 BLEU@4 = 18.2</p>
+<p><strong>意义</strong>：验证了模型学到了真正的统一多模态表示，对降低多模态模型的标注成本具有重要意义。</p>
+<h3 id="34-vqa">3.4 开放式 VQA<a class="headerlink" href="#34-vqa" title="Permanent link">&para;</a></h3>
+<p><strong>将 VQA 重新定义为生成任务</strong>（而非 3129 类分类）：</p>
+<ul>
+<li>SimVLM 在域外问题上比判别式方法高出 <strong>17+ 分</strong></li>
+<li>能生成不在候选集中的合理答案（如 "surgeon"、"wood carving"）</li>
+<li>在 WIT（Wikipedia-based Image Text）数据集上继续预训练 50k 步后，零样本开放式 VQA 能力涌现</li>
+</ul>
+<p><img alt="Figure 2: SimVLM 生成示例" src="../images/simvlm_fig2.png" />
+<em>Figure 2: SimVLM 在各种应用中的生成示例：(a) 零样本图像描述 (b) 少样本图像描述 (c) 开放式 VQA (d) 零样本跨模态迁移</em></p>
+<h3 id="35">3.5 单模态任务<a class="headerlink" href="#35" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>GLUE 基准</strong>：SimVLMbase 在纯文本 NLU 任务上优于所有之前的 VLP 模型，接近 BERT</li>
+<li><strong>ImageNet 线性评估</strong>：SimVLMhuge 达到 83.6% top-1 准确率，虽不及 CLIP（85.5%），但考虑到未使用对比损失，已属优秀</li>
+</ul>
+<h3 id="36">3.6 消融实验关键发现<a class="headerlink" href="#36" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>实验设置</th>
+<th>结果</th>
+<th>结论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Encoder-Decoder vs Decoder-only</td>
+<td>Encoder-Decoder 显著更优</td>
+<td>双向编码与单向解码解耦很重要</td>
+</tr>
+<tr>
+<td>PrefixLM vs Span Corruption vs 朴素 LM</td>
+<td>PrefixLM &gt; Span Corruption &gt; 朴素 LM</td>
+<td>PrefixLM 是最优目标</td>
+</tr>
+<tr>
+<td>图文+纯文本 vs 仅图文</td>
+<td>混合数据更优</td>
+<td>纯文本补偿了噪声文本监督</td>
+</tr>
+<tr>
+<td>3个 vs 2个 vs 4个 ResNet Block</td>
+<td>3个最优</td>
+<td>Conv Stage 的深度需要平衡</td>
+</tr>
+<tr>
+<td>10% ALIGN vs 100% ALIGN</td>
+<td>100% 显著更优</td>
+<td>数据规模至关重要</td>
+</tr>
+<tr>
+<td>CC-3M vs ALIGN</td>
+<td>ALIGN 显著更优</td>
+<td>数据规模 &gt; 数据质量（在一定噪声范围内）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4">4. 总结<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<h3 id="41">4.1 核心贡献<a class="headerlink" href="#41" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>极简主义预训练框架</strong></li>
+<li>提出仅用单一 PrefixLM 目标即可完成高质量 VLP</li>
+<li>摒弃了目标检测器、多种辅助损失和复杂的多阶段预训练流程</li>
+<li>
+<p>这是对当时主流 VLP 范式的根本性简化</p>
+</li>
+<li>
+<p><strong>弱监督即可胜任</strong></p>
+</li>
+<li>证明了大规模噪声 image-alt-text 数据 + 纯文本语料足以训练出超越所有使用精标数据方法的模型</li>
+<li>
+<p>打破了"VLP 必须依赖干净标注"的认知</p>
+</li>
+<li>
+<p><strong>PrefixLM 目标的创新</strong></p>
+</li>
+<li>巧妙地融合了 MLM 的双向理解和 LM 的生成能力</li>
+<li>使同一模型既能做判别式任务又能做生成式任务</li>
+<li>
+<p>天然支持零样本推理</p>
+</li>
+<li>
+<p><strong>零样本跨模态迁移</strong></p>
+</li>
+<li>首次展示了 VLP 模型可以仅在纯文本数据上微调，然后直接迁移到图像+文本任务上评估</li>
+<li>证明了统一多模态表示的有效性</li>
+<li>
+<p>对降低多模态模型的标注成本具有重要意义</p>
+</li>
+<li>
+<p><strong>生成式 VLP 的全面胜利</strong></p>
+</li>
+<li>首次在广泛的 VL 基准上证明生成式预训练不仅不逊于 MLM 方法，而且在性能和零样本能力上都显著优于后者</li>
+<li>
+<p>为后续生成式多模态大模型（如 Flamingo、BLIP-2 等）的发展奠定了基础</p>
+</li>
+<li>
+<p><strong>端到端原始图像处理</strong></p>
+</li>
+<li>直接使用 Conv+Transformer 处理原始图像 patch，无需外部目标检测器</li>
+<li>使整个流水线真正端到端可训练，大幅提升了可扩展性</li>
+</ol>
+<h3 id="42">4.2 局限性与讨论<a class="headerlink" href="#42" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>ImageNet 性能</strong>：虽然达到了 83.6%，但仍不及 CLIP（85.5%），说明对比学习在某些判别式任务上仍有优势</li>
+<li><strong>计算资源</strong>：需要 512 个 TPU v3 训练 100 万步，计算成本较高</li>
+<li><strong>数据依赖</strong>：虽然使用了弱监督数据，但仍需要大规模数据（18亿图文对），小规模数据效果会下降</li>
+</ul>
+<h3 id="43">4.3 对后续工作的影响<a class="headerlink" href="#43" title="Permanent link">&para;</a></h3>
+<p>SimVLM 的成功证明了生成式预训练在多模态领域的巨大潜力，直接影响了后续一系列重要工作：</p>
+<ul>
+<li><strong>CoCa</strong>（SimVLM 作者后续工作）：在 SimVLM 基础上引入对比学习，结合 Contrastive + Captioning</li>
+<li><strong>BLIP-2</strong>：采用类似的生成式预训练，但使用 Q-Former 作为视觉-语言连接器</li>
+<li><strong>Flamingo</strong>：进一步扩展了生成式多模态模型的能力</li>
+<li><strong>PaLI</strong>：探索了多任务预训练与生成式目标的结合</li>
+</ul>
+<p>SimVLM 标志着 VLP 从"复杂的多任务判别式预训练"向"简单的生成式预训练"的范式转变。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.top", "navigation.instant", "search.highlight", "content.code.copy", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

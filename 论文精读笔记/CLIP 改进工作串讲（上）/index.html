@@ -1,0 +1,4523 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../CLIP%20%26%20ALIGN/">
+      
+      
+        <link rel="next" href="../CLIP%20%E6%94%B9%E8%BF%9B%E5%B7%A5%E4%BD%9C%E4%B8%B2%E8%AE%B2%EF%BC%88%E4%B8%8B%EF%BC%89/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>CLIP 改进工作串讲（上） - 学习资料库</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#clip" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="学习资料库" class="md-header__button md-logo" aria-label="学习资料库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            学习资料库
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              CLIP 改进工作串讲（上）
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="学习资料库" class="md-nav__button md-logo" aria-label="学习资料库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    学习资料库
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    学习资料库
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GENIUS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    GENIUS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GENIUS/GENIUS%20%E6%80%BB%E7%BB%93/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GENIUS 总结
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RadAlign
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RadAlign
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RadAlign/RadVLM-GRPO%20%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RadVLM-GRPO 论文精读
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RadAlign/%E5%85%B3%E9%94%AE%E4%BB%A3%E7%A0%81%E8%AF%B4%E6%98%8E/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关键代码说明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    全模态大模型·出行安全项目
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    全模态大模型·出行安全项目
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/5.27%20Qwen3.7-Max%2BGeoLife%E8%AF%84%E4%BC%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.27 Qwen3.7-Max+GeoLife评估
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/Omni-%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Omni-出行安全项目
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%B1%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    全模态大模型·出行安全项目进展
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLUE
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    BLUE
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/BLUE/BLUE%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLUE论文笔记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    论文精读笔记
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    论文精读笔记
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AAAAA_Transformer%E3%80%81LLM%E4%B8%8EVLM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AAAAA_Transformer、LLM与VLM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BBBBB_%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BBBBB_强化学习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BERT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BERT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BEiT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BEiT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BLIP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLIP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLIP%20%26%20ALIGN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP & ALIGN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP 改进工作串讲（上）
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP 改进工作串讲（上）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目录
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心要点
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-clip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. CLIP 快速回顾
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. CLIP 快速回顾">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 训练方式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 推理方式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-clip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 CLIP 的广泛应用
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-lseglanguage-driven-semantic-segmentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. LSeg：Language-driven Semantic Segmentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. LSeg：Language-driven Semantic Segmentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-zero-shot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Zero-Shot 分割效果展示
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 模型架构
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 模型架构">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        图像分支
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文本分支
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        特征融合
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 关键设计细节
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4 关键设计细节">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        训练方式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        图像编码器初始化
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spatial-regularization-block" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Spatial Regularization Block
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 实验结果
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.5 实验结果">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        评价设置
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        主要结果
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#failure-case" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Failure Case 分析
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6 小结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-groupvit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. GroupViT：无监督语义分割
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. GroupViT：无监督语义分割">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-grouping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 核心思想：Grouping
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 模型架构
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 模型架构">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        整体结构
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#group-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Group Token 的作用
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grouping-block" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grouping Block（第一阶段）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grouping-block_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grouping Block（第二阶段）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 训练方式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-zero-shot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 Zero-Shot 推理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6 可视化验证
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#37" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.7 实验结果
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#38" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.8 局限性与未来方向
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.8 局限性与未来方向">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-dense-prediction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        局限性 1：缺少 Dense Prediction 特性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        局限性 2：背景类问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        上限实验验证
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        可能的改进方向
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#39" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.9 分割部分总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-vildvision-language-knowledge-distillation-for-open-vocabulary-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. ViLD：Vision-Language Knowledge Distillation for Open-Vocabulary Detection
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. ViLD：Vision-Language Knowledge Distillation for Open-Vocabulary Detection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 论文写作亮点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 方法总览
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-baselinemask-r-cnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 Baseline：Mask R-CNN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-vild-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5 ViLD-text
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.5 ViLD-text">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心思路
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        具体做法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        关键点
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46-vild-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6 ViLD-image
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.6 ViLD-image">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心思路
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        具体做法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        预计算优化
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#47-vild-vild-text-vild-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.7 ViLD = ViLD-text + ViLD-image
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#48-zero-shot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.8 Zero-Shot 推理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#49" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.9 实验结果
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.9 实验结果">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lvis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LVIS 数据集
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        跨数据集泛化
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#410" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.10 小结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-glipgrounded-language-image-pre-training" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. GLIP：Grounded Language-Image Pre-training
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. GLIP：Grounded Language-Image Pre-training">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 任务统一
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.2 任务统一">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loss" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目标检测的分类 Loss
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vision-grounding-loss" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vision Grounding 的分类 Loss
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        统一方式
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 数据集策略
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.3 数据集策略">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        有监督数据
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        无监督数据（伪标签）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#glip-large" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GLIP-Large 配置
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 模型架构
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55-zero-shot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5 Zero-Shot 推理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#56" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.6 定性结果
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#57" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.7 定量结果
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.7 定量结果">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#coco-zero-shot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        COCO Zero-Shot
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#58-glip-v2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.8 GLIP-V2 拓展
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        总结与对比
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="总结与对比">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        各方法关系图谱
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心范式总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        当前挑战与未来方向
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLIP%20%E6%94%B9%E8%BF%9B%E5%B7%A5%E4%BD%9C%E4%B8%B2%E8%AE%B2%EF%BC%88%E4%B8%8B%EF%BC%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP 改进工作串讲（下）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DALL%C2%B7E%202/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DALL·E 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DINO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DINO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Flamingo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Flamingo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GPT%EF%BC%8CGPT-2%EF%BC%8CGPT-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPT，GPT-2，GPT-3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ImageBind%20%E4%B8%8E%20LanguageBind%20%E5%AF%B9%E6%AF%94/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ImageBind 与 LanguageBind 对比
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InternVL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    InternVL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLaMA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLaMA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLaVA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLaVA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MAE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MAE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MoCo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MoCo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OFA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OFA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PaLI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PaLI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Qwen-VL%E4%B8%8EOmni/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qwen-VL与Omni
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SAM3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SAM3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SigLIP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SigLIP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SimVLM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SimVLM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Swin%20Transformer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Swin Transformer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UniPerceiver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UniPerceiver
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Unified-IO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unified-IO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ViLT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ViLT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ViT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ViT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ZZZZZ%E5%85%AC%E5%BC%8F%E4%BB%A3%E7%A0%81%E7%AD%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ZZZZZ公式代码等
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%8E%9F%E7%94%9F%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    原生多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%90%8E%E8%AE%AD%E7%BB%83%E7%BB%BC%E8%BF%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多模态大模型后训练综述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%9A%E6%A8%A1%E6%80%81%E8%AE%BA%E6%96%87%E4%B8%B2%E8%AE%B2%C2%B7%E4%B8%8A/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多模态论文串讲·上
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%9A%E6%A8%A1%E6%80%81%E8%AE%BA%E6%96%87%E4%B8%B2%E8%AE%B2%C2%B7%E4%B8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多模态论文串讲·下
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%AF%B9%E6%AF%94%E5%AD%A6%E4%B9%A0%E7%BB%BC%E8%BF%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    对比学习综述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%B7%B7%E5%90%88%E7%B2%BE%E5%BA%A6%E8%AE%AD%E7%BB%83%E4%B8%8E%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    混合精度训练与分布式训练
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%A7%86%E9%A2%91%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    视频多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%9F%B3%E9%A2%91%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    音频多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目录
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心要点
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-clip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. CLIP 快速回顾
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. CLIP 快速回顾">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 训练方式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 推理方式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-clip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 CLIP 的广泛应用
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-lseglanguage-driven-semantic-segmentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. LSeg：Language-driven Semantic Segmentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. LSeg：Language-driven Semantic Segmentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-zero-shot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Zero-Shot 分割效果展示
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 模型架构
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 模型架构">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        图像分支
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文本分支
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        特征融合
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 关键设计细节
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4 关键设计细节">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        训练方式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        图像编码器初始化
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spatial-regularization-block" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Spatial Regularization Block
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 实验结果
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.5 实验结果">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        评价设置
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        主要结果
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#failure-case" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Failure Case 分析
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6 小结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-groupvit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. GroupViT：无监督语义分割
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. GroupViT：无监督语义分割">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-grouping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 核心思想：Grouping
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 模型架构
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 模型架构">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        整体结构
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#group-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Group Token 的作用
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grouping-block" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grouping Block（第一阶段）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grouping-block_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grouping Block（第二阶段）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 训练方式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-zero-shot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 Zero-Shot 推理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6 可视化验证
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#37" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.7 实验结果
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#38" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.8 局限性与未来方向
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.8 局限性与未来方向">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-dense-prediction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        局限性 1：缺少 Dense Prediction 特性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        局限性 2：背景类问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        上限实验验证
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        可能的改进方向
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#39" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.9 分割部分总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-vildvision-language-knowledge-distillation-for-open-vocabulary-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. ViLD：Vision-Language Knowledge Distillation for Open-Vocabulary Detection
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. ViLD：Vision-Language Knowledge Distillation for Open-Vocabulary Detection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 论文写作亮点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 方法总览
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-baselinemask-r-cnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 Baseline：Mask R-CNN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-vild-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5 ViLD-text
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.5 ViLD-text">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心思路
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        具体做法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        关键点
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46-vild-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6 ViLD-image
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.6 ViLD-image">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心思路
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        具体做法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        预计算优化
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#47-vild-vild-text-vild-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.7 ViLD = ViLD-text + ViLD-image
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#48-zero-shot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.8 Zero-Shot 推理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#49" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.9 实验结果
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.9 实验结果">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lvis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LVIS 数据集
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        跨数据集泛化
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#410" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.10 小结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-glipgrounded-language-image-pre-training" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. GLIP：Grounded Language-Image Pre-training
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. GLIP：Grounded Language-Image Pre-training">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 任务统一
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.2 任务统一">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loss" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目标检测的分类 Loss
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vision-grounding-loss" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vision Grounding 的分类 Loss
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        统一方式
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 数据集策略
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.3 数据集策略">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        有监督数据
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        无监督数据（伪标签）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#glip-large" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GLIP-Large 配置
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 模型架构
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55-zero-shot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5 Zero-Shot 推理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#56" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.6 定性结果
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#57" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.7 定量结果
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.7 定量结果">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#coco-zero-shot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        COCO Zero-Shot
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#58-glip-v2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.8 GLIP-V2 拓展
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        总结与对比
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="总结与对比">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        各方法关系图谱
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心范式总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        当前挑战与未来方向
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="clip">CLIP 改进工作串讲（上）<a class="headerlink" href="#clip" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>📄 <strong>涉及论文链接</strong>：
+- <a href="https://arxiv.org/pdf/2201.03546">LSeg</a> | <a href="https://arxiv.org/pdf/2202.11094">GroupViT</a> | <a href="https://arxiv.org/pdf/2104.13921">ViLD</a> | <a href="https://arxiv.org/pdf/2112.03857">GLIP</a></p>
+</blockquote>
+<h2 id="_1">目录<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#核心要点">核心要点</a></li>
+<li><a href="#1-clip-快速回顾">1. CLIP 快速回顾</a></li>
+<li><a href="#2-lseglanguage-driven-semantic-segmentation">2. LSeg：Language-driven Semantic Segmentation</a></li>
+<li><a href="#3-groupvit无监督语义分割">3. GroupViT：无监督语义分割</a></li>
+<li><a href="#4-vildvision-language-knowledge-distillation-for-open-vocabulary-detection">4. ViLD：Vision-Language Knowledge Distillation for Open-Vocabulary Detection</a></li>
+<li><a href="#5-glipgrounded-language-image-pre-training">5. GLIP：Grounded Language-Image Pre-training</a></li>
+<li><a href="#总结与对比">总结与对比</a></li>
+</ul>
+<h2 id="_2">核心要点<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<blockquote>
+<ul>
+<li>本期视频串讲了 CLIP 模型在过去一年中被应用到<strong>分割</strong>和<strong>目标检测</strong>领域的代表性工作，展示了 CLIP 思想如何从图像分类拓展到密集预测任务。</li>
+<li><strong>分割领域</strong>：LSeg 将 CLIP 预训练参数引入有监督语义分割，实现 language-driven 的 zero-shot 分割；GroupViT 则完全摆脱 mask 标注，用 CLIP 对比学习目标函数 + grouping 机制实现无监督语义分割。</li>
+<li><strong>目标检测领域</strong>：ViLD 通过知识蒸馏将 CLIP 的 open-vocabulary 能力迁移到检测器，在 LVIS 长尾数据集上 zero-shot 性能超越有监督基线；GLIP 统一了目标检测与 phrase grounding 任务，结合大规模伪标签自训练，zero-shot COCO AP 达到 50。</li>
+<li>这些工作的共同范式是：<strong>利用 CLIP 的预训练参数或目标函数，将文本作为监督信号或桥梁，使下游任务获得 open-vocabulary / zero-shot 能力</strong>。</li>
+<li>当前 zero-shot 密集预测与有监督上限仍有显著差距（分割差 30+ mIoU，检测在简单数据集上接近但有监督仍领先），背景类处理、阈值设定、deep fusion 等方向仍有大量研究空间。</li>
+</ul>
+</blockquote>
+<hr />
+<h2 id="1-clip">1. CLIP 快速回顾<a class="headerlink" href="#1-clip" title="Permanent link">&para;</a></h2>
+<h3 id="11">1.1 训练方式<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<ul>
+<li>CLIP 使用<strong>对比学习</strong>训练视觉-语言多模态模型。</li>
+<li>给定一批图像-文本对 <span class="arithmatex">\((I_1, T_1), (I_2, T_2), \dots, (I_n, T_n)\)</span>：</li>
+<li><strong>正样本</strong>：对角线上的配对 <span class="arithmatex">\((I_i, T_i)\)</span>，文本描述的就是该图片。</li>
+<li><strong>负样本</strong>：非对角线元素，如 <span class="arithmatex">\(T_n\)</span> 不描述 <span class="arithmatex">\(I_3\)</span>。</li>
+<li>使用简单的对比学习目标函数，在 <strong>4 亿</strong>图像-文本对上训练。</li>
+<li>训练完成后获得强大性能，尤其是 <strong>zero-shot 能力</strong>。</li>
+</ul>
+<h3 id="12">1.2 推理方式<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
+<ul>
+<li>对任意图片做分类时：</li>
+<li>将所有可能的标签做成 template（如 "a photo of a dog"）。</li>
+<li>所有文本通过文本编码器得到文本特征。</li>
+<li>计算图像特征与所有文本特征的相似度。</li>
+<li>取最大相似度对应的文本标签作为预测类别。</li>
+<li>推理极其灵活，真正实现了 zero-shot。</li>
+</ul>
+<h3 id="13-clip">1.3 CLIP 的广泛应用<a class="headerlink" href="#13-clip" title="Permanent link">&para;</a></h3>
+<p>自 2021 年 2 月发布以来，CLIP 已被应用到众多领域：
+- <strong>分割</strong>：LSeg, GroupViT
+- <strong>目标检测</strong>：ViLD, VLIP v1/v2
+- <strong>目标跟踪</strong>：对应工作
+- <strong>视频</strong>：Video CLIP, CLIP4Clip, Action CLIP
+- <strong>光流/深度</strong>：Depth CLIP
+- <strong>3D</strong>：Point CLIP
+- <strong>语音</strong>：Audio CLIP
+- <strong>图像生成</strong>：CLIPasso, VQ-GAN+CLIP, CLIP Draw
+- <strong>多模态下游任务</strong>：大量研究探讨 CLIP 对 Vision-Language 任务的提升</p>
+<p>本期视频聚焦于<strong>分割</strong>和<strong>目标检测</strong>两个领域。</p>
+<hr />
+<h2 id="2-lseglanguage-driven-semantic-segmentation">2. LSeg：Language-driven Semantic Segmentation<a class="headerlink" href="#2-lseglanguage-driven-semantic-segmentation" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>论文：ICLR 2022, arXiv:2201.03546</p>
+</blockquote>
+<h3 id="21">2.1 动机<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<ul>
+<li>分割本质上是像素级分类，分类领域的技术往往能直接迁移到分割。</li>
+<li>分类有了 CLIP，分割自然需要 zero-shot 版本。</li>
+<li>LSeg 直接使用 CLIP 预训练模型做 language-driven 语义分割，方法简单且效果好。</li>
+</ul>
+<h3 id="22-zero-shot">2.2 Zero-Shot 分割效果展示<a class="headerlink" href="#22-zero-shot" title="Permanent link">&para;</a></h3>
+<p>LSeg 展现了极强的灵活性：</p>
+<ul>
+<li><strong>基础分割</strong>：给定文本 "dog" 和 "other"，完美分割出狗，其余为背景。</li>
+<li><strong>动态增加类别</strong>：加入 "tree"，树也被分割出来，狗仍然良好。</li>
+<li><strong>容错能力</strong>：多给一个图中不存在的 "car" 标签，模型不会输出汽车的 mask。</li>
+<li><strong>层级类别理解</strong>：将 "dog" 替换为其父类 "pet"，模型仍能正确分割出狗的区域。</li>
+<li><strong>室内场景</strong>：依次添加 chair → wall → window/floor/ceiling，每次都能精确分割对应区域。</li>
+<li>这种 language-guided 分割让图像 PS 达到新高度：可以直接用文本指定要抠除/替换的目标。</li>
+</ul>
+<h3 id="23">2.3 模型架构<a class="headerlink" href="#23" title="Permanent link">&para;</a></h3>
+<p>LSeg 的整体框架与 CLIP 高度相似，但有关键区别：</p>
+<p><img alt="Figure 2: LSeg 模型架构，将图像编码器和文本编码器的特征在 C 维度上做点乘，再经过 Spatial Regularization Blocks 得到分割输出" src="../images/lseg_fig2.png" />
+<em>Figure 2: LSeg 模型架构。输入图像经 Image Encoder 提取密集特征（H̃×W̃×C），标签集经 Text Encoder 提取文本特征（N×C），两者点乘得到 H̃×W̃×N 的相关性张量，再通过 Spatial Regularization Blocks 输出分割结果</em></p>
+<h4 id="_3">图像分支<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<ul>
+<li>输入图像经过 <strong>DPT 结构</strong>（ViT + Decoder）提取密集特征。</li>
+<li>DPT = Vision Transformer + decoder（类似 PSP/ASPP 的上采样层）。</li>
+<li>输出特征图尺寸：<span class="arithmatex">\(\tilde{H} \times \tilde{W} \times C\)</span>（如原图的 1/4 或 1/16，C=512 或 768）。</li>
+</ul>
+<h4 id="_4">文本分支<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<ul>
+<li>数据集中的 N 个标签通过<strong>文本编码器</strong>得到 N 个文本特征。</li>
+<li>N 不受限制，推理时可随时更改（只检测狗、或狗+树、或更多）。</li>
+<li>输出矩阵维度：<span class="arithmatex">\(N \times C\)</span>。</li>
+</ul>
+<h4 id="_5">特征融合<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<ul>
+<li>图像特征 <span class="arithmatex">\((\tilde{H} \times \tilde{W} \times C)\)</span> 与文本特征 <span class="arithmatex">\((N \times C)\)</span> 在 C 维度上做点乘。</li>
+<li>得到 <span class="arithmatex">\(\tilde{H} \times \tilde{W} \times N\)</span> 的特征图，与传统有监督分割的输出形式完全一致。</li>
+<li>最终与 ground truth mask 做 <strong>cross-entropy loss</strong>。</li>
+</ul>
+<h3 id="24">2.4 关键设计细节<a class="headerlink" href="#24" title="Permanent link">&para;</a></h3>
+<h4 id="_6">训练方式<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>有监督训练</strong>：在 7 个分割数据集上联合训练，有 ground truth mask。</li>
+<li>目标函数是 cross-entropy loss，<strong>不是</strong>对比学习 loss。</li>
+<li>文本编码器<strong>完全锁定</strong>，使用 CLIP 原始文本编码器，训练过程中不更新。</li>
+<li>原因：分割数据集规模小（总共约十几万到二十万张），fine-tune CLIP 文本编码器容易过拟合、破坏预训练特征。</li>
+</ul>
+<h4 id="_7">图像编码器初始化<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<ul>
+<li>ViT 部分可使用 CLIP 预训练参数，也可使用原始 ViT/DiT 的预训练参数。</li>
+<li>实验发现使用 ViT/DiT 预训练参数效果更好，CLIP 参数反而不太行（作者未给出解释）。</li>
+</ul>
+<h4 id="spatial-regularization-block">Spatial Regularization Block<a class="headerlink" href="#spatial-regularization-block" title="Permanent link">&para;</a></h4>
+<ul>
+<li>在文本-视觉特征相乘之后，额外加入一些 conv/depthwise conv 层。</li>
+<li>目的是让模型进一步学习文本与视觉的交互方式。</li>
+<li>消融实验显示加 2 个 block 效果最好，加到 4 个性能崩溃（作者未解释原因）。</li>
+<li>对整体理解和性能影响不大，可忽略。</li>
+</ul>
+<h3 id="25">2.5 实验结果<a class="headerlink" href="#25" title="Permanent link">&para;</a></h3>
+<h4 id="_8">评价设置<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
+<ul>
+<li>遵循 few-shot 分割的评价协议：</li>
+<li><strong>Pascal-5i</strong>：Pascal VOC 20 类分成 4 份，每份 5 类作为已知类，其余 15 类作为未知类。</li>
+<li><strong>COCO-20i</strong>：COCO 80 类分成 4 份，每份 20 类已知，60 类未知。</li>
+<li><strong>FSS-1000</strong>：1000 类的分割数据集。</li>
+</ul>
+<h4 id="_9">主要结果<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Pascal 上：比之前 zero-shot 方法提升 10-20 个点，但与 one-shot 方法仍有较大差距。</li>
+<li>COCO-20 上：同样优于之前 zero-shot，但与 one-shot 差距明显。</li>
+<li>即使使用了 ViT-Large（远大于 ResNet-101），zero-shot 分割与有监督分割之间仍有<strong>几十个点的差距</strong>。</li>
+</ul>
+<h4 id="failure-case">Failure Case 分析<a class="headerlink" href="#failure-case" title="Permanent link">&para;</a></h4>
+<ul>
+<li>给定 "grass" 和 "toy"，草地上的狗被误判为 toy（因为小狗外观与玩具相似）。</li>
+<li>本质问题：模型计算的是图像-文本<strong>相似性</strong>，而非真正的分类，谁最接近就选谁。</li>
+<li>有趣的发现：</li>
+<li>将 "toy" 换成 "face"，狗也会被分给 face。</li>
+<li>"other" 可以用无意义词（呃、安、and、but、i、me、you）替代，都能充当背景类提示词。</li>
+</ul>
+<h3 id="26">2.6 小结<a class="headerlink" href="#26" title="Permanent link">&para;</a></h3>
+<ul>
+<li>LSeg 是第一个将 CLIP 用于 zero-shot 语义分割的工作。</li>
+<li>核心贡献：将文本分支融入传统有监督分割 pipeline，学到 language-aware 的视觉特征。</li>
+<li>局限：仍依赖手工标注 mask，训练数据规模有限，zero-shot 性能距有监督上限很远。</li>
+</ul>
+<hr />
+<h2 id="3-groupvit">3. GroupViT：无监督语义分割<a class="headerlink" href="#3-groupvit" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>论文：CVPR 2022, arXiv:2202.11094</p>
+</blockquote>
+<h3 id="31">3.1 动机<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
+<ul>
+<li>LSeg 虽然用了 CLIP 预训练参数，但目标函数不是对比学习，仍依赖手工标注的 segmentation mask。</li>
+<li>分割 mask 标注极其昂贵，7 个数据集加起来也只有十几万到二十万张图片。</li>
+<li><strong>核心问题</strong>：如何摆脱手工标注，真正用文本作为监督信号，实现无监督分割？</li>
+<li>GroupViT 是这个方向上有贡献的工作：不依赖 mask 标注，像 CLIP 一样利用图像-文本对进行无监督训练。</li>
+</ul>
+<h3 id="32-grouping">3.2 核心思想：Grouping<a class="headerlink" href="#32-grouping" title="Permanent link">&para;</a></h3>
+<ul>
+<li>借鉴传统无监督分割中的 <strong>grouping</strong> 方法：从聚类中心出发，将周围相似的像素逐步扩充成一个 group，每个 group 相当于一个 segmentation mask。</li>
+<li>这是一种自下而上的方式。</li>
+<li>GroupViT 重新审视 grouping 方法，将其融入 ViT 框架。</li>
+</ul>
+<h3 id="33">3.3 模型架构<a class="headerlink" href="#33" title="Permanent link">&para;</a></h3>
+<p><img alt="Figure 2: GroupViT 架构与训练流程。(a) 整体架构：图像 patch 经 Transformer Layers 和 Grouping Blocks 进行层级式分组，最终通过对比学习 loss 与文本特征对齐；(b) Grouping Block 内部结构：用 Gumbel-Softmax 将 image token 分配到 group token" src="../images/groupvit_fig2.png" />
+<em>Figure 2: GroupViT 架构与训练流程。(a) 整体架构和训练 Pipeline：输入图像经 Linear Projection 得到 image token，通过多阶段 Transformer Layers + Grouping Blocks 进行层级式分组，最终通过 MLP 和 AvgPool 得到图像特征 z^I，与文本特征 z^T 做对比学习；(b) Grouping Block 内部结构：用 Linear Wq/Wk/Wv 和 Gumbel-Softmax 实现 image token 到 group token 的可导分配</em></p>
+<h4 id="_10">整体结构<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
+<ul>
+<li>基于 ViT-Small，共 12 层 Transformer Layer。</li>
+<li>输入包含两部分：</li>
+<li><strong>Patch Embedding</strong>：224×224 图像，patch size 16×16 → 14×14 = 196 个 token，维度 196×384。</li>
+<li><strong>Group Tokens</strong>：可学习的 token，初始设为 64×384（64 个聚类中心）。</li>
+</ul>
+<h4 id="group-token">Group Token 的作用<a class="headerlink" href="#group-token" title="Permanent link">&para;</a></h4>
+<ul>
+<li>类似于 CLS token，但不是 1 个而是 64 个。</li>
+<li>原因：CLS token 代表整张图片，而分割需要每个类别/区域都有特征表示。</li>
+<li>64 个 group token = 64 个起始聚类中心，通过 self-attention 学习哪些 patch 属于哪个 token。</li>
+</ul>
+<h4 id="grouping-block">Grouping Block（第一阶段）<a class="headerlink" href="#grouping-block" title="Permanent link">&para;</a></h4>
+<ul>
+<li>在第 6 层 Transformer Layer 之后插入第一个 grouping block。</li>
+<li>功能：将 196 个 image patch embedding <strong>分配</strong>到 64 个 group token 上（聚类分配）。</li>
+<li>实现方式：</li>
+<li>用类似 self-attention 的方式计算相似度矩阵。</li>
+<li>用相似度矩阵将 image token assign 到 group token。</li>
+<li>使用 <strong>Gumbel-Softmax</strong> 使不可导的分配过程变为可导，支持端到端训练。</li>
+<li>输出：64×384 的 segment token（序列长度从 196+64 降为 64）。</li>
+<li>附带好处：降低了序列长度，减少计算复杂度和训练时间（类似 Swin Transformer 的层级式结构）。</li>
+</ul>
+<h4 id="grouping-block_1">Grouping Block（第二阶段）<a class="headerlink" href="#grouping-block_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li>在第 9 层 Transformer Layer 之后插入第二个 grouping block。</li>
+<li>新增 8 个 group tokens（8×384）。</li>
+<li>将 64 个 segment token 再次映射到 8 个聚类中心。</li>
+<li>最终输出：8×384 的 group embedding，即图像被分成 8 大块。</li>
+</ul>
+<h3 id="34">3.4 训练方式<a class="headerlink" href="#34" title="Permanent link">&para;</a></h3>
+<ul>
+<li>与 CLIP 完全一致：使用图像-文本对的<strong>对比学习 loss</strong>。</li>
+<li>图像端得到 8 个 group embedding 后，做 <strong>average pooling</strong> 融合为一个 384 维特征，再通过 MLP 得到 image-level 特征 <span class="arithmatex">\(z^I\)</span>。</li>
+<li>文本端通过文本编码器得到文本特征 <span class="arithmatex">\(z^T\)</span>。</li>
+<li>计算 <span class="arithmatex">\(z^I\)</span> 与 <span class="arithmatex">\(z^T\)</span> 的对比学习 loss。</li>
+<li>不使用任何 segmentation mask 标注。</li>
+<li>实验中最大数据集为 29M（2900 万图像-文本对），远小于 CLIP 的 4 亿。</li>
+</ul>
+<h3 id="35-zero-shot">3.5 Zero-Shot 推理<a class="headerlink" href="#35-zero-shot" title="Permanent link">&para;</a></h3>
+<ol>
+<li>图片经过 GroupViT 得到 8 个 group embedding。</li>
+<li>候选标签通过文本编码器得到文本特征。</li>
+<li>计算每个 group embedding 与所有文本特征的相似度。</li>
+<li>相似度最高的文本标签即为该 group 的类别。</li>
+</ol>
+<p><strong>局限性</strong>：最多只能检测到 8 类（因为只有 8 个 output token）。作者尝试了多种配置（16→64, 40→16 等），发现 8 个 output token 效果最好。</p>
+<h3 id="36">3.6 可视化验证<a class="headerlink" href="#36" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Stage 1（64 tokens）</strong>：关注较小区域。</li>
+<li>Group 5 → 眼睛（人眼、狗眼等各种眼睛）。</li>
+<li>Group 36 → 四肢。</li>
+<li><strong>Stage 2（8 tokens）</strong>：关注更大区域。</li>
+<li>Group 6 → 草地。</li>
+<li>Group 7 → 人脸。</li>
+<li>验证了 group token 确实起到了聚类中心的作用，grouping 思想有效。</li>
+</ul>
+<h3 id="37">3.7 实验结果<a class="headerlink" href="#37" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>数据集</th>
+<th>GroupViT mIoU</th>
+<th>有监督上限 mIoU</th>
+<th>差距</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pascal VOC</td>
+<td>52.3</td>
+<td>~87-88 (DeepLab V3+)</td>
+<td>~35 点</td>
+</tr>
+<tr>
+<td>Pascal Context</td>
+<td>22.4</td>
+<td>~55-60</td>
+<td>~33 点</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>相比之前的 baseline 有很大提升，是用文本做监督信号的第一个无监督分割工作。</li>
+<li>但与有监督上限差距仍然非常大。</li>
+</ul>
+<h3 id="38">3.8 局限性与未来方向<a class="headerlink" href="#38" title="Permanent link">&para;</a></h3>
+<h4 id="1-dense-prediction">局限性 1：缺少 Dense Prediction 特性<a class="headerlink" href="#1-dense-prediction" title="Permanent link">&para;</a></h4>
+<ul>
+<li>GroupViT 更偏向图像编码器，未利用分割领域成熟的技术：</li>
+<li>Dilated Convolution</li>
+<li>Pyramid Pooling</li>
+<li>U-Net 结构</li>
+<li>这些技术能提供更多上下文和多尺度信息，每一个都可能成为未来改进方向。</li>
+</ul>
+<h4 id="2">局限性 2：背景类问题<a class="headerlink" href="#2" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Zero-shot 推理时设置了相似度阈值（如 Pascal VOC 上为 0.9/0.95）：</li>
+<li>最高相似度超过阈值 → 归为对应前景类。</li>
+<li>所有相似度都低于阈值 → 归为背景类。</li>
+<li>Pascal VOC 上类别少、语义明确，阈值法尚可。</li>
+<li>Pascal Context / COCO 上类别多，置信度普遍较低：</li>
+<li>阈值设高 → 大多数变成背景，前景 mIoU 很低。</li>
+<li>阈值设低 → 错误分类严重。</li>
+</ul>
+<h4 id="_11">上限实验验证<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h4>
+<ul>
+<li>将 GroupViT 输出的 prediction mask 与所有 ground truth mask 比较，取 IoU 最大的 GT label 赋给 prediction。</li>
+<li>结果：mIoU 一下增加了 <strong>20-30 个点</strong>，接近有监督上限。</li>
+<li><strong>结论</strong>：GroupViT 的分割（mask 生成）做得很好，只是分类错了。问题出在 CLIP 训练方式无法学到模糊的背景类概念。</li>
+</ul>
+<h4 id="_12">可能的改进方向<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h4>
+<ul>
+<li>按类别设置不同阈值 / 可学习阈值。</li>
+<li>修改 zero-shot 推理流程。</li>
+<li>训练时加入背景类约束。</li>
+<li>引入 dense prediction 技术（dilated conv, pyramid pooling, U-Net）。</li>
+</ul>
+<h3 id="39">3.9 分割部分总结<a class="headerlink" href="#39" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>工作</th>
+<th>是否用 CLIP 预训练参数</th>
+<th>训练方式</th>
+<th>目标函数</th>
+<th>核心贡献</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LSeg</td>
+<td>是（文本编码器锁定）</td>
+<td>有监督（7 个分割数据集）</td>
+<td>Cross-Entropy</td>
+<td>将文本分支融入分割 pipeline，实现 language-driven 分割</td>
+</tr>
+<tr>
+<td>GroupViT</td>
+<td>否（从头训练）</td>
+<td>无监督（图像-文本对）</td>
+<td>CLIP 对比学习 Loss</td>
+<td>用 grouping 机制 + CLIP 目标函数实现无监督分割</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-vildvision-language-knowledge-distillation-for-open-vocabulary-detection">4. ViLD：Vision-Language Knowledge Distillation for Open-Vocabulary Detection<a class="headerlink" href="#4-vildvision-language-knowledge-distillation-for-open-vocabulary-detection" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>论文：ICLR 2022, arXiv:2104.13921
+从 CLIP 发布（2021.2.26）到论文上传 arXiv（2021.4.28）仅两个月。</p>
+</blockquote>
+<h3 id="41">4.1 动机<a class="headerlink" href="#41" title="Permanent link">&para;</a></h3>
+<ul>
+<li>现有目标检测数据集标注类别有限（base category），无法检测新类别（novel category）。</li>
+<li>例如：数据集只标注了 "toy"，但无法区分 "rubber duck" 或 "green crocodile toy"。</li>
+<li><strong>目标</strong>：在不额外标注新类别的前提下，让检测器具备检测 novel category 的能力（open-vocabulary detection）。</li>
+</ul>
+<h3 id="42">4.2 论文写作亮点<a class="headerlink" href="#42" title="Permanent link">&para;</a></h3>
+<ul>
+<li>引言开头一张图 + 一个问题，清晰引出研究动机。</li>
+<li>紧接着直接说明本文要做什么。</li>
+<li>审稿人和读者都能快速理解论文价值，无需通读全文才知道相关性。</li>
+</ul>
+<h3 id="43">4.3 方法总览<a class="headerlink" href="#43" title="Permanent link">&para;</a></h3>
+<p>ViLD 包含三个组件：
+1. <strong>Baseline</strong>：Mask R-CNN（有监督基线）
+2. <strong>ViLD-text</strong>：将文本特征引入检测框架
+3. <strong>ViLD-image</strong>：用 CLIP 图像编码器蒸馏检测器
+4. <strong>ViLD</strong> = ViLD-text + ViLD-image</p>
+<p>所有方法都从第二阶段（拿到 N 个 region proposal 之后）开始，定位与分类有所解耦。</p>
+<p><img alt="Figure 2: ViLD 整体架构概览。上半部分为训练阶段，通过 Knowledge Distillation 将 CLIP 图像编码器的特征蒸馏到检测器的 region embedding；下半部分为推理阶段，region embedding 与文本 embedding 点乘实现 open-vocabulary 分类" src="../images/vild_fig2.png" />
+<em>Figure 2: ViLD 整体架构概览。训练阶段（上）：Backbone+RPN 提取 region proposal，通过 RoIAlign 得到 region embedding，同时用 CLIP 图像编码器做知识蒸馏（L1 loss）；推理阶段（下）：region embedding 与所有候选类别（base+novel）的文本 embedding 点乘，取最高相似度作为分类结果</em></p>
+<h3 id="44-baselinemask-r-cnn">4.4 Baseline：Mask R-CNN<a class="headerlink" href="#44-baselinemask-r-cnn" title="Permanent link">&para;</a></h3>
+<ul>
+<li>两阶段检测器：</li>
+<li>RPN 生成 N 个 region proposal。</li>
+<li>Detection head 得到 N 个 region embedding，再通过分类头得到类别。</li>
+<li>目标函数分为定位 loss 和分类 loss。</li>
+</ul>
+<h3 id="45-vild-text">4.5 ViLD-text<a class="headerlink" href="#45-vild-text" title="Permanent link">&para;</a></h3>
+<h4 id="_13">核心思路<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h4>
+<ul>
+<li>像 CLIP 一样，将图像特征与文本特征做点乘算相似度，作为分类 logits。</li>
+</ul>
+<h4 id="_14">具体做法<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h4>
+<ol>
+<li>N 个 proposal 进检测头 → N 个 region embedding <span class="arithmatex">\(e_r\)</span>。</li>
+<li>物体类别（base category）加上 prompt → 文本编码器 → <span class="arithmatex">\(C_B\)</span> 个 text embedding <span class="arithmatex">\(t_1, t_2, \dots, t_{C_B}\)</span>。</li>
+<li>Region embedding 分别与 background embedding 和所有 text embedding 做点乘 → 分类 logits。</li>
+<li>Softmax + Cross-Entropy Loss 训练。</li>
+</ol>
+<h4 id="_15">关键点<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>文本编码器锁定</strong>（蓝色标注），不参与训练（同 LSeg）。</li>
+<li>训练仍在 base category 上有监督进行。</li>
+<li>Background embedding 专门学习，不在基础类里的所有物体都归为背景。</li>
+<li>ViLD-text 只是建立了图像-文本特征的关联，zero-shot 性能尚待加强。</li>
+</ul>
+<h3 id="46-vild-image">4.6 ViLD-image<a class="headerlink" href="#46-vild-image" title="Permanent link">&para;</a></h3>
+<h4 id="_16">核心思路<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h4>
+<ul>
+<li>CLIP 预训练的图像编码器非常好，希望检测器的 region embedding 尽可能接近 CLIP 的图像 embedding。</li>
+<li>使用<strong>知识蒸馏</strong>实现。</li>
+</ul>
+<h4 id="_17">具体做法<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h4>
+<ol>
+<li>将 proposal crop &amp; resize 后送入<strong>锁定的 CLIP 图像编码器</strong>（teacher）→ CLIP image embedding。</li>
+<li>检测器（student）输出的 region embedding 与 CLIP embedding 做 <strong>L1 loss</strong> 蒸馏。</li>
+<li>监督信号来自 CLIP 而非人工标注 → <strong>不再受 base category 限制</strong>，novel category 的 proposal 也可参与训练。</li>
+</ol>
+<h4 id="_18">预计算优化<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h4>
+<ul>
+<li>CLIP ViT-Large 前向传播很贵，若每次训练 iteration 都对所有 proposal 过 CLIP，训练时间不可接受。</li>
+<li>解决方案：<strong>预计算</strong>。</li>
+<li>训练前用 RPN 预抽取 M 个 proposal。</li>
+<li>提前 crop &amp; resize 并通过 CLIP 提取 embedding，存到硬盘/内存。</li>
+<li>训练时直接 load 预计算的 embedding，蒸馏 loss 计算非常快。</li>
+<li>注意：预计算的 M 个 proposal 与训练时动态生成的 N 个 proposal 不同。</li>
+</ul>
+<h3 id="47-vild-vild-text-vild-image">4.7 ViLD = ViLD-text + ViLD-image<a class="headerlink" href="#47-vild-vild-text-vild-image" title="Permanent link">&para;</a></h3>
+<ul>
+<li>两个目标函数的组合，整体框架不变。</li>
+<li>训练时：</li>
+<li>N 个动态 proposal + M 个预计算 proposal 一起送入检测头 → N+M 个 embedding。</li>
+<li>前 N 个算 cross-entropy loss（ViLD-text）。</li>
+<li>后 M 个算 L1 蒸馏 loss（ViLD-image）。</li>
+<li>推理时：CLIP 图像编码器分支<strong>完全不使用</strong>，只用检测器 + 文本编码器。</li>
+</ul>
+<h3 id="48-zero-shot">4.8 Zero-Shot 推理<a class="headerlink" href="#48-zero-shot" title="Permanent link">&para;</a></h3>
+<ol>
+<li>图片 → Backbone + RPN → region proposal → region embedding（已被 CLIP 蒸馏增强）。</li>
+<li>所有候选类别（base + novel）→ template → 文本编码器 → text embedding。</li>
+<li>Region embedding 与 text embedding 点乘 → 取最高相似度对应的类别。</li>
+</ol>
+<h3 id="49">4.9 实验结果<a class="headerlink" href="#49" title="Permanent link">&para;</a></h3>
+<h4 id="lvis">LVIS 数据集<a class="headerlink" href="#lvis" title="Permanent link">&para;</a></h4>
+<ul>
+<li>1203 类，极度长尾，使用 COCO 图片。</li>
+<li>类别分为 Frequent / Common / Rare。</li>
+<li>Base category = Common + Frequent = 866 类。</li>
+<li>Novel category = Rare = 337 类。</li>
+<li>核心指标：<span class="arithmatex">\(AP_r\)</span>（rare class 上的 AP）。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th><span class="arithmatex">\(AP_r\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Supervised (Res50 + RFS)</td>
+<td>12.3</td>
+</tr>
+<tr>
+<td>ViLD-text</td>
+<td>接近 12.3</td>
+</tr>
+<tr>
+<td>ViLD-image</td>
+<td>接近 12.3</td>
+</tr>
+<tr>
+<td><strong>ViLD</strong></td>
+<td><strong>16.1</strong></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>ViLD zero-shot 比有监督基线高 3.8 个点。</li>
+<li>原因：LVIS 尾部类别标注极少（有的只有 1-3 个标注），有监督训练反而可能越训越差，zero-shot 更有优势。</li>
+<li>总体 AP 上 ViLD 与有监督仍有差距。</li>
+</ul>
+<h4 id="_19">跨数据集泛化<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h4>
+<ul>
+<li>LVIS 上训练的模型直接迁移到 Pascal VOC、COCO、Object365。</li>
+<li>在小规模数据集（VOC、COCO）上已接近有监督方法。</li>
+<li>Open-vocabulary 能力良好。</li>
+</ul>
+<h3 id="410">4.10 小结<a class="headerlink" href="#410" title="Permanent link">&para;</a></h3>
+<ul>
+<li>ViLD 是第一个在 LVIS 这么难的数据集上做 open-vocabulary detection 的工作，里程碑式贡献。</li>
+<li>利用了 CLIP 的思想（文本-图像对齐）和预训练参数（蒸馏）。</li>
+<li>实验非常全面，更换 backbone、预训练方式、数据集都能直接用且性能大幅提升。</li>
+</ul>
+<hr />
+<h2 id="5-glipgrounded-language-image-pre-training">5. GLIP：Grounded Language-Image Pre-training<a class="headerlink" href="#5-glipgrounded-language-image-pre-training" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>论文：arXiv:2112.03857</p>
+</blockquote>
+<h3 id="51">5.1 动机<a class="headerlink" href="#51" title="Permanent link">&para;</a></h3>
+<ul>
+<li>与分割类似，精心标注的检测数据难得，现实中边边角角的类和层出不穷的新类无法穷举。</li>
+<li>需要 open-vocabulary detection 模型处理 corner case。</li>
+<li>要训练强大的 open-vocabulary 检测模型，需要像 CLIP 一样有大规模预训练数据集（千万到亿级）。</li>
+<li><strong>关键洞察</strong>：Vision Grounding 任务（给定句子，定位句中提到的物体）与目标检测本质相同，只是标签形式不同（句子 vs. 单词）。可以将两个任务统一，从而利用更多数据。</li>
+</ul>
+<h3 id="52">5.2 任务统一<a class="headerlink" href="#52" title="Permanent link">&para;</a></h3>
+<h4 id="loss">目标检测的分类 Loss<a class="headerlink" href="#loss" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Image backbone → region embedding <span class="arithmatex">\(O\)</span>（<span class="arithmatex">\(N \times D\)</span>）。</li>
+<li>分类头 <span class="arithmatex">\(W\)</span>（<span class="arithmatex">\(C \times D\)</span>）→ logits = <span class="arithmatex">\(O \cdot W^T\)</span>。</li>
+<li>NMS 筛选后与 ground truth 算 cross-entropy loss。</li>
+</ul>
+<h4 id="vision-grounding-loss">Vision Grounding 的分类 Loss<a class="headerlink" href="#vision-grounding-loss" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Image backbone → region feature <span class="arithmatex">\(O\)</span>。</li>
+<li>文本编码器 → text embedding <span class="arithmatex">\(P\)</span>。</li>
+<li>计算 region-word alignment score <span class="arithmatex">\(S = O \cdot P^T\)</span>（与 ViLD-text 一模一样）。</li>
+</ul>
+<h4 id="_20">统一方式<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h4>
+<ul>
+<li>两种方式的唯一区别在于 positive/negative match 的定义。</li>
+<li>理论推导后，作者验证统一框架在 COCO 上与原始检测模型分数<strong>完全匹配</strong>。</li>
+<li>确认统一可行后，就可以合并 detection 和 grounding 的数据集进行联合预训练。</li>
+</ul>
+<h3 id="53">5.3 数据集策略<a class="headerlink" href="#53" title="Permanent link">&para;</a></h3>
+<h4 id="_21">有监督数据<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Object365</strong>：高质量检测数据集，预训练后微调效果极好。</li>
+<li><strong>GoldG</strong>：多个 grounding 数据集的合体（Visual Genome, VQA 等），有 bounding box annotation。</li>
+<li><strong>OpenImages, LVIS</strong> 等。</li>
+</ul>
+<h4 id="_22">无监督数据（伪标签）<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Caps4M / Caps24M</strong>：大规模图像-文本对（无 bounding box 标注）。</li>
+<li>使用 <strong>self-training</strong>（伪标签）：</li>
+<li>用已训练好的 GLIP-Tiny-C 在无标注图像-文本对上推理。</li>
+<li>推理出的 bounding box 当作 ground truth（伪标签）。</li>
+<li>虽然有噪声，但伪标签近年来被证明能有效提升模型性能和稳健性。</li>
+</ul>
+<h4 id="glip-large">GLIP-Large 配置<a class="headerlink" href="#glip-large" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Backbone：Swin-Large。</li>
+<li>有监督：OpenImages + Object365 + LVIS + GoldG（能用全用）。</li>
+<li>无监督：Caps24M（2400 万图像-文本对 + 伪标签）。</li>
+</ul>
+<h3 id="54">5.4 模型架构<a class="headerlink" href="#54" title="Permanent link">&para;</a></h3>
+<ul>
+<li>与 CLIP 相似的双分支结构：</li>
+<li>图像 → 图像编码器 → region embedding。</li>
+<li>文本 → 文本编码器 → text embedding。</li>
+</ul>
+<p><img alt="Figure 2: GLIP 统一框架。文本编码器（BERT Layer）和视觉编码器（DyHead Module）通过多层 Cross-Attention（Fusion）进行深度融合，最终输出 region features 和 text features 的相似度矩阵" src="../images/glip_fig2.png" />
+<em>Figure 2: GLIP 统一检测与 grounding 框架。文本 Prompt 经 Text Encoder 和 BERT Layer 提取文本特征，图像经 Visual Encoder 和 DyHead Module 提取区域特征，两者通过 Deep Fusion（多层 Cross-Attention）交互后输出 Region Features，用于计算 region-word alignment score</em></p>
+<ul>
+<li><strong>Deep Fusion</strong>：</li>
+<li>在计算相似度矩阵之前，用 <strong>Cross-Attention</strong> 让文本和图像特征交互。</li>
+<li>目的：让 joint embedding space 学得更好，相似概念拉近、不相似概念推远。</li>
+<li>类似于 LSeg 中 spatial regularization block 的思想，但更系统化。</li>
+<li>也可应用于分割（如 GroupViT 目前只有最后的 contrastive learning，缺少 early fusion）。</li>
+<li>目标函数：</li>
+<li><strong>Alignment Loss</strong>：region embedding 与 text embedding 的相似度与 ground truth 对齐（本质就是 ViLD-text 的分支）。</li>
+<li><strong>Localization Loss</strong>：L1 loss（因为有 ground truth bounding box）。</li>
+</ul>
+<h3 id="55-zero-shot">5.5 Zero-Shot 推理<a class="headerlink" href="#55-zero-shot" title="Permanent link">&para;</a></h3>
+<ul>
+<li>与 ViLD 类似：</li>
+<li>图片 → 检测器 → region embedding。</li>
+<li>候选类别（或自然语言句子）→ 文本编码器 → text embedding。</li>
+<li>点乘相似度 → 最高分对应类别/短语。</li>
+<li>支持两种模式：</li>
+<li><strong>目标检测模式</strong>：给定标签列表，检测所有匹配的物体。</li>
+<li><strong>Phrase Grounding 模式</strong>：给定自然语言句子，定位句中提到的物体/概念。</li>
+</ul>
+<h3 id="56">5.6 定性结果<a class="headerlink" href="#56" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>针管 + 疫苗瓶</strong>：没有任何数据集标注过这些类别，GLIP 通过文本理解成功定位。</li>
+<li><strong>古巴海滩场景</strong>：给定描述性句子（"beautiful Caribbean sea green color", "view from above"），GLIP 能定位抽象概念（海绿色、俯视视角、海滩）。</li>
+</ul>
+<h3 id="57">5.7 定量结果<a class="headerlink" href="#57" title="Permanent link">&para;</a></h3>
+<h4 id="coco-zero-shot">COCO Zero-Shot<a class="headerlink" href="#coco-zero-shot" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>Zero-Shot AP</th>
+<th>Fine-Tune AP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Faster R-CNN / DyHead / Soft Teacher</td>
+<td>不支持</td>
+<td>很高</td>
+</tr>
+<tr>
+<td>GLIP-Large (最大数据)</td>
+<td><strong>~50</strong></td>
+<td>~60-61</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Zero-shot 50 AP 已超过 2019 年前大部分有监督检测器。</li>
+<li>Fine-tune 后在 Swin-Large 下达到 60-61 AP。</li>
+<li>注意：预训练数据集和 trick 不完全相同，不是严格公平比较。</li>
+</ul>
+<h3 id="58-glip-v2">5.8 GLIP-V2 拓展<a class="headerlink" href="#58-glip-v2" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>arXiv:2206.05836</p>
+</blockquote>
+<ul>
+<li>将更多任务和数据统一到同一框架：</li>
+<li><strong>Localization 任务</strong>：目标检测 + Instance Segmentation。</li>
+<li><strong>Vision-Language Understanding 任务</strong>：VL Grounding + VQA + Image Captioning。</li>
+<li>框架与 GLIP 基本一致，文本端更丰富。</li>
+<li>代表了统一多任务多模态预训练的趋势（类似 OFA, Unified-IO）。</li>
+</ul>
+<hr />
+<h2 id="_23">总结与对比<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h2>
+<h3 id="_24">各方法关系图谱<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>CLIP (对比学习, 图像-文本对, zero-shot 分类)
+├── 分割
+│   ├── LSeg: CLIP 预训练参数 + 有监督分割 + 文本分支 → language-driven zero-shot 分割
+│   └── GroupViT: CLIP 目标函数 + grouping 机制 + 无监督 → 纯文本监督的 zero-shot 分割
+└── 目标检测
+    ├── ViLD: CLIP 蒸馏 + 文本分支 → open-vocabulary zero-shot 检测
+    └── GLIP: 统一 detection + grounding + 伪标签自训练 → 大规模预训练的 zero-shot 检测
+        └── GLIP-V2: 进一步统一分割、VQA、Captioning 等任务
+</code></pre></div>
+<h3 id="_25">核心范式总结<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>利用 CLIP 预训练参数</strong>：LSeg（文本编码器锁定）、ViLD（图像编码器蒸馏）。</li>
+<li><strong>利用 CLIP 目标函数</strong>：GroupViT（对比学习 loss 做无监督分割）。</li>
+<li><strong>文本作为桥梁</strong>：所有工作都通过文本将视觉特征与语言语义对齐，获得 open-vocabulary 能力。</li>
+<li><strong>从简单适配到深度融合</strong>：</li>
+<li>早期（LSeg, ViLD）：简单拼接文本分支或蒸馏。</li>
+<li>后期（GLIP）：deep fusion、任务统一、大规模伪标签自训练。</li>
+</ol>
+<h3 id="_26">当前挑战与未来方向<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>挑战</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Zero-shot 与有监督差距大</td>
+<td>分割差 30+ mIoU，检测在简单数据集接近但复杂数据集仍有差距</td>
+</tr>
+<tr>
+<td>背景类处理</td>
+<td>CLIP 训练方式难以学到模糊的背景概念，阈值设定困难</td>
+</tr>
+<tr>
+<td>缺乏 dense prediction 设计</td>
+<td>GroupViT 未用 dilated conv / pyramid pooling / U-Net</td>
+</tr>
+<tr>
+<td>数据规模</td>
+<td>分割/检测的预训练数据远小于 CLIP 的 4 亿，扩大数据有望提升</td>
+</tr>
+<tr>
+<td>Early Fusion</td>
+<td>目前多为 late fusion，deep fusion / cross-attention 可能是更好的方向</td>
+</tr>
+<tr>
+<td>统一框架</td>
+<td>GLIP-V2、OFA、Unified-IO 等趋势表明多任务统一预训练是未来方向</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.top", "navigation.instant", "search.highlight", "content.code.copy", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

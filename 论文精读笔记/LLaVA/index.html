@@ -1,0 +1,3876 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../LLaMA/">
+      
+      
+        <link rel="next" href="../MAE/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>LLaVA - 学习资料库</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#llava-visual-instruction-tuning" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="学习资料库" class="md-header__button md-logo" aria-label="学习资料库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            学习资料库
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              LLaVA
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="学习资料库" class="md-nav__button md-logo" aria-label="学习资料库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    学习资料库
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    学习资料库
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GENIUS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    GENIUS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GENIUS/GENIUS%20%E6%80%BB%E7%BB%93/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GENIUS 总结
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RadAlign
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RadAlign
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RadAlign/RadVLM-GRPO%20%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RadVLM-GRPO 论文精读
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RadAlign/%E5%85%B3%E9%94%AE%E4%BB%A3%E7%A0%81%E8%AF%B4%E6%98%8E/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关键代码说明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    全模态大模型·出行安全项目
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    全模态大模型·出行安全项目
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/5.27%20Qwen3.7-Max%2BGeoLife%E8%AF%84%E4%BC%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.27 Qwen3.7-Max+GeoLife评估
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/Omni-%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Omni-出行安全项目
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%B1%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    全模态大模型·出行安全项目进展
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLUE
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    BLUE
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/BLUE/BLUE%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLUE论文笔记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    论文精读笔记
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    论文精读笔记
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AAAAA_Transformer%E3%80%81LLM%E4%B8%8EVLM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AAAAA_Transformer、LLM与VLM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BBBBB_%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BBBBB_强化学习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BERT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BERT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BEiT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BEiT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BLIP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLIP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLIP%20%26%20ALIGN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP & ALIGN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLIP%20%E6%94%B9%E8%BF%9B%E5%B7%A5%E4%BD%9C%E4%B8%B2%E8%AE%B2%EF%BC%88%E4%B8%8A%EF%BC%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP 改进工作串讲（上）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLIP%20%E6%94%B9%E8%BF%9B%E5%B7%A5%E4%BD%9C%E4%B8%B2%E8%AE%B2%EF%BC%88%E4%B8%8B%EF%BC%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP 改进工作串讲（下）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DALL%C2%B7E%202/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DALL·E 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DINO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DINO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Flamingo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Flamingo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GPT%EF%BC%8CGPT-2%EF%BC%8CGPT-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPT，GPT-2，GPT-3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ImageBind%20%E4%B8%8E%20LanguageBind%20%E5%AF%B9%E6%AF%94/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ImageBind 与 LanguageBind 对比
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InternVL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    InternVL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLaMA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLaMA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLaVA
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLaVA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#llava" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LLaVA 系列速览
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目录
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心要点
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-llava" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. LLaVA
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. LLaVA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 背景
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1 背景">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        指令微调
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="指令微调">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        定义
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        不足
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数据缺失
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 方法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2 方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        模型架构
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数据生成
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        训练
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="训练">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        阶段 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        阶段 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 总结
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.3 总结">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心贡献🚗
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        局限性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        后续发展
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-llava-15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. LLaVA-1.5
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心要点
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="核心要点">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 背景
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 方法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221-mlp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.1 MLP 投影层
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222-vqa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.2 学术 VQA 数据
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#223" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.3 高分辨率输入
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 高分辨率
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 组合能力
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 幻觉
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6 总结🚗
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-llava-16-llava-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. LLaVA-1.6 / LLaVA-NeXT
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. LLaVA-1.6 / LLaVA-NeXT">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心要点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#31-anyres" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 AnyRes🚗
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 数据
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-llava-onevision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. LLaVA-OneVision
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. LLaVA-OneVision">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心要点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 架构
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-higher-anyres" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Higher AnyRes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 视觉表示
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 训练阶段
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5 数据
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6 涌现能力
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-llava-video" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. LLaVA-Video
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. LLaVA-Video">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心要点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 思路
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 架构
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 数据集
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-slowfast" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 SlowFast
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5 训练
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#56" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.6 发现
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-vedio-llava" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Vedio-LlaVa
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MAE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MAE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MoCo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MoCo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OFA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OFA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PaLI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PaLI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Qwen-VL%E4%B8%8EOmni/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qwen-VL与Omni
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SAM3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SAM3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SigLIP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SigLIP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SimVLM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SimVLM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Swin%20Transformer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Swin Transformer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UniPerceiver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UniPerceiver
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Unified-IO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unified-IO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ViLT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ViLT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ViT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ViT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ZZZZZ%E5%85%AC%E5%BC%8F%E4%BB%A3%E7%A0%81%E7%AD%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ZZZZZ公式代码等
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%8E%9F%E7%94%9F%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    原生多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%90%8E%E8%AE%AD%E7%BB%83%E7%BB%BC%E8%BF%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多模态大模型后训练综述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%9A%E6%A8%A1%E6%80%81%E8%AE%BA%E6%96%87%E4%B8%B2%E8%AE%B2%C2%B7%E4%B8%8A/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多模态论文串讲·上
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%9A%E6%A8%A1%E6%80%81%E8%AE%BA%E6%96%87%E4%B8%B2%E8%AE%B2%C2%B7%E4%B8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多模态论文串讲·下
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%AF%B9%E6%AF%94%E5%AD%A6%E4%B9%A0%E7%BB%BC%E8%BF%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    对比学习综述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%B7%B7%E5%90%88%E7%B2%BE%E5%BA%A6%E8%AE%AD%E7%BB%83%E4%B8%8E%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    混合精度训练与分布式训练
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%A7%86%E9%A2%91%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    视频多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%9F%B3%E9%A2%91%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    音频多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#llava" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LLaVA 系列速览
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目录
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心要点
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-llava" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. LLaVA
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. LLaVA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 背景
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1 背景">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        指令微调
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="指令微调">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        定义
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        不足
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数据缺失
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 方法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2 方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        模型架构
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数据生成
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        训练
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="训练">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        阶段 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        阶段 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 总结
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.3 总结">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心贡献🚗
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        局限性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        后续发展
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-llava-15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. LLaVA-1.5
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心要点
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="核心要点">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 背景
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 方法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221-mlp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.1 MLP 投影层
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222-vqa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.2 学术 VQA 数据
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#223" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.3 高分辨率输入
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 高分辨率
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 组合能力
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 幻觉
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6 总结🚗
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-llava-16-llava-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. LLaVA-1.6 / LLaVA-NeXT
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. LLaVA-1.6 / LLaVA-NeXT">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心要点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#31-anyres" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 AnyRes🚗
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 数据
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-llava-onevision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. LLaVA-OneVision
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. LLaVA-OneVision">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心要点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 架构
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-higher-anyres" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Higher AnyRes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 视觉表示
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 训练阶段
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5 数据
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6 涌现能力
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-llava-video" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. LLaVA-Video
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. LLaVA-Video">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心要点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 思路
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 架构
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 数据集
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-slowfast" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 SlowFast
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5 训练
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#56" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.6 发现
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-vedio-llava" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Vedio-LlaVa
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="llava-visual-instruction-tuning">LLaVA: Visual Instruction Tuning<a class="headerlink" href="#llava-visual-instruction-tuning" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>📄 <strong>论文链接</strong>：<a href="https://arxiv.org/abs/2304.08485">arXiv:2304.08485</a> | <a href="https://arxiv.org/pdf/2304.08485">PDF</a></p>
+<p><strong>作者</strong>：Haotian Liu (UW-Madison), Chunyuan Li (Microsoft Research), Qingyang Wu (Columbia), Yong Jae Lee (UW-Madison)</p>
+<p><strong>发表</strong>：NeurIPS 2023</p>
+</blockquote>
+<h2 id="llava">LLaVA 系列速览<a class="headerlink" href="#llava" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>LLaVA</th>
+<th>LLaVA-1.5</th>
+<th>LLaVA-1.6 / NeXT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>时间</td>
+<td>2023 (NeurIPS)</td>
+<td>2023</td>
+<td>2024.01</td>
+</tr>
+<tr>
+<td>视觉编码器</td>
+<td>CLIP ViT-L/14</td>
+<td>CLIP-ViT-L-336px</td>
+<td>CLIP-ViT-L-336px</td>
+</tr>
+<tr>
+<td>连接器</td>
+<td>线性投影</td>
+<td>2 层 MLP</td>
+<td>2 层 MLP</td>
+</tr>
+<tr>
+<td>LLM</td>
+<td>Vicuna</td>
+<td>Vicuna-7B/13B</td>
+<td>Vicuna / Mistral-7B / Yi-34B</td>
+</tr>
+<tr>
+<td>分辨率</td>
+<td>224×224</td>
+<td>336×336</td>
+<td>AnyRes，最高 672×672</td>
+</tr>
+<tr>
+<td>核心改进</td>
+<td>视觉指令微调 + GPT-4 生成数据</td>
+<td>MLP 连接器 + 学术 VQA 数据</td>
+<td>AnyRes 动态分辨率 + 文档/图表/OCR 数据</td>
+</tr>
+<tr>
+<td>训练数据</td>
+<td>595K + 158K 指令</td>
+<td>~120 万公开数据</td>
+<td>~130 万</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_1">目录<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#核心要点">核心要点</a></li>
+<li><a href="#1-llava">1. LLaVA</a></li>
+<li><a href="#11-背景">1.1 背景</a></li>
+<li><a href="#12-方法">1.2 方法</a></li>
+<li><a href="#13-总结">1.3 总结</a></li>
+<li><a href="#2-llava-15">2. LLaVA-1.5</a></li>
+<li><a href="#21-背景">2.1 背景</a></li>
+<li><a href="#22-方法">2.2 方法</a></li>
+<li><a href="#23-高分辨率">2.3 高分辨率</a></li>
+<li><a href="#24-组合能力">2.4 组合能力</a></li>
+<li><a href="#25-幻觉">2.5 幻觉</a></li>
+<li><a href="#26-总结">2.6 总结</a></li>
+<li><a href="#3-llava-16--llava-next">3. LLaVA-1.6 / LLaVA-NeXT</a></li>
+<li><a href="#31-anyres">3.1 AnyRes</a></li>
+<li><a href="#32-对比">3.2 对比</a></li>
+<li><a href="#33-数据">3.3 数据</a></li>
+<li><a href="#4-llava-onevision">4. LLaVA-OneVision</a></li>
+<li><a href="#41-架构">4.1 架构</a></li>
+<li><a href="#42-higher-anyres">4.2 Higher AnyRes</a></li>
+<li><a href="#43-视觉表示">4.3 视觉表示</a></li>
+<li><a href="#44-课程学习">4.4 课程学习</a></li>
+<li><a href="#45-数据">4.5 数据</a></li>
+<li><a href="#46-涌现能力">4.6 涌现能力</a></li>
+<li><a href="#5-llava-video">5. LLaVA-Video</a></li>
+<li><a href="#51-思路">5.1 思路</a></li>
+<li><a href="#52-架构">5.2 架构</a></li>
+<li><a href="#53-数据集">5.3 数据集</a></li>
+<li><a href="#54-slowfast">5.4 SlowFast</a></li>
+<li><a href="#55-训练">5.5 训练</a></li>
+<li><a href="#56-发现">5.6 发现</a></li>
+</ul>
+<h2 id="_2">核心要点<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<blockquote>
+<ol>
+<li><strong>首创视觉指令微调</strong>：将指令微调（instruction tuning）从纯文本扩展到图文多模态领域，用 GPT-4 生成的 158K 视觉-语言指令数据训练出一个能遵循多模态指令的通用视觉助手。</li>
+<li><strong>架构极简有效</strong>：仅用一个线性投影层连接 CLIP 视觉编码器和 Vicuna 语言模型，证明简单架构 + 高质量数据就能实现强性能，复杂结构（如 Q-Former、Gated Cross-Attention）并非必要。</li>
+<li><strong>GPT-4 生成训练数据</strong>：用纯文本 GPT-4 通过"符号化图像表示"（caption + bounding box）生成多模态指令数据，GPT-4 从未看到真实图像却能产出高质量的视觉问答、描述、推理数据。</li>
+<li><strong>涌现能力</strong>：仅用约 8 万张图像训练，模型展现出 OCR、代码生成、meme 理解、知识关联等训练数据中未覆盖的能力。</li>
+<li><strong>ScienceQA 新 SOTA</strong>：LLaVA + GPT-4 集成达到当时最优准确率，超越此前所有方法。</li>
+</ol>
+</blockquote>
+<p><img alt="Figure 1: LLaVA 网络架构" src="../images/llava_fig1.png" />
+<em>Figure 1: LLaVA 网络架构（CLIP 视觉编码器 + 线性投影层 + Vicuna LLM）</em></p>
+<hr />
+<h2 id="1-llava">1. LLaVA<a class="headerlink" href="#1-llava" title="Permanent link">&para;</a></h2>
+<h3 id="11">1.1 背景<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<h4 id="_3">指令微调<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<p>指令微调（instruction tuning）在纯文本大语言模型中取得了巨大成功（ChatGPT、Alpaca、Vicuna），使模型能够遵循人类意图完成各种任务。但在多模态（视觉-语言）领域，指令微调尚未被系统探索。</p>
+<h5 id="_4">定义<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h5>
+<p><strong>核心思想</strong>：用"指令-回答"格式的数据来微调大语言模型，让模型学会<strong>理解人类意图并遵循指令</strong>完成任务。</p>
+<p><strong>与传统微调的区别</strong>：</p>
+<div class="highlight"><pre><span></span><code>传统微调（Task-specific Fine-tuning）：
+  每个任务训练一个专门的模型
+  - 情感分类模型：输入&quot;这部电影很好看&quot; → 输出&quot;正面&quot;
+  - 翻译模型：输入&quot;hello&quot; → 输出&quot;你好&quot;
+  - 问答模型：输入问题 → 输出答案
+
+  问题：换个任务就要重新训练
+
+指令微调（Instruction Tuning）：
+  一个模型处理所有任务，靠指令区分
+  - 输入：&quot;请判断以下句子的情感：这部电影很好看&quot; → 输出：&quot;正面&quot;
+  - 输入：&quot;请将以下内容翻译成中文：hello&quot; → 输出：&quot;你好&quot;
+  - 输入：&quot;请回答以下问题：地球是什么形状？&quot; → 输出：&quot;球形&quot;
+
+  优势：同一个模型，换个指令就能做不同的事
+</code></pre></div>
+<p><strong>训练数据格式</strong>：</p>
+<p>每条数据都是一个 <strong>(指令, 输入, 输出)</strong> 三元组：</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;instruction&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;请描述这张图片中的内容&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;input&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;image&gt;&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;output&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;这是一张海滩照片，有一个人坐在沙滩椅上...&quot;</span>
+<span class="p">}</span>
+
+<span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;instruction&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;这张图片里有几只猫？&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;input&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;image&gt;&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;output&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;图片中有 3 只猫&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>模型通过这些数据学会：看到不同的指令 → 执行对应的任务。</p>
+<p><strong>一句话总结</strong>：指令微调 = 教模型"听懂人话"。不是让模型做某个特定任务，而是让它学会理解各种指令，然后按指令办事。</p>
+<h4 id="_5">不足<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>固定接口</strong>：每个任务独立训练一个模型，缺乏灵活交互能力</li>
+<li><strong>语言仅用于描述</strong>：语言只被用来描述图像内容，没有作为通用接口支持多样化任务</li>
+<li><strong>缺乏指令微调</strong>：没有用视觉-语言指令数据显式地调优模型</li>
+</ul>
+<h4 id="_6">数据缺失<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
+<p>创建视觉-语言指令微调数据的困难：
+- 现有的图文对（CC、LAION）不是指令格式
+- 人工标注耗时且定义模糊（不知道应该问什么样的问题）
+- 需要大量多样化的指令-响应对</p>
+<hr />
+<h3 id="12">1.2 方法<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
+<h4 id="_7">模型架构<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<p>LLaVA 采用三段式架构，设计哲学是<strong>极简</strong>：</p>
+<p><img alt="Figure 1: LLaVA 网络架构" src="../images/llava_fig1.png" />
+<em>Figure 1: LLaVA 网络架构</em></p>
+<p><strong>① 视觉编码器（CLIP ViT-L/14）</strong>
+- 使用预训练的 CLIP 视觉编码器提取图像特征 <span class="arithmatex">\(Z_v = g(X_v)\)</span>
+- 实验对比了最后一层 Transformer 前后的特征，发现<strong>最后一层之前的 grid features 效果更好</strong>
+- 原因推测：最后一层之前的特征保留更多局部/空间信息，最后一层更偏向全局/抽象表示</p>
+<p><strong>② 投影层（Linear Layer）</strong></p>
+<ul>
+<li>一个<strong>简单的线性层</strong> <span class="arithmatex">\(W\)</span> 将视觉特征转换为语言 embedding token：<span class="arithmatex">\(H_v = W \cdot Z_v\)</span></li>
+<li>将视觉特征映射到 LLM 词嵌入空间的相同维度</li>
+<li>选择线性层而非更复杂的结构（如 Flamingo 的 Gated Cross-Attention、BLIP-2 的 Q-Former），目的是快速进行数据驱动的迭代</li>
+<li>后续工作（LLaVA-1.5）改用两层 MLP，效果更好</li>
+</ul>
+<p><strong>③ 语言模型（Vicuna）</strong>
+- 基于 LLaMA 的 Vicuna，当时公开可用 checkpoint 中指令跟随能力最强的
+- 输入格式：第一轮的 [image, question] 或 [question, image] 顺序随机化，后续轮次纯文本</p>
+<h4 id="_8">数据生成<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
+<p><strong>核心思想</strong>：用纯文本 GPT-4 生成多模态指令数据，GPT-4 从不需要看到真实图像。</p>
+<p><strong>图像的符号化表示</strong>：
+- <strong>Caption</strong>：多条描述性句子描述视觉场景
+- <strong>Bounding Box</strong>：物体概念 + 空间位置（如 <code>person: [0.681, 0.242, 0.774, 0.694]</code>）</p>
+<p><strong>三类指令数据（基于 COCO 图像）</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>数量</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>对话（Conversation）</strong></td>
+<td>58K</td>
+<td>多轮 Q&amp;A，涵盖物体类型、计数、动作、位置、相对位置</td>
+</tr>
+<tr>
+<td><strong>详细描述（Detailed Description）</strong></td>
+<td>23K</td>
+<td>丰富、全面的图像描述，从预设的描述引导问题中随机采样</td>
+</tr>
+<tr>
+<td><strong>复杂推理（Complex Reasoning）</strong></td>
+<td>77K</td>
+<td>需要逐步逻辑推理的深入问题</td>
+</tr>
+</tbody>
+</table>
+<p><strong>总计：158K 个语言-图像指令跟随样本</strong></p>
+<p>每类数据都有少量人工设计的种子示例用于 GPT-4 的 in-context learning。GPT-4 生成的数据质量显著优于 ChatGPT（尤其在空间推理方面）。</p>
+<h4 id="_9">训练<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
+<h5 id="1">阶段 1<a class="headerlink" href="#1" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>数据</strong>：CC3M 过滤子集（595K 图文对）</li>
+<li>过滤方法：用 Spacy 提取名词短语，保留频率 ≥ 3 的，高频名词短语上限 100 个样本</li>
+<li>目的：平衡概念覆盖和训练效率</li>
+<li><strong>格式</strong>：每个样本视为单轮对话（随机问题请求简要描述 → ground-truth caption 作为回答）</li>
+<li><strong>可训练参数</strong>：🚗<strong><u><em>仅投影矩阵 <span class="arithmatex">\(W\)</span></em></u></strong>，视觉编码器和 LLM 冻结</li>
+<li><strong>目的</strong>：将图像特征 <span class="arithmatex">\(H_v\)</span> 与预训练 LLM 词嵌入对齐，相当于训练一个"兼容的视觉 tokenizer"</li>
+<li><strong>训练</strong>：1 epoch，lr=2e-3，batch_size=128，8×A100 约 4 小时</li>
+</ul>
+<h5 id="2">阶段 2<a class="headerlink" href="#2" title="Permanent link">&para;</a></h5>
+<ul>
+<li>视觉编码器保持冻结</li>
+<li><strong>可训练参数</strong>：<strong>投影层 <span class="arithmatex">\(W\)</span> + LLM 参数 <span class="arithmatex">\(\phi\)</span></strong>🚗</li>
+<li>两种应用场景：</li>
+<li><strong>多模态聊天机器人</strong>：158K 指令数据，对话数据多轮，描述和推理数据单轮，均匀采样，3 epochs</li>
+<li><strong>ScienceQA</strong>：组织为单轮对话（问题+上下文作为指令，推理+答案作为响应），12 epochs</li>
+</ul>
+<hr />
+<h3 id="13">1.3 总结<a class="headerlink" href="#13" title="Permanent link">&para;</a></h3>
+<h4 id="_10">核心贡献🚗<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
+<ol>
+<li><strong>首次视觉指令微调</strong>：证明指令微调能有效扩展到多模态领域</li>
+<li><strong>数据生成流水线</strong>：纯文本 GPT-4 通过符号化图像表示生成高质量多模态指令数据</li>
+<li><strong>简单架构足够</strong>：线性投影层即可连接 CLIP 和 Vicuna，复杂架构并非必需</li>
+<li><strong>涌现能力</strong>：小数据量训练即可展现超出训练数据范围的能力</li>
+<li><strong>GPT-4 集成新范式</strong>：首次展示用 GPT-4 作为裁判进行模型集成</li>
+<li><strong>开源</strong>：数据（158K）、代码、模型权重、Demo 全部开源</li>
+</ol>
+<h4 id="_11">局限性<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>知识覆盖</strong>：无法识别需要大量世界知识的特定品牌、餐厅名等</li>
+<li><strong>分辨率限制</strong>：无法处理高分辨率图像中的小文字（如酸奶品牌标签）</li>
+<li><strong>"Patch 袋子"失败模式</strong>：有时将图像视为不相连的 patch 而非理解复杂语义（如冰箱里有草莓和原味酸奶，却回答"有草莓味酸奶"）</li>
+<li><strong>幻觉问题</strong>：可能生成不基于事实或输入的内容</li>
+<li><strong>偏见继承</strong>：CLIP 和 LLaMA/Vicuna 的偏见会传递到 LLaVA</li>
+<li><strong>架构可改进</strong>：线性投影可能非最优，更复杂的连接方式值得探索</li>
+</ul>
+<h4 id="_12">后续发展<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>LLaVA-1.5</strong>：改用两层 MLP 投影层 + 更高分辨率 + 更多学术 VQA 数据，在各 benchmark 上大幅提升</li>
+<li><strong>LLaVA-1.6 (NeXT)</strong>：进一步改进数据质量和训练策略</li>
+<li>LLaVA 系列成为多模态大语言模型（MLLM）领域的代表性工作之一</li>
+</ul>
+<hr />
+<h2 id="2-llava-15">2. LLaVA-1.5<a class="headerlink" href="#2-llava-15" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>📄 <strong>论文链接</strong>：<a href="https://arxiv.org/abs/2310.03744">arXiv:2310.03744</a> | <a href="https://arxiv.org/pdf/2310.03744">PDF</a></p>
+<p><strong>作者</strong>：Haotian Liu, Chunyuan Li, Yuheng Li, Yong Jae Lee</p>
+<p><strong>机构</strong>：UW-Madison, Microsoft Research</p>
+<p><strong>发表</strong>：2023</p>
+</blockquote>
+<h2 id="_13">核心要点<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<blockquote>
+<ol>
+<li><strong>系统性研究</strong>：首次在 LLaVA 框架下系统研究大型多模态模型（LMM）的设计选择，证明简单的全连接视觉-语言连接器具有惊人的强大和数据高效性。</li>
+<li><strong>两项简单改进</strong>：(1) 使用 CLIP-ViT-L-336px + MLP 投影层替代线性投影；(2) 添加学术任务导向的 VQA 数据并使用响应格式化提示。</li>
+<li><strong>仅使用公开数据</strong>：仅使用 120 万公开数据，完整训练仅需约 1 天（单台 8-A100 节点）。</li>
+<li><strong>高分辨率探索</strong>：通过将图像分割为网格独立编码，支持更高分辨率输入，提升细节感知能力并减少幻觉。</li>
+<li><strong>组合能力与幻觉</strong>：发现 LMM 能够泛化到组合能力，同时探索了模型幻觉问题的根源。</li>
+</ol>
+</blockquote>
+<p><img alt="LLaVA-1.5 方法概览" src="../images/llava_next_p1_img1.png" />
+<em>Figure 1: LLaVA-1.5 改进方法概览——使用 MLP 投影层和学术 VQA 数据</em></p>
+<h3 id="21">2.1 背景<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<p>LLaVA 开创了视觉指令微调的范式，但在学术基准测试（如 VQA-v2）上表现不佳，主要因为：
+- 训练数据缺乏短答案格式的 VQA 数据
+- 模型倾向于对 yes/no 问题回答"yes"
+- 线性投影层可能不是最优选择</p>
+<p>InstructBLIP 通过引入学术 VQA 数据改进了性能，但在真实视觉对话任务上不如 LLaVA。本研究旨在找到两者的平衡点。</p>
+<h3 id="22">2.2 方法<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
+<h4 id="221-mlp">2.2.1 MLP 投影层<a class="headerlink" href="#221-mlp" title="Permanent link">&para;</a></h4>
+<p><strong>核心发现</strong>：简单的两层 MLP 投影层显著优于单层线性投影。</p>
+<div class="highlight"><pre><span></span><code>原始 LLaVA：
+  视觉特征 Z_v → 线性层 W → 语言嵌入 H_v
+
+LLaVA-1.5：
+  视觉特征 Z_v → MLP (两层全连接 + GELU) → 语言嵌入 H_v
+</code></pre></div>
+<p><strong>实验验证</strong>：
+- MLP 投影层在所有基准测试上均优于线性投影
+- 计算开销增加可忽略（仅增加一层全连接）</p>
+<h4 id="222-vqa">2.2.2 学术 VQA 数据<a class="headerlink" href="#222-vqa" title="Permanent link">&para;</a></h4>
+<p><strong>数据策略</strong>：添加四类学术 VQA 数据：
+1. <strong>VQA-v2</strong>：开放域视觉问答（短答案格式）
+2. <strong>GQA</strong>：组合推理问答
+3. <strong>TextVQA</strong>：文本识别问答
+4. <strong>ScienceQA-IMG</strong>：科学问题问答（多模态）</p>
+<p><strong>响应格式化提示</strong>：
+- 对多选题使用特定提示：<code>"Answer with the option's letter from the given choices directly."</code>
+- 对短答案问题使用：<code>"Answer the question using a single word or phrase."</code>
+- 避免模型过度拟合到某种回答格式</p>
+<p><strong>数据规模</strong>：
+- 预训练数据：558K（Conceptual Caption 子集）
+- 微调数据：665K（LLaVA-Instruct + 学术 VQA）
+- <strong>总计仅 120 万公开数据</strong></p>
+<h4 id="223">2.2.3 高分辨率输入<a class="headerlink" href="#223" title="Permanent link">&para;</a></h4>
+<p><strong>动机</strong>：原始 LLaVA 使用 224×224 分辨率，限制了细节感知能力。</p>
+<p><strong>方法</strong>：使用 CLIP-ViT-L-336px（336×336 分辨率）🚗</p>
+<p><strong>效果</strong>：
+- 提升细粒度视觉理解
+- 改善 OCR 和文本识别任务
+- 减少因分辨率不足导致的幻觉</p>
+<h3 id="23">2.3 高分辨率<a class="headerlink" href="#23" title="Permanent link">&para;</a></h3>
+<p><strong>方法</strong>：将高分辨率图像分割为网格，独立编码后拼接</p>
+<div class="highlight"><pre><span></span><code>输入图像 (672×672)
+    ↓
+分割为 2×2 网格 (每块 336×336)
+    ↓
+独立通过 CLIP-ViT-L-336px 编码
+    ↓
+拼接 4 个特征序列
+    ↓
+输入 LLM
+</code></pre></div>
+<p><strong>效果</strong>：
+- 提升细节感知能力（如小文本、远距离物体）
+- 减少因分辨率不足导致的幻觉
+- 计算成本增加 4 倍，但可并行处理</p>
+<h3 id="24">2.4 组合能力<a class="headerlink" href="#24" title="Permanent link">&para;</a></h3>
+<p><strong>发现</strong>：LMM 能够泛化到组合能力</p>
+<p><strong>实验</strong>：
+- 在长文本推理数据上训练
+- 模型展现出组合推理能力
+- 例如：能够理解"红色的汽车在蓝色的房子旁边"等复杂描述</p>
+<p><strong>意义</strong>：证明视觉指令微调可以激发模型的组合泛化能力</p>
+<h3 id="25">2.5 幻觉<a class="headerlink" href="#25" title="Permanent link">&para;</a></h3>
+<p><strong>问题</strong>：LMM 会生成与图像不符的描述</p>
+<p><strong>根源探索</strong>：
+1. <strong>数据质量</strong>：训练数据中的噪声和错误标注
+2. <strong>分辨率限制</strong>：低分辨率输入导致细节丢失
+3. <strong>模型过度自信</strong>：缺乏不确定性估计</p>
+<p><strong>缓解方法</strong>：
+- 使用高分辨率输入（显著减少幻觉）
+- 数据清洗和质量控制
+- 引入对比学习或负样本训练</p>
+<h3 id="26">2.6 总结🚗<a class="headerlink" href="#26" title="Permanent link">&para;</a></h3>
+<p>LLaVA-1.5 通过两项简单改进（MLP 投影层 + 学术 VQA 数据）实现了性能飞跃，证明了：</p>
+<ol>
+<li><strong>简单架构的力量</strong>：全连接投影层足够强大，复杂架构并非必要</li>
+<li><strong>数据质量重于数量</strong>：精心选择的公开数据即可达到强性能</li>
+<li><strong>可复现性的重要性</strong>：仅使用公开数据，推动领域发展</li>
+<li><strong>高分辨率的价值</strong>：提升细节感知并减少幻觉</li>
+</ol>
+<p>LLaVA-1.5 成为多模态大语言模型领域的重要基准，为后续研究提供了强有力的起点。</p>
+<hr />
+<h2 id="3-llava-16-llava-next">3. LLaVA-1.6 / LLaVA-NeXT<a class="headerlink" href="#3-llava-16-llava-next" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>📄 <strong>论文链接</strong>：<a href="https://llava-vl.github.io/blog/2024-01-30-llava-next/">Blog Post</a></p>
+<p><strong>作者</strong>：Haotian Liu, Chunyuan Li, Yuheng Li, Bo Li, Yuanhan Zhang, Sheng Shen, Yong Jae Lee</p>
+<p><strong>机构</strong>：UW-Madison, Microsoft Research</p>
+<p><strong>发表</strong>：2024 年 1 月</p>
+</blockquote>
+<h3 id="_14">核心要点<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<blockquote>
+<ol>
+<li><strong>AnyRes（Any Resolution）</strong>：提出动态高分辨率机制，将图像按网格切分为多个 crop，支持不同长宽比和分辨率，在不改变视觉编码器和连接器的前提下处理更高分辨率输入</li>
+<li><strong>数据质量提升</strong>：引入文档/图表理解数据（DocVQA、ChartQA 等）和高质量用户指令数据，提升 OCR 和推理能力</li>
+<li><strong>LLM backbone 扩展</strong>：除 Vicuna 外支持 Mistral-7B 和 Nous-Hermes-2-Yi-34B，验证架构的可迁移性</li>
+<li><strong>保持数据高效</strong>：仍使用不到 130 万训练样本，复用 LLaVA-1.5 预训练好的连接器</li>
+</ol>
+</blockquote>
+<h3 id="31-anyres">3.1 AnyRes🚗<a class="headerlink" href="#31-anyres" title="Permanent link">&para;</a></h3>
+<p><strong>问题</strong>：LLaVA-1.5 使用固定的 <span class="arithmatex">\(336 \times 336\)</span> 分辨率，限制了细节感知能力，尤其在 OCR、小文本识别等任务上表现不佳。</p>
+<p><strong>AnyRes 的做法</strong>：</p>
+<div class="highlight"><pre><span></span><code>输入图像（任意分辨率和长宽比）
+    ↓
+根据长宽比选择最优网格配置：
+  候选：{2×2, 1×2, 1×3, 1×4, 2×1, 3×1, 4×1}
+  选择所需 crop 数量最少的配置
+    ↓
+将图像切分为 a×b 个 crop + 1 个全局缩略图（base image）
+    ↓
+每个 crop 独立通过视觉编码器（336×336）
+    ↓
+总 token 数 = (a×b + 1) × T    （T 为每个 crop 的 token 数）
+</code></pre></div>
+<p><strong>支持的分辨率</strong>：最高 <span class="arithmatex">\(672 \times 672\)</span>（2×2 网格）、<span class="arithmatex">\(336 \times 1344\)</span>（1×4 网格）、<span class="arithmatex">\(1344 \times 336\)</span>（4×1 网格），提供 <strong>4 倍于 LLaVA-1.5 的像素量</strong>。</p>
+<p><strong>效果</strong>：保留更多视觉细节、减少低分辨率导致的幻觉、提升 OCR 能力，且无需修改视觉编码器或连接器。</p>
+<h3 id="32">3.2 对比<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>LLaVA-1.5</th>
+<th>LLaVA-NeXT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>图像分辨率</td>
+<td>固定 <span class="arithmatex">\(336 \times 336\)</span></td>
+<td>AnyRes 动态，最高 <span class="arithmatex">\(672 \times 672\)</span></td>
+</tr>
+<tr>
+<td>视觉编码器</td>
+<td>CLIP ViT-L/14</td>
+<td>相同，复用预训练连接器</td>
+</tr>
+<tr>
+<td>连接器</td>
+<td>2 层 MLP</td>
+<td>相同</td>
+</tr>
+<tr>
+<td>LLM 骨干</td>
+<td>Vicuna-7B/13B</td>
+<td>+ Mistral-7B, Nous-Hermes-2-Yi-34B</td>
+</tr>
+<tr>
+<td>指令微调数据</td>
+<td>665K</td>
+<td>760K（新增文档/图表/OCR 数据）</td>
+</tr>
+<tr>
+<td>总训练数据</td>
+<td>~120 万</td>
+<td>~130 万</td>
+</tr>
+</tbody>
+</table>
+<h3 id="33">3.3 数据<a class="headerlink" href="#33" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>高质量用户指令数据</strong>：LAION-GPT-V、ShareGPT-4V，以及 15K 来自 LLaVA demo 的真实用户请求（由 GPT-4V 生成回答）</li>
+<li><strong>文档/图表数据</strong>：DocVQA、ChartQA、DVQA、AI2D 等，提升文档理解和图表推理能力</li>
+<li><strong>双语能力</strong>：尽管多模态训练数据仅包含英语，模型仍涌现出零样本中文能力</li>
+</ul>
+<hr />
+<h2 id="4-llava-onevision">4. LLaVA-OneVision<a class="headerlink" href="#4-llava-onevision" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>📄 <strong>论文链接</strong>：<a href="https://arxiv.org/abs/2408.03326">arXiv:2408.03326</a> | <a href="https://arxiv.org/pdf/2408.03326">PDF</a></p>
+<p><strong>作者</strong>：Bo Li, Yuanhan Zhang, Dong Guo, Renrui Zhang, Feng Li, Hao Zhang, Kaichen Zhang, Peiyuan Zhang, Yanwei Li, Ziwei Liu, Chunyuan Li</p>
+<p><strong>机构</strong>：ByteDance, NTU, CUHK, HKUST</p>
+<p><strong>发表</strong>：2024 年 8 月</p>
+</blockquote>
+<h3 id="_15">核心要点<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<blockquote>
+<ol>
+<li><strong>首个同时推动单图/多图/视频三大场景边界的开源模型</strong>：单一模型在三种模态上均达到强性能，实现跨场景任务迁移</li>
+<li><strong>架构升级</strong>：视觉编码器从 CLIP 替换为 <strong>SigLIP</strong>，LLM 使用 <strong>Qwen-2</strong> 系列（0.5B/7B/72B）</li>
+<li><strong>Higher AnyRes</strong>：在 LLaVA-NeXT 的 AnyRes 基础上引入双线性插值和 token 阈值控制，支持更高空间配置（最高 <span class="arithmatex">\(6 \times 6\)</span> 网格）</li>
+<li><strong>统一视觉表示策略</strong>：设计跨场景的 token 预算平衡机制，使单图/多图/视频的视觉 token 总量相近，促进跨场景知识迁移</li>
+<li><strong>三阶段课程学习训练</strong>：语言-图像对齐 → 高质量知识学习 → 单图/OneVision 混合指令微调</li>
+</ol>
+</blockquote>
+<h3 id="41">4.1 架构<a class="headerlink" href="#41" title="Permanent link">&para;</a></h3>
+<p>继承 LLaVA 的极简三段式设计，关键组件升级：</p>
+<p><strong>① 视觉编码器：SigLIP（替换 CLIP）</strong>
+- 在开源视觉编码器中，SigLIP 被发现能产出最高的 LMM 性能
+- 基础分辨率 <span class="arithmatex">\(384 \times 384\)</span>，每个 crop 产生 729 个 token
+- 同时使用最后一层 Transformer 前后的特征</p>
+<p><strong>② 连接器：2 层 MLP</strong></p>
+<p><strong>③ LLM：Qwen-2 系列</strong></p>
+<ul>
+<li>提供 0.5B（边缘部署）、7B/7.6B（平衡）、72B/72.7B（云端）三种规模</li>
+</ul>
+<h3 id="42-higher-anyres">4.2 Higher AnyRes<a class="headerlink" href="#42-higher-anyres" title="Permanent link">&para;</a></h3>
+<p>在 LLaVA-NeXT 的 AnyRes 基础上进一步扩展：</p>
+<ul>
+<li><strong>更高空间配置</strong>：支持最高 <span class="arithmatex">\(6 \times 6\)</span> 网格（vs. LLaVA-NeXT 的 <span class="arithmatex">\(4 \times 1\)</span>）</li>
+<li><strong>Token 阈值控制</strong>：设定 token 上限 <span class="arithmatex">\(\tau\)</span>，若总 token 数 <span class="arithmatex">\(L &gt; \tau\)</span>，则通过双线性插值减少每个 crop 的 token 数：<span class="arithmatex">\(T_{new} = \tau / (a \times b + 1)\)</span></li>
+<li><strong>关键发现</strong>：分辨率扩展比单纯增加 token 数量更有效</li>
+</ul>
+<h3 id="43">4.3 视觉表示<a class="headerlink" href="#43" title="Permanent link">&para;</a></h3>
+<p>核心设计原则：<strong>不同场景的最大视觉 token 数量被设计为相近</strong>，确保跨场景能力迁移。</p>
+<table>
+<thead>
+<tr>
+<th>场景</th>
+<th>策略</th>
+<th>Token 预算</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>单图</strong></td>
+<td>大空间配置，全分辨率，每图多 token（长序列模拟视频）</td>
+<td>最高 <span class="arithmatex">\(729 \times 10\)</span></td>
+</tr>
+<tr>
+<td><strong>多图</strong></td>
+<td>仅使用基础分辨率（不做多 crop），节省计算</td>
+<td>仅基础分辨率</td>
+</tr>
+<tr>
+<td><strong>视频</strong></td>
+<td>每帧缩放到基础分辨率，双线性插值减少每帧 token，允许更多帧数</td>
+<td>最高 <span class="arithmatex">\(729 \times 10\)</span>（共享预算）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="44">4.4 训练阶段<a class="headerlink" href="#44" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>目标</th>
+<th>数据</th>
+<th>可训练参数</th>
+<th>分辨率/Token</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Stage-1</strong></td>
+<td>语言-图像对齐</td>
+<td>LCS 558K</td>
+<td>仅连接器</td>
+<td>384, 729 tokens</td>
+</tr>
+<tr>
+<td><strong>Stage-1.5</strong></td>
+<td>高质量知识学习</td>
+<td>400 万合成样本</td>
+<td>全模型</td>
+<td>AnyRes 最高 <span class="arithmatex">\(729 \times 5\)</span></td>
+</tr>
+<tr>
+<td><strong>Stage-2 (SI)</strong></td>
+<td>单图指令微调</td>
+<td>320 万单图样本</td>
+<td>全模型</td>
+<td>AnyRes 最高 <span class="arithmatex">\(729 \times 10\)</span></td>
+</tr>
+<tr>
+<td><strong>Stage-2 (OV)</strong></td>
+<td>OneVision 训练</td>
+<td>160 万混合数据（视频+多图+单图）</td>
+<td>全模型</td>
+<td>AnyRes 最高 <span class="arithmatex">\(729 \times 10\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>关键训练细节</strong>：
+- 视觉编码器学习率比 LLM/连接器小 5 倍（<span class="arithmatex">\(2 \times 10^{-6}\)</span> vs <span class="arithmatex">\(1 \times 10^{-5}\)</span>）
+- OneVision 阶段的混合数据：单图 31.2% + 多图 43.0% + 视频 25.9%</p>
+<h3 id="45">4.5 数据<a class="headerlink" href="#45" title="Permanent link">&para;</a></h3>
+<p><strong>高质量知识数据（Stage-1.5，400 万样本，99.8% 合成）</strong>：
+- 重新标注的详细描述数据（350 万）：COCO + BLIP-558K + CC3M 由 LLaVA-NeXT-34B 自身重新生成描述（self-improvement AI）
+- 文档/OCR 数据（110 万）：UReader、SynDOG
+- 中文数据：92K 中文描述（GPT-4V 生成）+ 143K Evo-Instruct</p>
+<p><strong>单图数据（320 万）</strong>：通用 QA 36.1% + 文档/图表/屏幕 20.6% + 数学/推理 20.1% + 通用 OCR 8.9% + 语言 14.3%</p>
+<h3 id="46">4.6 涌现能力<a class="headerlink" href="#46" title="Permanent link">&para;</a></h3>
+<ul>
+<li>图表+图表联合理解</li>
+<li>GUI Agent 操作</li>
+<li>Set-of-Mark prompting</li>
+<li>图像到视频编辑指令</li>
+<li>多摄像头自动驾驶视频理解</li>
+<li>视频中的视觉 prompting</li>
+</ul>
+<hr />
+<h2 id="5-llava-video">5. LLaVA-Video<a class="headerlink" href="#5-llava-video" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>📄 <strong>论文链接</strong>：<a href="https://arxiv.org/abs/2410.02713">arXiv:2410.02713</a> | <a href="https://arxiv.org/pdf/2410.02713">PDF</a></p>
+<p><strong>作者</strong>：Yuanhan Zhang, Jinming Wu, Wei Li, Bo Li, Zejun Ma, Ziwei Liu, Chunyuan Li</p>
+<p><strong>机构</strong>：NTU, BUPT, ByteDance</p>
+<p><strong>发表</strong>：2024 年 10 月</p>
+<p><strong>注意</strong>：LLaVA-Video 与 Video-LLaVA（arXiv:2311.10122，PKU 等）是两篇不同工作。Video-LLaVA 主打图像与视频的统一视觉表示（LanguageBind 编码器）；LLaVA-Video 是 LLaVA 系列后续，主打高质量合成视频指令数据与 SlowFast 视频表示。</p>
+</blockquote>
+<h3 id="_16">核心要点<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<blockquote>
+<ol>
+<li><strong>高质量合成视频指令数据</strong>：提出 LLaVA-Video-178K 数据集（178K 视频、130 万指令样本），采用三级递进式描述生成流水线，保持时间线上下文连贯</li>
+<li><strong>SlowFast 视频表示</strong>：借鉴经典 SlowFast 思想，将视频帧分为"慢帧"和"快帧"，使用不同分辨率的池化，在显存限制下纳入最多 3 倍帧数</li>
+<li><strong>密集帧采样</strong>：以 1 FPS 采样（vs. 此前 ShareGPT4Video 的 0.15 FPS），保留更多时间细节</li>
+<li><strong>基于 LLaVA-OneVision 微调</strong>：从 LLaVA-OneVision 的单图阶段 checkpoint 出发，在视频+图像联合数据上微调</li>
+</ol>
+</blockquote>
+<h3 id="51">5.1 思路<a class="headerlink" href="#51" title="Permanent link">&para;</a></h3>
+<p>与多数视频 LMM 使用大量原始 web 数据不同，LLaVA-Video 采用<strong>高质量合成数据路线</strong>——构建一个专门为视频指令跟随设计的合成数据集。</p>
+<h3 id="52">5.2 架构<a class="headerlink" href="#52" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>组件</th>
+<th>实现</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>视觉编码器</td>
+<td>SigLIP（同 LLaVA-OneVision）</td>
+</tr>
+<tr>
+<td>连接器</td>
+<td>2 层 MLP</td>
+</tr>
+<tr>
+<td>LLM</td>
+<td>Qwen-2（7B / 72B）</td>
+</tr>
+<tr>
+<td>基础</td>
+<td>从 LLaVA-OneVision 的单图阶段 checkpoint 出发</td>
+</tr>
+</tbody>
+</table>
+<h3 id="53">5.3 数据集<a class="headerlink" href="#53" title="Permanent link">&para;</a></h3>
+<p><strong>规模</strong>：178,510 个视频（0-3 分钟），130 万指令样本（178K 描述 + 96 万开放 QA + 19.6 万多选 QA）</p>
+<p><strong>四大特性</strong>：</p>
+<p><strong>① 广泛视频来源</strong>：10 个主要来源，涵盖活动、烹饪、电视剧、第一人称视角等（HD-VILA-100M、InternVid-10M、YouCook2、Ego4D 等）。使用<strong>未裁剪视频</strong>以保持情节连续性。</p>
+<p><strong>② 动态视频选择</strong>：用 PySceneDetect 衡量场景数量作为动态性指标。过滤条件：场景数 &gt; 2、时长 5-180 秒、场景/时长比 ≤ 0.5（排除"幻灯片"）、分辨率 &gt; 480p。</p>
+<p><strong>③ 三级递进式描述生成</strong>（密集帧采样 1 FPS）：</p>
+<div class="highlight"><pre><span></span><code>Level-1（每 10 秒）：
+  描述当前事件，参考当前帧 + 历史上下文（之前的 Level-1 描述 + 最新的 Level-2 总结）
+
+Level-2（每 30 秒）：
+  总结整段情节，参考最近三条 Level-1 描述 + 最新的 Level-2 描述
+
+Level-3（视频结束时）：
+  概括整个视频，参考最近的 Level-1 + 最新的 Level-2
+</code></pre></div>
+<p>历史上下文确保时间线各段之间的连贯性。</p>
+<p><strong>④ 多样化任务</strong>：基于公开视频 QA 基准定义 16 种问题类型（时间、空间、因果、场景描述、人物描述、物体描述、计数、二分类、细粒度动作理解、情节理解等），由 GPT-4o 生成。</p>
+<h3 id="54-slowfast">5.4 SlowFast<a class="headerlink" href="#54-slowfast" title="Permanent link">&para;</a></h3>
+<p>借鉴经典 <strong>SlowFast</strong> 思想（Feichtenhofer et al., 2019），优化帧间 token 分配：</p>
+<p>参数化表示为 <span class="arithmatex">\(\mathcal{V} = (T, M, s, p)\)</span>：
+- <span class="arithmatex">\(T\)</span>：最大帧数
+- <span class="arithmatex">\(M\)</span>：每帧 token 数（池化前）
+- <span class="arithmatex">\(s\)</span>：步幅（每 <span class="arithmatex">\(s\)</span> 帧为一个"慢帧"）
+- <span class="arithmatex">\(p\)</span>：池化步幅</p>
+<p><strong>慢帧</strong>（每 <span class="arithmatex">\(s\)</span> 帧）：<span class="arithmatex">\(p \times p\)</span> 平均池化，保留 <span class="arithmatex">\(M/p^2\)</span> 个 token</p>
+<p><strong>快帧</strong>（其余帧）：<span class="arithmatex">\(2p \times 2p\)</span> 平均池化，保留 <span class="arithmatex">\(M/(4p^2)\)</span> 个 token</p>
+<p><strong>总 token 数</strong>：</p>
+<div class="arithmatex">\[\#tokens = \lfloor T/s \rfloor \times \lfloor M/p^2 \rfloor + (T - \lfloor T/s \rfloor) \times \lfloor M/(4p^2) \rfloor\]</div>
+<p><strong>实际配置</strong>：
+- LLaVA-Video-7B：<span class="arithmatex">\(\mathcal{V} = (64, 679, 1, 2)\)</span> — 所有帧同等对待，<span class="arithmatex">\(2 \times 2\)</span> 池化
+- LLaVA-Video-72B：<span class="arithmatex">\(\mathcal{V} = (64, 679, 3, 2)\)</span> — 每 3 帧为慢帧，其余为快帧</p>
+<p>在相同显存限制下，可纳入<strong>最多 3 倍帧数</strong>。</p>
+<h3 id="55">5.5 训练<a class="headerlink" href="#55" title="Permanent link">&para;</a></h3>
+<p>从 LLaVA-OneVision（SI）checkpoint 出发，在联合数据集上微调：</p>
+<ul>
+<li><strong>视频数据</strong>：LLaVA-Video-178K + ActivityNet-QA + NExT-QA + PerceptionTest + LLaVA-Hound-255K = 160 万视频-语言样本</li>
+<li><strong>图像数据</strong>：110 万图像-语言对（来自 LLaVA-OneVision）</li>
+</ul>
+<p>使用 <strong>128 块 NVIDIA H100 GPU</strong> 训练。</p>
+<h3 id="56">5.6 发现<a class="headerlink" href="#56" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>帧数很重要</strong>：与此前"单帧训练即可"的结论相反，在使用详细标注时帧数对性能有显著影响</li>
+<li><strong>合成数据路线有效</strong>：高质量合成视频指令数据优于原始 web 数据爬取</li>
+<li>72B 模型在视频基准测试上表现出色</li>
+</ul>
+<h2 id="6-vedio-llava">6. Vedio-LlaVa<a class="headerlink" href="#6-vedio-llava" title="Permanent link">&para;</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.top", "navigation.instant", "search.highlight", "content.code.copy", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

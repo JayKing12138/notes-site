@@ -1,0 +1,3492 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../InternVL/">
+      
+      
+        <link rel="next" href="../LLaVA/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>LLaMA - 学习资料库</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#llama" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="学习资料库" class="md-header__button md-logo" aria-label="学习资料库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            学习资料库
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              LLaMA
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="学习资料库" class="md-nav__button md-logo" aria-label="学习资料库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    学习资料库
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    学习资料库
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GENIUS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    GENIUS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GENIUS/GENIUS%20%E6%80%BB%E7%BB%93/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GENIUS 总结
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RadAlign
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RadAlign
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RadAlign/RadVLM-GRPO%20%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RadVLM-GRPO 论文精读
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RadAlign/%E5%85%B3%E9%94%AE%E4%BB%A3%E7%A0%81%E8%AF%B4%E6%98%8E/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关键代码说明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    全模态大模型·出行安全项目
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    全模态大模型·出行安全项目
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/5.27%20Qwen3.7-Max%2BGeoLife%E8%AF%84%E4%BC%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.27 Qwen3.7-Max+GeoLife评估
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/Omni-%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Omni-出行安全项目
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%B1%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    全模态大模型·出行安全项目进展
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLUE
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    BLUE
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/BLUE/BLUE%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLUE论文笔记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    论文精读笔记
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    论文精读笔记
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AAAAA_Transformer%E3%80%81LLM%E4%B8%8EVLM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AAAAA_Transformer、LLM与VLM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BBBBB_%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BBBBB_强化学习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BERT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BERT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BEiT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BEiT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BLIP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLIP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLIP%20%26%20ALIGN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP & ALIGN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLIP%20%E6%94%B9%E8%BF%9B%E5%B7%A5%E4%BD%9C%E4%B8%B2%E8%AE%B2%EF%BC%88%E4%B8%8A%EF%BC%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP 改进工作串讲（上）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLIP%20%E6%94%B9%E8%BF%9B%E5%B7%A5%E4%BD%9C%E4%B8%B2%E8%AE%B2%EF%BC%88%E4%B8%8B%EF%BC%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP 改进工作串讲（下）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DALL%C2%B7E%202/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DALL·E 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DINO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DINO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Flamingo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Flamingo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GPT%EF%BC%8CGPT-2%EF%BC%8CGPT-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPT，GPT-2，GPT-3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ImageBind%20%E4%B8%8E%20LanguageBind%20%E5%AF%B9%E6%AF%94/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ImageBind 与 LanguageBind 对比
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InternVL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    InternVL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLaMA
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLaMA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目录
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心要点
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-llama-1-open-and-efficient-foundation-language-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. LLaMA 1: Open and Efficient Foundation Language Models
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. LLaMA 1: Open and Efficient Foundation Language Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 研究动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 模型架构
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 训练数据
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-llama-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 LLaMA 1 总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-llama-2-open-foundation-and-fine-tuned-chat-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. LLaMA 2: Open Foundation and Fine-Tuned Chat Models
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. LLaMA 2: Open Foundation and Fine-Tuned Chat Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-llama-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 相比 LLaMA 1 的改进
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 相比 LLaMA 1 的改进">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        训练数据
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        架构变化
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-rlhf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 RLHF 对齐流程
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 RLHF 对齐流程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sft" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        监督微调 (SFT)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        人类偏好数据收集
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        双奖励模型
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rlhf-v1-v5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        迭代式微调（RLHF V1 → V5）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ghost-attention-gatt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ghost Attention (GAtt)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-llama-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 LLaMA 2 总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-llama-3-31-the-llama-3-herd-of-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. LLaMA 3 / 3.1: The Llama 3 Herd of Models
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. LLaMA 3 / 3.1: The Llama 3 Herd of Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-llama-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 相比 LLaMA 2 的改进
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 相比 LLaMA 2 的改进">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        架构变化
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        训练数据
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scaling-law" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scaling Law 研究
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-llama-31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 LLaMA 3.1 的新特性
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 LLaMA 3.1 的新特性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#128k" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        128K 上下文窗口
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        工具调用
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        多语言支持
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-llama-331" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 LLaMA 3/3.1 总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-llama-32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. LLaMA 3.2: 多模态能力
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. LLaMA 3.2: 多模态能力">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 视觉能力
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1 视觉能力">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        图像编码器
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        图像适配器
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        视频适配器
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 语音能力
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.2 语音能力">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        语音编码器
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        语音适配器
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-llama-32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 LLaMA 3.2 总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        总结与对比
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="总结与对比">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        四代方法对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        关键技术洞察
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLaVA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLaVA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MAE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MAE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MoCo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MoCo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OFA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OFA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PaLI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PaLI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Qwen-VL%E4%B8%8EOmni/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qwen-VL与Omni
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SAM3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SAM3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SigLIP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SigLIP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SimVLM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SimVLM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Swin%20Transformer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Swin Transformer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UniPerceiver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UniPerceiver
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Unified-IO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unified-IO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ViLT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ViLT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ViT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ViT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ZZZZZ%E5%85%AC%E5%BC%8F%E4%BB%A3%E7%A0%81%E7%AD%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ZZZZZ公式代码等
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%8E%9F%E7%94%9F%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    原生多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%90%8E%E8%AE%AD%E7%BB%83%E7%BB%BC%E8%BF%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多模态大模型后训练综述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%9A%E6%A8%A1%E6%80%81%E8%AE%BA%E6%96%87%E4%B8%B2%E8%AE%B2%C2%B7%E4%B8%8A/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多模态论文串讲·上
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%9A%E6%A8%A1%E6%80%81%E8%AE%BA%E6%96%87%E4%B8%B2%E8%AE%B2%C2%B7%E4%B8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多模态论文串讲·下
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%AF%B9%E6%AF%94%E5%AD%A6%E4%B9%A0%E7%BB%BC%E8%BF%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    对比学习综述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%B7%B7%E5%90%88%E7%B2%BE%E5%BA%A6%E8%AE%AD%E7%BB%83%E4%B8%8E%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    混合精度训练与分布式训练
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%A7%86%E9%A2%91%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    视频多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%9F%B3%E9%A2%91%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    音频多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目录
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心要点
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-llama-1-open-and-efficient-foundation-language-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. LLaMA 1: Open and Efficient Foundation Language Models
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. LLaMA 1: Open and Efficient Foundation Language Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 研究动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 模型架构
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 训练数据
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-llama-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 LLaMA 1 总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-llama-2-open-foundation-and-fine-tuned-chat-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. LLaMA 2: Open Foundation and Fine-Tuned Chat Models
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. LLaMA 2: Open Foundation and Fine-Tuned Chat Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-llama-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 相比 LLaMA 1 的改进
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 相比 LLaMA 1 的改进">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        训练数据
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        架构变化
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-rlhf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 RLHF 对齐流程
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 RLHF 对齐流程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sft" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        监督微调 (SFT)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        人类偏好数据收集
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        双奖励模型
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rlhf-v1-v5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        迭代式微调（RLHF V1 → V5）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ghost-attention-gatt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ghost Attention (GAtt)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-llama-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 LLaMA 2 总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-llama-3-31-the-llama-3-herd-of-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. LLaMA 3 / 3.1: The Llama 3 Herd of Models
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. LLaMA 3 / 3.1: The Llama 3 Herd of Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-llama-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 相比 LLaMA 2 的改进
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 相比 LLaMA 2 的改进">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        架构变化
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        训练数据
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scaling-law" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scaling Law 研究
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-llama-31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 LLaMA 3.1 的新特性
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 LLaMA 3.1 的新特性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#128k" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        128K 上下文窗口
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        工具调用
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        多语言支持
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-llama-331" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 LLaMA 3/3.1 总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-llama-32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. LLaMA 3.2: 多模态能力
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. LLaMA 3.2: 多模态能力">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 视觉能力
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1 视觉能力">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        图像编码器
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        图像适配器
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        视频适配器
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 语音能力
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.2 语音能力">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        语音编码器
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        语音适配器
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-llama-32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 LLaMA 3.2 总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        总结与对比
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="总结与对比">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        四代方法对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        关键技术洞察
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="llama">LLaMA<a class="headerlink" href="#llama" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>📄 <strong>涉及论文链接</strong>：
+- <a href="https://arxiv.org/pdf/2302.13971">LLaMA 1</a> | <a href="https://arxiv.org/pdf/2307.09288">LLaMA 2</a> | <a href="https://arxiv.org/pdf/2407.21783">LLaMA 3</a></p>
+</blockquote>
+<h2 id="_1">目录<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#核心要点">核心要点</a></li>
+<li><a href="#1-llama-1-open-and-efficient-foundation-language-models">1. LLaMA 1: Open and Efficient Foundation Language Models</a></li>
+<li><a href="#2-llama-2-open-foundation-and-fine-tuned-chat-models">2. LLaMA 2: Open Foundation and Fine-Tuned Chat Models</a></li>
+<li><a href="#3-llama-3-31-the-llama-3-herd-of-models">3. LLaMA 3 / 3.1: The Llama 3 Herd of Models</a></li>
+<li><a href="#4-llama-32-多模态能力">4. LLaMA 3.2: 多模态能力</a></li>
+<li><a href="#总结与对比">总结与对比</a></li>
+</ul>
+<h2 id="_2">核心要点<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<blockquote>
+<ol>
+<li><strong>LLaMA 1</strong>（2023.02）证明了"小模型+更多数据"的有效性，挑战了 Chinchilla 的 compute-optimal 训练范式，并系统性地将 RMSNorm、SwiGLU、RoPE 整合到统一架构中，成为后续几乎所有开源 LLM 的标配。</li>
+<li><strong>LLaMA 2</strong>（2023.07）引入 GQA（Grouped-Query Attention）大幅降低推理时 KV Cache 内存开销，完整公开了 SFT + RLHF（双奖励模型 + Rejection Sampling + PPO）的对齐流程，并将上下文从 2048 扩展到 4096。</li>
+<li><strong>LLaMA 3/3.1</strong>（2024.07）将词表从 32K 扩展到 128K（英文压缩率提升 4 倍），训练数据从 2T 扩展到 15T+ tokens，推出 405B 旗舰模型，并通过 continued pre-training 支持 128K 上下文和原生工具调用。</li>
+<li><strong>LLaMA 3.2</strong>（2024.09）首次加入视觉和语音多模态能力，采用组合式架构（ViT-H/14 + Conformer + 适配器），冻结 LLM 参数只训练适配器，在不影响文本能力的前提下实现多模态理解。</li>
+<li>LLaMA 系列的演进主线为：数据规模（1.4T → 2T → 15T+）、词表（32K → 128K）、上下文（2K → 4K → 128K）、注意力机制（MHA → GQA）、对齐方式（无 → RLHF → DPO）、模态（纯文本 → 视觉+语音）。</li>
+</ol>
+</blockquote>
+<hr />
+<h2 id="1-llama-1-open-and-efficient-foundation-language-models">1. LLaMA 1: Open and Efficient Foundation Language Models<a class="headerlink" href="#1-llama-1-open-and-efficient-foundation-language-models" title="Permanent link">&para;</a></h2>
+<p><img alt="Figure 1: LLaMA 训练损失曲线" src="../images/llama1_fig1.png" />
+<em>Figure 1: 各尺寸模型在训练过程中的 loss 曲线——7B 模型在 1T tokens 后仍在持续改善</em></p>
+<h3 id="11">1.1 研究动机<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<p><strong>推理效率比训练效率更重要</strong></p>
+<p>Hoffmann et al. (2022) 的 Chinchilla scaling laws 关注在给定训练计算预算下如何最优分配模型大小和数据量。但 LLaMA 论文指出：</p>
+<blockquote>
+<p>"Given a target level of performance, the preferred model is not the fastest to train but the fastest at inference."</p>
+</blockquote>
+<p>虽然训练一个大模型达到某个性能水平可能更便宜，但<strong>一个更小但训练更久的模型在推理时会更便宜</strong>。例如：</p>
+<blockquote>
+<p>"Although Hoffmann et al. (2022) recommends training a 10B model on 200B tokens, we find that the performance of a 7B model continues to improve even after 1T tokens."</p>
+</blockquote>
+<p><strong>仅使用公开数据实现开源</strong></p>
+<p>现有的顶级大模型（GPT-3、Chinchilla、PaLM）都依赖私有或未公开的数据集。LLaMA 强调：</p>
+<blockquote>
+<p>"Unlike Chinchilla, PaLM, or GPT-3, we only use publicly available data, making our work compatible with open-sourcing."</p>
+</blockquote>
+<h3 id="12">1.2 模型架构<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
+<p>LLaMA 基于 Transformer，引入三项关键改进：</p>
+<table>
+<thead>
+<tr>
+<th>改进</th>
+<th>来源</th>
+<th>具体描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Pre-Norm + RMSNorm</strong></td>
+<td>GPT-3</td>
+<td>对每个子层的<strong>输入</strong>归一化（而非输出），使用 RMSNorm 代替 LayerNorm</td>
+</tr>
+<tr>
+<td><strong>SwiGLU 激活函数</strong></td>
+<td>PaLM</td>
+<td>用 SwiGLU 替换 ReLU，FFN 维度使用 2/3 × 4d</td>
+</tr>
+<tr>
+<td><strong>RoPE 旋转位置编码</strong></td>
+<td>GPTNeo</td>
+<td>移除绝对位置嵌入，在每一层添加旋转位置编码</td>
+</tr>
+</tbody>
+</table>
+<p><strong>各模型超参数</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>参数量</th>
+<th>Dimension</th>
+<th>n_heads</th>
+<th>n_layers</th>
+<th>n_tokens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>6.7B</td>
+<td>4096</td>
+<td>32</td>
+<td>32</td>
+<td>1.0T</td>
+</tr>
+<tr>
+<td>13.0B</td>
+<td>5120</td>
+<td>40</td>
+<td>40</td>
+<td>1.0T</td>
+</tr>
+<tr>
+<td>32.5B</td>
+<td>6656</td>
+<td>52</td>
+<td>60</td>
+<td>1.4T</td>
+</tr>
+<tr>
+<td>65.2B</td>
+<td>8192</td>
+<td>64</td>
+<td>80</td>
+<td>1.4T</td>
+</tr>
+</tbody>
+</table>
+<h3 id="13">1.3 训练数据<a class="headerlink" href="#13" title="Permanent link">&para;</a></h3>
+<p>训练数据完全来自<strong>公开可用</strong>来源，总计约 <strong>1.4T tokens</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>数据集</th>
+<th>采样比例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>English CommonCrawl</td>
+<td>67.0%</td>
+<td>CCNet 流水线处理，去重+质量过滤</td>
+</tr>
+<tr>
+<td>C4</td>
+<td>15.0%</td>
+<td>公开预处理的 CommonCrawl</td>
+</tr>
+<tr>
+<td>Github</td>
+<td>4.5%</td>
+<td>仅保留 Apache/BSD/MIT 许可证项目</td>
+</tr>
+<tr>
+<td>Wikipedia</td>
+<td>4.5%</td>
+<td>覆盖 20 种语言</td>
+</tr>
+<tr>
+<td>Gutenberg + Books3</td>
+<td>4.5%</td>
+<td>公共领域书籍</td>
+</tr>
+<tr>
+<td>ArXiv</td>
+<td>2.5%</td>
+<td>LaTeX 文件</td>
+</tr>
+<tr>
+<td>Stack Exchange</td>
+<td>2.0%</td>
+<td>28 个最大站点的高质量问答</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tokenizer</strong>：SentencePiece BPE，将所有数字拆分为单个数字，对未知 UTF-8 字符回退到字节级别。</p>
+<h3 id="14-llama-1">1.4 LLaMA 1 总结<a class="headerlink" href="#14-llama-1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>证明"小模型+更多数据"有效，挑战了"越大越好"的主流范式</li>
+<li>仅用公开数据达到 SOTA，首次证明不需要私有数据</li>
+<li>架构整合与验证：RMSNorm + SwiGLU + RoPE 成为开源 LLM 标配</li>
+<li>全面开源，直接催生 Alpaca、Vicuna、Koala 等后续工作</li>
+</ul>
+<hr />
+<h2 id="2-llama-2-open-foundation-and-fine-tuned-chat-models">2. LLaMA 2: Open Foundation and Fine-Tuned Chat Models<a class="headerlink" href="#2-llama-2-open-foundation-and-fine-tuned-chat-models" title="Permanent link">&para;</a></h2>
+<p><img alt="Figure 4: LLaMA 2-Chat 训练流程" src="../images/llama2_fig4.png" />
+<em>Figure 4: LLaMA 2-Chat 训练流程——预训练 → SFT → 迭代式 RLHF（Rejection Sampling + PPO）</em></p>
+<h3 id="21-llama-1">2.1 相比 LLaMA 1 的改进<a class="headerlink" href="#21-llama-1" title="Permanent link">&para;</a></h3>
+<h4 id="_3">训练数据<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>数据量</strong>：统一使用 <strong>2T tokens</strong>（增加 40%）</li>
+<li><strong>数据来源</strong>：来自公开来源的新混合数据，<strong>不包含 Meta 用户数据</strong></li>
+<li><strong>数据处理</strong>：更严格的数据清洗，上采样高事实性来源，移除含私人信息的网站</li>
+<li><strong>语言分布</strong>：约 89.7% 英语</li>
+</ul>
+<h4 id="_4">架构变化<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>配置项</th>
+<th>LLaMA 1</th>
+<th>LLaMA 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>注意力机制</td>
+<td>MHA</td>
+<td>MHA（7B/13B）/ <strong>GQA</strong>（34B/70B）</td>
+</tr>
+<tr>
+<td>上下文长度</td>
+<td>2048</td>
+<td><strong>4096</strong></td>
+</tr>
+<tr>
+<td>其余架构</td>
+<td>RMSNorm + SwiGLU + RoPE</td>
+<td>相同</td>
+</tr>
+</tbody>
+</table>
+<p><strong>GQA（Grouped-Query Attention）</strong>：
+- 多个查询头共享一组键值投影（8 个 KV 头）
+- 大幅降低推理时 KV Cache 的内存开销
+- 消融实验表明与 MHA 性能相当，优于 MQA
+- 为保持参数量一致，FFN 维度增加 1.3 倍</p>
+<h3 id="22-rlhf">2.2 RLHF 对齐流程<a class="headerlink" href="#22-rlhf" title="Permanent link">&para;</a></h3>
+<h4 id="sft">监督微调 (SFT)<a class="headerlink" href="#sft" title="Permanent link">&para;</a></h4>
+<p><strong>核心理念："Quality Is All You Need"</strong></p>
+<blockquote>
+<p>"By setting aside millions of examples from third-party datasets and using fewer but higher-quality examples from our own vendor-based annotation efforts, our results notably improved."</p>
+</blockquote>
+<ul>
+<li>仅收集了 <strong>27,540 条</strong> SFT 标注即停止</li>
+<li>对 180 个样本人工审查，发现模型输出与人工标注"具有竞争力"</li>
+<li>仅对回答 token 计算损失</li>
+</ul>
+<h4 id="_5">人类偏好数据收集<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>二元比较协议</strong>：标注者写 prompt → 从两个模型回答中选择更好的</li>
+<li>分<strong>有用性</strong>和<strong>安全性</strong>两个维度</li>
+<li>总共收集超过 <strong>141 万条</strong> Meta 内部偏好数据 + 开源数据共约 <strong>292 万条</strong></li>
+</ul>
+<h4 id="_6">双奖励模型<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
+<p>由于有用性和安全性存在张力（tension），训练两个独立奖励模型：</p>
+<ul>
+<li><strong>Helpfulness RM</strong>：在 Meta Helpfulness 数据 + 等量混合安全数据上训练</li>
+<li><strong>Safety RM</strong>：在 Meta Safety + Anthropic Harmless + 混合有用性数据上训练</li>
+</ul>
+<p><strong>训练目标</strong>：二元排序损失 + 边际组件</p>
+<h4 id="rlhf-v1-v5">迭代式微调（RLHF V1 → V5）<a class="headerlink" href="#rlhf-v1-v5" title="Permanent link">&para;</a></h4>
+<p><strong>(1) Rejection Sampling Fine-tuning</strong>：
+- 对每个 prompt 采样 K 个回答，用奖励模型评分选最高分
+- 仅对 70B 执行，较小模型通过蒸馏 70B 的拒绝采样数据获得能力</p>
+<p><strong>(2) PPO</strong>：
+- 从 V4 开始叠加 PPO
+- 组合奖励：对安全相关 prompt 使用安全奖励，否则使用有用性奖励
+- KL 惩罚项防止偏离原始策略</p>
+<h4 id="ghost-attention-gatt">Ghost Attention (GAtt)<a class="headerlink" href="#ghost-attention-gatt" title="Permanent link">&para;</a></h4>
+<p>解决多轮对话后忘记初始系统指令的问题：将系统指令拼接到所有用户消息中，微调时仅对最后一轮的 token 计算损失。</p>
+<h3 id="23-llama-2">2.3 LLaMA 2 总结<a class="headerlink" href="#23-llama-2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>训练数据增加 40%，进行更严格的数据清洗</li>
+<li>GQA 注意力机制大幅降低推理时 KV Cache 内存开销</li>
+<li>上下文从 2048 扩展到 4096</li>
+<li>完整公开了 SFT → 人类偏好收集 → 双奖励模型 → Rejection Sampling → PPO 的全流程</li>
+<li>仅用 27,540 条高质量 SFT 数据即达到优秀效果</li>
+<li>开放权重供研究和商业使用</li>
+</ul>
+<hr />
+<h2 id="3-llama-3-31-the-llama-3-herd-of-models">3. LLaMA 3 / 3.1: The Llama 3 Herd of Models<a class="headerlink" href="#3-llama-3-31-the-llama-3-herd-of-models" title="Permanent link">&para;</a></h2>
+<p><img alt="Figure 1: LLaMA 3 整体架构" src="../images/llama3_fig1.png" />
+<em>Figure 1: LLaMA 3 的整体架构和训练流程</em></p>
+<h3 id="31-llama-2">3.1 相比 LLaMA 2 的改进<a class="headerlink" href="#31-llama-2" title="Permanent link">&para;</a></h3>
+<h4 id="_7">架构变化<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>8B</th>
+<th>70B</th>
+<th>405B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Layers</td>
+<td>32</td>
+<td>80</td>
+<td>126</td>
+</tr>
+<tr>
+<td>Model Dim</td>
+<td>4,096</td>
+<td>8,192</td>
+<td>16,384</td>
+</tr>
+<tr>
+<td>FFN Dim</td>
+<td>14,336</td>
+<td>28,672</td>
+<td>53,248</td>
+</tr>
+<tr>
+<td>Attn Heads</td>
+<td>32</td>
+<td>64</td>
+<td>128</td>
+</tr>
+<tr>
+<td>KV Heads</td>
+<td>8</td>
+<td>8</td>
+<td>8</td>
+</tr>
+<tr>
+<td>Vocab Size</td>
+<td>128K</td>
+<td>128K</td>
+<td>128K</td>
+</tr>
+</tbody>
+</table>
+<p><strong>关键架构改进</strong>：
+- <strong>GQA</strong>：所有尺寸统一使用（8 个 KV 头）
+- <strong>128K 词表</strong>：tiktoken tokenizer + 28K 非英语 tokens，英文压缩率从 3.17 提升至 3.94 chars/token
+- <strong>RoPE 基频提升</strong>：从 10,000 增加到 <strong>500,000</strong>
+- <strong>文档掩码</strong>：防止同一序列内不同文档间的自注意力交互</p>
+<h4 id="_8">训练数据<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>规模</strong>：从 2T 扩展到 <strong>15T+ tokens</strong>（约 8 倍增长）</li>
+<li><strong>数据配比</strong>：约 50% 通用知识、25% 数学与推理、17% 代码、8% 多语言</li>
+<li><strong>质量改进</strong>：</li>
+<li>多层去重：URL 级、文档级（MinHash）、行级去重</li>
+<li>模型质量过滤：fasttext 分类器 + DistilRoberta 质量评分器</li>
+<li>专门的代码和推理数据提取管道</li>
+<li><strong>Annealing</strong>：最后 40M tokens 使用高质量数据退火训练 + Polyak averaging</li>
+</ul>
+<h4 id="scaling-law">Scaling Law 研究<a class="headerlink" href="#scaling-law" title="Permanent link">&para;</a></h4>
+<p><img alt="Figure 2: Scaling Law IsoFLOPs 曲线" src="../images/llama3_fig2.png" />
+<em>Figure 2: Scaling Law IsoFLOPs 曲线——预测最优模型大小和数据量的权衡</em></p>
+<p><strong>两阶段方法</strong>：
+1. 在 6×10¹⁸ 到 10²² FLOPs 范围内训练小模型，建立 NLL 与 FLOPs 的关系
+2. 利用 scaling law 建立下游任务 NLL 与准确率之间的 sigmoid 关系</p>
+<p><strong>关键发现</strong>：
+- 拟合得到 N<em>(C) = 0.29 × C^0.53
+- 外推到 3.8×10²⁵ FLOPs 建议训练 </em><em>402B 参数</em><em>模型在 </em><em>16.55T tokens</em>* 上
+- IsoFLOPs 曲线在最优值附近变得平坦，说明性能对模型大小/数据量权衡相对鲁棒</p>
+<h3 id="32-llama-31">3.2 LLaMA 3.1 的新特性<a class="headerlink" href="#32-llama-31" title="Permanent link">&para;</a></h3>
+<h4 id="128k">128K 上下文窗口<a class="headerlink" href="#128k" title="Permanent link">&para;</a></h4>
+<ul>
+<li>通过 <strong>continued pre-training</strong> 分六个阶段递增扩展（8K → 128K）</li>
+<li>长上下文预训练使用约 <strong>800B tokens</strong></li>
+<li>评估标准：短上下文评测性能完全恢复 + Needle-in-a-Haystack 完美表现</li>
+<li>405B 在 Needle-in-a-Haystack 上实现 <strong>100% 检索率</strong></li>
+</ul>
+<h4 id="_9">工具调用<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
+<p>原生支持三种核心工具：
+- <strong>搜索引擎</strong>：Brave Search API
+- <strong>Python 解释器</strong>：代码生成和执行
+- <strong>数学计算引擎</strong>：Wolfram Alpha API</p>
+<h4 id="_10">多语言支持<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
+<p>正式支持 8 种语言。</p>
+<h3 id="33-llama-331">3.3 LLaMA 3/3.1 总结<a class="headerlink" href="#33-llama-331" title="Permanent link">&para;</a></h3>
+<ul>
+<li>128K 词表，英文压缩率提升 4 倍</li>
+<li>训练数据从 2T 扩展到 15T+ tokens，建立完整的数据质量控制体系</li>
+<li>405B 旗舰模型，126 层 Transformer，3.8×10²⁵ FLOPs 训练</li>
+<li>Scaling Law 验证：两阶段方法论跨越四个数量级准确预测旗舰模型性能</li>
+<li>128K 上下文 + 原生工具调用（搜索引擎、Python 解释器、数学计算引擎）</li>
+<li>16K H100 上 90%+ 有效训练时间，54 天内 466 次中断（78% 归因于硬件问题）</li>
+</ul>
+<hr />
+<h2 id="4-llama-32">4. LLaMA 3.2: 多模态能力<a class="headerlink" href="#4-llama-32" title="Permanent link">&para;</a></h2>
+<p><img alt="LLaMA 3.2 多模态架构总览" src="../images/llama3_fig28_multimodal_arch.png" />
+<em>LLaMA 3.2 多模态架构总览：组合式设计，视觉/语音编码器通过适配器集成到冻结的 LLM 中</em></p>
+<h3 id="41">4.1 视觉能力<a class="headerlink" href="#41" title="Permanent link">&para;</a></h3>
+<h4 id="_11">图像编码器<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>ViT-H/14 变体</strong>：原始 630M 参数，在 2.5B 图文对上训练 5 个 epoch</li>
+<li>添加 8 个 gated self-attention 层（总计 40 个 transformer blocks），最终 <strong>850M 参数</strong></li>
+<li><strong>多层特征提取</strong>：从第 4、8、16、24、31 层及最终层提取特征</li>
+<li>每个 patch 产生 7680 维表示（16×16 = 256 个 patches）</li>
+<li>训练过程中<strong>不冻结</strong>图像编码器参数</li>
+</ul>
+<h4 id="_12">图像适配器<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h4>
+<ul>
+<li>在语言模型每 4 个 self-attention 层后插入 <strong>cross-attention 层</strong></li>
+<li>使用 GQA 提高效率</li>
+<li>对于 405B 模型，cross-attention 层引入约 <strong>100B 参数</strong></li>
+<li>训练时<strong>冻结语言模型参数</strong>，只更新编码器和适配器</li>
+<li>两阶段预训练：初始预训练（~6B 图文对）+ 退火训练（~500M 高质量图像）</li>
+</ul>
+<h4 id="_13">视频适配器<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h4>
+<ul>
+<li>最多处理 64 帧（均匀采样）</li>
+<li><strong>时序聚合器</strong>：Perceiver Resampler，将 32 个连续帧合并为 1 个</li>
+<li>额外的 video cross-attention 层</li>
+</ul>
+<h3 id="42">4.2 语音能力<a class="headerlink" href="#42" title="Permanent link">&para;</a></h3>
+<p><img alt="LLaMA 3.2 语音模块架构" src="../images/llama3_fig29_speech_arch.png" />
+<em>LLaMA 3.2 语音模块架构：Conformer 编码器 + 轻量适配器，输出直接作为 token 输入 LLM</em></p>
+<h4 id="_14">语音编码器<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Conformer 模型</strong>：<strong>1B 参数</strong>，24 层</li>
+<li>使用 BEST-RQ 自监督算法在约 <strong>15M 小时</strong>语音数据上预训练</li>
+</ul>
+<h4 id="_15">语音适配器<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h4>
+<ul>
+<li>约 <strong>100M 参数</strong></li>
+<li>包含卷积层（stride-2 降至 80ms 帧长）、Rotary Transformer 层和线性映射层</li>
+<li>输出直接作为 token 表示输入语言模型（不同于视觉模块使用 cross-attention）</li>
+</ul>
+<h3 id="43-llama-32">4.3 LLaMA 3.2 总结<a class="headerlink" href="#43-llama-32" title="Permanent link">&para;</a></h3>
+<ul>
+<li>组合式多模态架构：通过适配器将预训练的视觉/语音编码器集成到 LLM 中</li>
+<li>视觉编码器：ViT-H/14 变体（850M 参数），多层特征提取 + cross-attention 适配器，不冻结编码器参数</li>
+<li>语音模块：Conformer 编码器（1B 参数）+ 轻量适配器</li>
+<li>冻结语言模型参数只训练适配器，可以保护已有的文本能力</li>
+<li>视觉和语音模块采用不同的集成策略（cross-attention vs 直接 token 输入），体现了针对不同模态的设计灵活性</li>
+</ul>
+<hr />
+<h2 id="_16">总结与对比<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
+<h3 id="_17">四代方法对比<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>LLaMA 1</th>
+<th>LLaMA 2</th>
+<th>LLaMA 3/3.1</th>
+<th>LLaMA 3.2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>时间</td>
+<td>2023.02</td>
+<td>2023.07</td>
+<td>2024.07</td>
+<td>2024.09</td>
+</tr>
+<tr>
+<td>模型尺寸</td>
+<td>7B/13B/33B/65B</td>
+<td>7B/13B/70B</td>
+<td>8B/70B/405B</td>
+<td>1B/3B/11B/90B</td>
+</tr>
+<tr>
+<td>训练数据</td>
+<td>1.0-1.4T</td>
+<td>2T</td>
+<td>15T+</td>
+<td>同上</td>
+</tr>
+<tr>
+<td>词表大小</td>
+<td>32K</td>
+<td>32K</td>
+<td><strong>128K</strong></td>
+<td>128K</td>
+</tr>
+<tr>
+<td>上下文</td>
+<td>2048</td>
+<td>4096</td>
+<td>8K → <strong>128K</strong></td>
+<td>128K</td>
+</tr>
+<tr>
+<td>注意力</td>
+<td>MHA</td>
+<td>MHA/GQA</td>
+<td><strong>GQA</strong></td>
+<td>GQA</td>
+</tr>
+<tr>
+<td>归一化</td>
+<td>RMSNorm (Pre)</td>
+<td>RMSNorm (Pre)</td>
+<td>RMSNorm (Pre)</td>
+<td>RMSNorm (Pre)</td>
+</tr>
+<tr>
+<td>激活函数</td>
+<td>SwiGLU</td>
+<td>SwiGLU</td>
+<td>SwiGLU</td>
+<td>SwiGLU</td>
+</tr>
+<tr>
+<td>位置编码</td>
+<td>RoPE (10K)</td>
+<td>RoPE (10K)</td>
+<td>RoPE (<strong>500K</strong>)</td>
+<td>RoPE (500K)</td>
+</tr>
+<tr>
+<td>对齐方式</td>
+<td>无</td>
+<td>SFT + RLHF</td>
+<td>SFT + DPO</td>
+<td>同左</td>
+</tr>
+<tr>
+<td>多模态</td>
+<td>无</td>
+<td>无</td>
+<td>无</td>
+<td><strong>视觉 + 语音</strong></td>
+</tr>
+<tr>
+<td>开放权重</td>
+<td>研究许可</td>
+<td>商业许可</td>
+<td>商业许可</td>
+<td>商业许可</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_18">关键技术洞察<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>架构核心不变</strong>：RMSNorm + SwiGLU + RoPE 从 LLaMA 1 开始贯穿全系列，成为开源 LLM 的事实标准</p>
+</li>
+<li>
+<p><strong>演进主线</strong>：</p>
+</li>
+<li><strong>数据</strong>：1.4T → 2T → 15T+（规模驱动性能）</li>
+<li><strong>词表</strong>：32K → 128K（压缩效率提升 4 倍）</li>
+<li><strong>上下文</strong>：2K → 4K → 128K（长文本能力飞跃）</li>
+<li><strong>对齐</strong>：无 → RLHF (PPO) → DPO（更简单有效）</li>
+<li>
+<p><strong>模态</strong>：纯文本 → 视觉 + 语音（多模态统一）</p>
+</li>
+<li>
+<p><strong>推理效率优先</strong>：LLaMA 1 提出推理成本比训练成本更重要，这一理念贯穿全系列——小模型训练更久但推理更便宜</p>
+</li>
+<li>
+<p><strong>Scaling Law 的持续验证</strong>：从 LLaMA 1 的"小模型+更多数据"到 LLaMA 3 的两阶段 scaling law 方法论，证明了规模化是提升性能的核心路径</p>
+</li>
+<li>
+<p><strong>开源推动社区发展</strong>：LLaMA 1 开启开源大模型时代，直接催生 Alpaca、Vicuna 等后续工作；LLaMA 2 开放商业许可；LLaMA 3 推出 405B 旗舰模型与 GPT-4 竞争</p>
+</li>
+<li>
+<p><strong>多模态的组合式设计</strong>：LLaMA 3.2 采用适配器架构而非端到端训练，保护已有文本能力的同时实现多模态理解，体现了模块化设计的灵活性</p>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.top", "navigation.instant", "search.highlight", "content.code.copy", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

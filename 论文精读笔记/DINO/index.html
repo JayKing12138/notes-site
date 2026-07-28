@@ -1,0 +1,4194 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../DALL%C2%B7E%202/">
+      
+      
+        <link rel="next" href="../Flamingo/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>DINO - 学习资料库</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#dino" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="学习资料库" class="md-header__button md-logo" aria-label="学习资料库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            学习资料库
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              DINO
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="学习资料库" class="md-nav__button md-logo" aria-label="学习资料库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    学习资料库
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    学习资料库
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GENIUS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    GENIUS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GENIUS/GENIUS%20%E6%80%BB%E7%BB%93/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GENIUS 总结
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RadAlign
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RadAlign
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RadAlign/RadVLM-GRPO%20%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RadVLM-GRPO 论文精读
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RadAlign/%E5%85%B3%E9%94%AE%E4%BB%A3%E7%A0%81%E8%AF%B4%E6%98%8E/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关键代码说明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    全模态大模型·出行安全项目
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    全模态大模型·出行安全项目
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/5.27%20Qwen3.7-Max%2BGeoLife%E8%AF%84%E4%BC%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.27 Qwen3.7-Max+GeoLife评估
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/Omni-%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Omni-出行安全项目
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%B1%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    全模态大模型·出行安全项目进展
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLUE
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    BLUE
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%A8%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%C2%B7%E5%87%BA%E8%A1%8C%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE/BLUE/BLUE%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLUE论文笔记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    论文精读笔记
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    论文精读笔记
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AAAAA_Transformer%E3%80%81LLM%E4%B8%8EVLM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AAAAA_Transformer、LLM与VLM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BBBBB_%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BBBBB_强化学习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BERT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BERT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BEiT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BEiT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BLIP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BLIP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLIP%20%26%20ALIGN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP & ALIGN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLIP%20%E6%94%B9%E8%BF%9B%E5%B7%A5%E4%BD%9C%E4%B8%B2%E8%AE%B2%EF%BC%88%E4%B8%8A%EF%BC%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP 改进工作串讲（上）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLIP%20%E6%94%B9%E8%BF%9B%E5%B7%A5%E4%BD%9C%E4%B8%B2%E8%AE%B2%EF%BC%88%E4%B8%8B%EF%BC%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIP 改进工作串讲（下）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DALL%C2%B7E%202/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DALL·E 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DINO
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DINO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目录
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心要点
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-dino-vision-transformer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. DINO：自监督 Vision Transformer 的新兴性质
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. DINO：自监督 Vision Transformer 的新兴性质">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 背景与动机
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1 背景与动机">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1.1 研究问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1.2 关键发现
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 方法：无标签的自蒸馏
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2 方法：无标签的自蒸馏">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2.1 整体架构
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2.2 训练目标
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#123" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2.3 防止模型坍塌
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#124-teacher" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2.4 Teacher 网络更新
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 关键技术组件
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.3 关键技术组件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#131" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3.1 数据增强
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#132-patch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3.2 Patch 大小的影响
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 实验结果
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.4 实验结果">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#141-imagenet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4.1 ImageNet 线性评估
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#142" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4.2 自注意力的语义分割
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#143" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4.3 图像检索
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.5 与之前工作的对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-dinov2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. DINOv2：学习鲁棒的通用视觉特征
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. DINOv2：学习鲁棒的通用视觉特征">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 背景与动机
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 背景与动机">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#211" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1.1 研究目标
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#212" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1.2 现有方法的局限性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#213" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1.3 核心假设
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-lvd-142m" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 数据管道：LVD-142M
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 数据管道：LVD-142M">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.1 数据源
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.2 数据处理流程
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-dino-ibot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 方法：DINO + iBOT 的组合
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 方法：DINO + iBOT 的组合">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231-dino" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.1 DINO 损失（图像级）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#232-ibot-patch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.2 iBOT 损失（Patch 级）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#233" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.3 关键技术改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 工程优化
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4 工程优化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#241" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.1 快速高效的注意力机制
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#242-stochastic-depth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.2 高效随机深度（Stochastic Depth）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#243-fsdp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.3 完全分片数据并行（FSDP）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 模型家族
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6 实验结果
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.6 实验结果">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#261" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6.1 图像分类
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#262" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6.2 语义分割
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#263" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6.3 单目深度估计
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#264" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6.4 图像检索
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#265" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6.5 视频理解
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.7 与弱监督方法的对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-dino" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. DINO 系列的技术演进
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. DINO 系列的技术演进">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-dino-dinov2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 从 DINO 到 DINOv2 的关键改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 核心思想的演进
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 核心思想的演进">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#321" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2.1 自蒸馏范式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2.2 数据策划
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#323" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2.3 规模化训练
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 特征性质的演进
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 特征性质的演进">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#331-dino" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.1 DINO 的涌现性质
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#332-dinov2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.2 DINOv2 的通用性
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 总结
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 总结">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-dino" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 DINO 系列的核心贡献
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 对自监督学习的启示
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 局限性与未来方向
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 与其他自监督方法的对比
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 学习建议
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 学习建议">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 推荐学习顺序
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 重点关注
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 前置知识
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 代码与资源
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. 代码与资源">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 官方代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 预训练模型
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 相关资源
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Flamingo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Flamingo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GPT%EF%BC%8CGPT-2%EF%BC%8CGPT-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPT，GPT-2，GPT-3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ImageBind%20%E4%B8%8E%20LanguageBind%20%E5%AF%B9%E6%AF%94/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ImageBind 与 LanguageBind 对比
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InternVL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    InternVL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLaMA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLaMA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLaVA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLaVA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MAE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MAE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MoCo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MoCo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OFA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OFA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PaLI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PaLI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Qwen-VL%E4%B8%8EOmni/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qwen-VL与Omni
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SAM3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SAM3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SigLIP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SigLIP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SimVLM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SimVLM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Swin%20Transformer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Swin Transformer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UniPerceiver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UniPerceiver
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Unified-IO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unified-IO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ViLT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ViLT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ViT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ViT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ZZZZZ%E5%85%AC%E5%BC%8F%E4%BB%A3%E7%A0%81%E7%AD%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ZZZZZ公式代码等
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%8E%9F%E7%94%9F%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    原生多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%90%8E%E8%AE%AD%E7%BB%83%E7%BB%BC%E8%BF%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多模态大模型后训练综述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%9A%E6%A8%A1%E6%80%81%E8%AE%BA%E6%96%87%E4%B8%B2%E8%AE%B2%C2%B7%E4%B8%8A/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多模态论文串讲·上
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%9A%E6%A8%A1%E6%80%81%E8%AE%BA%E6%96%87%E4%B8%B2%E8%AE%B2%C2%B7%E4%B8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多模态论文串讲·下
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%AF%B9%E6%AF%94%E5%AD%A6%E4%B9%A0%E7%BB%BC%E8%BF%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    对比学习综述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%B7%B7%E5%90%88%E7%B2%BE%E5%BA%A6%E8%AE%AD%E7%BB%83%E4%B8%8E%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    混合精度训练与分布式训练
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%A7%86%E9%A2%91%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    视频多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%9F%B3%E9%A2%91%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    音频多模态大模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目录
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心要点
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-dino-vision-transformer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. DINO：自监督 Vision Transformer 的新兴性质
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. DINO：自监督 Vision Transformer 的新兴性质">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 背景与动机
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1 背景与动机">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1.1 研究问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1.2 关键发现
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 方法：无标签的自蒸馏
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2 方法：无标签的自蒸馏">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2.1 整体架构
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2.2 训练目标
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#123" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2.3 防止模型坍塌
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#124-teacher" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2.4 Teacher 网络更新
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 关键技术组件
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.3 关键技术组件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#131" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3.1 数据增强
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#132-patch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3.2 Patch 大小的影响
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 实验结果
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.4 实验结果">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#141-imagenet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4.1 ImageNet 线性评估
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#142" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4.2 自注意力的语义分割
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#143" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4.3 图像检索
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.5 与之前工作的对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-dinov2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. DINOv2：学习鲁棒的通用视觉特征
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. DINOv2：学习鲁棒的通用视觉特征">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 背景与动机
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 背景与动机">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#211" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1.1 研究目标
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#212" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1.2 现有方法的局限性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#213" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1.3 核心假设
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-lvd-142m" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 数据管道：LVD-142M
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 数据管道：LVD-142M">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.1 数据源
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.2 数据处理流程
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-dino-ibot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 方法：DINO + iBOT 的组合
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 方法：DINO + iBOT 的组合">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231-dino" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.1 DINO 损失（图像级）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#232-ibot-patch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.2 iBOT 损失（Patch 级）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#233" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.3 关键技术改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 工程优化
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4 工程优化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#241" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.1 快速高效的注意力机制
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#242-stochastic-depth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.2 高效随机深度（Stochastic Depth）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#243-fsdp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.3 完全分片数据并行（FSDP）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 模型家族
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6 实验结果
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.6 实验结果">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#261" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6.1 图像分类
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#262" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6.2 语义分割
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#263" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6.3 单目深度估计
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#264" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6.4 图像检索
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#265" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6.5 视频理解
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.7 与弱监督方法的对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-dino" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. DINO 系列的技术演进
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. DINO 系列的技术演进">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-dino-dinov2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 从 DINO 到 DINOv2 的关键改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 核心思想的演进
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 核心思想的演进">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#321" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2.1 自蒸馏范式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2.2 数据策划
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#323" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2.3 规模化训练
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 特征性质的演进
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 特征性质的演进">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#331-dino" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.1 DINO 的涌现性质
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#332-dinov2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.2 DINOv2 的通用性
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 总结
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 总结">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-dino" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 DINO 系列的核心贡献
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 对自监督学习的启示
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 局限性与未来方向
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 与其他自监督方法的对比
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 学习建议
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 学习建议">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 推荐学习顺序
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 重点关注
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 前置知识
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 代码与资源
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. 代码与资源">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 官方代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 预训练模型
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 相关资源
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="dino">DINO<a class="headerlink" href="#dino" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>📄 <strong>论文链接</strong>：
+- <a href="https://arxiv.org/abs/2104.14294">DINO: Emerging Properties in Self-Supervised Vision Transformers</a> | <a href="https://arxiv.org/pdf/2104.14294">PDF</a>
+- <a href="https://arxiv.org/abs/2304.07193">DINOv2: Learning Robust Visual Features without Supervision</a> | <a href="https://arxiv.org/pdf/2304.07193">PDF</a></p>
+<p><strong>作者</strong>：Meta AI Research (原 Facebook AI Research)</p>
+<p><strong>时间跨度</strong>：2021 年 4 月 - 2023 年 4 月</p>
+</blockquote>
+<h2 id="_1">目录<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#核心要点">核心要点</a></li>
+<li><a href="#1-dino自监督-vision-transformer-的新兴性质">1. DINO：自监督 Vision Transformer 的新兴性质</a></li>
+<li><a href="#2-dinov2学习鲁棒的通用视觉特征">2. DINOv2：学习鲁棒的通用视觉特征</a></li>
+<li><a href="#3-dino-系列的技术演进">3. DINO 系列的技术演进</a></li>
+<li><a href="#4-总结">4. 总结</a></li>
+<li><a href="#5-与其他自监督方法的对比">5. 与其他自监督方法的对比</a></li>
+<li><a href="#6-学习建议">6. 学习建议</a></li>
+<li><a href="#7-代码与资源">7. 代码与资源</a></li>
+</ul>
+<h2 id="_2">核心要点<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<blockquote>
+<ol>
+<li><strong>自蒸馏范式的开创</strong>：DINO 首次提出"无标签的自蒸馏"（self-distillation with no labels），通过 student-teacher 架构和 EMA 更新，在无需负样本和对比损失的情况下实现了强大的自监督学习能力。</li>
+<li><strong>ViT 的独特性质</strong>：DINO 发现自监督训练的 Vision Transformer 具有独特的涌现性质——自注意力图能自动学习语义分割，这是有监督 ViT 和 CNN 都不具备的能力。</li>
+<li><strong>从 ImageNet 到大规模数据</strong>：DINO 在 ImageNet-1k 上验证了方法有效性，DINOv2 则通过自动数据管道构建了 LVD-142M 数据集（1.42 亿张图像），证明了自监督学习可以扩展到大规模预训练。</li>
+<li><strong>通用视觉特征</strong>：DINOv2 训练了从 ViT-Small 到 ViT-Giant（10 亿参数）的模型家族，在图像分类、分割、深度估计、检索等任务上都达到或超过了弱监督方法的性能，无需任何微调即可使用。</li>
+<li><strong>工程优化</strong>：DINOv2 引入了 FlashAttention、序列打包、高效随机深度、FSDP 等工程优化，相比 iBOT 实现速度提升 2 倍，内存占用减少 2/3。</li>
+</ol>
+</blockquote>
+<hr />
+<h2 id="1-dino-vision-transformer">1. DINO：自监督 Vision Transformer 的新兴性质<a class="headerlink" href="#1-dino-vision-transformer" title="Permanent link">&para;</a></h2>
+<h3 id="11">1.1 背景与动机<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<h4 id="111">1.1.1 研究问题<a class="headerlink" href="#111" title="Permanent link">&para;</a></h4>
+<p>DINO 的核心研究问题是：<strong>自监督学习是否为 Vision Transformer (ViT) 提供了相比卷积网络 (ConvNet) 更独特的性质？</strong></p>
+<p>作者发现，虽然自监督方法在 CNN 上已经取得成功，但这些方法在 ViT 上的适应性和产生的特征性质尚未被充分探索。</p>
+<h4 id="112">1.1.2 关键发现<a class="headerlink" href="#112" title="Permanent link">&para;</a></h4>
+<p>论文识别出两个重要的涌现性质：</p>
+<ol>
+<li>
+<p><strong>语义分割能力</strong>：自监督 ViT 的特征显式包含了场景布局和物体边界信息，这些信息直接可从最后一层的自注意力模块中获取。这在有监督 ViT 和 CNN 中都不明显。</p>
+</li>
+<li>
+<p><strong>k-NN 分类性能</strong>：自监督 ViT 特征在 k 近邻分类器上表现优异，无需微调、线性分类器或数据增强。</p>
+</li>
+</ol>
+<h3 id="12">1.2 方法：无标签的自蒸馏<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
+<p>DINO 的核心思想是将自监督学习解释为一种<strong>无标签的知识蒸馏</strong>。</p>
+<h4 id="121">1.2.1 整体架构<a class="headerlink" href="#121" title="Permanent link">&para;</a></h4>
+<p>DINO 采用 student-teacher 架构：</p>
+<ul>
+<li><strong>Student 网络</strong> <span class="arithmatex">\(g_{\theta_s}\)</span>：通过梯度下降学习</li>
+<li><strong>Teacher 网络</strong> <span class="arithmatex">\(g_{\theta_t}\)</span>：通过 student 权重的指数移动平均 (EMA) 更新</li>
+</ul>
+<p>两个网络使用相同的架构，包括：
+- <strong>骨干网络</strong> <span class="arithmatex">\(f\)</span>：ViT 或 ResNet
+- <strong>投影头</strong> <span class="arithmatex">\(h\)</span>：3 层 MLP（隐藏维度 2048）+ L2 归一化 + 权重归一化全连接层（K 维）</p>
+<h4 id="122">1.2.2 训练目标<a class="headerlink" href="#122" title="Permanent link">&para;</a></h4>
+<p>给定输入图像 <span class="arithmatex">\(x\)</span>，生成两个增强视图 <span class="arithmatex">\(x_1\)</span> 和 <span class="arithmatex">\(x_2\)</span>：</p>
+<ol>
+<li><strong>Student 前向传播</strong>：</li>
+<li>计算 <span class="arithmatex">\(z_s = g_{\theta_s}(x_1)\)</span></li>
+<li>
+<p>应用 softmax 归一化：<span class="arithmatex">\(p_s = \text{softmax}(z_s / \tau_s)\)</span></p>
+</li>
+<li>
+<p><strong>Teacher 前向传播</strong>：</p>
+</li>
+<li>计算 <span class="arithmatex">\(z_t = g_{\theta_t}(x_2)\)</span></li>
+<li>应用中心化和锐化：<span class="arithmatex">\(p_t = \text{softmax}((z_t - c) / \tau_t)\)</span></li>
+<li>
+<p>其中 <span class="arithmatex">\(c\)</span> 是通过 EMA 更新的中心</p>
+</li>
+<li>
+<p><strong>交叉熵损失</strong>：</p>
+</li>
+<li><span class="arithmatex">\(L = -\sum_{k=1}^K p_t^{(k)} \log p_s^{(k)}\)</span></li>
+</ol>
+<h4 id="123">1.2.3 防止模型坍塌<a class="headerlink" href="#123" title="Permanent link">&para;</a></h4>
+<p>DINO 使用两个机制防止模型坍塌（所有输出相同）：</p>
+<ol>
+<li><strong>Teacher 输出中心化</strong>：通过 EMA 更新的中心 <span class="arithmatex">\(c\)</span>，防止输出坍缩到单一模式</li>
+<li><strong>锐化操作</strong>：使用较小的温度参数 <span class="arithmatex">\(\tau_t\)</span>（0.04-0.07），使 teacher 输出更加尖锐</li>
+</ol>
+<p><strong>关键洞察</strong>：DINO 不需要 predictor、高级归一化或对比损失即可保持稳定，这简化了自监督训练。</p>
+<h4 id="124-teacher">1.2.4 Teacher 网络更新<a class="headerlink" href="#124-teacher" title="Permanent link">&para;</a></h4>
+<p>Teacher 权重通过指数移动平均更新：</p>
+<div class="arithmatex">\[\theta_t \leftarrow \lambda \theta_t + (1 - \lambda) \theta_s\]</div>
+<p>其中 <span class="arithmatex">\(\lambda\)</span> 遵循从 0.996 到 1 的余弦调度。</p>
+<p><strong>重要作用</strong>：
+- Teacher 在整个训练过程中表现优于 student
+- Teacher 通过提供更高质量的目标特征来指导 student 训练
+- 这种动态在之前的工作（如 BYOL）中未被观察到</p>
+<h3 id="13">1.3 关键技术组件<a class="headerlink" href="#13" title="Permanent link">&para;</a></h3>
+<h4 id="131">1.3.1 数据增强<a class="headerlink" href="#131" title="Permanent link">&para;</a></h4>
+<p>DINO 结合了 BYOL 和 multi-crop 的数据增强策略：
+- <strong>BYOL 增强</strong>：颜色抖动、高斯模糊、曝光
+- <strong>Multi-crop</strong>：生成多个不同尺度的裁剪视图，使用双三次插值适应位置嵌入</p>
+<h4 id="132-patch">1.3.2 Patch 大小的影响<a class="headerlink" href="#132-patch" title="Permanent link">&para;</a></h4>
+<p>论文发现，<strong>较小的 patch 大小对提升 ViT 特征质量至关重要</strong>：
+- ViT-S/16：线性评估和 k-NN 评估均表现出色
+- ViT-S/8：性能显著提升，但运行时间增加
+- ViT-B/8：进一步增大 patch 分辨率，性能持续提升</p>
+<p>虽然减小 patch 大小不增加参数，但会显著增加序列长度和内存使用。</p>
+<h3 id="14">1.4 实验结果<a class="headerlink" href="#14" title="Permanent link">&para;</a></h3>
+<h4 id="141-imagenet">1.4.1 ImageNet 线性评估<a class="headerlink" href="#141-imagenet" title="Permanent link">&para;</a></h4>
+<p>DINO 在 ImageNet 线性评估中达到与有监督方法相当的性能，显著超越同期其他自监督方法（BYOL、MoCo v2、SwAV）。</p>
+<p><strong>关键发现</strong>：DINO 在 k-NN 评估上几乎与线性分类器持平，这一性质只在 DINO + ViT 组合中出现。</p>
+<h4 id="142">1.4.2 自注意力的语义分割<a class="headerlink" href="#142" title="Permanent link">&para;</a></h4>
+<p>DINO 最重要的发现之一：<strong>自监督 ViT 的自注意力图能自动学习语义分割</strong>。</p>
+<ul>
+<li><strong>观察</strong>：最后一层 Transformer 的 [CLS] token 的自注意力图显式显示了物体边界</li>
+<li><strong>意义</strong>：这表明模型在无监督情况下学习了类特定特征</li>
+<li><strong>对比</strong>：这种性质在有监督 ViT 和 CNN 中都不明显</li>
+</ul>
+<h4 id="143">1.4.3 图像检索<a class="headerlink" href="#143" title="Permanent link">&para;</a></h4>
+<p>DINO 特征在图像检索任务上表现出色。在 Google Landmarks v2 上预训练后，DINO 特征在检索任务上达到或超过了专门针对检索优化的方法。</p>
+<h3 id="15">1.5 与之前工作的对比<a class="headerlink" href="#15" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>类型</th>
+<th>负样本</th>
+<th>损失函数</th>
+<th>Teacher 更新</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SimCLR</td>
+<td>对比学习</td>
+<td>显式</td>
+<td>对比损失</td>
+<td>无</td>
+</tr>
+<tr>
+<td>MoCo</td>
+<td>对比学习</td>
+<td>队列</td>
+<td>对比损失</td>
+<td>动量</td>
+</tr>
+<tr>
+<td>BYOL</td>
+<td>自蒸馏</td>
+<td>无</td>
+<td>MSE</td>
+<td>EMA</td>
+</tr>
+<tr>
+<td>SwAV</td>
+<td>聚类</td>
+<td>无</td>
+<td>交叉熵</td>
+<td>无</td>
+</tr>
+<tr>
+<td><strong>DINO</strong></td>
+<td><strong>自蒸馏</strong></td>
+<td><strong>无</strong></td>
+<td><strong>交叉熵</strong></td>
+<td><strong>EMA</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>DINO 的独特之处</strong>：
+- 结合了 BYOL 的自蒸馏思想和 SwAV 的交叉熵损失
+- 不需要负样本、对比损失或 predictor
+- 通过中心化和锐化即可防止坍塌</p>
+<hr />
+<h2 id="2-dinov2">2. DINOv2：学习鲁棒的通用视觉特征<a class="headerlink" href="#2-dinov2" title="Permanent link">&para;</a></h2>
+<h3 id="21">2.1 背景与动机<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<h4 id="211">2.1.1 研究目标<a class="headerlink" href="#211" title="Permanent link">&para;</a></h4>
+<p>DINOv2 的目标是学习<strong>通用视觉特征</strong>：能够跨图像分布和任务工作，无需微调的特征。</p>
+<p>这类似于 NLP 中的基础模型（如 BERT、GPT），可以使用预训练特征"直接使用"，在下游任务上达到显著优于任务特定模型的性能。</p>
+<h4 id="212">2.1.2 现有方法的局限性<a class="headerlink" href="#212" title="Permanent link">&para;</a></h4>
+<p>论文识别了现有自监督方法的两个主要问题：</p>
+<ol>
+<li>
+<p><strong>数据质量问题</strong>：大多数自监督方法在小规模、精心策划的数据集（如 ImageNet-1k）上训练。当扩展到更大的未策划数据集时，特征质量会显著下降。</p>
+</li>
+<li>
+<p><strong>文本引导预训练的局限性</strong>：CLIP 等文本引导方法需要图像-文本对齐数据，且只能学习文本描述的信息，复杂的像素级信息可能无法通过文本监督获得。</p>
+</li>
+</ol>
+<h4 id="213">2.1.3 核心假设<a class="headerlink" href="#213" title="Permanent link">&para;</a></h4>
+<p>DINOv2 的核心假设是：<strong>如果在足够大且精心策划的多样化数据上训练，现有的自监督方法可以产生通用特征</strong>。</p>
+<h3 id="22-lvd-142m">2.2 数据管道：LVD-142M<a class="headerlink" href="#22-lvd-142m" title="Permanent link">&para;</a></h3>
+<p>DINOv2 最重要的贡献之一是<strong>自动数据策划管道</strong>，构建了 LVD-142M 数据集（1.42 亿张图像）。</p>
+<h4 id="221">2.2.1 数据源<a class="headerlink" href="#221" title="Permanent link">&para;</a></h4>
+<ol>
+<li><strong>策划数据</strong>（Curated Data）：</li>
+<li>ImageNet-22k（约 1400 万张图像）</li>
+<li>
+<p>其他高质量数据集</p>
+</li>
+<li>
+<p><strong>未策划数据</strong>（Uncurated Data）：</p>
+</li>
+<li>从公开网络爬取的原始图像</li>
+<li>初始收集 12 亿张唯一图像</li>
+<li>经过 PCA 哈希去重、NSFW 过滤、人脸模糊处理</li>
+</ol>
+<h4 id="222">2.2.2 数据处理流程<a class="headerlink" href="#222" title="Permanent link">&para;</a></h4>
+<p>整个数据管道包括三个阶段：</p>
+<p><strong>1. 嵌入计算（Embedding）</strong>：
+- 使用在 ImageNet-22k 上预训练的自监督 ViT-H/16 计算图像嵌入
+- 对策划数据和未策划数据都计算嵌入</p>
+<p><strong>2. 去重（Deduplication）</strong>：
+- 应用 Pizzi et al. (2022) 的拷贝检测管道
+- 移除未策划数据中的近似重复图像
+- 移除与任何基准测试集重复的图像</p>
+<p><strong>3. 自监督检索（Self-supervised Retrieval）</strong>：
+- 对未策划数据进行 k-means 聚类
+- 对于每个策划数据图像，检索 N=4 个最近邻（来自未策划数据）
+- 如果策划数据集较小，则从对应聚类中采样 M 张图像</p>
+<p><strong>实现细节</strong>：
+- 使用 Faiss 库进行高效的索引和批量最近邻搜索
+- 使用带乘积量化码的倒排文件索引（IVF-PQ）
+- 在 20 节点（8×V100-32GB GPU）集群上分布式处理
+- <strong>整个流程不到两天即可生成 LVD-142M 数据集</strong></p>
+<h3 id="23-dino-ibot">2.3 方法：DINO + iBOT 的组合<a class="headerlink" href="#23-dino-ibot" title="Permanent link">&para;</a></h3>
+<p>DINOv2 的学习目标可以看作是 DINO 和 iBOT 损失的组合，并加入了 SwAV 的中心化机制。</p>
+<h4 id="231-dino">2.3.1 DINO 损失（图像级）<a class="headerlink" href="#231-dino" title="Permanent link">&para;</a></h4>
+<p>与原始 DINO 相同，使用 student-teacher 架构：</p>
+<ul>
+<li><strong>Student</strong>：计算增强视图的投影特征 <span class="arithmatex">\(p_s\)</span></li>
+<li><strong>Teacher</strong>：通过 EMA 更新，计算目标特征 <span class="arithmatex">\(p_t\)</span></li>
+<li><strong>损失</strong>：交叉熵 <span class="arithmatex">\(L_{\text{DINO}} = -\sum_{k=1}^K p_t^{(k)} \log p_s^{(k)}\)</span></li>
+</ul>
+<h4 id="232-ibot-patch">2.3.2 iBOT 损失（Patch 级）<a class="headerlink" href="#232-ibot-patch" title="Permanent link">&para;</a></h4>
+<p>iBOT 损失在 patch 级别应用自蒸馏：</p>
+<ul>
+<li><strong>Masking</strong>：随机掩码 50% 的 patch</li>
+<li><strong>Student</strong>：预测被掩码 patch 的特征</li>
+<li><strong>Teacher</strong>：提供被掩码 patch 的目标特征</li>
+<li><strong>损失</strong>：<span class="arithmatex">\(L_{\text{iBOT}} = -\sum_{i \in \text{masked}} \sum_{k=1}^K p_{t,i}^{(k)} \log p_{s,i}^{(k)}\)</span></li>
+</ul>
+<p><strong>总损失</strong>：<span class="arithmatex">\(L = L_{\text{DINO}} + L_{\text{iBOT}}\)</span></p>
+<h4 id="233">2.3.3 关键技术改进<a class="headerlink" href="#233" title="Permanent link">&para;</a></h4>
+<p>相比原始 DINO 和 iBOT，DINOv2 引入了多个改进：</p>
+<p><strong>1. 解耦投影头（Untying Head Weights）</strong>：
+- DINO 和 iBOT 使用<strong>独立的投影头</strong>
+- 在原始 iBOT 中共享参数效果更好，但在大规模训练时相反
+- DINOv2 在所有实验中使用两个独立的头</p>
+<p><strong>2. Sinkhorn-Knopp 中心化</strong>：
+- 使用 SwAV 的 Sinkhorn-Knopp 批量归一化替代 teacher 的 softmax 中心化
+- 运行 3 次 Sinkhorn-Knopp 迭代
+- Student 仍然使用 softmax 归一化</p>
+<p><strong>3. KoLeo 正则化器</strong>：
+- 基于 Kozachenko-Leonenko 微分熵估计器
+- 鼓励批次内特征均匀分布
+- 定义为：<span class="arithmatex">\(L_{\text{KoLeo}} = -\frac{1}{n} \sum_{i=1}^n \log(d_{n,i})\)</span>
+- 其中 <span class="arithmatex">\(d_{n,i} = \min_{j \neq i} \|x_i - x_j\|\)</span> 是最小距离</p>
+<p><strong>4. 分辨率适配（Adapting Resolution）</strong>：
+- 在预训练的最后阶段将图像分辨率提升到 518×518
+- 对像素级下游任务（分割、检测）至关重要
+- 避免在整个预训练过程中使用高分辨率（节省时间和内存）</p>
+<h3 id="24">2.4 工程优化<a class="headerlink" href="#24" title="Permanent link">&para;</a></h3>
+<p>DINOv2 引入了多个工程优化，实现了相比 iBOT <strong>2 倍速度提升</strong>和 <strong>1/3 内存占用</strong>。</p>
+<h4 id="241">2.4.1 快速高效的注意力机制<a class="headerlink" href="#241" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>FlashAttention</strong>：自定义实现，融合注意力计算，减少内存占用</li>
+<li><strong>序列打包（Sequence Packing）</strong>：将多个不同长度的序列打包成单个长序列</li>
+<li><strong>块对角掩码</strong>：在自注意力矩阵中应用块对角掩码，防止不同序列之间的注意力</li>
+<li><strong>效率提升</strong>：相比单独的 forward/backward pass，序列打包显著提升计算效率</li>
+</ul>
+<h4 id="242-stochastic-depth">2.4.2 高效随机深度（Stochastic Depth）<a class="headerlink" href="#242-stochastic-depth" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>改进实现</strong>：跳过被丢弃残差的计算，而不是掩码结果</li>
+<li><strong>节省资源</strong>：内存和计算节省与丢弃率成正比</li>
+<li><strong>高丢弃率</strong>：使用 d=40% 的高丢弃率，大幅提升计算效率</li>
+<li><strong>实现细节</strong>：随机打乱批次维度，切片前 <span class="arithmatex">\((1-d) \times B\)</span> 个样本进行计算</li>
+</ul>
+<h4 id="243-fsdp">2.4.3 完全分片数据并行（FSDP）<a class="headerlink" href="#243-fsdp" title="Permanent link">&para;</a></h4>
+<p><strong>内存优化</strong>：
+- 使用 AdamW 优化器需要 4 个模型副本（student、teacher、优化器一阶矩、二阶矩）
+- 对于 10 亿参数模型，总计 16 GB 内存（float32 精度）
+- 使用 FSDP 将模型副本分片到多个 GPU
+- 模型大小不再受限于单个 GPU 内存，而是由所有 GPU 内存总和决定</p>
+<p><strong>通信优化</strong>：
+- 权重分片以 float32 精度存储（优化器要求）
+- 广播权重和归约梯度以 float16 精度进行（骨干网络）
+- MLP 头梯度以 float32 精度归约（避免训练不稳定）
+- <strong>通信成本减少约 50%</strong>（相比 DDP 的 float32 全归约）</p>
+<h3 id="25">2.5 模型家族<a class="headerlink" href="#25" title="Permanent link">&para;</a></h3>
+<p>DINOv2 训练了从 ViT-Small 到 ViT-Giant 的完整模型家族：</p>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>参数量</th>
+<th>Patch 大小</th>
+<th>训练数据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ViT-S/14</td>
+<td>21M</td>
+<td>14</td>
+<td>LVD-142M</td>
+</tr>
+<tr>
+<td>ViT-B/14</td>
+<td>86M</td>
+<td>14</td>
+<td>LVD-142M</td>
+</tr>
+<tr>
+<td>ViT-L/14</td>
+<td>304M</td>
+<td>14</td>
+<td>LVD-142M</td>
+</tr>
+<tr>
+<td>ViT-g/14</td>
+<td>1.1B</td>
+<td>14</td>
+<td>LVD-142M</td>
+</tr>
+</tbody>
+</table>
+<p><strong>训练策略</strong>：
+- 先在 ViT-g 上预训练
+- 使用知识蒸馏生成较小的模型（ViT-S/B/L）
+- 所有模型使用相同的训练配置</p>
+<h3 id="26">2.6 实验结果<a class="headerlink" href="#26" title="Permanent link">&para;</a></h3>
+<h4 id="261">2.6.1 图像分类<a class="headerlink" href="#261" title="Permanent link">&para;</a></h4>
+<p>DINOv2 在多个图像分类基准上的表现：</p>
+<p>DINOv2 在所有 ImageNet 变体（ImageNet-1k、ImageNet-A、ImageNet-R、ImageNet-Sketch）上都超过了 CLIP 和有监督方法，在分布外基准上优势更明显，证明了自监督特征的鲁棒性。</p>
+<h4 id="262">2.6.2 语义分割<a class="headerlink" href="#262" title="Permanent link">&para;</a></h4>
+<p>在 ADE20K 上的语义分割性能（冻结特征 + 线性分类器）：</p>
+<p>DINOv2 特征在像素级任务上显著优于 CLIP 和有监督方法，因为自监督学习可以学习更丰富的空间信息。</p>
+<h4 id="263">2.6.3 单目深度估计<a class="headerlink" href="#263" title="Permanent link">&para;</a></h4>
+<p>在 NYU-Depth v2 上的性能：</p>
+<p>DINOv2 在深度估计任务上达到了最佳性能，证明了特征的几何理解能力。</p>
+<h4 id="264">2.6.4 图像检索<a class="headerlink" href="#264" title="Permanent link">&para;</a></h4>
+<p>在多个检索基准上的性能：</p>
+<p>DINOv2 在检索任务上大幅超越所有基线方法。</p>
+<h4 id="265">2.6.5 视频理解<a class="headerlink" href="#265" title="Permanent link">&para;</a></h4>
+<p>在 Kinetics-400 上的视频分类性能（冻结特征 + 线性分类器）：</p>
+<p>DINOv2 特征在视频理解任务上也表现出色，证明了时空特征的泛化能力。</p>
+<h3 id="27">2.7 与弱监督方法的对比<a class="headerlink" href="#27" title="Permanent link">&para;</a></h3>
+<p>DINOv2 与最佳弱监督方法（OpenCLIP）的对比：</p>
+<p><strong>结论</strong>：DINOv2 在大多数任务上达到或超过了弱监督方法，特别是在像素级任务（分割、深度估计）上优势明显。图像分类上略低于 OpenCLIP，但在分割、深度估计、检索和视频理解上均超越。</p>
+<hr />
+<h2 id="3-dino">3. DINO 系列的技术演进<a class="headerlink" href="#3-dino" title="Permanent link">&para;</a></h2>
+<h3 id="31-dino-dinov2">3.1 从 DINO 到 DINOv2 的关键改进<a class="headerlink" href="#31-dino-dinov2" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>DINO (2021)</th>
+<th>DINOv2 (2023)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>数据规模</strong></td>
+<td>ImageNet-1k (1.3M)</td>
+<td>LVD-142M (142M)</td>
+</tr>
+<tr>
+<td><strong>模型规模</strong></td>
+<td>ViT-S/B (21-85M)</td>
+<td>ViT-S/B/L/g (21M-1.1B)</td>
+</tr>
+<tr>
+<td><strong>学习目标</strong></td>
+<td>DINO 损失</td>
+<td>DINO + iBOT 损失</td>
+</tr>
+<tr>
+<td><strong>中心化</strong></td>
+<td>EMA 中心化</td>
+<td>Sinkhorn-Knopp</td>
+</tr>
+<tr>
+<td><strong>正则化</strong></td>
+<td>无</td>
+<td>KoLeo 正则化器</td>
+</tr>
+<tr>
+<td><strong>分辨率</strong></td>
+<td>固定 224×224</td>
+<td>最后阶段 518×518</td>
+</tr>
+<tr>
+<td><strong>投影头</strong></td>
+<td>共享</td>
+<td>解耦</td>
+</tr>
+<tr>
+<td><strong>工程优化</strong></td>
+<td>标准</td>
+<td>FlashAttention、FSDP、序列打包</td>
+</tr>
+</tbody>
+</table>
+<h3 id="32">3.2 核心思想的演进<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
+<h4 id="321">3.2.1 自蒸馏范式<a class="headerlink" href="#321" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>DINO</strong>：首次提出无标签自蒸馏，证明了 student-teacher 架构在 ViT 上的有效性</li>
+<li><strong>DINOv2</strong>：扩展到 patch 级别（iBOT），结合图像级和 patch 级别的目标</li>
+</ul>
+<h4 id="322">3.2.2 数据策划<a class="headerlink" href="#322" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>DINO</strong>：使用标准数据集（ImageNet-1k）</li>
+<li><strong>DINOv2</strong>：开发自动数据管道，从 12 亿未策划图像中提取 1.42 亿高质量图像</li>
+</ul>
+<h4 id="323">3.2.3 规模化训练<a class="headerlink" href="#323" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>DINO</strong>：在 ImageNet-1k 上验证方法有效性</li>
+<li><strong>DINOv2</strong>：扩展到 10 亿参数模型，引入多个工程优化</li>
+</ul>
+<h3 id="33">3.3 特征性质的演进<a class="headerlink" href="#33" title="Permanent link">&para;</a></h3>
+<h4 id="331-dino">3.3.1 DINO 的涌现性质<a class="headerlink" href="#331-dino" title="Permanent link">&para;</a></h4>
+<ul>
+<li>自注意力图自动学习语义分割</li>
+<li>k-NN 分类器性能接近线性分类器</li>
+<li>特征在检索任务上表现出色</li>
+</ul>
+<h4 id="332-dinov2">3.3.2 DINOv2 的通用性<a class="headerlink" href="#332-dinov2" title="Permanent link">&para;</a></h4>
+<ul>
+<li>特征在图像分类、分割、深度估计、检索、视频理解等任务上都表现出色</li>
+<li>无需微调即可使用，达到或超过弱监督方法</li>
+<li>特征具有强鲁棒性，在分布外数据上表现稳定</li>
+</ul>
+<hr />
+<h2 id="4">4. 总结<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<h3 id="41-dino">4.1 DINO 系列的核心贡献<a class="headerlink" href="#41-dino" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>方法论贡献</strong>：</li>
+<li>提出无标签自蒸馏范式</li>
+<li>证明了 student-teacher 架构在 ViT 上的有效性</li>
+<li>
+<p>结合图像级和 patch 级别的自蒸馏目标</p>
+</li>
+<li>
+<p><strong>数据贡献</strong>：</p>
+</li>
+<li>开发自动数据策划管道</li>
+<li>构建 LVD-142M 大规模数据集</li>
+<li>
+<p>证明了数据质量对特征质量的重要性</p>
+</li>
+<li>
+<p><strong>工程贡献</strong>：</p>
+</li>
+<li>FlashAttention、序列打包、高效随机深度、FSDP</li>
+<li>实现 2 倍速度提升和 2/3 内存减少</li>
+<li>
+<p>使大规模自监督训练变得可行</p>
+</li>
+<li>
+<p><strong>特征贡献</strong>：</p>
+</li>
+<li>学习了通用、鲁棒的视觉特征</li>
+<li>无需微调即可在多种任务上使用</li>
+<li>在像素级任务上显著优于文本引导方法</li>
+</ol>
+<h3 id="42">4.2 对自监督学习的启示<a class="headerlink" href="#42" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>数据质量 &gt; 数据数量</strong>：DINOv2 证明了精心策划的数据比未策划的大规模数据更重要</p>
+</li>
+<li>
+<p><strong>自监督学习可以扩展</strong>：通过合适的工程优化，自监督学习可以扩展到 10 亿参数规模</p>
+</li>
+<li>
+<p><strong>自监督特征具有独特性质</strong>：自监督 ViT 的自注意力图可以自动学习语义分割，这是有监督方法不具备的</p>
+</li>
+<li>
+<p><strong>自监督 vs 弱监督</strong>：在像素级任务上，自监督特征可以超过弱监督特征（如 CLIP）</p>
+</li>
+</ol>
+<h3 id="43">4.3 局限性与未来方向<a class="headerlink" href="#43" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>计算成本</strong>：虽然 DINOv2 优化了训练效率，但大规模自监督训练仍然需要大量计算资源</p>
+</li>
+<li>
+<p><strong>文本信息</strong>：DINOv2 完全基于自监督，未利用文本信息。未来可以探索结合自监督和文本引导的方法</p>
+</li>
+<li>
+<p><strong>多模态扩展</strong>：DINOv2 主要关注视觉特征，未来可以扩展到多模态学习</p>
+</li>
+<li>
+<p><strong>下游任务适配</strong>：虽然 DINOv2 特征无需微调即可使用，但在某些特定任务上微调可能带来进一步提升</p>
+</li>
+</ol>
+<hr />
+<h2 id="5">5. 与其他自监督方法的对比<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>年份</th>
+<th>类型</th>
+<th>骨干网络</th>
+<th>数据规模</th>
+<th>关键创新</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SimCLR</td>
+<td>2020</td>
+<td>对比学习</td>
+<td>CNN/ViT</td>
+<td>ImageNet-1k</td>
+<td>简单对比框架</td>
+</tr>
+<tr>
+<td>MoCo v2</td>
+<td>2020</td>
+<td>对比学习</td>
+<td>CNN</td>
+<td>ImageNet-1k</td>
+<td>动量编码器 + 队列</td>
+</tr>
+<tr>
+<td>BYOL</td>
+<td>2020</td>
+<td>自蒸馏</td>
+<td>CNN</td>
+<td>ImageNet-1k</td>
+<td>无需负样本</td>
+</tr>
+<tr>
+<td>SwAV</td>
+<td>2020</td>
+<td>聚类</td>
+<td>CNN</td>
+<td>ImageNet-1k</td>
+<td>在线聚类</td>
+</tr>
+<tr>
+<td><strong>DINO</strong></td>
+<td><strong>2021</strong></td>
+<td><strong>自蒸馏</strong></td>
+<td><strong>ViT</strong></td>
+<td><strong>ImageNet-1k</strong></td>
+<td><strong>无标签自蒸馏 + ViT</strong></td>
+</tr>
+<tr>
+<td>iBOT</td>
+<td>2022</td>
+<td>自蒸馏</td>
+<td>ViT</td>
+<td>ImageNet-1k</td>
+<td>Patch 级自蒸馏</td>
+</tr>
+<tr>
+<td><strong>DINOv2</strong></td>
+<td><strong>2023</strong></td>
+<td><strong>自蒸馏</strong></td>
+<td><strong>ViT</strong></td>
+<td><strong>LVD-142M</strong></td>
+<td><strong>大规模数据 + 工程优化</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="6">6. 学习建议<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<h3 id="61">6.1 推荐学习顺序<a class="headerlink" href="#61" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>第 1 周</strong>：DINO 论文 + 对比学习背景（SimCLR、MoCo、BYOL）</li>
+<li><strong>第 2 周</strong>：DINO 实验分析（自注意力可视化、k-NN 性能）</li>
+<li><strong>第 3 周</strong>：DINOv2 论文 + 数据管道</li>
+<li><strong>第 4 周</strong>：DINOv2 实验分析 + 工程优化</li>
+</ol>
+<h3 id="62">6.2 重点关注<a class="headerlink" href="#62" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>自蒸馏机制</strong>：理解 student-teacher 架构和 EMA 更新</li>
+<li><strong>防止坍塌</strong>：中心化和锐化的作用</li>
+<li><strong>ViT 的独特性质</strong>：自注意力图的语义分割能力</li>
+<li><strong>数据策划</strong>：自动数据管道的设计</li>
+<li><strong>工程优化</strong>：FlashAttention、FSDP、序列打包</li>
+</ul>
+<h3 id="63">6.3 前置知识<a class="headerlink" href="#63" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Vision Transformer</strong>：ViT 架构、自注意力机制</li>
+<li><strong>自监督学习</strong>：对比学习、自蒸馏、聚类方法</li>
+<li><strong>知识蒸馏</strong>：student-teacher 框架</li>
+<li><strong>分布式训练</strong>：数据并行、模型并行</li>
+</ul>
+<hr />
+<h2 id="7">7. 代码与资源<a class="headerlink" href="#7" title="Permanent link">&para;</a></h2>
+<h3 id="71">7.1 官方代码<a class="headerlink" href="#71" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>DINO</strong>：https://github.com/facebookresearch/dino</li>
+<li><strong>DINOv2</strong>：https://github.com/facebookresearch/dinov2</li>
+</ul>
+<h3 id="72">7.2 预训练模型<a class="headerlink" href="#72" title="Permanent link">&para;</a></h3>
+<p>DINOv2 提供了完整的预训练模型家族：</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+
+<span class="c1"># 加载 DINOv2 模型</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">hub</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;facebookresearch/dinov2&#39;</span><span class="p">,</span> <span class="s1">&#39;dinov2_vitb14&#39;</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+
+<span class="c1"># 提取特征</span>
+<span class="n">images</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">)</span>
+<span class="n">features</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">images</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">features</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>  <span class="c1"># torch.Size([1, 768])</span>
+</code></pre></div>
+<h3 id="73">7.3 相关资源<a class="headerlink" href="#73" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>论文精读字幕</strong>：对比学习论文综述【论文精读】</li>
+<li><strong>相关论文</strong>：ViT、BEiT、MAE、CLIP</li>
+<li><strong>基准测试</strong>：ImageNet、ADE20K、NYU-Depth v2、Kinetics-400</li>
+</ul>
+<hr />
+<p><strong>最后更新</strong>：2024-01-15</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.top", "navigation.instant", "search.highlight", "content.code.copy", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
