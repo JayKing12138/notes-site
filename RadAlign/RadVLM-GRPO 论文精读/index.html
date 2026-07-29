@@ -2834,11 +2834,10 @@
 <h2 id="0">0. 简历版项目介绍<a class="headerlink" href="#0" title="Permanent link">&para;</a></h2>
 <p><strong>RadAlign：用临床导向的奖励对齐放射学 VLM</strong>（多模态大模型 SFT 与 RL 后训练研究）</p>
 <ul>
-<li><strong>项目概述</strong>：面向胸部 X 光医学垂域，基于多机多卡分布式训练，用 SFT + GRPO 两阶段后训练多模态 VLM，统一优化报告生成与视觉定位两类临床任务。</li>
+<li><strong>项目概述</strong>：面向胸部 X 光医学垂域，基于多机多卡分布式训练，用 SFT + GRPO 两阶段后训练多模态 VLM，优化放射学报告生成任务。</li>
 <li><strong>多模态 SFT 全参数微调</strong>：基于 Qwen3-VL-8B-Instruct，用 LLaMA-Factory + DeepSpeed ZeRO-3 做全参数 SFT，训练数据为 ShareGPT 风格指令对，使用 bf16 混合精度训练。</li>
 <li><strong>GRPO 强化学习</strong>：使用 verl + Ray 实现 GRPO 算法，配置非对称 clip、KL 散度约束等增强训练稳定性；Actor + Reference + vLLM Rollout 三份模型副本通过 ZeRO-3 分片协同，解决 FSDP 训练与 vLLM 推理内存布局不兼容问题。</li>
-<li><strong>奖励工程</strong>：设计领域对齐的复合 reward：报告生成用多个评测模型加权组合的综合指标，视觉定位用基于 IoU 的内联规则奖励函数。</li>
-<li><strong>分布式 Reward Server</strong>：独立节点跑多个 FastAPI worker 并行运行 reward 计算服务，与训练节点解耦避免显存争用。</li>
+<li><strong>奖励工程</strong>：设计多评测模型加权复合 reward，独立节点部署 FastAPI 并行打分，与训练解耦避免争用。</li>
 </ul>
 <blockquote>
 <p><strong>口述亮点</strong>：（1）GRPO 相比 PPO 砍掉 critic、用组相对优势的算法理解；（2）verl 工程实现里 Actor/Rollout 权重共享却需独立存储的 FSDP/vLLM 兼容问题；（3）reward hacking 的发现与综合指标规避方案——这三点最能体现对 RL 训练和工程的理解深度。</p>

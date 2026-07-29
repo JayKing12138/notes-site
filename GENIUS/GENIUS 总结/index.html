@@ -371,10 +371,27 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📋 简历版项目介绍
+        ⚡ 关键数字（论文原文）
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="⚡ 关键数字（论文原文）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#table-6-table-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🛒 电商（时尚）相关子数据集（附录 Table 6 / Table 1）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1168,6 +1185,45 @@
       
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-grace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 对比基线：GRACE
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. 对比基线：GRACE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 核心思想
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 方法：两步训练
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2666,10 +2722,27 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📋 简历版项目介绍
+        ⚡ 关键数字（论文原文）
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="⚡ 关键数字（论文原文）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#table-6-table-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🛒 电商（时尚）相关子数据集（附录 Table 6 / Table 1）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3466,6 +3539,45 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#8-grace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 对比基线：GRACE
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. 对比基线：GRACE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 核心思想
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 方法：两步训练
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3490,14 +3602,104 @@
 代码链接：https://github.com/sung-yeon-kim/GENIUS-CVPR25
 作者：Sungyeon Kim, Xinliang Zhu, Xiaofan Lin, Muhammet Bastan, Douglas Gray, Suha Kwak</p>
 </blockquote>
-<h2 id="_1">📋 简历版项目介绍<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>▪ <strong>GENIUS：面向通用多模态搜索的生成式检索框架</strong>（CVPR 2025）</p>
-<p><strong>技术栈</strong>：PyTorch、Transformers、CLIP、T5、ResidualVQ、Trie、Beam Search</p>
-<p><strong>项目概述</strong>：面向搜索系统中"多种查询形态共用一套召回链路"的需求，基于 CLIP-SF + RVQ + T5 构建生成式检索框架，训练拆为三阶段流水线，各阶段独立迭代、按需升级。</p>
-<p>三阶段训练流水线：Feature Extraction → Quantizer Training → Generator Training，分别解决多模态理解、候选编码、高效检索三大问题，组件冻结解耦，便于工程维护与局部升级。</p>
-<p>多模态理解：基于 CLIP-SF 双塔提取图文特征，设计 Combiner按查询内容自适应调节图文融合权重，支持图搜、文搜、图文混合搜等多种 query 形态统一接入。</p>
-<p>候选编码：基于 ResidualVQ 将融合向量映射为分层离散码，首层标记模态、后续层由粗到细编码语义，相似候选共享前缀。</p>
-<p>高效检索：基于 T5 decoder 自回归生成候选码，用 Trie-constrained Beam Search 保证生成结果必指向真实候选，避免无效召回；inference 阶段配合 embedding-based re-ranking 纠偏，兼顾速度与准确性。</p>
+<h2 id="_1">⚡ 关键数字（论文原文）<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>关键数字</th>
+<th>出处</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>数据集</strong></td>
+<td>M-BEIR（UniIR 提出，HuggingFace: <code>TIGER-Lab/M-BEIR</code>），由 10 个数据集组成（MS-COCO、Fashion200K、FashionIQ、VisualNews、NIGHTS、OVEN、EDIS、CIRR、InfoSeek、WebQA），覆盖 4 个领域、8 类检索任务；训练 query <strong>1.1M</strong>、验证 182K、测试 190K，候选库 <strong>5.6M</strong> 条；universal 检索即在全量 5.6M 候选池上评测</td>
+<td>5.1 节 + Table 6</td>
+</tr>
+<tr>
+<td><strong>硬件</strong></td>
+<td>训练 <strong>4×RTX 3090</strong>，推理速度均在<strong>单张 RTX 3090</strong> 上测得——全程消费级显卡</td>
+<td>附录 B.2 / Fig. 4 图注</td>
+</tr>
+<tr>
+<td><strong>推理速度</strong></td>
+<td>文搜图 beam=30 时 <strong>19.6 QPS</strong>（≈51 ms/query），beam=50 时 11.9 QPS——beam 越大召回越好但延迟上升</td>
+<td>附录 p14</td>
+</tr>
+<tr>
+<td><strong>对比 GRACE</strong></td>
+<td>GENIUS（T5-small + CLIP encoder）吞吐约为 GRACE（Flamingo-3B）的 <strong>4 倍</strong>；候选库 0→300K，生成式方法速度几乎不变，CLIP 向量检索明显下降</td>
+<td>Fig. 4</td>
+</tr>
+<tr>
+<td><strong>存储</strong></td>
+<td>每条候选仅 <strong>98 bits</strong>（2-bit 模态码 + 8×12-bit 语义码）≈ 0.012 KB，比 CLIP 768 维 float 向量（≈3 KB）节省 <strong>99%+</strong></td>
+<td>Table 7</td>
+</tr>
+<tr>
+<td><strong>训练效率</strong></td>
+<td>1.1M 样本、4×RTX3090 下量化器仅 0.4h + 生成器 2h（CLIP encoder 本身 91h）；按单样本算比 GRACE 高约 <strong>2.8 倍</strong></td>
+<td>附录 B.2</td>
+</tr>
+<tr>
+<td><strong>三阶段耗时</strong></td>
+<td>CLIP-SF encoder <strong>91h</strong> / 残差量化器 <strong>0.4h</strong> / T5 生成器 <strong>2h</strong>——CLIP-SF 直接复用 UniIR 预训练权重并冻结，GENIUS 真正的训练增量只有 Stage 1+2 约 <strong>2.4h</strong>；论文未单独给出 Stage 0 特征提取耗时</td>
+<td>附录 B.2</td>
+</tr>
+<tr>
+<td><strong>精度</strong></td>
+<td>Flickr30K 零样本 R@5 <strong>74.1%</strong>（超 GRACE 15+ 个百分点）；COCO R@5 <strong>65.5%</strong> vs GRACE 39.2%、IRGen 50.7%</td>
+<td>附录 D.1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="table-6-table-1">🛒 电商（时尚）相关子数据集（附录 Table 6 / Table 1）<a class="headerlink" href="#table-6-table-1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>数据集 · 任务</th>
+<th>训练 query</th>
+<th>验证 / 测试</th>
+<th>候选库</th>
+<th>精度（GENIUS+重排 vs CLIP-SF）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fashion200K 文搜图（<span class="arithmatex">\(q_t \to c_i\)</span>）</td>
+<td>15K</td>
+<td>1.7K / 1.7K</td>
+<td>201K</td>
+<td>R@10 16.2 vs 18.0</td>
+</tr>
+<tr>
+<td>Fashion200K 图搜文（<span class="arithmatex">\(q_i \to c_t\)</span>）</td>
+<td>15K</td>
+<td>4.8K / 4.8K</td>
+<td>61K</td>
+<td>R@10 16.3 vs 18.3</td>
+</tr>
+<tr>
+<td>FashionIQ 图文改款搜索（<span class="arithmatex">\((q_i,q_t) \to c_i\)</span>）</td>
+<td>16K</td>
+<td>2K / 6K</td>
+<td>74K</td>
+<td>R@10 19.3 vs 24.4</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>≈46K</strong></td>
+<td>—</td>
+<td><strong>≈336K</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>时尚子集仅占全量 M-BEIR 约 <strong>4% 训练量、6% 候选库</strong>；FashionIQ 的"商品图 + 修改指令 → 目标商品图"即电商典型的改款搜索形态</li>
+<li>注意：时尚子集上生成式方法精度仍低于嵌入式基线（CLIP-SF），且 GRACE/IRGen 未在时尚数据集上报告数字（只测了 COCO）——"领先 GRACE 28.6pt"的结论只在 COCO 文搜图上成立</li>
+</ul>
 <hr />
 <h2 id="1">1. 项目概述<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
 <p>GENIUS 是一个<strong>通用生成式多模态检索框架</strong>，用单一模型支持多种跨模态检索任务，包括图文搜图、图文搜文、文搜图、图搜文、图文搜图文等。与传统基于嵌入向量+最近邻检索的方法不同，GENIUS 将多模态内容编码为离散的分层 ID，通过生成式检索实现常数时间查找，检索速度不随候选库规模增长而变慢。</p>
@@ -4824,6 +5026,24 @@ bash<span class="w"> </span>configs_scripts/large/eval/inbatch/run_eval.sh
 <li><strong>查询增强提升泛化</strong>：训练时混合 query 和 target 作为输入，增强模型对不同查询类型的适应能力</li>
 <li><strong>M-BEIR 基准可复用</strong>：多模态检索的标准评测集，适合作为搜索业务的离线评估基准</li>
 </ol>
+<hr />
+<h2 id="8-grace">8. 对比基线：GRACE<a class="headerlink" href="#8-grace" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>论文：Generative Cross-Modal Retrieval: Memorizing Images in Multimodal Language Models for Retrieval and Beyond（Li et al., ACL 2024）
+论文链接：https://arxiv.org/abs/2402.10805 | 本地：<code>pdf/grace.pdf</code>
+GENIUS 的最主要生成式检索对比基线（GENIUS 论文引用编号 [27]）</p>
+</blockquote>
+<h3 id="81">8.1 核心思想<a class="headerlink" href="#81" title="Permanent link">&para;</a></h3>
+<p><strong>把图片"背进"多模态大模型的参数里</strong>：给每张图片分配一个唯一的标识符字符串（identifier），检索时 MLLM 根据文字 query 直接"回忆"生成目标图片的 ID——把跨模态匹配问题转化为生成问题，训练不再需要负样本，推理不再需要向量索引，检索耗时与图库规模无关。</p>
+<p><strong>动机</strong>：LLM 能背下文本知识回答"谢尔顿是谁"，但问"他长什么样"只能文字描述。外挂扩散模型会生成幻觉图像（画不出真实照片），外挂检索模块存在两个独立模块间的衔接鸿沟（transition gap）——于是提出让 MLLM 在参数内记忆并召回真实图片。</p>
+<h3 id="82">8.2 方法：两步训练<a class="headerlink" href="#82" title="Permanent link">&para;</a></h3>
+<p>底座模型为 <strong>Flamingo</strong>（open-flamingo 实现；GENIUS 论文注明其对比的是 Flamingo-3B），由生成式语言模型 + 视觉编码器 + 交叉注意力层组成。</p>
+<ol>
+<li><strong>Learning to memorize（学习记忆）</strong>：输入图片 + 指令 "Predict the identifier for the \&lt;image&gt;"，用标准文本生成损失训模型输出该图的 ID，把"视觉内容 → ID"映射编码进参数</li>
+<li><strong>Learning to retrieve（学习检索）</strong>：输入文字 query + 指令 "Predict the image identifier corresponding to the given query"，训模型生成目标图的 ID</li>
+</ol>
+<p><strong>推理</strong>：只输入文字 query（完全不需要候选图片的视觉信息），Trie 约束 beam search 生成合法 ID，按语言模型得分排序即检索结果。</p>
+<p><img alt="image-20260729145444039" src="../images/image-20260729145444039.png" /></p>
 
 
 
