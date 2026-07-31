@@ -2786,12 +2786,12 @@
   <a href="#_62" class="md-nav__link">
     <span class="md-ellipsis">
       
-        工程实现
+        工程实现 🚗
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="工程实现">
+    <nav class="md-nav" aria-label="工程实现 🚗">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2828,10 +2828,21 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#logits-logp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Logits 与 LogP 的关系 🚗
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#token-k1-k3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        逐 Token 计算 K1 / K3
+        逐 Token 计算 K1 / K3 🚗
       
     </span>
   </a>
@@ -5972,12 +5983,12 @@
   <a href="#_62" class="md-nav__link">
     <span class="md-ellipsis">
       
-        工程实现
+        工程实现 🚗
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="工程实现">
+    <nav class="md-nav" aria-label="工程实现 🚗">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -6014,10 +6025,21 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#logits-logp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Logits 与 LogP 的关系 🚗
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#token-k1-k3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        逐 Token 计算 K1 / K3
+        逐 Token 计算 K1 / K3 🚗
       
     </span>
   </a>
@@ -7037,7 +7059,7 @@ Actor 生成回答
 <h5 id="reference-model">Reference Model<a class="headerlink" href="#reference-model" title="Permanent link">&para;</a></h5>
 <p>Reference Model <span class="arithmatex">\(\pi_{\text{ref}}\)</span> 是 SFT 模型的冻结副本，训练期间参数不更新。它不对 Prompt 自由生成回答，而是对 Actor 已经生成的回答做 teacher forcing，计算每个 token 的参考 log probability：</p>
 <div class="arithmatex">\[\log \pi_{\text{ref}}(y_t \mid x, y_{&lt;t})\]</div>
-<p><strong>Teacher forcing 的含义</strong></p>
+<p><strong>Teacher forcing 的含义</strong> ❓</p>
 <p>自回归模型生成下一个 token 时，需要把"已生成的 token"作为输入。这里有两种方式：</p>
 <table>
 <thead>
@@ -7095,7 +7117,10 @@ Actor 生成回答
 </table>
 <p>注意：<span class="arithmatex">\(y_1, y_2, y_3\)</span> 都是 Actor 已经生成的 token，不是 Reference 自己生成的。Reference 只是被"强制"按这个序列逐位计算概率，所以叫 teacher forcing。</p>
 <p>如果用自由生成，Reference 可能会生成另一条不同的回答，就没法逐 token 和 Actor 对齐比较了。teacher forcing 让 Reference 一次性、确定性地给出"SFT 模型对 Actor 这条回答的逐 token 概率"，从而算出 KL 惩罚：</p>
+<p>单样本：</p>
 <div class="arithmatex">\[\text{KL}_t = \log \pi_\theta(y_t \mid x, y_{&lt;t}) - \log \pi_{\text{ref}}(y_t \mid x, y_{&lt;t})\]</div>
+<p>多样本：</p>
+<div class="arithmatex">\[ \sum_{i \in Vocab} \pi_\theta(i) \cdot \log \frac{\pi_\theta(i)}{\pi_{ref}(i)} \]</div>
 <p>Reference 的作用不是判断回答好不好，而是判断"当前 Actor 与原来的 SFT 模型相比偏离了多少"。</p>
 <h5 id="reward-model">Reward Model<a class="headerlink" href="#reward-model" title="Permanent link">&para;</a></h5>
 <p>Reward Model <span class="arithmatex">\(R_\phi(x, y)\)</span> 输入完整 Prompt + Response，输出一个标量分数，表示回答符合人类偏好的程度。它通常在 PPO 之前用偏好数据 <span class="arithmatex">\((x, y_w, y_l)\)</span> 单独训练，PPO 阶段冻结。</p>
@@ -9448,7 +9473,7 @@ s5：问题 + &quot;23 × 17 =&quot;
 </table>
 <p>K3 唯一的代价是比 K1 多一次 <code>exp()</code> 运算，复杂度量级完全不变。极端策略漂移时 <span class="arithmatex">\(e^{\Delta}\)</span> 可能数值溢出，工程上一般对 <span class="arithmatex">\(\Delta\)</span> 做上下限裁剪。</p>
 <hr />
-<h3 id="_62">工程实现<a class="headerlink" href="#_62" title="Permanent link">&para;</a></h3>
+<h3 id="_62">工程实现 🚗<a class="headerlink" href="#_62" title="Permanent link">&para;</a></h3>
 <h4 id="_63">自回归拆分<a class="headerlink" href="#_63" title="Permanent link">&para;</a></h4>
 <p>单条序列的联合概率是连乘，数值极小容易浮点下溢，所以全部取对数，<strong>乘积变累加</strong>：</p>
 <div class="arithmatex">\[\log \pi(y) = \log p(y_1) + \log p(y_2 \mid y_1) + \dots + \log p(y_M \mid y_{1:M-1}) = \sum_{t=1}^{M} \log p(y_t \mid y_{&lt;t})\]</div>
@@ -9471,9 +9496,17 @@ s5：问题 + &quot;23 × 17 =&quot;
 <span class="n">token_logp</span> <span class="o">=</span> <span class="n">log_probs</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>   <span class="c1"># [1, M]</span>
 </code></pre></div>
 <p>这就是 HuggingFace 里 <code>logits[:, :-1]</code> 配 <code>labels[:, 1:]</code> 的那次经典移位，写成 <code>logits[:, L:L+M, :]</code> 会整体错开一格，算出来的其实是 <span class="arithmatex">\(y_2 \dots y_{M+1}\)</span> 的概率。</p>
-<p>关于 <code>log_softmax</code> 与 logits 的关系，以及为什么这里必须用 Temperature = 1.0，见第二章 <code>π 的概率怎么算（工程实现）</code>。</p>
-<h4 id="token-k1-k3">逐 Token 计算 K1 / K3<a class="headerlink" href="#token-k1-k3" title="Permanent link">&para;</a></h4>
-<p>策略模型和参考模型各跑一遍上面的流程，输入完全相同的 <code>input_ids</code>，得到两组 <code>[B, M]</code> 的对数概率：</p>
+<h4 id="logits-logp">Logits 与 LogP 的关系 🚗<a class="headerlink" href="#logits-logp" title="Permanent link">&para;</a></h4>
+<p>上面代码里 <code>logits → log_softmax → gather</code> 这条链的数学关系是"硬"的。设模型最后一层输出的 Logits 向量为 <span class="arithmatex">\(z\)</span>（形状为 <code>[词表大小]</code>）：</p>
+<p><strong>第一步（Softmax）</strong>：将 Logits 转为普通概率 <span class="arithmatex">\(P\)</span>，范围在 <span class="arithmatex">\([0, 1]\)</span>：</p>
+<div class="arithmatex">\[P_i = \frac{e^{z_i}}{\sum_{j} e^{z_j}}\]</div>
+<p><strong>第二步（取对数）</strong>：将概率 <span class="arithmatex">\(P\)</span> 转为对数概率 LogP：</p>
+<div class="arithmatex">\[\text{LogP}_i = \log(P_i) = z_i - \log\sum_j e^{z_j}\]</div>
+<p>在深度学习框架（PyTorch）中，这两步通常不分开写，而是直接用内置函数 <code>log_softmax(logits)</code> 一次性完成——先取指数再取对数容易数值溢出（Inf/NaN）：<span class="arithmatex">\(e^{z_i}\)</span> 在 <span class="arithmatex">\(z_i\)</span> 较大时会上溢，<span class="arithmatex">\(P_i\)</span> 极小时 <span class="arithmatex">\(\log\)</span> 又会下溢；<code>log_softmax</code> 内部用展开后的形式 <span class="arithmatex">\(z_i - \log\sum_j e^{z_j}\)</span>（配合 max 平移的 logsumexp 技巧）计算，全程不出现极端中间值。</p>
+<p>所以 <strong>LogP 不是新东西，就是 Logits 减去一个归一化常数</strong> <span class="arithmatex">\(\log\sum_j e^{z_j}\)</span>——同一位置所有词共享这个常数，词与词之间的相对大小关系在 Logits 和 LogP 里完全一致。</p>
+<p>关于 log_softmax 与 logits 的关系，以及为什么这里必须用 Temperature = 1.0，见第二章 <code>π 的概率怎么算（工程实现）</code>。</p>
+<h4 id="token-k1-k3">逐 Token 计算 K1 / K3 🚗<a class="headerlink" href="#token-k1-k3" title="Permanent link">&para;</a></h4>
+<p>策略模型和参考模型各跑一遍上面的流程，输入完全相同的 <code>input_ids</code>，得到两组 <code>[B, M]</code> 的对数概率：🚗</p>
 <div class="highlight"><pre><span></span><code><span class="n">logp_theta</span> <span class="o">=</span> <span class="n">get_token_logp</span><span class="p">(</span><span class="n">actor_model</span><span class="p">,</span> <span class="n">input_ids</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">M</span><span class="p">)</span>   <span class="c1"># [B, M]</span>
 <span class="n">logp_ref</span>   <span class="o">=</span> <span class="n">get_token_logp</span><span class="p">(</span><span class="n">ref_model</span><span class="p">,</span>   <span class="n">input_ids</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">M</span><span class="p">)</span>   <span class="c1"># [B, M]</span>
 
