@@ -2301,6 +2301,11 @@
 <td>小数据+frozen encoder 下对比学习信号太弱，6 轮迭代均未收敛</td>
 </tr>
 <tr>
+<td>Traj-MLLM 复现（多图+渲染）</td>
+<td>⚠️ 复现成功但不采用</td>
+<td>TTE/AD/MP 与论文咬紧，差距在 prompt；但多图无价值、渲染依赖重（详见主文档 6 章）</td>
+</tr>
+<tr>
 <td><strong>Dual–Channel Forward（v10–v11）</strong></td>
 <td>✅ 当前方案</td>
 <td>信息类型分工，双通道互补，工程可持续</td>
@@ -2467,7 +2472,7 @@
 <td>跨城 zero-shot 性能差</td>
 <td>纯文本通道缺空间泛化</td>
 <td>加入 Dense Channel 后空间信息可迁移</td>
-<td>GeoLife Fact Acc 0.24→0.87</td>
+<td>GeoLife：ROUGE-L 0.132→0.473（3.6×）、BLEU-4 ~0→0.340、Fact Acc 0.24→0.87</td>
 </tr>
 </tbody>
 </table>
@@ -2585,13 +2590,38 @@
 <td>必须用数值任务交叉验证</td>
 <td>任何分类任务评测</td>
 </tr>
+<tr>
+<td>指标贴近随机可能是 bench 无效</td>
+<td>旧 AD bench 异常太轻微，换 v4 后 PR-AUC 0.50→0.80</td>
+<td>任何指标异常低的排查</td>
+</tr>
+<tr>
+<td>多图 ≠ 更好</td>
+<td>8 张多图不优于单图+文本，且慢 22%</td>
+<td>多模态输入形态设计</td>
+</tr>
+<tr>
+<td>图片质量比数量更关键</td>
+<td>本地 PBF 渲染优于高德 API，AD PR-AUC 0.504→0.710</td>
+<td>视觉通道渲染方案</td>
+</tr>
+<tr>
+<td>Prompt 自迭代会过优化</td>
+<td>R1 最优，R2/R3 反而退化，每轮须评测把关</td>
+<td>prompt 自进化流程</td>
+</tr>
+<tr>
+<td>原生视觉通道对轨迹图收益有限</td>
+<td>图片直接进 omni-lora 无提升，改走 perception token</td>
+<td>多模态第三通道设计</td>
+</tr>
 </tbody>
 </table>
 <hr />
 <h2 id="_5">六、下一步计划<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <ol>
 <li><strong>TTE 生成精度优化：</strong> 当前 LLM 生成 MAPE=17.7% vs Head 直出 3.39%，差距较大。计划探索 multi-token perception（让 TTE Head 输出多位数字 token 而非单个锚点）。</li>
-<li><strong>omni_enhanced 图像接入：</strong> 已渲染 1123/1333 条订单的增强地图图像（主地图+起终点嵌入图+危险 POI 可视化），待接入 Qwen3-Omni-30B 原生视觉通道做第三通道验证。</li>
+<li><strong>网约车真实数据集接入（进行中 10%）：</strong> 渲染 1333 条网约车 parquet 轨迹（optimized/enhanced 两版），三组消融 A（有图+base）/B（有图+图片专用 prompt）/C（无图）。<strong>阶段结论：图片直接加进 omni-lora 效果无提升</strong>，转向 BLUE encoder + perception token 注入路线，先构造网约车纯文本基线。</li>
 <li><strong>司乘未分离专项评测：</strong> 构造模拟未分离场景数据，基于现有 AD+MP 能力做端到端业务指标评测。</li>
 <li><strong>GeoLife 跨城验证：</strong> 在 Porto 训练的模型上做 GeoLife zero-shot 评测，验证空间信息迁移能力。</li>
 </ol>
