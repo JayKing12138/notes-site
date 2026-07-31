@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../LLaVA/">
+        <link rel="prev" href="../DINO/">
       
       
-        <link rel="next" href="../MoCo/">
+        <link rel="next" href="../Flamingo/">
       
       
         
@@ -23,7 +23,7 @@
     
     
       
-        <title>MAE - 学习资料库</title>
+        <title>DiT - 学习资料库</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#mae" class="md-skip">
+        <a href="#ditdiffusion-transformer" class="md-skip">
           跳转至
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              MAE
+              DiT
             
           </span>
         </div>
@@ -1110,10 +1110,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../DiT/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DiT
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1129,6 +1156,153 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心要点
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 背景与动机
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 方法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 预备知识
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 整体架构
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-patchify" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Patchify
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-dit-block" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 DiT Block：四种条件注入设计
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 模型规格与解码头
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6 训练配置
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 实验
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 总结
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1306,37 +1480,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    MAE
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../MAE/" class="md-nav__link">
         
   
   
@@ -1352,419 +1499,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        目录
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        核心要点
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. 背景与动机
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="1. 背景与动机">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#11" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1.1 与前序工作的关系
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#12" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1.2 标题解读
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#13" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1.3 作者信息
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#14-bert-cv-nlp" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1.4 为什么 BERT 式自监督在 CV 中落后于 NLP？
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. 方法
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. 方法">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#21" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.1 整体架构
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#22" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.2 掩码策略
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#23" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.3 编码器
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#24" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.4 解码器
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#25" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.5 损失函数与归一化
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#26" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.6 简单高效的实现
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. 实验
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. 实验">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#31-imagenet-1k" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3.1 ImageNet-1K 上的自监督预训练 + 微调
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#32-table-1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3.2 消融实验（Table 1）
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#33" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3.3 掩码率的影响
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#34" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3.4 训练效率
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#35" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3.5 预训练轮数的影响
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#36-table-3-figure-8" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3.6 与先前工作的对比（Table 3 &amp; Figure 8）
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#37-figure-9" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3.7 微调层数的影响（Figure 9）
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#38" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3.8 可视化结果
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. 迁移学习
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. 迁移学习">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#41-coco" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4.1 COCO 目标检测与实例分割
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#42" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4.2 语义分割
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#43-vs-token" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4.3 像素重构 vs. 离散 token 重构
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. 讨论与总结
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5. 讨论与总结">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#51" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5.1 核心贡献回顾
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#52" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5.2 图片与语言的本质区别
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#53-broader-impacts" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5.3 Broader Impacts
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#54" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5.4 写作启示
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#55" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5.5 关于"简单"与"可扩展"的辩证看待
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2283,17 +2017,6 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        目录
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
         核心要点
       
     </span>
@@ -2309,56 +2032,6 @@
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="1. 背景与动机">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#11" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1.1 与前序工作的关系
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#12" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1.2 标题解读
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#13" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1.3 作者信息
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#14-bert-cv-nlp" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1.4 为什么 BERT 式自监督在 CV 中落后于 NLP？
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -2378,7 +2051,7 @@
   <a href="#21" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.1 整体架构
+        2.1 预备知识
       
     </span>
   </a>
@@ -2389,7 +2062,7 @@
   <a href="#22" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.2 掩码策略
+        2.2 整体架构
       
     </span>
   </a>
@@ -2397,10 +2070,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#23" class="md-nav__link">
+  <a href="#23-patchify" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.3 编码器
+        2.3 Patchify
       
     </span>
   </a>
@@ -2408,10 +2081,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#24" class="md-nav__link">
+  <a href="#24-dit-block" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.4 解码器
+        2.4 DiT Block：四种条件注入设计
       
     </span>
   </a>
@@ -2422,7 +2095,7 @@
   <a href="#25" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.5 损失函数与归一化
+        2.5 模型规格与解码头
       
     </span>
   </a>
@@ -2433,7 +2106,7 @@
   <a href="#26" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.6 简单高效的实现
+        2.6 训练配置
       
     </span>
   </a>
@@ -2454,221 +2127,16 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="3. 实验">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#31-imagenet-1k" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3.1 ImageNet-1K 上的自监督预训练 + 微调
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#32-table-1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3.2 消融实验（Table 1）
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#33" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3.3 掩码率的影响
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#34" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3.4 训练效率
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#35" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3.5 预训练轮数的影响
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#36-table-3-figure-8" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3.6 与先前工作的对比（Table 3 &amp; Figure 8）
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#37-figure-9" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3.7 微调层数的影响（Figure 9）
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#38" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3.8 可视化结果
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
   <a href="#4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. 迁移学习
+        4. 总结
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="4. 迁移学习">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#41-coco" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4.1 COCO 目标检测与实例分割
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#42" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4.2 语义分割
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#43-vs-token" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4.3 像素重构 vs. 离散 token 重构
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. 讨论与总结
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5. 讨论与总结">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#51" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5.1 核心贡献回顾
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#52" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5.2 图片与语言的本质区别
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#53-broader-impacts" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5.3 Broader Impacts
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#54" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5.4 写作启示
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#55" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5.5 关于"简单"与"可扩展"的辩证看待
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -2689,213 +2157,163 @@
 
 
 
-<h1 id="mae">MAE<a class="headerlink" href="#mae" title="Permanent link">&para;</a></h1>
+<h1 id="ditdiffusion-transformer">DiT（Diffusion Transformer）<a class="headerlink" href="#ditdiffusion-transformer" title="Permanent link">&para;</a></h1>
 <blockquote>
-<p>📄 <strong>论文链接</strong>：<a href="https://arxiv.org/abs/2111.06377">arXiv:2111.06377</a> | <a href="https://arxiv.org/pdf/2111.06377">PDF</a></p>
+<p>📄 论文链接：<a href="https://arxiv.org/abs/2212.09748">arXiv:2212.09748</a>（Scalable Diffusion Models with Transformers, ICCV 2023）| <a href="https://arxiv.org/pdf/2212.09748">PDF</a></p>
 </blockquote>
-<h2 id="_1">目录<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="#核心要点">核心要点</a></li>
-<li><a href="#1-背景与动机">1. 背景与动机</a></li>
-<li><a href="#2-方法">2. 方法</a></li>
-<li><a href="#3-实验">3. 实验</a></li>
-<li><a href="#4-迁移学习">4. 迁移学习</a></li>
-<li><a href="#5-讨论与总结">5. 讨论与总结</a></li>
-</ul>
-<h2 id="_2">核心要点<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_1">核心要点<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <blockquote>
-<ul>
-<li><strong>MAE (Masked Autoencoder) 是 BERT 在计算机视觉领域的成功拓展</strong>：通过随机遮盖图片中大量 patch（如75%），再重构被遮盖的像素，实现自监督预训练。</li>
-<li><strong>核心创新在于非对称 encoder-decoder 架构与高掩码率</strong>：编码器仅处理可见 patch 以节省计算，解码器为轻量 Transformer 用于重构；高掩码率迫使模型学习全局语义而非局部插值。</li>
-<li><strong>仅需 ImageNet-1K 数据即可达到 SOTA</strong>：在100万张图片上自监督预训练后微调，ViT-Huge 达到当时最优精度，媲美此前需要百倍数据的有监督方法。</li>
-<li><strong>迁移学习能力极强</strong>：预训练模型在目标检测、实例分割、语义分割等下游任务上均取得优异效果，验证了自监督视觉表征的通用性。</li>
-<li><strong>写作范式值得借鉴</strong>：导言采用"提出问题-分析问题-引出方案"的结构，清晰阐述了为何 MAE 这样设计，而非简单罗列做法。</li>
-</ul>
+<ol>
+<li><strong>用 Transformer 替换扩散模型的 U-Net 骨干</strong>：在 Latent Diffusion（LDM）框架下，把去噪网络从卷积 U-Net 换成基于 ViT 的 Transformer（DiT），证明 U-Net 的归纳偏置对扩散模型<strong>并非必需</strong>。</li>
+<li><strong>adaLN-Zero 是最优的条件注入方式</strong>：对比 in-context、cross-attention、adaLN、adaLN-Zero 四种把 timestep <span class="arithmatex">\(t\)</span> 和类别 <span class="arithmatex">\(c\)</span> 注入 Transformer 的设计，adaLN-Zero（自适应 LayerNorm + 残差分支零初始化为恒等函数）效果最好且计算开销最小。</li>
+<li><strong>Gflops 才是决定生成质量的关键，而非参数量</strong>：模型的前向计算量（加深加宽模型、或减小 patch size 增加 token 数）与生成质量（FID）呈强负相关；patch size 减半会让 token 数与 Gflops 翻 4 倍，但参数量几乎不变，质量却显著提升。</li>
+<li><strong>优良的可扩展性（scalability）</strong>：沿 S/B/L/XL × patch size 8/4/2 共 12 个配置扫描，计算量越大质量单调越好，为后续 Sora、Stable Diffusion 3 等采用 Transformer 骨干的扩散模型奠定基础。</li>
+</ol>
 </blockquote>
 <h2 id="1">1. 背景与动机<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
-<h3 id="11">1.1 与前序工作的关系<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
-<p>MAE 的定位可以放在以下脉络中理解：</p>
 <ul>
-<li><strong>Transformer</strong>：纯注意力机制的编码器-解码器，在机器翻译上优于 RNN。</li>
-<li><strong>BERT</strong>：使用 Transformer 编码器 + 完型填空（masked language model）自监督训练，将 Transformer 拓展到通用 NLP 任务，无需标注数据即可学到强大表征。</li>
-<li><strong>ViT</strong>：将 Transformer 直接应用于 CV，把图片切成 16x16 的 patch 作为 token。当训练数据足够大（千万至亿级）时，精度可超越 CNN。</li>
-<li><strong>MAE</strong>：相当于 BERT 的 CV 版本，基于 ViT 架构，将训练拓展到无标注数据上，通过完型填空式自监督获取图像理解能力。</li>
+<li>Transformer 已经统一了 NLP（GPT/BERT）、视觉（ViT）等领域的架构，但<strong>图像扩散模型是个例外</strong>：从 DDPM（Ho et al.）开始，卷积 U-Net 一直是事实标准骨干——U-Net 继承自 PixelCNN++，以 ResNet block 为主，在低分辨率层插入空间自注意力，ADM 又消融了自适应归一化等设计，但整体结构多年未变。</li>
+<li>本文要回答的问题：<strong>扩散模型的性能是否依赖 U-Net 的归纳偏置？</strong> 答案是否定的——U-Net 可以被标准 Transformer 直接替换，从而让扩散模型继承架构统一化红利：其他领域的训练最佳实践、可扩展性、鲁棒性与效率。</li>
+<li>分析视角：以往图像生成文献常用<strong>参数量</strong>衡量模型复杂度，但参数量不反映输入分辨率的影响。本文改用<strong>理论 Gflops</strong>（前向计算量）作为复杂度度量，研究"网络复杂度 vs 生成质量"的 scaling 规律。</li>
 </ul>
-<p>虽然 MAE 不是第一个将 BERT 思想迁移到 CV 的工作（此前有 iGPT、BEiT 等），但它很可能是这一系列工作中未来影响最大的一篇，正如 BERT 极大加速了 Transformer 在 NLP 中的普及，MAE 有望使 Transformer 在 CV 中的应用更加广泛。</p>
-<h3 id="12">1.2 标题解读<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
-<p>标题为 "Masked Autoencoders Are Scalable Vision Learners"，包含两个关键信息：</p>
-<ul>
-<li><strong>Scalable Vision Learner</strong>：可扩展的视觉学习器。它是一个 backbone 模型，不仅限于分类器。"scalable" 强调算法能随数据和算力增长而持续提升。</li>
-<li><strong>Masked Autoencoder</strong>："masked" 源自 BERT 的 masked language model，即每次挖掉部分内容再去预测；"auto" 指标签和样本来自同一信号本身（x 和 y 同源），区别于一般 CV 中标签为外部文本的情况。作者特意加上 "auto" 是为了与 CV 中其他 encoder 区分开来。</li>
-</ul>
-<p>这种"A is B"的标题句式（如 GPT 系列）是一种强有力的模板，将结论浓缩为一句话，且语气客观，让读者自行判断其价值。</p>
-<h3 id="13">1.3 作者信息<a class="headerlink" href="#13" title="Permanent link">&para;</a></h3>
-<ul>
-<li>一作 Kaiming He（何恺明），ResNet 一作，标注为 project lead（项目发起人/管理者）。</li>
-<li>其余作者均来自 Facebook AI Research (FAIR)。</li>
-<li>后两位作者是物体检测领域最知名的研究者之一。</li>
-</ul>
-<h3 id="14-bert-cv-nlp">1.4 为什么 BERT 式自监督在 CV 中落后于 NLP？<a class="headerlink" href="#14-bert-cv-nlp" title="Permanent link">&para;</a></h3>
-<p>作者在导言中提出三个核心原因：</p>
-<ol>
-<li><strong>CNN 架构不适合 mask</strong>：此前 CV 主流是卷积神经网络，卷积窗口在滑动时无法像 Transformer 那样将 mask 作为一个特殊 token 保留并区分开来，mask 信息会在卷积过程中被模糊掉。不过随着 ViT 的出现，这个问题已不复存在。</li>
-<li><strong>信息密度不同</strong>：语言中每个词是高语义单元，去掉几个词就构成有挑战的任务；而图片像素冗余度高，简单遮住一个 patch 可通过邻居插值还原。MAE 的解决思路是遮住非常高比例的 patch（如75%），大幅降低冗余，迫使模型关注全局信息而非局部插值。</li>
-<li><strong>解码器的复杂度差异</strong>：NLP 中预测的是离散的词（高语义层次），一个全连接层即可；CV 中要还原原始像素（低层次表示），需要更复杂的解码器（类似语义分割中使用转置卷积而非简单 MLP）。</li>
-</ol>
+<p><img alt="Figure 2: DiT scaling 总览" src="../images/dit_fig2.png" />
+<em>Figure 2: 左——DiT 各配置的 Gflops（气泡面积）与 FID，计算量越大质量越好；右——DiT-XL/2 与 U-Net 系（ADM、LDM）对比，计算效率更优</em></p>
 <h2 id="2">2. 方法<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
-<p><img alt="Figure 1: MAE 架构（随机遮盖 75% patches + 重建）" src="../images/mae_fig1.png" />
-<em>Figure 1: MAE 架构（随机遮盖 75% patches + 重建）</em></p>
-<h3 id="21">2.1 整体架构<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
-<p><img alt="Figure 3: MAE 在 COCO 上的重建效果" src="../images/mae_fig3.png" />
-<em>Figure 3: MAE 在 COCO 上的重建效果</em></p>
-<p><img alt="Figure 2: MAE 在 ImageNet 上的重建效果" src="../images/mae_fig2.png" />
-<em>Figure 2: MAE 在 ImageNet 上的重建效果</em></p>
-<p><img alt="Figure 5: 不同 masking ratio 对性能的影响" src="../images/mae_fig5.png" />
-<em>Figure 5: 不同 masking ratio 对性能的影响</em></p>
-<p>MAE 是一个非对称的 encoder-decoder 自编码器：</p>
-<ol>
-<li>输入图片被切成若干 patch（如16x16）。</li>
-<li>随机选取一部分 patch（如25%）作为可见 patch，其余被 mask 掉。</li>
-<li><strong>编码器</strong>（标准 ViT）仅对可见 patch 进行编码，得到 latent representation。</li>
-<li>将所有 patch 的位置重新排列：可见 patch 用编码器输出的特征填充，被 mask 的 patch 用一个共享的可学习向量（mask token）填充，并加上位置编码。</li>
-<li><strong>解码器</strong>（轻量 Transformer）接收完整序列，重构所有被 mask patch 的原始像素。</li>
-<li>下游使用时只需编码器，解码器丢弃。</li>
-</ol>
-<p>非对称设计的关键优势：编码器只处理可见 patch（如25%），计算量大幅降低；解码器虽需看全部位置，但设计得足够轻量（计算量不到编码器的1/10）。</p>
-<h3 id="22">2.2 掩码策略<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
+<h3 id="21">2.1 预备知识<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<p><strong>扩散公式（DDPM）</strong>：前向加噪过程 <span class="arithmatex">\(q(x_t|x_0) = \mathcal{N}(x_t; \sqrt{\bar\alpha_t}\,x_0, (1-\bar\alpha_t)\mathbf{I})\)</span>，重参数化采样 <span class="arithmatex">\(x_t = \sqrt{\bar\alpha_t}\,x_0 + \sqrt{1-\bar\alpha_t}\,\epsilon_t\)</span>。模型学习反向过程 <span class="arithmatex">\(p_\theta(x_{t-1}|x_t) = \mathcal{N}(\mu_\theta(x_t), \Sigma_\theta(x_t))\)</span>：</p>
 <ul>
-<li>与 ViT 相同，将图片切成固定大小的 patch。</li>
-<li>对 patch 进行均匀随机采样，保留少量（如25%），其余全部 mask。</li>
-<li>高掩码率（75%甚至更高）是关键：若掩码太少，任务过于简单（插值即可），模型学不到有意义的表征；高掩码率创造了有挑战的非平凡任务，迫使模型学习全局语义。</li>
+<li>均值经重参数化为噪声预测网络 <span class="arithmatex">\(\epsilon_\theta\)</span>，用简单 MSE 训练：<span class="arithmatex">\(\mathcal{L}_{\text{simple}}(\theta) = \|\epsilon_\theta(x_t) - \epsilon_t\|_2^2\)</span></li>
+<li>协方差 <span class="arithmatex">\(\Sigma_\theta\)</span> 是<strong>可学习的</strong>，沿用 Nichol &amp; Dhariwal 的做法：<span class="arithmatex">\(\epsilon_\theta\)</span> 用 <span class="arithmatex">\(\mathcal{L}_{\text{simple}}\)</span> 训练，<span class="arithmatex">\(\Sigma_\theta\)</span> 用完整的变分下界项训练</li>
 </ul>
-<h3 id="23">2.3 编码器<a class="headerlink" href="#23" title="Permanent link">&para;</a></h3>
+<p><strong>Classifier-free guidance（CFG）</strong>：条件模型 <span class="arithmatex">\(p_\theta(x_{t-1}|x_t, c)\)</span> 中，训练时随机丢弃条件 <span class="arithmatex">\(c\)</span>（换成可学习的空 embedding <span class="arithmatex">\(\emptyset\)</span>），采样时用</p>
+<div class="arithmatex">\[\hat\epsilon_\theta(x_t, c) = \epsilon_\theta(x_t, \emptyset) + s \cdot \left(\epsilon_\theta(x_t, c) - \epsilon_\theta(x_t, \emptyset)\right)\]</div>
+<p>引导采样偏向高 <span class="arithmatex">\(p(x|c)\)</span> 区域（<span class="arithmatex">\(s &gt; 1\)</span> 为引导强度，<span class="arithmatex">\(s=1\)</span> 退回标准采样）。</p>
+<p><strong>Latent Diffusion（LDM）</strong>：像素空间直接训扩散模型计算代价过高。LDM 两阶段：先训一个自编码器把图像压缩到潜空间 <span class="arithmatex">\(z = E(x)\)</span>（<span class="arithmatex">\(E\)</span> 冻结），再在潜空间训扩散模型，采样后用解码器还原 <span class="arithmatex">\(x = D(z)\)</span>。DiT 沿用该框架，用现成的 Stable Diffusion 卷积 VAE（下采样 8 倍：<span class="arithmatex">\(256 \times 256 \times 3\)</span> 图像 → <span class="arithmatex">\(32 \times 32 \times 4\)</span> latent），整条管线是"卷积 VAE + Transformer 扩散模型"的混合方案。</p>
+<h3 id="22">2.2 整体架构<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
+<p><img alt="Figure 3: DiT 架构" src="../images/dit_fig3.png" />
+<em>Figure 3: 左——Latent DiT 整体流程（Patchify → N 个 DiT Block → LayerNorm + 线性解码）；右——三种条件注入的 block 设计，adaLN-Zero 效果最佳</em></p>
+<div class="highlight"><pre><span></span><code>Noised Latent (32×32×4)
+    ↓ Patchify（p×p patch 线性嵌入 + 正弦余弦位置编码）
+Input Tokens (T×d)          Timestep t、Label y → Embed → Conditioning
+    ↓                                    ↓
+N × DiT Block（adaLN-Zero，条件从这里注入）
+    ↓
+LayerNorm（自适应）→ Linear and Reshape
+    ↓
+噪声预测 ε (32×32×4) + 协方差预测 Σ (32×32×4)
+</code></pre></div>
+<h3 id="23-patchify">2.3 Patchify<a class="headerlink" href="#23-patchify" title="Permanent link">&para;</a></h3>
+<p>DiT 忠实沿用 ViT 的做法：把空间输入 <span class="arithmatex">\(I \times I \times C\)</span> 的 latent 切成 <span class="arithmatex">\(p \times p\)</span> 的 patch，逐 patch 线性嵌入为 <span class="arithmatex">\(d\)</span> 维 token，得到长度 <span class="arithmatex">\(T = (I/p)^2\)</span> 的序列，随后加<strong>标准 ViT 正弦余弦位置编码</strong>。</p>
+<p><img alt="Figure 4: Patchify 输入规格" src="../images/dit_fig4.png" />
+<em>Figure 4: patch size <span class="arithmatex">\(p\)</span> 减半 → token 数 <span class="arithmatex">\(T\)</span> 翻 4 倍 → Transformer 总 Gflops 至少翻 4 倍，但参数量基本不变</em></p>
+<p><strong>关键性质</strong>：<span class="arithmatex">\(p\)</span> 只影响序列长度（计算量），对参数量几乎无影响——这为后面"Gflops 才是关键"的结论提供了干净的对照变量。设计空间取 <span class="arithmatex">\(p = 2, 4, 8\)</span>。</p>
+<h3 id="24-dit-block">2.4 DiT Block：四种条件注入设计<a class="headerlink" href="#24-dit-block" title="Permanent link">&para;</a></h3>
+<p>扩散模型除了噪声图像还要接收 timestep <span class="arithmatex">\(t\)</span>、类别 <span class="arithmatex">\(c\)</span> 等条件信息。论文对标准 ViT block 做最小修改，探索四种注入方式：</p>
+<table>
+<thead>
+<tr>
+<th>设计</th>
+<th>做法</th>
+<th>额外 Gflops</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>In-context conditioning</strong></td>
+<td>把 <span class="arithmatex">\(t\)</span>、<span class="arithmatex">\(c\)</span> 的 embedding 当作 2 个额外 token 拼进序列（类似 ViT 的 cls token），最后一层后移除；block 本身完全不动</td>
+<td>可忽略</td>
+</tr>
+<tr>
+<td><strong>Cross-attention block</strong></td>
+<td><span class="arithmatex">\(t\)</span>、<span class="arithmatex">\(c\)</span> embedding 拼成长度 2 的独立序列，在 self-attention 之后加一层 multi-head cross-attention（类似原始 Transformer decoder 和 LDM 的类别条件方式）</td>
+<td>最大，约 +15%</td>
+</tr>
+<tr>
+<td><strong>adaLN block</strong></td>
+<td>把 block 里的标准 LayerNorm 换成<strong>自适应 LayerNorm</strong>：缩放/平移参数 <span class="arithmatex">\(\gamma, \beta\)</span> 不直接学习，而是由 <span class="arithmatex">\(t\)</span> 与 <span class="arithmatex">\(c\)</span> 的 embedding 之和<strong>回归</strong>出来。沿用了 GAN 和扩散 U-Net 中广泛使用的自适应归一化思想</td>
+<td>最小</td>
+</tr>
+<tr>
+<td><strong>adaLN-Zero block</strong></td>
+<td>在 adaLN 基础上，额外回归<strong>逐维度缩放参数 <span class="arithmatex">\(\alpha\)</span></strong>，作用在每个残差相加之前；把回归 <span class="arithmatex">\(\alpha\)</span> 的 MLP <strong>零初始化</strong>，使整个 DiT block 初始化为<strong>恒等函数</strong></td>
+<td>可忽略</td>
+</tr>
+</tbody>
+</table>
+<p><strong>adaLN-Zero 的动机</strong>：ResNet 时代的经验——把每个残差 block 初始化为恒等函数有利于训练（如 Goyal et al. 把每个 block 最后一层 BatchNorm 的 <span class="arithmatex">\(\gamma\)</span> 零初始化可加速大规模监督训练）；扩散 U-Net 也用类似策略（每个 block 残差前的最后一层卷积零初始化）。DiT 把这一经验移植到 Transformer。</p>
+<p><strong>adaLN 的一个特点</strong>：它是四种设计中唯一<strong>对所有 token 施加相同函数</strong>的条件机制（条件只调制归一化的缩放平移，不做 token 级交互）。</p>
+<p><strong>实验结论</strong>（论文 Figure 5）：adaLN-Zero 在整个训练过程中始终优于 cross-attention 和 in-context；且<strong>初始化方式本身很重要</strong>——adaLN-Zero 显著优于普通 adaLN。后续所有 DiT 模型统一采用 adaLN-Zero。</p>
+<p><img alt="Figure 5: 四种条件注入方式对比" src="../images/dit_fig5.png" />
+<em>Figure 5: adaLN-Zero 在训练各阶段均优于其他设计，同时计算效率最高</em></p>
+<h3 id="25">2.5 模型规格与解码头<a class="headerlink" href="#25" title="Permanent link">&para;</a></h3>
+<p>沿 ViT 的配置方式联合缩放深度 <span class="arithmatex">\(N\)</span>、宽度 <span class="arithmatex">\(d\)</span>、注意力头数：</p>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>层数 <span class="arithmatex">\(N\)</span></th>
+<th>Hidden size <span class="arithmatex">\(d\)</span></th>
+<th>Heads</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DiT-S</td>
+<td>12</td>
+<td>384</td>
+<td>6</td>
+</tr>
+<tr>
+<td>DiT-B</td>
+<td>12</td>
+<td>768</td>
+<td>12</td>
+</tr>
+<tr>
+<td>DiT-L</td>
+<td>24</td>
+<td>1024</td>
+<td>16</td>
+</tr>
+<tr>
+<td>DiT-XL</td>
+<td>28</td>
+<td>1152</td>
+<td>16</td>
+</tr>
+</tbody>
+</table>
+<p>命名规则：<code>DiT-XL/2</code> = XLarge 配置 + patch size <span class="arithmatex">\(p = 2\)</span>。</p>
+<p><strong>Transformer decoder（输出头）</strong>：最后一个 DiT block 之后，先过最终 LayerNorm（用 adaLN 时同样自适应），再用<strong>标准线性层</strong>把每个 token 解码成 <span class="arithmatex">\(p \times p \times 2C\)</span> 的张量（同时预测噪声 <span class="arithmatex">\(\epsilon\)</span> 和对角协方差 <span class="arithmatex">\(\Sigma\)</span>，各占 <span class="arithmatex">\(C\)</span> 通道），最后按原空间布局重排回去。</p>
+<p><strong>完整设计空间</strong> = patch size × block 架构 × 模型规模。</p>
+<h3 id="26">2.6 训练配置<a class="headerlink" href="#26" title="Permanent link">&para;</a></h3>
 <ul>
-<li>完全采用标准 ViT 架构，无任何改动。</li>
-<li>仅对可见 patch 执行操作：线性投影 + 位置编码 → 送入 Transformer blocks。</li>
-<li>被 mask 的 patch 不进入编码器，从而节省计算和内存。</li>
-</ul>
-<h3 id="24">2.4 解码器<a class="headerlink" href="#24" title="Permanent link">&para;</a></h3>
-<ul>
-<li>另一个 Transformer，但规模远小于编码器（宽度和深度均可更小）。</li>
-<li>输入包括两部分：</li>
-<li>可见 patch 的 latent representation（来自编码器输出）。</li>
-<li>被 mask patch 的 mask token（共享可学习向量）+ 位置编码。</li>
-<li>解码器仅在预训练阶段使用，下游任务只需编码器。</li>
-<li>最后一层为线性层，将每个 token 映射到 patch 大小（如16x16=256维），reshape 后即得重构像素。</li>
-</ul>
-<h3 id="25">2.5 损失函数与归一化<a class="headerlink" href="#25" title="Permanent link">&para;</a></h3>
-<ul>
-<li>使用 MSE（均方误差）作为损失函数。</li>
-<li>仅对被 mask 的 patch 计算损失（与 BERT 只在 mask 位置计算 loss 一致）。</li>
-<li>可选地对每个 patch 内的像素做 normalization（均值0、方差1），使数值更稳定，实验显示有提升效果。</li>
-</ul>
-<h3 id="26">2.6 简单高效的实现<a class="headerlink" href="#26" title="Permanent link">&para;</a></h3>
-<ul>
-<li>生成所有 patch 的 token 序列（线性投影 + 位置编码）。</li>
-<li>随机 shuffle 整个序列，取前 N%（如25%）作为可见 token，等价于均匀随机采样。</li>
-<li>可见 token 送入编码器。</li>
-<li>解码时，将编码器输出与 mask tokens 拼接，再 unshuffle 恢复原始顺序，以便与原始 patch 一一对应计算损失。</li>
-<li>全程无需稀疏操作，实现简洁高效，不影响标准 ViT 的任何操作。</li>
+<li>AdamW，恒定学习率 <span class="arithmatex">\(10^{-4}\)</span>，无 weight decay，batch size 256，数据增强只有水平翻转</li>
+<li><strong>不需要 learning rate warmup、也不需要正则化</strong>即可稳定训练，所有配置均未观察到 Transformer 常见的 loss spike</li>
+<li>权重维护 EMA（衰减 0.9999），报告结果均用 EMA 模型</li>
+<li>超参几乎全部沿用 ADM，未针对 DiT 调参——说明该架构对超参不敏感</li>
+<li>扩散超参：<span class="arithmatex">\(t_{\max} = 1000\)</span> 线性方差调度，沿用 ADM 的协方差参数化与 timestep/label embedding 方式</li>
 </ul>
 <h2 id="3">3. 实验<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
-<h3 id="31-imagenet-1k">3.1 ImageNet-1K 上的自监督预训练 + 微调<a class="headerlink" href="#31-imagenet-1k" title="Permanent link">&para;</a></h3>
-<p>实验设置：先在 ImageNet-1K（100万张图）上做自监督预训练（不使用标签），再在同一数据集上做有监督微调或 linear probing，报告验证集 top-1 精度。</p>
-<p>基线对比（ViT-Large/16）：
-- ViT 原始设置在 ImageNet-1K 上训练（不稳定）。
-- 加入强正则化后显著提升。
-- MAE 预训练 + 微调（仅50 epochs）：进一步超越。</p>
-<p>这表明 MAE 能纯粹从图像自身学到有效信息，即使数据集不变也有显著提升。</p>
-<h3 id="32-table-1">3.2 消融实验（Table 1）<a class="headerlink" href="#32-table-1" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>解码器深度</strong>：8层 Transformer block 效果较好；full fine-tuning 对深度不太敏感，linear probing 则受益于更深解码器。</li>
-<li><strong>解码器宽度</strong>：512维较优。</li>
-<li><strong>是否在编码器中加入 mask patch</strong>：不加入反而精度更高，且计算量减少3.3倍。验证了非对称架构的双重优势。</li>
-<li><strong>重构目标</strong>：MSE + per-patch normalization 效果最好；PCA 降维和 BEiT 式的离散 token 预测在 fine-tuning 下与 MSE 持平，但 MSE 更简单。</li>
-<li><strong>数据增强</strong>：MAE 对数据增强不敏感，简单的随机裁剪即可获得不错效果。</li>
-<li><strong>掩码采样策略</strong>：随机采样效果最好且最简单；块采样和格点采样均不如随机采样。</li>
-</ul>
-<h3 id="33">3.3 掩码率的影响<a class="headerlink" href="#33" title="Permanent link">&para;</a></h3>
-<ul>
-<li>掩码率过低时精度较差。</li>
-<li>超过40%后出现显著跳跃，最佳区间在60%-80%左右。</li>
-<li>Linear probing 对掩码率更敏感。</li>
-</ul>
-<h3 id="34">3.4 训练效率<a class="headerlink" href="#34" title="Permanent link">&para;</a></h3>
-<ul>
-<li>ViT-Large + 1层解码器：精度不错且训练时间最短。</li>
-<li>相比将所有 mask patch 送入编码器 + 大解码器的方案，加速达3.7倍。</li>
-<li>ViT-Huge 加速更为显著。</li>
-<li>硬件配置：128个 TPUv3 core，TensorFlow 实现，训练约10小时（约一天多），门槛相对可控。</li>
-<li>未公布代码可能与 TensorFlow + TPU 的技术栈有关。</li>
-</ul>
-<h3 id="35">3.5 预训练轮数的影响<a class="headerlink" href="#35" title="Permanent link">&para;</a></h3>
-<ul>
-<li>在 ImageNet-1K 上训练至1000 epochs 仍能看到精度持续提升，过拟合不严重。</li>
-<li>一般 ImageNet 训练200 epochs 即止，MAE 展示了自监督预训练的良好可扩展性。</li>
-</ul>
-<h3 id="36-table-3-figure-8">3.6 与先前工作的对比（Table 3 &amp; Figure 8）<a class="headerlink" href="#36-table-3-figure-8" title="Permanent link">&para;</a></h3>
-<ul>
-<li>MAE 在同等条件下效果最优。</li>
-<li>与 ViT 在 JFT-300M（3亿标注图片）上的效果相比，MAE 仅用 ImageNet-1K（1/300数据量）即达到非常接近的水平。</li>
-<li>JFT 类别远多于 ImageNet 且包含更多 Google 关注的目标，两者不完全可比，但足以说明 MAE 的数据效率极高。</li>
-</ul>
-<h3 id="37-figure-9">3.7 微调层数的影响（Figure 9）<a class="headerlink" href="#37-figure-9" title="Permanent link">&para;</a></h3>
-<ul>
-<li>从仅调最后一层开始，逐步增加可调层数。</li>
-<li>调整约4-5层后精度基本恢复到 full fine-tuning 水平，之后趋于平稳。</li>
-<li>底层学到的特征较为通用，高层与具体任务更相关，微调时优先调整上层即可。</li>
-</ul>
-<h3 id="38">3.8 可视化结果<a class="headerlink" href="#38" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Figure 2 &amp; 3</strong>：在 ImageNet 和 COCO 验证集上，即使遮住80%的 patch，MAE 仍能高质量重构出时钟指针、车辆轮廓、狗的形状等，展示了强大的全局理解和生成能力。</li>
-<li><strong>Figure 4</strong>：即使遮住95%的区域，仍能大致还原蘑菇、西红柿、汽车等内容，堪称"炼金术"级别的重构。</li>
-<li>注：展示的可能是精选样例，对所有图片都完美还原仍需后续工作改进。</li>
-</ul>
-<h2 id="4">4. 迁移学习<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
-<h3 id="41-coco">4.1 COCO 目标检测与实例分割<a class="headerlink" href="#41-coco" title="Permanent link">&para;</a></h3>
-<ul>
-<li>使用 MAE 作为 backbone 后，在 COCO 检测和分割任务上效果均为最优，超越 ViT 和 BEiT。</li>
-</ul>
-<h3 id="42">4.2 语义分割<a class="headerlink" href="#42" title="Permanent link">&para;</a></h3>
-<ul>
-<li>同样取得最佳效果。</li>
-</ul>
-<h3 id="43-vs-token">4.3 像素重构 vs. 离散 token 重构<a class="headerlink" href="#43-vs-token" title="Permanent link">&para;</a></h3>
-<ul>
-<li>重构原始像素与 BEiT 式 dVAE 离散 token 重构的效果差距极小。</li>
-<li>鉴于像素重构实现更简单，简单方法更优。</li>
-</ul>
-<h2 id="5">5. 讨论与总结<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
-<h3 id="51">5.1 核心贡献回顾<a class="headerlink" href="#51" title="Permanent link">&para;</a></h3>
+<p>按笔记规范不展开具体分数，只记结论：</p>
 <ol>
-<li><strong>高掩码率</strong>：遮住大量 patch，降低冗余，创造有挑战的自监督任务。</li>
-<li><strong>Transformer 解码器直接重构像素</strong>：流程简单，避免引入额外的离散化步骤。</li>
-<li><strong>结合 ViT 之后的各项技术改进</strong>：使训练更鲁棒。</li>
+<li><strong>条件注入消融</strong>：adaLN-Zero &gt; adaLN &gt; cross-attention &gt; in-context，条件机制的选择对质量影响关键（见 Figure 5）。</li>
+<li><strong>Scaling 行为</strong>：12 个模型（S/B/L/XL × p=8/4/2）扫描——增大模型规模、减小 patch size 都能在训练各阶段稳定提升质量。</li>
+<li><strong>Gflops 是本质变量</strong>：固定模型规模、减小 patch size 时，参数量基本不变（甚至略降）而 Gflops 增加，质量仍显著提升；不同配置只要总 Gflops 相近，质量就相近（如 S/2 与 B/4）。Gflops 与 FID 呈强负相关。</li>
+<li><strong>大模型计算效率更高</strong>：同样的训练算力预算下，大 DiT 比小 DiT 利用得更充分；对小模型延长训练也无法追上大模型。</li>
 </ol>
-<p>三者结合使得在 ImageNet-1K 上自监督训练的效果超越此前所有工作。</p>
-<h3 id="52">5.2 图片与语言的本质区别<a class="headerlink" href="#52" title="Permanent link">&para;</a></h3>
+<p><img alt="Figure 8: Gflops 与 FID 强相关" src="../images/dit_fig8.png" />
+<em>Figure 8: 12 个 DiT 配置的 Transformer Gflops 与 FID-50K 呈强负相关——计算量而非参数量决定质量</em></p>
+<h2 id="4">4. 总结<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
 <ul>
-<li>语言中词是高语义单元；图片中 patch 并非语义 segment，可能包含多个物体的碎片或重叠区域。</li>
-<li>即便如此，MAE 仍能完成复杂任务，说明 Transformer 确实能学到隐含的良好语义表达。</li>
+<li>DiT 证明了扩散模型骨干可以完全 Transformer 化：<strong>U-Net 归纳偏置不是必需的</strong>，标准 ViT 式设计（patchify + 正弦余弦位置编码 + 标准 block）即可，且保留了 Transformer 的 scaling 特性。</li>
+<li>方法上的核心贡献是 <strong>adaLN-Zero</strong>：自适应 LayerNorm 注入条件（由 <span class="arithmatex">\(t + c\)</span> 的 embedding 回归 <span class="arithmatex">\(\gamma, \beta, \alpha\)</span>）+ 残差分支零初始化为恒等函数——以最小计算代价拿到最好的条件生成质量。</li>
+<li>分析上的核心贡献是把复杂度度量从参数量换成 <strong>Gflops</strong>，并证明它与生成质量强相关——增加计算（更深更宽或更多 token）是提升扩散模型的关键因素。</li>
+<li>影响：DiT 成为后续视频/图像生成模型（Sora、Stable Diffusion 3 等）Transformer 化扩散骨干的直接源头。</li>
 </ul>
-<h3 id="53-broader-impacts">5.3 Broader Impacts<a class="headerlink" href="#53-broader-impacts" title="Permanent link">&para;</a></h3>
-<ul>
-<li>若训练数据存在 bias，模型可能产生负面社会影响。</li>
-<li>作为生成模型，MAE 可生成不存在的内容，与 GAN 类似存在误导风险。</li>
-<li>作者呼吁在更广泛应用时需考虑这些潜在影响。</li>
-</ul>
-<h3 id="54">5.4 写作启示<a class="headerlink" href="#54" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>导言采用问答式结构</strong>：先回到本质问题（为什么 BERT 式方法在 CV 中效果不佳），逐一分析后再引出 MAE，讲清了"为什么这么做"而非仅仅"做了什么"。这是强烈推荐的高水平论文写法。</li>
-<li><strong>相关工作写作建议</strong>：对于特别相关的工作（如 iGPT、BEiT），应明确写出与本文的区别，不要让读者自行猜测。</li>
-<li><strong>实验详尽</strong>：所有可调超参数均有对应消融实验和分析，增强了工作的可信度和参考价值。</li>
-<li><strong>简单想法 + 优秀结果 + 详细实验 = 高质量工作</strong>。</li>
-</ul>
-<h3 id="55">5.5 关于"简单"与"可扩展"的辩证看待<a class="headerlink" href="#55" title="Permanent link">&para;</a></h3>
-<p>作者称 MAE "simple and scalable"，但需注意：
-- "简单"是相对于 ViT 基础而言，整个 Transformer 架构本身并不简单。
-- "可扩展"建立在拥有充足算力和无标注数据的前提下。
-- 这两个词更多是针对资源充裕的研究团队而言，普通研究者不必过度代入。</p>
+<blockquote>
+<p><strong>一句话总结</strong>：DiT = LDM 潜空间 + ViT 骨干 + adaLN-Zero 条件注入，用"Gflops ↔ 质量"的强相关证明扩散模型同样遵循 Transformer 的 scaling 规律。</p>
+</blockquote>
 
 
 
