@@ -2872,22 +2872,20 @@ Perception Encoder（PE）骨干网络（共享）
 <p><strong>逐帧处理流程</strong>：</p>
 <p>对于每一帧 <span class="arithmatex">\(t\)</span>：</p>
 <ol>
-<li>
-<p><strong>检测新对象</strong>：
-   $<span class="arithmatex">\(O_t = \text{detect}(I_t, P)\)</span>$
-   检测器在当前帧 <span class="arithmatex">\(I_t\)</span> 和提示 <span class="arithmatex">\(P\)</span> 下检测新对象 <span class="arithmatex">\(O_t\)</span></p>
-</li>
-<li>
-<p><strong>传播已有 masklet</strong>：
-   $<span class="arithmatex">\(\hat{M}_t = \text{propagate}(M_{t-1})\)</span>$
-   跟踪器将前一帧 <span class="arithmatex">\(t-1\)</span> 的 masklet <span class="arithmatex">\(M_{t-1}\)</span> 传播到当前帧的新位置 <span class="arithmatex">\(\hat{M}_t\)</span></p>
-</li>
-<li>
-<p><strong>匹配与更新</strong>：
-   $<span class="arithmatex">\(M_t = \text{match\_and\_update}(\hat{M}_t, O_t)\)</span>$
-   匹配函数将传播的 masklet <span class="arithmatex">\(\hat{M}_t\)</span> 与当前帧新出现的对象 mask <span class="arithmatex">\(O_t\)</span> 关联</p>
-</li>
+<li><strong>检测新对象</strong>：</li>
 </ol>
+<div class="arithmatex">\[O_t = \text{detect}(I_t, P)\]</div>
+<p>检测器在当前帧 <span class="arithmatex">\(I_t\)</span> 和提示 <span class="arithmatex">\(P\)</span> 下检测新对象 <span class="arithmatex">\(O_t\)</span></p>
+<ol>
+<li><strong>传播已有 masklet</strong>：</li>
+</ol>
+<div class="arithmatex">\[\hat{M}_t = \text{propagate}(M_{t-1})\]</div>
+<p>跟踪器将前一帧 <span class="arithmatex">\(t-1\)</span> 的 masklet <span class="arithmatex">\(M_{t-1}\)</span> 传播到当前帧的新位置 <span class="arithmatex">\(\hat{M}_t\)</span></p>
+<ol>
+<li><strong>匹配与更新</strong>：</li>
+</ol>
+<div class="arithmatex">\[M_t = \text{match\_and\_update}(\hat{M}_t, O_t)\]</div>
+<p>匹配函数将传播的 masklet <span class="arithmatex">\(\hat{M}_t\)</span> 与当前帧新出现的对象 mask <span class="arithmatex">\(O_t\)</span> 关联</p>
 <p><strong>跟踪单个对象（SAM 2 风格传播）</strong>：</p>
 <ul>
 <li>在第一帧检测到的每个对象初始化一个 masklet</li>

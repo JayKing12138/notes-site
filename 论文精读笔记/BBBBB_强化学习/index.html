@@ -2207,10 +2207,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#opd" class="md-nav__link">
+  <a href="#1-opd" class="md-nav__link">
     <span class="md-ellipsis">
       
-        OPD 到底是什么
+        1. OPD 是什么
       
     </span>
   </a>
@@ -2218,10 +2218,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#on-policy" class="md-nav__link">
+  <a href="#2-opd" class="md-nav__link">
     <span class="md-ellipsis">
       
-        为什么 On-Policy 这件事重要
+        2. 为什么需要 OPD
       
     </span>
   </a>
@@ -2229,138 +2229,33 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#gkdopd" class="md-nav__link">
+  <a href="#3_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        GKD：OPD 的理论奠基
+        3. 训练过程
       
     </span>
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="3. 训练过程">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_44" class="md-nav__link">
     <span class="md-ellipsis">
       
-        技术核心
+        第一步：学生生成轨迹
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="技术核心">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#_45" class="md-nav__link">
     <span class="md-ellipsis">
       
-        记号与训练目标
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#gkd" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        采样策略：GKD 的统一视角
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#reverse-kl" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        为什么很多系统偏爱 Reverse KL
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#opd-rl" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        OPD 与 RL 的关系
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="OPD 与 RL 的关系">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#deepseek-v4-full-vocabulary-reverse-kl" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        DeepSeek-V4 的 full-vocabulary reverse KL
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#opd_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        工业界怎么用 OPD
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="工业界怎么用 OPD">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#strong-to-weak-qwen3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        路线一：strong-to-weak 能力迁移（Qwen3）
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#teacher" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        路线二：多 teacher / 多阶段能力整合
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#opd_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        OPD 为什么有效（分析工作的结论）
+        第二步：构造学生访问过的状态
       
     </span>
   </a>
@@ -2371,7 +2266,671 @@
   <a href="#_46" class="md-nav__link">
     <span class="md-ellipsis">
       
-        边界与定位
+        第三步：教师对学生状态进行打分
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#token_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第四步：匹配两个 token 分布
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 两级期望的含义
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 两级期望的含义">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_47" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        外层：对不同问题求平均
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_48" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        内层：对学生可能生成的不同回答求平均
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_49" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        合并成联合期望
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_50" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        实际训练时如何近似
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sft" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        为什么普通 SFT 没有第二层期望
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-forward-kl-reverse-kl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Forward KL 与 Reverse KL
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Forward KL 与 Reverse KL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#forward-kl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Forward KL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reverse-kl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reverse KL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        最直接的对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#token_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        token 级信号
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-reverse-kl-opd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 为什么 Reverse KL 更匹配 OPD
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 与传统蒸馏的区别
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 与强化学习的区别
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. 主要优点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. 主要问题
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. 主要问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.1 计算开销大
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.2 教师与学生差距不能过大
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#103" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.3 学生可能进入教师不熟悉的状态
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#104" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.4 长序列训练不稳定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#105" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.5 长度投机
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-opd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. 一轮 OPD 的伪代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. 最核心的理解
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kl_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        五、KL 散度
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="五、KL 散度">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心要点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kl_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KL 要估的是什么
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="KL 要估的是什么">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_53" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        全章统一符号
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kl_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        精确 KL 为什么算不出来
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_54" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        蒙特卡洛估计
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        K1：朴素估计
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="K1：朴素估计">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_55" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        无偏性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k1-kl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        K1 和精确 KL 的区别在哪
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_56" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        两个致命缺陷
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        K2：二阶泰勒近似
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        K3：控制变量法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="K3：控制变量法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_57" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        构造原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_58" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        选哪个控制变量
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        K3 的最终形式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_59" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三个优良性质
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_60" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一个易错提醒
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三种估计器对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_62" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        工程实现
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="工程实现">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_63" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        自回归拆分
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        两种取 logp 的方式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#token_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        取出真实 token 的对数概率
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#token-k1-k3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        逐 Token 计算 K1 / K3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ob-cdot-m" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        复杂度：为什么是 \(O(B \cdot M)\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kl_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KL 惩罚放在哪里
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="KL 惩罚放在哪里">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reward" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        方案一：加到 Reward（最稳妥）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#policy-loss_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        方案二：写进 Policy Loss
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_64" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        梯度陷阱
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trpo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        方案三：TRPO 硬约束
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_65" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        选型对照
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kl_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KL 的方向不能写反
       
     </span>
   </a>
@@ -4834,10 +5393,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#opd" class="md-nav__link">
+  <a href="#1-opd" class="md-nav__link">
     <span class="md-ellipsis">
       
-        OPD 到底是什么
+        1. OPD 是什么
       
     </span>
   </a>
@@ -4845,10 +5404,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#on-policy" class="md-nav__link">
+  <a href="#2-opd" class="md-nav__link">
     <span class="md-ellipsis">
       
-        为什么 On-Policy 这件事重要
+        2. 为什么需要 OPD
       
     </span>
   </a>
@@ -4856,138 +5415,33 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#gkdopd" class="md-nav__link">
+  <a href="#3_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        GKD：OPD 的理论奠基
+        3. 训练过程
       
     </span>
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="3. 训练过程">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_44" class="md-nav__link">
     <span class="md-ellipsis">
       
-        技术核心
+        第一步：学生生成轨迹
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="技术核心">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#_45" class="md-nav__link">
     <span class="md-ellipsis">
       
-        记号与训练目标
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#gkd" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        采样策略：GKD 的统一视角
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#reverse-kl" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        为什么很多系统偏爱 Reverse KL
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#opd-rl" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        OPD 与 RL 的关系
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="OPD 与 RL 的关系">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#deepseek-v4-full-vocabulary-reverse-kl" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        DeepSeek-V4 的 full-vocabulary reverse KL
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#opd_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        工业界怎么用 OPD
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="工业界怎么用 OPD">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#strong-to-weak-qwen3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        路线一：strong-to-weak 能力迁移（Qwen3）
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#teacher" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        路线二：多 teacher / 多阶段能力整合
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#opd_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        OPD 为什么有效（分析工作的结论）
+        第二步：构造学生访问过的状态
       
     </span>
   </a>
@@ -4998,7 +5452,671 @@
   <a href="#_46" class="md-nav__link">
     <span class="md-ellipsis">
       
-        边界与定位
+        第三步：教师对学生状态进行打分
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#token_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第四步：匹配两个 token 分布
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 两级期望的含义
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 两级期望的含义">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_47" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        外层：对不同问题求平均
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_48" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        内层：对学生可能生成的不同回答求平均
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_49" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        合并成联合期望
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_50" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        实际训练时如何近似
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sft" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        为什么普通 SFT 没有第二层期望
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-forward-kl-reverse-kl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Forward KL 与 Reverse KL
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Forward KL 与 Reverse KL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#forward-kl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Forward KL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reverse-kl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reverse KL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        最直接的对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#token_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        token 级信号
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-reverse-kl-opd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 为什么 Reverse KL 更匹配 OPD
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 与传统蒸馏的区别
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 与强化学习的区别
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. 主要优点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. 主要问题
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. 主要问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.1 计算开销大
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.2 教师与学生差距不能过大
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#103" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.3 学生可能进入教师不熟悉的状态
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#104" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.4 长序列训练不稳定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#105" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.5 长度投机
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-opd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. 一轮 OPD 的伪代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. 最核心的理解
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kl_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        五、KL 散度
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="五、KL 散度">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心要点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kl_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KL 要估的是什么
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="KL 要估的是什么">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_53" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        全章统一符号
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kl_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        精确 KL 为什么算不出来
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_54" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        蒙特卡洛估计
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        K1：朴素估计
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="K1：朴素估计">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_55" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        无偏性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k1-kl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        K1 和精确 KL 的区别在哪
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_56" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        两个致命缺陷
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        K2：二阶泰勒近似
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        K3：控制变量法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="K3：控制变量法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_57" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        构造原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_58" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        选哪个控制变量
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        K3 的最终形式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_59" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三个优良性质
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_60" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一个易错提醒
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三种估计器对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_62" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        工程实现
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="工程实现">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_63" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        自回归拆分
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        两种取 logp 的方式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#token_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        取出真实 token 的对数概率
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#token-k1-k3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        逐 Token 计算 K1 / K3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ob-cdot-m" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        复杂度：为什么是 \(O(B \cdot M)\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kl_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KL 惩罚放在哪里
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="KL 惩罚放在哪里">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reward" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        方案一：加到 Reward（最稳妥）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#policy-loss_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        方案二：写进 Policy Loss
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_64" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        梯度陷阱
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trpo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        方案三：TRPO 硬约束
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_65" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        选型对照
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kl_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KL 的方向不能写反
       
     </span>
   </a>
@@ -6175,10 +7293,10 @@ DPO:
 <p>DPO 的聪明之处在于：<strong>既然偏好数据已经告诉你"哪个好哪个差"了，为什么还要绕一圈训个 RM？直接用这些数据训模型不就行了。</strong>🚗</p>
 <p><strong>DPO 的数学变换</strong>：</p>
 <blockquote>
-<p><strong>Step 1</strong>：写出 RLHF 的最优策略形式
-$<span class="arithmatex">\(\pi_\theta^*(y|x) = \frac{1}{Z(x)} \pi_{ref}(y|x) \exp\left(\frac{R_\phi(x,y)}{\beta}\right)\)</span>$</p>
-<p><strong>Step 2</strong>：反解出奖励
-$<span class="arithmatex">\(R_\phi(x,y) = \beta \log \frac{\pi_\theta(y|x)}{\pi_{ref}(y|x)} + \beta \log Z(x)\)</span>$</p>
+<p><strong>Step 1</strong>：写出 RLHF 的最优策略形式</p>
+<div class="arithmatex">\[\pi_\theta^*(y|x) = \frac{1}{Z(x)} \pi_{ref}(y|x) \exp\left(\frac{R_\phi(x,y)}{\beta}\right)\]</div>
+<p><strong>Step 2</strong>：反解出奖励</p>
+<div class="arithmatex">\[R_\phi(x,y) = \beta \log \frac{\pi_\theta(y|x)}{\pi_{ref}(y|x)} + \beta \log Z(x)\]</div>
 <p><strong>Step 3</strong>：代入 Bradley-Terry 偏好模型
 人类偏好"winner"胜过"loser"的概率模型</p>
 </blockquote>
@@ -6846,8 +7964,8 @@ SFT Model
 <p>其中：
 - <span class="arithmatex">\(Q(s_t, a_t)\)</span>：在状态 <span class="arithmatex">\(s_t\)</span> 执行动作 <span class="arithmatex">\(a_t\)</span> 之后的期望累积回报（Action-Value）
 - <span class="arithmatex">\(V(s_t)\)</span>：在状态 <span class="arithmatex">\(s_t\)</span> 的期望累积回报（State-Value），即基线</p>
-<p>用实际采样的 <span class="arithmatex">\((R_t + \gamma V(s_{t+1}))\)</span> 近似 <span class="arithmatex">\(Q\)</span>，得到<strong>单步 TD Error</strong>：</p>
-<p>🚗 $<span class="arithmatex">\(\delta_t = R_t + \gamma V(s_{t+1}) - V(s_t)\)</span>$</p>
+<p>用实际采样的 <span class="arithmatex">\((R_t + \gamma V(s_{t+1}))\)</span> 近似 <span class="arithmatex">\(Q\)</span>，得到<strong>单步 TD Error</strong>🚗：</p>
+<div class="arithmatex">\[\delta_t = R_t + \gamma V(s_{t+1}) - V(s_t)\]</div>
 <p>这就是 <span class="arithmatex">\(A = R - b\)</span> 的直接体现：🚗实际单步回报（<span class="arithmatex">\(R_t + \gamma V(s_{t+1})\)</span>）减去基线（<span class="arithmatex">\(V(s_t)\)</span>）。</p>
 <p><strong>拆解 <span class="arithmatex">\(\delta_t\)</span> 的每一项</strong>：
 - <span class="arithmatex">\(R_t\)</span>：这一步实际拿到的即时奖励（<strong>事实</strong>）
@@ -6884,11 +8002,11 @@ SFT Model
 <div class="arithmatex">\[A_{T-1} = \delta_{T-1}\]</div>
 <p>其中 <span class="arithmatex">\(\delta_{T-1} = R_{T-1} + \gamma V(s_T) - V(s_{T-1})\)</span>，由于终态 <span class="arithmatex">\(V(s_T) = 0\)</span>，化简为：</p>
 <div class="arithmatex">\[\delta_{T-1} = R_{T-1} - V(s_{T-1})\]</div>
-<p>在 RLHF 场景下，<span class="arithmatex">\(R_{T-1}\)</span> 就是 Reward Model 在最后一个 Token 处给出的总分（减去 KL 惩罚），<span class="arithmatex">\(V(s_{T-1})\)</span> 是 Critic 对"还差最后一步"时的价值预测。两者之差就是"实际拿到的分数比预期高多少"。
-$<span class="arithmatex">\(A_{T-2} = \delta_{T-2} + \gamma\lambda \cdot \delta_{T-1}\)</span>$
-$<span class="arithmatex">\(A_{T-3} = \delta_{T-3} + \gamma\lambda \cdot \delta_{T-2} + (\gamma\lambda)^2 \cdot \delta_{T-1}\)</span>$
-$<span class="arithmatex">\(\vdots\)</span>$
-$<span class="arithmatex">\(A_0 = \sum_{l=0}^{T-1} (\gamma\lambda)^l \delta_l\)</span>$</p>
+<p>在 RLHF 场景下，<span class="arithmatex">\(R_{T-1}\)</span> 就是 Reward Model 在最后一个 Token 处给出的总分（减去 KL 惩罚），<span class="arithmatex">\(V(s_{T-1})\)</span> 是 Critic 对"还差最后一步"时的价值预测。两者之差就是"实际拿到的分数比预期高多少"。</p>
+<div class="arithmatex">\[A_{T-2} = \delta_{T-2} + \gamma\lambda \cdot \delta_{T-1}\]</div>
+<div class="arithmatex">\[A_{T-3} = \delta_{T-3} + \gamma\lambda \cdot \delta_{T-2} + (\gamma\lambda)^2 \cdot \delta_{T-1}\]</div>
+<div class="arithmatex">\[\vdots\]</div>
+<div class="arithmatex">\[A_0 = \sum_{l=0}^{T-1} (\gamma\lambda)^l \delta_l\]</div>
 <p>这正是 GAE 无穷级数公式在有限序列上的精确实现——<strong>递推等价于累加，但只需一次反向遍历</strong>。</p>
 <p><strong>第三步：还原真实回报 <span class="arithmatex">\(G_t\)</span>（用于训练 Critic）</strong></p>
 <p>优势函数的定义是：</p>
@@ -7358,11 +8476,11 @@ y_l（差回复）: &quot;我不确定，可能是 4 或者 5？&quot;
 
 <span class="n">kl_per_token</span> <span class="o">=</span> <span class="n">log_probs_actor</span> <span class="o">-</span> <span class="n">log_probs_ref</span>  <span class="c1"># [B, T]，逐 Token KL</span>
 </code></pre></div>
-<p>注意这是 <span class="arithmatex">\(D_{KL}(\pi_\theta \| \pi_{ref})\)</span> 的<strong>样本近似</strong>（单样本蒙特卡洛），而非精确 KL。精确 KL 需要对整个词表求和（过于昂贵），实践中用单样本近似：</p>
+<p>注意这是 <span class="arithmatex">\(D_{KL}(\pi_\theta \| \pi_{ref})\)</span> 的<strong>样本近似</strong>（单样本蒙特卡洛），而非精确 KL。精确 KL 需要对整个词表求和（过于昂贵），实践中用单样本近似，这就是 <strong>K1 估计器</strong>：</p>
 <div class="arithmatex">\[D_{KL}(\pi_\theta \| \pi_{ref}) \approx \log\pi_\theta(a_t|s_t) - \log\pi_{\text{ref}}(a_t|s_t)\]</div>
-<p>GRPO 论文中使用的非对称 KL 近似（Jensen 不等式导出的下界形式）：</p>
+<p>GRPO 论文中使用的是 <strong>K3 估计器</strong>（Schulman 提出，由控制变量法构造）：</p>
 <div class="arithmatex">\[D_{KL}(\pi_\theta \| \pi_{ref}) \approx \frac{\pi_{ref}(a_t|s_t)}{\pi_\theta(a_t|s_t)} - \log\frac{\pi_{ref}(a_t|s_t)}{\pi_\theta(a_t|s_t)} - 1\]</div>
-<p>该形式在 <span class="arithmatex">\(\pi_\theta = \pi_{ref}\)</span> 时等于 0，且恒 <span class="arithmatex">\(\geq 0\)</span>，比直接用对数差更稳定。</p>
+<p>该形式在 <span class="arithmatex">\(\pi_\theta = \pi_{ref}\)</span> 时等于 0，且恒 <span class="arithmatex">\(\geq 0\)</span>，比直接用对数差更稳定。它的期望<strong>严格等于</strong>真实 KL（是无偏估计，不是下界），完整推导、方差为什么更低、以及多轮 epoch 下的梯度陷阱见第五章 <code>KL 散度</code>。</p>
 <h4 id="old-policy_1">Old Policy 的缓存<a class="headerlink" href="#old-policy_1" title="Permanent link">&para;</a></h4>
 <p>PPO/GRPO 中需要 <span class="arithmatex">\(\pi_{\text{old}}\)</span>（rollout 时的策略）和 <span class="arithmatex">\(\pi_\theta\)</span>（更新后的策略）的比值。工程上：</p>
 <ol>
@@ -7860,206 +8978,602 @@ DeepSeek-R1
 <hr />
 <h2 id="on-policy-distillationopd">四、On-Policy Distillation（OPD）<a class="headerlink" href="#on-policy-distillationopd" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>参考：Generalized Knowledge Distillation（GKD, Agarwal et al., <a href="https://arxiv.org/abs/2306.13649">arXiv:2306.13649</a>, ICLR 2024）、Thinking Machines Lab 相关分析、Rethinking On-Policy Distillation of Large Language Models，以及 Qwen3 / GLM-5 / DeepSeek-V4 技术报告中的实践
-注：本章整理自一篇 OPD 综述性文章，公式按标准 GKD/OPD 记法补全</p>
+<p>早期代表性形式为 <strong>Generalized Knowledge Distillation（GKD）</strong>，其核心动机是解决自回归模型中训练分布与推理分布不一致的问题。</p>
 </blockquote>
 <h3 id="_43">核心要点<a class="headerlink" href="#_43" title="Permanent link">&para;</a></h3>
 <ol>
-<li><strong>一句话定义</strong>：student 先按自己的当前策略生成轨迹，teacher 再沿着 student 真正走到的轨迹，给<strong>逐 token 的分布监督</strong>。</li>
-<li><strong>把两类优点接到了一起</strong>：保留 RL 贴近真实推理分布的 <strong>on-policy</strong> 特性 + 保留蒸馏 <strong>dense、token-level</strong> 的监督信号——站在 off-policy dense 的 SFT 和 on-policy sparse 的 RL 之间。</li>
-<li><strong>修的是 train-test mismatch</strong>：传统蒸馏训练时 student 看 teacher 的轨迹，部署时却走自己的轨迹；OPD 让监督落在 student 真会访问的状态上。</li>
-<li><strong>工业定位</strong>：RL 是<strong>能力发现器</strong>（探索、突破），OPD 是<strong>能力整合器</strong>（整合、压缩、低损耗迁移）——DeepSeek-V4 的分工即"RL 把专家练出来，OPD 把专家合起来"。</li>
+<li><strong>一句话定义</strong>：由学生模型生成当前回答，再让教师模型在学生<strong>实际访问到的每个生成状态</strong>上提供 token 级监督。</li>
+<li><strong>三种方法的区分</strong>：SFT 学习标准答案；Off-policy KD 学习教师走过的路径；<strong>OPD 在学生自己走过的路径上接受教师纠正</strong>。</li>
+<li><strong>监督比 RL 稠密</strong>：RL 通常只有序列级奖励（做完整道题只告诉你对不对），OPD 在长度为 <span class="arithmatex">\(L\)</span> 的回答上提供 <span class="arithmatex">\(L\)</span> 组 token 级分布监督。</li>
+<li><strong>Reverse KL 与 OPD 天然匹配</strong>：OPD 关注"学生实际会怎么做"，Reverse KL 关注"学生把概率放在了哪里"。</li>
+<li><strong>方法论定位</strong>：位于知识蒸馏、模仿学习和强化学习的交叉位置——数据收集方式像 on-policy RL，监督形式像 token-level 知识蒸馏。</li>
 </ol>
-<h3 id="opd">OPD 到底是什么<a class="headerlink" href="#opd" title="Permanent link">&para;</a></h3>
-<p><strong>本质：在 student 自己的状态分布上学习 teacher。</strong></p>
-<p>传统蒸馏更像 off-policy：teacher 先生成一条答案轨迹，student 再去模仿。问题在于——训练时 student 看到的是 teacher 的轨迹，部署时真正执行的却是 student 自己的轨迹，两者一旦分开就出现典型的 <strong>distribution mismatch</strong>。</p>
-<p>OPD 把顺序反过来：</p>
-<ol>
-<li>先由 <strong>student 采样</strong>；</li>
-<li>teacher 在 student <strong>真正访问到的状态</strong>上给分布监督；</li>
-<li>student 学到的不再只是"老师理想情况下会怎么写"，而是"<strong>当我自己走到这里时，老师会怎么往回拽</strong>"。</li>
-</ol>
-<p>定位：OPD 在 SFT 和 RL 中间——它是 on-policy 的，但信号比 RL 更密、更稳。</p>
+<h3 id="1-opd">1. OPD 是什么<a class="headerlink" href="#1-opd" title="Permanent link">&para;</a></h3>
+<p>On-Policy Distillation，简称 OPD，即<strong>在线策略蒸馏</strong>或<strong>同策略蒸馏</strong>。</p>
+<p>核心思想是：<strong>由学生模型生成当前回答，再让教师模型在学生实际访问到的每个生成状态上提供 token 级监督。</strong></p>
+<p>这里的 on-policy 指训练数据来自<strong>当前学生策略</strong>，而不是来自教师模型或一个固定数据集。</p>
+<p>可以概括为：</p>
+<div class="highlight"><pre><span></span><code>问题 Prompt
+   ↓
+学生模型生成回答轨迹
+   ↓
+教师模型检查学生经过的每个前缀
+   ↓
+比较教师与学生的下一 token 分布
+   ↓
+更新学生模型
+</code></pre></div>
+<h3 id="2-opd">2. 为什么需要 OPD<a class="headerlink" href="#2-opd" title="Permanent link">&para;</a></h3>
+<p>传统知识蒸馏通常使用教师生成的固定数据：</p>
+<div class="highlight"><pre><span></span><code>教师生成答案 → 保存为训练数据 → 学生模仿
+</code></pre></div>
+<p>例如，教师生成：</p>
+<div class="highlight"><pre><span></span><code>问题：23 × 17 等于多少？
+教师答案：23 × 17 = 391。
+</code></pre></div>
+<p>学生训练时始终看到教师的<strong>正确推理前缀</strong>：</p>
+<div class="highlight"><pre><span></span><code>23 ×
+23 × 17
+23 × 17 =
+</code></pre></div>
+<p>但推理时，学生可能生成：</p>
+<div class="highlight"><pre><span></span><code>23 × 17 = 381
+</code></pre></div>
+<p>此时后续输入前缀变成 <code>23 × 17 = 381</code>，这个<strong>错误前缀可能从未在训练中出现过</strong>。因此学生一旦生成错误 token，后面的错误可能继续累积。这就是：</p>
+<ul>
+<li><strong>exposure bias</strong>（暴露偏差）；</li>
+<li><strong>train–inference mismatch</strong>（训练—推理分布不匹配）。</li>
+</ul>
+<p>OPD 不再只训练教师访问过的状态，而是<strong>直接训练学生自己真正会访问的状态</strong>。</p>
+<h3 id="3_1">3. 训练过程<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h3>
+<p>设输入问题为 <span class="arithmatex">\(x\)</span>，学生模型为 <span class="arithmatex">\(\pi_\theta\)</span>，教师模型为 <span class="arithmatex">\(\pi_T\)</span>，学生生成的完整回答为 <span class="arithmatex">\(y = (y_1, \ldots, y_L)\)</span>。</p>
+<h4 id="_44">第一步：学生生成轨迹<a class="headerlink" href="#_44" title="Permanent link">&para;</a></h4>
+<p>学生模型根据当前参数生成回答：</p>
+<div class="arithmatex">\[y \sim \pi_\theta(\cdot \mid x)\]</div>
+<p>例如学生生成 <code>23 × 17 = 381</code>。注意，这一步生成的<strong>可以是正确答案，也可以是错误答案</strong>。</p>
+<h4 id="_45">第二步：构造学生访问过的状态<a class="headerlink" href="#_45" title="Permanent link">&para;</a></h4>
+<p>第 <span class="arithmatex">\(t\)</span> 个位置的状态为：</p>
+<div class="arithmatex">\[s_t = (x, y_{&lt;t})\]</div>
+<p>其中 <span class="arithmatex">\(y_{&lt;t}\)</span> 是学生此前已经生成的 token。例如：</p>
+<div class="highlight"><pre><span></span><code>s1：问题
+s2：问题 + &quot;23&quot;
+s3：问题 + &quot;23 ×&quot;
+s4：问题 + &quot;23 × 17&quot;
+s5：问题 + &quot;23 × 17 =&quot;
+</code></pre></div>
+<h4 id="_46">第三步：教师对学生状态进行打分<a class="headerlink" href="#_46" title="Permanent link">&para;</a></h4>
+<p>在<strong>同一个学生前缀</strong> <span class="arithmatex">\(s_t\)</span> 上，分别计算 <span class="arithmatex">\(\pi_\theta(\cdot \mid s_t)\)</span> 和 <span class="arithmatex">\(\pi_T(\cdot \mid s_t)\)</span>。</p>
+<p>也就是说，教师一般<strong>不需要重新生成整条答案</strong>，而是在学生已经访问的状态上回答："在这个前缀之后，下一个 token 应该是什么？"</p>
+<h4 id="token_1">第四步：匹配两个 token 分布<a class="headerlink" href="#token_1" title="Permanent link">&para;</a></h4>
+<p>一个通用的 OPD 目标是：</p>
+<div class="arithmatex">\[\mathcal{L}_{\mathrm{OPD}} = \mathbb{E}_{x\sim\mathcal{D}} \mathbb{E}_{y\sim\pi_\theta(\cdot\mid x)} \left[ \frac{1}{L} \sum_{t=1}^{L} D\left( \pi_T(\cdot\mid s_t), \pi_\theta(\cdot\mid s_t) \right) \right]\]</div>
+<p>其中 <span class="arithmatex">\(D\)</span> 可以是 Forward KL、Reverse KL、Jensen–Shannon divergence、截断 Top-K KL 或其他 token 级分布距离。</p>
+<p><strong>关键不在于具体使用哪一种散度</strong>，而在于：</p>
+<div class="arithmatex">\[s_t \sim d_{\pi_\theta}\]</div>
+<p>即这些训练状态来自<strong>当前学生的访问分布</strong>。</p>
+<h3 id="4">4. 两级期望的含义<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<p>OPD 训练中存在<strong>两层随机采样</strong>：先从数据集中抽取一个问题 <span class="arithmatex">\(x\)</span>；给定问题 <span class="arithmatex">\(x\)</span>，学生模型再随机生成一个回答 <span class="arithmatex">\(y\)</span>。所以需要两级数学期望。</p>
+<h4 id="_47">外层：对不同问题求平均<a class="headerlink" href="#_47" title="Permanent link">&para;</a></h4>
+<div class="arithmatex">\[\mathbb{E}_{x\sim\mathcal{D}}\]</div>
+<p>表示从训练数据分布 <span class="arithmatex">\(\mathcal{D}\)</span> 中抽取不同问题。例如数据集中有：</p>
+<ul>
+<li><span class="arithmatex">\(x_1 =\)</span> "1+1 等于多少？"</li>
+<li><span class="arithmatex">\(x_2 =\)</span> "法国首都是什么？"</li>
+<li><span class="arithmatex">\(x_3 =\)</span> "解释 Transformer。"</li>
+</ul>
+<p>不能只在某一个问题上计算蒸馏损失，而要在所有可能的问题上求平均：</p>
+<div class="arithmatex">\[\mathbb{E}_{x\sim\mathcal{D}}[\cdots] \approx \frac{1}{N}\sum_{i=1}^{N}[\cdots]\]</div>
+<p>外层期望解决的是：<strong>模型面对不同输入问题时，平均蒸馏损失是多少？</strong></p>
+<h4 id="_48">内层：对学生可能生成的不同回答求平均<a class="headerlink" href="#_48" title="Permanent link">&para;</a></h4>
+<p>给定同一个问题 <span class="arithmatex">\(x\)</span>，学生模型不一定每次生成完全相同的回答。例如问题 <span class="arithmatex">\(x =\)</span> "23×17 等于多少？"，学生可能生成：</p>
+<ul>
+<li><span class="arithmatex">\(y_1 =\)</span> "23×17=391"</li>
+<li><span class="arithmatex">\(y_2 =\)</span> "23×17=381"</li>
+<li><span class="arithmatex">\(y_3 =\)</span> "23×10=230，23×7=161，因此答案是 391"</li>
+</ul>
+<p>这些回答的概率由学生策略决定（<span class="arithmatex">\(y \sim \pi_\theta(\cdot \mid x)\)</span>），因此给定一个问题还需要对学生所有可能生成的回答求平均：</p>
+<div class="arithmatex">\[\mathbb{E}_{y\sim\pi_\theta(\cdot\mid x)}[\cdots]\]</div>
+<p>它解决的是：<strong>对于同一个问题，学生可能走不同的生成路径；在这些路径上，平均蒸馏损失是多少？</strong> 这正是 on-policy 的关键——蒸馏状态来自学生自己生成的轨迹。</p>
+<h4 id="_49">合并成联合期望<a class="headerlink" href="#_49" title="Permanent link">&para;</a></h4>
+<p>两级期望也可以合并写成联合分布形式：</p>
+<div class="arithmatex">\[\mathcal{L}_{\mathrm{OPD}} = \mathbb{E}_{(x,y)\sim\mathcal{D}(x)\pi_\theta(y\mid x)}\left[\mathcal{L}(x,y)\right], \qquad p(x,y) = \mathcal{D}(x)\pi_\theta(y\mid x)\]</div>
+<p>注意两级期望<strong>并不表示两个相互独立的随机变量</strong>，因为 <span class="arithmatex">\(y\)</span> 依赖于 <span class="arithmatex">\(x\)</span>。准确地说，内层是一个<strong>条件期望</strong> <span class="arithmatex">\(\mathbb{E}_{y\mid x}\)</span>。</p>
+<h4 id="_50">实际训练时如何近似<a class="headerlink" href="#_50" title="Permanent link">&para;</a></h4>
+<p>理论上要遍历所有问题和所有可能回答，这是不可能的，因此通过采样近似。假设一个 batch 中有 <span class="arithmatex">\(B\)</span> 个问题，每个问题采样 <span class="arithmatex">\(K\)</span> 条回答（<span class="arithmatex">\(x_i \sim \mathcal{D}\)</span>，<span class="arithmatex">\(y_{i,k} \sim \pi_\theta(\cdot \mid x_i)\)</span>），那么损失近似为：</p>
+<div class="arithmatex">\[\mathcal{L}_{\mathrm{OPD}} \approx \frac{1}{B}\sum_{i=1}^{B} \frac{1}{K}\sum_{k=1}^{K} \left[ \frac{1}{L_{i,k}}\sum_{t=1}^{L_{i,k}} D\left( \pi_T(\cdot\mid s_{i,k,t}), \pi_\theta(\cdot\mid s_{i,k,t}) \right) \right]\]</div>
+<p>三层平均分别对应：<span class="arithmatex">\(\frac{1}{B}\sum_i\)</span> 是不同问题，<span class="arithmatex">\(\frac{1}{K}\sum_k\)</span> 是不同生成轨迹，<span class="arithmatex">\(\frac{1}{L_{i,k}}\sum_t\)</span> 是轨迹中的不同 token。</p>
+<p>实际中经常<strong>只对每个问题采样一条回答</strong>（<span class="arithmatex">\(K=1\)</span>）。此时虽然公式中仍写着内层期望，但训练时用一条 Monte Carlo 样本近似它。</p>
+<h4 id="sft">为什么普通 SFT 没有第二层期望<a class="headerlink" href="#sft" title="Permanent link">&para;</a></h4>
+<p>SFT 的答案通常来自固定数据集 <span class="arithmatex">\((x, y^*) \sim \mathcal{D}\)</span>，每个问题对应一个固定参考答案 <span class="arithmatex">\(y^*\)</span>，因此损失可以直接写为：</p>
+<div class="arithmatex">\[\mathcal{L}_{\mathrm{SFT}} = \mathbb{E}_{(x,y^*)\sim\mathcal{D}}\left[ -\sum_t \log\pi_\theta(y_t^*\mid x, y_{&lt;t}^*) \right]\]</div>
+<p>而 OPD 的回答 <span class="arithmatex">\(y\)</span> 是学生<strong>实时生成</strong>的，学生生成具有随机性，且学生参数变化后生成分布也会变化，因此需要显式加入第二层期望。</p>
+<div class="arithmatex">\[\boxed{\mathbb{E}_x\mathbb{E}_{y\mid x} = \text{先对每个问题下学生的各种回答求平均，再对所有问题求平均}}\]</div>
+<h3 id="5-forward-kl-reverse-kl">5. Forward KL 与 Reverse KL<a class="headerlink" href="#5-forward-kl-reverse-kl" title="Permanent link">&para;</a></h3>
+<p>设教师分布为 <span class="arithmatex">\(P\)</span>，学生预测分布为 <span class="arithmatex">\(Q\)</span>。</p>
+<h4 id="forward-kl">Forward KL<a class="headerlink" href="#forward-kl" title="Permanent link">&para;</a></h4>
+<p>经典蒸馏通常使用：</p>
+<div class="arithmatex">\[D_{\mathrm{KL}}(\pi_T\|\pi_\theta) = \sum_a \pi_T(a\mid s) \log \frac{\pi_T(a\mid s)}{\pi_\theta(a\mid s)}\]</div>
+<p>对应的 OPD 目标为：</p>
+<div class="arithmatex">\[\mathcal{L}_{\mathrm{FKL}} = \mathbb{E}_{s\sim d_{\pi_\theta}}\left[ D_{\mathrm{KL}}\left( \pi_T(\cdot\mid s) \| \pi_\theta(\cdot\mid s) \right) \right]\]</div>
+<p>它由<strong>教师概率 <span class="arithmatex">\(P(x)\)</span> 加权</strong>，因此主要关注：<strong>教师认为概率很高，但学生预测概率很低的地方</strong>。例如 <span class="arithmatex">\(P(x)=0.5\)</span>、<span class="arithmatex">\(Q(x)=0\)</span> 时，教师认为这个 token 很重要而学生几乎忽略了它，Forward KL 会强烈惩罚学生。</p>
+<p>所以 Forward KL 倾向于让学生<strong>覆盖教师的所有高概率区域</strong>，具有 mode-covering 特性——"尽量不要漏掉教师认为可能的答案"。</p>
+<h4 id="reverse-kl">Reverse KL<a class="headerlink" href="#reverse-kl" title="Permanent link">&para;</a></h4>
+<p>近期 LLM 推理训练中的 OPD 经常采用：</p>
+<div class="arithmatex">\[D_{\mathrm{KL}}(\pi_\theta\|\pi_T) = \sum_a \pi_\theta(a\mid s) \log \frac{\pi_\theta(a\mid s)}{\pi_T(a\mid s)}\]</div>
+<p>对应：</p>
+<div class="arithmatex">\[\mathcal{L}_{\mathrm{RKL}} = \mathbb{E}_{s\sim d_{\pi_\theta}}\left[ D_{\mathrm{KL}}\left( \pi_\theta(\cdot\mid s) \| \pi_T(\cdot\mid s) \right) \right]\]</div>
+<p>它由<strong>学生概率 <span class="arithmatex">\(Q(x)\)</span> 加权</strong>，因此主要关注：<strong>学生预测概率很高，但教师认为概率很低的地方</strong>。例如 <span class="arithmatex">\(Q(x)=0.5\)</span>、<span class="arithmatex">\(P(x)=0\)</span> 时，学生非常想输出这个 token 而教师认为它基本不合理，Reverse KL 会强烈压制它。</p>
+<p>所以 Reverse KL 倾向于让学生<strong>集中到教师的某个高概率区域</strong>，具有 mode-seeking 特性——"不要把概率分给教师不认可的答案"。GKD 的实验也发现，在学生容量明显小于教师时，Reverse KL 或特定形式的 JSD 可能比传统 Forward KL 更合适。</p>
+<h4 id="_51">最直接的对比<a class="headerlink" href="#_51" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>散度</th>
+<th>更关注什么错误</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(D_{\mathrm{KL}}(P\|Q)\)</span>（Forward）</td>
+<td>教师概率高、学生概率低，即学生<strong>漏掉了正确模式</strong></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(D_{\mathrm{KL}}(Q\|P)\)</span>（Reverse）</td>
+<td>学生概率高、教师概率低，即学生<strong>错误地偏爱某些模式</strong></td>
+</tr>
+</tbody>
+</table>
+<div class="arithmatex">\[\boxed{\text{Forward KL：怕学生漏掉教师认可的答案}}\]</div>
+<div class="arithmatex">\[\boxed{\text{Reverse KL：怕学生选择教师不认可的答案}}\]</div>
+<blockquote>
+<p><strong>易错提醒</strong>：不能简单地说"Forward KL 关注学生概率低、Reverse KL 关注学生概率高"，而要<strong>结合教师分布比较</strong>——Forward KL 关注学生在教师<strong>高</strong>概率区域预测得过低；Reverse KL 关注学生在教师<strong>低</strong>概率区域预测得过高。</p>
+</blockquote>
+<h4 id="token_2">token 级信号<a class="headerlink" href="#token_2" title="Permanent link">&para;</a></h4>
+<p>对学生采样出的 token <span class="arithmatex">\(y_t\)</span>，可以构造直观的 token 级信号：</p>
+<div class="arithmatex">\[r_t = \log \pi_T(y_t\mid s_t) - \log \pi_\theta(y_t\mid s_t)\]</div>
+<ul>
+<li>教师比学生更认可这个 token：<span class="arithmatex">\(r_t &gt; 0\)</span>；</li>
+<li>学生过度偏爱但教师不认可：<span class="arithmatex">\(r_t &lt; 0\)</span>。</li>
+</ul>
+<p>因此，现代 OPD 的实现形式看起来常常很像 token-level RL。</p>
+<h3 id="6-reverse-kl-opd">6. 为什么 Reverse KL 更匹配 OPD<a class="headerlink" href="#6-reverse-kl-opd" title="Permanent link">&para;</a></h3>
+<p>因为 OPD 的核心是<strong>学生先自己生成，再由教师纠正学生实际做出的选择</strong>，而 Reverse KL 正好更关注<strong>学生当前认为概率高、但教师认为不合理的 token</strong>。</p>
+<p>学生生成轨迹时，真正影响后续推理的是它自己<strong>高概率选择</strong>的 token。某个 token 如果学生几乎不会选择，即使教师很喜欢它，也不会明显影响学生当前的实际生成过程；相反，如果学生经常选择一个教师不认可的 token，这个错误会进入上下文，并导致后续整条推理轨迹偏离。</p>
+<p>因此 Reverse KL 的作用可以理解为：<strong>优先纠正学生真正会犯的错误，而不是要求学生完整复制教师的所有可能行为。</strong></p>
+<p>例如，教师认为下一步有三种合理写法，但学生容量较小，只能学好其中一种。Forward KL 会要求学生尽量覆盖教师的三种模式；Reverse KL 则允许学生集中学习其中一个教师认可的高概率模式，只要不要把概率放在教师不认可的错误模式上。</p>
+<p>这对 OPD 尤其合适，因为：</p>
+<ul>
+<li>轨迹由学生生成，训练重点本来就是学生当前访问到的行为；</li>
+<li>学生通常比教师小，难以完整覆盖教师的全部输出分布；</li>
+<li>推理时最危险的是学生<strong>高概率输出错误 token</strong>，而不是漏掉某个教师认可但很少使用的表达；</li>
+<li>Reverse KL 更直接地压制学生自己的错误高概率选择。</li>
+</ul>
+<p>一句话概括：<strong>OPD 关注"学生实际会怎么做"，Reverse KL 关注"学生把概率放在了哪里"，所以二者天然匹配。</strong></p>
+<p>不过代价是 Reverse KL 更容易产生<strong>模式收缩</strong>：学生可能只学习教师的一种高概率解法，而忽略其他同样合理的解法。</p>
+<h3 id="7">7. 与传统蒸馏的区别<a class="headerlink" href="#7" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
 <th>方法</th>
-<th>采样来源</th>
-<th>监督密度</th>
+<th>轨迹由谁生成</th>
+<th>监督信号</th>
+<th>训练状态</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>SFT / 传统蒸馏</td>
-<td>teacher / 固定数据集（off-policy）</td>
-<td>dense（每步有监督）</td>
+<td>SFT</td>
+<td>人工答案或固定数据</td>
+<td>硬标签 token</td>
+<td>固定参考前缀</td>
+</tr>
+<tr>
+<td>Off-policy KD</td>
+<td>教师或固定数据集</td>
+<td>教师 soft logits</td>
+<td>教师/数据前缀</td>
 </tr>
 <tr>
 <td><strong>OPD</strong></td>
-<td><strong>student 自己（on-policy）</strong></td>
-<td><strong>dense（每步一个完整分布）</strong></td>
+<td><strong>当前学生模型</strong></td>
+<td><strong>教师 token 分布</strong></td>
+<td><strong>学生实际访问的前缀</strong></td>
 </tr>
 <tr>
-<td>RL</td>
-<td>student 自己（on-policy）</td>
-<td>sparse（整条序列一个标量）</td>
+<td>RLVR</td>
+<td>当前学生模型</td>
+<td>最终答案奖励</td>
+<td>学生实际访问的前缀</td>
 </tr>
 </tbody>
 </table>
-<h3 id="on-policy">为什么 On-Policy 这件事重要<a class="headerlink" href="#on-policy" title="Permanent link">&para;</a></h3>
-<p>自回归模型的现实问题：<strong>前面某个 token 一旦偏了，后面的上下文就跟着变</strong>。teacher 给出的漂亮示范，很多时候并没有覆盖 student 在真实推理里会遇到的状态。</p>
-<p><strong>GKD（Generalized Knowledge Distillation）</strong>抓住的正是这个点——把蒸馏改写成：<strong>在 student 自己访问到的状态上，让 teacher 提供监督</strong>。从这一步开始，蒸馏不再是"离线模仿"，而是"沿着 student 的真实轨迹做在线纠偏"。</p>
-<blockquote>
-<p>真正关键的，不是有没有 teacher，而是 <strong>supervision 是否落在 student 真会访问的状态上</strong>。</p>
-</blockquote>
-<h3 id="gkdopd">GKD：OPD 的理论奠基<a class="headerlink" href="#gkdopd" title="Permanent link">&para;</a></h3>
-<p><strong>GKD = Generalized Knowledge Distillation（广义知识蒸馏）</strong>，Google DeepMind 提出（Agarwal et al., ICLR 2024）。</p>
-<p><strong>解决什么问题</strong>：传统序列级蒸馏是 off-policy——student 在 teacher 生成的（或固定数据集里的）轨迹上学，但部署时走的是自己的轨迹，前面一个 token 偏了后面上下文全变，训练时从没见过这些状态（train-test mismatch / exposure bias）。</p>
-<p><strong>核心贡献：把蒸馏拆成两个正交旋钮</strong>。所有蒸馏方法都可以写成同一个模板：</p>
-<div class="arithmatex">\[\mathcal{L} = \mathbb{E}_{y \sim \pi_\beta}\left[\sum_t D\big(p_T(\cdot|s_t),\ p_S(\cdot|s_t)\big)\right]\]</div>
-<table>
-<thead>
-<tr>
-<th>旋钮</th>
-<th>选项</th>
-<th>效果</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>采样策略 <span class="arithmatex">\(\pi_\beta\)</span></strong>（轨迹谁生成）</td>
-<td>固定数据集 / teacher</td>
-<td>传统 off-policy 蒸馏</td>
-</tr>
-<tr>
-<td></td>
-<td><strong>student 自己</strong></td>
-<td><strong>on-policy 蒸馏（OPD）</strong></td>
-</tr>
-<tr>
-<td></td>
-<td>teacher+student 混合</td>
-<td>mixed-policy 变体</td>
-</tr>
-<tr>
-<td><strong>散度 <span class="arithmatex">\(D\)</span></strong>（差异怎么度量）</td>
-<td>Forward KL / Reverse KL / 广义 JSD</td>
-<td>mode-covering ↔ mode-seeking 连续调节</td>
-</tr>
-</tbody>
-</table>
-<p>"轨迹来源"加上"散度选择"两个自由度，组合出整个蒸馏方法空间——传统 KD、SFT、OPD 都成了这个框架里的特例。</p>
-<p><strong>关键结论</strong>：</p>
+<p>最本质的区别是：</p>
 <ul>
-<li>on-policy 采样（student 自己生成）+ 合适的散度，在摘要、翻译、算术推理等任务上普遍优于 off-policy 蒸馏——学生要<strong>在自己犯错的地方被纠正</strong>（learning from self-generated mistakes）</li>
-<li>从此蒸馏不再是"离线模仿"，而是"沿 student 真实轨迹的在线纠偏"——直接开启了 Qwen3、GLM-5、DeepSeek-V4 把 OPD 放进主流程的路线</li>
+<li><strong>Off-policy KD</strong>：老师出题、老师写答案，学生照着学。</li>
+<li><strong>OPD</strong>：学生先自己答，老师沿着学生的答题过程逐步纠正。</li>
 </ul>
+<h3 id="8">8. 与强化学习的区别<a class="headerlink" href="#8" title="Permanent link">&para;</a></h3>
+<p>OPD 和 RL 都会使用学生自己生成的 rollout，因此<strong>都属于 on-policy 数据收集</strong>，但<strong>监督来源不同</strong>。</p>
+<p><strong>强化学习</strong>通常只有序列级奖励 <span class="arithmatex">\(R(x,y)\)</span>。例如数学题：最终答案正确奖励 1，错误奖励 0。它很难直接知道<strong>哪一个中间 token 导致了错误</strong>。</p>
+<p><strong>OPD</strong> 的教师在每个位置都提供 token 级概率 <span class="arithmatex">\(\pi_T(\cdot \mid s_t)\)</span>，因此一条长度为 <span class="arithmatex">\(L\)</span> 的回答可以提供 <span class="arithmatex">\(L\)</span> 组稠密监督。</p>
+<p>可以理解为：</p>
+<ul>
+<li><strong>RL</strong>：做完整道题后只告诉你对不对。</li>
+<li><strong>OPD</strong>：每写一步，教师都告诉你下一步哪些写法更合理。</li>
+</ul>
+<p>因此 OPD 往往比仅使用结果奖励的 RL 具有<strong>更密集、更低方差</strong>的训练信号。不过，OPD 优化的是<strong>模仿教师</strong>，而 RL 可以直接优化外部任务奖励，所以学生通常更受<strong>教师能力上限</strong>约束。</p>
+<h3 id="9">9. 主要优点<a class="headerlink" href="#9" title="Permanent link">&para;</a></h3>
+<p><strong>缓解分布偏移</strong>：学生在自己会生成的前缀上接受训练，训练状态更接近真实推理状态。</p>
+<p><strong>能学习如何处理自身错误</strong>：即使学生已经进入一个不理想的前缀，教师仍然可以在该状态上提供后续 token 分布，而不是只在完美答案路径上教学。</p>
+<p><strong>监督更加稠密</strong>：教师为每个 token 提供概率分布，而不是只给最终正确或错误的标量奖励。</p>
+<p><strong>与 RL 容易结合</strong>：可以同时优化任务奖励和蒸馏目标：</p>
+<div class="arithmatex">\[\max_\theta \mathbb{E}_{y\sim\pi_\theta}\left[R(x,y)\right] - \beta\mathcal{L}_{\mathrm{OPD}}\]</div>
+<p>其中 RL 奖励负责优化任务目标，OPD 负责让学生维持教师的推理能力。GKD 已给出了这种 RL 与 on-policy distillation 的联合形式。</p>
+<h3 id="10">10. 主要问题<a class="headerlink" href="#10" title="Permanent link">&para;</a></h3>
+<h4 id="101">10.1 计算开销大<a class="headerlink" href="#101" title="Permanent link">&para;</a></h4>
+<p>每一批训练通常需要：学生执行 rollout；教师对学生轨迹执行前向计算；学生再次执行前向与反向传播。因此需要同时维护教师和学生，<strong>显存及计算成本明显高于普通 SFT</strong>。</p>
+<h4 id="102">10.2 教师与学生差距不能过大<a class="headerlink" href="#102" title="Permanent link">&para;</a></h4>
+<p>教师虽然能力更强，但若其思维模式和学生差异过大，教师在学生前缀上给出的分布可能对学生并不适用。近期研究表明，OPD 是否成功不仅取决于教师分数更高，还取决于：</p>
+<ul>
+<li>教师和学生是否具有<strong>兼容的推理模式</strong>；</li>
+<li>教师是否真正提供了学生训练中<strong>没有见过的新能力</strong>。</li>
+</ul>
+<p>因此<strong>并不是教师越大，蒸馏效果就一定越好</strong>。</p>
+<h4 id="103">10.3 学生可能进入教师不熟悉的状态<a class="headerlink" href="#103" title="Permanent link">&para;</a></h4>
+<p>如果学生前面已经生成了严重错误的内容，<span class="arithmatex">\(s_t = (x, \text{错误且异常的前缀})\)</span> 这个状态可能<strong>偏离教师自身通常访问的分布</strong>。此时教师给出的下一 token 概率也可能不可靠。</p>
+<h4 id="104">10.4 长序列训练不稳定<a class="headerlink" href="#104" title="Permanent link">&para;</a></h4>
+<p>常用的 sampled-token OPD 只比较学生采样出的少量 token，存在 token 信号不平衡、长轨迹状态漂移、梯度估计偏差、特殊 token 和 tokenizer 不一致等问题。</p>
+<p>一种改进是<strong>只在教师的 Top-K 局部支持集上计算截断 Reverse KL</strong>，并结合 top-p rollout 与特殊 token mask。</p>
+<h4 id="105">10.5 长度投机<a class="headerlink" href="#105" title="Permanent link">&para;</a></h4>
+<p>将 token 级信号在整个序列上累加后，模型可能通过提前结束回答、重复填充内容、非正常增加回答长度等方式来"利用"目标函数，而不是真正改善推理。2026 年的研究将其总结为 <strong>length exploitation</strong>，并使用 advantage clipping、对数压缩等方式稳定信号。</p>
+<h3 id="11-opd">11. 一轮 OPD 的伪代码<a class="headerlink" href="#11-opd" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">prompt</span> <span class="ow">in</span> <span class="n">dataset</span><span class="p">:</span>
+    <span class="c1"># 1. 当前学生生成回答</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">student</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+
+    <span class="c1"># 2. 获得学生经过的所有前缀状态</span>
+    <span class="n">states</span> <span class="o">=</span> <span class="n">build_prefixes</span><span class="p">(</span><span class="n">prompt</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span>
+
+    <span class="n">loss</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c1"># 3. 教师在学生状态上提供监督</span>
+    <span class="k">for</span> <span class="n">state</span> <span class="ow">in</span> <span class="n">states</span><span class="p">:</span>
+        <span class="n">student_logits</span> <span class="o">=</span> <span class="n">student</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+        <span class="n">teacher_logits</span> <span class="o">=</span> <span class="n">teacher</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+
+        <span class="n">student_prob</span> <span class="o">=</span> <span class="n">softmax</span><span class="p">(</span><span class="n">student_logits</span><span class="p">)</span>
+        <span class="n">teacher_prob</span> <span class="o">=</span> <span class="n">softmax</span><span class="p">(</span><span class="n">teacher_logits</span><span class="p">)</span>
+
+        <span class="c1"># 4. 计算分布差异</span>
+        <span class="n">loss</span> <span class="o">+=</span> <span class="n">kl_divergence</span><span class="p">(</span><span class="n">student_prob</span><span class="p">,</span> <span class="n">teacher_prob</span><span class="p">)</span>
+
+    <span class="c1"># 5. 只更新学生</span>
+    <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+    <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+</code></pre></div>
+<p>教师模型一般被<strong>冻结</strong>，不参与参数更新。</p>
+<h3 id="12">12. 最核心的理解<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
+<p>OPD 不是简单地让学生模仿教师答案，而是：<strong>让学生先暴露自己在真实推理过程中会遇到的状态，然后由教师在这些学生状态上提供稠密的下一 token 指导。</strong></p>
+<p>因此可以把三种方法简单区分为：</p>
+<ul>
+<li><strong>SFT</strong>：学习标准答案。</li>
+<li><strong>Off-policy KD</strong>：学习教师走过的路径。</li>
+<li><strong>OPD</strong>：在学生自己走过的路径上接受教师纠正。</li>
+</ul>
+<p>从方法论上看，OPD 位于<strong>知识蒸馏、模仿学习和强化学习</strong>的交叉位置：数据收集方式像 on-policy RL，监督形式像 token-level knowledge distillation，目标则是让学生在自身推理分布上逐步接近教师。</p>
+<hr />
+<h2 id="kl_2">五、KL 散度<a class="headerlink" href="#kl_2" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>一句话：<strong>GKD 是"OPD 的操作系统"——它没发明某一个具体算法，而是给出了「采样策略 × 分布目标」的设计空间，OPD 是其中被工业界选中的那个配置（on-policy + RKL）。</strong></p>
+<p>本章系统整理 KL 散度在 LLM 对齐中的角色与估计方法。KL 在 RLHF 中"惩罚什么、<span class="arithmatex">\(\beta\)</span> 怎么调、与 Entropy 的区别"见第一章 <code>RLHF 中的 KL 约束</code>；逐 Token KL 惩罚为什么要分散到每一步见第二章 <code>PPO 的优势计算：GAE</code>。本章重点是<strong>精确 KL 为什么算不出来，以及 K1 / K2 / K3 三种估计器的构造、性质与工程落地</strong>。</p>
 </blockquote>
-<h3 id="_44">技术核心<a class="headerlink" href="#_44" title="Permanent link">&para;</a></h3>
-<h4 id="_45">记号与训练目标<a class="headerlink" href="#_45" title="Permanent link">&para;</a></h4>
-<p>给定输入 <span class="arithmatex">\(x\)</span>，student 生成回复轨迹 <span class="arithmatex">\(y = (y_1, \ldots, y_T)\)</span>。第 <span class="arithmatex">\(t\)</span> 步的状态：</p>
-<div class="arithmatex">\[s_t = (x, y_{&lt;t})\]</div>
-<p>teacher 与 student 在该状态上的下一 token 分布分别记为 <span class="arithmatex">\(p_T(\cdot \mid s_t)\)</span> 和 <span class="arithmatex">\(p_S^\theta(\cdot \mid s_t)\)</span>。OPD 的一般形式：先从 student 当前策略采样轨迹</p>
-<div class="arithmatex">\[y \sim \pi_S^\theta(\cdot \mid x)\]</div>
-<p>再在 student 轨迹上最小化逐 token 分布差：</p>
-<div class="arithmatex">\[\mathcal{L}_{\text{OPD}} = \mathbb{E}_{y \sim \pi_S^\theta}\left[\sum_{t=1}^{T} D\big(p_T(\cdot \mid s_t),\ p_S^\theta(\cdot \mid s_t)\big)\right]\]</div>
-<p><strong>与传统蒸馏最根本的区别</strong>：loss 还是分布匹配，但状态分布已经从 teacher rollout 换成了 <strong>student rollout</strong>。</p>
-<h4 id="gkd">采样策略：GKD 的统一视角<a class="headerlink" href="#gkd" title="Permanent link">&para;</a></h4>
-<p>把采样分布记为 <span class="arithmatex">\(\pi_\beta\)</span>，训练目标为 <span class="arithmatex">\(\mathbb{E}_{y \sim \pi_\beta}[\sum_t D(p_T, p_S)]\)</span>：</p>
-<table>
-<thead>
-<tr>
-<th>采样分布 <span class="arithmatex">\(\pi_\beta\)</span></th>
-<th>对应方法</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><span class="arithmatex">\(\pi_\beta = \pi_T\)</span>（teacher）</td>
-<td>传统 off-policy 蒸馏</td>
-</tr>
-<tr>
-<td><span class="arithmatex">\(\pi_\beta = \pi_S\)</span>（student）</td>
-<td><strong>标准 OPD</strong></td>
-</tr>
-<tr>
-<td>teacher 与 student 的混合分布</td>
-<td>mixed-policy 变体</td>
-</tr>
-</tbody>
-</table>
-<p>GKD 的价值：把蒸馏明确成 <strong>「采样策略 × 分布目标」</strong> 的组合问题。</p>
-<h4 id="reverse-kl">为什么很多系统偏爱 Reverse KL<a class="headerlink" href="#reverse-kl" title="Permanent link">&para;</a></h4>
-<p><strong>Forward KL</strong>（mode-covering）：</p>
-<div class="arithmatex">\[D_{\text{FKL}} = \sum_{v} p_T(v \mid s_t) \log \frac{p_T(v \mid s_t)}{p_S(v \mid s_t)}\]</div>
-<p>推动 student 尽量别漏掉 teacher 支持的模式，结果有时更"平均"。</p>
-<p><strong>Reverse KL</strong>（mode-seeking）：</p>
-<div class="arithmatex">\[D_{\text{RKL}} = \sum_{v} p_S(v \mid s_t) \log \frac{p_S(v \mid s_t)}{p_T(v \mid s_t)}\]</div>
-<p>期望按 <strong>student 自己的分布</strong>取，优化重点天然落在 student 已经给出概率质量的 token 上：这些 token 若不被 teacher 认可，就被强力压回去；teacher 支持但 student 几乎没走到的模式，RKL 不会先逼它去覆盖。</p>
-<p>这正好贴合 OPD 的需求——rollout 本来就来自 student，本质是在 student 真走到的轨迹上做<strong>局部纠偏</strong>，所以很多系统落在 <strong>on-policy + RKL</strong> 这条线上。对推理、决策、工具调用这类"下一步别走错"的任务尤其合适。</p>
-<p><strong>梯度直觉</strong>：只看 student 实际采样到的 token <span class="arithmatex">\(y_t\)</span>，Reverse KL 的梯度方向可理解为推动下式变大：</p>
-<div class="arithmatex">\[\log p_T(y_t \mid s_t) - \log p_S(y_t \mid s_t)\]</div>
-<p>teacher 觉得该 token 应该更大而 student 给小了 → 往上推；反之 → 往下压。</p>
-<p><strong>Skew KL</strong>：DistiLLM 等工作在 FKL 与 RKL 之间插值——工业实践并不总是二选一，更像在目标偏好上做连续调节。</p>
-<h3 id="opd-rl">OPD 与 RL 的关系<a class="headerlink" href="#opd-rl" title="Permanent link">&para;</a></h3>
-<p>从目标重写的角度看，<strong>OPD 在形式上接近一种带 dense token-level reward 的 on-policy optimization</strong>。对 student rollout 的每个位置可构造逐 token 局部 reward：</p>
-<div class="arithmatex">\[r_t = -D_{\text{KL}}\big(p_S(\cdot \mid s_t)\ \|\ p_T(\cdot \mid s_t)\big)\]</div>
-<p>总目标近似为 <span class="arithmatex">\(\max_\theta \mathbb{E}_{y \sim \pi_S^\theta}\left[\sum_t r_t\right]\)</span>。</p>
-<p>这个视角的价值不在于把 OPD 等同于 RL，而在于解释：<strong>两者都是 on-policy，但 OPD 的信号更密，来源不是环境打分而是 teacher 分布</strong>。</p>
-<blockquote>
-<p>Thinking Machines Lab 的直观说法：RL 每轮只给 <span class="arithmatex">\(O(1)\)</span> 量级的信息，而 distillation 在长度为 <span class="arithmatex">\(T\)</span> 的序列上提供 <span class="arithmatex">\(O(T)\)</span> 量级的信息。这也是 OPD 在不少设定里比纯 RL 更高效的原因。</p>
-</blockquote>
-<h4 id="deepseek-v4-full-vocabulary-reverse-kl">DeepSeek-V4 的 full-vocabulary reverse KL<a class="headerlink" href="#deepseek-v4-full-vocabulary-reverse-kl" title="Permanent link">&para;</a></h4>
-<p>很多早期做法本质上"只在采样出来的那个 token 上做校正"。DeepSeek-V4 更进一步，<strong>在整个词表上做 reverse KL 约束</strong>：</p>
-<div class="arithmatex">\[\mathcal{L} = \mathbb{E}_{y \sim \pi_S}\left[\sum_{t} \sum_{v \in \mathcal{V}} p_S(v \mid s_t) \log \frac{p_S(v \mid s_t)}{p_T(v \mid s_t)}\right]\]</div>
-<p>区别不只是"算得更重"：优化目标从"纠正已采样的 token"推进到"<strong>直接约束整张 next-token 分布</strong>"——不再只盯单个 token，对整张分布同时施加约束，梯度更稳、方差更小。这也是它被用于多专家整合的原因：在统一合版目标上，全词表分布约束比单 token 奖励更适合作 consolidation 的主信号。</p>
-<h3 id="opd_1">工业界怎么用 OPD<a class="headerlink" href="#opd_1" title="Permanent link">&para;</a></h3>
-<h4 id="strong-to-weak-qwen3">路线一：strong-to-weak 能力迁移（Qwen3）<a class="headerlink" href="#strong-to-weak-qwen3" title="Permanent link">&para;</a></h4>
-<p>对轻量模型来说，强 teacher 的蒸馏在不少设定下<strong>比单独跑完整 RL 更划算</strong>：Qwen3 技术报告设定下，strong-to-weak distillation 只用约 <strong>1/10 的 GPU hours</strong>，同时保持很强的性能提升。意义不是"RL 不重要了"，而是<strong>能力迁移场景里 dense supervision 往往比 sparse reward 更高效</strong>。</p>
-<h4 id="teacher">路线二：多 teacher / 多阶段能力整合<a class="headerlink" href="#teacher" title="Permanent link">&para;</a></h4>
-<p>把 OPD 当<strong>能力整合器</strong>：不是把强模型压进小模型，而是把不同阶段、不同来源、不同专长的能力整回一个统一模型。</p>
-<table>
-<thead>
-<tr>
-<th>案例</th>
-<th>类型</th>
-<th>做法</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>GLM-5</strong></td>
-<td>cross-stage consolidation</td>
-<td>teacher 来自<strong>不同训练阶段</strong>的 checkpoint（各有长处），Cross-Stage OPD 把阶段性能力整回最终模型</td>
-</tr>
-<tr>
-<td><strong>DeepSeek-V4</strong></td>
-<td>expert consolidation</td>
-<td>先分别训出数学、代码、Agent、指令跟随等<strong>领域专家</strong>，再用 OPD（full-vocabulary RKL）把专家统一合入主模型；在 expert consolidation 这步，OPD 比 mixed RL 更核心</td>
-</tr>
-</tbody>
-</table>
-<p>分工：<strong>RL 做能力突破和探索；OPD 做能力整合和低损耗迁移。</strong></p>
-<h3 id="opd_2">OPD 为什么有效（分析工作的结论）<a class="headerlink" href="#opd_2" title="Permanent link">&para;</a></h3>
-<blockquote>
-<p>主要来自 Rethinking On-Policy Distillation of Large Language Models</p>
-</blockquote>
+<h3 id="_52">核心要点<a class="headerlink" href="#_52" title="Permanent link">&para;</a></h3>
 <ol>
-<li><strong>teacher 强还不够，师生要"兼容"</strong>：OPD 效果 ≈ teacher 能力 × 师生兼容性。benchmark 更高的 teacher 不一定是更好的 OPD teacher——若 teacher 的局部决策方式、分布形状、推理风格与 student 差太远，student 吸收不了 token-level 信号。</li>
-<li><strong>增益主要发生在高概率 token 区域</strong>：成功的 OPD 中，师生在高概率 token 上越来越对齐；共享 top-k token 集合往往已覆盖 <strong>97%–99%</strong> 的概率质量。OPD 多数时候不是全词表里"找全新答案"，而是在 student 本就觉得靠谱的候选里，让 teacher 帮它<strong>重新排序</strong>。这反过来解释了 on-policy 的重要性：student 需要的不是老师从零写完整答案，而是"走到这个状态时，下一步哪几个 token 更值得推上去"。</li>
+<li><strong>精确 KL 在 LLM 上不可计算</strong>：序列空间大小为 <span class="arithmatex">\(V^M\)</span>（词表 32000、生成长度 200，就是 <span class="arithmatex">\(32000^{200}\)</span>），无法枚举求和，只能靠蒙特卡洛采样估计。</li>
+<li><strong>K1 是最直接的估计</strong>：<span class="arithmatex">\(\widehat{\text{KL}}_1 = -\Delta\)</span>，严格无偏，但方差极大，且单样本可能为负，与 KL <span class="arithmatex">\(\ge 0\)</span> 的性质矛盾。</li>
+<li><strong>K3 是当前工业标准</strong>：<span class="arithmatex">\(\widehat{\text{KL}}_3 = e^{\Delta} - \Delta - 1\)</span>，在 K1 上叠加一个期望为 0 的控制变量 <span class="arithmatex">\((r-1)\)</span>，保住无偏的同时大幅降低方差，并且恒非负。</li>
+<li><strong>估计器复杂度是 <span class="arithmatex">\(O(B \cdot M)\)</span> 而不是 <span class="arithmatex">\(O(V^M)\)</span></strong>：直接复用自回归推理已经算好的对数概率，只索引取出实际生成的那一个 token，与词表大小 <span class="arithmatex">\(V\)</span> 无关。</li>
+<li><strong>K3 数值无偏，梯度不一定无偏</strong>：多轮 epoch 复用同一批样本时，把 K3 写进 loss 直接自动微分会引入梯度偏差；最稳妥的做法是把它加到 reward 里。</li>
 </ol>
-<h3 id="_46">边界与定位<a class="headerlink" href="#_46" title="Permanent link">&para;</a></h3>
-<p>OPD 不是万能药：</p>
+<hr />
+<h3 id="kl_3">KL 要估的是什么<a class="headerlink" href="#kl_3" title="Permanent link">&para;</a></h3>
+<p>RLHF 中约束策略模型不要偏离 SFT 参考模型太远，用的是<strong>正向 KL</strong>：</p>
+<div class="arithmatex">\[D_{\text{KL}}(\pi_\theta \parallel \pi_{\text{ref}}) = \mathbb{E}_{y \sim \pi_\theta}\left[\log \frac{\pi_\theta(y)}{\pi_{\text{ref}}(y)}\right] = \sum_{y} \pi_\theta(y) \log \frac{\pi_\theta(y)}{\pi_{\text{ref}}(y)}\]</div>
+<p>三个符号的含义：</p>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(y\)</span></td>
+<td>一整条完整回答序列（长度 <span class="arithmatex">\(M\)</span> 个 token）</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(y \sim \pi_\theta\)</span></td>
+<td>样本必须由<strong>当前策略模型</strong>生成，这是 on-policy 前提，也是后面所有估计器无偏性的基础</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\mathbb{E}[\cdot]\)</span></td>
+<td>对所有可能生成的序列按各自概率加权平均</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_53">全章统一符号<a class="headerlink" href="#_53" title="Permanent link">&para;</a></h4>
+<p>后面三种估计器都基于同一组记号，先钉死避免混淆：</p>
+<div class="arithmatex">\[r = \frac{\pi_{\text{ref}}(y)}{\pi_\theta(y)}, \qquad \Delta = \log r = \log \pi_{\text{ref}}(y) - \log \pi_\theta(y)\]</div>
+<p>注意 <span class="arithmatex">\(r\)</span> 的分子是<strong>参考模型</strong>。于是：</p>
+<div class="arithmatex">\[-\Delta = \log \pi_\theta - \log \pi_{\text{ref}} = \log\frac{\pi_\theta}{\pi_{\text{ref}}}\]</div>
+<p>这正是 KL 定义里期望内部的那一项，所以 <span class="arithmatex">\(D_{\text{KL}}(\pi_\theta \parallel \pi_{\text{ref}}) = \mathbb{E}_{y \sim \pi_\theta}[-\Delta]\)</span>。</p>
+<hr />
+<h3 id="kl_4">精确 KL 为什么算不出来<a class="headerlink" href="#kl_4" title="Permanent link">&para;</a></h3>
+<p>定义式里的求和 <span class="arithmatex">\(\sum_y\)</span> 是<strong>遍历理论上全部能生成的序列</strong>。自回归模型的序列空间有多大：</p>
 <ul>
-<li>依赖 teacher 质量与师生兼容性；</li>
-<li>擅长<strong>整合和纠偏</strong>，不擅长<strong>探索全新策略</strong>；</li>
-<li>长时程任务里局部信号可能逐步变弱。</li>
+<li>词表大小 <span class="arithmatex">\(V\)</span>，每一步有 <span class="arithmatex">\(V\)</span> 个候选；</li>
+<li>第一个 token 有 <span class="arithmatex">\(V\)</span> 种选择，第二个 token 在此基础上仍有 <span class="arithmatex">\(V\)</span> 种，前两个 token 的组合数为 <span class="arithmatex">\(V^2\)</span>；</li>
+<li>递推到第 <span class="arithmatex">\(M\)</span> 步，长度为 <span class="arithmatex">\(M\)</span> 的全部序列总数为 <span class="arithmatex">\(V^M\)</span>。</li>
 </ul>
-<p>准确的说法不是"OPD 取代 RL"，而是：</p>
-<div class="arithmatex">\[\boxed{\text{RL} = \text{能力发现器} \qquad \text{OPD} = \text{能力整合器}}\]</div>
-<p><strong>趋势判断</strong>：后训练的关注点正从"怎么拿到 reward"转向"<strong>怎么更高带宽地传输行为能力</strong>"——从 sparse outcome reward 转向 dense process supervision。OPD 把后训练里最贵的试错，部分替换成更密集、更稳定的局部修正；它正在重新定义后训练流水线的角色分工（RL 发现新能力，OPD 整合/压缩/稳定迁移），很可能成为未来大模型后训练系统最主流的组织方式之一。</p>
+<p>小例子验证：词表只有 A、B 两个词（<span class="arithmatex">\(V=2\)</span>），生成长度 <span class="arithmatex">\(M=3\)</span>，全部序列是 AAA、AAB、ABA、ABB、BAA、BAB、BBA、BBB，共 <span class="arithmatex">\(2^3 = 8\)</span> 条，对得上。</p>
+<p>放到大模型上：<span class="arithmatex">\(V = 32000\)</span>，<span class="arithmatex">\(M = 200\)</span>，序列总数 <span class="arithmatex">\(32000^{200}\)</span>，远超可枚举的范围。</p>
+<div class="arithmatex">\[\boxed{\text{精确 KL 需要 } O(V^M) \text{ 次计算} \implies \text{物理上不可行，只能采样估计}}\]</div>
+<hr />
+<h3 id="_54">蒙特卡洛估计<a class="headerlink" href="#_54" title="Permanent link">&para;</a></h3>
+<p>蒙特卡洛是<strong>用随机抽样估算数学期望</strong>的通用方法。对任意期望：</p>
+<div class="arithmatex">\[\mathbb{E}_{y \sim P}[f(y)] = \sum_y P(y) f(y)\]</div>
+<p>如果枚举全部 <span class="arithmatex">\(y\)</span> 做不到，就改成：从分布 <span class="arithmatex">\(P\)</span> 里随机抽 <span class="arithmatex">\(B\)</span> 个样本 <span class="arithmatex">\(y_1, \dots, y_B\)</span>，分别算出 <span class="arithmatex">\(f(y_i)\)</span>，用样本均值近似真实期望：</p>
+<div class="arithmatex">\[\mathbb{E}_{y \sim P}[f(y)] \approx \frac{1}{B}\sum_{i=1}^{B} f(y_i)\]</div>
+<p><strong>直觉类比</strong>：想知道一个苹果园所有苹果的平均重量，精确做法是把几十万颗全部称重（对应枚举 <span class="arithmatex">\(V^M\)</span>）；蒙特卡洛做法是随机摘 100 个称重取平均，用来预估全园均值。</p>
+<p>两个关键性质，直接决定了后面为什么需要 K3：</p>
+<ol>
+<li><strong>无偏性</strong>：只要样本确实严格从目标分布 <span class="arithmatex">\(P\)</span> 采样而来，样本均值的数学期望<strong>严格等于</strong>真实期望。</li>
+<li><strong>方差</strong>：少量样本一定有随机波动，样本越少、个别样本越极端，误差越大。</li>
+</ol>
+<p>套到 KL 上，采样分布 <span class="arithmatex">\(P = \pi_\theta\)</span>，函数 <span class="arithmatex">\(f(y) = -\Delta\)</span>，于是就得到了 K1。</p>
+<hr />
+<h3 id="k1">K1：朴素估计<a class="headerlink" href="#k1" title="Permanent link">&para;</a></h3>
+<p>把蒙特卡洛规则直接代入 KL 定义，得到最朴素的估计器：</p>
+<div class="arithmatex">\[\widehat{\text{KL}}_1 = \frac{1}{B}\sum_{i=1}^{B} \log\frac{\pi_\theta(y_i)}{\pi_{\text{ref}}(y_i)}\]</div>
+<p>单样本形式就是：</p>
+<div class="arithmatex">\[\boxed{\widehat{\text{KL}}_1 = -\Delta = \log \pi_\theta(y) - \log \pi_{\text{ref}}(y)}\]</div>
+<h4 id="_55">无偏性<a class="headerlink" href="#_55" title="Permanent link">&para;</a></h4>
+<p>因为样本严格采自 <span class="arithmatex">\(\pi_\theta\)</span>，由蒙特卡洛的无偏性直接得到：</p>
+<div class="arithmatex">\[\mathbb{E}_{y \sim \pi_\theta}\left[\widehat{\text{KL}}_1\right] = \mathbb{E}_{y \sim \pi_\theta}\left[\log\frac{\pi_\theta(y)}{\pi_{\text{ref}}(y)}\right] = D_{\text{KL}}(\pi_\theta \parallel \pi_{\text{ref}})\]</div>
+<p>样本足够多时，K1 的均值会无限逼近真实 KL，没有系统性偏高或偏低。</p>
+<h4 id="k1-kl">K1 和精确 KL 的区别在哪<a class="headerlink" href="#k1-kl" title="Permanent link">&para;</a></h4>
+<p>两个公式长得几乎一样，容易混淆，差别只在<strong>求和范围</strong>：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>求和范围</th>
+<th>可行性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>精确 KL</td>
+<td>全部 <span class="arithmatex">\(V^M\)</span> 条理论序列</td>
+<td>不可能算完，只存在于公式里</td>
+</tr>
+<tr>
+<td>K1</td>
+<td>实际采样出来的 <span class="arithmatex">\(B\)</span> 条序列</td>
+<td>可行，剩下 <span class="arithmatex">\(V^M - B\)</span> 条完全不管</td>
+</tr>
+</tbody>
+</table>
+<p>类比：想统计全国人的平均身高，不可能挨个测 14 亿人；K1 的做法是随机抽 100 个人测量取平均。两边都是"取平均"，但采样范围天差地别。</p>
+<h4 id="_56">两个致命缺陷<a class="headerlink" href="#_56" title="Permanent link">&para;</a></h4>
+<p><strong>方差极大。</strong> 举两个极端采样情况：</p>
+<ul>
+<li>样本 A：策略几乎和参考模型一致，<span class="arithmatex">\(\Delta \approx 0\)</span>，<span class="arithmatex">\(\widehat{\text{KL}}_1 \approx 0\)</span>；</li>
+<li>样本 B：策略严重跑偏，参考模型给这条回答的概率极低，<span class="arithmatex">\(\log \pi_{\text{ref}}\)</span> 变得极小，<span class="arithmatex">\(\Delta\)</span> 绝对值爆炸，<span class="arithmatex">\(\widehat{\text{KL}}_1\)</span> 突然冲到极大值。</li>
+</ul>
+<p>同一个 batch 里个别离群样本就能让整体估计剧烈跳动，带来两个连锁后果：KL 惩罚项忽大忽小导致奖励震荡；PPO 多轮 epoch 迭代时噪声被反复放大，训练容易发散。</p>
+<p><strong>单样本可能为负。</strong> <span class="arithmatex">\(-\Delta\)</span> 本身可正可负，而 KL 散度在数学上恒 <span class="arithmatex">\(\ge 0\)</span>。虽然期望是非负的，但单个 token、单条样本上出现负的"惩罚值"，物理意义别扭，工程上也不好处理。</p>
+<hr />
+<h3 id="k2">K2：二阶泰勒近似<a class="headerlink" href="#k2" title="Permanent link">&para;</a></h3>
+<div class="arithmatex">\[\widehat{\text{KL}}_2 = \frac{1}{2}\left(\log r\right)^2 = \frac{1}{2}\Delta^2\]</div>
+<p>性质：<strong>恒非负</strong>、<strong>方差很低</strong>，但它是<strong>有偏估计</strong>——只在两个分布极其接近时才近似成立，策略稍微偏离参考模型，估计值就会显著失真，约束力度不准。</p>
+<p>所以 K2 只适合策略与参考模型差距极小的场景，实践中很少单独使用。</p>
+<hr />
+<h3 id="k3">K3：控制变量法<a class="headerlink" href="#k3" title="Permanent link">&para;</a></h3>
+<p>K3 的目标是<strong>同时做到严格无偏、更低方差、天然非负</strong>。</p>
+<h4 id="_57">构造原理<a class="headerlink" href="#_57" title="Permanent link">&para;</a></h4>
+<p>统计学上有一条结论：如果 <span class="arithmatex">\(\hat J\)</span> 是无偏估计，再叠加一个<strong>数学期望严格等于 0</strong> 的随机项 <span class="arithmatex">\(g(y)\)</span>，新估计量依然无偏。这来自期望的线性性：</p>
+<div class="arithmatex">\[\mathbb{E}[\hat J + g(y)] = \mathbb{E}[\hat J] + \mathbb{E}[g(y)] = J^* + 0 = J^*\]</div>
+<p><strong>直觉类比</strong>：随机抽 10 个人估算全班平均身高，本身是无偏的。现在给每个人的测量值随机加一个扰动，一半人 <span class="arithmatex">\(+1\ \text{cm}\)</span>、一半人 <span class="arithmatex">\(-1\ \text{cm}\)</span>，这个扰动项的期望正好是 0。单次看有人被加高有人被压低，但多次抽样后新均值依然收敛到真实身高，仍然无偏。</p>
+<h4 id="_58">选哪个控制变量<a class="headerlink" href="#_58" title="Permanent link">&para;</a></h4>
+<p>Schulman 选的是 <span class="arithmatex">\(g(y) = r - 1\)</span>，它的期望天然为 0，可以严格证明：</p>
+<div class="arithmatex">\[\mathbb{E}_{y \sim \pi_\theta}[r] = \sum_y \pi_\theta(y) \cdot \frac{\pi_{\text{ref}}(y)}{\pi_\theta(y)} = \sum_y \pi_{\text{ref}}(y) = 1\]</div>
+<p>因此 <span class="arithmatex">\(\mathbb{E}_{y \sim \pi_\theta}[r - 1] = 0\)</span>。</p>
+<h4 id="k3_1">K3 的最终形式<a class="headerlink" href="#k3_1" title="Permanent link">&para;</a></h4>
+<p>在 K1 基础上叠加这个零期望校正项：</p>
+<div class="arithmatex">\[\widehat{\text{KL}}_3 = \underbrace{-\log r}_{\text{K1 原值}} + \underbrace{(r - 1)}_{\text{零期望控制变量}} = (r - 1) - \log r\]</div>
+<p>代入 <span class="arithmatex">\(r = e^{\Delta}\)</span>，得到工程上最常用的写法：</p>
+<div class="arithmatex">\[\boxed{\widehat{\text{KL}}_3 = e^{\Delta} - \Delta - 1}\]</div>
+<h4 id="_59">三个优良性质<a class="headerlink" href="#_59" title="Permanent link">&para;</a></h4>
+<p><strong>1. 严格无偏</strong></p>
+<div class="arithmatex">\[\mathbb{E}\left[\widehat{\text{KL}}_3\right] = \mathbb{E}[-\log r] + \mathbb{E}[r - 1] = D_{\text{KL}}(\pi_\theta \parallel \pi_{\text{ref}}) + 0\]</div>
+<p><strong>2. 方差显著下降</strong></p>
+<p><span class="arithmatex">\(r\)</span> 和 <span class="arithmatex">\(-\log r\)</span> 是<strong>高度正相关</strong>的两个随机变量。当策略严重偏离参考模型时，<span class="arithmatex">\(r\)</span> 急剧变大，<span class="arithmatex">\(-\log r\)</span> 剧烈飙升，而校正项 <span class="arithmatex">\((r-1)\)</span> 同步同向增长，两者相加互相抵消掉大部分极端波动，单个样本的峰值被"拉平"，整批估计更平滑。</p>
+<p>关键在于：长期平均值不变（无偏），但单次采样的波动变小（低方差），所以 PPO 多轮 epoch 迭代更稳定。</p>
+<p><strong>3. 天然恒非负</strong></p>
+<p>由凸函数不等式 <span class="arithmatex">\(e^x \ge x + 1\)</span> 对任意实数成立，直接得到：</p>
+<div class="arithmatex">\[e^{\Delta} - \Delta - 1 \ge 0\]</div>
+<p>完美匹配 KL 散度本身 <span class="arithmatex">\(\ge 0\)</span> 的定义，不会出现 K1 那种负惩罚值的尴尬。且当 <span class="arithmatex">\(\pi_\theta = \pi_{\text{ref}}\)</span> 时 <span class="arithmatex">\(\Delta = 0\)</span>，估计值恰好为 0。</p>
+<h4 id="_60">一个易错提醒<a class="headerlink" href="#_60" title="Permanent link">&para;</a></h4>
+<p>控制变量法要成立，必须同时满足两点：新增项的<strong>整体期望严格等于 0</strong>；样本采样分布<strong>和原来完全一致</strong>（依然从 <span class="arithmatex">\(\pi_\theta\)</span> 采样）。如果 <span class="arithmatex">\(\mathbb{E}[g(y)] \ne 0\)</span>，新估计量就会退化成有偏估计。</p>
+<hr />
+<h3 id="_61">三种估计器对比<a class="headerlink" href="#_61" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>估计器</th>
+<th>公式</th>
+<th>无偏性</th>
+<th>方差</th>
+<th>恒非负</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>K1</strong>（朴素蒙特卡洛）</td>
+<td><span class="arithmatex">\(-\Delta\)</span></td>
+<td>无偏</td>
+<td>极高</td>
+<td>否，可为负</td>
+<td>早期 PPO，现基本淘汰</td>
+</tr>
+<tr>
+<td><strong>K2</strong>（二阶泰勒）</td>
+<td><span class="arithmatex">\(\frac{1}{2}\Delta^2\)</span></td>
+<td><strong>有偏</strong></td>
+<td>很低</td>
+<td>是</td>
+<td>仅策略与 ref 差距极小时</td>
+</tr>
+<tr>
+<td><strong>K3</strong>（Schulman）</td>
+<td><span class="arithmatex">\(e^{\Delta} - \Delta - 1\)</span></td>
+<td>无偏</td>
+<td>低</td>
+<td>是</td>
+<td>RLHF、GRPO 工业首选</td>
+</tr>
+</tbody>
+</table>
+<p>K3 唯一的代价是比 K1 多一次 <code>exp()</code> 运算，复杂度量级完全不变。极端策略漂移时 <span class="arithmatex">\(e^{\Delta}\)</span> 可能数值溢出，工程上一般对 <span class="arithmatex">\(\Delta\)</span> 做上下限裁剪。</p>
+<hr />
+<h3 id="_62">工程实现<a class="headerlink" href="#_62" title="Permanent link">&para;</a></h3>
+<h4 id="_63">自回归拆分<a class="headerlink" href="#_63" title="Permanent link">&para;</a></h4>
+<p>单条序列的联合概率是连乘，数值极小容易浮点下溢，所以全部取对数，<strong>乘积变累加</strong>：</p>
+<div class="arithmatex">\[\log \pi(y) = \log p(y_1) + \log p(y_2 \mid y_1) + \dots + \log p(y_M \mid y_{1:M-1}) = \sum_{t=1}^{M} \log p(y_t \mid y_{&lt;t})\]</div>
+<p>因此对数概率比也可以逐 token 拆分：</p>
+<div class="arithmatex">\[\Delta = \sum_{t=1}^{M}\left(\log p_{\text{ref},t} - \log p_{\theta,t}\right), \qquad \Delta_t = \log p_{\text{ref},t} - \log p_{\theta,t}\]</div>
+<p>这个拆分之所以成立，是因为两个自回归链式分布的 KL 本身可以按时序分解：整条序列的 KL 等于每个位置条件 KL 的期望之和。所以逐 token 算 K1/K3 再累加，等价于对整条序列做估计。</p>
+<h4 id="logp">两种取 logp 的方式<a class="headerlink" href="#logp" title="Permanent link">&para;</a></h4>
+<p><strong>方式一：生成时缓存。</strong> rollout 阶段模型本来就是一步步吐 token 的，每一步选中哪个 token 时顺便把该位置的 <span class="arithmatex">\(\log p\)</span> 存下来，后面算 KL 直接读缓存，不用二次推理。TRL、OpenRLHF 都支持这条路径。</p>
+<p><strong>方式二：事后重打分。</strong> 更通用。把「prompt + 完整回答」整段一次性送入模型再跑一遍前向，并行算出所有位置的 logits。Transformer 的因果掩码保证第 <span class="arithmatex">\(i\)</span> 个位置只能看到前面的 token，所以并行前向和串行逐步生成在每个位置上的条件分布<strong>完全等价</strong>。</p>
+<h4 id="token_3">取出真实 token 的对数概率<a class="headerlink" href="#token_3" title="Permanent link">&para;</a></h4>
+<p>这一步有个极易写错的<strong>下标错位</strong>。设输入为 <code>[C_1..C_L, y_1..y_M]</code>，因果语言模型中 <code>logits[i]</code> 预测的是<strong>第 <span class="arithmatex">\(i+1\)</span> 个</strong> token，而 <span class="arithmatex">\(y_1\)</span> 位于下标 <span class="arithmatex">\(L\)</span>，所以 <span class="arithmatex">\(y_1\)</span> 的分布在 <code>logits[L-1]</code>，切片必须整体左移一位：</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># input_ids = [prompt(L 个) + answer(M 个)]，形状 [1, L+M]</span>
+<span class="n">logits</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">input_ids</span><span class="p">)</span><span class="o">.</span><span class="n">logits</span>                  <span class="c1"># [1, L+M, V]</span>
+
+<span class="c1"># logits[i] 预测第 i+1 个 token；y_1 在下标 L，其分布在 logits[L-1]</span>
+<span class="n">answer_logits</span> <span class="o">=</span> <span class="n">logits</span><span class="p">[:,</span> <span class="n">L</span><span class="o">-</span><span class="mi">1</span> <span class="p">:</span> <span class="n">L</span><span class="o">+</span><span class="n">M</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span>         <span class="c1"># [1, M, V]</span>
+
+<span class="n">log_probs</span> <span class="o">=</span> <span class="n">answer_logits</span><span class="o">.</span><span class="n">log_softmax</span><span class="p">(</span><span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>     <span class="c1"># [1, M, V]</span>
+<span class="n">target</span>    <span class="o">=</span> <span class="n">input_ids</span><span class="p">[:,</span> <span class="n">L</span> <span class="p">:</span> <span class="n">L</span><span class="o">+</span><span class="n">M</span><span class="p">]</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>   <span class="c1"># [1, M, 1] 实际生成的 token id</span>
+<span class="n">token_logp</span> <span class="o">=</span> <span class="n">log_probs</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>   <span class="c1"># [1, M]</span>
+</code></pre></div>
+<p>这就是 HuggingFace 里 <code>logits[:, :-1]</code> 配 <code>labels[:, 1:]</code> 的那次经典移位，写成 <code>logits[:, L:L+M, :]</code> 会整体错开一格，算出来的其实是 <span class="arithmatex">\(y_2 \dots y_{M+1}\)</span> 的概率。</p>
+<p>关于 <code>log_softmax</code> 与 logits 的关系，以及为什么这里必须用 Temperature = 1.0，见第二章 <code>π 的概率怎么算（工程实现）</code>。</p>
+<h4 id="token-k1-k3">逐 Token 计算 K1 / K3<a class="headerlink" href="#token-k1-k3" title="Permanent link">&para;</a></h4>
+<p>策略模型和参考模型各跑一遍上面的流程，输入完全相同的 <code>input_ids</code>，得到两组 <code>[B, M]</code> 的对数概率：</p>
+<div class="highlight"><pre><span></span><code><span class="n">logp_theta</span> <span class="o">=</span> <span class="n">get_token_logp</span><span class="p">(</span><span class="n">actor_model</span><span class="p">,</span> <span class="n">input_ids</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">M</span><span class="p">)</span>   <span class="c1"># [B, M]</span>
+<span class="n">logp_ref</span>   <span class="o">=</span> <span class="n">get_token_logp</span><span class="p">(</span><span class="n">ref_model</span><span class="p">,</span>   <span class="n">input_ids</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">M</span><span class="p">)</span>   <span class="c1"># [B, M]</span>
+
+<span class="n">delta</span> <span class="o">=</span> <span class="n">logp_ref</span> <span class="o">-</span> <span class="n">logp_theta</span>          <span class="c1"># Δ = log π_ref − log π_θ</span>
+
+<span class="n">k1</span> <span class="o">=</span> <span class="o">-</span><span class="n">delta</span>                            <span class="c1"># K1</span>
+<span class="n">k3</span> <span class="o">=</span> <span class="n">delta</span><span class="o">.</span><span class="n">exp</span><span class="p">()</span> <span class="o">-</span> <span class="n">delta</span> <span class="o">-</span> <span class="mi">1</span>           <span class="c1"># K3，恒 ≥ 0</span>
+
+<span class="n">k1_per_sample</span> <span class="o">=</span> <span class="n">k1</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>          <span class="c1"># 每条序列求和</span>
+<span class="n">batch_k1</span> <span class="o">=</span> <span class="n">k1_per_sample</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>        <span class="c1"># 整批估计值</span>
+<span class="n">batch_k3</span> <span class="o">=</span> <span class="n">k3</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</code></pre></div>
+<p>整批的 K3 估计值写成公式：</p>
+<div class="arithmatex">\[\overline{\text{K3}} = \frac{1}{B}\sum_{i=1}^{B}\sum_{t=1}^{M}\left(e^{\Delta_{i,t}} - \Delta_{i,t} - 1\right)\]</div>
+<h4 id="ob-cdot-m">复杂度：为什么是 <span class="arithmatex">\(O(B \cdot M)\)</span><a class="headerlink" href="#ob-cdot-m" title="Permanent link">&para;</a></h4>
+<p>这里有个常见困惑：模型明明算出了整个词表维度的 logits，为什么复杂度里不带 <span class="arithmatex">\(V\)</span>？</p>
+<p>要区分两件事：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>计算内容</th>
+<th>量级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>模型前向推理</td>
+<td>输出完整 logits 张量 <code>[B, M, V]</code></td>
+<td><span class="arithmatex">\(B \cdot M \cdot V\)</span>，GPU 实打实的开销，但这是 RL 训练<strong>必须付的固定成本</strong></td>
+</tr>
+<tr>
+<td>KL 估计器后处理</td>
+<td>只索引取出每个位置真实生成的那 1 个 token 的 logp</td>
+<td><span class="arithmatex">\(B \cdot M\)</span> 个数值上做加减、<code>exp</code></td>
+</tr>
+</tbody>
+</table>
+<p>举例：<span class="arithmatex">\(B=64\)</span>、<span class="arithmatex">\(M=200\)</span>，估计器只在 <span class="arithmatex">\(64 \times 200 = 12800\)</span> 个数上做算术，庞大的 <span class="arithmatex">\(64 \times 200 \times 32768\)</span> 个 logits 只是推理的中间副产品，不会全部带进 KL 公式。而且拿到 <code>log_softmax</code> 之后按下标取值是常数级操作，不随 <span class="arithmatex">\(V\)</span> 增大而增加后续计算量。</p>
+<p>所以说 KL 估计的复杂度：</p>
+<div class="arithmatex">\[\text{精确 KL } O(V^M) \quad \longrightarrow \quad \text{K1 / K3 } O(B \cdot M)\]</div>
+<p><strong>本质简化根源</strong>是放弃了枚举全部序列、改用蒙特卡洛抽样；自回归的概率链式拆分只是恰好让这个抽样计算能高效落地——模型在生成每个 token 时本来就已经算出了该位置的概率分布，我们只需要把实际选中的那一个捞出来。</p>
+<hr />
+<h3 id="kl_5">KL 惩罚放在哪里<a class="headerlink" href="#kl_5" title="Permanent link">&para;</a></h3>
+<h4 id="reward">方案一：加到 Reward（最稳妥）<a class="headerlink" href="#reward" title="Permanent link">&para;</a></h4>
+<div class="arithmatex">\[R_{\text{final}} = R_{\text{RM}} - \beta \cdot \widehat{\text{KL}}\]</div>
+<p><span class="arithmatex">\(\beta\)</span> 一般取 <span class="arithmatex">\(0.01 \sim 0.1\)</span>，<span class="arithmatex">\(\widehat{\text{KL}}\)</span> 用 K3。KL 只是对轨迹做一个额外奖励惩罚，依然走 PPO 原本的 clipped objective，策略梯度只依赖 advantage，KL 已经被打包进 advantage 里。</p>
+<p>优点是<strong>完全兼容多轮 epoch 迭代，梯度严格无偏</strong>，不管复用几轮样本都没问题，实现也最简单，是 TRL、OpenRLHF 经典 PPO 的默认方案。缺点是 <span class="arithmatex">\(\beta\)</span> 需要手动调，无法动态控制 KL 大小。</p>
+<h4 id="policy-loss_1">方案二：写进 Policy Loss<a class="headerlink" href="#policy-loss_1" title="Permanent link">&para;</a></h4>
+<div class="arithmatex">\[\mathcal{L}_{\text{total}} = \mathcal{L}_{\text{clip}} + \beta \cdot \mathbb{E}\left[\widehat{\text{KL}}\right]\]</div>
+<p>两种细分实现：<strong>固定 <span class="arithmatex">\(\beta\)</span></strong>，与方案一数学上等价，只是放在 loss 侧；<strong>自适应 <span class="arithmatex">\(\beta\)</span></strong>（TRPO 思路），动态调整——实际 KL 超过目标值就增大 <span class="arithmatex">\(\beta\)</span> 收紧约束，低于目标值就减小 <span class="arithmatex">\(\beta\)</span> 放宽约束。</p>
+<p>GRPO 采用的是这条路径，把 KL 正则直接写进目标函数：</p>
+<div class="arithmatex">\[\mathcal{J}_{\text{GRPO}} = \mathcal{J}_{\text{clip}} - \beta \cdot \mathbb{E}\left[\widehat{\text{KL}}_3\right]\]</div>
+<h4 id="_64">梯度陷阱<a class="headerlink" href="#_64" title="Permanent link">&para;</a></h4>
+<p>这是最容易被忽略的一点：<strong>K3 的数值是无偏的，但它的梯度只在严格 on-policy（一轮采样只更新一次）下才正确。</strong></p>
+<p>PPO / GRPO 会对同一批采样数据做多轮 epoch 迭代（off-policy 复用），此时直接把 K3 塞进 policy loss 做自动微分，会引入梯度偏差。两种标准修正：</p>
+<ol>
+<li>把 <span class="arithmatex">\(-\beta \cdot \widehat{\text{KL}}_3\)</span> 加到 <strong>reward</strong> 里而不是写进 loss（即方案一），走 score function 梯度，多轮迭代依然无偏；</li>
+<li>开启框架提供的 KL 梯度修正开关（新版 TRL 等已内置）。</li>
+</ol>
+<h4 id="trpo">方案三：TRPO 硬约束<a class="headerlink" href="#trpo" title="Permanent link">&para;</a></h4>
+<p>把更新步长严格限制在 KL 球面内：</p>
+<div class="arithmatex">\[\max_{\theta}\ \mathbb{E}[A_t] \quad \text{s.t.} \quad D_{\text{KL}}(\pi_{\text{old}} \parallel \pi_\theta) \le \delta\]</div>
+<p>PPO-Clip 本质上就是 TRPO 的一阶近似，把硬约束换成了 clip 裁剪。TRPO 需要二阶信息，计算代价太高，现在几乎不再原生使用。</p>
+<h4 id="_65">选型对照<a class="headerlink" href="#_65" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>放置位置</th>
+<th>适用场景</th>
+<th>推荐估计器</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>加到 Reward</td>
+<td>通用 PPO、工程落地首选</td>
+<td>K3</td>
+<td>最稳妥，梯度无偏，踩坑最少</td>
+</tr>
+<tr>
+<td>写进 Policy Loss（自适应 <span class="arithmatex">\(\beta\)</span>）</td>
+<td>GRPO、需精细控制 KL 均值</td>
+<td>K3 + 梯度修正</td>
+<td>可自动调节约束强度</td>
+</tr>
+<tr>
+<td>TRPO 硬约束</td>
+<td>极少使用</td>
+<td>精确 KL / 二阶近似</td>
+<td>计算昂贵，基本淘汰</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="kl_6">KL 的方向不能写反<a class="headerlink" href="#kl_6" title="Permanent link">&para;</a></h3>
+<p>RLHF 标准约束是 <span class="arithmatex">\(D_{\text{KL}}(\pi_\theta \parallel \pi_{\text{ref}})\)</span>，<strong>采样来自 <span class="arithmatex">\(\pi_\theta\)</span></strong>，这是本章所有估计器无偏性的前提。</p>
+<p>如果要估反向 KL <span class="arithmatex">\(D_{\text{KL}}(\pi_{\text{ref}} \parallel \pi_\theta)\)</span>，采样分布和 <span class="arithmatex">\(r\)</span> 的定义都要相应调换，公式不能照搬。工程上最常见的 bug 就是 <code>log_p_ref</code> 和 <code>log_p_theta</code> 的顺序写反，导致约束方向整体颠倒——由于 K1 可正可负，这类错误往往不会立刻报错，只表现为训练缓慢发散，很难排查。</p>
+<p>一个快速自查方法：K3 的实现必须满足恒 <span class="arithmatex">\(\ge 0\)</span>。如果算出负值，说明 <span class="arithmatex">\(\Delta\)</span> 的符号写反了。</p>
 
 
 
