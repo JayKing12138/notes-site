@@ -11788,9 +11788,12 @@ Window mask 实现：
 <p><strong>ITC (Image-Text Contrastive)</strong> 是 InfoNCE 在多模态学习中的具体应用，专门用于对齐图像和文本的表示空间。</p>
 <p><strong>核心思想</strong>：通过对比学习，让匹配的图像-文本对在嵌入空间中靠近，不匹配的对远离。</p>
 <p><strong>双向 ITC Loss</strong>：</p>
-<p><strong>Image-to-Text Contrastive (I2T):</strong> 给定图像 <span class="arithmatex">\(I_i\)</span>，在 batch 中的所有文本 <span class="arithmatex">\(\{T_1, T_2, \dots, T_N\}\)</span> 中找到匹配的 <span class="arithmatex">\(T_i\)</span>： $$ \mathcal{L}<em j="1">{\text{I2T}} = -\log \frac{\exp\bigl(\operatorname{sim}(f_I(I_i), f_T(T_i)) / \tau\bigr)}{\sum</em> $$ }^{N} \exp\bigl(\operatorname{sim}(f_I(I_i), f_T(T_j)) / \tau\bigr)</p>
-<p><strong>Text-to-Image Contrastive (T2I):</strong> 给定文本 <span class="arithmatex">\(T_i\)</span>，在 batch 中的所有图像 <span class="arithmatex">\(\{I_1, I_2, \dots, I_N\}\)</span> 中找到匹配的 <span class="arithmatex">\(I_i\)</span>： $$ \mathcal{L}<em j="1">{\text{T2I}} = -\log \frac{\exp\bigl(\operatorname{sim}(f_T(T_i), f_I(I_i)) / \tau\bigr)}{\sum</em> $$ }^{N} \exp\bigl(\operatorname{sim}(f_T(T_i), f_I(I_j)) / \tau\bigr)</p>
-<p><strong>总 ITC Loss:</strong> $$ \mathcal{L}<em _text_I2T="\text{I2T">{\text{ITC}} = \frac{\mathcal{L}</em> $$}} + \mathcal{L}_{\text{T2I}}}{2</p>
+<p><strong>Image-to-Text Contrastive (I2T):</strong> 给定图像 <span class="arithmatex">\(I_i\)</span>，在 batch 中的所有文本 <span class="arithmatex">\(\{T_1, T_2, \dots, T_N\}\)</span> 中找到匹配的 <span class="arithmatex">\(T_i\)</span>：</p>
+<div class="arithmatex">\[\mathcal{L}_{\text{I2T}} = -\log \frac{\exp\bigl(\operatorname{sim}(f_I(I_i), f_T(T_i)) / \tau\bigr)}{\sum_{j=1}^{N} \exp\bigl(\operatorname{sim}(f_I(I_i), f_T(T_j)) / \tau\bigr)}\]</div>
+<p><strong>Text-to-Image Contrastive (T2I):</strong> 给定文本 <span class="arithmatex">\(T_i\)</span>，在 batch 中的所有图像 <span class="arithmatex">\(\{I_1, I_2, \dots, I_N\}\)</span> 中找到匹配的 <span class="arithmatex">\(I_i\)</span>：</p>
+<div class="arithmatex">\[\mathcal{L}_{\text{T2I}} = -\log \frac{\exp\bigl(\operatorname{sim}(f_T(T_i), f_I(I_i)) / \tau\bigr)}{\sum_{j=1}^{N} \exp\bigl(\operatorname{sim}(f_T(T_i), f_I(I_j)) / \tau\bigr)}\]</div>
+<p><strong>总 ITC Loss:</strong></p>
+<div class="arithmatex">\[\mathcal{L}_{\text{ITC}} = \frac{\mathcal{L}_{\text{I2T}} + \mathcal{L}_{\text{T2I}}}{2}\]</div>
 <p><strong>ITC 的特点</strong>：</p>
 <table>
 <thead>
