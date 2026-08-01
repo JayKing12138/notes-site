@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../DINO/">
+        <link rel="prev" href="../4.2_InternVL/">
       
       
-        <link rel="next" href="../Flamingo/">
+        <link rel="next" href="../4.4_BEiT/">
       
       
         
@@ -23,7 +23,7 @@
     
     
       
-        <title>DiT - 学习资料库</title>
+        <title>4.3_Flamingo - 学习资料库</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ditdiffusion-transformer" class="md-skip">
+        <a href="#flamingo" class="md-skip">
           跳转至
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              DiT
+              4.3_Flamingo
             
           </span>
         </div>
@@ -833,6 +833,409 @@
   
   
     <li class="md-nav__item">
+      <a href="../4.1.1_LLaMA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.1.1_LLaMA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.1_LLaVA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.1_LLaVA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.2_InternVL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.2_InternVL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.3_Flamingo
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.3_Flamingo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心要点
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 背景
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 方法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-perceiver-resampler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Perceiver Resampler
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-gated-xattn-dense" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 GATED XATTN-DENSE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-masking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 交错图文与 Masking 🚗
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 交错图文与 Masking 🚗">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.1 特殊 token 与序列化
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#232-per-imagevideo-attention-masking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.2 Per-image/video Attention Masking ❓先不管了，不懂
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#233-masking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.3 Masking 示意图 ❓ 不管了，不懂
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#234-attend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.4 为什么只 attend 最近的前置图像？ 🚗
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#235" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.5 配对数据的统一格式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#236-few-shot-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.6 Few-shot Prompt 的构造
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#237" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.7 图 🚗
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 网络结构与训练
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 网络结构与训练">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 整体架构
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 训练配置
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 总结
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.4_BEiT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.4_BEiT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../4_BLIP/" class="md-nav__link">
         
   
@@ -917,14 +1320,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../AAAAA_Transformer%E3%80%81LLM%E4%B8%8EVLM/" class="md-nav__link">
+      <a href="../6_SigLIP/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    AAAAA_Transformer、LLM与VLM
+    6_SigLIP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7_DiT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7_DiT
   
 
     
@@ -953,34 +1384,6 @@
     
   
     BERT
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../BEiT/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    BEiT
   
 
     
@@ -1138,236 +1541,6 @@
                 
   
   
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    DiT
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    DiT
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        核心要点
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. 背景与动机
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. 方法
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. 方法">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#21" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.1 预备知识
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#22" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.2 整体架构
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#23-patchify" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.3 Patchify
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#24-dit-block" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.4 DiT Block：四种条件注入设计
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#25" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.5 模型规格与解码头
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#26" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.6 训练配置
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. 实验
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. 总结
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Flamingo/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Flamingo
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
   
   
     <li class="md-nav__item">
@@ -1407,90 +1580,6 @@
     
   
     ImageBind 与 LanguageBind 对比
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../InternVL/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    InternVL
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../LLaMA/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    LLaMA
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../LLaVA/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    LLaVA
   
 
     
@@ -1631,34 +1720,6 @@
     
   
     SAM3
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../SigLIP/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    SigLIP
   
 
     
@@ -1987,6 +2048,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../%E8%A7%86%E9%A2%91%E7%90%86%E8%A7%A3%E8%AE%BA%E6%96%87%E4%B8%B2%E8%AE%B2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    视频理解论文串讲
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../%E9%9F%B3%E9%A2%91%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
         
   
@@ -2056,7 +2145,7 @@
   <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. 背景与动机
+        1. 背景
       
     </span>
   </a>
@@ -2076,10 +2165,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#21" class="md-nav__link">
+  <a href="#21-perceiver-resampler" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.1 预备知识
+        2.1 Perceiver Resampler
       
     </span>
   </a>
@@ -2087,10 +2176,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#22" class="md-nav__link">
+  <a href="#22-gated-xattn-dense" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.2 整体架构
+        2.2 GATED XATTN-DENSE
       
     </span>
   </a>
@@ -2098,10 +2187,22 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#23-patchify" class="md-nav__link">
+  <a href="#23-masking" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.3 Patchify
+        2.3 交错图文与 Masking 🚗
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 交错图文与 Masking 🚗">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.1 特殊 token 与序列化
       
     </span>
   </a>
@@ -2109,10 +2210,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#24-dit-block" class="md-nav__link">
+  <a href="#232-per-imagevideo-attention-masking" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.4 DiT Block：四种条件注入设计
+        2.3.2 Per-image/video Attention Masking ❓先不管了，不懂
       
     </span>
   </a>
@@ -2120,10 +2221,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#25" class="md-nav__link">
+  <a href="#233-masking" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.5 模型规格与解码头
+        2.3.3 Masking 示意图 ❓ 不管了，不懂
       
     </span>
   </a>
@@ -2131,13 +2232,51 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#26" class="md-nav__link">
+  <a href="#234-attend" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.6 训练配置
+        2.3.4 为什么只 attend 最近的前置图像？ 🚗
       
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#235" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.5 配对数据的统一格式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#236-few-shot-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.6 Few-shot Prompt 的构造
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#237" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.7 图 🚗
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -2150,10 +2289,49 @@
   <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. 实验
+        3. 网络结构与训练
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="3. 网络结构与训练">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 整体架构
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 训练配置
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2185,163 +2363,261 @@
 
 
 
-<h1 id="ditdiffusion-transformer">DiT（Diffusion Transformer）<a class="headerlink" href="#ditdiffusion-transformer" title="Permanent link">&para;</a></h1>
+<h1 id="flamingo">Flamingo<a class="headerlink" href="#flamingo" title="Permanent link">&para;</a></h1>
 <blockquote>
-<p>📄 论文链接：<a href="https://arxiv.org/abs/2212.09748">arXiv:2212.09748</a>（Scalable Diffusion Models with Transformers, ICCV 2023）| <a href="https://arxiv.org/pdf/2212.09748">PDF</a></p>
+<p>📄 论文链接：arXiv:2204.14198 | <a href="../pdf/flamingo.pdf">PDF</a></p>
 </blockquote>
 <h2 id="_1">核心要点<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<blockquote>
 <ol>
-<li><strong>用 Transformer 替换扩散模型的 U-Net 骨干</strong>：在 Latent Diffusion（LDM）框架下，把去噪网络从卷积 U-Net 换成基于 ViT 的 Transformer（DiT），证明 U-Net 的归纳偏置对扩散模型<strong>并非必需</strong>。</li>
-<li><strong>adaLN-Zero 是最优的条件注入方式</strong>：对比 in-context、cross-attention、adaLN、adaLN-Zero 四种把 timestep <span class="arithmatex">\(t\)</span> 和类别 <span class="arithmatex">\(c\)</span> 注入 Transformer 的设计，adaLN-Zero（自适应 LayerNorm + 残差分支零初始化为恒等函数）效果最好且计算开销最小。</li>
-<li><strong>Gflops 才是决定生成质量的关键，而非参数量</strong>：模型的前向计算量（加深加宽模型、或减小 patch size 增加 token 数）与生成质量（FID）呈强负相关；patch size 减半会让 token 数与 Gflops 翻 4 倍，但参数量几乎不变，质量却显著提升。</li>
-<li><strong>优良的可扩展性（scalability）</strong>：沿 S/B/L/XL × patch size 8/4/2 共 12 个配置扫描，计算量越大质量单调越好，为后续 Sora、Stable Diffusion 3 等采用 Transformer 骨干的扩散模型奠定基础。</li>
+<li><strong>冻结 LLM + 视觉桥接</strong>：冻结 Chinchilla，仅训练 Perceiver Resampler + GATED XATTN-DENSE。</li>
+<li><strong>交错图文生成</strong>：原生支持任意交错的图像/视频与文本序列输入。</li>
+<li><strong>Perceiver Resampler</strong>：将可变视觉 token 压缩为固定 64 个。</li>
+<li><strong>GATED XATTN-DENSE</strong>：tanh 门控零初始化，稳定地向冻结 LM 注入视觉信息。</li>
+<li><strong>Few-Shot 能力</strong>：通过交错图文预训练获得上下文学习能力。</li>
 </ol>
-</blockquote>
-<h2 id="1">1. 背景与动机<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Transformer 已经统一了 NLP（GPT/BERT）、视觉（ViT）等领域的架构，但<strong>图像扩散模型是个例外</strong>：从 DDPM（Ho et al.）开始，卷积 U-Net 一直是事实标准骨干——U-Net 继承自 PixelCNN++，以 ResNet block 为主，在低分辨率层插入空间自注意力，ADM 又消融了自适应归一化等设计，但整体结构多年未变。</li>
-<li>本文要回答的问题：<strong>扩散模型的性能是否依赖 U-Net 的归纳偏置？</strong> 答案是否定的——U-Net 可以被标准 Transformer 直接替换，从而让扩散模型继承架构统一化红利：其他领域的训练最佳实践、可扩展性、鲁棒性与效率。</li>
-<li>分析视角：以往图像生成文献常用<strong>参数量</strong>衡量模型复杂度，但参数量不反映输入分辨率的影响。本文改用<strong>理论 Gflops</strong>（前向计算量）作为复杂度度量，研究"网络复杂度 vs 生成质量"的 scaling 规律。</li>
-</ul>
-<p><img alt="Figure 2: DiT scaling 总览" src="../images/dit_fig2.png" />
-<em>Figure 2: 左——DiT 各配置的 Gflops（气泡面积）与 FID，计算量越大质量越好；右——DiT-XL/2 与 U-Net 系（ADM、LDM）对比，计算效率更优</em></p>
+<h2 id="1">1. 背景<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p>Flamingo 的核心洞察：<strong>与其从头训练一个多模态模型，不如将一个已经强大的纯文本 LLM "升级"为多模态模型</strong>。</p>
+<p><img alt="Figure 3: Flamingo 整体架构概览" src="../images/flamingo_fig3.png" />
+<em>Figure 3: Flamingo 架构概览。接收交错视觉/文本输入，输出自由文本。</em></p>
 <h2 id="2">2. 方法<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
-<h3 id="21">2.1 预备知识<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
-<p><strong>扩散公式（DDPM）</strong>：前向加噪过程 <span class="arithmatex">\(q(x_t|x_0) = \mathcal{N}(x_t; \sqrt{\bar\alpha_t}\,x_0, (1-\bar\alpha_t)\mathbf{I})\)</span>，重参数化采样 <span class="arithmatex">\(x_t = \sqrt{\bar\alpha_t}\,x_0 + \sqrt{1-\bar\alpha_t}\,\epsilon_t\)</span>。模型学习反向过程 <span class="arithmatex">\(p_\theta(x_{t-1}|x_t) = \mathcal{N}(\mu_\theta(x_t), \Sigma_\theta(x_t))\)</span>：</p>
+<h3 id="21-perceiver-resampler">2.1 Perceiver Resampler<a class="headerlink" href="#21-perceiver-resampler" title="Permanent link">&para;</a></h3>
+<p>将视觉编码器（NFNet）输出的可变数量视觉特征压缩为固定 64 个 token。</p>
 <ul>
-<li>均值经重参数化为噪声预测网络 <span class="arithmatex">\(\epsilon_\theta\)</span>，用简单 MSE 训练：<span class="arithmatex">\(\mathcal{L}_{\text{simple}}(\theta) = \|\epsilon_\theta(x_t) - \epsilon_t\|_2^2\)</span></li>
-<li>协方差 <span class="arithmatex">\(\Sigma_\theta\)</span> 是<strong>可学习的</strong>，沿用 Nichol &amp; Dhariwal 的做法：<span class="arithmatex">\(\epsilon_\theta\)</span> 用 <span class="arithmatex">\(\mathcal{L}_{\text{simple}}\)</span> 训练，<span class="arithmatex">\(\Sigma_\theta\)</span> 用完整的变分下界项训练</li>
+<li><strong>结构</strong>：64 个可学习 latent queries + 6 层 Transformer</li>
+<li><strong>输入</strong>：图像/视频经 NFNet 提取的特征（图像视为单帧视频）</li>
+<li><strong>输出</strong>：64 个视觉 token</li>
+<li><strong>关键细节</strong>：</li>
+<li>只用<strong>时间位置编码</strong>（CNN 已隐式编码空间信息）</li>
+<li><strong>K/V 拼接策略</strong>：latent queries 也拼入 K/V，实现彼此交互</li>
 </ul>
-<p><strong>Classifier-free guidance（CFG）</strong>：条件模型 <span class="arithmatex">\(p_\theta(x_{t-1}|x_t, c)\)</span> 中，训练时随机丢弃条件 <span class="arithmatex">\(c\)</span>（换成可学习的空 embedding <span class="arithmatex">\(\emptyset\)</span>），采样时用</p>
-<div class="arithmatex">\[\hat\epsilon_\theta(x_t, c) = \epsilon_\theta(x_t, \emptyset) + s \cdot \left(\epsilon_\theta(x_t, c) - \epsilon_\theta(x_t, \emptyset)\right)\]</div>
-<p>引导采样偏向高 <span class="arithmatex">\(p(x|c)\)</span> 区域（<span class="arithmatex">\(s &gt; 1\)</span> 为引导强度，<span class="arithmatex">\(s=1\)</span> 退回标准采样）。</p>
-<p><strong>Latent Diffusion（LDM）</strong>：像素空间直接训扩散模型计算代价过高。LDM 两阶段：先训一个自编码器把图像压缩到潜空间 <span class="arithmatex">\(z = E(x)\)</span>（<span class="arithmatex">\(E\)</span> 冻结），再在潜空间训扩散模型，采样后用解码器还原 <span class="arithmatex">\(x = D(z)\)</span>。DiT 沿用该框架，用现成的 Stable Diffusion 卷积 VAE（下采样 8 倍：<span class="arithmatex">\(256 \times 256 \times 3\)</span> 图像 → <span class="arithmatex">\(32 \times 32 \times 4\)</span> latent），整条管线是"卷积 VAE + Transformer 扩散模型"的混合方案。</p>
-<h3 id="22">2.2 整体架构<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
-<p><img alt="Figure 3: DiT 架构" src="../images/dit_fig3.png" />
-<em>Figure 3: 左——Latent DiT 整体流程（Patchify → N 个 DiT Block → LayerNorm + 线性解码）；右——三种条件注入的 block 设计，adaLN-Zero 效果最佳</em></p>
-<div class="highlight"><pre><span></span><code>Noised Latent (32×32×4)
-    ↓ Patchify（p×p patch 线性嵌入 + 正弦余弦位置编码）
-Input Tokens (T×d)          Timestep t、Label y → Embed → Conditioning
-    ↓                                    ↓
-N × DiT Block（adaLN-Zero，条件从这里注入）
-    ↓
-LayerNorm（自适应）→ Linear and Reshape
-    ↓
-噪声预测 ε (32×32×4) + 协方差预测 Σ (32×32×4)
+<p><img alt="Figure 5: Perceiver Resampler 模块详解" src="../images/flamingo_fig5.png" />
+<em>Figure 5: Perceiver Resampler 将可变视觉特征映射为固定数量输出 token。</em></p>
+<h3 id="22-gated-xattn-dense">2.2 GATED XATTN-DENSE<a class="headerlink" href="#22-gated-xattn-dense" title="Permanent link">&para;</a></h3>
+<p>在冻结 LM 层之间插入可训练的 cross-attention + FFN，通过 tanh 门控注入视觉信息：</p>
+<div class="arithmatex">\[y = y + \tanh(\alpha_{xattn}) \cdot \text{CrossAttn}(y, Z')$$
+$$y = y + \tanh(\alpha_{dense}) \cdot \text{FFN}(y)\]</div>
+<ul>
+<li><span class="arithmatex">\(\alpha_{xattn}\)</span>、<span class="arithmatex">\(\alpha_{dense}\)</span> 初始化为 0，训练初期等价于原始冻结 LM</li>
+<li>消融：移除零初始化门控，整体性能下降 4.2%，且训练不稳定</li>
+<li><strong>插入策略</strong>：</li>
+<li>每层插入：最佳性能</li>
+<li>每 4 层插入：训练加速 66%，性能下降 1.9%</li>
+<li>每 7 层插入：Flamingo-80B 因硬件限制采用</li>
+</ul>
+<p><img alt="Figure 4: Gated Cross-Attention Dense 层详解" src="../images/flamingo_fig4.png" />
+<em>Figure 4: GATED XATTN-DENSE 层结构。keys/values 来自 Perceiver Resampler 输出的视觉 token，门控参数初始化为零。</em></p>
+<h3 id="23-masking">2.3 交错图文与 Masking 🚗<a class="headerlink" href="#23-masking" title="Permanent link">&para;</a></h3>
+<p>Flamingo 要处理的是网页这种<strong>交错排列的图像/视频与文本</strong>。为了让冻结的 LM 理解这种输入，作者设计了一套基于特殊 token 和 mask 的序列化方案。</p>
+<h4 id="231-token">2.3.1 特殊 token 与序列化<a class="headerlink" href="#231-token" title="Permanent link">&para;</a></h4>
+<p>从网页抽取图文后，先做如下处理：</p>
+<ul>
+<li>在图片出现的位置插入 <code>&lt;image&gt;</code> 占位符；</li>
+<li>序列开头加 <code>&lt;BOS&gt;</code>（beginning of sequence）；</li>
+<li>在每张图之前以及文档末尾加 <code>&lt;EOC&gt;</code>（end of chunk）。</li>
+</ul>
+<p>例如网页内容：</p>
+<div class="highlight"><pre><span></span><code>[图1：小狗] Cute pics of my pets!
+My puppy sitting in the grass.
+[图2：小猫] My cat looking very dignified.
 </code></pre></div>
-<h3 id="23-patchify">2.3 Patchify<a class="headerlink" href="#23-patchify" title="Permanent link">&para;</a></h3>
-<p>DiT 忠实沿用 ViT 的做法：把空间输入 <span class="arithmatex">\(I \times I \times C\)</span> 的 latent 切成 <span class="arithmatex">\(p \times p\)</span> 的 patch，逐 patch 线性嵌入为 <span class="arithmatex">\(d\)</span> 维 token，得到长度 <span class="arithmatex">\(T = (I/p)^2\)</span> 的序列，随后加<strong>标准 ViT 正弦余弦位置编码</strong>。</p>
-<p><img alt="Figure 4: Patchify 输入规格" src="../images/dit_fig4.png" />
-<em>Figure 4: patch size <span class="arithmatex">\(p\)</span> 减半 → token 数 <span class="arithmatex">\(T\)</span> 翻 4 倍 → Transformer 总 Gflops 至少翻 4 倍，但参数量基本不变</em></p>
-<p><strong>关键性质</strong>：<span class="arithmatex">\(p\)</span> 只影响序列长度（计算量），对参数量几乎无影响——这为后面"Gflops 才是关键"的结论提供了干净的对照变量。设计空间取 <span class="arithmatex">\(p = 2, 4, 8\)</span>。</p>
-<h3 id="24-dit-block">2.4 DiT Block：四种条件注入设计<a class="headerlink" href="#24-dit-block" title="Permanent link">&para;</a></h3>
-<p>扩散模型除了噪声图像还要接收 timestep <span class="arithmatex">\(t\)</span>、类别 <span class="arithmatex">\(c\)</span> 等条件信息。论文对标准 ViT block 做最小修改，探索四种注入方式：</p>
+<p>会被处理成：</p>
+<div class="highlight"><pre><span></span><code>&lt;BOS&gt; Cute pics of my pets!&lt;EOC&gt;&lt;image&gt;My puppy sitting in the grass.&lt;EOC&gt;&lt;image&gt;My cat looking very dignified.&lt;EOC&gt;
+</code></pre></div>
+<p>三个特殊 token 的作用：</p>
 <table>
 <thead>
 <tr>
-<th>设计</th>
-<th>做法</th>
-<th>额外 Gflops</th>
+<th>token</th>
+<th>含义</th>
+<th>作用</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>In-context conditioning</strong></td>
-<td>把 <span class="arithmatex">\(t\)</span>、<span class="arithmatex">\(c\)</span> 的 embedding 当作 2 个额外 token 拼进序列（类似 ViT 的 cls token），最后一层后移除；block 本身完全不动</td>
-<td>可忽略</td>
+<td><code>&lt;BOS&gt;</code></td>
+<td>序列开始</td>
+<td>标记自回归起点</td>
 </tr>
 <tr>
-<td><strong>Cross-attention block</strong></td>
-<td><span class="arithmatex">\(t\)</span>、<span class="arithmatex">\(c\)</span> embedding 拼成长度 2 的独立序列，在 self-attention 之后加一层 multi-head cross-attention（类似原始 Transformer decoder 和 LDM 的类别条件方式）</td>
-<td>最大，约 +15%</td>
+<td><code>&lt;EOC&gt;</code></td>
+<td>chunk 结束</td>
+<td>分隔文本块，放在每张图之前和文档末尾</td>
 </tr>
 <tr>
-<td><strong>adaLN block</strong></td>
-<td>把 block 里的标准 LayerNorm 换成<strong>自适应 LayerNorm</strong>：缩放/平移参数 <span class="arithmatex">\(\gamma, \beta\)</span> 不直接学习，而是由 <span class="arithmatex">\(t\)</span> 与 <span class="arithmatex">\(c\)</span> 的 embedding 之和<strong>回归</strong>出来。沿用了 GAN 和扩散 U-Net 中广泛使用的自适应归一化思想</td>
-<td>最小</td>
-</tr>
-<tr>
-<td><strong>adaLN-Zero block</strong></td>
-<td>在 adaLN 基础上，额外回归<strong>逐维度缩放参数 <span class="arithmatex">\(\alpha\)</span></strong>，作用在每个残差相加之前；把回归 <span class="arithmatex">\(\alpha\)</span> 的 MLP <strong>零初始化</strong>，使整个 DiT block 初始化为<strong>恒等函数</strong></td>
-<td>可忽略</td>
+<td><code>&lt;image&gt;</code></td>
+<td>图像占位</td>
+<td>表示此处有一张图/视频需要编码为视觉 token</td>
 </tr>
 </tbody>
 </table>
-<p><strong>adaLN-Zero 的动机</strong>：ResNet 时代的经验——把每个残差 block 初始化为恒等函数有利于训练（如 Goyal et al. 把每个 block 最后一层 BatchNorm 的 <span class="arithmatex">\(\gamma\)</span> 零初始化可加速大规模监督训练）；扩散 U-Net 也用类似策略（每个 block 残差前的最后一层卷积零初始化）。DiT 把这一经验移植到 Transformer。</p>
-<p><strong>adaLN 的一个特点</strong>：它是四种设计中唯一<strong>对所有 token 施加相同函数</strong>的条件机制（条件只调制归一化的缩放平移，不做 token 级交互）。</p>
-<p><strong>实验结论</strong>（论文 Figure 5）：adaLN-Zero 在整个训练过程中始终优于 cross-attention 和 in-context；且<strong>初始化方式本身很重要</strong>——adaLN-Zero 显著优于普通 adaLN。后续所有 DiT 模型统一采用 adaLN-Zero。</p>
-<p><img alt="Figure 5: 四种条件注入方式对比" src="../images/dit_fig5.png" />
-<em>Figure 5: adaLN-Zero 在训练各阶段均优于其他设计，同时计算效率最高</em></p>
-<h3 id="25">2.5 模型规格与解码头<a class="headerlink" href="#25" title="Permanent link">&para;</a></h3>
-<p>沿 ViT 的配置方式联合缩放深度 <span class="arithmatex">\(N\)</span>、宽度 <span class="arithmatex">\(d\)</span>、注意力头数：</p>
-<table>
-<thead>
-<tr>
-<th>模型</th>
-<th>层数 <span class="arithmatex">\(N\)</span></th>
-<th>Hidden size <span class="arithmatex">\(d\)</span></th>
-<th>Heads</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>DiT-S</td>
-<td>12</td>
-<td>384</td>
-<td>6</td>
-</tr>
-<tr>
-<td>DiT-B</td>
-<td>12</td>
-<td>768</td>
-<td>12</td>
-</tr>
-<tr>
-<td>DiT-L</td>
-<td>24</td>
-<td>1024</td>
-<td>16</td>
-</tr>
-<tr>
-<td>DiT-XL</td>
-<td>28</td>
-<td>1152</td>
-<td>16</td>
-</tr>
-</tbody>
-</table>
-<p>命名规则：<code>DiT-XL/2</code> = XLarge 配置 + patch size <span class="arithmatex">\(p = 2\)</span>。</p>
-<p><strong>Transformer decoder（输出头）</strong>：最后一个 DiT block 之后，先过最终 LayerNorm（用 adaLN 时同样自适应），再用<strong>标准线性层</strong>把每个 token 解码成 <span class="arithmatex">\(p \times p \times 2C\)</span> 的张量（同时预测噪声 <span class="arithmatex">\(\epsilon\)</span> 和对角协方差 <span class="arithmatex">\(\Sigma\)</span>，各占 <span class="arithmatex">\(C\)</span> 通道），最后按原空间布局重排回去。</p>
-<p><strong>完整设计空间</strong> = patch size × block 架构 × 模型规模。</p>
-<h3 id="26">2.6 训练配置<a class="headerlink" href="#26" title="Permanent link">&para;</a></h3>
-<ul>
-<li>AdamW，恒定学习率 <span class="arithmatex">\(10^{-4}\)</span>，无 weight decay，batch size 256，数据增强只有水平翻转</li>
-<li><strong>不需要 learning rate warmup、也不需要正则化</strong>即可稳定训练，所有配置均未观察到 Transformer 常见的 loss spike</li>
-<li>权重维护 EMA（衰减 0.9999），报告结果均用 EMA 模型</li>
-<li>超参几乎全部沿用 ADM，未针对 DiT 调参——说明该架构对超参不敏感</li>
-<li>扩散超参：<span class="arithmatex">\(t_{\max} = 1000\)</span> 线性方差调度，沿用 ADM 的协方差参数化与 timestep/label embedding 方式</li>
-</ul>
-<h2 id="3">3. 实验<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
-<p>按笔记规范不展开具体分数，只记结论：</p>
-<ol>
-<li><strong>条件注入消融</strong>：adaLN-Zero &gt; adaLN &gt; cross-attention &gt; in-context，条件机制的选择对质量影响关键（见 Figure 5）。</li>
-<li><strong>Scaling 行为</strong>：12 个模型（S/B/L/XL × p=8/4/2）扫描——增大模型规模、减小 patch size 都能在训练各阶段稳定提升质量。</li>
-<li><strong>Gflops 是本质变量</strong>：固定模型规模、减小 patch size 时，参数量基本不变（甚至略降）而 Gflops 增加，质量仍显著提升；不同配置只要总 Gflops 相近，质量就相近（如 S/2 与 B/4）。Gflops 与 FID 呈强负相关。</li>
-<li><strong>大模型计算效率更高</strong>：同样的训练算力预算下，大 DiT 比小 DiT 利用得更充分；对小模型延长训练也无法追上大模型。</li>
-</ol>
-<p><img alt="Figure 8: Gflops 与 FID 强相关" src="../images/dit_fig8.png" />
-<em>Figure 8: 12 个 DiT 配置的 Transformer Gflops 与 FID-50K 呈强负相关——计算量而非参数量决定质量</em></p>
-<h2 id="4">4. 总结<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
-<ul>
-<li>DiT 证明了扩散模型骨干可以完全 Transformer 化：<strong>U-Net 归纳偏置不是必需的</strong>，标准 ViT 式设计（patchify + 正弦余弦位置编码 + 标准 block）即可，且保留了 Transformer 的 scaling 特性。</li>
-<li>方法上的核心贡献是 <strong>adaLN-Zero</strong>：自适应 LayerNorm 注入条件（由 <span class="arithmatex">\(t + c\)</span> 的 embedding 回归 <span class="arithmatex">\(\gamma, \beta, \alpha\)</span>）+ 残差分支零初始化为恒等函数——以最小计算代价拿到最好的条件生成质量。</li>
-<li>分析上的核心贡献是把复杂度度量从参数量换成 <strong>Gflops</strong>，并证明它与生成质量强相关——增加计算（更深更宽或更多 token）是提升扩散模型的关键因素。</li>
-<li>影响：DiT 成为后续视频/图像生成模型（Sora、Stable Diffusion 3 等）Transformer 化扩散骨干的直接源头。</li>
-</ul>
+<h4 id="232-per-imagevideo-attention-masking">2.3.2 Per-image/video Attention Masking ❓先不管了，不懂<a class="headerlink" href="#232-per-imagevideo-attention-masking" title="Permanent link">&para;</a></h4>
+<p>这是 Flamingo 处理多图输入的核心：每个文本 token <strong>只 attend 到最近的前置图像/视频</strong>，而不是所有历史图像。</p>
+<p>形式化地，定义映射函数：</p>
+<div class="arithmatex">\[\phi: [1, L] \mapsto [0, N]\]</div>
+<p>其中 <span class="arithmatex">\(L\)</span> 是文本 token 数，<span class="arithmatex">\(N\)</span> 是序列中图像/视频数。<span class="arithmatex">\(\phi(\ell)\)</span> 表示第 <span class="arithmatex">\(\ell\)</span> 个文本 token 之前最近的那张图索引；如果前面没有视觉内容，则为 0。</p>
+<p>预测第 <span class="arithmatex">\(\ell\)</span> 个文本 token 时，可用的视觉输入集合为：</p>
+<div class="arithmatex">\[x_{\leq \phi(\ell)} \triangleq \{x_i \mid i \leq \phi(\ell)\}\]</div>
+<p>由于每个图像/视频都经过 Perceiver Resampler 压缩为固定 64 个 token，所以无论前面有多少张图，当前文本 token 在 cross-attention 中只看 64 个视觉 token。</p>
+<h4 id="233-masking">2.3.3 Masking 示意图 ❓ 不管了，不懂<a class="headerlink" href="#233-masking" title="Permanent link">&para;</a></h4>
+<p>以刚才的 "小狗 + 小猫" 序列为例，文本 token 对图像的 attention mask 如下：</p>
+<div class="highlight"><pre><span></span><code>文本 token:    &lt;BOS&gt;  Cute  pics  of  my  pets  !  &lt;EOC&gt;  &lt;image&gt;  My  puppy ...
+可看到的图像:    0      0     0    0   0    0    0    0       1       1    ...
+                ↑                              ↑       ↑
+              无图                          图1出现  文本&quot;小狗&quot;只看图1
+
+文本 token:    ... grass  .  &lt;EOC&gt;  &lt;image&gt;  My  cat  ...
+可看到的图像:    ...   1    1    1       2       2    ...
+                              ↑       ↑
+                            图2出现  文本&quot;小猫&quot;只看图2
+</code></pre></div>
+<p>更直观的 cross-attention mask 矩阵（<code>█</code> = 可见，<code>░</code> = masked）：</p>
+<div class="highlight"><pre><span></span><code>          图1视觉token(64个)      图2视觉token(64个)
+文本&lt;BOS&gt;  ░░░░░░░░░░░░░░░░░░░░  ░░░░░░░░░░░░░░░░░░░░
+文本Cute   ░░░░░░░░░░░░░░░░░░░░  ░░░░░░░░░░░░░░░░░░░░
+文本pets   ░░░░░░░░░░░░░░░░░░░░  ░░░░░░░░░░░░░░░░░░░░   ← 图1还没出现
+文本My     ████████████████████  ░░░░░░░░░░░░░░░░░░░░   ← 最近前置图=图1
+文本puppy  ████████████████████  ░░░░░░░░░░░░░░░░░░░░
+文本grass  ████████████████████  ░░░░░░░░░░░░░░░░░░░░
+文本My     ░░░░░░░░░░░░░░░░░░░░  ████████████████████   ← 最近前置图=图2
+文本cat    ░░░░░░░░░░░░░░░░░░░░  ████████████████████
+</code></pre></div>
 <blockquote>
-<p><strong>一句话总结</strong>：DiT = LDM 潜空间 + ViT 骨干 + adaLN-Zero 条件注入，用"Gflops ↔ 质量"的强相关证明扩散模型同样遵循 Transformer 的 scaling 规律。</p>
+<p><strong>注意</strong>：文本 token 之间仍然是标准因果 mask；这里限制的是文本 token 对视觉 token 的 cross-attention。</p>
 </blockquote>
+<h4 id="234-attend">2.3.4 为什么只 attend 最近的前置图像？ 🚗<a class="headerlink" href="#234-attend" title="Permanent link">&para;</a></h4>
+<p>论文给出三个理由：</p>
+<ol>
+<li><strong>计算效率</strong>：若 attend 所有历史图像，视觉 token 数量随图像数线性增长，训练成本剧增。</li>
+<li><strong>可扩展性</strong>：训练时每个序列最多 5 张图，但推理时可扩展到 32 个 few-shot 示例。</li>
+<li><strong>效果更好</strong>：消融实验表明，这种"只看最近一张图"的方案比直接 attend 所有历史图像更强，因为每个文本 chunk 通常只描述它前面紧邻的图像。</li>
+</ol>
+<h4 id="235">2.3.5 配对数据的统一格式<a class="headerlink" href="#235" title="Permanent link">&para;</a></h4>
+<p>对于 ALIGN、LTIP、VTP 这类图文对数据，Flamingo 也把它们改造成 M3W 交错格式：</p>
+<div class="highlight"><pre><span></span><code>&lt;BOS&gt;&lt;image&gt;一只猫戴着墨镜&lt;EOC&gt;
+</code></pre></div>
+<p>即：caption 前 prepend <code>&lt;image&gt;</code>，后 append <code>&lt;EOC&gt;</code>。这样配对数据与 M3W 网页数据可以用同一套 masking 逻辑和训练目标。</p>
+<h4 id="236-few-shot-prompt">2.3.6 Few-shot Prompt 的构造<a class="headerlink" href="#236-few-shot-prompt" title="Permanent link">&para;</a></h4>
+<p>交错图文 masking 使 Flamingo 天然支持 few-shot in-context learning。把 <span class="arithmatex">\(k\)</span> 个示例和查询样本拼接成交错序列：</p>
+<div class="highlight"><pre><span></span><code>&lt;BOS&gt;&lt;image&gt;Question: What&#39;s the cat wearing? Answer: sunglasses&lt;EOC&gt;
+&lt;image&gt;Question: How many animals? Answer: 3&lt;EOC&gt;
+&lt;image&gt;Question: ... Answer:
+</code></pre></div>
+<p>每个示例的答案只依赖它前面最近的图像，不会串扰；查询图像前的示例起到示范作用，模型自回归生成答案。</p>
+<h4 id="237">2.3.7 图 🚗<a class="headerlink" href="#237" title="Permanent link">&para;</a></h4>
+<p><img alt="Figure 7: 交错视觉数据与文本支持的 Masking 策略" src="../images/flamingo_fig7.png" />
+<em>Figure 7: Flamingo 交错图文输入的 masking 机制。每个文本 token 只 attend 到最近的前置图像/视频。</em></p>
+<h2 id="3">3. 网络结构与训练<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<h3 id="31">3.1 整体架构<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>组件</th>
+<th>是否冻结</th>
+<th>参数量（Flamingo-80B）</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vision Encoder (NFNet-F6)</td>
+<td>✅</td>
+<td>~435M</td>
+<td>提取视觉特征</td>
+</tr>
+<tr>
+<td>Perceiver Resampler</td>
+<td>❌</td>
+<td>~0.2B</td>
+<td>压缩视觉 token</td>
+</tr>
+<tr>
+<td>LM (Chinchilla 70B)</td>
+<td>✅</td>
+<td>70B</td>
+<td>语言理解与生成</td>
+</tr>
+<tr>
+<td>GATED XATTN-DENSE</td>
+<td>❌</td>
+<td>~10B</td>
+<td>注入视觉信息</td>
+</tr>
+</tbody>
+</table>
+<p>总参数约 80B，可训练参数约 10B 量级（主要来自 GATED XATTN-DENSE）。</p>
+<h3 id="32">3.2 训练配置<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>数据</strong>：ALIGN（1.8B 图文对）、LTIP（312M）、VTP（27M 视频-文本对）、M3W（43M 网页）</li>
+<li><strong>目标</strong>：多数据集加权的 next-token prediction</li>
+<li><strong>优化器</strong>：AdamW，lr=1e-4，warmup 5000 步</li>
+<li><strong>规模</strong>：Flamingo-80B 用 1536 个 TPUv4 训练 15 天</li>
+</ul>
+<h3 id="33">3.3 对比<a class="headerlink" href="#33" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>Flamingo</th>
+<th>CLIP</th>
+<th>BLIP-1</th>
+<th>BLIP-2</th>
+<th>LLaVA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LM</td>
+<td>冻结</td>
+<td>N/A</td>
+<td>BERT，端到端</td>
+<td>冻结</td>
+<td>全量微调</td>
+</tr>
+<tr>
+<td>视觉编码器</td>
+<td>NFNet（冻结）</td>
+<td>ViT（联合训练）</td>
+<td>ViT（可训练）</td>
+<td>EVA-CLIP / CLIP ViT（冻结）</td>
+<td>CLIP ViT（冻结）</td>
+</tr>
+<tr>
+<td>桥接</td>
+<td>Perceiver + Gated XAttn</td>
+<td>对比投影</td>
+<td>共享 Transformer</td>
+<td>Q-Former</td>
+<td>MLP</td>
+</tr>
+<tr>
+<td>交错图文</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>In-context</td>
+<td>强</td>
+<td>❌</td>
+<td>弱</td>
+<td>弱</td>
+<td>弱</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>vs CLIP</strong>：CLIP 对齐表示空间，Flamingo 专注自由文本生成。</li>
+<li><strong>vs BLIP-2</strong>：都冻结 LLM，但 BLIP-2 的 Q-Former 需先经 ITC/ITM/ITG 做 stage-1 预训练；Flamingo 直接端到端训练。</li>
+<li><strong>vs LLaVA</strong>：LLaVA 全量微调 LLM，Flamingo 冻结 LLM 以保留预训练能力。</li>
+</ul>
+<h2 id="4">4. 总结<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<p>Flamingo 提出了一种<strong>最小侵入式</strong>的多模态升级方案：冻结 LLM 和视觉编码器，仅训练轻量桥接模块，使纯文本 LLM 获得交错图文理解与 few-shot 生成能力。</p>
+<p>关键贡献：
+- <strong>Perceiver Resampler</strong>：解决可变视觉 token 数量问题
+- <strong>tanh 门控零初始化</strong>：保证训练稳定
+- <strong>交错图文 masking</strong>：支持复杂多模态输入</p>
 
 
 

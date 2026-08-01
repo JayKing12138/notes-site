@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../InternVL/">
+        <link rel="prev" href="../3_Qwen-VL%E4%B8%8EOmni/">
       
       
-        <link rel="next" href="../LLaVA/">
+        <link rel="next" href="../4.1_LLaVA/">
       
       
         
@@ -23,7 +23,7 @@
     
     
       
-        <title>LLaMA - 学习资料库</title>
+        <title>4.1.1_LLaMA - 学习资料库</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#llama" class="md-skip">
+        <a href="#llama-32-vision" class="md-skip">
           跳转至
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              LLaMA
+              4.1.1_LLaMA
             
           </span>
         </div>
@@ -830,6 +830,790 @@
                 
   
   
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.1.1_LLaMA
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.1.1_LLaMA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#llama-32-vision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LLaMA 3.2 - Vision
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LLaMA 3.2 - Vision">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tanh-gating" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        tanh gating 🚗
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="tanh gating 🚗">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 初始化时关闭视觉分支
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-cross-attention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 每个 Cross-Attention 层有两个门
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-tanh-sigmoid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 为什么使用 tanh，而不是 sigmoid
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 它解决什么问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#llama" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LLaMA
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LLaMA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目录
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心要点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-llama-1-open-and-efficient-foundation-language-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. LLaMA 1: Open and Efficient Foundation Language Models
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. LLaMA 1: Open and Efficient Foundation Language Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 研究动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 模型架构
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 训练数据
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-llama-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 LLaMA 1 总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-llama-2-open-foundation-and-fine-tuned-chat-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. LLaMA 2: Open Foundation and Fine-Tuned Chat Models
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. LLaMA 2: Open Foundation and Fine-Tuned Chat Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-llama-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 相比 LLaMA 1 的改进
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 相比 LLaMA 1 的改进">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        训练数据
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        架构变化
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-rlhf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 RLHF 对齐流程
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 RLHF 对齐流程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sft" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        监督微调 (SFT)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        人类偏好数据收集
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        双奖励模型
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rlhf-v1-v5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        迭代式微调（RLHF V1 → V5）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ghost-attention-gatt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ghost Attention (GAtt)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-llama-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 LLaMA 2 总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-llama-3-31-the-llama-3-herd-of-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. LLaMA 3 / 3.1: The Llama 3 Herd of Models
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. LLaMA 3 / 3.1: The Llama 3 Herd of Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-llama-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 相比 LLaMA 2 的改进
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 相比 LLaMA 2 的改进">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        架构变化
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        训练数据
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scaling-law" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scaling Law 研究
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-llama-31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 LLaMA 3.1 的新特性
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 LLaMA 3.1 的新特性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#128k" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        128K 上下文窗口
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        工具调用
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        多语言支持
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-llama-331" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 LLaMA 3/3.1 总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-llama-32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. LLaMA 3.2: 多模态能力
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. LLaMA 3.2: 多模态能力">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 视觉能力
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1 视觉能力">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        图像编码器
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        图像适配器
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        视频适配器
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 语音能力
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.2 语音能力">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        语音编码器
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        语音适配器
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-llama-32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 LLaMA 3.2 总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        总结与对比
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="总结与对比">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        四代方法对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        关键技术洞察
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.1_LLaVA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.1_LLaVA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.2_InternVL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.2_InternVL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.3_Flamingo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.3_Flamingo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.4_BEiT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.4_BEiT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
   
   
     <li class="md-nav__item">
@@ -917,14 +1701,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../AAAAA_Transformer%E3%80%81LLM%E4%B8%8EVLM/" class="md-nav__link">
+      <a href="../6_SigLIP/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    AAAAA_Transformer、LLM与VLM
+    6_SigLIP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7_DiT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7_DiT
   
 
     
@@ -953,34 +1765,6 @@
     
   
     BERT
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../BEiT/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    BEiT
   
 
     
@@ -1141,62 +1925,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../DiT/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    DiT
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Flamingo/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Flamingo
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../GPT%EF%BC%8CGPT-2%EF%BC%8CGPT-3/" class="md-nav__link">
         
   
@@ -1233,643 +1961,6 @@
     
   
     ImageBind 与 LanguageBind 对比
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../InternVL/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    InternVL
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    LLaMA
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    LLaMA
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        目录
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        核心要点
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#1-llama-1-open-and-efficient-foundation-language-models" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. LLaMA 1: Open and Efficient Foundation Language Models
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="1. LLaMA 1: Open and Efficient Foundation Language Models">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#11" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1.1 研究动机
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#12" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1.2 模型架构
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#13" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1.3 训练数据
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#14-llama-1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1.4 LLaMA 1 总结
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-llama-2-open-foundation-and-fine-tuned-chat-models" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. LLaMA 2: Open Foundation and Fine-Tuned Chat Models
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. LLaMA 2: Open Foundation and Fine-Tuned Chat Models">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#21-llama-1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.1 相比 LLaMA 1 的改进
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2.1 相比 LLaMA 1 的改进">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        训练数据
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        架构变化
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#22-rlhf" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.2 RLHF 对齐流程
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2.2 RLHF 对齐流程">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#sft" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        监督微调 (SFT)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        人类偏好数据收集
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        双奖励模型
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rlhf-v1-v5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        迭代式微调（RLHF V1 → V5）
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ghost-attention-gatt" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Ghost Attention (GAtt)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#23-llama-2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.3 LLaMA 2 总结
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-llama-3-31-the-llama-3-herd-of-models" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. LLaMA 3 / 3.1: The Llama 3 Herd of Models
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. LLaMA 3 / 3.1: The Llama 3 Herd of Models">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#31-llama-2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3.1 相比 LLaMA 2 的改进
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3.1 相比 LLaMA 2 的改进">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        架构变化
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        训练数据
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#scaling-law" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Scaling Law 研究
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#32-llama-31" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3.2 LLaMA 3.1 的新特性
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3.2 LLaMA 3.1 的新特性">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#128k" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        128K 上下文窗口
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        工具调用
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        多语言支持
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#33-llama-331" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3.3 LLaMA 3/3.1 总结
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-llama-32" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. LLaMA 3.2: 多模态能力
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. LLaMA 3.2: 多模态能力">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#41" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4.1 视觉能力
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4.1 视觉能力">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        图像编码器
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        图像适配器
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        视频适配器
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#42" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4.2 语音能力
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4.2 语音能力">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        语音编码器
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        语音适配器
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#43-llama-32" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4.3 LLaMA 3.2 总结
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        总结与对比
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="总结与对比">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        四代方法对比
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_18" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        关键技术洞察
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../LLaVA/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    LLaVA
   
 
     
@@ -2010,34 +2101,6 @@
     
   
     SAM3
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../SigLIP/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    SigLIP
   
 
     
@@ -2366,6 +2429,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../%E8%A7%86%E9%A2%91%E7%90%86%E8%A7%A3%E8%AE%BA%E6%96%87%E4%B8%B2%E8%AE%B2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    视频理解论文串讲
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../%E9%9F%B3%E9%A2%91%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
         
   
@@ -2411,8 +2502,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -2421,6 +2510,96 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#llama-32-vision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LLaMA 3.2 - Vision
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LLaMA 3.2 - Vision">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tanh-gating" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        tanh gating 🚗
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="tanh gating 🚗">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 初始化时关闭视觉分支
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-cross-attention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 每个 Cross-Attention 层有两个门
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-tanh-sigmoid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 为什么使用 tanh，而不是 sigmoid
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 它解决什么问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#llama" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LLaMA
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LLaMA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2430,8 +2609,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2441,8 +2620,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#1-llama-1-open-and-efficient-foundation-language-models" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2502,8 +2681,8 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#2-llama-2-open-foundation-and-fine-tuned-chat-models" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2641,8 +2820,8 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#3-llama-3-31-the-llama-3-herd-of-models" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2769,8 +2948,8 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#4-llama-32" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2886,8 +3065,8 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#_16" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2925,6 +3104,11 @@
     </nav>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
     </ul>
   
@@ -2943,12 +3127,83 @@
 
 
 
-<h1 id="llama">LLaMA<a class="headerlink" href="#llama" title="Permanent link">&para;</a></h1>
+  <h1>4.1.1_LLaMA</h1>
+
+<h2 id="llama-32-vision">LLaMA 3.2 - Vision<a class="headerlink" href="#llama-32-vision" title="Permanent link">&para;</a></h2>
+<p><img alt="image-20260801231350544" src="../images/image-20260801231350544.png" /></p>
+<p>唯一原则是把图片进行缩小，缩小比例最小能适配的那个预设，就选择那个预设。</p>
+<p><img alt="image-20260801231509546" src="../images/image-20260801231509546.png" /></p>
+<p>4个块，3个通道，块大小是560*560</p>
+<p><img alt="image-20260801231939866" src="../images/image-20260801231939866.png" /></p>
+<p>vision encoder部分：ViT这种模型前面的块更关注局部细节，后面的块更关注全局信息。所以将后面这8层称之为Global Transformer。</p>
+<p><img alt="image-20260801232033024" src="../images/image-20260801232033024.png" /></p>
+<p><img alt="image-20260801232138864" src="../images/image-20260801232138864.png" /></p>
+<p>llm部分：使用的是预训练好的LLaMA 3.1的模型。</p>
+<p>是在原本的冻结的预训练模型的Transformer块之间加入可训练的Cross Attention的Transformer，Cross attention的Query来自于上一层的输出，K和V来自视觉。Cross attention的这些Transformer模块里面也加入了常见的tanh gating的机制，目的是为了在训练初期不影响原始语言模型的能力。🚗</p>
+<p><img alt="image-20260801232726612" src="../images/image-20260801232726612.png" /></p>
+<p>交错图文mask：设计的Mask使得文本只能看到最近前面的图片。比如这里的Token 5能够看到猫的图片，但是看不到狗的图片。不过如下图所示，如果猫和狗两张图之间没有文本的话，那么Token 5是能够同时看到狗和猫的图片的。这个设计和Flamingo里面的设计是一样的。</p>
+<h3 id="tanh-gating">tanh gating 🚗<a class="headerlink" href="#tanh-gating" title="Permanent link">&para;</a></h3>
+<p>你说的应该是 <strong>tanh gating（双曲正切门控）</strong>。</p>
+<p>Llama 3.2 Vision 在 Llama 文本主干中插入 Cross-Attention 层，让文本特征读取视觉编码器输出。但它不会直接把 Cross-Attention 的结果全部加到文本特征上，而是先乘一个可学习的门控系数：</p>
+<div class="arithmatex">\[  h_{\text{out}}
+=
+h_{\text{residual}}
++
+\tanh(g)\cdot h_{\text{vision}}
+\]</div>
+<p>其中 (g) 是一个可学习的标量参数，(\tanh(g)) 决定视觉信息注入文本主干的强度。</p>
+<h4 id="1">1. 初始化时关闭视觉分支<a class="headerlink" href="#1" title="Permanent link">&para;</a></h4>
+<p>Cross-Attention Adapter 是后来插入预训练 Llama 3.1 的新模块。为了避免新加入的随机视觉分支一开始破坏原有语言能力，门控参数初始化为 0。</p>
+<p>此时：
+$$
+\tanh(0)=0
+$$
+所以最初：</p>
+<div class="highlight"><pre><span></span><code>输出 = 原始文本残差 + 0 × 视觉信息
+</code></pre></div>
+<p>模型刚开始训练时，行为基本等同于原来的纯文本 Llama。随着多模态训练进行，门控参数逐渐学习，视觉信息才被平稳地注入文本主干。官方实现确实将 Cross-Attention 层中的两个门控参数初始化为 0。(<a href="https://github.com/huggingface/transformers/blob/main/src/transformers/models/mllama/modeling_mllama.py">GitHub</a>)</p>
+<h4 id="2-cross-attention">2. 每个 Cross-Attention 层有两个门<a class="headerlink" href="#2-cross-attention" title="Permanent link">&para;</a></h4>
+<p>Llama 3.2 Vision 的 Cross-Attention Decoder Layer 中有两个独立门控：</p>
+<ul>
+<li><code>cross_attn_attn_gate</code>：控制 Cross-Attention 输出注入多少；</li>
+<li><code>cross_attn_mlp_gate</code>：控制该层后续 MLP 输出注入多少。</li>
+</ul>
+<p>流程可以理解为：</p>
+<div class="highlight"><pre><span></span><code>文本隐藏状态
+   ↓
+Cross-Attention 读取图像特征
+   ↓
+tanh attention gate
+   ↓
+加回文本残差
+   ↓
+MLP
+   ↓
+tanh MLP gate
+   ↓
+再次加回残差
+</code></pre></div>
+<p>两个门都是每层一个可学习标量，而不是为每个 token 动态生成不同门值。(<a href="https://github.com/huggingface/transformers/blob/main/src/transformers/models/mllama/modeling_mllama.py">GitHub</a>)</p>
+<h4 id="3-tanh-sigmoid">3. 为什么使用 tanh，而不是 sigmoid<a class="headerlink" href="#3-tanh-sigmoid" title="Permanent link">&para;</a></h4>
+<p>主要有两个直观原因。</p>
+<p>第一，tanh 在输入为 0 时输出正好为 0，因此可以通过零初始化让新分支完全关闭。Sigmoid 在输入为 0 时输出 0.5，无法自然实现“初始不注入”。</p>
+<p>第二，tanh 的范围是 ([-1,1])，既可以控制视觉分支的注入强度，也允许模型学习负向修正；Sigmoid 只能输出正值。</p>
+<h4 id="4">4. 它解决什么问题<a class="headerlink" href="#4" title="Permanent link">&para;</a></h4>
+<p>它主要解决的是：🚗</p>
+<blockquote>
+<p>如何在给已经训练好的纯文本 Llama 增加视觉模块时，既学会使用图像信息，又尽量不破坏原有语言能力。</p>
+</blockquote>
+<p>Meta 的模型卡说明，Llama 3.2 Vision 是在 Llama 3.1 上增加视觉 Adapter，通过一系列 Cross-Attention 层把图像编码器表示注入核心 LLM。Tanh gating 就是控制这些新增分支影响程度的稳定化机制。(<a href="https://github.com/meta-llama/llama-models/blob/main/models/llama3_2/MODEL_CARD_VISION.md?utm_source=chatgpt.com">GitHub</a>)</p>
+<p>一句话理解：</p>
+<blockquote>
+<p><strong>Tanh gating 相当于视觉信息进入 Llama 的可学习阀门：初始关闭，训练过程中再逐渐学习应该打开多少。</strong></p>
+</blockquote>
+<h2 id="llama">LLaMA<a class="headerlink" href="#llama" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>📄 <strong>涉及论文链接</strong>：
 - <a href="https://arxiv.org/pdf/2302.13971">LLaMA 1</a> | <a href="https://arxiv.org/pdf/2307.09288">LLaMA 2</a> | <a href="https://arxiv.org/pdf/2407.21783">LLaMA 3</a></p>
 </blockquote>
-<h2 id="_1">目录<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="_1">目录<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <ul>
 <li><a href="#核心要点">核心要点</a></li>
 <li><a href="#1-llama-1-open-and-efficient-foundation-language-models">1. LLaMA 1: Open and Efficient Foundation Language Models</a></li>
@@ -2957,7 +3212,7 @@
 <li><a href="#4-llama-32-多模态能力">4. LLaMA 3.2: 多模态能力</a></li>
 <li><a href="#总结与对比">总结与对比</a></li>
 </ul>
-<h2 id="_2">核心要点<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="_2">核心要点<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <blockquote>
 <ol>
 <li><strong>LLaMA 1</strong>（2023.02）证明了"小模型+更多数据"的有效性，挑战了 Chinchilla 的 compute-optimal 训练范式，并系统性地将 RMSNorm、SwiGLU、RoPE 整合到统一架构中，成为后续几乎所有开源 LLM 的标配。</li>
@@ -2968,10 +3223,10 @@
 </ol>
 </blockquote>
 <hr />
-<h2 id="1-llama-1-open-and-efficient-foundation-language-models">1. LLaMA 1: Open and Efficient Foundation Language Models<a class="headerlink" href="#1-llama-1-open-and-efficient-foundation-language-models" title="Permanent link">&para;</a></h2>
+<h3 id="1-llama-1-open-and-efficient-foundation-language-models">1. LLaMA 1: Open and Efficient Foundation Language Models<a class="headerlink" href="#1-llama-1-open-and-efficient-foundation-language-models" title="Permanent link">&para;</a></h3>
 <p><img alt="Figure 1: LLaMA 训练损失曲线" src="../images/llama1_fig1.png" />
 <em>Figure 1: 各尺寸模型在训练过程中的 loss 曲线——7B 模型在 1T tokens 后仍在持续改善</em></p>
-<h3 id="11">1.1 研究动机<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<h4 id="11">1.1 研究动机<a class="headerlink" href="#11" title="Permanent link">&para;</a></h4>
 <p><strong>推理效率比训练效率更重要</strong></p>
 <p>Hoffmann et al. (2022) 的 Chinchilla scaling laws 关注在给定训练计算预算下如何最优分配模型大小和数据量。但 LLaMA 论文指出：</p>
 <blockquote>
@@ -2986,7 +3241,7 @@
 <blockquote>
 <p>"Unlike Chinchilla, PaLM, or GPT-3, we only use publicly available data, making our work compatible with open-sourcing."</p>
 </blockquote>
-<h3 id="12">1.2 模型架构<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
+<h4 id="12">1.2 模型架构<a class="headerlink" href="#12" title="Permanent link">&para;</a></h4>
 <p>LLaMA 基于 Transformer，引入三项关键改进：</p>
 <table>
 <thead>
@@ -3056,7 +3311,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="13">1.3 训练数据<a class="headerlink" href="#13" title="Permanent link">&para;</a></h3>
+<h4 id="13">1.3 训练数据<a class="headerlink" href="#13" title="Permanent link">&para;</a></h4>
 <p>训练数据完全来自<strong>公开可用</strong>来源，总计约 <strong>1.4T tokens</strong>：</p>
 <table>
 <thead>
@@ -3105,7 +3360,7 @@
 </tbody>
 </table>
 <p><strong>Tokenizer</strong>：SentencePiece BPE，将所有数字拆分为单个数字，对未知 UTF-8 字符回退到字节级别。</p>
-<h3 id="14-llama-1">1.4 LLaMA 1 总结<a class="headerlink" href="#14-llama-1" title="Permanent link">&para;</a></h3>
+<h4 id="14-llama-1">1.4 LLaMA 1 总结<a class="headerlink" href="#14-llama-1" title="Permanent link">&para;</a></h4>
 <ul>
 <li>证明"小模型+更多数据"有效，挑战了"越大越好"的主流范式</li>
 <li>仅用公开数据达到 SOTA，首次证明不需要私有数据</li>
@@ -3113,18 +3368,18 @@
 <li>全面开源，直接催生 Alpaca、Vicuna、Koala 等后续工作</li>
 </ul>
 <hr />
-<h2 id="2-llama-2-open-foundation-and-fine-tuned-chat-models">2. LLaMA 2: Open Foundation and Fine-Tuned Chat Models<a class="headerlink" href="#2-llama-2-open-foundation-and-fine-tuned-chat-models" title="Permanent link">&para;</a></h2>
+<h3 id="2-llama-2-open-foundation-and-fine-tuned-chat-models">2. LLaMA 2: Open Foundation and Fine-Tuned Chat Models<a class="headerlink" href="#2-llama-2-open-foundation-and-fine-tuned-chat-models" title="Permanent link">&para;</a></h3>
 <p><img alt="Figure 4: LLaMA 2-Chat 训练流程" src="../images/llama2_fig4.png" />
 <em>Figure 4: LLaMA 2-Chat 训练流程——预训练 → SFT → 迭代式 RLHF（Rejection Sampling + PPO）</em></p>
-<h3 id="21-llama-1">2.1 相比 LLaMA 1 的改进<a class="headerlink" href="#21-llama-1" title="Permanent link">&para;</a></h3>
-<h4 id="_3">训练数据<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<h4 id="21-llama-1">2.1 相比 LLaMA 1 的改进<a class="headerlink" href="#21-llama-1" title="Permanent link">&para;</a></h4>
+<h5 id="_3">训练数据<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h5>
 <ul>
 <li><strong>数据量</strong>：统一使用 <strong>2T tokens</strong>（增加 40%）</li>
 <li><strong>数据来源</strong>：来自公开来源的新混合数据，<strong>不包含 Meta 用户数据</strong></li>
 <li><strong>数据处理</strong>：更严格的数据清洗，上采样高事实性来源，移除含私人信息的网站</li>
 <li><strong>语言分布</strong>：约 89.7% 英语</li>
 </ul>
-<h4 id="_4">架构变化<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<h5 id="_4">架构变化<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h5>
 <table>
 <thead>
 <tr>
@@ -3156,8 +3411,8 @@
 - 大幅降低推理时 KV Cache 的内存开销
 - 消融实验表明与 MHA 性能相当，优于 MQA
 - 为保持参数量一致，FFN 维度增加 1.3 倍</p>
-<h3 id="22-rlhf">2.2 RLHF 对齐流程<a class="headerlink" href="#22-rlhf" title="Permanent link">&para;</a></h3>
-<h4 id="sft">监督微调 (SFT)<a class="headerlink" href="#sft" title="Permanent link">&para;</a></h4>
+<h4 id="22-rlhf">2.2 RLHF 对齐流程<a class="headerlink" href="#22-rlhf" title="Permanent link">&para;</a></h4>
+<h5 id="sft">监督微调 (SFT)<a class="headerlink" href="#sft" title="Permanent link">&para;</a></h5>
 <p><strong>核心理念："Quality Is All You Need"</strong></p>
 <blockquote>
 <p>"By setting aside millions of examples from third-party datasets and using fewer but higher-quality examples from our own vendor-based annotation efforts, our results notably improved."</p>
@@ -3167,20 +3422,20 @@
 <li>对 180 个样本人工审查，发现模型输出与人工标注"具有竞争力"</li>
 <li>仅对回答 token 计算损失</li>
 </ul>
-<h4 id="_5">人类偏好数据收集<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<h5 id="_5">人类偏好数据收集<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h5>
 <ul>
 <li><strong>二元比较协议</strong>：标注者写 prompt → 从两个模型回答中选择更好的</li>
 <li>分<strong>有用性</strong>和<strong>安全性</strong>两个维度</li>
 <li>总共收集超过 <strong>141 万条</strong> Meta 内部偏好数据 + 开源数据共约 <strong>292 万条</strong></li>
 </ul>
-<h4 id="_6">双奖励模型<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
+<h5 id="_6">双奖励模型<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h5>
 <p>由于有用性和安全性存在张力（tension），训练两个独立奖励模型：</p>
 <ul>
 <li><strong>Helpfulness RM</strong>：在 Meta Helpfulness 数据 + 等量混合安全数据上训练</li>
 <li><strong>Safety RM</strong>：在 Meta Safety + Anthropic Harmless + 混合有用性数据上训练</li>
 </ul>
 <p><strong>训练目标</strong>：二元排序损失 + 边际组件</p>
-<h4 id="rlhf-v1-v5">迭代式微调（RLHF V1 → V5）<a class="headerlink" href="#rlhf-v1-v5" title="Permanent link">&para;</a></h4>
+<h5 id="rlhf-v1-v5">迭代式微调（RLHF V1 → V5）<a class="headerlink" href="#rlhf-v1-v5" title="Permanent link">&para;</a></h5>
 <p><strong>(1) Rejection Sampling Fine-tuning</strong>：
 - 对每个 prompt 采样 K 个回答，用奖励模型评分选最高分
 - 仅对 70B 执行，较小模型通过蒸馏 70B 的拒绝采样数据获得能力</p>
@@ -3188,9 +3443,9 @@
 - 从 V4 开始叠加 PPO
 - 组合奖励：对安全相关 prompt 使用安全奖励，否则使用有用性奖励
 - KL 惩罚项防止偏离原始策略</p>
-<h4 id="ghost-attention-gatt">Ghost Attention (GAtt)<a class="headerlink" href="#ghost-attention-gatt" title="Permanent link">&para;</a></h4>
+<h5 id="ghost-attention-gatt">Ghost Attention (GAtt)<a class="headerlink" href="#ghost-attention-gatt" title="Permanent link">&para;</a></h5>
 <p>解决多轮对话后忘记初始系统指令的问题：将系统指令拼接到所有用户消息中，微调时仅对最后一轮的 token 计算损失。</p>
-<h3 id="23-llama-2">2.3 LLaMA 2 总结<a class="headerlink" href="#23-llama-2" title="Permanent link">&para;</a></h3>
+<h4 id="23-llama-2">2.3 LLaMA 2 总结<a class="headerlink" href="#23-llama-2" title="Permanent link">&para;</a></h4>
 <ul>
 <li>训练数据增加 40%，进行更严格的数据清洗</li>
 <li>GQA 注意力机制大幅降低推理时 KV Cache 内存开销</li>
@@ -3200,11 +3455,11 @@
 <li>开放权重供研究和商业使用</li>
 </ul>
 <hr />
-<h2 id="3-llama-3-31-the-llama-3-herd-of-models">3. LLaMA 3 / 3.1: The Llama 3 Herd of Models<a class="headerlink" href="#3-llama-3-31-the-llama-3-herd-of-models" title="Permanent link">&para;</a></h2>
+<h3 id="3-llama-3-31-the-llama-3-herd-of-models">3. LLaMA 3 / 3.1: The Llama 3 Herd of Models<a class="headerlink" href="#3-llama-3-31-the-llama-3-herd-of-models" title="Permanent link">&para;</a></h3>
 <p><img alt="Figure 1: LLaMA 3 整体架构" src="../images/llama3_fig1.png" />
 <em>Figure 1: LLaMA 3 的整体架构和训练流程</em></p>
-<h3 id="31-llama-2">3.1 相比 LLaMA 2 的改进<a class="headerlink" href="#31-llama-2" title="Permanent link">&para;</a></h3>
-<h4 id="_7">架构变化<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<h4 id="31-llama-2">3.1 相比 LLaMA 2 的改进<a class="headerlink" href="#31-llama-2" title="Permanent link">&para;</a></h4>
+<h5 id="_7">架构变化<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h5>
 <table>
 <thead>
 <tr>
@@ -3258,7 +3513,7 @@
 - <strong>128K 词表</strong>：tiktoken tokenizer + 28K 非英语 tokens，英文压缩率从 3.17 提升至 3.94 chars/token
 - <strong>RoPE 基频提升</strong>：从 10,000 增加到 <strong>500,000</strong>
 - <strong>文档掩码</strong>：防止同一序列内不同文档间的自注意力交互</p>
-<h4 id="_8">训练数据<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
+<h5 id="_8">训练数据<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h5>
 <ul>
 <li><strong>规模</strong>：从 2T 扩展到 <strong>15T+ tokens</strong>（约 8 倍增长）</li>
 <li><strong>数据配比</strong>：约 50% 通用知识、25% 数学与推理、17% 代码、8% 多语言</li>
@@ -3268,7 +3523,7 @@
 <li>专门的代码和推理数据提取管道</li>
 <li><strong>Annealing</strong>：最后 40M tokens 使用高质量数据退火训练 + Polyak averaging</li>
 </ul>
-<h4 id="scaling-law">Scaling Law 研究<a class="headerlink" href="#scaling-law" title="Permanent link">&para;</a></h4>
+<h5 id="scaling-law">Scaling Law 研究<a class="headerlink" href="#scaling-law" title="Permanent link">&para;</a></h5>
 <p><img alt="Figure 2: Scaling Law IsoFLOPs 曲线" src="../images/llama3_fig2.png" />
 <em>Figure 2: Scaling Law IsoFLOPs 曲线——预测最优模型大小和数据量的权衡</em></p>
 <p><strong>两阶段方法</strong>：
@@ -3278,22 +3533,22 @@
 - 拟合得到 N<em>(C) = 0.29 × C^0.53
 - 外推到 3.8×10²⁵ FLOPs 建议训练 </em><em>402B 参数</em><em>模型在 </em><em>16.55T tokens</em>* 上
 - IsoFLOPs 曲线在最优值附近变得平坦，说明性能对模型大小/数据量权衡相对鲁棒</p>
-<h3 id="32-llama-31">3.2 LLaMA 3.1 的新特性<a class="headerlink" href="#32-llama-31" title="Permanent link">&para;</a></h3>
-<h4 id="128k">128K 上下文窗口<a class="headerlink" href="#128k" title="Permanent link">&para;</a></h4>
+<h4 id="32-llama-31">3.2 LLaMA 3.1 的新特性<a class="headerlink" href="#32-llama-31" title="Permanent link">&para;</a></h4>
+<h5 id="128k">128K 上下文窗口<a class="headerlink" href="#128k" title="Permanent link">&para;</a></h5>
 <ul>
 <li>通过 <strong>continued pre-training</strong> 分六个阶段递增扩展（8K → 128K）</li>
 <li>长上下文预训练使用约 <strong>800B tokens</strong></li>
 <li>评估标准：短上下文评测性能完全恢复 + Needle-in-a-Haystack 完美表现</li>
 <li>405B 在 Needle-in-a-Haystack 上实现 <strong>100% 检索率</strong></li>
 </ul>
-<h4 id="_9">工具调用<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
+<h5 id="_9">工具调用<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h5>
 <p>原生支持三种核心工具：
 - <strong>搜索引擎</strong>：Brave Search API
 - <strong>Python 解释器</strong>：代码生成和执行
 - <strong>数学计算引擎</strong>：Wolfram Alpha API</p>
-<h4 id="_10">多语言支持<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
+<h5 id="_10">多语言支持<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h5>
 <p>正式支持 8 种语言。</p>
-<h3 id="33-llama-331">3.3 LLaMA 3/3.1 总结<a class="headerlink" href="#33-llama-331" title="Permanent link">&para;</a></h3>
+<h4 id="33-llama-331">3.3 LLaMA 3/3.1 总结<a class="headerlink" href="#33-llama-331" title="Permanent link">&para;</a></h4>
 <ul>
 <li>128K 词表，英文压缩率提升 4 倍</li>
 <li>训练数据从 2T 扩展到 15T+ tokens，建立完整的数据质量控制体系</li>
@@ -3303,11 +3558,11 @@
 <li>16K H100 上 90%+ 有效训练时间，54 天内 466 次中断（78% 归因于硬件问题）</li>
 </ul>
 <hr />
-<h2 id="4-llama-32">4. LLaMA 3.2: 多模态能力<a class="headerlink" href="#4-llama-32" title="Permanent link">&para;</a></h2>
+<h3 id="4-llama-32">4. LLaMA 3.2: 多模态能力<a class="headerlink" href="#4-llama-32" title="Permanent link">&para;</a></h3>
 <p><img alt="LLaMA 3.2 多模态架构总览" src="../images/llama3_fig28_multimodal_arch.png" />
 <em>LLaMA 3.2 多模态架构总览：组合式设计，视觉/语音编码器通过适配器集成到冻结的 LLM 中</em></p>
-<h3 id="41">4.1 视觉能力<a class="headerlink" href="#41" title="Permanent link">&para;</a></h3>
-<h4 id="_11">图像编码器<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h4>
+<h4 id="41">4.1 视觉能力<a class="headerlink" href="#41" title="Permanent link">&para;</a></h4>
+<h5 id="_11">图像编码器<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h5>
 <ul>
 <li><strong>ViT-H/14 变体</strong>：原始 630M 参数，在 2.5B 图文对上训练 5 个 epoch</li>
 <li>添加 8 个 gated self-attention 层（总计 40 个 transformer blocks），最终 <strong>850M 参数</strong></li>
@@ -3315,7 +3570,7 @@
 <li>每个 patch 产生 7680 维表示（16×16 = 256 个 patches）</li>
 <li>训练过程中<strong>不冻结</strong>图像编码器参数</li>
 </ul>
-<h4 id="_12">图像适配器<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h4>
+<h5 id="_12">图像适配器<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h5>
 <ul>
 <li>在语言模型每 4 个 self-attention 层后插入 <strong>cross-attention 层</strong></li>
 <li>使用 GQA 提高效率</li>
@@ -3323,27 +3578,27 @@
 <li>训练时<strong>冻结语言模型参数</strong>，只更新编码器和适配器</li>
 <li>两阶段预训练：初始预训练（~6B 图文对）+ 退火训练（~500M 高质量图像）</li>
 </ul>
-<h4 id="_13">视频适配器<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h4>
+<h5 id="_13">视频适配器<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h5>
 <ul>
 <li>最多处理 64 帧（均匀采样）</li>
 <li><strong>时序聚合器</strong>：Perceiver Resampler，将 32 个连续帧合并为 1 个</li>
 <li>额外的 video cross-attention 层</li>
 </ul>
-<h3 id="42">4.2 语音能力<a class="headerlink" href="#42" title="Permanent link">&para;</a></h3>
+<h4 id="42">4.2 语音能力<a class="headerlink" href="#42" title="Permanent link">&para;</a></h4>
 <p><img alt="LLaMA 3.2 语音模块架构" src="../images/llama3_fig29_speech_arch.png" />
 <em>LLaMA 3.2 语音模块架构：Conformer 编码器 + 轻量适配器，输出直接作为 token 输入 LLM</em></p>
-<h4 id="_14">语音编码器<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h4>
+<h5 id="_14">语音编码器<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h5>
 <ul>
 <li><strong>Conformer 模型</strong>：<strong>1B 参数</strong>，24 层</li>
 <li>使用 BEST-RQ 自监督算法在约 <strong>15M 小时</strong>语音数据上预训练</li>
 </ul>
-<h4 id="_15">语音适配器<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h4>
+<h5 id="_15">语音适配器<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h5>
 <ul>
 <li>约 <strong>100M 参数</strong></li>
 <li>包含卷积层（stride-2 降至 80ms 帧长）、Rotary Transformer 层和线性映射层</li>
 <li>输出直接作为 token 表示输入语言模型（不同于视觉模块使用 cross-attention）</li>
 </ul>
-<h3 id="43-llama-32">4.3 LLaMA 3.2 总结<a class="headerlink" href="#43-llama-32" title="Permanent link">&para;</a></h3>
+<h4 id="43-llama-32">4.3 LLaMA 3.2 总结<a class="headerlink" href="#43-llama-32" title="Permanent link">&para;</a></h4>
 <ul>
 <li>组合式多模态架构：通过适配器将预训练的视觉/语音编码器集成到 LLM 中</li>
 <li>视觉编码器：ViT-H/14 变体（850M 参数），多层特征提取 + cross-attention 适配器，不冻结编码器参数</li>
@@ -3352,8 +3607,8 @@
 <li>视觉和语音模块采用不同的集成策略（cross-attention vs 直接 token 输入），体现了针对不同模态的设计灵活性</li>
 </ul>
 <hr />
-<h2 id="_16">总结与对比<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
-<h3 id="_17">四代方法对比<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<h3 id="_16">总结与对比<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<h4 id="_17">四代方法对比<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h4>
 <table>
 <thead>
 <tr>
@@ -3451,7 +3706,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="_18">关键技术洞察<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<h4 id="_18">关键技术洞察<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h4>
 <ol>
 <li>
 <p><strong>架构核心不变</strong>：RMSNorm + SwiGLU + RoPE 从 LLaMA 1 开始贯穿全系列，成为开源 LLM 的事实标准</p>
