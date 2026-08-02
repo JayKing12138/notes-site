@@ -12,7 +12,7 @@
         <link rel="prev" href="../6_SigLIP/">
       
       
-        <link rel="next" href="../BERT/">
+        <link rel="next" href="../8_%E8%A7%86%E9%A2%91%E7%90%86%E8%A7%A3%E4%B8%8E%E7%94%9F%E6%88%90/">
       
       
         
@@ -721,6 +721,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../-1_%E6%B7%B7%E5%90%88%E7%B2%BE%E5%BA%A6%E8%AE%AD%E7%BB%83%E4%B8%8E%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    -1_混合精度训练与分布式训练
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../0_%E5%9F%BA%E7%A1%80/" class="md-nav__link">
         
   
@@ -1187,13 +1215,52 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="2.1 预备知识">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cfg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CFG 为什么要随机丢弃条件 🚗
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ldm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LDM 🚗
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dit-ldm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DiT 在 LDM 中的完整数据流 🚗
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
   <a href="#22" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.2 整体架构
+        2.2 整体架构 🚗 看图
       
     </span>
   </a>
@@ -1215,10 +1282,99 @@
   <a href="#24-dit-block" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.4 DiT Block：四种条件注入设计
+        2.4 DiT Block：四种条件注入设计 🚗
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="2.4 DiT Block：四种条件注入设计 🚗">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#241-adaln-zero" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.1 AdaLN-Zero 深入拆解 🚗
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4.1 AdaLN-Zero 深入拆解 🚗">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0. 条件编码与六个调制参数的来源 🚗
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-adaln" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. AdaLN部分：让条件“拧动”特征 🚗
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-zero" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Zero部分：强制“残差分支归零” 🚗
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-zero" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. “Zero”是如何生效的？（初始化技巧） 🚗
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 为什么非要这么设计？（背后的物理意义） 🚗
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一句话总结其设计精髓 🚗
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1253,7 +1409,7 @@
   <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. 实验
+        3. 推理过程：从纯噪声生成图像 🚗
       
     </span>
   </a>
@@ -1261,10 +1417,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
+  <a href="#4_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. 总结
+        4. 实验
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 总结
       
     </span>
   </a>
@@ -1275,6 +1442,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8_%E8%A7%86%E9%A2%91%E7%90%86%E8%A7%A3%E4%B8%8E%E7%94%9F%E6%88%90/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8_视频理解与生成
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1847,34 +2042,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%90%8E%E8%AE%AD%E7%BB%83%E7%BB%BC%E8%BF%B0/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    多模态大模型后训练综述
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../%E5%AF%B9%E6%AF%94%E5%AD%A6%E4%B9%A0%E7%BB%BC%E8%BF%B0/" class="md-nav__link">
         
   
@@ -1903,98 +2070,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E6%B7%B7%E5%90%88%E7%B2%BE%E5%BA%A6%E8%AE%AD%E7%BB%83%E4%B8%8E%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83/" class="md-nav__link">
+      <a href="../%E9%9F%B3%E9%A2%91/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    混合精度训练与分布式训练
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%E8%A7%86%E9%A2%91%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    视频多模态大模型
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%E8%A7%86%E9%A2%91%E7%90%86%E8%A7%A3%E8%AE%BA%E6%96%87%E4%B8%B2%E8%AE%B2/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    视频理解论文串讲
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%E9%9F%B3%E9%A2%91%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    音频多模态大模型
+    音频
   
 
     
@@ -2084,13 +2167,52 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="2.1 预备知识">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cfg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CFG 为什么要随机丢弃条件 🚗
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ldm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LDM 🚗
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dit-ldm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DiT 在 LDM 中的完整数据流 🚗
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
   <a href="#22" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.2 整体架构
+        2.2 整体架构 🚗 看图
       
     </span>
   </a>
@@ -2112,10 +2234,99 @@
   <a href="#24-dit-block" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.4 DiT Block：四种条件注入设计
+        2.4 DiT Block：四种条件注入设计 🚗
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="2.4 DiT Block：四种条件注入设计 🚗">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#241-adaln-zero" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.1 AdaLN-Zero 深入拆解 🚗
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4.1 AdaLN-Zero 深入拆解 🚗">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0. 条件编码与六个调制参数的来源 🚗
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-adaln" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. AdaLN部分：让条件“拧动”特征 🚗
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-zero" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Zero部分：强制“残差分支归零” 🚗
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-zero" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. “Zero”是如何生效的？（初始化技巧） 🚗
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 为什么非要这么设计？（背后的物理意义） 🚗
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一句话总结其设计精髓 🚗
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -2150,7 +2361,7 @@
   <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. 实验
+        3. 推理过程：从纯噪声生成图像 🚗
       
     </span>
   </a>
@@ -2158,10 +2369,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
+  <a href="#4_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. 总结
+        4. 实验
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 总结
       
     </span>
   </a>
@@ -2213,11 +2435,59 @@
 <li>均值经重参数化为噪声预测网络 <span class="arithmatex">\(\epsilon_\theta\)</span>，用简单 MSE 训练：<span class="arithmatex">\(\mathcal{L}_{\text{simple}}(\theta) = \|\epsilon_\theta(x_t) - \epsilon_t\|_2^2\)</span></li>
 <li>协方差 <span class="arithmatex">\(\Sigma_\theta\)</span> 是<strong>可学习的</strong>，沿用 Nichol &amp; Dhariwal 的做法：<span class="arithmatex">\(\epsilon_\theta\)</span> 用 <span class="arithmatex">\(\mathcal{L}_{\text{simple}}\)</span> 训练，<span class="arithmatex">\(\Sigma_\theta\)</span> 用完整的变分下界项训练</li>
 </ul>
-<p><strong>Classifier-free guidance（CFG）</strong>：条件模型 <span class="arithmatex">\(p_\theta(x_{t-1}|x_t, c)\)</span> 中，训练时随机丢弃条件 <span class="arithmatex">\(c\)</span>（换成可学习的空 embedding <span class="arithmatex">\(\emptyset\)</span>），采样时用</p>
+<p>🚗 <strong>Classifier-free guidance（CFG）</strong>：条件模型 <span class="arithmatex">\(p_\theta(x_{t-1}|x_t, c)\)</span> 中，训练时随机丢弃条件 <span class="arithmatex">\(c\)</span>（换成可学习的空 embedding <span class="arithmatex">\(\emptyset\)</span>），采样时用</p>
 <div class="arithmatex">\[\hat\epsilon_\theta(x_t, c) = \epsilon_\theta(x_t, \emptyset) + s \cdot \left(\epsilon_\theta(x_t, c) - \epsilon_\theta(x_t, \emptyset)\right)\]</div>
 <p>引导采样偏向高 <span class="arithmatex">\(p(x|c)\)</span> 区域（<span class="arithmatex">\(s &gt; 1\)</span> 为引导强度，<span class="arithmatex">\(s=1\)</span> 退回标准采样）。</p>
-<p><strong>Latent Diffusion（LDM）</strong>：像素空间直接训扩散模型计算代价过高。LDM 两阶段：先训一个自编码器把图像压缩到潜空间 <span class="arithmatex">\(z = E(x)\)</span>（<span class="arithmatex">\(E\)</span> 冻结），再在潜空间训扩散模型，采样后用解码器还原 <span class="arithmatex">\(x = D(z)\)</span>。DiT 沿用该框架，用现成的 Stable Diffusion 卷积 VAE（下采样 8 倍：<span class="arithmatex">\(256 \times 256 \times 3\)</span> 图像 → <span class="arithmatex">\(32 \times 32 \times 4\)</span> latent），整条管线是"卷积 VAE + Transformer 扩散模型"的混合方案。</p>
-<h3 id="22">2.2 整体架构<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
+<h4 id="cfg">CFG 为什么要随机丢弃条件 🚗<a class="headerlink" href="#cfg" title="Permanent link">&para;</a></h4>
+<p>CFG 的核心 trick 是：<u><strong><em>训练时让模型偶尔“盲画”，推理时再用“盲画”和“按指令画”的差值方向，把生成结果往条件方向猛地推一把。</em></strong></u> 🚗</p>
+<p>具体做法：训练过程中以 10%~20% 的概率把条件 <span class="arithmatex">\(c\)</span>（类别标签或文本嵌入）替换成可学习的空 embedding <span class="arithmatex">\(\emptyset\)</span>。这样同一个模型同时学会两件事：</p>
+<ul>
+<li><strong>有条件</strong>：<span class="arithmatex">\(\epsilon_\theta(x_t, c)\)</span>，按指令去噪；</li>
+<li><strong>无条件</strong>：<span class="arithmatex">\(\epsilon_\theta(x_t, \emptyset)\)</span>，只靠图像先验去噪。</li>
+</ul>
+<p>推理时，把两者按引导系数 <span class="arithmatex">\(s\)</span> 外推：</p>
+<div class="arithmatex">\[\hat\epsilon_\theta(x_t, c) = \epsilon_\theta(x_t, \emptyset) + s \cdot \big(\epsilon_\theta(x_t, c) - \epsilon_\theta(x_t, \emptyset)\big)\]</div>
+<p>如果训练时从没让模型学过无条件去噪，<span class="arithmatex">\(\epsilon_\theta(x_t, \emptyset)\)</span> 就会不准，CFG 外推反而会让结果崩掉。随机丢弃条件正是为了确保这个“无条件”预测足够可靠。</p>
+<h4 id="ldm">LDM 🚗<a class="headerlink" href="#ldm" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p><strong>Latent Diffusion（LDM，潜空间扩散）🚗</strong></p>
+<p>像素空间直接做扩散计算代价太高，所以 LDM 把扩散过程搬到图像的“压缩表示”——潜空间里做。</p>
+<p><strong>第一阶段：训自编码器（VAE）</strong>
+- 编码器 <span class="arithmatex">\(E\)</span>：把图像压缩成低维 latent，<span class="arithmatex">\(z = E(x)\)</span>。
+- 解码器 <span class="arithmatex">\(D\)</span>：把 latent 还原成图像，<span class="arithmatex">\(x \approx D(z)\)</span>。
+- 例如 Stable Diffusion 的 VAE 把 <span class="arithmatex">\(256 \times 256 \times 3\)</span> 的图压缩成 <span class="arithmatex">\(32 \times 32 \times 4\)</span> 的 latent，空间小了约 48 倍。</p>
+<p><strong>第二阶段：在 latent 上做扩散</strong>
+- 前向：往 <span class="arithmatex">\(z\)</span> 上加噪声，得到 <span class="arithmatex">\(z_t\)</span>。
+- 反向：模型学习从 <span class="arithmatex">\(z_t\)</span> 去噪回 <span class="arithmatex">\(z\)</span>。
+- 采样完成后用 <span class="arithmatex">\(D\)</span> 解码回像素空间。</p>
+<p><strong>为什么这样做？</strong> 🚗
+直接在像素空间扩散要处理大量冗余信息，训练和采样都很慢；潜空间维度低、token 少，既保留语义又大幅降低计算量。</p>
+<p>DiT 沿用 LDM 框架：它本身只负责“在潜空间里去噪”，图像压缩/还原由外面的 VAE 负责。整体管线是 <strong>卷积 VAE + Transformer 扩散模型</strong> 的混合方案。</p>
+</blockquote>
+<h4 id="dit-ldm">DiT 在 LDM 中的完整数据流 🚗<a class="headerlink" href="#dit-ldm" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>原始图像 (256×256×3)
+    ↓ VAE 编码器（LDM 部分）
+latent 特征图 z (32×32×4)
+    ↓ 加噪（按 timestep t 加入高斯噪声 ε）
+Noised latent z_t (32×32×4)
+    ↓ Patchify
+    把 32×32 切成 p×p 的 patch → T = (32/p)² 个 token
+    每个 patch 线性投影到 d 维
+token 序列 (T, d)
+    ↓ DiT Transformer
+token 序列 (T, d)
+    ↓ 输出头：Linear + Reshape
+预测的噪声 ε (32×32×4) + 协方差 Σ (32×32×4)
+    ↓ 去噪步骤（在 latent 空间反复迭代）
+干净的 latent (32×32×4)
+    ↓ VAE 解码器
+生成图像 (256×256×3)
+</code></pre></div>
+<p><strong><u><em>DiT 的输入、输出、去噪全部在 latent 空间完成</em></u></strong>，只在 VAE 编码/解码两端接触原始像素。</p>
+<blockquote>
+<p><strong>加噪步骤的细节</strong>：训练时，从真实图像得到 <span class="arithmatex">\(z\)</span> 后，会按当前 timestep <span class="arithmatex">\(t\)</span> 加入高斯噪声：<span class="arithmatex">\(z_t = \sqrt{\bar\alpha_t}\,z + \sqrt{1 - \bar\alpha_t}\,\epsilon\)</span>；推理时没有真实图像，直接从 <span class="arithmatex">\(z_T \sim \mathcal{N}(0, \mathbf{I})\)</span> 开始迭代去噪。</p>
+</blockquote>
+<h3 id="22">2.2 整体架构 🚗 看图<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
 <p><img alt="Figure 3: DiT 架构" src="../images/dit_fig3.png" />
 <em>Figure 3: 左——Latent DiT 整体流程（Patchify → N 个 DiT Block → LayerNorm + 线性解码）；右——三种条件注入的 block 设计，adaLN-Zero 效果最佳</em></p>
 <div class="highlight"><pre><span></span><code>Noised Latent (32×32×4)
@@ -2235,7 +2505,7 @@ LayerNorm（自适应）→ Linear and Reshape
 <p><img alt="Figure 4: Patchify 输入规格" src="../images/dit_fig4.png" />
 <em>Figure 4: patch size <span class="arithmatex">\(p\)</span> 减半 → token 数 <span class="arithmatex">\(T\)</span> 翻 4 倍 → Transformer 总 Gflops 至少翻 4 倍，但参数量基本不变</em></p>
 <p><strong>关键性质</strong>：<span class="arithmatex">\(p\)</span> 只影响序列长度（计算量），对参数量几乎无影响——这为后面"Gflops 才是关键"的结论提供了干净的对照变量。设计空间取 <span class="arithmatex">\(p = 2, 4, 8\)</span>。</p>
-<h3 id="24-dit-block">2.4 DiT Block：四种条件注入设计<a class="headerlink" href="#24-dit-block" title="Permanent link">&para;</a></h3>
+<h3 id="24-dit-block">2.4 DiT Block：四种条件注入设计 🚗<a class="headerlink" href="#24-dit-block" title="Permanent link">&para;</a></h3>
 <p>扩散模型除了噪声图像还要接收 timestep <span class="arithmatex">\(t\)</span>、类别 <span class="arithmatex">\(c\)</span> 等条件信息。论文对标准 ViT block 做最小修改，探索四种注入方式：</p>
 <table>
 <thead>
@@ -2273,6 +2543,94 @@ LayerNorm（自适应）→ Linear and Reshape
 <p><strong>实验结论</strong>（论文 Figure 5）：adaLN-Zero 在整个训练过程中始终优于 cross-attention 和 in-context；且<strong>初始化方式本身很重要</strong>——adaLN-Zero 显著优于普通 adaLN。后续所有 DiT 模型统一采用 adaLN-Zero。</p>
 <p><img alt="Figure 5: 四种条件注入方式对比" src="../images/dit_fig5.png" />
 <em>Figure 5: adaLN-Zero 在训练各阶段均优于其他设计，同时计算效率最高</em></p>
+<h4 id="241-adaln-zero">2.4.1 AdaLN-Zero 深入拆解 🚗<a class="headerlink" href="#241-adaln-zero" title="Permanent link">&para;</a></h4>
+<p>既然你关注到了架构图中的条件注入，那 <strong>AdaLN-Zero</strong> 就是 DiT 整个设计中最精妙的“灵魂操作”。为了让你彻底吃透，我们从 <strong>“设计公式”</strong> 和 <strong>“代码实现”</strong> 两个层面来拆解。</p>
+<p>它由两部分组成：<strong>AdaLN（动态调节）</strong> + <strong>Zero（强制恒等映射）</strong>。两者配合，缺一不可。</p>
+<h5 id="0">0. 条件编码与六个调制参数的来源 🚗<a class="headerlink" href="#0" title="Permanent link">&para;</a></h5>
+<p>在讲 AdaLN 和 Zero 之前，先搞清楚条件 <span class="arithmatex">\(c\)</span> 以及 <span class="arithmatex">\(\gamma_1, \beta_1, \alpha_1, \gamma_2, \beta_2, \alpha_2\)</span> 是怎么来的。</p>
+<p><strong>Timestep 与 Label 编码</strong></p>
+<ul>
+<li><strong>Timestep embedding</strong>：用正弦余弦位置编码把整数 <span class="arithmatex">\(t\)</span> 映射为 <span class="arithmatex">\(d\)</span> 维向量（固定的、不可学习的）：
+  $<span class="arithmatex">\(\text{embed}(t) = \text{SinusoidalEmbedding}(t) \in \mathbb{R}^d\)</span>$</li>
+<li><strong>Label embedding</strong>：类别标签 <span class="arithmatex">\(y\)</span> 通过可学习 embedding 表查询：
+  $<span class="arithmatex">\(\text{embed}(y) = W_y[y] \in \mathbb{R}^d\)</span>$</li>
+</ul>
+<p>两者相加得到条件向量：</p>
+<div class="arithmatex">\[c = \text{embed}(t) + \text{embed}(y) \in \mathbb{R}^d\]</div>
+<p><strong>六个调制参数怎么获得</strong></p>
+<p>每个 DiT block 内部的 adaLN MLP 以 <span class="arithmatex">\(c\)</span> 为输入，回归出 6 个 <span class="arithmatex">\(d\)</span> 维向量：</p>
+<div class="arithmatex">\[[\gamma_1, \beta_1, \alpha_1, \gamma_2, \beta_2, \alpha_2] = \text{MLP}_\text{adaLN}(c)\]</div>
+<blockquote>
+<p>这里的 <span class="arithmatex">\(\gamma, \beta, \alpha\)</span> 都是 <strong><span class="arithmatex">\(d\)</span> 维向量</strong>，不是标量。<strong><u><em>标准 LayerNorm 本身就为每个特征维度配备独立的 <span class="arithmatex">\(\gamma_j\)</span> 和 <span class="arithmatex">\(\beta_j\)</span>；</em></u></strong>AdaLN 只是把它们改由条件 <span class="arithmatex">\(c\)</span> 动态预测。<span class="arithmatex">\(\alpha\)</span> 同理，是对残差分支输出做逐维度门控。</p>
+</blockquote>
+<p>MLP 通常是两层：</p>
+<div class="arithmatex">\[h = \text{SiLU}(W_1 c + b_1)$$
+$$\text{output} = W_2 h + b_2\]</div>
+<p><strong>注意：不是 6 个标量，而是 6 个 <span class="arithmatex">\(d\)</span> 维向量</strong>。因为 <span class="arithmatex">\(\gamma, \beta, \alpha\)</span> 都要对特征向量的每个维度做逐元素调制，所以每个参数都是 <span class="arithmatex">\(\mathbb{R}^d\)</span>。MLP 最后一层实际输出的是 <span class="arithmatex">\(6d\)</span> 个数字，再拆成 6 段：</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># c: [batch, d]</span>
+<span class="n">adaLN_out</span> <span class="o">=</span> <span class="n">mlp</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>        <span class="c1"># [batch, 6 * d]</span>
+<span class="n">gamma1</span><span class="p">,</span> <span class="n">beta1</span><span class="p">,</span> <span class="n">alpha1</span><span class="p">,</span> <span class="n">gamma2</span><span class="p">,</span> <span class="n">beta2</span><span class="p">,</span> <span class="n">alpha2</span> <span class="o">=</span> <span class="n">adaLN_out</span><span class="o">.</span><span class="n">chunk</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># 每个都是 [batch, d]</span>
+</code></pre></div>
+<blockquote>
+<p><code>chunk(6, dim=-1)</code>：沿最后一个维度把 <code>[batch, 6d]</code> 切成 6 等份，每份 <code>[batch, d]</code>，正好对应 6 个调制向量。</p>
+</blockquote>
+<p><strong>关键</strong>：<span class="arithmatex">\(W_2\)</span> 和 <span class="arithmatex">\(b_2\)</span> 初始化为 0，保证训练开始时六个参数全为 0，block 等价于恒等映射。</p>
+<p><strong>它们在 block 里怎么用</strong></p>
+<div class="arithmatex">\[x' = x + \alpha_1 \cdot \text{MSA}\big(\gamma_1 \cdot \text{LN}(x) + \beta_1\big)$$
+$$x'' = x' + \alpha_2 \cdot \text{MLP}\big(\gamma_2 \cdot \text{LN}(x') + \beta_2\big)\]</div>
+<ul>
+<li><span class="arithmatex">\(\gamma, \beta\)</span>：动态替代静态 LayerNorm 的缩放和平移。</li>
+<li><span class="arithmatex">\(\alpha\)</span>：控制残差分支强度，零初始化保证初始不起作用。</li>
+</ul>
+<p><strong>一句话总结</strong></p>
+<blockquote>
+<p><span class="arithmatex">\(t\)</span> 和 <span class="arithmatex">\(y\)</span> 先 embedding 相加得到 <span class="arithmatex">\(c\)</span>；每个 block 的 MLP 从 <span class="arithmatex">\(c\)</span> 回归出 <span class="arithmatex">\((\gamma_1, \beta_1, \alpha_1, \gamma_2, \beta_2, \alpha_2)\)</span>；MLP 最后一层零初始化，保证训练起点为恒等映射。</p>
+</blockquote>
+<h5 id="1-adaln">1. AdaLN部分：让条件“拧动”特征 🚗<a class="headerlink" href="#1-adaln" title="Permanent link">&para;</a></h5>
+<p>在标准 ViT 里，Layer Norm 是静态的（固定的缩放 γ 和偏移 β）。而 AdaLN 将这两个参数变成了 <strong>条件向量 <span class="arithmatex">\(c\)</span> 的函数</strong>。</p>
+<p>对于输入特征 <span class="arithmatex">\(x\)</span> 和融合后的条件向量 <span class="arithmatex">\(c\)</span>，AdaLN 的数学表达式为：</p>
+<div class="arithmatex">\[
+\text{AdaLN}(x, c) = \gamma(c) \cdot \text{LayerNorm}(x) + \beta(c)
+\]</div>
+<p>这里的 <span class="arithmatex">\(\gamma(c)\)</span> 和 <span class="arithmatex">\(\beta(c)\)</span> 是由 <span class="arithmatex">\(c\)</span> 通过一个 MLP 回归出来的 <strong>动态向量</strong>。</p>
+<h5 id="2-zero">2. Zero部分：强制“残差分支归零” 🚗<a class="headerlink" href="#2-zero" title="Permanent link">&para;</a></h5>
+<p>这是 DiT 训练稳定性的命门。在每一个 DiT 模块中，它不仅仅是简单地把特征扔进多头自注意力（MSA）和前馈网络（MLP），而是给这两个子模块的输出分别 <strong>乘上一个额外的缩放因子 <span class="arithmatex">\(\alpha\)</span></strong>。</p>
+<p><strong>完整的单个 DiT 模块前向公式如下：</strong></p>
+<div class="arithmatex">\[
+x' = x + \alpha_1 \cdot \text{MSA}\big( \text{AdaLN}(x, c) \big)
+$$
+$$
+x'' = x' + \alpha_2 \cdot \text{MLP}\big( \text{AdaLN}(x', c) \big)
+\]</div>
+<p>这里最关键的是：<strong><span class="arithmatex">\(\alpha_1\)</span> 和 <span class="arithmatex">\(\alpha_2\)</span> 并不是可学习的常数，而是同样由条件向量 <span class="arithmatex">\(c\)</span> 通过 MLP 回归出来的动态标量（或向量）</strong>。</p>
+<h5 id="3-zero">3. “Zero”是如何生效的？（初始化技巧） 🚗<a class="headerlink" href="#3-zero" title="Permanent link">&para;</a></h5>
+<p>现在到了最核心的设计：那个用来回归 <span class="arithmatex">\(\gamma, \beta, \alpha\)</span> 的 MLP，其 <strong>最后一层线性层（Linear Layer）的权重矩阵被显式地初始化为 0，偏置也初始化为 0</strong>。</p>
+<p><strong>这意味着在训练刚开始的那一刻：</strong></p>
+<ul>
+<li><span class="arithmatex">\(\gamma\)</span> 和 <span class="arithmatex">\(\beta\)</span> 都是 0。</li>
+<li><span class="arithmatex">\(\alpha_1\)</span> 和 <span class="arithmatex">\(\alpha_2\)</span> 也都是 0。</li>
+</ul>
+<p><strong>带入上面的公式看会发生什么：</strong></p>
+<ol>
+<li>因为 <span class="arithmatex">\(\gamma=0, \beta=0\)</span>，所以 <span class="arithmatex">\(\text{AdaLN}(x, c) = 0 \cdot \text{LN}(x) + 0 = \mathbf{0}\)</span>（全零向量）。</li>
+<li>因为输入是零向量，所以 <span class="arithmatex">\(\text{MSA}(\mathbf{0}) = \mathbf{0}\)</span>。</li>
+<li>因为 <span class="arithmatex">\(\alpha_1 = 0\)</span>，所以 <span class="arithmatex">\(x' = x + 0 \cdot \mathbf{0} = x\)</span>。</li>
+<li>同理，经过 MLP 模块，<span class="arithmatex">\(x'' = x'\)</span>。</li>
+</ol>
+<p><strong>结论</strong>：在训练初期，无论你有几十层甚至上百层 DiT，<strong>整个网络的前向传播退化为完美的“恒等映射”（Identity Mapping）</strong>，即输入等于输出。</p>
+<h5 id="4">4. 为什么非要这么设计？（背后的物理意义） 🚗<a class="headerlink" href="#4" title="Permanent link">&para;</a></h5>
+<p>既然你熟悉 ViT，你肯定知道深层网络最怕 <strong>梯度消失或梯度爆炸</strong>。但在扩散模型里，这个“Zero”技巧有三个更深层的救命作用：</p>
+<ol>
+<li><strong>扛住初期的剧烈震荡</strong>：训练刚开始时，输入图片充满高频噪声（方差极大）。如果网络初始化不当，深层梯度瞬间就会爆炸。强制恒等映射保证了梯度像“直通管”一样无损地回传，给网络一个 <strong>极稳的起飞平台</strong>。</li>
+<li><strong>让条件信号“由弱变强”</strong>：随着训练进行，梯度下降会慢慢把最后一层 MLP 的权重从 0 推开。这意味着 <span class="arithmatex">\(\gamma, \beta, \alpha\)</span> 会 <strong>从 0 逐渐增大</strong>。这就好比给网络加了一个“软启动”开关——条件信号（时间步 t 和标签 y）对主干的控制力是 <strong>渐进的</strong>，而不是训练一开始就粗暴地强行干预，导致震荡。</li>
+<li><strong>对比常规初始化</strong>：如果不用 Zero，而是用常规的 Xavier 初始化，那么 100 层残差网络初期也会有约 <span class="arithmatex">\(\sqrt{N}\)</span> 的信号放大，极易在 Diffusion 的早期步数导致 NaN（溢出）。Zero 技巧完美规避了这一点。</li>
+</ol>
+<h5 id="_2">一句话总结其设计精髓 🚗<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p>AdaLN-Zero = <strong>“将外部的控制信号（t, y），转化并注入为每层网络内部的特征缩放（γ, β）与残差门控（α），并利用零初始化，确保网络在训练初期是一个不受干扰的恒等映射。”</strong></p>
+</blockquote>
+<p>这个设计后来也启发了 LLM 中的一些初始化方案（如部分 MoE 路由的零初始化）。如果你感兴趣，我还可以告诉你：<strong>在代码实现中，这个“最后一层零初始化”是如何通过一行 <code>nn.init.constant_(layer.weight, 0)</code> 精确生效的，以及为什么偏置也要置零</strong>，需要细说吗？</p>
 <h3 id="25">2.5 模型规格与解码头<a class="headerlink" href="#25" title="Permanent link">&para;</a></h3>
 <p>沿 ViT 的配置方式联合缩放深度 <span class="arithmatex">\(N\)</span>、宽度 <span class="arithmatex">\(d\)</span>、注意力头数：</p>
 <table>
@@ -2322,7 +2680,33 @@ LayerNorm（自适应）→ Linear and Reshape
 <li>超参几乎全部沿用 ADM，未针对 DiT 调参——说明该架构对超参不敏感</li>
 <li>扩散超参：<span class="arithmatex">\(t_{\max} = 1000\)</span> 线性方差调度，沿用 ADM 的协方差参数化与 timestep/label embedding 方式</li>
 </ul>
-<h2 id="3">3. 实验<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<h2 id="3">3. 推理过程：从纯噪声生成图像 🚗<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<p>DiT 训练时只学了一件事——预测 latent 里被加进去的噪声。推理时则反过来：从一张<strong>纯随机噪声的 latent</strong> 开始，通过多步去噪“雕琢”出真实图像。</p>
+<p><strong>核心流程</strong>：</p>
+<ol>
+<li>从标准正态分布采样起点：<span class="arithmatex">\(z_T \sim \mathcal{N}(0, \mathbf{I})\)</span>。</li>
+<li>从 <span class="arithmatex">\(t = T\)</span> 到 <span class="arithmatex">\(t = 1\)</span> 循环：</li>
+<li>把 <span class="arithmatex">\(z_t\)</span> 和 timestep <span class="arithmatex">\(t\)</span>（以及 label <span class="arithmatex">\(c\)</span>）喂给 DiT；</li>
+<li>DiT 预测噪声 <span class="arithmatex">\(\epsilon_\theta(z_t, c)\)</span>；</li>
+<li>按采样公式算出稍微干净一点的 <span class="arithmatex">\(z_{t-1}\)</span>。</li>
+<li>得到干净的 <span class="arithmatex">\(z_0\)</span> 后，用 VAE 解码器还原成像素图像。</li>
+</ol>
+<p><strong>Classifier-Free Guidance</strong>：</p>
+<p>每一步同时跑两次前向：
+- 有条件：<span class="arithmatex">\(\epsilon_\text{cond} = \epsilon_\theta(z_t, c)\)</span>
+- 无条件：<span class="arithmatex">\(\epsilon_\text{uncond} = \epsilon_\theta(z_t, \emptyset)\)</span></p>
+<p>再外推得到最终噪声预测：</p>
+<div class="arithmatex">\[\hat\epsilon_\theta(z_t, c) = \epsilon_\text{uncond} + s \cdot (\epsilon_\text{cond} - \epsilon_\text{uncond})\]</div>
+<p><span class="arithmatex">\(s\)</span> 是引导强度，<span class="arithmatex">\(s &gt; 1\)</span> 时生成结果更贴合标签、细节更锐利，但过大容易失真。</p>
+<p><strong><u><em>核心思想：扩散模型的“生成”本质上是把高维空间里的随机点，沿着数据分布的梯度方向（score function）一步步推向“真实图像流形”。训练学的是去噪，推理时用去噪来实现无中生有。</em></u></strong></p>
+<blockquote>
+<p>🚗 <strong>完整过程一句话版</strong>：</p>
+<p>DiT 推理时首先从标准正态分布采样一个纯随机噪声 latent <span class="arithmatex">\(z_T \sim \mathcal{N}(0, \mathbf{I})\)</span> 作为起点；</p>
+<p>然后从 <span class="arithmatex">\(t = T\)</span> 到 <span class="arithmatex">\(t = 1\)</span> 逐步迭代，每一步都把当前带噪 latent <span class="arithmatex">\(z_t\)</span> 和 timestep <span class="arithmatex">\(t\)</span> 一起送入 DiT，分别在有条件和无条件两种设置下各做一次前向传播，得到两个噪声预测后通过 CFG 公式 <span class="arithmatex">\(\hat\epsilon = \epsilon_\text{uncond} + s \cdot (\epsilon_\text{cond} - \epsilon_\text{uncond})\)</span> 外推得到最终噪声预测；</p>
+<p>再用该预测代入采样公式算出更干净的 <span class="arithmatex">\(z_{t-1}\)</span> 作为下一步输入继续去噪；</p>
+<p>循环结束后得到干净 latent <span class="arithmatex">\(z_0\)</span>，最后通过 VAE 解码器还原成像素空间的生成图像。</p>
+</blockquote>
+<h2 id="4_1">4. 实验<a class="headerlink" href="#4_1" title="Permanent link">&para;</a></h2>
 <p>按笔记规范不展开具体分数，只记结论：</p>
 <ol>
 <li><strong>条件注入消融</strong>：adaLN-Zero &gt; adaLN &gt; cross-attention &gt; in-context，条件机制的选择对质量影响关键（见 Figure 5）。</li>
@@ -2332,7 +2716,7 @@ LayerNorm（自适应）→ Linear and Reshape
 </ol>
 <p><img alt="Figure 8: Gflops 与 FID 强相关" src="../images/dit_fig8.png" />
 <em>Figure 8: 12 个 DiT 配置的 Transformer Gflops 与 FID-50K 呈强负相关——计算量而非参数量决定质量</em></p>
-<h2 id="4">4. 总结<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<h2 id="5">5. 总结<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
 <ul>
 <li>DiT 证明了扩散模型骨干可以完全 Transformer 化：<strong>U-Net 归纳偏置不是必需的</strong>，标准 ViT 式设计（patchify + 正弦余弦位置编码 + 标准 block）即可，且保留了 Transformer 的 scaling 特性。</li>
 <li>方法上的核心贡献是 <strong>adaLN-Zero</strong>：自适应 LayerNorm 注入条件（由 <span class="arithmatex">\(t + c\)</span> 的 embedding 回归 <span class="arithmatex">\(\gamma, \beta, \alpha\)</span>）+ 残差分支零初始化为恒等函数——以最小计算代价拿到最好的条件生成质量。</li>

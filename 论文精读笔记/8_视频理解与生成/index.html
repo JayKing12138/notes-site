@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../%E6%B7%B7%E5%90%88%E7%B2%BE%E5%BA%A6%E8%AE%AD%E7%BB%83%E4%B8%8E%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83/">
+        <link rel="prev" href="../7_DiT/">
       
       
-        <link rel="next" href="../%E8%A7%86%E9%A2%91%E7%90%86%E8%A7%A3%E8%AE%BA%E6%96%87%E4%B8%B2%E8%AE%B2/">
+        <link rel="next" href="../BERT/">
       
       
         
@@ -23,7 +23,7 @@
     
     
       
-        <title>视频多模态大模型 - 学习资料库</title>
+        <title>8_视频理解与生成 - 学习资料库</title>
       
     
     
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              视频多模态大模型
+              8_视频理解与生成
             
           </span>
         </div>
@@ -721,6 +721,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../-1_%E6%B7%B7%E5%90%88%E7%B2%BE%E5%BA%A6%E8%AE%AD%E7%BB%83%E4%B8%8E%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    -1_混合精度训练与分布式训练
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../0_%E5%9F%BA%E7%A1%80/" class="md-nav__link">
         
   
@@ -1101,6 +1129,1107 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8_视频理解与生成
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8_视频理解与生成
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0. 视频理解与生成：从分治到统一
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="0. 视频理解与生成：从分治到统一">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.1 架构的统一：同一套骨架
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#02" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.2 表征的统一：同一种语言
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#03" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.3 数据与目标的闭环：互相促进
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#04" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.4 任务的统一：输入输出任意组合
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#05" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.5 现状：统一仍在路上
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第一部分：视频理解
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第一部分：视频理解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心要点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-2d-cnn-deepvideo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 2D CNN 直接迁移：DeepVideo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 2D CNN 直接迁移：DeepVideo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 背景与动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 核心做法：四种时序融合变体
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-fovea-context-stream" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 多分辨率网络：Fovea + Context Stream
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 结论与意义
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 双流网络及其变体
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 双流网络及其变体">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-two-stream-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Two-Stream Network
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-beyond-short-snippets-lstm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Beyond Short Snippets：用 LSTM 处理长视频
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-convolutional-two-stream-network-fusionearly-fusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Convolutional Two-Stream Network Fusion：Early Fusion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-tsntemporal-segment-networks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 TSN：Temporal Segment Networks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 其他双流方向工作
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-3d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 3D 卷积神经网络
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 3D 卷积神经网络">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-c3d-3d-cnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 C3D：直接用 3D CNN 学习时空特征
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-i3dinflated-3d-convnet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 I3D：Inflated 3D ConvNet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-non-local-neural-networks-self-attention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Non-local Neural Networks：把 Self-Attention 引入视频
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-r21d-3d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 R(2+1)D：拆解 3D 卷积
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-slowfast-3d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 SlowFast：快慢双分支 3D 网络
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-3d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6 其他 3D 方向工作
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-video-transformer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Video Transformer
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Video Transformer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-vivit-vision-transformer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 ViViT：视频 Vision Transformer
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1 ViViT：视频 Vision Transformer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 背景与动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-tubelet-embedding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 核心方法：Tubelet Embedding
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 四种模型变体
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-1spatio-temporal-attention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Model 1：Spatio-temporal attention（时空联合注意力）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-2factorised-encoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Model 2：Factorised encoder（分解编码器）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-3factorised-self-attention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Model 3：Factorised self-attention（分解自注意力）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-4factorised-dot-product-attention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Model 4：Factorised dot-product attention（分解点积注意力）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        四种变体对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 从图像模型初始化
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        位置编码的扩展
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        各组件初始化方法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.5 总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-timesformer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 TimeSformer：时空分离注意力
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-videomae" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 VideoMAE：视频掩码自编码器
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.3 VideoMAE：视频掩码自编码器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 背景与动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-tube-masking-90-masking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 核心方法：Tube Masking + 90% Masking
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 数据效率
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-vivittimesformer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 与 ViViT/TimeSformer 的对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 视频大语言模型
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 视频大语言模型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-video-llava-2023" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Video-LLaVA - 统一图文视频表征 (2023)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.1 Video-LLaVA - 统一图文视频表征 (2023)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#511" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1.1 背景与动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#512-alignment-before-projection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1.2 核心方法：Alignment Before Projection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#513" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1.3 为什么有效？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#514" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1.4 总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-qwen2-vl-multimodal-rope-2024" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Qwen2-VL - Multimodal RoPE 的起源 (2024)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.2 Qwen2-VL - Multimodal RoPE 的起源 (2024)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#521" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2.1 背景与动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#522-naive-dynamic-resolution-m-rope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2.2 核心方法：Naive Dynamic Resolution + M-RoPE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#523" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2.3 架构细节
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#524" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2.4 总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-llava-onevision-2024" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 LLaVA-OneVision - 图像到视频的任务迁移 (2024)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.3 LLaVA-OneVision - 图像到视频的任务迁移 (2024)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#531" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3.1 背景与动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#532-higher-anyres-onevision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3.2 核心方法：Higher AnyRes + OneVision 训练
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#533" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3.3 训练流程：四阶段递进
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#534" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3.4 总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-internvl-25-2024" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 InternVL 2.5 - 像素压缩与动态分辨率 (2024)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.4 InternVL 2.5 - 像素压缩与动态分辨率 (2024)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#541" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4.1 背景与动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#542-pixel-unshuffle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4.2 核心方法：Pixel Unshuffle + 动态分辨率
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#543-internvl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4.3 InternVL 系列演进对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#544" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4.4 总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55-qwen25-vl-2025" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5 Qwen2.5-VL 的视频理解能力 (2025)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.5 Qwen2.5-VL 的视频理解能力 (2025)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#551" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5.1 背景与动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#552-3d-patch-fps-mrope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5.2 核心方法：3D patch + 动态 FPS + 绝对时间 MRoPE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#553" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5.3 视频处理的其他关键技术
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#554" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5.4 总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 总结与发展脉络
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 总结与发展脉络">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 时间轴上的演进
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 两条主线：手工特征 vs 深度学习
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 核心经验
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第二部分：视频生成
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第二部分：视频生成">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 视频生成发展脉络
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-cogvideox-2024" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. CogVideoX - 文本到视频生成 (2024)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. CogVideoX - 文本到视频生成 (2024)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 背景与动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-3d-causal-vae-expert-transformer-3d-full-attention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 核心方法：3D Causal VAE + Expert Transformer + 3D Full Attention
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 训练策略
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4 总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1673,34 +2802,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%90%8E%E8%AE%AD%E7%BB%83%E7%BB%BC%E8%BF%B0/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    多模态大模型后训练综述
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../%E5%AF%B9%E6%AF%94%E5%AD%A6%E4%B9%A0%E7%BB%BC%E8%BF%B0/" class="md-nav__link">
         
   
@@ -1729,1044 +2830,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E6%B7%B7%E5%90%88%E7%B2%BE%E5%BA%A6%E8%AE%AD%E7%BB%83%E4%B8%8E%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83/" class="md-nav__link">
+      <a href="../%E9%9F%B3%E9%A2%91/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    混合精度训练与分布式训练
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    视频多模态大模型
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    视频多模态大模型
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        目录
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        核心要点
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#vs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        视频多模态 vs 图文多模态：核心技术差异
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        第一部分：视频基础表征
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="第一部分：视频基础表征">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-vivit-vision-transformer-2021" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. ViViT - 视频 Vision Transformer (2021)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="1. ViViT - 视频 Vision Transformer (2021)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#11" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1.1 背景与动机
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#12-tubelet-embedding" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1.2 核心方法：Tubelet Embedding
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#13" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1.3 四种模型变体
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="1.3 四种模型变体">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#model-1spatio-temporal-attention" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Model 1：Spatio-temporal attention（时空联合注意力）
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#model-2factorised-encoder" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Model 2：Factorised encoder（分解编码器）
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#model-3factorised-self-attention" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Model 3：Factorised self-attention（分解自注意力）
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#model-4factorised-dot-product-attention" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Model 4：Factorised dot-product attention（分解点积注意力）
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        四种变体对比
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#14" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1.4 从图像模型初始化
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="1.4 从图像模型初始化">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        位置编码的扩展
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        各组件初始化方法
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#15" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1.5 总结
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-timesformer-2021" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. TimeSformer - 时空分离注意力 (2021)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. TimeSformer - 时空分离注意力 (2021)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#21" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.1 背景与动机
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#22-divided-space-time-attention" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.2 核心方法：Divided Space-Time Attention
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2.2 核心方法：Divided Space-Time Attention">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        输入表示
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        五种注意力方案的系统对比
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#divided-space-time-attentionts" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Divided Space-Time Attention（T+S）的详细做法
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        为什么先时间后空间？
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        计算效率优势
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        实现细节
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#23-vivit" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.3 与 ViViT 的对比
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#24" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.4 总结
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-videomae-2022" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. VideoMAE - 视频掩码自编码器 (2022)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. VideoMAE - 视频掩码自编码器 (2022)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#31" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3.1 背景与动机
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#32-tube-masking-90-masking" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3.2 核心方法：Tube Masking + 90% Masking
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#33" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3.3 数据效率
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#34-vivittimesformer" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3.4 与 ViViT/TimeSformer 的对比
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#35" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3.5 总结
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        第二部分：视频大语言模型
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="第二部分：视频大语言模型">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#4-video-llava-2023" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Video-LLaVA - 统一图文视频表征 (2023)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. Video-LLaVA - 统一图文视频表征 (2023)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#41" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4.1 背景与动机
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#42-alignment-before-projection" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4.2 核心方法：Alignment Before Projection
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#43" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4.3 为什么有效？
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#44" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4.4 总结
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-qwen2-vl-multimodal-rope-2024" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Qwen2-VL - Multimodal RoPE 的起源 (2024)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5. Qwen2-VL - Multimodal RoPE 的起源 (2024)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#51" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5.1 背景与动机
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#52-naive-dynamic-resolution-m-rope" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5.2 核心方法：Naive Dynamic Resolution + M-RoPE
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#53" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5.3 架构细节
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#54" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5.4 总结
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-llava-onevision-2024" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6. LLaVA-OneVision - 图像到视频的任务迁移 (2024)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="6. LLaVA-OneVision - 图像到视频的任务迁移 (2024)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#61" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6.1 背景与动机
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#62-higher-anyres-onevision" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6.2 核心方法：Higher AnyRes + OneVision 训练
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#63" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6.3 训练流程：四阶段递进
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#64" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6.4 总结
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7-internvl-25-2024" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7. InternVL 2.5 - 像素压缩与动态分辨率 (2024)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="7. InternVL 2.5 - 像素压缩与动态分辨率 (2024)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#71" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7.1 背景与动机
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#72-pixel-unshuffle" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7.2 核心方法：Pixel Unshuffle + 动态分辨率
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#73-internvl" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7.3 InternVL 系列演进对比
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#74" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7.4 总结
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#8-qwen25-vl-2025" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        8. Qwen2.5-VL 的视频理解能力 (2025)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="8. Qwen2.5-VL 的视频理解能力 (2025)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#81" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        8.1 背景与动机
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#82-3d-patch-fps-mrope" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        8.2 核心方法：3D patch + 动态 FPS + 绝对时间 MRoPE
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#83" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        8.3 视频处理的其他关键技术
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#84" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        8.4 总结
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        第三部分：视频生成
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="第三部分：视频生成">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#9-cogvideox-2024" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        9. CogVideoX - 文本到视频生成 (2024)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="9. CogVideoX - 文本到视频生成 (2024)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#61_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6.1 背景与动机
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#62-3d-causal-vae-expert-transformer-3d-full-attention" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6.2 核心方法：3D Causal VAE + Expert Transformer + 3D Full Attention
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#63_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6.3 训练策略
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#64_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6.4 总结
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        技术路线对比与总结
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="技术路线对比与总结">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        视频基础表征的技术路线
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#llm" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        视频 LLM 的技术路线
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        视频生成的技术路线
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_18" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        核心技术对比表
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_19" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        关键洞察总结
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_20" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        学习建议
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%E8%A7%86%E9%A2%91%E7%90%86%E8%A7%A3%E8%AE%BA%E6%96%87%E4%B8%B2%E8%AE%B2/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    视频理解论文串讲
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%E9%9F%B3%E9%A2%91%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    音频多模态大模型
+    音频
   
 
     
@@ -2814,17 +2885,90 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#0" class="md-nav__link">
     <span class="md-ellipsis">
       
-        目录
+        0. 视频理解与生成：从分治到统一
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="0. 视频理解与生成：从分治到统一">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.1 架构的统一：同一套骨架
       
     </span>
   </a>
   
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#02" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.2 表征的统一：同一种语言
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#03" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.3 数据与目标的闭环：互相促进
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#04" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.4 任务的统一：输入输出任意组合
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#05" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.5 现状：统一仍在路上
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第一部分：视频理解
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第一部分：视频理解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2834,44 +2978,249 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#vs" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#1-2d-cnn-deepvideo" class="md-nav__link">
     <span class="md-ellipsis">
       
-        视频多模态 vs 图文多模态：核心技术差异
+        1. 2D CNN 直接迁移：DeepVideo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 2D CNN 直接迁移：DeepVideo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 背景与动机
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
     <span class="md-ellipsis">
       
-        第一部分：视频基础表征
+        1.2 核心做法：四种时序融合变体
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="第一部分：视频基础表征">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
-  <a href="#1-vivit-vision-transformer-2021" class="md-nav__link">
+  <a href="#13-fovea-context-stream" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. ViViT - 视频 Vision Transformer (2021)
+        1.3 多分辨率网络：Fovea + Context Stream
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1. ViViT - 视频 Vision Transformer (2021)">
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 结论与意义
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 双流网络及其变体
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 双流网络及其变体">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#11" class="md-nav__link">
+  <a href="#21-two-stream-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Two-Stream Network
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-beyond-short-snippets-lstm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Beyond Short Snippets：用 LSTM 处理长视频
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-convolutional-two-stream-network-fusionearly-fusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Convolutional Two-Stream Network Fusion：Early Fusion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-tsntemporal-segment-networks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 TSN：Temporal Segment Networks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 其他双流方向工作
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-3d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 3D 卷积神经网络
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 3D 卷积神经网络">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-c3d-3d-cnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 C3D：直接用 3D CNN 学习时空特征
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-i3dinflated-3d-convnet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 I3D：Inflated 3D ConvNet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-non-local-neural-networks-self-attention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Non-local Neural Networks：把 Self-Attention 引入视频
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-r21d-3d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 R(2+1)D：拆解 3D 卷积
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-slowfast-3d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 SlowFast：快慢双分支 3D 网络
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-3d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6 其他 3D 方向工作
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-video-transformer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Video Transformer
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Video Transformer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-vivit-vision-transformer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 ViViT：视频 Vision Transformer
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1 ViViT：视频 Vision Transformer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11_1" class="md-nav__link">
     <span class="md-ellipsis">
       
         1.1 背景与动机
@@ -2901,8 +3250,7 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1.3 四种模型变体">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#model-1spatio-temporal-attention" class="md-nav__link">
@@ -2949,7 +3297,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
         四种变体对比
@@ -2959,13 +3307,8 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-        
           <li class="md-nav__item">
-  <a href="#14" class="md-nav__link">
+  <a href="#14_1" class="md-nav__link">
     <span class="md-ellipsis">
       
         1.4 从图像模型初始化
@@ -2973,11 +3316,10 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1.4 从图像模型初始化">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
         位置编码的扩展
@@ -2988,18 +3330,13 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
         各组件初始化方法
       
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -3020,22 +3357,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-timesformer-2021" class="md-nav__link">
+  <a href="#42-timesformer" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. TimeSformer - 时空分离注意力 (2021)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. TimeSformer - 时空分离注意力 (2021)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#21" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.1 背景与动机
+        4.2 TimeSformer：时空分离注意力
       
     </span>
   </a>
@@ -3043,125 +3368,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#22-divided-space-time-attention" class="md-nav__link">
+  <a href="#43-videomae" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.2 核心方法：Divided Space-Time Attention
+        4.3 VideoMAE：视频掩码自编码器
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2.2 核心方法：Divided Space-Time Attention">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        输入表示
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        五种注意力方案的系统对比
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#divided-space-time-attentionts" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Divided Space-Time Attention（T+S）的详细做法
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        为什么先时间后空间？
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        计算效率优势
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        实现细节
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#23-vivit" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.3 与 ViViT 的对比
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#24" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.4 总结
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-videomae-2022" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. VideoMAE - 视频掩码自编码器 (2022)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. VideoMAE - 视频掩码自编码器 (2022)">
+    <nav class="md-nav" aria-label="4.3 VideoMAE：视频掩码自编码器">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3228,36 +3443,36 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        第二部分：视频大语言模型
+        5. 视频大语言模型
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="第二部分：视频大语言模型">
+    <nav class="md-nav" aria-label="5. 视频大语言模型">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#4-video-llava-2023" class="md-nav__link">
+  <a href="#51-video-llava-2023" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Video-LLaVA - 统一图文视频表征 (2023)
+        5.1 Video-LLaVA - 统一图文视频表征 (2023)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="4. Video-LLaVA - 统一图文视频表征 (2023)">
+    <nav class="md-nav" aria-label="5.1 Video-LLaVA - 统一图文视频表征 (2023)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#41" class="md-nav__link">
+  <a href="#511" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4.1 背景与动机
+        5.1.1 背景与动机
       
     </span>
   </a>
@@ -3265,10 +3480,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#42-alignment-before-projection" class="md-nav__link">
+  <a href="#512-alignment-before-projection" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4.2 核心方法：Alignment Before Projection
+        5.1.2 核心方法：Alignment Before Projection
       
     </span>
   </a>
@@ -3276,10 +3491,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#43" class="md-nav__link">
+  <a href="#513" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4.3 为什么有效？
+        5.1.3 为什么有效？
       
     </span>
   </a>
@@ -3287,10 +3502,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#44" class="md-nav__link">
+  <a href="#514" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4.4 总结
+        5.1.4 总结
       
     </span>
   </a>
@@ -3303,22 +3518,22 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-qwen2-vl-multimodal-rope-2024" class="md-nav__link">
+  <a href="#52-qwen2-vl-multimodal-rope-2024" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Qwen2-VL - Multimodal RoPE 的起源 (2024)
+        5.2 Qwen2-VL - Multimodal RoPE 的起源 (2024)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="5. Qwen2-VL - Multimodal RoPE 的起源 (2024)">
+    <nav class="md-nav" aria-label="5.2 Qwen2-VL - Multimodal RoPE 的起源 (2024)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#51" class="md-nav__link">
+  <a href="#521" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5.1 背景与动机
+        5.2.1 背景与动机
       
     </span>
   </a>
@@ -3326,10 +3541,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#52-naive-dynamic-resolution-m-rope" class="md-nav__link">
+  <a href="#522-naive-dynamic-resolution-m-rope" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5.2 核心方法：Naive Dynamic Resolution + M-RoPE
+        5.2.2 核心方法：Naive Dynamic Resolution + M-RoPE
       
     </span>
   </a>
@@ -3337,10 +3552,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#53" class="md-nav__link">
+  <a href="#523" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5.3 架构细节
+        5.2.3 架构细节
       
     </span>
   </a>
@@ -3348,10 +3563,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#54" class="md-nav__link">
+  <a href="#524" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5.4 总结
+        5.2.4 总结
       
     </span>
   </a>
@@ -3364,22 +3579,210 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#6-llava-onevision-2024" class="md-nav__link">
+  <a href="#53-llava-onevision-2024" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. LLaVA-OneVision - 图像到视频的任务迁移 (2024)
+        5.3 LLaVA-OneVision - 图像到视频的任务迁移 (2024)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="6. LLaVA-OneVision - 图像到视频的任务迁移 (2024)">
+    <nav class="md-nav" aria-label="5.3 LLaVA-OneVision - 图像到视频的任务迁移 (2024)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#531" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3.1 背景与动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#532-higher-anyres-onevision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3.2 核心方法：Higher AnyRes + OneVision 训练
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#533" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3.3 训练流程：四阶段递进
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#534" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3.4 总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-internvl-25-2024" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 InternVL 2.5 - 像素压缩与动态分辨率 (2024)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.4 InternVL 2.5 - 像素压缩与动态分辨率 (2024)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#541" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4.1 背景与动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#542-pixel-unshuffle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4.2 核心方法：Pixel Unshuffle + 动态分辨率
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#543-internvl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4.3 InternVL 系列演进对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#544" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4.4 总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55-qwen25-vl-2025" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5 Qwen2.5-VL 的视频理解能力 (2025)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.5 Qwen2.5-VL 的视频理解能力 (2025)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#551" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5.1 背景与动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#552-3d-patch-fps-mrope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5.2 核心方法：3D patch + 动态 FPS + 绝对时间 MRoPE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#553" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5.3 视频处理的其他关键技术
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#554" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5.4 总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 总结与发展脉络
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 总结与发展脉络">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#61" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.1 背景与动机
+        6.1 时间轴上的演进
       
     </span>
   </a>
@@ -3387,10 +3790,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#62-higher-anyres-onevision" class="md-nav__link">
+  <a href="#62-vs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.2 核心方法：Higher AnyRes + OneVision 训练
+        6.2 两条主线：手工特征 vs 深度学习
       
     </span>
   </a>
@@ -3401,18 +3804,7 @@
   <a href="#63" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.3 训练流程：四阶段递进
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#64" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6.4 总结
+        6.3 核心经验
       
     </span>
   </a>
@@ -3424,23 +3816,28 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#7-internvl-25-2024" class="md-nav__link">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7. InternVL 2.5 - 像素压缩与动态分辨率 (2024)
+        第二部分：视频生成
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="7. InternVL 2.5 - 像素压缩与动态分辨率 (2024)">
+    <nav class="md-nav" aria-label="第二部分：视频生成">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#71" class="md-nav__link">
+  <a href="#7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7.1 背景与动机
+        7. 视频生成发展脉络
       
     </span>
   </a>
@@ -3448,53 +3845,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#72-pixel-unshuffle" class="md-nav__link">
+  <a href="#8-cogvideox-2024" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7.2 核心方法：Pixel Unshuffle + 动态分辨率
+        8. CogVideoX - 文本到视频生成 (2024)
       
     </span>
   </a>
   
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#73-internvl" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7.3 InternVL 系列演进对比
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#74" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7.4 总结
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#8-qwen25-vl-2025" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        8. Qwen2.5-VL 的视频理解能力 (2025)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="8. Qwen2.5-VL 的视频理解能力 (2025)">
+    <nav class="md-nav" aria-label="8. CogVideoX - 文本到视频生成 (2024)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3509,10 +3868,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#82-3d-patch-fps-mrope" class="md-nav__link">
+  <a href="#82-3d-causal-vae-expert-transformer-3d-full-attention" class="md-nav__link">
     <span class="md-ellipsis">
       
-        8.2 核心方法：3D patch + 动态 FPS + 绝对时间 MRoPE
+        8.2 核心方法：3D Causal VAE + Expert Transformer + 3D Full Attention
       
     </span>
   </a>
@@ -3523,7 +3882,7 @@
   <a href="#83" class="md-nav__link">
     <span class="md-ellipsis">
       
-        8.3 视频处理的其他关键技术
+        8.3 训练策略
       
     </span>
   </a>
@@ -3551,167 +3910,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        第三部分：视频生成
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="第三部分：视频生成">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#9-cogvideox-2024" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        9. CogVideoX - 文本到视频生成 (2024)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="9. CogVideoX - 文本到视频生成 (2024)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#61_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6.1 背景与动机
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#62-3d-causal-vae-expert-transformer-3d-full-attention" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6.2 核心方法：3D Causal VAE + Expert Transformer + 3D Full Attention
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#63_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6.3 训练策略
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#64_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6.4 总结
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        技术路线对比与总结
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="技术路线对比与总结">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        视频基础表征的技术路线
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#llm" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        视频 LLM 的技术路线
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        视频生成的技术路线
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_18" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        核心技术对比表
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_19" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        关键洞察总结
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_20" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        学习建议
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -3729,103 +3927,313 @@
 
 
 
-<h1 id="_1">视频多模态大模型<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h1 id="_1">视频理解与生成论文串讲<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>💡 最近值得关注的开源视频理解模型（先记录，后面有时间再深入学习）：
+- <strong>MOSS-VL</strong>（11B）：交叉注意力解耦架构，视频理解显著超越 Qwen3-VL-8B，支持长视频和原生交错图文输入，推理延迟低。
+- <strong>LLaVA-OneVision-2.0</strong>：引入 Codec-stream tokenization，按事件变化强度分配 token，在细粒度时间定位基准 JumpScore 上表现极强。
+- <strong>LiveCC</strong>（7B）：纯靠 YouTube 免费字幕（ASR）进行流式训练，支持实时视频流解说，小模型在部分榜单上碾压 72B 模型。</p>
+</blockquote>
+<h2 id="0">0. 视频理解与生成：从分治到统一<a class="headerlink" href="#0" title="Permanent link">&para;</a></h2>
+<p>视频理解和生成曾是两个独立方向：理解模型（如 Video-LLaVA）负责“看懂”视频，生成模型（如 Sora）负责“画出”视频。但当前最前沿的趋势是<strong>让同一个模型同时掌握这两种能力</strong>，最终走向能够模拟物理规律的<strong>世界模型</strong>。</p>
+<p>可以把这理解为<strong>“同一个大脑的两种功能”</strong>：大脑既能接收并理解外部信息，也能想象并生成新的画面。实现这种统一，可以从四个层面来看：</p>
+<h3 id="01">0.1 架构的统一：同一套骨架<a class="headerlink" href="#01" title="Permanent link">&para;</a></h3>
+<p>过去，理解模型多用 Transformer 编码器，生成模型多用 U-Net + 扩散。现在生成模型全面转向 <strong>DiT（Diffusion Transformer）</strong>，理解和生成开始共享同一套 Transformer 骨架，为共用参数和统一训练打下基础。</p>
+<h3 id="02">0.2 表征的统一：同一种语言<a class="headerlink" href="#02" title="Permanent link">&para;</a></h3>
+<p>视频和文本的本质差异被压缩为<strong>统一的 token / patch 表示</strong>。</p>
+<ul>
+<li>Sora 将视频切分为<strong>时空块（Spacetime Patches）</strong>，这些 patch 既可以作为理解模型的输入，也可以作为生成模型的输出。</li>
+<li>视频不再只是像素矩阵，而是像文本一样变成<strong>序列化的编码</strong>，理解与生成的输入输出空间开始统一。</li>
+</ul>
+<h3 id="03">0.3 数据与目标的闭环：互相促进<a class="headerlink" href="#03" title="Permanent link">&para;</a></h3>
+<p>统一带来的最大红利是形成<strong>数据飞轮</strong>：</p>
+<ul>
+<li><strong>生成反哺理解</strong>：生成模型可以合成现实中难以采集的罕见场景，作为理解模型的训练数据。</li>
+<li><strong>理解矫正生成</strong>：理解模型可以在生成过程中监督物理合理性和逻辑一致性，成为生成模型的“纠错老师”。</li>
+</ul>
+<h3 id="04">0.4 任务的统一：输入输出任意组合<a class="headerlink" href="#04" title="Permanent link">&para;</a></h3>
+<p>未来模型不再固定为“输入视频→输出文本”或“输入文本→输出视频”，而是支持任意组合：</p>
+<ul>
+<li><strong>视频补全</strong>：输入前半段视频 + 文字描述，补全后半段。</li>
+<li><strong>视频编辑</strong>：输入视频 + 指令，生成编辑后的结果。</li>
+<li><strong>交互式世界模拟</strong>：输入动作指令，实时生成下一帧画面。</li>
+</ul>
+<h3 id="05">0.5 现状：统一仍在路上<a class="headerlink" href="#05" title="Permanent link">&para;</a></h3>
+<p>需要强调的是，上述“大一统”目前更多是<strong>方向而非现实</strong>。真正的统一模型尚未成熟，工业界和学术界更多处于<strong>松耦合</strong>阶段：理解模型和生成模型往往仍由不同团队训练，但开始共用数据清洗流程、分词器（Tokenizer）和基础架构（如 Transformer）。Google 的 VideoPoet、LWM（Large World Model）等尝试用自回归框架把视频理解、生成、图像、音频统一为“下一个 token 预测”，但整体来看，这条路仍在快速演进中。</p>
+<p><strong>一句话总结</strong>：当 AI 既能准确预测视频下一秒会发生什么，又能凭想象把那一秒画出来，且两者基于同一套逻辑时，视频 AI 就从“图像堆叠的理解工具”进化为<strong>可读写、可推演的时空连续体</strong>，也就是通向世界模拟器的关键一步。</p>
+<h2 id="_2">第一部分：视频理解<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>📄 涉及论文链接：
-- <a href="https://arxiv.org/abs/2103.15691">ViViT: A Video Vision Transformer</a> (2021)
-- <a href="https://arxiv.org/abs/2102.05095">Is Space-Time Attention All You Need?</a> (2021)
-- <a href="https://arxiv.org/abs/2203.12602">VideoMAE: Masked Autoencoders are Data-Efficient Learners</a> (2022)
-- <a href="https://arxiv.org/abs/2311.10122">Video-LLaVA: Learning United Visual Representation by Alignment Before Projection</a> (2023)
-- <a href="https://arxiv.org/abs/2409.12191">Qwen2-VL: Enhancing Vision-Language Model's Perception of the World at Any Resolution</a> (2024)
-- <a href="https://arxiv.org/abs/2408.03326">LLaVA-OneVision: Easy Visual Task Transfer</a> (2024)
-- <a href="https://arxiv.org/abs/2412.05271">InternVL 2.5</a> (2024)
-- <a href="https://arxiv.org/abs/2502.13923">Qwen2.5-VL</a> (2025)
-- <a href="https://arxiv.org/abs/2408.06072">CogVideoX</a> (2024)
-- <a href="https://arxiv.org/abs/2503.20026">Qwen2.5-Omni</a> (2025)</p>
+- DeepVideo (CVPR 2014): <a href="https://arxiv.org/abs/1406.2159">Large-scale Video Classification with Convolutional Neural Networks</a>
+- Two-Stream (NeurIPS 2014): <a href="https://arxiv.org/abs/1406.2199">Two-Stream Convolutional Networks for Action Recognition in Videos</a>
+- Beyond Short Snippets (CVPR 2015): <a href="https://arxiv.org/abs/1503.08909">Beyond Short Snippets: Deep Networks for Video Classification</a>
+- Convolutional Two-Stream Network Fusion (CVPR 2016): <a href="https://arxiv.org/abs/1604.06573">Convolutional Two-Stream Network Fusion for Video Action Recognition</a>
+- TSN (ECCV 2016): <a href="https://arxiv.org/abs/1608.00859">Temporal Segment Networks: Towards Good Practices for Deep Action Recognition</a>
+- C3D (ICCV 2015): <a href="https://arxiv.org/abs/1412.0767">Learning Spatiotemporal Features with 3D Convolutional Networks</a>
+- I3D (CVPR 2017): <a href="https://arxiv.org/abs/1705.07750">Quo Vadis, Action Recognition? A New Model and the Kinetics Dataset</a>
+- Non-local Neural Networks (CVPR 2018): <a href="https://arxiv.org/abs/1711.07971">Non-local Neural Networks</a>
+- R(2+1)D (CVPR 2018): <a href="https://arxiv.org/abs/1711.11248">A Closer Look at Spatiotemporal Convolutions for Action Recognition</a>
+- SlowFast (ICCV 2019): <a href="https://arxiv.org/abs/1812.03982">SlowFast Networks for Video Recognition</a>
+- TimeSformer (ICML 2021): <a href="https://arxiv.org/abs/2102.05095">Is Space-Time Attention All You Need for Video Understanding?</a></p>
 </blockquote>
-<h2 id="_2">目录<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="#核心要点">核心要点</a></li>
-<li><a href="#视频多模态-vs-图文多模态核心技术差异">视频多模态 vs 图文多模态：核心技术差异</a></li>
-<li><a href="#第一部分视频基础表征">第一部分：视频基础表征</a></li>
-<li><a href="#1-vivit---视频-vision-transformer-2021">1. ViViT</a></li>
-<li><a href="#2-timesformer---时空分离注意力-2021">2. TimeSformer</a></li>
-<li><a href="#3-videomae---视频掩码自编码器-2022">3. VideoMAE</a></li>
-<li><a href="#第二部分视频大语言模型">第二部分：视频大语言模型</a></li>
-<li><a href="#4-video-llava---统一图文视频表征-2023">4. Video-LLaVA</a></li>
-<li><a href="#5-qwen2-vl---multimodal-rope-的起源-2024">5. Qwen2-VL</a></li>
-<li><a href="#6-llava-onevision---图像到视频的任务迁移-2024">6. LLaVA-OneVision</a></li>
-<li><a href="#7-internvl-25---像素压缩与动态分辨率-2024">7. InternVL 2.5</a></li>
-<li><a href="#8-qwen25-vl-的视频理解能力-2025">8. Qwen2.5-VL</a></li>
-<li><a href="#第三部分视频生成">第三部分：视频生成</a></li>
-<li><a href="#9-cogvideox---文本到视频生成-2024">9. CogVideoX</a></li>
-<li><a href="#技术路线对比与总结">技术路线对比与总结</a></li>
-</ul>
-<h2 id="_3">核心要点<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<blockquote>
+<h3 id="_3">核心要点<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <ol>
-<li><strong>视频 vs 图像的核心差异</strong>：视频多了时间维度，需要建模时序关系（动作、因果、事件顺序），但相邻帧高度冗余（90%信息重复），token数量爆炸（1分钟30fps = 1800帧）；位置编码也要从 2D（高×宽）扩展到 3D（时间×高×宽），ViViT 通过沿时间维度重复图像 ViT 的位置编码来初始化</li>
-<li><strong>视频表征的三条技术路线</strong>：① Tubelet embedding（3D patch）+ 四种时空注意力分解（Spatio-temporal / Factorised encoder / Factorised self-attention / Factorised dot-product）→ ViViT；② 时空分离注意力 → TimeSformer；③ 掩码自编码器 + tube masking → VideoMAE</li>
-<li><strong>视频 LLM 的演进脉络</strong>：统一图文视频（Video-LLaVA）→ Multimodal RoPE 首次提出（Qwen2-VL）→ Higher AnyRes + 图像到视频任务迁移（LLaVA-OneVision）→ Pixel Unshuffle 压缩（InternVL 2.5）→ 绝对时间 MRoPE + 动态 FPS（Qwen2.5-VL）</li>
-<li><strong>MRoPE 的关键思想</strong>：将 1D RoPE 分解为时间、高度、宽度三个分量，对图像时间 ID 不变、对视频每帧递增，Qwen2.5-VL 进一步改为绝对时间戳（毫秒级）</li>
-<li><strong>视频生成的范式</strong>：3D VAE + DiT + 3D RoPE（CogVideoX），3D Causal VAE 压缩比 8×8×4，Expert AdaLN 分别处理模态</li>
-<li><strong>全模态感知</strong>：Thinker-Talker 双模块架构 + TMRoPE 时间对齐（Qwen2.5-Omni），统一处理文本、图像、音频、视频</li>
+<li>视频理解的核心难点在于<strong>时间轴</strong>：如何从连续帧中抽取运动/时序信息，同时避免手工光流的高昂预处理代价。</li>
+<li>发展历程可大致分为四阶段：</li>
+<li><strong>2D CNN 直接迁移</strong>（DeepVideo）：尝试单帧、Early/Late/Slow Fusion，发现纯 2D 网络学不好时序。</li>
+<li><strong>双流网络及其变体</strong>（Two-Stream → LSTM → Early Fusion → TSN）：用光流显式建模运动，通过融合与分段处理长视频。</li>
+<li><strong>3D CNN</strong>（C3D → I3D → Non-local → R(2+1)D → SlowFast）：用三维卷积直接学习时空特征，逐步解决初始化、长程建模、效率问题。</li>
+<li><strong>Video Transformer</strong>（TimeSformer）：将 Vision Transformer 迁移到视频，用拆分的时空自注意力降低显存消耗。</li>
+<li><strong>光流</strong>是极强的运动特征，但抽取耗时耗空间；3D CNN 与 Transformer 试图端到端学习运动，但加大模型后效率仍是痛点。</li>
+<li>很多改进思路在手工特征时代（IDT + Fisher/Vector）与深度学习时代惊人地相似：加光流、加时序模型、做全局编码。</li>
 </ol>
-</blockquote>
-<h2 id="vs">视频多模态 vs 图文多模态：核心技术差异<a class="headerlink" href="#vs" title="Permanent link">&para;</a></h2>
+<hr />
+<h3 id="1-2d-cnn-deepvideo">1. 2D CNN 直接迁移：DeepVideo<a class="headerlink" href="#1-2d-cnn-deepvideo" title="Permanent link">&para;</a></h3>
+<h4 id="11">1.1 背景与动机<a class="headerlink" href="#11" title="Permanent link">&para;</a></h4>
+<p>2012 年 AlexNet 在 ImageNet 上成功后，研究者自然想把 CNN 从图像分类迁移到视频分类。DeepVideo（CVPR 2014）是这一方向的早期代表工作，作者团队来自 Google Research 与 Stanford，一作是 Andrej Karpathy。论文的最大贡献之一不是方法本身，而是提出了当时规模最大的视频数据集 <strong>Sports-1M</strong>（约 100 万个视频），为后续研究奠定了数据基础。</p>
+<h4 id="12">1.2 核心做法：四种时序融合变体<a class="headerlink" href="#12" title="Permanent link">&para;</a></h4>
+<p>视频与图像的唯一区别是多了一条时间轴。作者尝试了四种把单帧 CNN 扩展到视频的方式：</p>
 <table>
 <thead>
 <tr>
-<th>挑战</th>
-<th>图文模型</th>
-<th>视频模型</th>
+<th>变体</th>
+<th>做法</th>
+<th>含义</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>序列长度</strong></td>
-<td>1 张图 → 几百个 token</td>
-<td>1 分钟视频 30fps → 1800 帧 → 数十万 token</td>
+<td><strong>Single Frame</strong></td>
+<td>从视频中任选一帧，过 2D CNN 分类</td>
+<td>无时间信息，纯 baseline</td>
 </tr>
 <tr>
-<td><strong>时序关系</strong></td>
-<td>无需建模</td>
-<td>动作、因果、事件顺序都依赖时间</td>
+<td><strong>Late Fusion</strong></td>
+<td>随机选几帧，分别过共享权重的 CNN，特征拼接后 FC</td>
+<td>在输出层做融合，学到极弱的时序信息</td>
 </tr>
 <tr>
-<td><strong>冗余度</strong></td>
-<td>无</td>
-<td>相邻帧高度相似，90% 的信息是冗余的</td>
+<td><strong>Early Fusion</strong></td>
+<td>把 5 帧在 RGB channel 上拼接，输入 channel 从 3 变成 15</td>
+<td>在输入层做融合，网络一开始就能感知时序</td>
 </tr>
 <tr>
-<td><strong>位置编码</strong></td>
-<td>2D RoPE（高度、宽度）</td>
-<td>3D RoPE（时间、高度、宽度）或 TMRoPE（时间对齐）</td>
-</tr>
-<tr>
-<td><strong>视觉编码器</strong></td>
-<td>ViT（2D patch）</td>
-<td>3D ViT / 3D patch / 帧级 2D patch + 时序注意力</td>
+<td><strong>Slow Fusion</strong></td>
+<td>把 10 帧分成多个片段，先分别抽特征，再在网络中层逐步融合</td>
+<td>在特征层面融合，理论上能学习全局时空表示</td>
 </tr>
 </tbody>
 </table>
+<h4 id="13-fovea-context-stream">1.3 多分辨率网络：Fovea + Context Stream<a class="headerlink" href="#13-fovea-context-stream" title="Permanent link">&para;</a></h4>
+<p>发现 2D CNN 直接学时序困难后，作者又借鉴图像领域的多尺度思想，把输入分成两个分支：</p>
+<ul>
+<li><strong>Context stream</strong>：输入原图，学习整体场景信息。</li>
+<li><strong>Fovea stream</strong>：从原图正中心裁剪出一部分，学习图像中心区域（通常物体所在位置）。</li>
+</ul>
+<p>这两个分支权重共享，可视为一种早期的“注意力”——强制网络关注画面中心。</p>
+<h4 id="14">1.4 结论与意义<a class="headerlink" href="#14" title="Permanent link">&para;</a></h4>
+<p>在 Sports-1M 上，四种融合方式差距不大；迁移到 UCF-101 上时，最好的变体也远低于当时的手工特征方法。这说明：</p>
+<ul>
+<li>单纯把 2D CNN 搬到视频上<strong>无法有效学习时间信息</strong>。</li>
+<li>但 DeepVideo 的贡献在于提供了大规模数据集，并把最直接的方式都尝试了一遍，为后续双流、3D CNN 的发展铺平了道路。</li>
+</ul>
 <hr />
-<h2 id="_4">第一部分：视频基础表征<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p>视频理解的第一步是如何从视频中提取有效的时空特征。这一阶段的核心挑战是：如何在保持时序信息的同时，高效处理长序列。</p>
-<h3 id="1-vivit-vision-transformer-2021">1. ViViT - 视频 Vision Transformer (2021)<a class="headerlink" href="#1-vivit-vision-transformer-2021" title="Permanent link">&para;</a></h3>
+<h3 id="2">2. 双流网络及其变体<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<h4 id="21-two-stream-network">2.1 Two-Stream Network<a class="headerlink" href="#21-two-stream-network" title="Permanent link">&para;</a></h4>
+<p>双流网络的核心思想是：既然一个 CNN 学不好时序，那就再加一个专门处理运动的网络。</p>
+<div class="highlight"><pre><span></span><code>输入视频
+├─ 空间流（Spatial Stream）：取 RGB 单帧
+│   └── 2D CNN ──→ 空间特征 ──┐
+│                             │  Late Fusion（加权平均）
+└─ 时间流（Temporal Stream）：抽取光流图像
+    └── 2D CNN ──→ 运动特征 ──┘
+</code></pre></div>
+<ul>
+<li><strong>空间流</strong>学习从 RGB 图像到分类的映射。</li>
+<li><strong>时间流</strong>学习从光流图像到分类的映射。</li>
+<li>两个网络各司其职，最后做 <strong>Late Fusion</strong>（softmax 后加权平均）。</li>
+</ul>
+<p>光流图像包含了物体运动信息，因此网络不再需要自己从原始视频中学习运动，大幅简化了优化问题。</p>
+<p><img alt="Figure 1: Two-stream architecture for video classification" src="../images/twostream_fig1_architecture.png" />
+<em>Figure 1: Two-stream architecture for video classification。空间流处理 RGB 单帧，时间流处理光流图像，最后做 Late Fusion。</em></p>
+<h4 id="22-beyond-short-snippets-lstm">2.2 Beyond Short Snippets：用 LSTM 处理长视频<a class="headerlink" href="#22-beyond-short-snippets-lstm" title="Permanent link">&para;</a></h4>
+<p>双流网络只能处理很短的视频片段（光流通常只有 10 帧，约 0.4 秒）。为了覆盖更长的视频，Beyond Short Snippets（CVPR 2015）在双流之后加了时序建模：</p>
+<ol>
+<li>先用 CNN 对每一帧/光流帧抽取特征。</li>
+<li>把特征序列输入 <strong>5 层 LSTM</strong>，做时序融合。</li>
+<li>最后 softmax 分类。</li>
+</ol>
+<p>作者也尝试了多种 pooling 方式（max pooling、average pooling、conv pooling 等），发现 conv pooling 与 LSTM 效果相近。在短视频数据集上 LSTM 提升有限，因为短视频的语义信息变化不大，LSTM 接收到的特征序列几乎没有变化。</p>
+<h4 id="23-convolutional-two-stream-network-fusionearly-fusion">2.3 Convolutional Two-Stream Network Fusion：Early Fusion<a class="headerlink" href="#23-convolutional-two-stream-network-fusionearly-fusion" title="Permanent link">&para;</a></h4>
+<p>双流网络做的是 Late Fusion，研究者自然想问：如果在网络中层就做融合，让空间流与时间流互相交互，会不会更好？</p>
+<p>这篇 CVPR 2016 的论文系统研究了三个问题：</p>
+<ol>
+<li><strong>Spatial Fusion</strong>：两个流的特征图在同一空间位置如何合并？尝试了 max fusion、concatenation、conv fusion、sum、bilinear 等，最终 <strong>conv fusion</strong> 效果最好。</li>
+<li><strong>在哪一层融合</strong>：尝试了 conv1~conv5、FC6/FC7 等不同位置，最终发现 <strong>conv5 附近融合</strong>效果较好。</li>
+<li><strong>Temporal Fusion</strong>：多帧特征如何在时间轴上合并？尝试了 3D pooling 与 3D conv + 3D pooling。</li>
+</ol>
+<p>最终提出的结构有两个分支：</p>
+<ul>
+<li><strong>Spatiotemporal branch</strong>：在 conv5 层把空间流与时间流做 3D conv fusion + 3D pooling，学习时空特征。</li>
+<li><strong>Temporal branch</strong>：单独把时间流再 pooling、FC，学习时间特征。</li>
+</ul>
+<p>训练时有两个损失函数：Spatiotemporal Loss 与 Temporal Loss。推理时把两个分支的预测做 Late Fusion。</p>
+<h4 id="24-tsntemporal-segment-networks">2.4 TSN：Temporal Segment Networks<a class="headerlink" href="#24-tsntemporal-segment-networks" title="Permanent link">&para;</a></h4>
+<p>TSN（ECCV 2016）是双流网络方向上最具影响力的工作之一。核心思想极其简单：把长视频分成若干段，每段抽一帧 RGB 与对应光流，分别过同一个双流网络，最后把各段的 logits 做 <strong>Segmental Consensus</strong>（平均、最大、相乘或 LSTM）。</p>
+<div class="highlight"><pre><span></span><code>长视频 ──→ 分成 K 段
+段 1 ──→ 抽 1 帧 RGB + 光流 ──→ 双流网络 ──→ logits ──┐
+段 2 ──→ 抽 1 帧 RGB + 光流 ──→ 双流网络 ──→ logits ──┼── Segmental Consensus
+段 3 ──→ 抽 1 帧 RGB + 光流 ──→ 双流网络 ──→ logits ──┘
+                                                          ↓
+                                                   Late Fusion → 分类
+</code></pre></div>
+<p>所有段的 Spatial ConvNet 共享参数，Temporal ConvNet 也共享参数，因此实际只有一组双流网络。</p>
+<p><img alt="Figure 1: Temporal segment network: a video is divided into K segments" src="../images/tsn_fig1_architecture.png" />
+<em>Figure 1: Temporal segment network：一个视频分成 K 段，每段抽 RGB 与光流过共享参数的双流网络，最后做 Segmental Consensus。</em></p>
+<p>TSN 更大的贡献是提出了一系列 <strong>Good Practices</strong>：</p>
+<ol>
+<li><strong>Cross Modality Pre-training</strong>：光流没有大规模预训练数据集。作者把 ImageNet 预训练模型第一层 RGB 3 个 channel 的参数取平均，复制成 20 个 channel，用于光流分支初始化。</li>
+<li><strong>Partial BN</strong>：数据集小，微调所有 BN 容易过拟合；全部冻结 BN 又迁移不够。于是只打开第一层 BN，其余 BN 冻结。</li>
+<li><strong>数据增强</strong>：</li>
+<li><strong>Corner cropping</strong>：强制裁剪图像四个角与中心，避免 random crop 总是落在中心。</li>
+<li><strong>Scale jittering</strong>：把视频帧 resize 到 256×340，再按多种长宽比裁剪，增加输入多样性。</li>
+</ol>
+<h4 id="25">2.5 其他双流方向工作<a class="headerlink" href="#25" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>TDD</strong>（CVPR 2015）：沿着光流轨迹堆叠特征，而不是简单堆叠光流图。</li>
+<li><strong>DVOF / TLE / ActionVLAD</strong>：在 TSN 基础上加入全局编码（Fisher Vectors、VLAD、bilinear encoding），学习 video-level 全局特征。</li>
+</ul>
+<hr />
+<h3 id="3-3d">3. 3D 卷积神经网络<a class="headerlink" href="#3-3d" title="Permanent link">&para;</a></h3>
+<h4 id="31-c3d-3d-cnn">3.1 C3D：直接用 3D CNN 学习时空特征<a class="headerlink" href="#31-c3d-3d-cnn" title="Permanent link">&para;</a></h4>
+<p>C3D（ICCV 2015）的思路非常直接：视频是 3D 输入（时间 + 空间），因此用 3D 卷积神经网络学习时空特征。</p>
+<p>网络结构本质上是一个 3D 版 VGG：</p>
+<div class="highlight"><pre><span></span><code>输入：16 × 112 × 112（16 帧，空间 112×112）
+  ↓
+Conv1 + Pool1（pool: 1×2×2，时间不下采样）→ 16 × 56 × 56
+  ↓
+Conv2 + Pool2（pool: 2×2×2）            → 8  × 28 × 28
+  ↓
+Conv3a, Conv3b + Pool3                   → 4  × 14 × 14
+  ↓
+Conv4a, Conv4b + Pool4                   → 2  × 7  × 7
+  ↓
+Conv5a, Conv5b + Pool5                   → 1  × 4  × 4
+  ↓
+FC6, FC7, FC8
+</code></pre></div>
+<p>所有 2D 卷积核 <span class="arithmatex">\(3\times3\)</span> 都扩展为 3D 卷积核 <span class="arithmatex">\(3\times3\times3\)</span>。第一个 pooling 在时间维度上不做下采样，以保留时序信息。</p>
+<p>C3D 的实际用法更多是<strong>抽特征</strong>：从 FC6 抽取 4096 维特征，再训练 SVM 分类器。由于训练 3D 网络非常耗时（作者当时训练花了一个月），直接抽特征成为许多下游任务（video detection、video captioning 等）的首选。</p>
+<h4 id="32-i3dinflated-3d-convnet">3.2 I3D：Inflated 3D ConvNet<a class="headerlink" href="#32-i3dinflated-3d-convnet" title="Permanent link">&para;</a></h4>
+<p>C3D 之后近两年，I3D（CVPR 2017）才出现。它的核心贡献是 <strong>Inflation</strong>：把一个在 ImageNet 上预训练好的 2D 网络“膨胀”成 3D 网络，从而复用 2D 预训练参数，解决 3D 网络难训练的问题。</p>
+<div class="highlight"><pre><span></span><code>2D Inception-v1          Inflation          3D I3D
+  7×7 conv     ────────────────────────→   7×7×7 conv
+  3×3 conv     ────────────────────────→   3×3×3 conv
+  1×3×3 pool   ────────────────────────→   1×3×3 pool / 3×3×3 pool
+</code></pre></div>
+<p>Inflation 有两个好处：</p>
+<ol>
+<li><strong>结构不变</strong>：2D 与 3D 网络 meta architecture 相同，只是卷积核从二维变成三维。</li>
+<li><strong>参数可迁移</strong>：2D 预训练权重可以直接复制到 3D 卷积核上（沿时间轴复制），得到好的初始化。</li>
+</ol>
+<p><img alt="Figure 3: The Inflated 3D ConvNet architecture" src="../images/i3d_fig3_inflation.png" />
+<em>Figure 3: I3D 的 Inflation 示意图。将 2D Inception-v1 的卷积核与池化核沿时间轴扩展为 3D，结构保持不变，从而复用 ImageNet 预训练权重。</em></p>
+<p>I3D 还同时训练了 RGB I3D 与 Flow I3D，证明即使 3D 网络能端到端学习运动，加入光流仍能进一步提升效果——光流仍然是非常强的特征。</p>
+<h4 id="33-non-local-neural-networks-self-attention">3.3 Non-local Neural Networks：把 Self-Attention 引入视频<a class="headerlink" href="#33-non-local-neural-networks-self-attention" title="Permanent link">&para;</a></h4>
+<p>Non-local（CVPR 2018）的核心思想是：卷积与 LSTM 都是局部操作，而视频理解需要长距离时序建模。作者把 NLP 中的 self-attention 引入视觉，提出 <strong>non-local block</strong>，作为即插即用模块插入 CNN。</p>
+<p>一个时空 non-local block 的结构如下：</p>
+<div class="highlight"><pre><span></span><code>输入特征 X
+  ├─ θ(X) ──→ query
+  ├─ φ(X) ──→ key
+  └─ g(X)  ──→ value
+
+query · key^T ──→ softmax ──→ attention weights
+                          │
+                          ↓
+              attention weights · value ──→ 加权特征
+                          │
+                          ↓
+                    残差连接 + X  ──→ 输出
+</code></pre></div>
+<p>这与标准的 self-attention 完全一致，只是操作在 3D 特征图（空间 + 时间）上进行。消融实验表明：</p>
+<ul>
+<li>用 dot product 计算相似度效果最好。</li>
+<li>在 ResNet 的 res3 与 res4 阶段插入效果最佳。</li>
+<li>同时做空间与时间 self-attention（spacetime）优于只做空间或只做时间。</li>
+<li>输入视频越长（如 128 帧，约 4 秒），non-local 带来的提升越明显。</li>
+</ul>
+<p>Non-local 之后，视频领域越来越少使用 LSTM，self-attention 成为长程建模的主流工具。</p>
+<h4 id="34-r21d-3d">3.4 R(2+1)D：拆解 3D 卷积<a class="headerlink" href="#34-r21d-3d" title="Permanent link">&para;</a></h4>
+<p>R(2+1)D（CVPR 2018）是一篇实验性论文，系统比较了 2D、3D、2D+3D 混合等多种时空卷积设计。最终发现：把一个 <span class="arithmatex">\(t\times d\times d\)</span> 的 3D 卷积拆成<strong>先 2D 空间卷积，再 1D 时间卷积</strong>，效果优于纯 3D 网络。</p>
+<div class="highlight"><pre><span></span><code>原始 3D 卷积：t × d × d
+            ↓ 拆分
+R(2+1)D:
+  1. 2D 空间卷积：1 × d × d（时间维度不变）
+  2. 特征投影（调整通道数）
+  3. 1D 时间卷积：t × 1 × 1（空间维度不变）
+</code></pre></div>
+<p>拆分的好处：</p>
+<ol>
+<li><strong>增加非线性</strong>：原来 3D conv 后只有一个 ReLU，拆分后有两个卷积，对应两个 ReLU，模型表达能力更强。</li>
+<li><strong>更容易优化</strong>：2D 与 1D 卷积分别学习空间与时间，比直接学习 3D 卷积更容易训练。</li>
+</ol>
+<p><img alt="Figure 2: R(2+1)D factorizes 3D convolution into 2D spatial + 1D temporal convolution" src="../images/r2plus1d_fig2_factorization.png" />
+<em>Figure 2: R(2+1)D 将 <span class="arithmatex">\(t\times d\times d\)</span> 的 3D 卷积拆分为先 2D 空间卷积，再 1D 时间卷积，中间加入特征投影以匹配参数量。</em></p>
+<p>R(2+1)D 的输入为 112×112，小于 I3D 的 224×224，因此更省显存，常被用作自监督/对比学习的 backbone。</p>
+<h4 id="35-slowfast-3d">3.5 SlowFast：快慢双分支 3D 网络<a class="headerlink" href="#35-slowfast-3d" title="Permanent link">&para;</a></h4>
+<p>SlowFast（ICCV 2019）借鉴了人眼视觉系统的两种细胞：</p>
+<ul>
+<li><strong>P 细胞</strong>（占 80%）：处理静态图像细节。</li>
+<li><strong>M 细胞</strong>（占 20%）：处理高频运动信息。</li>
+</ul>
+<p>对应到网络设计上：</p>
+<div class="highlight"><pre><span></span><code>输入视频（64 帧，224×224）
+  ├─ Slow 分支：低帧率采样（每 16 帧取 1 帧 → 4 帧）
+  │   └── 大网络（I3D / ResNet-50，通道数多）
+  │       主要负责空间语义
+  │
+  └─ Fast 分支：高帧率采样（每 1 帧取 1 帧 → 32 帧）
+      └── 小网络（通道数少，轻量）
+          主要负责运动信息
+              ↓
+      Lateral Connection（横向连接）
+              ↓
+           融合输出
+</code></pre></div>
+<p><img alt="Figure 1: SlowFast network has a slow and a fast pathway" src="../images/slowfast_fig1_architecture.png" />
+<em>Figure 1: SlowFast 网络结构。Slow 分支低帧率、大网络，学习空间语义；Fast 分支高帧率、小网络，学习运动信息；两分支通过 lateral connection 交互。</em></p>
+<ul>
+<li><strong>Slow 分支</strong>：输入帧数少，但网络大、通道多，学习静态场景。</li>
+<li><strong>Fast 分支</strong>：输入帧数多，但网络小、通道少，学习动态运动。</li>
+<li>两个分支之间通过 <strong>lateral connection</strong> 进行信息交互。</li>
+<li>时间维度始终不下采样，保留完整时序信息；空间维度逐步下采样。</li>
+</ul>
+<p>SlowFast 在精度与效率之间取得了较好平衡，是 3D CNN 方向的代表性工作。</p>
+<h4 id="36-3d">3.6 其他 3D 方向工作<a class="headerlink" href="#36-3d" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>R3D / MFNet / STCNet</strong>：把 ResNet、ResNeXt、SENet 等 2D 网络通过 inflation 或重新设计扩展到 3D。</li>
+<li><strong>P3D / S3D / ECO</strong>：探索 2D 与 3D 的混合结构（头重脚轻或头轻脚重）。</li>
+<li><strong>LTC / T3D / V4D</strong>：探索更长的时序输入与长程建模。</li>
+<li><strong>CSN / X3D</strong>：探索高效率 3D 网络，X3D 通过 AutoML 搜索得到极小但效果很好的模型。</li>
+<li><strong>Hidden Two-Stream</strong>：把光流学习嵌入网络内部，避免显式抽取光流。</li>
+<li><strong>TSM（Temporal Shift Module）</strong>：在 2D CNN 中加入 shift 操作，使 2D 网络具备时序建模能力，便于部署。</li>
+</ul>
+<hr />
+<h3 id="4-video-transformer">4. Video Transformer<a class="headerlink" href="#4-video-transformer" title="Permanent link">&para;</a></h3>
+<h4 id="41-vivit-vision-transformer">4.1 ViViT：视频 Vision Transformer<a class="headerlink" href="#41-vivit-vision-transformer" title="Permanent link">&para;</a></h4>
 <blockquote>
 <p>📄 <strong>论文</strong>：<a href="https://arxiv.org/abs/2103.15691">ViViT: A Video Vision Transformer</a><br />
 <strong>作者</strong>：Anurag Arnab, Mostafa Dehghani, Georg Heigold, Chen Sun, Mario Lucic, Cordelia Schmid (Google Research)<br />
 <strong>发表</strong>：ICCV 2021</p>
 </blockquote>
 <p><strong>核心思想</strong>：将 ViT 直接扩展到视频，用纯 Transformer 架构（无卷积）处理视频分类任务。</p>
-<h4 id="11">1.1 背景与动机<a class="headerlink" href="#11" title="Permanent link">&para;</a></h4>
+<h5 id="11_1">1.1 背景与动机<a class="headerlink" href="#11_1" title="Permanent link">&para;</a></h5>
 <p>2020 年 ViT 在图像分类上取得成功后，自然的问题是：<strong>能否用纯 Transformer 处理视频？</strong></p>
 <p>挑战在于：
 - 视频产生的 token 序列非常长（空间 × 时间），全自注意力计算复杂度是二次方
 - Transformer 通常需要大数据集，但视频数据集相对较小
 - 需要设计高效的时空注意力机制</p>
-<h4 id="12-tubelet-embedding">1.2 核心方法：Tubelet Embedding<a class="headerlink" href="#12-tubelet-embedding" title="Permanent link">&para;</a></h4>
+<h5 id="12-tubelet-embedding">1.2 核心方法：Tubelet Embedding<a class="headerlink" href="#12-tubelet-embedding" title="Permanent link">&para;</a></h5>
 <p><strong>关键创新</strong>：将 ViT 的 2D patch embedding 扩展为 <strong>3D tubelet embedding</strong>。</p>
 <p><strong>Tubelet 的定义</strong>：
 - 从视频体积中提取不重叠的时空管（tube），大小为 <span class="arithmatex">\(t \times h \times w\)</span>
@@ -3859,7 +4267,7 @@
 </tbody>
 </table>
 <p><strong>为什么这样设计</strong>：如果直接用 ViT 处理视频（每帧独立切 patch），序列长度会爆炸。假设 16×16 patches，10 秒视频 × 2 fps = 20 帧，总 tokens = 20 × 256 = 5120 tokens。通过 3D 卷积压缩时间维度，每 2 帧合并为 1 个 tube，总 tokens 减半为 2560，同时保留了时序信息。</p>
-<h4 id="13">1.3 四种模型变体<a class="headerlink" href="#13" title="Permanent link">&para;</a></h4>
+<h5 id="13">1.3 四种模型变体<a class="headerlink" href="#13" title="Permanent link">&para;</a></h5>
 <p>视频 token 序列很长，如果让所有 token 互相做 attention，计算量会爆炸。ViViT 提出了四种变体，核心区别是<strong>在 Transformer 的哪个层级、以何种方式对空间和时间维度做分解</strong>。</p>
 <p><img alt="Figure 1: ViViT 的四种模型变体。从左到右依次是：Spatio-temporal attention、Factorised encoder、Factorised self-attention、Factorised dot-product attention，分别对应不同的时空注意力分解策略" src="../images/vivit_fig1_architecture.png" />
 <em>Figure 1: ViViT 的四种模型变体。从左到右依次是：Spatio-temporal attention、Factorised encoder、Factorised self-attention、Factorised dot-product attention，分别对应不同的时空注意力分解策略。</em></p>
@@ -3904,7 +4312,7 @@
 - 计算量是四种变体里最小的，因为没有增加任何 layer。
 - 参数量和 Model 1 相同，因为只是改 attention 的“视野范围”，没改网络结构。
 - 每个 head 只能专门看空间或专门看时间，表达能力比 Model 1 弱一些。</p>
-<h5 id="_5">四种变体对比<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h5>
+<h5 id="_4">四种变体对比<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h5>
 <table>
 <thead>
 <tr>
@@ -3956,14 +4364,14 @@
 - 如果想利用图像预训练权重、精度最好，用 Model 2。
 - 如果希望每层都融合时空、精度与效率兼顾，用 Model 3。
 - 如果计算资源最少、参数量不能增加，用 Model 4。</p>
-<h4 id="14">1.4 从图像模型初始化<a class="headerlink" href="#14" title="Permanent link">&para;</a></h4>
+<h5 id="14_1">1.4 从图像模型初始化<a class="headerlink" href="#14_1" title="Permanent link">&para;</a></h5>
 <p><strong>关键策略</strong>：从预训练的 ViT 图像模型初始化，加速收敛。视频模型比图像模型多了时间维度的 token，因此需要把预训练的 2D 组件合理地扩展到 3D。</p>
-<h5 id="_6">位置编码的扩展<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h5>
+<h5 id="_5">位置编码的扩展<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h5>
 <p><strong>ViT 的位置编码</strong>：只编码空间位置。一张图被切成 <span class="arithmatex">\(n_h \times n_w\)</span> 个 patch，所以位置编码的形状是 <span class="arithmatex">\((n_h \cdot n_w) \times d\)</span>，对应每个空间位置一个向量。</p>
 <p><strong>ViViT 的位置编码</strong>：要编码时空位置。视频被切成 <span class="arithmatex">\(n_t \times n_h \times n_w\)</span> 个 tubelet token，所以位置编码的形状是 <span class="arithmatex">\((n_t \cdot n_h \cdot n_w) \times d\)</span>。</p>
 <p><strong>初始化方式</strong>：由于视频 token 数量是图像的 <span class="arithmatex">\(n_t\)</span> 倍，ViViT 把预训练 ViT 的位置编码<strong>沿时间维度重复</strong>。也就是说，在初始化时，第 1 帧左上角、第 2 帧左上角、第 3 帧左上角……这些同一空间位置但不同时间帧的 token，都使用相同的位置编码向量。然后在训练过程中再微调。</p>
 <p>这个设计的直觉是：<strong>同一空间位置在不同帧里，初始时应该“看起来差不多”</strong>，让模型从零开始自己学习时间上的变化，而不是一开始就强行给不同帧的同一位置分配完全不同的位置编码。</p>
-<h5 id="_7">各组件初始化方法<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h5>
+<h5 id="_6">各组件初始化方法<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h5>
 <table>
 <thead>
 <tr>
@@ -3988,178 +4396,90 @@
 </table>
 <p><strong>补充说明：另一种可选策略是 filter inflation</strong></p>
 <p>论文里也提到了另一种把 2D patch embedding 扩展到 3D 的方法：把图像 patch embedding 在时间维度上复制 t 份，然后求平均。这样 3D 卷积核在所有时间位置上都看到相同的图像内容，初始时等价于对多帧做平均。但论文实际采用的是上面的中心帧初始化，因为它更接近预训练图像 ViT 的行为，训练更稳定。</p>
-<h4 id="15">1.5 总结<a class="headerlink" href="#15" title="Permanent link">&para;</a></h4>
+<h5 id="15">1.5 总结<a class="headerlink" href="#15" title="Permanent link">&para;</a></h5>
 <p>ViViT 的核心贡献：
 - 首次证明纯 Transformer 可以直接处理视频分类
 - Tubelet embedding 是 ViT 2D patch 的 3D 扩展，在 tokenization 阶段融合时空信息
 - 四种时空注意力分解策略覆盖不同效率-精度需求：Factorised encoder 精度最好、Factorised dot-product 计算最省、Factorised self-attention 每层都融合时空
 - 从图像模型初始化是训练视频 Transformer 的关键策略</p>
-<hr />
-<h3 id="2-timesformer-2021">2. TimeSformer - 时空分离注意力 (2021)<a class="headerlink" href="#2-timesformer-2021" title="Permanent link">&para;</a></h3>
-<blockquote>
-<p>📄 <strong>论文</strong>：<a href="https://arxiv.org/abs/2102.05095">Is Space-Time Attention All You Need for Video Understanding?</a><br />
-<strong>作者</strong>：Gedas Bertasius, Heng Wang, Lorenzo Torresani (Facebook AI / Dartmouth College)<br />
-<strong>发表</strong>：ICML 2021</p>
-</blockquote>
-<p><strong>核心思想</strong>：系统性比较 5 种时空注意力方案，发现 <strong>"Divided Space-Time Attention"（先时间后空间）</strong> 效果最好且效率最高。</p>
-<h4 id="21">2.1 背景与动机<a class="headerlink" href="#21" title="Permanent link">&para;</a></h4>
-<p>ViViT 提出了 tubelet embedding，但 TimeSformer 提出了一个更根本的问题：<strong>是否需要 3D tokenization？</strong></p>
-<p>核心假设：也许用 2D patch（每帧独立切分）+ 适当的时空注意力机制就足够了，不需要在 tokenization 阶段融合时序信息。</p>
-<h4 id="22-divided-space-time-attention">2.2 核心方法：Divided Space-Time Attention<a class="headerlink" href="#22-divided-space-time-attention" title="Permanent link">&para;</a></h4>
-<p><img alt="Figure 2: TimeSformer 的五种时空注意力方案。包括 Space-only、Joint Space-Time、Divided Space-Time、Sparse Local Global 和 Axial Attention，其中 Divided Space-Time（T+S）效果最好" src="../images/timesformer_fig1_divided_attention.png" />
-<em>Figure 2: TimeSformer 的五种时空注意力方案。包括 Space-only、Joint Space-Time、Divided Space-Time、Sparse Local Global 和 Axial Attention，其中 Divided Space-Time（T+S）效果最好。</em></p>
-<h5 id="_8">输入表示<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h5>
-<p>TimeSformer 的一个关键设计是<strong>完全不用 3D tokenization</strong>：
-- 把视频看成一帧一帧的 2D 图像。
-- 每帧独立切成 <span class="arithmatex">\(P \times P\)</span> 的 patch（默认 16×16）。
-- 每个 patch 线性映射成一个 token，并加上可学习的时空位置编码。
-- 最前面加一个 CLS token，和 BERT/ViT 一样，最终用这个 CLS token 做分类。</p>
-<h5 id="_9">五种注意力方案的系统对比<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h5>
-<p>论文系统比较了 5 种时空注意力设计：</p>
+<h4 id="42-timesformer">4.2 TimeSformer：时空分离注意力<a class="headerlink" href="#42-timesformer" title="Permanent link">&para;</a></h4>
+<p>TimeSformer（ICML 2021）与 ViViT 几乎同期提出，但它进一步追问：<strong>是否需要 3D tokenization？</strong> 作者系统比较了多种时空注意力方案，发现用 2D patch + Divided Space-Time Attention 也能取得很好的效果。题目化用 Transformer 原文：<em>Is Space-Time Attention All You Need for Video Understanding?</em></p>
+<p>作者尝试了五种自注意力设计：</p>
 <table>
 <thead>
 <tr>
-<th>方案</th>
-<th>核心思想</th>
-<th>复杂度</th>
-<th>主要问题</th>
+<th>结构</th>
+<th>做法</th>
+<th>特点</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>S (Space-only)</strong></td>
-<td>每帧内部做空间注意力，帧之间没有交互</td>
-<td>最低</td>
-<td>完全忽略时序，视频退化成图像</td>
+<td><strong>Space Attention</strong></td>
+<td>只在单帧特征图上做 self-attention</td>
+<td>图像 ViT 的 baseline，无时间建模</td>
 </tr>
 <tr>
-<td><strong>ST (Joint Space-Time)</strong></td>
-<td>所有 token 互相 attention，和 ViViT Model 1 一样</td>
-<td>最高</td>
-<td>计算量太大，<span class="arithmatex">\((NF+1)^2\)</span></td>
+<td><strong>Joint Space-Time Attention</strong></td>
+<td>在时间、空间、通道三个维度上同时做 self-attention</td>
+<td>效果最好但显存爆炸</td>
 </tr>
 <tr>
-<td><strong>T+S (Divided Space-Time)</strong> ⭐</td>
-<td>先时间注意力，再空间注意力</td>
-<td>低</td>
-<td><strong>效果最好</strong></td>
+<td><strong>Divided Space-Time Attention</strong></td>
+<td>先做时间 self-attention，再做空间 self-attention</td>
+<td>计算量大幅下降，效果接近 joint</td>
 </tr>
 <tr>
-<td><strong>L+G (Sparse Local Global)</strong></td>
-<td>局部邻域 attention + 稀疏全局 attention</td>
-<td>中</td>
-<td>效果不如 T+S</td>
+<td><strong>Local Global Attention</strong></td>
+<td>先在小窗口内做局部 attention，再做稀疏全局 attention</td>
+<td>类似 Swin Transformer 思想</td>
 </tr>
 <tr>
-<td><strong>T+W+H (Axial)</strong></td>
-<td>沿时间、宽度、高度三个轴分别 attention</td>
-<td>中</td>
-<td>参数量大，效果不如 T+S</td>
+<td><strong>Axial Attention</strong></td>
+<td>沿时间轴、横轴、纵轴分别做 1D attention</td>
+<td>复杂度最低，但效果有 trade-off</td>
 </tr>
 </tbody>
 </table>
-<h5 id="divided-space-time-attentionts">Divided Space-Time Attention（T+S）的详细做法<a class="headerlink" href="#divided-space-time-attentionts" title="Permanent link">&para;</a></h5>
-<p>在每个 Transformer block 里，self-attention 被拆成两步：</p>
-<p><strong>第一步：时间注意力（Temporal Attention）</strong></p>
-<p>每个 patch token 只看<strong>同一空间位置、不同时间帧</strong>的 token，再加上 CLS token。</p>
-<p>例如，假设蓝色 query patch 是“第 5 帧左上角”：
-- 它只会和“第 1 帧左上角、第 2 帧左上角、……、第 F 帧左上角”做 attention。
-- 不会和同一帧里其他位置的 patch 做 attention。
-- 这样每个 patch 只关注 <span class="arithmatex">\(F+1\)</span> 个 key（F 帧 + 1 个 CLS）。</p>
-<p><strong>第二步：空间注意力（Spatial Attention）</strong></p>
-<p>用第一步的输出作为输入，每个 patch 再看<strong>同一帧内</strong>的所有 patch token，再加上 CLS token。</p>
-<p>还是“第 5 帧左上角”这个 patch：
-- 它现在会和“第 5 帧里所有位置的 patch”做 attention。
-- 不会去看其他帧的 patch。
-- 这样每个 patch 只关注 <span class="arithmatex">\(N+1\)</span> 个 key（一帧内的 N 个 patch + 1 个 CLS）。</p>
-<h5 id="_10">为什么先时间后空间？<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h5>
-<p>这是 TimeSformer 和 ViViT Model 3 的关键区别：
-- <strong>ViViT Model 3</strong>：先空间注意力，再时间注意力（S+T）。
-- <strong>TimeSformer T+S</strong>：先时间注意力，再空间注意力（T+S）。</p>
-<p>论文实验发现 <strong>T+S 比 S+T 效果更好</strong>，原因可能是：
-1. 时间注意力先把同一空间位置在多个帧上的信息联系起来，建立时序上下文。
-2. 空间注意力再在“已经带有时序信息”的特征上做空间建模。
-3. 对视频理解来说，时序关系往往比单纯空间关系更重要，优先处理时间信息更有利。</p>
-<h5 id="_11">计算效率优势<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h5>
-<p>假设一帧有 N 个 patch，视频共 F 帧：
-- <strong>Joint Space-Time（ST）</strong>：每个 patch 要和 <span class="arithmatex">\(N \times F + 1\)</span> 个 token 算 attention，复杂度是 <span class="arithmatex">\((NF+1)^2\)</span>。
-- <strong>Divided T+S</strong>：每个 patch 先和 <span class="arithmatex">\(F+1\)</span> 个 token 算时间 attention，再和 <span class="arithmatex">\(N+1\)</span> 个 token 算空间 attention，总复杂度是 <span class="arithmatex">\((N+F+2)\)</span>。</p>
-<p>当 N 和 F 都很大时，<span class="arithmatex">\(N+F+2\)</span> 远小于 <span class="arithmatex">\(NF+1\)</span>，所以 T+S 比 ST 快很多。</p>
-<h5 id="_12">实现细节<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h5>
+<p><img alt="Figure 1: The five video self-attention blocks investigated in TimeSformer" src="../images/timesformer_fig1_schemes.png" />
+<em>Figure 1: TimeSformer 研究的五种视频 self-attention 块结构：Space、Joint Space-Time、Divided Space-Time、Local Global、Axial。</em></p>
+<p><strong>Divided Space-Time Attention</strong> 的具体流程：</p>
+<div class="highlight"><pre><span></span><code>输入：T 帧，每帧切分成 N 个 patch，共 T×N 个 token
+  ↓
+Temporal Self-Attention：每个空间位置 (i,j) 的 token
+                         在时间轴 T 上做 self-attention
+  ↓
+Spatial Self-Attention：每一帧内部，N 个 patch 之间做 self-attention
+  ↓
+MLP + 残差连接
+  ↓
+输出
+</code></pre></div>
+<p>这本质上与 R(2+1)D“把 3D 拆成 2D+1D”的思想一致，只是从卷积换成了 self-attention。</p>
+<p><img alt="Figure 2: Visualization of the five space-time self-attention schemes" src="../images/timesformer_fig2_attention.png" />
+<em>Figure 2: 五种空间-时间 self-attention 方案的可视化。蓝色 patch 为查询位置，绿色/黄色/紫色分别表示时间、水平轴、垂直轴上的 attention 范围。</em></p>
+<p>消融实验表明：</p>
 <ul>
-<li><strong>Pre-LN 架构</strong>：TimeSformer 使用 Pre-LayerNorm（LayerNorm 在 attention 之前），比标准 ViT 的 Post-Norm 训练更稳定。</li>
-<li><strong>CLS token</strong>：所有方案都保留 CLS token，最终分类用这个 token。</li>
-<li><strong>位置编码</strong>：使用可学习的 3D 时空位置编码，和 ViViT 类似。</li>
+<li>在 K-400 这种偏静态的数据集上，纯 Space Attention 效果也不错。</li>
+<li>在 Something-Something V2 这种强调动作的数据集上，必须考虑时间维度。</li>
+<li>Divided Space-Time 在效果与显存之间取得了最佳平衡，能训练更大输入、更长视频。</li>
 </ul>
-<h4 id="23-vivit">2.3 与 ViViT 的对比<a class="headerlink" href="#23-vivit" title="Permanent link">&para;</a></h4>
-<table>
-<thead>
-<tr>
-<th>维度</th>
-<th>ViViT</th>
-<th>TimeSformer</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Tokenization</strong></td>
-<td>Tubelet（3D）或均匀帧采样</td>
-<td><strong>帧级 2D patch</strong></td>
-</tr>
-<tr>
-<td><strong>最佳变体</strong></td>
-<td>Model 3（先空间后时间）</td>
-<td><strong>Divided T+S（先时间后空间）</strong></td>
-</tr>
-<tr>
-<td><strong>归一化</strong></td>
-<td>Post-Norm（标准 ViT）</td>
-<td><strong>Pre-LN</strong>（LayerNorm 在注意力之前）</td>
-</tr>
-<tr>
-<td><strong>CLS token</strong></td>
-<td>Model 3 不使用</td>
-<td>所有变体都使用</td>
-</tr>
-<tr>
-<td><strong>预训练来源</strong></td>
-<td>ImageNet-21K / JFT 上预训练的 ViT</td>
-<td>ImageNet-1K / ImageNet-21K 上预训练的 ViT</td>
-</tr>
-<tr>
-<td><strong>权重迁移方式</strong></td>
-<td>需要把 2D patch embedding 和位置编码显式扩展为 3D（中心帧初始化、时间维度重复）</td>
-<td>直接复用 2D ViT 权重，新增的 temporal attention 从头学习</td>
-</tr>
-<tr>
-<td><strong>视频化改造程度</strong></td>
-<td>较大（需要 3D tokenization 和专门的权重迁移）</td>
-<td>较小（主要靠 attention 机制处理时序）</td>
-</tr>
-</tbody>
-</table>
-<h4 id="24">2.4 总结<a class="headerlink" href="#24" title="Permanent link">&para;</a></h4>
-<p>TimeSformer 的核心发现：
-- <strong>不需要 3D tokenization</strong>：2D patch + Divided Space-Time Attention 就足够
-- <strong>先时间后空间</strong>的注意力顺序效果最好
-- 分解注意力大幅降低计算复杂度（<span class="arithmatex">\(O(N+F)\)</span> vs <span class="arithmatex">\(O(NF)\)</span>）
-- Pre-LN 架构比 Post-Norm 更稳定</p>
-<hr />
-<h3 id="3-videomae-2022">3. VideoMAE - 视频掩码自编码器 (2022)<a class="headerlink" href="#3-videomae-2022" title="Permanent link">&para;</a></h3>
+<p>ViViT、TimeSformer 之后，VidTr、MViT、VideoMAE 等工作陆续出现，基本都沿着“拆分时空自注意力”或“掩码自监督预训练”的路线推进。</p>
+<h4 id="43-videomae">4.3 VideoMAE：视频掩码自编码器<a class="headerlink" href="#43-videomae" title="Permanent link">&para;</a></h4>
 <blockquote>
 <p>📄 <strong>论文</strong>：<a href="https://arxiv.org/abs/2203.12602">VideoMAE: Masked Autoencoders are Data-Efficient Learners for Self-Supervised Video Pre-Training</a><br />
 <strong>作者</strong>：Zhan Tong, Yibing Song, Jue Wang, Limin Wang (Nanjing University &amp; Tencent AI Lab)<br />
 <strong>发表</strong>：NeurIPS 2022</p>
 </blockquote>
 <p><strong>核心思想</strong>：将 MAE 的掩码预训练思路搬到视频上，通过 <strong>tube masking（管状掩码）策略</strong> 配合 <strong>高达 90% 的掩码比例</strong>，解决视频时序冗余带来的信息泄露问题，实现数据高效的视频自监督学习。</p>
-<h4 id="31">3.1 背景与动机<a class="headerlink" href="#31" title="Permanent link">&para;</a></h4>
+<h5 id="31">3.1 背景与动机<a class="headerlink" href="#31" title="Permanent link">&para;</a></h5>
 <p>MAE 在图像上展示了掩码自编码的强大能力，但直接搬到视频上会面临两个问题：</p>
 <ol>
 <li><strong>掩码比例太低</strong>：图像 MAE 用 75% masking，但视频的时序冗余（相邻帧高度相似）使得 75% masking 太容易重建——模型可以从相邻帧 trivially 恢复缺失内容</li>
 <li><strong>信息泄露</strong>：随机 masking 或帧 masking 会导致时序相关，masked 内容在相邻帧重现</li>
 </ol>
 <p><strong>关键洞察</strong>：视频需要<strong>更高的掩码比例</strong>和<strong>tube masking 策略</strong>。</p>
-<h4 id="32-tube-masking-90-masking">3.2 核心方法：Tube Masking + 90% Masking<a class="headerlink" href="#32-tube-masking-90-masking" title="Permanent link">&para;</a></h4>
+<h5 id="32-tube-masking-90-masking">3.2 核心方法：Tube Masking + 90% Masking<a class="headerlink" href="#32-tube-masking-90-masking" title="Permanent link">&para;</a></h5>
 <p><img alt="Figure 3: VideoMAE 整体框架：通过 tube masking 掩码 90% 的时空 token，仅对可见 token 编码，再用轻量 decoder 重建完整视频" src="../images/videomae_v2_fig1_overview.png" />
 <em>Figure 3: VideoMAE 整体框架：通过 tube masking 掩码 90% 的时空 token，仅对可见 token 编码，再用轻量 decoder 重建完整视频。</em></p>
 <p><strong>输入处理流程</strong>：</p>
@@ -4207,14 +4527,14 @@
 - <strong>Decoder 接收 masked tokens + encoder 输出</strong>，重建完整视频
 - <strong>Joint space-time attention</strong>：所有 token 对的交互（二次复杂度，但因只处理 10% tokens 而可接受）
 - <strong>MSE loss</strong>：重建归一化的 cube 像素（优于 L1 和 Smooth L1）</p>
-<h4 id="33">3.3 数据效率<a class="headerlink" href="#33" title="Permanent link">&para;</a></h4>
+<h5 id="33">3.3 数据效率<a class="headerlink" href="#33" title="Permanent link">&para;</a></h5>
 <p>VideoMAE 的核心发现之一是<strong>数据质量 &gt; 数据数量</strong>：</p>
 <ul>
 <li>在小型数据集（3k-4k 视频）上无需额外数据就能达到强结果</li>
 <li>领域匹配的小数据集优于领域偏移的大数据集</li>
 <li>证明掩码自编码比对比学习更适合视频的数据高效学习</li>
 </ul>
-<h4 id="34-vivittimesformer">3.4 与 ViViT/TimeSformer 的对比<a class="headerlink" href="#34-vivittimesformer" title="Permanent link">&para;</a></h4>
+<h5 id="34-vivittimesformer">3.4 与 ViViT/TimeSformer 的对比<a class="headerlink" href="#34-vivittimesformer" title="Permanent link">&para;</a></h5>
 <table>
 <thead>
 <tr>
@@ -4251,31 +4571,30 @@
 </tr>
 </tbody>
 </table>
-<h4 id="35">3.5 总结<a class="headerlink" href="#35" title="Permanent link">&para;</a></h4>
+<h5 id="35">3.5 总结<a class="headerlink" href="#35" title="Permanent link">&para;</a></h5>
 <p>VideoMAE 的核心贡献：
 - <strong>Tube masking</strong> 防止时序信息泄露，是视频 MAE 的关键
 - <strong>90% masking ratio</strong> 利用视频冗余，forcing 模型学习高层语义
 - <strong>非对称 encoder-decoder</strong> 大幅降低计算成本
 - <strong>数据高效</strong>：小数据集 + 自监督预训练就能达到强结果
 - 为后续视频 LLM 的视觉编码器提供了预训练范式</p>
-<hr />
-<h2 id="_13">第二部分：视频大语言模型<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<h3 id="5">5. 视频大语言模型<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
 <p>视频基础表征解决了"如何从视频中提取特征"，但如何将视频特征与 LLM 对齐，实现视频理解和推理？这是视频 LLM 的核心挑战。</p>
-<h3 id="4-video-llava-2023">4. Video-LLaVA - 统一图文视频表征 (2023)<a class="headerlink" href="#4-video-llava-2023" title="Permanent link">&para;</a></h3>
+<h4 id="51-video-llava-2023">5.1 Video-LLaVA - 统一图文视频表征 (2023)<a class="headerlink" href="#51-video-llava-2023" title="Permanent link">&para;</a></h4>
 <blockquote>
 <p>📄 <strong>论文</strong>：<a href="https://arxiv.org/abs/2311.10122">Video-LLaVA: Learning United Visual Representation by Alignment Before Projection</a><br />
 <strong>作者</strong>：Bin Lin, Yang Ye, Bin Zhu, Jiaxi Cui, Munang Ning, Peng Jin, Li Yuan (Peking University Shenzhen Graduate School)<br />
 <strong>发表</strong>：arXiv 2023</p>
 </blockquote>
 <p><strong>核心思想</strong>：在投影层之前就对齐图像和视频的表征（Alignment Before Projection），用<strong>共享的投影层</strong>将统一的视觉特征映射到 LLM 输入空间。</p>
-<h4 id="41">4.1 背景与动机<a class="headerlink" href="#41" title="Permanent link">&para;</a></h4>
+<h5 id="511">5.1.1 背景与动机<a class="headerlink" href="#511" title="Permanent link">&para;</a></h5>
 <p>大多数 LVLM 要么处理图像，要么处理视频，不能同时处理两者。尝试统一的方法面临问题：</p>
 <ul>
 <li><strong>VideoChat / Video-LLaMA</strong>：共享视觉编码器，但图像和视频特征空间本质不同，LLM 难以学习统一表征</li>
 <li><strong>ImageBind-LLM</strong>：通过缓存数据库检索间接对齐，导致性能下降，LLM 中没有实际的视频知识</li>
 </ul>
 <p><strong>关键洞察</strong>：如果图像和视频特征在到达投影层之前就已经对齐，LLM 可以更有效地学习多模态交互。</p>
-<h4 id="42-alignment-before-projection">4.2 核心方法：Alignment Before Projection<a class="headerlink" href="#42-alignment-before-projection" title="Permanent link">&para;</a></h4>
+<h5 id="512-alignment-before-projection">5.1.2 核心方法：Alignment Before Projection<a class="headerlink" href="#512-alignment-before-projection" title="Permanent link">&para;</a></h5>
 <p><img alt="Figure 4: Video-LLaVA 的 Alignment Before Projection 架构：图像和视频先分别经过 LanguageBind 编码器，在共享投影层之前完成跨模态对齐" src="../images/video_llava_fig1_architecture.png" />
 <em>Figure 4: Video-LLaVA 的 Alignment Before Projection 架构：图像和视频先分别经过 LanguageBind 编码器，在共享投影层之前完成跨模态对齐。</em></p>
 <p><strong>架构</strong>：</p>
@@ -4337,35 +4656,35 @@
 <p><strong>图像/视频预处理</strong>：
 - 图像：224×224 resize + crop
 - 视频：均匀采样 8 帧</p>
-<h4 id="43">4.3 为什么有效？<a class="headerlink" href="#43" title="Permanent link">&para;</a></h4>
+<h5 id="513">5.1.3 为什么有效？<a class="headerlink" href="#513" title="Permanent link">&para;</a></h5>
 <p><strong>对齐前投影的优势</strong>：</p>
 <ol>
 <li><strong>统一的视觉表征</strong>：<span class="arithmatex">\(Z_V = f_P(f_V(X_V))\)</span>，其中 <span class="arithmatex">\(f_V\)</span> 是 LanguageBind 编码器，<span class="arithmatex">\(f_P\)</span> 是共享投影</li>
 <li><strong>跨模态交互</strong>：尽管训练中没有图像-视频配对数据，模型可以推理图像和视频是否描绘同一场景</li>
 <li><strong>简单但强大</strong>：Stage 1 只训练 1 epoch 就在图像和视频基准上同时达到 SOTA</li>
 </ol>
-<h4 id="44">4.4 总结<a class="headerlink" href="#44" title="Permanent link">&para;</a></h4>
+<h5 id="514">5.1.4 总结<a class="headerlink" href="#514" title="Permanent link">&para;</a></h5>
 <p>Video-LLaVA 的核心贡献：
 - <strong>Alignment Before Projection</strong>：在投影层之前对齐图像和视频，是统一多模态 LLM 的关键
 - <strong>共享投影层</strong>：简化架构，证明对齐后的特征可以用同一投影处理
 - <strong>联合训练</strong>：图像和视频互相增强，无需额外配对数据
 - 为后续视频 LLM（如 LLaVA-OneVision）提供了统一图文视频的范式</p>
 <hr />
-<h3 id="5-qwen2-vl-multimodal-rope-2024">5. Qwen2-VL - Multimodal RoPE 的起源 (2024)<a class="headerlink" href="#5-qwen2-vl-multimodal-rope-2024" title="Permanent link">&para;</a></h3>
+<h4 id="52-qwen2-vl-multimodal-rope-2024">5.2 Qwen2-VL - Multimodal RoPE 的起源 (2024)<a class="headerlink" href="#52-qwen2-vl-multimodal-rope-2024" title="Permanent link">&para;</a></h4>
 <blockquote>
 <p>📄 <strong>论文</strong>：<a href="https://arxiv.org/abs/2409.12191">Qwen2-VL: Enhancing Vision-Language Model's Perception of the World at Any Resolution</a><br />
 <strong>作者</strong>：Peng Wang, Shuai Bai, Sinan Tan 等 (Qwen Team, Alibaba Group)<br />
 <strong>发表</strong>：arXiv 2024</p>
 </blockquote>
 <p><strong>核心思想</strong>：首次提出 <strong>Multimodal RoPE（M-RoPE）</strong>，将 1D RoPE 分解为时间、高度、宽度三个独立分量，统一建模文本、图像、视频的位置信息。同时引入 <strong>Naive Dynamic Resolution</strong>，支持任意分辨率输入。</p>
-<h4 id="51">5.1 背景与动机<a class="headerlink" href="#51" title="Permanent link">&para;</a></h4>
+<h5 id="521">5.2.1 背景与动机<a class="headerlink" href="#521" title="Permanent link">&para;</a></h5>
 <p>此前的视觉语言模型有两个核心限制：</p>
 <ol>
 <li><strong>固定分辨率输入</strong>：标准 LVLMs 将图像编码为固定分辨率（如 224×224），通过下采样或 scale-then-padding，会损失细节信息</li>
 <li><strong>位置编码不统一</strong>：文本用 1D RoPE，图像用 2D 位置编码，视频缺乏时序位置信息，三种模态的位置编码无法统一在一个框架下</li>
 </ol>
 <p><strong>关键洞察</strong>：如果用一套统一的位置编码框架处理文本（1D）、图像（2D）、视频（3D），模型可以更自然地学习跨模态的位置关系。</p>
-<h4 id="52-naive-dynamic-resolution-m-rope">5.2 核心方法：Naive Dynamic Resolution + M-RoPE<a class="headerlink" href="#52-naive-dynamic-resolution-m-rope" title="Permanent link">&para;</a></h4>
+<h5 id="522-naive-dynamic-resolution-m-rope">5.2.2 核心方法：Naive Dynamic Resolution + M-RoPE<a class="headerlink" href="#522-naive-dynamic-resolution-m-rope" title="Permanent link">&para;</a></h5>
 <p><strong>Naive Dynamic Resolution（动态分辨率支持）</strong>：</p>
 <ul>
 <li>将 ViT 的原始绝对位置编码替换为 <strong>2D-RoPE</strong>（在 ViT 内部处理图像的 2D 空间位置）</li>
@@ -4415,7 +4734,7 @@
 <p><strong>多模态位置编码的连接</strong>：在输入包含多种模态时，每种模态的起始 position ID 从前一模态的最大 ID + 1 开始计数。</p>
 <p><img alt="Figure 5: Qwen2-VL 的 M-RoPE 将 1D RoPE 分解为时间、高度、宽度三个独立分量，分别处理文本、图像和视频的位置信息" src="../images/qwen2vl_fig3.png" />
 <em>Figure 5: Qwen2-VL 的 M-RoPE 将 1D RoPE 分解为时间、高度、宽度三个独立分量，分别处理文本、图像和视频的位置信息。</em></p>
-<h4 id="53">5.3 架构细节<a class="headerlink" href="#53" title="Permanent link">&para;</a></h4>
+<h5 id="523">5.2.3 架构细节<a class="headerlink" href="#523" title="Permanent link">&para;</a></h5>
 <table>
 <thead>
 <tr>
@@ -4446,26 +4765,26 @@
 </tr>
 </tbody>
 </table>
-<h4 id="54">5.4 总结<a class="headerlink" href="#54" title="Permanent link">&para;</a></h4>
+<h5 id="524">5.2.4 总结<a class="headerlink" href="#524" title="Permanent link">&para;</a></h5>
 <p>Qwen2-VL 的核心贡献：
 - <strong>M-RoPE 首次提出</strong>：统一的三分量位置编码框架，用同一套机制处理文本（1D）、图像（2D）、视频（3D）
 - <strong>Naive Dynamic Resolution</strong>：任意分辨率输入，动态生成不同数量的 visual token
 - <strong>为 Qwen2.5-VL 奠基</strong>：Qwen2.5-VL 在此基础上将时间 ID 改为绝对时间戳，并引入 3D patch 划分</p>
 <hr />
-<h3 id="6-llava-onevision-2024">6. LLaVA-OneVision - 图像到视频的任务迁移 (2024)<a class="headerlink" href="#6-llava-onevision-2024" title="Permanent link">&para;</a></h3>
+<h4 id="53-llava-onevision-2024">5.3 LLaVA-OneVision - 图像到视频的任务迁移 (2024)<a class="headerlink" href="#53-llava-onevision-2024" title="Permanent link">&para;</a></h4>
 <blockquote>
 <p>📄 <strong>论文</strong>：<a href="https://arxiv.org/abs/2408.03326">LLaVA-OneVision: Easy Visual Task Transfer</a><br />
 <strong>作者</strong>：Bo Li, Yuanhan Zhang, Dong Guo, Renrui Zhang 等 (ByteDance, NTU, CUHK, HKUST)<br />
 <strong>发表</strong>：arXiv 2024</p>
 </blockquote>
 <p><strong>核心思想</strong>：通过 <strong>Higher AnyRes + 双线性插值</strong> 处理高分辨率图像，视频用 <strong>基础分辨率帧 + 196 tokens/帧</strong> 处理，并通过 <strong>OneVision 训练阶段</strong> 实现从单图能力到多图/视频能力的强迁移。</p>
-<h4 id="61">6.1 背景与动机<a class="headerlink" href="#61" title="Permanent link">&para;</a></h4>
+<h5 id="531">5.3.1 背景与动机<a class="headerlink" href="#531" title="Permanent link">&para;</a></h5>
 <p>大多数多模态模型要么优化图像，要么优化视频，难以同时在两者上取得 SOTA。LLaVA-OneVision 的目标是：<strong>一个模型同时推进单图、多图、视频三种场景的性能边界</strong>。</p>
 <p>关键洞察：
 - <strong>图像的高质量训练数据远多于视频</strong>，因此先在图像上训练再迁移到视频是有效的
 - <strong>用长序列表示单张图像</strong>（模拟视频表征）可以促进图像到视频能力的平滑迁移
 - <strong>统一 token 预算</strong>：三种场景的最大 visual token 数量设计为相近，避免模态偏差</p>
-<h4 id="62-higher-anyres-onevision">6.2 核心方法：Higher AnyRes + OneVision 训练<a class="headerlink" href="#62-higher-anyres-onevision" title="Permanent link">&para;</a></h4>
+<h5 id="532-higher-anyres-onevision">5.3.2 核心方法：Higher AnyRes + OneVision 训练<a class="headerlink" href="#532-higher-anyres-onevision" title="Permanent link">&para;</a></h5>
 <p><strong>架构</strong>：</p>
 <table>
 <thead>
@@ -4534,7 +4853,7 @@
 <p><strong>为什么这个 token 策略有效</strong>：通过让单图的 token 数与视频相近（单图 7290 vs 视频最大 6272），训练时图像和视频的序列长度相近，模型学到的视觉表征可以跨模态迁移。</p>
 <p><img alt="Figure 7: LLaVA-OneVision 在单图、多图、视频三种场景下的统一 token 预算策略" src="../images/llava_onevision_fig3.png" />
 <em>Figure 7: LLaVA-OneVision 在单图、多图、视频三种场景下的统一 token 预算策略。</em></p>
-<h4 id="63">6.3 训练流程：四阶段递进<a class="headerlink" href="#63" title="Permanent link">&para;</a></h4>
+<h5 id="533">5.3.3 训练流程：四阶段递进<a class="headerlink" href="#533" title="Permanent link">&para;</a></h5>
 <table>
 <thead>
 <tr>
@@ -4568,25 +4887,25 @@
 </table>
 <p><strong>OneVision 训练阶段的关键</strong>：</p>
 <p>OneVision 阶段是最关键的一步——在单图指令微调之后，将视频和多图数据混合进来。论文发现这是让模型在视频任务上产生新涌现能力（emergent capabilities）的最简单且最省成本的方式。核心机制是<strong>知识从图像向视频迁移</strong>：模型在图像上积累的高质量理解能力，通过统一的 token 表征迁移到视频理解。</p>
-<h4 id="64">6.4 总结<a class="headerlink" href="#64" title="Permanent link">&para;</a></h4>
+<h5 id="534">5.3.4 总结<a class="headerlink" href="#534" title="Permanent link">&para;</a></h5>
 <p>LLaVA-OneVision 的核心贡献：
 - <strong>Higher AnyRes + 双线性插值</strong>：高分辨率图像的高效 token 压缩
 - <strong>统一 token 预算</strong>：三种场景最大 token 数相近，促进图像→视频的能力迁移
 - <strong>OneVision 训练阶段</strong>：单图 → 多图/视频能力的平滑迁移
 - <strong>视频 196 tokens/帧</strong>：压缩表征，最多 32 帧，共 6272 tokens</p>
 <hr />
-<h3 id="7-internvl-25-2024">7. InternVL 2.5 - 像素压缩与动态分辨率 (2024)<a class="headerlink" href="#7-internvl-25-2024" title="Permanent link">&para;</a></h3>
+<h4 id="54-internvl-25-2024">5.4 InternVL 2.5 - 像素压缩与动态分辨率 (2024)<a class="headerlink" href="#54-internvl-25-2024" title="Permanent link">&para;</a></h4>
 <blockquote>
 <p>📄 <strong>论文</strong>：<a href="https://arxiv.org/abs/2412.05271">Expanding Performance Boundaries of Open-Source Multimodal Models with Model, Data, and Test-Time Scaling</a><br />
 <strong>作者</strong>：Zhe Chen, Weiyun Wang, Yue Cao 等 (Shanghai AI Laboratory 及合作机构)<br />
 <strong>发表</strong>：arXiv 2024</p>
 </blockquote>
 <p><strong>核心思想</strong>：用 <strong>Pixel Unshuffle</strong> 将每个 448×448 tile 的 1024 tokens 压缩为 256 tokens，用 <strong>动态分辨率匹配</strong> 处理不同宽高比的图像，视频处理则通过 <strong><span class="arithmatex">\(n_{\max}=1\)</span> 固定单 tile</strong> 每帧，在 8-64 帧范围内实现高效视频理解。</p>
-<h4 id="71">7.1 背景与动机<a class="headerlink" href="#71" title="Permanent link">&para;</a></h4>
+<h5 id="541">5.4.1 背景与动机<a class="headerlink" href="#541" title="Permanent link">&para;</a></h5>
 <p>InternVL 系列的演进：InternVL 1.5 引入动态分辨率 → InternVL 2.0 增加多图和视频 → InternVL 2.5 升级语言模型骨干 + 扩展训练数据。</p>
 <p><strong>核心挑战</strong>：每个 tile 经过 ViT 会产生 1024 个 visual tokens，高分辨率图像（如 2000×3000）会有很多 tile，总 token 数爆炸。</p>
 <p><strong>解决方案</strong>：在 ViT 输出之后，用 <strong>Pixel Unshuffle</strong> 操作将 1024 tokens 压缩为 256 tokens（4×压缩）。</p>
-<h4 id="72-pixel-unshuffle">7.2 核心方法：Pixel Unshuffle + 动态分辨率<a class="headerlink" href="#72-pixel-unshuffle" title="Permanent link">&para;</a></h4>
+<h5 id="542-pixel-unshuffle">5.4.2 核心方法：Pixel Unshuffle + 动态分辨率<a class="headerlink" href="#542-pixel-unshuffle" title="Permanent link">&para;</a></h5>
 <p><strong>整体架构（ViT-MLP-LLM 范式）</strong>：</p>
 <div class="highlight"><pre><span></span><code>输入图像/视频帧
     ↓ 动态分辨率匹配（预定义宽高比 + 448×448 tile）
@@ -4645,7 +4964,7 @@
 <li><strong>设计原则</strong>：视频强调时序理解而非单帧高分辨率，固定单 tile 的设计在保持足够空间信息的同时大幅降低序列长度</li>
 <li><strong>不做数据增强</strong>：视频数据关闭 JPEG 压缩增强（图像数据则开启）</li>
 </ul>
-<h4 id="73-internvl">7.3 InternVL 系列演进对比<a class="headerlink" href="#73-internvl" title="Permanent link">&para;</a></h4>
+<h5 id="543-internvl">5.4.3 InternVL 系列演进对比<a class="headerlink" href="#543-internvl" title="Permanent link">&para;</a></h5>
 <table>
 <thead>
 <tr>
@@ -4682,28 +5001,28 @@
 </table>
 <p><img alt="Figure 10: InternVL 2.5 的训练数据配置与 scaling 策略" src="../images/internvl25_fig5.png" />
 <em>Figure 10: InternVL 2.5 的训练数据配置与 scaling 策略。</em></p>
-<h4 id="74">7.4 总结<a class="headerlink" href="#74" title="Permanent link">&para;</a></h4>
+<h5 id="544">5.4.4 总结<a class="headerlink" href="#544" title="Permanent link">&para;</a></h5>
 <p>InternVL 2.5 视频处理的核心设计：
 - <strong>Pixel Unshuffle</strong>：每个 tile 1024 → 256 tokens，4× 压缩，降低序列长度
 - <strong><span class="arithmatex">\(n_{\max}=1\)</span> 视频策略</strong>：每帧固定 448×448，256 tokens，简洁高效
 - <strong>动态分辨率</strong>：单图用多 tile 保高分辨率，视频用单 tile 保帧数
 - <strong>ViT-MLP-LLM 范式</strong>：简洁架构，强大视觉编码器 + MLP 连接器 + 顶尖 LLM</p>
 <hr />
-<h3 id="8-qwen25-vl-2025">8. Qwen2.5-VL 的视频理解能力 (2025)<a class="headerlink" href="#8-qwen25-vl-2025" title="Permanent link">&para;</a></h3>
+<h4 id="55-qwen25-vl-2025">5.5 Qwen2.5-VL 的视频理解能力 (2025)<a class="headerlink" href="#55-qwen25-vl-2025" title="Permanent link">&para;</a></h4>
 <blockquote>
 <p>📄 <strong>论文</strong>：<a href="https://arxiv.org/abs/2502.13923">Qwen2.5-VL Technical Report</a><br />
 <strong>作者</strong>：Qwen Team, Alibaba Group<br />
 <strong>发表</strong>：arXiv 2025</p>
 </blockquote>
 <p><strong>核心思想</strong>：在 Qwen2-VL 的 M-RoPE 基础上，进一步引入 <strong>3D patch 划分 + 动态 FPS 采样 + 绝对时间 MRoPE</strong>，实现原生分辨率的视频理解和秒级事件定位。</p>
-<h4 id="81">8.1 背景与动机<a class="headerlink" href="#81" title="Permanent link">&para;</a></h4>
+<h5 id="551">5.5.1 背景与动机<a class="headerlink" href="#551" title="Permanent link">&para;</a></h5>
 <p>Qwen2-VL（2024.09）已经引入 M-RoPE 和动态分辨率，但视频理解仍存在两个问题：</p>
 <ol>
 <li><strong>时间 ID 绑定到帧索引</strong>：MRoPE 的时间 position ID 表示"第几帧"，不考虑帧率或实际时间，模型无法感知事件发生的实际时间（秒、分钟）</li>
 <li><strong>固定 FPS 采样</strong>：训练时只用固定帧率，模型无法适应不同采样率的视频</li>
 </ol>
 <p><strong>关键洞察</strong>：视频理解需要理解"时间"而非"帧数"——时间 ID 应该对应实际时间戳，训练时应该见到各种帧率。</p>
-<h4 id="82-3d-patch-fps-mrope">8.2 核心方法：3D patch + 动态 FPS + 绝对时间 MRoPE<a class="headerlink" href="#82-3d-patch-fps-mrope" title="Permanent link">&para;</a></h4>
+<h5 id="552-3d-patch-fps-mrope">5.5.2 核心方法：3D patch + 动态 FPS + 绝对时间 MRoPE<a class="headerlink" href="#552-3d-patch-fps-mrope" title="Permanent link">&para;</a></h5>
 <p><strong>3D patch 划分（视频 tokenization）</strong>：</p>
 <p>Qwen2.5-VL 的 ViT 使用 <strong>3D patch 划分</strong> 处理视频：</p>
 <table>
@@ -4780,7 +5099,7 @@
 - 精确时刻定位（秒级）
 - 跨不同 FPS 采样率的时间对齐一致性
 - 无额外计算开销</p>
-<h4 id="83">8.3 视频处理的其他关键技术<a class="headerlink" href="#83" title="Permanent link">&para;</a></h4>
+<h5 id="553">5.5.3 视频处理的其他关键技术<a class="headerlink" href="#553" title="Permanent link">&para;</a></h5>
 <p><strong>窗口注意力</strong>：
 - ViT 共 32 层，其中仅 4 层使用全注意力（索引 {7, 15, 23, 31}）
 - 其余 28 层使用窗口注意力（窗口大小 112×112 像素 = 8×8 patches）
@@ -4795,7 +5114,7 @@
 <p><strong>长视频处理</strong>：
 - 对于超过 30 分钟的长视频，专门构建长视频 caption 数据
 - 通过多帧 caption 合成流水线生成训练数据</p>
-<h4 id="84">8.4 总结<a class="headerlink" href="#84" title="Permanent link">&para;</a></h4>
+<h5 id="554">5.5.4 总结<a class="headerlink" href="#554" title="Permanent link">&para;</a></h5>
 <p>Qwen2.5-VL 在视频理解上的核心贡献：
 - <strong>3D patch 划分</strong>：将 ViViT 的 tubelet 思想应用到视频 LLM，压缩时间维度
 - <strong>动态 FPS 采样</strong>：将动态分辨率从空间维度扩展到时间维度
@@ -4803,16 +5122,148 @@
 - <strong>窗口注意力</strong>：计算复杂度从二次方降至线性，支持原生分辨率
 - 证明了视频 LLM 可以通过统一的位置编码框架（MRoPE）同时处理图像和视频</p>
 <hr />
-<h2 id="_14">第三部分：视频生成<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
-<p>视频理解解决了"如何理解视频内容"，但反向问题是：<strong>如何从文本生成视频？</strong> 这是视频生成的核心挑战。CogVideoX 代表了当前视频生成的主流范式：3D VAE + DiT + 3D RoPE。</p>
-<h3 id="9-cogvideox-2024">9. CogVideoX - 文本到视频生成 (2024)<a class="headerlink" href="#9-cogvideox-2024" title="Permanent link">&para;</a></h3>
+<hr />
+<h3 id="6">6. 总结与发展脉络<a class="headerlink" href="#6" title="Permanent link">&para;</a></h3>
+<h4 id="61">6.1 时间轴上的演进<a class="headerlink" href="#61" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>2014  DeepVideo        直接把 2D CNN 搬到视频，发现时序难学
+  │
+2014  Two-Stream        引入光流，显式建模运动，效果追平手工特征
+  │
+2015  Beyond Short      在双流后加 LSTM，尝试处理长视频
+      Snippets
+  │
+2015  TDD               沿光流轨迹堆叠特征
+  │
+2016  Early Fusion      在网络中层融合空间流与时间流
+  │
+2016  TSN               视频分段 + Segmental Consensus，提出训练 good practices
+  │
+2017  I3D               用 inflation 复用 ImageNet 预训练，奠定 3D CNN 地位
+  │
+2018  Non-local         把 self-attention 引入视频，替代 LSTM
+  │
+2018  R(2+1)D           把 3D 卷积拆成 2D+1D，更易优化
+  │
+2019  SlowFast          快慢双分支，精度与效率兼顾
+  │
+2021  ViViT             把 ViT 扩展到视频，提出 3D tubelet 与四种注意力分解
+  │
+2021  TimeSformer        用 2D patch + Divided Space-Time Attention 做视频 Transformer
+  │
+2022  VideoMAE           用 tube masking + 90% mask ratio 做视频自监督预训练
+  │
+2023  Video-LLaVA        提出 Alignment Before Projection，先在投影层前对齐图像与视频
+  │
+2024  Qwen2-VL           提出 M-RoPE 与 Naive Dynamic Resolution，统一图文视频位置编码
+  │
+2024  LLaVA-OneVision    用统一 token 预算 + OneVision 训练实现图像到视频的能力迁移
+  │
+2024  InternVL 2.5       用 Pixel Unshuffle 压缩视觉 token + 动态分辨率处理高分辨率图像
+  │
+2025  Qwen2.5-VL         引入 3D patch、动态 FPS 与绝对时间 MRoPE，支持秒级事件定位
+</code></pre></div>
+<h4 id="62-vs">6.2 两条主线：手工特征 vs 深度学习<a class="headerlink" href="#62-vs" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>手工特征时代</th>
+<th>深度学习时代</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>图像特征</td>
+<td>SIFT (2004)</td>
+<td>AlexNet / DeepVideo (2012/2014)</td>
+</tr>
+<tr>
+<td>加入运动</td>
+<td>STIP → Dense Trajectories / IDT</td>
+<td>Two-Stream / TDD</td>
+</tr>
+<tr>
+<td>时序建模</td>
+<td>IDT + LSTM</td>
+<td>Two-Stream + LSTM (Beyond Short Snippets)</td>
+</tr>
+<tr>
+<td>长视频/全局</td>
+<td>IDT + Fisher Vectors / VLAD</td>
+<td>TSN + DVOF / TLE / ActionVLAD</td>
+</tr>
+</tbody>
+</table>
+<p>发展历程惊人地相似：都是先在图像特征上扩展，再加入运动信息，然后做时序建模，最后做全局编码。</p>
+<h4 id="63">6.3 核心经验<a class="headerlink" href="#63" title="Permanent link">&para;</a></h4>
+<ol>
+<li><strong>光流很强但贵</strong>：双流、I3D 都证明加光流能提升效果，但预处理耗时耗空间，推动了 Hidden Two-Stream、TSM、3D CNN 等端到端方法。</li>
+<li><strong>初始化很重要</strong>：I3D 通过 inflation 复用 2D 预训练，才使 3D 网络真正可用；ViViT 把图像 ViT 的位置编码沿时间重复、把 2D patch embedding 权重放在 3D 卷积中心，也是从图像模型初始化的关键策略。</li>
+<li><strong>拆分是降本增效的通用手段</strong>：R(2+1)D 把 3D 拆成 2D+1D，TimeSformer / ViViT Model 3 把时空注意力拆成时间+空间，本质都是降低复杂度。</li>
+<li><strong>自监督预训练对视频很重要</strong>：VideoMAE 用 tube masking + 90% mask ratio，证明小数据集上也能通过自监督学到强表征，为后续视频 LLM 的视觉编码器提供了预训练范式。</li>
+<li><strong>视频 LLM 时代，统一图文视频的表征与位置编码成为关键</strong>：从 Video-LLaVA 的跨模态对齐，到 Qwen2-VL 的 M-RoPE，再到 Qwen2.5-VL 的绝对时间编码，核心都是让图像和视频共享同一套 LLM 输入空间。</li>
+<li><strong>图像到视频的能力迁移是最省成本的路径</strong>：LLaVA-OneVision 证明先在高质量图像数据上训练，再通过统一 token 预算混合视频数据，就能让图像能力平滑迁移到视频。</li>
+<li><strong>长视频理解仍是开放问题</strong>：从 TSN 到 non-local 到 TimeSformer，大家都在探索如何高效建模长时序关系。</li>
+</ol>
+<h2 id="_7">第二部分：视频生成<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h3 id="7">7. 视频生成发展脉络<a class="headerlink" href="#7" title="Permanent link">&para;</a></h3>
+<p>视频生成的主线可以看作<strong>核心模型架构的代际更迭</strong>：从 GAN/VAE 的早期探索，到 Diffusion 一统天下，再到 DiT/Sora 的关键转折，以及如今自回归模型与世界模型的新前沿。其终极方向是成为能够模拟物理世界规律的<strong>世界模型</strong>。</p>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>时间</th>
+<th>代表技术</th>
+<th>核心特点</th>
+<th>主要局限</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GAN/VAE 早期探索</strong></td>
+<td>~2014–2020</td>
+<td>GAN、VAE、Flow-based</td>
+<td>把图像生成能力扩展到时间维度</td>
+<td>视频短、分辨率低、连贯性差，训练不稳定</td>
+</tr>
+<tr>
+<td><strong>Diffusion 一统天下</strong></td>
+<td>~2021–2024 初</td>
+<td>Stable Video Diffusion、Runway Gen-1/2</td>
+<td>以图像扩散模型为基座，增加时序层</td>
+<td>视觉质量和连贯性提升，但对时间轴理解仍不深</td>
+</tr>
+<tr>
+<td><strong>DiT / Sora 转折点</strong></td>
+<td>2024 初至今</td>
+<td>DiT、Sora</td>
+<td>用 Transformer 替换 U-Net，引入时空块统一表示</td>
+<td>需要大规模算力和数据</td>
+</tr>
+<tr>
+<td><strong>AR 与世界模型</strong></td>
+<td>现在及未来</td>
+<td>CogVideo、VideoPoet、Genie、Marble</td>
+<td>逐帧预测，利用 LLM 知识，探索世界模型</td>
+<td>与扩散/DiT 路线并行，尚未收敛</td>
+</tr>
+</tbody>
+</table>
+<p><strong>关键趋势</strong>：</p>
+<ol>
+<li><strong>架构遵循规模定律</strong>：从 CNN/GAN 到 Diffusion，再到 Transformer-based DiT，视频模型也能通过增加算力和数据获得显著提升。</li>
+<li><strong>统一时空表示</strong>：Sora 提出的“时空块”（Spacetime Patches）让不同时长、分辨率的视频可以用同一套框架处理。</li>
+<li><strong>两条路线并行</strong>：扩散/DiT 与自回归（AR）都在快速发展，二者相互借鉴，最终目标都是构建通用世界模拟器。</li>
+</ol>
+<p>下一节以 <strong>CogVideoX</strong> 为例，介绍当前视频生成的主流实现：3D Causal VAE + DiT + 3D RoPE。</p>
+<h3 id="8-cogvideox-2024">8. CogVideoX - 文本到视频生成 (2024)<a class="headerlink" href="#8-cogvideox-2024" title="Permanent link">&para;</a></h3>
 <blockquote>
 <p>📄 <strong>论文</strong>：<a href="https://arxiv.org/abs/2408.06072">CogVideoX: Text-to-Video Diffusion Models with An Expert Transformer</a><br />
 <strong>作者</strong>：Zhuoyi Yang, Jiayan Teng, Wendi Zheng, Ming Ding 等 (Tsinghua University &amp; Zhipu AI)<br />
 <strong>发表</strong>：ICLR 2025</p>
 </blockquote>
 <p><strong>核心思想</strong>：用 <strong>3D Causal VAE</strong> 压缩视频时空信息，用 <strong>Expert Transformer + Expert AdaLN</strong> 分别处理文本和视频特征，用 <strong>3D Full Attention</strong> 替代分离的时空注意力。</p>
-<h4 id="61_1">6.1 背景与动机<a class="headerlink" href="#61_1" title="Permanent link">&para;</a></h4>
+<h4 id="81">8.1 背景与动机<a class="headerlink" href="#81" title="Permanent link">&para;</a></h4>
 <p>视频生成的核心挑战：</p>
 <ol>
 <li><strong>时空压缩</strong>：视频是 3D 数据（时间 × 高度 × 宽度），如何高效压缩？</li>
@@ -4823,7 +5274,7 @@
 - 3D VAE 比 2D VAE + 时间插值更适合视频压缩
 - 分离的时空注意力无法处理相邻帧之间的大运动（视觉信息只能通过背景 patch 隐式传递）
 - 混合时长训练需要 Frame Pack 技术统一不同分辨率和时长的视频</p>
-<h4 id="62-3d-causal-vae-expert-transformer-3d-full-attention">6.2 核心方法：3D Causal VAE + Expert Transformer + 3D Full Attention<a class="headerlink" href="#62-3d-causal-vae-expert-transformer-3d-full-attention" title="Permanent link">&para;</a></h4>
+<h4 id="82-3d-causal-vae-expert-transformer-3d-full-attention">8.2 核心方法：3D Causal VAE + Expert Transformer + 3D Full Attention<a class="headerlink" href="#82-3d-causal-vae-expert-transformer-3d-full-attention" title="Permanent link">&para;</a></h4>
 <p><img alt="Figure 11: CogVideoX 的整体架构：3D Causal VAE 压缩视频 + Expert Transformer 融合文本条件 + 3D Full Attention 建模时空关系" src="../images/cogvideo_fig1_architecture.png" />
 <em>Figure 11: CogVideoX 的整体架构：3D Causal VAE 压缩视频 + Expert Transformer 融合文本条件 + 3D Full Attention 建模时空关系。</em></p>
 <p><strong>3D Causal VAE（视频压缩）</strong>：</p>
@@ -4861,7 +5312,7 @@
 <li><strong>外推而非插值</strong>：3D-RoPE 位置编码使用外推适应不同时长</li>
 <li><strong>优势</strong>：不浪费数据（不丢弃短视频，不截断长视频），模型学习统一的生成模式</li>
 </ul>
-<h4 id="63_1">6.3 训练策略<a class="headerlink" href="#63_1" title="Permanent link">&para;</a></h4>
+<h4 id="83">8.3 训练策略<a class="headerlink" href="#83" title="Permanent link">&para;</a></h4>
 <p><strong>渐进式训练</strong>：
 - 分辨率：256px → 512px → 768px
 - 时长：短视频 → 长视频</p>
@@ -4873,250 +5324,13 @@
 <p><strong>数据</strong>：
 - ~35M 过滤后的单镜头视频片段（平均 ~6 秒）
 - 2B 图像来自 LAION-5B / COYO-700M</p>
-<h4 id="64_1">6.4 总结<a class="headerlink" href="#64_1" title="Permanent link">&para;</a></h4>
+<h4 id="84">8.4 总结<a class="headerlink" href="#84" title="Permanent link">&para;</a></h4>
 <p>CogVideoX 的核心贡献：
 - <strong>3D Causal VAE</strong>：时序因果卷积，压缩比 8×8×4，支持长视频训练
 - <strong>Expert AdaLN</strong>：分别处理文本和视频特征，解决特征空间不匹配
 - <strong>3D Full Attention</strong>：统一的时空联合注意力，替代分离注意力
 - <strong>Frame Pack</strong>：混合时长训练，不浪费数据
 - 代表了视频生成的主流范式：3D VAE + DiT + 3D RoPE</p>
-<hr />
-<h2 id="_15">技术路线对比与总结<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
-<h3 id="_16">视频基础表征的技术路线<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>维度</th>
-<th>ViViT (2021)</th>
-<th>TimeSformer (2021)</th>
-<th>VideoMAE (2022)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>核心思想</strong></td>
-<td>3D tubelet embedding</td>
-<td>时空分离注意力</td>
-<td>掩码自编码器 + tube masking</td>
-</tr>
-<tr>
-<td><strong>Tokenization</strong></td>
-<td>3D patch（tubelet）</td>
-<td>2D patch（帧级）</td>
-<td>3D patch（cube）</td>
-</tr>
-<tr>
-<td><strong>注意力机制</strong></td>
-<td>4 种变体（Model 3 最佳）</td>
-<td>5 种方案（Divided T+S 最佳）</td>
-<td>Joint space-time（仅 10% tokens）</td>
-</tr>
-<tr>
-<td><strong>学习范式</strong></td>
-<td>有监督分类</td>
-<td>有监督分类</td>
-<td><strong>自监督预训练 + 微调</strong></td>
-</tr>
-<tr>
-<td><strong>数据效率</strong></td>
-<td>需要大数据集</td>
-<td>需要大数据集</td>
-<td><strong>小数据集也有效</strong></td>
-</tr>
-<tr>
-<td><strong>关键创新</strong></td>
-<td>首个纯 Transformer 视频模型</td>
-<td>证明 2D patch + 分离注意力足够</td>
-<td>90% tube masking 防止信息泄露</td>
-</tr>
-</tbody>
-</table>
-<p><strong>演进脉络</strong>：
-1. <strong>ViViT</strong> 证明了纯 Transformer 可以处理视频，提出 3D tubelet
-2. <strong>TimeSformer</strong> 质疑 3D tokenization 的必要性，证明 2D patch + 分离注意力就足够
-3. <strong>VideoMAE</strong> 引入自监督预训练，用 tube masking 解决视频冗余问题，为后续视频 LLM 提供预训练范式</p>
-<h3 id="llm">视频 LLM 的技术路线<a class="headerlink" href="#llm" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>维度</th>
-<th>Video-LLaVA (2023)</th>
-<th>Qwen2-VL (2024)</th>
-<th>LLaVA-OneVision (2024)</th>
-<th>InternVL 2.5 (2024)</th>
-<th>Qwen2.5-VL (2025)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>核心思想</strong></td>
-<td>Alignment Before Projection</td>
-<td>M-RoPE 首次提出</td>
-<td>Higher AnyRes + 任务迁移</td>
-<td>Pixel Unshuffle 压缩</td>
-<td>绝对时间 MRoPE</td>
-</tr>
-<tr>
-<td><strong>视频 tokenization</strong></td>
-<td>8 帧 + LanguageBind</td>
-<td>帧级 2D patch + 2×2 压缩</td>
-<td>196 tokens/帧（双线性插值）</td>
-<td>256 tokens/帧（Pixel Unshuffle）</td>
-<td><strong>3D patch</strong>（2×14×14）</td>
-</tr>
-<tr>
-<td><strong>位置编码</strong></td>
-<td>标准 RoPE</td>
-<td><strong>M-RoPE</strong>（帧索引作时间 ID）</td>
-<td>AnyRes 空间位置</td>
-<td>无显式时序</td>
-<td><strong>M-RoPE + 绝对时间戳</strong></td>
-</tr>
-<tr>
-<td><strong>视频帧数</strong></td>
-<td>8 帧</td>
-<td>动态</td>
-<td>最多 32 帧</td>
-<td>8-64 帧</td>
-<td>动态 FPS</td>
-</tr>
-<tr>
-<td><strong>tokens/帧</strong></td>
-<td>~256</td>
-<td>动态</td>
-<td>196</td>
-<td>256</td>
-<td>动态</td>
-</tr>
-<tr>
-<td><strong>关键创新</strong></td>
-<td>共享投影统一图文视频</td>
-<td>M-RoPE 三分量位置编码</td>
-<td>图像→视频能力迁移</td>
-<td>nmax=1，固定单 tile</td>
-<td>绝对时间戳，秒级事件定位</td>
-</tr>
-</tbody>
-</table>
-<p><strong>演进脉络</strong>：
-1. <strong>Video-LLaVA</strong> 证明了图文视频可以在投影层之前对齐，用共享投影层统一处理
-2. <strong>Qwen2-VL</strong> 首次提出 M-RoPE，统一建模文本/图像/视频的位置信息，动态分辨率支持任意输入
-3. <strong>LLaVA-OneVision</strong> 通过 Higher AnyRes + 统一 token 预算，实现从单图训练到视频理解的强迁移
-4. <strong>InternVL 2.5</strong> 用 Pixel Unshuffle 压缩 token，视频用固定单 tile 策略，简洁高效
-5. <strong>Qwen2.5-VL</strong> 将时间 ID 改为绝对时间戳（毫秒），引入 3D patch 划分，实现秒级事件定位</p>
-<h3 id="_17">视频生成的技术路线<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>维度</th>
-<th>CogVideoX (2024)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>核心思想</strong></td>
-<td>3D Causal VAE + Expert Transformer + 3D Full Attention</td>
-</tr>
-<tr>
-<td><strong>视频压缩</strong></td>
-<td>3D VAE（8×8×4 压缩比）</td>
-</tr>
-<tr>
-<td><strong>模态融合</strong></td>
-<td>Expert AdaLN（分别处理文本和视频）</td>
-</tr>
-<tr>
-<td><strong>注意力机制</strong></td>
-<td>3D Full Attention（统一时空）</td>
-</tr>
-<tr>
-<td><strong>位置编码</strong></td>
-<td>3D RoPE（3/8, 3/8, 2/8 通道分配）</td>
-</tr>
-<tr>
-<td><strong>训练策略</strong></td>
-<td>Frame Pack（混合时长训练）</td>
-</tr>
-</tbody>
-</table>
-<h3 id="_18">核心技术对比表<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>技术组件</th>
-<th>视频基础表征</th>
-<th>视频 LLM</th>
-<th>视频生成</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Tokenization</strong></td>
-<td>Tubelet (ViViT) / 2D patch (TimeSformer) / Cube (VideoMAE)</td>
-<td>3D patch (Qwen2.5-VL) / Pixel Unshuffle (InternVL) / 帧级采样 (Video-LLaVA, LLaVA-OneVision)</td>
-<td>3D VAE latent (CogVideoX)</td>
-</tr>
-<tr>
-<td><strong>位置编码</strong></td>
-<td>可学习时空位置编码</td>
-<td>M-RoPE (Qwen2-VL) / 绝对时间 M-RoPE (Qwen2.5-VL) / 标准 RoPE (Video-LLaVA)</td>
-<td>3D RoPE (CogVideoX)</td>
-</tr>
-<tr>
-<td><strong>注意力机制</strong></td>
-<td>分解注意力 (ViViT Model 3, TimeSformer Divided) / Joint (VideoMAE)</td>
-<td>窗口注意力 (Qwen2.5-VL) / 全注意力 (Video-LLaVA)</td>
-<td>3D Full Attention (CogVideoX)</td>
-</tr>
-<tr>
-<td><strong>时间建模</strong></td>
-<td>时序注意力 / tube masking</td>
-<td>绝对时间戳 (Qwen2.5-VL) / 帧索引 (Qwen2-VL) / 无显式建模 (Video-LLaVA, InternVL)</td>
-<td>时序因果卷积 (CogVideoX)</td>
-</tr>
-<tr>
-<td><strong>核心挑战</strong></td>
-<td>长序列计算复杂度</td>
-<td>时间理解（秒级定位）+ token 压缩</td>
-<td>时空压缩 + 模态融合</td>
-</tr>
-</tbody>
-</table>
-<h3 id="_19">关键洞察总结<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
-<ol>
-<li>
-<p><strong>视频 vs 图像的核心差异</strong>：视频多了时间维度，但相邻帧高度冗余（90% 信息重复），token 数量爆炸。所有视频模型都需要解决"如何高效压缩时间维度"的问题。</p>
-</li>
-<li>
-<p><strong>3D tokenization 是主流</strong>：从 ViViT 的 tubelet 到 Qwen2.5-VL 的 3D patch 到 CogVideoX 的 3D VAE，3D 压缩是处理视频的核心技术。</p>
-</li>
-<li>
-<p><strong>分解注意力 vs 联合注意力</strong>：ViViT 和 TimeSformer 证明分解注意力（先时间后空间）效率更高，但 CogVideoX 用 3D Full Attention 替代分离注意力，认为联合注意力能更好地处理大运动。</p>
-</li>
-<li>
-<p><strong>自监督预训练是视频表征的关键</strong>：VideoMAE 证明 tube masking + 90% masking ratio 可以高效学习视频表征，为后续视频 LLM 提供预训练范式。</p>
-</li>
-<li>
-<p><strong>M-RoPE 的演进</strong>：Qwen2-VL 首次提出三分量位置编码（时间、高度、宽度），统一图像和视频的位置建模；Qwen2.5-VL 进一步将时间 ID 改为绝对时间戳，实现秒级事件定位。</p>
-</li>
-<li>
-<p><strong>图像→视频任务迁移</strong>：LLaVA-OneVision 证明通过统一 token 预算设计，可以让模型从图像理解能力自然迁移到视频理解，无需从头为视频设计独立架构。</p>
-</li>
-<li>
-<p><strong>Token 压缩的设计哲学</strong>：InternVL 2.5 用 Pixel Unshuffle（4×压缩）+ 视频固定单 tile；LLaVA-OneVision 用双线性插值压缩到 196 tokens/帧；Qwen2.5-VL 用 3D patch 在 tokenization 阶段压缩。不同策略各有取舍。</p>
-</li>
-<li>
-<p><strong>视频生成需要 3D VAE + Expert Transformer</strong>：CogVideoX 代表主流范式，用 3D Causal VAE 压缩时空，用 Expert AdaLN 分别处理模态，用 Frame Pack 混合时长训练。</p>
-</li>
-</ol>
-<h3 id="_20">学习建议<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
-<ol>
-<li><strong>基础概念</strong>：先理解 ViT 的 patch embedding 和 RoPE，再理解 3D 扩展和 M-RoPE</li>
-<li><strong>视频基础表征</strong>：重点理解 ViViT 的 tubelet、TimeSformer 的 Divided Attention、VideoMAE 的 tube masking</li>
-<li><strong>视频 LLM 演进</strong>：从 Video-LLaVA（对齐基础）→ Qwen2-VL（M-RoPE 原型）→ LLaVA-OneVision（任务迁移）→ InternVL 2.5（token 压缩）→ Qwen2.5-VL（绝对时间）</li>
-<li><strong>视频生成</strong>：重点理解 CogVideoX 的 3D Causal VAE + Expert AdaLN + Frame Pack</li>
-<li><strong>对比学习</strong>：对比 ViViT vs TimeSformer（3D vs 2D tokenization）、Qwen2-VL vs Qwen2.5-VL（帧索引 vs 绝对时间戳）、InternVL vs LLaVA-OneVision（Pixel Unshuffle vs 双线性插值）</li>
-</ol>
 
 
 
