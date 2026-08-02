@@ -1854,6 +1854,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="1. L1 归一化与 L2 归一化（向量归一化）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        常见应用：🚗 CLIP
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -2773,6 +2790,28 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#q15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q15：温度系数是什么，如何影响模型输出？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q16：从最后一个隐状态到输出词，模型做了什么？
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3186,14 +3225,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../BERT/" class="md-nav__link">
+      <a href="../9_CLIP%20%26%20ALIGN/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    BERT
+    9_CLIP & ALIGN
   
 
     
@@ -3214,14 +3253,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../CLIP%20%26%20ALIGN/" class="md-nav__link">
+      <a href="../BERT/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    CLIP & ALIGN
+    BERT
   
 
     
@@ -4874,6 +4913,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="1. L1 归一化与 L2 归一化（向量归一化）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        常见应用：🚗 CLIP
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -5793,6 +5849,28 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#q15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q15：温度系数是什么，如何影响模型输出？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q16：从最后一个隐状态到输出词，模型做了什么？
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5815,7 +5893,7 @@
 
 
 
-<h1 id="aaaaaaa_">AAAAAAA_多模态<a class="headerlink" href="#aaaaaaa_" title="Permanent link">&para;</a></h1>
+<h1 id="aaaaaaa_">AAAAAAA_基础<a class="headerlink" href="#aaaaaaa_" title="Permanent link">&para;</a></h1>
 <hr />
 <h2 id="_1">目录<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ul>
@@ -10852,7 +10930,11 @@ softmax:                        [0.67, 0.24, 0.09]   ← 变平，三个都分�
 - 只改变向量的长度，不改变方向。
 - 两个 L2 归一化向量的点积直接等价于余弦相似度：<span class="arithmatex">\(\hat{x} \cdot \hat{y} = \cos\theta\)</span>。
 - 对异常大分量相对敏感，因为分母是平方和。</p>
-<p><strong>常见应用</strong>：CLIP / SigLIP 的图像-文本嵌入在做对比前先 L2 归一化；检索模型把 query 和文档向量 L2 归一化后求余弦相似度；Transformer 中 <span class="arithmatex">\(QK^\top/\sqrt{d_k}\)</span> 的缩放也基于 L2 范数思想。</p>
+<h4 id="clip"><strong>常见应用</strong>：🚗 CLIP<a class="headerlink" href="#clip" title="Permanent link">&para;</a></h4>
+<p>CLIP / SigLIP 的图像-文本嵌入在做对比前先 L2 归一化；检索模型把 query 和文档向量 L2 归一化后求余弦相似度；Transformer 中 <span class="arithmatex">\(QK^\top/\sqrt{d_k}\)</span> 的缩放也基于 L2 范数思想。</p>
+<blockquote>
+<p><strong>CLIP 中的具体用法</strong>：图像编码器（ViT/ResNet）和文本编码器（Transformer）分别输出嵌入向量后，各自做 L2 归一化，使两端向量都落在单位球面上。此后图文相似度直接用<strong>点积</strong>计算，结果就等价于余弦相似度（范围 <span class="arithmatex">\([-1, 1]\)</span>），再除以温度系数 <span class="arithmatex">\(\tau\)</span> 送入 InfoNCE 损失。L2 归一化的作用是：① 消除向量模长差异，让相似度只反映方向/语义；② 避免某些样本因编码器输出模长偏大而在对比学习中"占便宜"；③ 让温度系数 <span class="arithmatex">\(\tau\)</span> 的调节更稳定可预期。</p>
+</blockquote>
 <p><strong>L1 归一化</strong></p>
 <p>对向量 <span class="arithmatex">\(x\)</span>，L1 归一化把它除以自己的 L1 范数：</p>
 <div class="arithmatex">\[\hat{x} = \frac{x}{\|x\|_1} = \frac{x}{\sum_{i=1}^d |x_i| + \epsilon}\]</div>
@@ -14167,6 +14249,32 @@ b u n &lt;/w&gt;
 <blockquote>
 <p><strong>一句话总结</strong>：归纳偏置是模型对"世界长什么样"的先天假设。假设与数据真实结构匹配，模型学得快、泛化好；否则就会 struggle。</p>
 </blockquote>
+<h3 id="q15">Q15：温度系数是什么，如何影响模型输出？<a class="headerlink" href="#q15" title="Permanent link">&para;</a></h3>
+<p>温度系数 <span class="arithmatex">\(T\)</span> 放在 Softmax 的指数分母上，对每个 logit 做缩放：</p>
+<div class="arithmatex">\[\text{softmax}(x_i) = \frac{\exp(x_i / T)}{\sum_j \exp(x_j / T)}\]</div>
+<ul>
+<li><span class="arithmatex">\(T\)</span> 小（如 0.07）：分数被放大，分布变尖锐——高分项概率接近 1，低分项接近 0。训练信号"硬"，模型对错误惩罚重，但也容易不稳定。</li>
+<li><span class="arithmatex">\(T\)</span> 大（如 1.0）：分数被压缩，分布变平缓——各候选概率差别不大。训练信号"软"，学习更平稳但区分度弱。</li>
+</ul>
+<p>在文本生成中，温度低则输出保守确定，适合代码、数学等需要精确答案的场景；温度高则输出多样发散，适合写作、创作等需要想象力的场景。</p>
+<h3 id="q16">Q16：从最后一个隐状态到输出词，模型做了什么？<a class="headerlink" href="#q16" title="Permanent link">&para;</a></h3>
+<ol>
+<li>最后一个 Transformer block 输出隐状态：<code>[batch_size, seq_len, hidden_size]</code>，推理时<strong><u><em>取最后一个</em></u></strong>位置：<code>[batch_size, hidden_size]</code></li>
+<li>过 <strong>lm_head</strong>（一个线性层，无激活函数，权重形状 <code>[hidden_size, vocab_size]</code>）：<code>[batch_size, vocab_size]</code>，这就是 <strong>logits</strong>——词表中每个 token 的原始未归一化分数</li>
+<li>除以温度系数 <span class="arithmatex">\(T\)</span>，做 <strong>Softmax</strong>：<code>[batch_size, vocab_size]</code>，每一维变成概率，加和为 1</li>
+<li><strong>argmax 或采样</strong>：从 vocab_size 个概率中选出一个下标 <span class="arithmatex">\(i\)</span>，形状 <code>[batch_size]</code></li>
+<li><strong>查词表</strong>：用下标 <span class="arithmatex">\(i\)</span> 去 tokenizer 词表里取出对应的字符串，得到预测的 token</li>
+</ol>
+<p>关键点：logits 的第 <span class="arithmatex">\(i\)</span> 维天然对应词表第 <span class="arithmatex">\(i\)</span> 个 token，lm_head 的第 <span class="arithmatex">\(i\)</span> 列在训练中学的就是"输出第 <span class="arithmatex">\(i\)</span> 个 token 的倾向"，所以 Softmax 之后不需要额外的对应操作，直接按下标查表即可。</p>
+<p><strong>权重绑定（Weight Tying）</strong></p>
+<p>在绝大多数现代大模型（GPT、LLaMA 等）中，输入端的 embedding 矩阵和输出端的 lm_head 矩阵是<strong>同一个</strong>，形状互为转置（<code>[vocab_size, hidden_size]</code> vs <code>[hidden_size, vocab_size]</code>）。</p>
+<ul>
+<li><strong>节省参数</strong>：vocab_size 通常很大（3万~15万），共享权重能省掉几亿参数。</li>
+<li><strong>语义一致性</strong>：同一个 token 在输入和输出空间里的表示对称，语义空间更统一。</li>
+<li><strong>训练更稳定</strong>：梯度同时从输入端和输出端流向同一份权重，更新信号更充分。</li>
+</ul>
+<p>同一个矩阵在两处的用法不同：输入时做<strong>查表取向量</strong>（token id → 向量），输出时做<strong>点积打分</strong>（隐状态与每个 token 向量做点积，分数高的就是预测结果）。两个操作互为逆过程。🚗</p>
+<p>极简例子：词表只有 <code>["我", "爱"]</code>，向量维度为 2，矩阵存着 <code>我=[1.0, 0.0]，爱=[0.0, 1.0]</code>。输入"我"时取出 <code>[1.0, 0.0]</code> 开始计算；最后隐状态变成 <code>[0.9, 0.1]</code>，lm_head 用它分别与"我"点积得 0.9、与"爱"点积得 0.1，选分数高的输出"我"。没有这个矩阵，模型在最后一步根本不知道 <code>[0.9, 0.1]</code> 对应哪个词。</p>
 
 
 

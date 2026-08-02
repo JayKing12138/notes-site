@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../BERT/">
+        <link rel="prev" href="../8_%E8%A7%86%E9%A2%91%E7%90%86%E8%A7%A3%E4%B8%8E%E7%94%9F%E6%88%90/">
       
       
-        <link rel="next" href="../CLIP%20%E6%94%B9%E8%BF%9B%E5%B7%A5%E4%BD%9C%E4%B8%B2%E8%AE%B2%EF%BC%88%E4%B8%8A%EF%BC%89/">
+        <link rel="next" href="../BERT/">
       
       
         
@@ -23,7 +23,7 @@
     
     
       
-        <title>CLIP & ALIGN - 学习资料库</title>
+        <title>9_CLIP & ALIGN - 学习资料库</title>
       
     
     
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              CLIP & ALIGN
+              9_CLIP & ALIGN
             
           </span>
         </div>
@@ -1166,34 +1166,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../BERT/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    BERT
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -1213,7 +1185,7 @@
   <span class="md-ellipsis">
     
   
-    CLIP & ALIGN
+    9_CLIP & ALIGN
   
 
     
@@ -1231,7 +1203,7 @@
   <span class="md-ellipsis">
     
   
-    CLIP & ALIGN
+    9_CLIP & ALIGN
   
 
     
@@ -2114,6 +2086,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BERT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BERT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -3676,11 +3676,11 @@
 <p><strong>文本编码器</strong>：Transformer 输出中取 <strong>[EOS] token 在最高层的激活</strong>，做 layer norm，得到单一文本向量。</p>
 </li>
 <li>
-<p><strong>线性投射对齐维度</strong>
+<p><strong>线性投射对齐维度</strong> 🚗
    图像和文本编码器原始输出维度可以不同（比如图像 2048、文本 512），但各自接一个线性投射层 <code>W_i</code> 和 <code>W_t</code>，把它们映射到同一个维度（比如 512），得到 <code>I_e</code> 和 <code>T_e</code>。</p>
 </li>
 <li>
-<p><strong>L2 归一化 + 余弦相似度</strong>
+<p><strong>L2 归一化 + 余弦相似度</strong> 🚗
    对 <code>I_e</code> 和 <code>T_e</code> 做 L2 归一化，使它们长度为 1，此时点积就是余弦相似度。</p>
 </li>
 </ol>

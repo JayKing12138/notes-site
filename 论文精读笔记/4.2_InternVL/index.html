@@ -1052,6 +1052,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="1.3 QLLaMA🚗">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#qformer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        相比 QFormer 的优势： 🚗
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1919,14 +1936,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../BERT/" class="md-nav__link">
+      <a href="../9_CLIP%20%26%20ALIGN/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    BERT
+    9_CLIP & ALIGN
   
 
     
@@ -1947,14 +1964,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../CLIP%20%26%20ALIGN/" class="md-nav__link">
+      <a href="../BERT/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    CLIP & ALIGN
+    BERT
   
 
     
@@ -2636,6 +2653,23 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="1.3 QLLaMA🚗">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#qformer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        相比 QFormer 的优势： 🚗
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -3434,40 +3468,73 @@
 <h3 id="13-qllama">1.3 QLLaMA🚗<a class="headerlink" href="#13-qllama" title="Permanent link">&para;</a></h3>
 <p>QLLaMA 是 InternVL 1.0 用来连接视觉编码器和 LLM 的”语言中间件”，本质是一个改造过的 LLaMA 模型。</p>
 <p><strong>结构：</strong>
-- 基于<strong>多语言增强的 LLaMA-7B</strong> 初始化（总参数约 8B）
-- 在 LLaMA 的每层 Transformer Block 中新增 <strong>96 个可学习 Query</strong> 和 <strong>Cross-Attention 层</strong>（约 1B 新增参数，随机初始化）</p>
-<p><strong>工作方式：</strong>
-1. InternViT-6B 输出视觉 token；
-2. QLLaMA 的 96 个可学习 Query 通过 Cross-Attention “查询”这些视觉 token；
-3. 得到的表示作为<strong>前缀文本</strong>输入到后续自回归 LLM（如 Vicuna-13B），引导文本生成。</p>
-<p><strong>相比 QFormer 的优势：</strong></p>
+- 基于<strong>多语言增强的 LLaMA-7B</strong> 初始化（总参数约 8B）&lt;第一阶段图像文本对比学习，文本侧SFT的是这个llama 7B。&gt;
+- 在 LLaMA 的每层 Transformer Block 中新增 <strong>96 个可学习 Query</strong> 和 <strong>Cross-Attention 层</strong>（约 1B 新增参数，随机初始化）
+  - <em><u>Query是96个可学习query。K和V来自Vision Encoder。</u></em></p>
+<p><strong>工作方式：</strong></p>
+<ol>
+<li>InternViT-6B 输出视觉 token；</li>
+<li>QLLaMA 的 96 个可学习 Query 通过 Cross-Attention “查询”这些视觉 token；</li>
+<li>得到的表示作为<strong>前缀文本</strong>输入到后续自回归 LLM（如 Vicuna-13B），引导文本生成。</li>
+</ol>
+<h4 id="qformer"><strong>相比 QFormer 的优势：</strong> 🚗<a class="headerlink" href="#qformer" title="Permanent link">&para;</a></h4>
 <table>
 <thead>
 <tr>
 <th></th>
-<th>QFormer (BLIP-2)</th>
+<th>Q-Former (BLIP-2)</th>
 <th>QLLaMA (InternVL)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>初始化</td>
-<td>随机初始化</td>
-<td>LLaMA-7B 预训练权重</td>
+<td><strong>底座</strong></td>
+<td>BERT-base</td>
+<td>LLaMA-7B</td>
 </tr>
 <tr>
-<td>参数量</td>
+<td><strong>Query 数量</strong></td>
+<td>32</td>
+<td>96</td>
+</tr>
+<tr>
+<td><strong>Cross-Attn 位置</strong></td>
+<td>每层都有</td>
+<td>每隔 N 层一个</td>
+</tr>
+<tr>
+<td><strong>Query 是否共享</strong></td>
+<td>共享（全局一组）</td>
+<td>共享（全局一组）</td>
+</tr>
+<tr>
+<td><strong>参数量</strong></td>
 <td>~188M</td>
-<td>~8B（大 42 倍）</td>
+<td>~8B</td>
 </tr>
 <tr>
-<td>特征空间</td>
-<td>与 LLM 对齐弱</td>
-<td>天然兼容 LLM 语义空间</td>
+<td><strong>Attention Mask</strong></td>
+<td>三种模式按任务切换（见下）</td>
+<td>固定因果 mask</td>
+</tr>
+<tr>
+<td><strong>特征空间</strong></td>
+<td>BERT（MLM，双向），与 LLM 对齐弱</td>
+<td>LLaMA（CLM，因果），天然兼容 LLM 语义空间</td>
 </tr>
 </tbody>
 </table>
-<p>由于 LLaMA-7B 初始化，QLLaMA 的特征空间与下游 LLM 天然一致，SFT 阶段仅需一个轻量 MLP 即可对接，甚至可以冻结 LLM 解码器。</p>
+<p>两者都把 query token 和文本 token 拼接成一个序列送进模型，核心差异在于 <strong>mask 的灵活度</strong>：
+- <strong>Q-Former</strong>：针对三个预训练任务设计了三种输入方式—— 🚗
+  - <strong>ITC</strong>：query 和文本<strong>各自独立 forward</strong>，不拼接，各跑各的，跑完再做 L2 归一化和点积计算对比损失；
+  - <strong>ITM</strong>：query 和文本拼接，双向 mask，两者互相都能看到对方；
+  - <strong>ITG</strong>：query 和文本拼接，因果 mask，文本能看到所有 query 和前面的文本，但 query 看不到文本。
+- <strong>QLLaMA</strong>：直接沿用 LLaMA 的因果 mask，query 在序列前部，文本在后部，文本能看到 query，但 query 看不到文本，只有这一种固定模式，没有针对任务定制。</p>
+<blockquote>
+<p>没有经过验证，不100%保证这一段是正确的。不必要的话，不看这段了。</p>
+<p>🚗超级细节： <strong>QLLaMA 如何用因果 mask 完成 ITM：</strong> ITM 的做法是把 query tokens 和文本 tokens 拼接后送入模型，取拼接序列中某个位置的输出过一个 Linear 做二分类。关键在于取哪个位置：Q-Former 用双向 mask，第一个 query token（类似 CLS）能聚合整个序列信息，所以取它的输出做分类；QLLaMA 用因果 mask，query 看不到文本，但文本最后一个 token 能看到前面所有 query 和文本，信息最完整，所以取文本末尾 token 的输出过 Linear 做分类。本质差异：Q-Former 让 query 双向感知文本再判断，QLLaMA 让文本末尾 token 感知视觉 query 再判断，信息流方向相反，但都能完成图文匹配。</p>
+</blockquote>
+<p>由于 LLaMA-7B 初始化，QLLaMA 的特征空间与下游 LLM 天然一致，SFT 阶段仅需一个轻量 MLP 即可对接，甚至可以冻结 LLM 解码器。 🚗</p>
 <p><strong>为何 1.5 放弃了 QLLaMA：</strong>
 动态高分辨率引入后，每张图的视觉 token 数量大幅增加（可达数千个），QLLaMA 的 Cross-Attention 计算开销随之爆炸。1.5 改用两层 MLP 作为投影层，结构更简单，但配合高质量数据和更强的 ViT，效果反而更好。</p>
 <h3 id="14">1.4 三阶段训练🚗<a class="headerlink" href="#14" title="Permanent link">&para;</a></h3>
