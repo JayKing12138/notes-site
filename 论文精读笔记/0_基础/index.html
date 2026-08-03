@@ -2829,6 +2829,28 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#q17-rope-q-k-v" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q17：为什么 RoPE 只对 Q 和 K 施加旋转，不对 V 做操作？🚗
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q18rope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q18：RoPE 里为什么高频维度捕捉近距离，低频维度捕捉远距离？🚗
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5899,6 +5921,28 @@
     <span class="md-ellipsis">
       
         Q16：从最后一个隐状态到输出词，模型做了什么？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q17-rope-q-k-v" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q17：为什么 RoPE 只对 Q 和 K 施加旋转，不对 V 做操作？🚗
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q18rope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q18：RoPE 里为什么高频维度捕捉近距离，低频维度捕捉远距离？🚗
       
     </span>
   </a>
@@ -14299,6 +14343,18 @@ b u n &lt;/w&gt;
 </ul>
 <p>同一个矩阵在两处的用法不同：输入时做<strong>查表取向量</strong>（token id → 向量），输出时做<strong>点积打分</strong>（隐状态与每个 token 向量做点积，分数高的就是预测结果）。两个操作互为逆过程。🚗</p>
 <p>极简例子：词表只有 <code>["我", "爱"]</code>，向量维度为 2，矩阵存着 <code>我=[1.0, 0.0]，爱=[0.0, 1.0]</code>。输入"我"时取出 <code>[1.0, 0.0]</code> 开始计算；最后隐状态变成 <code>[0.9, 0.1]</code>，lm_head 用它分别与"我"点积得 0.9、与"爱"点积得 0.1，选分数高的输出"我"。没有这个矩阵，模型在最后一步根本不知道 <code>[0.9, 0.1]</code> 对应哪个词。</p>
+<h3 id="q17-rope-q-k-v">Q17：为什么 RoPE 只对 Q 和 K 施加旋转，不对 V 做操作？🚗<a class="headerlink" href="#q17-rope-q-k-v" title="Permanent link">&para;</a></h3>
+<p>RoPE 的目的是编码<strong>相对位置</strong>，而相对位置信息只通过 Q·K^T 这个点积来体现——旋转 Q 和 K 后，点积自然只依赖两者的位置差 <span class="arithmatex">\((m-n)\)</span>；V 不参与注意力分数计算，旋转 V 只会扭曲内容信息，零收益纯破坏。</p>
+<h3 id="q18rope">Q18：RoPE 里为什么高频维度捕捉近距离，低频维度捕捉远距离？🚗<a class="headerlink" href="#q18rope" title="Permanent link">&para;</a></h3>
+<p>用钟表来理解：</p>
+<ul>
+<li><strong>高频 = 秒针</strong>（转得快）：相邻两秒角度差明显，能区分近距离；但过了 60 秒转回原位，分不清"第 1 秒"和"第 61 秒"，远距离混叠。</li>
+<li><strong>低频 = 时针</strong>（转得慢）：相邻两秒几乎不动，分不清近距离；但 1 点和 8 点角度差很大，能区分远距离。</li>
+</ul>
+<p>所以 RoPE 需要完整的高低频频谱，才能同时感知近距离和远距离的位置关系。</p>
+<blockquote>
+<p><strong>频率分配</strong>：<span class="arithmatex">\(\theta_i = \text{base}^{-2i/d}\)</span>，<span class="arithmatex">\(i\)</span> 小（靠前维度）→ <span class="arithmatex">\(\theta_i\)</span> 大 → 高频（秒针）；<span class="arithmatex">\(i\)</span> 大（靠后维度）→ <span class="arithmatex">\(\theta_i\)</span> 小 → 低频（时针）。</p>
+</blockquote>
 
 
 
