@@ -1810,10 +1810,27 @@
   <a href="#2-swiglu" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. SwiGLU
+        2. SwiGLU 🚗🚗🚗
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="2. SwiGLU 🚗🚗🚗">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#swiglu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        为什么 SwiGLU 更好？ 🚗
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -4869,10 +4886,27 @@
   <a href="#2-swiglu" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. SwiGLU
+        2. SwiGLU 🚗🚗🚗
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="2. SwiGLU 🚗🚗🚗">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#swiglu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        为什么 SwiGLU 更好？ 🚗
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -10723,15 +10757,15 @@ softmax:                        [0.67, 0.24, 0.09]   ← 变平，三个都分�
 <div class="arithmatex">\[\text{Swish}(x) = x \cdot \sigma(x) = x \cdot \frac{1}{1 + e^{-x}}\]</div>
 <p>由 Google Brain 在 2017 年通过自动搜索发现。形式上与 GELU 非常相似（GELU 用正态分布 CDF，Swish 用 Sigmoid），但实验表明在某些深度网络中性能略优于 GELU。PyTorch 中称为 <code>SiLU</code>（Sigmoid Linear Unit），<code>F.silu(x)</code> 就是 Swish。</p>
 <p><strong>代表模型</strong>：EfficientNet、LLaMA、PaLM（作为 SwiGLU 的基础激活）</p>
-<h3 id="2-swiglu">2. SwiGLU<a class="headerlink" href="#2-swiglu" title="Permanent link">&para;</a></h3>
+<h3 id="2-swiglu">2. SwiGLU 🚗🚗🚗<a class="headerlink" href="#2-swiglu" title="Permanent link">&para;</a></h3>
 <p>SwiGLU 是 Transformer FFN（前馈网络）层的激活函数，由 Google 在 PaLM（Pathways Language Model）论文中提出，用于替换传统的 ReLU/GELU。</p>
 <p><strong>核心公式</strong>：</p>
 <p>标准 FFN：</p>
-<div class="arithmatex">\[\text{FFN}(x) = \sigma(xW_1) \odot xW_2\]</div>
+<div class="arithmatex">\[\text{FFN}(x) = \sigma(xW_{\text{up}}) W_{\text{down}}\]</div>
 <p>SwiGLU FFN：</p>
-<div class="arithmatex">\[\text{FFN}(x) = \text{Swish}(xW_1) \odot xW_2\]</div>
+<div class="arithmatex">\[\text{FFN}(x) = \text{Swish}(xW_{\text{gate}}) \odot (xW_{\text{up}}) W_{\text{down}}\]</div>
 <p>其中 <span class="arithmatex">\(\text{Swish}(x) = x \cdot \sigma(x) = x \cdot \text{sigmoid}(x)\)</span></p>
-<p><span class="arithmatex">\(\odot\)</span> 表示逐元素乘法（element-wise multiplication）</p>
+<p><span class="arithmatex">\(\odot\)</span> 表示逐元素乘法（element-wise multiplication），SwiGLU 通过门控分支 <span class="arithmatex">\(xW_{\text{gate}}\)</span> 和值分支 <span class="arithmatex">\(xW_{\text{up}}\)</span> 的逐元素乘法实现动态门控，标准 FFN 没有这个机制。</p>
 <p><strong>SwiGLU vs 传统激活函数</strong>：</p>
 <table>
 <thead>
@@ -10765,7 +10799,7 @@ softmax:                        [0.67, 0.24, 0.09]   ← 变平，三个都分�
 <td>参数量</td>
 <td>无</td>
 <td>无</td>
-<td>多一组投影 W₂</td>
+<td>多一组投影 W_up</td>
 </tr>
 <tr>
 <td>性能</td>
@@ -10783,9 +10817,9 @@ softmax:                        [0.67, 0.24, 0.09]   ← 变平，三个都分�
 </table>
 <p><img alt="image-20260714174534454" src="../images/image-20260714174534454.png" /></p>
 <p><strong>为什么 SwiGLU 需要调整 FFN 维度？</strong></p>
-<p>SwiGLU 比标准 FFN 多一组投影矩阵（W₂），为了保持总参数量相近，需要缩小 FFN 的隐藏维度：</p>
-<p>标准 FFN 参数量：<span class="arithmatex">\(2 \times d_{\text{model}} \times d_{ff}\)</span>（W₁ 和 W₂ 各 <span class="arithmatex">\(d_{\text{model}} \times d_{ff}\)</span>）</p>
-<p>SwiGLU 参数量：<span class="arithmatex">\(3 \times d_{\text{model}} \times d_{ff\_swiglu}\)</span>（W₁、W₂、W₃ 各 <span class="arithmatex">\(d_{\text{model}} \times d_{ff\_swiglu}\)</span>）</p>
+<p>SwiGLU 比标准 FFN 多一组投影矩阵（<span class="arithmatex">\(W_{\text{up}}\)</span>，值分支），为了保持总参数量相近，需要缩小 FFN 的隐藏维度：</p>
+<p>标准 FFN 参数量：<span class="arithmatex">\(2 \times d_{\text{model}} \times d_{ff}\)</span>（<span class="arithmatex">\(W_{\text{up}}\)</span> 和 <span class="arithmatex">\(W_{\text{down}}\)</span> 各 <span class="arithmatex">\(d_{\text{model}} \times d_{ff}\)</span>）</p>
+<p>SwiGLU 参数量：<span class="arithmatex">\(3 \times d_{\text{model}} \times d_{ff\_swiglu}\)</span>（<span class="arithmatex">\(W_{\text{gate}}\)</span>、<span class="arithmatex">\(W_{\text{up}}\)</span>、<span class="arithmatex">\(W_{\text{down}}\)</span> 各 <span class="arithmatex">\(d_{\text{model}} \times d_{ff\_swiglu}\)</span>）</p>
 <p>令两者相等：</p>
 <div class="arithmatex">\[2 \times d_{ff} = 3 \times d_{ff\_swiglu} \implies d_{ff\_swiglu} = \frac{2}{3} \times d_{ff}\]</div>
 <p>如果标准 FFN 用 <span class="arithmatex">\(4 \times d_{\text{model}}\)</span>：</p>
@@ -10798,45 +10832,35 @@ softmax:                        [0.67, 0.24, 0.09]   ← 变平，三个都分�
 <span class="k">class</span><span class="w"> </span><span class="nc">SwiGLU_FFN</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    SwiGLU 前馈网络</span>
-<span class="sd">    FFN(x) = Swish(x @ W₁) ⊙ (x @ W₂) @ W₃</span>
-
-<span class="sd">    对比标准 FFN:</span>
-<span class="sd">    标准: FFN(x) = GELU(x @ W₁) @ W₂</span>
+<span class="sd">    FFN(x) = Swish(x @ W_gate) ⊙ (x @ W_up) @ W_down</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">d_model</span><span class="p">,</span> <span class="n">d_ff</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-        <span class="c1"># 默认使用 2/3 × 4d_model 以保持参数量与标准 FFN 相近</span>
         <span class="k">if</span> <span class="n">d_ff</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">d_ff</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">2</span> <span class="o">/</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">d_model</span><span class="p">)</span>
 
-        <span class="c1"># 三个投影矩阵（标准 FFN 只有两个）</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">W1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">d_model</span><span class="p">,</span> <span class="n">d_ff</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># 门控投影</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">W2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">d_ff</span><span class="p">,</span> <span class="n">d_model</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># 下投影</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">W3</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">d_model</span><span class="p">,</span> <span class="n">d_ff</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># 值投影</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">W_gate</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">d_model</span><span class="p">,</span> <span class="n">d_ff</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">W_up</span>   <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">d_model</span><span class="p">,</span> <span class="n">d_ff</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">W_down</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">d_ff</span><span class="p">,</span> <span class="n">d_model</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-        <span class="c1"># 门控分支: Swish 激活</span>
-        <span class="n">gate</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">silu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">W1</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>  <span class="c1"># silu = swish</span>
-
-        <span class="c1"># 值分支: 线性投影</span>
-        <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">W3</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-
-        <span class="c1"># 门控乘法 + 下投影</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">W2</span><span class="p">(</span><span class="n">gate</span> <span class="o">*</span> <span class="n">value</span><span class="p">)</span>
+        <span class="n">gate</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">silu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">W_gate</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">W_up</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">W_down</span><span class="p">(</span><span class="n">gate</span> <span class="o">*</span> <span class="n">value</span><span class="p">)</span>
 
 
 <span class="k">class</span><span class="w"> </span><span class="nc">Standard_FFN</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;标准 FFN（对比用）&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;标准 FFN: FFN(x) = GELU(x @ W_up) @ W_down&quot;&quot;&quot;</span>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">d_model</span><span class="p">,</span> <span class="n">d_ff</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">d_ff</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">d_ff</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">d_model</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">W1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">d_model</span><span class="p">,</span> <span class="n">d_ff</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">W2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">d_ff</span><span class="p">,</span> <span class="n">d_model</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">W_up</span>   <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">d_model</span><span class="p">,</span> <span class="n">d_ff</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">W_down</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">d_ff</span><span class="p">,</span> <span class="n">d_model</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">W2</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">gelu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">W1</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">W_down</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">gelu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">W_up</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
 
 
 <span class="c1"># 参数量对比示例</span>
@@ -10848,11 +10872,11 @@ softmax:                        [0.67, 0.24, 0.09]   ← 变平，三个都分�
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;标准 FFN 参数量:  </span><span class="si">{</span><span class="nb">sum</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">numel</span><span class="p">()</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">standard</span><span class="o">.</span><span class="n">parameters</span><span class="p">())</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="c1"># 两者参数量接近，但 SwiGLU 性能更好</span>
 </code></pre></div>
-<p><strong>为什么 SwiGLU 更好？</strong></p>
+<h4 id="swiglu"><strong>为什么 SwiGLU 更好？</strong> 🚗<a class="headerlink" href="#swiglu" title="Permanent link">&para;</a></h4>
 <ol>
-<li><strong>门控机制</strong>：通过 Swish(xW₁) ⊙ xW₃ 实现动态门控，允许模型学习选择性抑制某些特征</li>
-<li><strong>平滑非线性</strong>：Swish 是平滑函数，梯度流更稳定，比 ReLU 的硬截断更好</li>
-<li><strong>负值保留</strong>：与 ReLU 完全丢弃负值不同，SwiGLU 保留负值信息，表达能力更强</li>
+<li><strong>更强的表达能力</strong>：通过 <span class="arithmatex">\(\text{Swish}(xW_{\text{gate}}) \odot xW_{\text{up}}\)</span> 实现动态门控，能对信息进行更精细的筛选，从而更有效地处理复杂的语义关系和长距离依赖。与 ReLU 完全丢弃负值不同，SwiGLU 保留负值信息，表达维度更丰富。</li>
+<li><strong>更优的性能表现</strong>：大量实验证明，SwiGLU 在各种规模的模型上（从几百万到几千亿参数）都持续优于 ReLU 和 GELU。在相同计算量下，使用 SwiGLU 的模型质量通常更高。</li>
+<li><strong>更稳定的训练过程</strong>：Swish 函数的平滑性让梯度流动更顺畅，有助于缓解梯度消失问题，比 ReLU 的硬截断更稳定。</li>
 </ol>
 <p><strong>已成为现代 LLM 标配</strong>：</p>
 <p>从 LLaMA 1 开始，<strong>RMSNorm + SwiGLU + RoPE</strong> 成为开源 LLM 的标准配置：</p>

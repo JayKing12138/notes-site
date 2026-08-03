@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<!-- saved from url=(0054)https://zhang-ren.github.io/Qwen-Technical-Report/#/16 -->
+<html lang="zh" data-ait-watermark-remover="not-gemini"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Qwen 系列技术演进 — 从 LLaMA 追随者到全模态架构创新者</title>
+<style>
+/* ========== base tokens + system ========== */
+:root{
+  --bg:#fdfcf8;--bg-soft:#f7f5ed;--surface:#ffffff;--surface-2:#f5f3ea;
+  --border:rgba(20,20,20,.14);--border-strong:rgba(20,20,20,.35);
+  --text-1:#0a0a0a;--text-2:#333333;--text-3:#707070;
+  --accent:#1a3a7a;--accent-2:#0a0a0a;--accent-3:#8a1a1a;
+  --good:#1a5a2a;--warn:#8a6a1a;--bad:#8a1a1a;
+  --grad:linear-gradient(135deg,#1a3a7a,#0a0a0a);
+  --grad-soft:linear-gradient(135deg,#e8edf8,#f5f3ea);
+  --radius:0;--radius-sm:0;--radius-lg:0;
+  --shadow:none;--shadow-lg:0 1px 2px rgba(0,0,0,.1);
+  --font-serif:'Playfair Display','Noto Serif SC',Georgia,serif;
+  --font-sans:'Inter','Noto Sans SC',-apple-system,sans-serif;
+  --font-mono:'JetBrains Mono','IBM Plex Mono',Menlo,monospace;
+  --font-display:var(--font-serif);
+  --ease:cubic-bezier(.4,0,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text-1);
+  font-family:var(--font-serif);font-weight:400;line-height:1.6;
+  -webkit-font-smoothing:antialiased}
+img,svg,video{max-width:100%;display:block}
+a{color:var(--accent);text-decoration:underline}
+code{font-family:var(--font-mono);font-size:.9em;background:var(--surface-2);padding:1px 5px}
+
+/* slide system */
+.deck{position:relative;width:100vw;height:100vh;overflow:hidden;background:var(--bg)}
+.slide{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;
+  padding:54px 80px;opacity:0;pointer-events:none;
+  transition:opacity .45s var(--ease),transform .45s var(--ease);transform:translateX(28px);overflow:hidden}
+.slide.is-active{opacity:1;pointer-events:auto;transform:translateX(0);z-index:2}
+.slide.is-prev{transform:translateX(-28px)}
+
+/* typography */
+h1.title,.h1{font-family:var(--font-display);font-size:54px;line-height:1.1;font-weight:700;margin:0 0 14px}
+h2.title,.h2{font-family:var(--font-display);font-size:42px;line-height:1.12;font-weight:700;margin:0 0 12px}
+h3,.h3{font-size:28px;line-height:1.2;font-weight:600;margin:0 0 8px}
+h4,.h4{font-size:19px;line-height:1.3;font-weight:600;margin:0 0 6px}
+.kicker{font-size:14px;font-weight:400;color:var(--accent);font-style:italic;margin-bottom:4px}
+.lede{font-size:19px;line-height:1.55;color:var(--text-2);font-weight:300;max-width:62ch}
+.dim{color:var(--text-2)}.dim2{color:var(--text-3)}
+
+/* layout */
+.stack>*+*{margin-top:12px}
+.row{display:flex;gap:20px;align-items:center}
+.grid{display:grid;gap:20px}
+.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
+
+/* components */
+.card{background:var(--surface);border:1px solid var(--border);padding:20px 22px;box-shadow:none}
+.card-accent{border-top:3px solid var(--accent)}
+.tag{display:inline-block;font-size:11px;padding:2px 10px;border:1px solid var(--accent);color:var(--accent);margin-right:5px;font-weight:500}
+.pill{display:inline-block;padding:3px 11px;font-size:11px;font-weight:500;background:var(--surface-2);color:var(--text-2);border:1px solid var(--border)}
+.highlight{background:var(--bg-soft);border-left:4px solid var(--accent);padding:14px 18px;margin:10px 0;font-size:15px;line-height:1.55}
+.divider-accent{height:2px;background:var(--accent);width:80px}
+.divider{height:1px;background:var(--border);width:100%}
+
+/* section divider slide */
+.section-slide{background:var(--accent);color:#fff;justify-content:center;align-items:flex-start;padding:72px 96px}
+.section-slide h2{color:#fff;font-size:52px}.section-slide .kicker{color:rgba(255,255,255,.7)}
+.section-slide .divider-accent{background:rgba(255,255,255,.5)}
+.section-slide .lede{color:rgba(255,255,255,.8)}
+
+/* table */
+table{width:100%;border-collapse:collapse;font-size:14px;margin-top:8px}
+th{background:var(--accent);color:#fff;padding:7px 12px;text-align:left;font-weight:600;font-size:13px}
+td{padding:6px 12px;border-bottom:1px solid var(--border);font-size:13px}
+tr:nth-child(even){background:var(--bg-soft)}
+
+/* image */
+.slide img{border:1px solid var(--border);max-height:400px;object-fit:contain}
+.slide img.hero{max-height:480px;margin:0 auto}
+.slide img.side{max-height:360px}
+.slide img.nb{border:none}
+.caption{font-size:12px;color:var(--text-3);margin-top:5px;font-style:italic}
+
+/* big numbers */
+.big-num{font-size:48px;font-weight:800;color:var(--accent);line-height:1}
+.big-label{font-size:13px;color:var(--text-2);margin-top:3px}
+
+ul{margin:6px 0;padding-left:22px}
+li{margin-bottom:5px;font-size:15px;line-height:1.5}
+li strong{color:var(--accent)}
+
+/* chrome */
+.deck-header{position:absolute;top:20px;left:36px;right:36px;display:flex;align-items:center;justify-content:space-between;
+  font-size:11px;color:var(--text-3);letter-spacing:.1em;text-transform:uppercase;z-index:10;pointer-events:none}
+.deck-footer{position:absolute;bottom:20px;left:36px;right:36px;display:flex;align-items:center;justify-content:space-between;
+  font-size:11px;color:var(--text-3);z-index:10;pointer-events:none}
+.section-slide .deck-header,.section-slide .deck-footer{color:rgba(255,255,255,.4)}
+.slide-number::before{content:attr(data-current)}
+.slide-number::after{content:" / " attr(data-total)}
+.progress-bar{position:fixed;left:0;right:0;bottom:0;height:3px;z-index:20}
+.progress-bar>span{display:block;height:100%;width:0;background:var(--accent);transition:width .3s var(--ease)}
+
+/* floating report button */
+.fab-report{position:fixed;bottom:32px;right:32px;z-index:50;display:flex;align-items:center;gap:8px;
+  padding:12px 22px;background:var(--accent);color:#fff;font-family:var(--font-sans);font-size:14px;font-weight:600;
+  border:none;border-radius:28px;cursor:pointer;box-shadow:0 4px 16px rgba(26,58,122,.35);
+  transition:all .25s var(--ease);text-decoration:none;letter-spacing:.02em}
+.fab-report:hover{background:#0d2a5e;box-shadow:0 6px 24px rgba(26,58,122,.5);transform:translateY(-2px)}
+.fab-report svg{width:18px;height:18px;fill:currentColor;flex-shrink:0}
+
+.notes{display:none!important}
+.notes-overlay{position:fixed;inset:auto 0 0 0;max-height:42vh;background:rgba(20,22,30,.95);color:#e8ebf4;
+  padding:18px 28px;font-size:15px;line-height:1.6;border-top:1px solid rgba(255,255,255,.1);transform:translateY(100%);
+  transition:transform .3s var(--ease);z-index:40;overflow:auto}
+.notes-overlay.open{transform:translateY(0)}
+.overview{position:fixed;inset:0;background:rgba(10,12,18,.92);backdrop-filter:blur(12px);z-index:50;
+  display:none;padding:32px;overflow:auto}
+.overview.open{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;align-content:start}
+.overview .thumb{background:var(--surface);border:1px solid var(--border);
+  aspect-ratio:16/9;overflow:hidden;cursor:pointer;position:relative;color:var(--text-1);padding:12px;font-size:10px;transition:transform .2s var(--ease)}
+.overview .thumb:hover{transform:scale(1.04)}
+.overview .thumb .n{position:absolute;top:6px;left:8px;font-weight:700;font-size:13px;color:var(--text-3)}
+.overview .thumb .t{position:absolute;bottom:8px;left:10px;right:10px;font-weight:600;font-size:11px;color:var(--text-1)}
+@media print{.slide{position:relative;opacity:1!important;transform:none!important;page-break-after:always;height:100vh}
+.deck-header,.deck-footer,.progress-bar,.notes-overlay,.overview{display:none!important}}
+</style>
+<style id="ait-global-toast-styles">
+        .ait-global-toast {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+        
+        .ait-global-toast.visible {
+            opacity: 1 !important;
+        }
+
+        .ait-global-toast.visible:not(.ait-global-toast-class-styled) {
+            transform: translateY(0) !important;
+        }
+    </style></head>
+<body>
+<div class="deck">
+<div class="deck-header"><span>Qwen 系列技术演进</span><span>学术汇报</span></div>
+<div class="deck-footer"><span>2026.04</span><span class="slide-number" data-current="16" data-total="34"></span></div>
+
+<!-- ═══════════════════ S1 COVER ═══════════════════ -->
+<section class="slide is-prev" data-title="封面">
+  <div style="display:flex;flex-direction:column;justify-content:center;height:100%">
+    <div class="kicker" style="font-size:16px;margin-bottom:10px">深度调研报告</div>
+    <div class="divider-accent" style="width:120px;margin-bottom:24px"></div>
+    <h1 class="title" style="font-size:52px;max-width:900px">Qwen 系列完整技术演进</h1>
+    <p class="lede" style="font-size:24px;margin-top:6px">从 LLaMA 追随者到全模态架构创新者的进化之路</p>
+    <div style="margin-top:36px;display:flex;gap:10px;flex-wrap:wrap">
+      <span class="tag">Qwen-1</span><span class="tag">Qwen2</span><span class="tag">Qwen2.5</span><span class="tag">Qwen3</span>
+      <span class="tag">VL</span><span class="tag">Omni</span><span class="tag">MoE</span><span class="tag">Thinking</span>
+    </div>
+    <p style="margin-top:44px;font-size:13px;color:var(--text-3)">
+      覆盖 10 个模型版本 · 2023.08 → 2025.09 · 50+ 原创图表<br>
+      键盘：← → 翻页 &nbsp;|&nbsp; O 总览 &nbsp;|&nbsp; F 全屏 &nbsp;|&nbsp; S 笔记
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════════ S2 TIMELINE ═══════════════════ -->
+<section class="slide is-prev" data-title="全系列时间线">
+  <h2 class="title" style="font-size:34px">全系列时间线演进</h2>
+  <div class="divider-accent" style="margin-bottom:14px"></div>
+  <img src="./images/Qwen 系列技术演进 — 从 LLaMA 追随者到全模态架构创新者_files/ch1_timeline.png" alt="时间线" class="hero" style="max-height:440px">
+  <p class="caption">横轴发布时间，纵轴分 Text / VL / Omni 三条产品线</p>
+</section>
+
+<!-- ═══════════════════ S3 六大脉络 ═══════════════════ -->
+<section class="slide is-prev" data-title="六大演进脉络">
+  <h2 class="title" style="font-size:34px">六大架构演进脉络总览</h2>
+  <div class="divider-accent" style="margin-bottom:14px"></div>
+  <img src="./images/Qwen 系列技术演进 — 从 LLaMA 追随者到全模态架构创新者_files/ch2_arch_evolution.png" alt="六大脉络" class="hero" style="max-height:440px">
+  <p class="caption">注意力机制 / 位置编码 / 视觉编码器 / 上下文长度 / 架构范式 / 模态支持</p>
+</section>
+
+<!-- ═══════════════════ PART I: 纯文本 LLM ═══════════════════ -->
+<section class="slide section-slide is-prev" data-title="Part I: 纯文本 LLM">
+  <div class="kicker" style="font-size:18px;margin-bottom:8px">Part I</div>
+  <div class="divider-accent" style="margin-bottom:24px"></div>
+  <h2 style="font-size:48px">纯文本 LLM 系列</h2>
+  <p class="lede" style="margin-top:12px">Qwen-1 → Qwen2 → Qwen2.5 → Qwen3<br>从 LLaMA 继承到 MoE 引领</p>
+</section>
+
+<!-- ═══════════════════ S5 Qwen-1 ═══════════════════ -->
+<section class="slide is-prev" data-title="Qwen-1 架构继承">
+  <div class="kicker">Qwen-1 · 2023.08 · 追随期</div>
+  <h2 class="title" style="font-size:36px">初代 Qwen：LLaMA 架构的继承与优化</h2>
+  <div class="divider-accent" style="margin-bottom:16px"></div>
+  <div class="two-col">
+    <div class="stack">
+      <h4>继承 LLaMA 的四大核心组件</h4>
+      <table>
+        <tbody><tr><th>组件</th><th>技术选型</th><th>设计原理</th></tr>
+        <tr><td><strong>归一化</strong></td><td>RMSNorm (pre-norm)</td><td>移除均值项，仅用 RMS 缩放，快 7-10%</td></tr>
+        <tr><td><strong>激活函数</strong></td><td>SwiGLU</td><td>Swish 门控 + 双投影，避免神经元死亡</td></tr>
+        <tr><td><strong>位置编码</strong></td><td>RoPE</td><td>旋转矩阵编码相对位置，支持外推</td></tr>
+        <tr><td><strong>注意力</strong></td><td>Standard MHA</td><td>标准多头注意力，全参数</td></tr>
+      </tbody></table>
+      <div class="highlight" style="margin-top:12px">
+        <strong>定位</strong>：验证「Decoder-Only Transformer + 中文优化」路线的可行性，为后续创新奠定架构基因。
+      </div>
+    </div>
+    <div>
+      <img src="./images/Qwen 系列技术演进 — 从 LLaMA 追随者到全模态架构创新者_files/ch3_rope_rotation.png" alt="RoPE" class="side">
+      <p class="caption">RoPE 旋转位置编码：位置 m 对应旋转角度 θ·m</p>
+      <img src="./images/Qwen 系列技术演进 — 从 LLaMA 追随者到全模态架构创新者_files/ch3_activation_functions.png" alt="激活函数" class="side" style="margin-top:12px;max-height:180px">
+      <p class="caption">SwiGLU vs ReLU/GELU 激活函数对比</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ S6 Qwen-1 独特设计 ═══════════════════ -->
+<section class="slide is-prev" data-title="Qwen-1 独特设计">
+  <div class="kicker">Qwen-1 · 差异化设计</div>
+  <h2 class="title" style="font-size:36px">Qwen-1 的三项独特创新</h2>
+  <div class="divider-accent" style="margin-bottom:16px"></div>
+  <div class="two-col">
+    <div>
+      <img src="./images/Qwen 系列技术演进 — 从 LLaMA 追随者到全模态架构创新者_files/ch3_layernorm_vs_rmsnorm.png" alt="RMSNorm" class="side">
+      <p class="caption">LayerNorm（5 步） vs RMSNorm（3 步）计算流程</p>
+    </div>
+    <div class="stack">
+      <div class="three-col" style="gap:14px">
+        <div class="card card-accent" style="text-align:center;padding:16px">
+          <div class="big-num" style="font-size:32px">151,643</div>
+          <div class="big-label">词表大小（LLaMA 仅 32K）</div>
+          <p style="font-size:12px;color:var(--text-2);margin-top:6px">多语言优化，中文分词效率提升 ~2x</p>
+        </div>
+        <div class="card card-accent" style="text-align:center;padding:16px">
+          <div class="big-num" style="font-size:32px">QKV</div>
+          <div class="big-label">Bias 偏置项</div>
+          <p style="font-size:12px;color:var(--text-2);margin-top:6px">提供与输入无关的「默认」注意力方向</p>
+        </div>
+        <div class="card card-accent" style="text-align:center;padding:16px">
+          <div class="big-num" style="font-size:28px">Untied</div>
+          <div class="big-label">嵌入不绑定</div>
+          <p style="font-size:12px;color:var(--text-2);margin-top:6px">输入输出嵌入独立，更好的输出分布</p>
+        </div>
+      </div>
+      <div class="highlight">
+        <strong>关键成就</strong>：Qwen-14B 超越 LLaMA2-13B ~10 分；中文 C-Eval 领先 40 分；代码 HumanEval 领先 20 分。证明中文词表 + 高质量数据可以弥补架构差距。
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ S7 Qwen2 ═══════════════════ -->
+<section class="slide is-prev" data-title="Qwen2 架构独立">
+  <div class="kicker">Qwen2 · 2024.07 · 独立期</div>
+  <h2 class="title" style="font-size:36px">Qwen2：架构独立创新的起点</h2>
+  <div class="divider-accent" style="margin-bottom:16px"></div>
+  <div class="two-col">
+    <div>
+      <img src="./images/Qwen 系列技术演进 — 从 LLaMA 追随者到全模态架构创新者_files/ch4_gqa_comparison.png" alt="GQA" class="side">
+      <p class="caption">MHA vs MQA vs GQA：Q/KV 头数分配</p>
+    </div>
+    <div class="stack">
+      <h4>创新 1：全尺寸 GQA（Grouped Query Attention）</h4>
+      <ul>
+        <li><strong>激进策略</strong>：所有尺寸（含 0.5B）均用 GQA，LLaMA 仅 70B 使用</li>
+        <li><strong>KV Cache 节省 8x</strong>：128K 上下文从 4GB → 512MB</li>
+        <li><strong>核心判断</strong>：长上下文时代，推理效率 &gt; 训练时 0.3 MMLU 损失</li>
+        <li>用 7T 高质量数据补偿 GQA 性能损失</li>
+      </ul>
+      <h4 style="margin-top:14px">创新 2：QK-Norm 替代 QKV Bias</h4>
+      <ul>
+        <li>长序列下 QKV Bias 导致 attention logits 累积爆炸</li>
+        <li>QK-Norm 将 Q/K 归一化到单位范数，动态范围可控</li>
+        <li>比 QKV Bias 提升 0.5-1 MMLU</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ S8 Qwen2 NTK-aware ═══════════════════ -->
+<section class="slide is-prev" data-title="Qwen2 NTK-aware RoPE">
+  <div class="kicker">Qwen2 · 长上下文扩展</div>
+  <h2 class="title" style="font-size:36px">Qwen2 创新 3：NTK-aware RoPE 频率分区</h2>
+  <div class="divider-accent" style="margin-bottom:16px"></div>
+  <div class="two-col">
+    <div>
+      <img src="./images/Qwen 系列技术演进 — 从 LLaMA 追随者到全模态架构创新者_files/ch4_ntk_aware_rope.png" alt="NTK" class="side">
+      <p class="caption">NTK-aware RoPE 三区间频率处理</p>
+    </div>
+    <div class="stack">
+      <div class="highlight">
+        <strong>问题</strong>：简单线性插值将所有频率等比压缩 → 高频信息（局部细节）失真。
+      </div>
+      <h4>NTK-aware 分频策略</h4>
+      <ul>
+        <li><strong>高频维度（i 小）</strong>：保持原频率，保留局部细节分辨率</li>
+        <li><strong>中频维度</strong>：平滑渐进插值，过渡区域</li>
+        <li><strong>低频维度（i 大）</strong>：按比例压缩，适应更长序列</li>
+      </ul>
+      <p style="font-size:14px;color:var(--text-2);margin-top:10px"><em>比喻：只降低贝斯音调以适应更大厅堂，小提琴高音保持不变 — 长距离信号频率降低以覆盖更长范围</em></p>
+      <div class="highlight" style="margin-top:8px">
+        <strong>里程碑</strong>：Qwen2-72B 首次超越 LLaMA3-70B 全部主要基准，MT-Bench 达到 GPT-4 级别（9.1 vs 9.2）
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ S9 Qwen2.5 数据 Scaling ═══════════════════ -->
+<section class="slide is-prev" data-title="Qwen2.5 数据突破">
+  <div class="kicker">Qwen2.5 · 2024.12 · 突破期</div>
+  <h2 class="title" style="font-size:36px">Qwen2.5：数据规模与长上下文突破</h2>
+  <div class="divider-accent" style="margin-bottom:16px"></div>
+  <div class="two-col">
+    <div>
+      <img src="./images/Qwen 系列技术演进 — 从 LLaMA 追随者到全模态架构创新者_files/ch5_scaling_law.png" alt="Scaling Law" class="side">
+      <p class="caption">72B 模型 3T → 36T 数据的 MMLU 提升曲线</p>
+    </div>
+    <div class="stack">
+      <div class="highlight">
+        <strong>关键决策</strong>：架构完全继承 Qwen2，不引入新组件。当架构已足够优秀时，数据质量和规模才是性能上限的决定因素。
+      </div>
+      <h4>创新 1：18T 数据（6x Qwen-1）</h4>
+      <ul>
+        <li><strong>Over-Training</strong>：12.5x Chinchilla 最优 — 推理成本远大于训练成本</li>
+        <li><strong>合成数据 ~20%</strong>：用 Qwen2-72B 生成推理样本，引入新信息维度</li>
+        <li><strong>OCR 提取</strong>：Qwen2.5-VL 从 PDF 提取结构化文本</li>
+      </ul>
+      <div class="three-col" style="margin-top:12px;gap:10px;text-align:center">
+        <div class="card" style="padding:12px">
+          <div class="big-num" style="font-size:30px">18T</div>
+          <div class="big-label">训练 tokens</div>
+        </div>
+        <div class="card" style="padding:12px">
+          <div class="big-num" style="font-size:30px">1M</div>
+          <div class="big-label">上下文长度</div>
+        </div>
+        <div class="card" style="padding:12px">
+          <div class="big-num" style="font-size:30px">87</div>
+          <div class="big-label">MMLU (72B)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ S10 Qwen2.5 YaRN + GRPO ═══════════════════ -->
+<section class="slide is-prev" data-title="Qwen2.5 YaRN &amp; GRPO">
+  <div class="kicker">Qwen2.5 · 长上下文 + 推理强化</div>
+  <h2 class="title" style="font-size:36px">Qwen2.5 创新 2-3：YaRN 与 GRPO</h2>
+  <div class="divider-accent" style="margin-bottom:16px"></div>
+  <div class="two-col">
+    <div class="stack">
+      <h4>创新 2：YaRN — 128K → 1M 上下文</h4>
+      <img src="./images/Qwen 系列技术演进 — 从 LLaMA 追随者到全模态架构创新者_files/ch5_yarn_frequency.png" alt="YaRN" class="side" style="max-height:200px">
+      <ul style="font-size:14px">
+        <li><strong>分频处理</strong>：高频不变 / 中频渐进 / 低频压缩</li>
+        <li><strong>注意力缩放</strong>：t = 0.1·ln(s) + 1，抵消注意力稀释</li>
+        <li><strong>渐进式扩展</strong>：4K → 32K → 128K → 1M，每阶段用不同训练数据</li>
+        <li>Needle-in-Haystack 1M 准确率 <strong>98.5%</strong></li>
+      </ul>
+    </div>
+    <div class="stack">
+      <h4>创新 3：GRPO 无 Critic 强化学习</h4>
+      <img src="./images/Qwen 系列技术演进 — 从 LLaMA 追随者到全模态架构创新者_files/ch5_grpo_algorithm.png" alt="GRPO" class="side" style="max-height:200px">
+      <ul style="font-size:14px">
+        <li><strong>核心思想</strong>：每题采样 G=8 个输出，组内 z-score 做优势估计</li>
+        <li><strong>无需 Critic</strong>：显存节省 ~30%（对 72B 意味着省 72B 参数）</li>
+        <li><strong>三阶段 RL</strong>：DPO（对齐）→ GRPO（推理）→ PPO（长文本）</li>
+        <li>MATH 达 85 分，<strong>超越 GPT-4o</strong>（76.6）</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ S11 Qwen3 总览 ═══════════════════ -->
+<section class="slide is-prev" data-title="Qwen3 总览">
+  <div class="kicker">Qwen3 · 2025.05 · 引领期</div>
+  <h2 class="title" style="font-size:36px">Qwen3：混合 MoE 与动态推理革命</h2>
+  <div class="divider-accent" style="margin-bottom:16px"></div>
+  <div class="two-col">
+    <div>
+      <img src="./images/Qwen 系列技术演进 — 从 LLaMA 追随者到全模态架构创新者_files/qwen3-MoE.png" alt="Qwen3 MoE" class="side" style="max-height:380px">
+      <p class="caption">Qwen3 Technical Report: MoE + Thinking 架构</p>
+    </div>
+    <div class="stack">
+      <div class="highlight">
+        <strong>两项范式级创新</strong>：① 统一 Thinking/Non-Thinking 模式 ② 混合 Dense + MoE 产品线
+      </div>
+      <table>
+        <tbody><tr><th>维度</th><th>Qwen2.5</th><th>Qwen3</th></tr>
+        <tr><td>训练数据</td><td>18T / 29 语言</td><td><strong>36T / 119 语言</strong></td></tr>
+        <tr><td>架构</td><td>纯 Dense</td><td><strong>Dense + MoE</strong></td></tr>
+        <tr><td>推理模式</td><td>单一</td><td><strong>Thinking + Non-Thinking</strong></td></tr>
+        <tr><td>旗舰</td><td>72B Dense</td><td><strong>235B-A22B MoE</strong></td></tr>
+        <tr><td>MMLU</td><td>~87</td><td><strong>~89</strong></td></tr>
+      </tbody></table>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ S12 Qwen3 MoE ═══════════════════ -->
+<section class="slide is-prev" data-title="Qwen3 MoE 路由">
+  <div class="kicker">Qwen3 · 创新 1</div>
+  <h2 class="title" style="font-size:36px">MoE 路由：128 专家 Top-8 + 共享专家</h2>
+  <div class="divider-accent" style="margin-bottom:16px"></div>
+  <div class="two-col">
+    <div>
+      <img src="./images/Qwen 系列技术演进 — 从 LLaMA 追随者到全模态架构创新者_files/ch6_moe_routing.png" alt="MoE 路由" class="side">
+      <p class="caption">Token → Router → Top-8 加权 + 共享专家</p>
+      <img src="./images/Qwen 系列技术演进 — 从 LLaMA 追随者到全模态架构创新者_files/ch6_load_balancing.png" alt="负载均衡" class="side" style="margin-top:10px;max-height:180px">
+      <p class="caption">Auxiliary Loss 平衡专家负载分布</p>
+    </div>
+    <div class="stack">
+      <div class="highlight">
+        <strong>核心思想</strong>：Dense 的容量与推理成本强绑定 — MoE 实现「按需调用」知识存储。235B 容量但仅 22B 推理成本。
+      </div>
+      <table>
+        <tbody><tr><th>模型</th><th>总参</th><th>激活</th><th>MMLU/激活参数</th></tr>
+        <tr><td>Qwen3-235B</td><td>235B</td><td>22B</td><td><strong>4.05（最优）</strong></td></tr>
+        <tr><td>DeepSeek-V3</td><td>671B</td><td>37B</td><td>2.38</td></tr>
+        <tr><td>LLaMA3-405B</td><td>405B</td><td>405B</td><td>0.21</td></tr>
+      </tbody></table>
+      <h4 style="margin-top:10px">负载均衡三策略</h4>
+      <ul style="font-size:13px">
+        <li><strong>辅助损失</strong>（λ=0.01）：惩罚高负载 × 高概率的专家</li>
+        <li><strong>容量因子</strong>（CF=1.25）：限制单专家最大负载</li>
+        <li><strong>共享专家</strong>（1 个）：保底能力 + 吸收溢出 token</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ S13 Qwen3 Thinking Mode ═══════════════════ -->
+<section class="slide is-prev" data-title="Qwen3 Thinking Mode">
+  <div class="kicker">Qwen3 · 创新 2</div>
+  <h2 class="title" style="font-size:36px">统一 Thinking Mode：动态推理深度控制</h2>
+  <div class="divider-accent" style="margin-bottom:16px"></div>
+  <div class="two-col">
+    <div>
+      <img src="./images/Qwen 系列技术演进 — 从 LLaMA 追随者到全模态架构创新者_files/ch6_thinking_training_pipeline.png" alt="Thinking 训练" class="side">
+      <p class="caption">四阶段训练：CoT 冷启动 → GRPO → Fusion → General RL</p>
+    </div>
+    <div class="stack">
+      <div class="highlight">
+        <strong>核心思想</strong>：计算量由问题难度动态决定 — 同一个大脑，简单问题直觉回答，复杂问题深度推理。
+      </div>
+      <h4>四阶段训练流程</h4>
+      <ul style="font-size:14px">
+        <li><strong>Stage 1</strong>：Long-CoT 冷启动（~100K 精选样本）— 教模型「先想后答」</li>
+        <li><strong>Stage 2</strong>：GRPO 推理 RL（仅 3,995 query）— 质量极高，G=16 采样</li>
+        <li><strong>Stage 3</strong>：Thinking Fusion — 统一 /think 与 /no_think（1:2 混合）</li>
+        <li><strong>Stage 4</strong>：General RL — PPO + DPO 全面对齐</li>
+      </ul>
+      <div class="highlight" style="margin-top:10px">
+        <strong>惊人效果</strong>：Thinking Mode 使 Qwen3-1.7B 达到 Qwen2.5-7B 水平 — 4x 参数差距被推理深度弥补；小模型增益（+15%）远大于大模型（+5%）。
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ S14 Qwen3 蒸馏 ═══════════════════ -->
+<section class="slide is-prev" data-title="Qwen3 强到弱蒸馏">
+  <div class="kicker">Qwen3 · 创新 3</div>
+  <h2 class="title" style="font-size:36px">强到弱蒸馏：90% 训练成本节省</h2>
+  <div class="divider-accent" style="margin-bottom:16px"></div>
+  <div class="two-col">
+    <div>
+      <img src="./images/Qwen 系列技术演进 — 从 LLaMA 追随者到全模态架构创新者_files/ch6_distillation.png" alt="蒸馏" class="side">
+      <p class="caption">L<sub>KL</sub>（暗知识 α=0.7）+ L<sub>MSE</sub>（特征对齐 β=0.3）</p>
+    </div>
+    <div class="stack">
+      <h4>暗知识（Dark Knowledge）</h4>
+      <ul style="font-size:14px">
+        <li>教师输出 [0.02, 0.15, <strong>0.70</strong>, 0.10, 0.03] — 包含错误选项间的相对排序</li>
+        <li>学生不仅学「C 最好」，还学「B 比 D 好，A 和 E 都差」</li>
+      </ul>
+      <h4 style="margin-top:12px">蒸馏路线</h4>
+      <ul style="font-size:14px">
+        <li><strong>235B-A22B</strong> → 30B-A3B（MoE 到 MoE）</li>
+        <li><strong>32B</strong> → 0.6B / 1.7B / 4B（Dense 到 Dense）</li>
+        <li>成本：30,000 GPU hours → <strong>3,000 GPU hours</strong></li>
+        <li>关键：小模型也获得 Thinking 能力（蒸馏传递推理模式）</li>
+      </ul>
+      <div class="highlight" style="margin-top:10px">
+        <strong>蒸馏哲学</strong>：「学我怎么做决策，而非学我怎么思考」— 输出分布比内部表示更有迁移价值。
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ PART II: 多模态 VL ═══════════════════ -->
+<section class="slide section-slide is-prev" data-title="Part II: 多模态 VL">
+  <div class="kicker" style="font-size:18px;margin-bottom:8px">Part II</div>
+  <div class="divider-accent" style="margin-bottom:24px"></div>
+  <h2 style="font-size:48px">多模态 VL 系列</h2>
+  <p class="lede" style="margin-top:12px">Qwen-VL → Qwen2-VL → Qwen2.5-VL → Qwen3-VL<br>从 Cross-Attention 到 MoE + Thinking</p>
+</section>
+
+<!-- ═══════════════════ S16 Qwen-VL ═══════════════════ -->
+<section class="slide is-active" data-title="Qwen-VL">
+  <div class="kicker">Qwen-VL · 2023.08 · 首个多模态</div>
+  <h2 class="title" style="font-size:36px">Qwen-VL：Cross-Attention Resampler 范式</h2>
+  <div class="divider-accent" style="margin-bottom:16px"></div>
+  <div class="two-col">
+    <div>
+      <img src="./images/Qwen 系列技术演进 — 从 LLaMA 追随者到全模态架构创新者_files/qwen-vl.png" alt="Qwen-VL" class="side" style="max-height:380px">
+      <p class="caption">ViT-bigG → Cross-Attention → 固定 256 token → Qwen-7B</p>
+    </div>
+    <div class="stack">
+      <h4>三组件设计</h4>
+      <ul style="font-size:14px">
+        <li><strong>ViT-bigG（1.9B）</strong>：OpenCLIP 预训练权重，视觉特征提取</li>
+        <li><strong>VL Adapter</strong>：256 可学习 query + 2D 绝对位置编码 — 核心创新</li>
+        <li><strong>Qwen-7B</strong>：语言理解与生成</li>
+      </ul>
+      <h4 style="margin-top:12px">三阶段训练</h4>
+      <ul style="font-size:14px">
+        <li><strong>Stage 1</strong>：冻结 LLM，训练 ViT + Adapter（224² 分辨率）</li>
+        <li><strong>Stage 2</strong>：全模型训练 7 类任务（<strong>448²</strong>，OCR 数据 24.8M 占比最大）</li>
+        <li><strong>Stage 3</strong>：冻结 ViT，SFT 35 万指令</li>
+      </ul>
+      <div class="highlight" style="margin-top:10px">
+        <strong>成就与局限</strong>：7B 超越 Flamingo-80B（10x 参数差）；但固定 256 token 形成信息瓶颈，高分辨率细节被强制压缩。
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ S17 Qwen2-VL M-RoPE ═══════════════════ -->
+<section class="slide" data-title="Qwen2-VL M-RoPE">
+  <div class="kicker">Qwen2-VL · 2024.10 · 多模态起步</div>
+  <h2 class="title" style="font-size:36px">Qwen2-VL 创新 1：M-RoPE 多模态位置编码</h2>
+  <div class="divider-accent" style="margin-bottom:16px"></div>
+  <div class="two-col">
+    <div>
+      <img src="./images/Qwen 系列技术演进 — 从 LLaMA 追随者到全模态架构创新者_files/M_RoPE.png" alt="M-RoPE" class="side" style="max-height:350px">
+      <p class="caption">M-RoPE：head 维度三等分，编码 t/h/w 三维</p>
+    </div>
+    <div class="stack">
+      <div class="highlight">
+        <strong>问题</strong>：1D-RoPE 将图像 patch 展平为序列 — 无法区分「同行相邻」vs「不同行但展平后相邻」。
+      </div>
+      <h4>M-RoPE 三维分解</h4>
+      <table>
+        <tbody><tr><th>Token 类型</th><th>t（时间）</th><th>h（高度）</th><th>w（宽度）</th></tr>
+        <tr><td>文本</td><td>pos</td><td>pos</td><td>pos</td></tr>
+        <tr><td>图像 (r, c)</td><td>固定常量</td><td>行索引 r</td><td>列索引 c</td></tr>
+        <tr><td>视频帧 f (r, c)</td><td><strong>帧序号 f</strong></td><td>行索引 r</td><td>列索引 c</td></tr>
+      </tbody></table>
+      <p style="font-size:14px;color:var(--text-2);margin-top:8px"><em>比喻：GPS 坐标系 — 经度/纬度/海拔唯一确定每个点；文本 token 三坐标同步递增时退化为 1D-RoPE</em></p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ S18 Qwen2-VL 动态分辨率 + 3D Tube ═══════════════════ -->
+<section class="slide" data-title="Qwen2-VL 动态分辨率">
+  <div class="kicker">Qwen2-VL · 创新 2-3</div>
+  <h2 class="title" style="font-size:36px">Qwen2-VL：动态分辨率 + 3D Tube 视频压缩</h2>
+  <div class="divider-accent" style="margin-bottom:16px"></div>
+  <div class="two-col">
+    <div class="stack">
+      <h4>创新 2：朴素动态分辨率</h4>
+      <img src="./images/Qwen 系列技术演进 — 从 LLaMA 追随者到全模态架构创新者_files/ch7_dynamic_resolution.png" alt="动态分辨率" class="side" style="max-height:200px">
+      <ul style="font-size:14px">
+        <li>任意尺寸输入，不 resize / 不 pad</li>
+        <li>Token 数 = (H/28) × (W/28)（含 PatchMerger 4:1 压缩）</li>
+        <li>模拟人类视觉选择性注意力：需要细看的分配更多 token</li>
+      </ul>
+    </div>
+    <div class="stack">
+      <h4>创新 3：3D Tube 时空压缩</h4>
+      <img src="./images/Qwen 系列技术演进 — 从 LLaMA 追随者到全模态架构创新者_files/ch7_3d_tube.png" alt="3D Tube" class="side" style="max-height:200px">
+      <ul style="font-size:14px">
+        <li><strong>Conv3d [2, 14, 14]</strong>：相邻两帧同一位置压缩为 1 token</li>
+        <li>时间 2x 压缩 + PatchMerger 4:1 空间压缩 = 总 <strong>8:1</strong></li>
+        <li>视频相邻帧 99% 内容相同 — 利用时间冗余</li>
+        <li>静态图像：复制为 2 帧，统一走 3D Tube 路径</li>
+      </ul>
+    </div>
+  </div>
+  <div class="highlight" style="margin-top:10px">
+    <strong>里程碑</strong>：OCRBench 866 大幅领先 GPT-4o（736）；MathVista 70.5 超越 GPT-4o（63.8）。但 GUI ScreenSpot = 1.6，几乎不可用。
+  </div>
+</section>
+
+<!-- ═══════════════════ S19 Qwen2.5-VL 从零训练 ViT ═══════════════════ -->
+<section class="slide" data-title="Qwen2.5-VL 从零训练 ViT">
+  <div class="kicker">Qwen2.5-VL · 2025.02 · 视觉深化</div>
+  <h2 class="title" style="font-size:36px">Qwen2.5-VL 创新 1：从零训练 ViT + Window Attention</h2>
+  <div class="divider-accent" style="margin-bottom:16px"></div>
+  <div class="two-col">
+    <div>
+      <img src="./images/Qwen 系列技术演进 — 从 LLaMA 追随者到全模态架构创新者_files/ch8_window_attention.png" alt="Window Attention" class="side">
+      <p class="caption">28 层 Window + 4 层 Global（第 7/15/23/31 层）</p>
+    </div>
+    <div class="stack">
+      <div class="highlight">
+        <strong>为什么放弃 CLIP？</strong> 对比学习优化全局语义匹配 — 对 OCR、公式、小物体等细粒度任务有固有缺陷。预训练权重是负担而非资产。
+      </div>
+      <h4>从零训练的设计自由度</h4>
+      <ul style="font-size:14px">
+        <li><strong>Window Attention</strong>：8×8 patch 窗口内注意力，O(N²) → O(N)，<strong>120x 加速</strong></li>
+        <li><strong>4 层全局 Attention</strong>：浅/中/深层各有全局感知，打破信息孤岛</li>
+        <li><strong>统一组件</strong>：RMSNorm + SwiGLU 与 LLM 对齐</li>
+        <li><strong>三尺寸共享</strong>：3B/7B/72B 用同一 ViT（~600M），训练一次复用</li>
+      </ul>
+      <p style="font-size:13px;color:var(--text-2);margin-top:6px">ViT 是「眼睛」，无论配给初级工程师还是资深学者，人眼分辨率相同。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ S20 Qwen2.5-VL MLP Merger + 绝对时间 ═══════════════════ -->
+<section class="slide" data-title="Qwen2.5-VL MLP Merger">
+  <div class="kicker">Qwen2.5-VL · 创新 2-3</div>
+  <h2 class="title" style="font-size:36px">MLP Merger 精妙设计 + 绝对时间对齐</h2>
+  <div class="divider-accent" style="margin-bottom:16px"></div>
+  <div class="two-col">
+    <div class="stack">
+      <h4>创新 2：MLP Merger（替代 PatchMerger）</h4>
+      <img src="./images/Qwen 系列技术演进 — 从 LLaMA 追随者到全模态架构创新者_files/ch8_mlp_merger.png" alt="MLP Merger" class="side" style="max-height:200px">
+      <ul style="font-size:14px">
+        <li>2×2 patch concat → <strong>双层 MLP + SiLU</strong> → LLM hidden dim</li>
+        <li>非线性变换学习跨 patch 空间纹理 — 区分「一」和「二」的笔划</li>
+        <li>4:1 压缩，每个 LLM token 对应 28×28 像素区域</li>
+      </ul>
+    </div>
+    <div class="stack">
+      <h4>创新 3：M-RoPE 绝对时间对齐</h4>
+      <img src="./images/Qwen 系列技术演进 — 从 LLaMA 追随者到全模态架构创新者_files/ch8_mrope_absolute_time.png" alt="绝对时间" class="side" style="max-height:200px">
+      <ul style="font-size:14px">
+        <li><strong>问题</strong>：Qwen2-VL 用帧序号（0,1,2）— 不同帧率视频无法感知真实时间</li>
+        <li><strong>改进</strong>：temporal_id = 实际时间戳（秒数）</li>
+        <li>2fps：[0.0, 0.5, 1.0, 1.5...] / 30fps：[0.000, 0.033, 0.067...]</li>
+        <li>Charades-STA mIoU 提升到 <strong>50.9</strong></li>
+      </ul>
+    </div>
+  </div>
+  <div class="highlight" style="margin-top:8px">
+    <strong>训练规模</strong>：4.1T tokens 三阶段（ViT 预训练 1.5T → 联合多模态 2.0T → 长上下文 0.6T）。GUI ScreenSpot 从 1.6 → <strong>43.6</strong>（27x 提升）。
+  </div>
+</section>
+
+<!-- ═══════════════════ S21 Qwen3-VL Interleaved-MRoPE ═══════════════════ -->
+<section class="slide" data-title="Qwen3-VL Interleaved-MRoPE">
+  <div class="kicker">Qwen3-VL · 2025 下半年 · 视觉 MoE</div>
+  <h2 class="title" style="font-size:36px">Qwen3-VL 创新 1：Interleaved-MRoPE 全局坐标系</h2>
+  <div class="divider-accent" style="margin-bottom:16px"></div>
+  <div class="two-col">
+    <div>
+      <img src="./images/Qwen 系列技术演进 — 从 LLaMA 追随者到全模态架构创新者_files/ch10_coordinate_collision.png" alt="坐标碰撞" class="side">
+      <p class="caption">左：M-RoPE 多图坐标碰撞 / 右：全局坐标系解决方案</p>
+    </div>
+    <div class="stack">
+      <div class="highlight">
+        <strong>致命缺陷</strong>：M-RoPE 每张图从 (0,0) 开始 — 100 张图就有 100 个 (0,0)，256K 上下文完全无法区分。
+      </div>
+      <h4>全局坐标系</h4>
+      <ul style="font-size:14px">
+        <li>每张图在全局位置空间分配<strong>唯一偏移</strong></li>
+        <li>h_id = <strong>base + r</strong>，w_id = <strong>base + c</strong>（base = 全局起始位置）</li>
+        <li>256K 上下文 100+ 张图，每个 patch 全局唯一</li>
+      </ul>
+      <p style="font-size:14px;color:var(--text-2);margin-top:8px"><em>比喻：M-RoPE 像每栋楼都有「101 室」但不知在哪条街 — Interleaved 加了街道地址</em></p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ S22 Qwen3-VL DeepStack + MoE ═══════════════════ -->
+<section class="slide" data-title="Qwen3-VL DeepStack">
+  <div class="kicker">Qwen3-VL · 创新 2-3</div>
+  <h2 class="title" style="font-size:36px">DeepStack 多层融合 + VL 首次引入 MoE</h2>
+  <div class="divider-accent" style="margin-bottom:16px"></div>
+  <div class="two-col">
+    <div class="stack">
+      <h4>创新 2：DeepStack 多层 ViT 特征融合</h4>
+      <img src="./images/Qwen 系列技术演进 — 从 LLaMA 追随者到全模态架构创新者_files/ch10_deepstack.png" alt="DeepStack" class="side" style="max-height:220px">
+      <ul style="font-size:14px">
+        <li>Qwen2.5-VL 仅用 ViT 最后一层 — 深层语义丰富但浅层细节丢失</li>
+        <li><strong>浅层（1-10）</strong>：边缘/笔划 → OCR</li>
+        <li><strong>中层（11-22）</strong>：字符组合 → 文字行</li>
+        <li><strong>深层（23-32）</strong>：全局语义 → VQA</li>
+        <li>可学习权重自适应融合，OCR 加大浅层，VQA 加大深层</li>
+      </ul>
+    </div>
+    <div class="stack">
+      <h4>创新 3：MoE 首入 VL 领域</h4>
+      <img src="./images/Qwen 系列技术演进 — 从 LLaMA 追随者到全模态架构创新者_files/qwen3vl_arc.jpg" alt="Qwen3-VL" class="side" style="max-height:220px">
+      <ul style="font-size:14px">
+        <li><strong>Qwen3-VL-235B-A22B</strong>：128 专家 + 8 激活 + 1 共享</li>
+        <li>VL 任务多样性（OCR/VQA/Grounding/视频/GUI）→ 不同专家子集</li>
+        <li><strong>Thinking Mode</strong>：视觉 CoT + GRPO 强化学习</li>
+        <li><strong>256K 原生多模态上下文</strong>：100+ 图 / 60+ 分钟视频</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ PART III: 全模态 Omni ═══════════════════ -->
+<section class="slide section-slide" data-title="Part III: 全模态 Omni">
+  <div class="kicker" style="font-size:18px;margin-bottom:8px">Part III</div>
+  <div class="divider-accent" style="margin-bottom:24px"></div>
+  <h2 style="font-size:48px">全模态 Omni 系列</h2>
+  <p class="lede" style="margin-top:12px">Qwen2.5-Omni → Qwen3-Omni<br>Thinker-Talker 双轨架构 → 234ms 极速流式</p>
+</section>
+
+<!-- ═══════════════════ S24 Qwen2.5-Omni Thinker-Talker ═══════════════════ -->
+<section class="slide" data-title="Qwen2.5-Omni Thinker-Talker">
+  <div class="kicker">Qwen2.5-Omni · 2025.03 · 统一期</div>
+  <h2 class="title" style="font-size:36px">Qwen2.5-Omni 创新 1：Thinker-Talker 双轨架构</h2>
+  <div class="divider-accent" style="margin-bottom:16px"></div>
+  <div class="two-col">
+    <div>
+      <img src="./images/Qwen 系列技术演进 — 从 LLaMA 追随者到全模态架构创新者_files/Qwen2.5-Omni.png" alt="Thinker-Talker" class="side" style="max-height:380px">
+      <p class="caption">Thinker（推理大脑）+ Talker（语音嘴巴）</p>
+    </div>
+    <div class="stack">
+      <div class="highlight">
+        <strong>根本矛盾</strong>：文本生成（离散 ~150K 词表, ~30 tok/s）与语音生成（声学 ~1024 码本, ~75 frames/s）优化目标冲突，强行合并双双退化。
+      </div>
+      <h4>Thinker：多模态感知大脑</h4>
+      <ul style="font-size:14px">
+        <li>Qwen2.5-7B 骨干，输入文本+图像+音频+视频</li>
+        <li>输出 ①文本 token ②<strong>Hidden States</strong>（传给 Talker）</li>
+      </ul>
+      <h4>Talker：语音合成嘴巴</h4>
+      <ul style="font-size:14px">
+        <li>轻量 Transformer，接收 Hidden States + 历史 audio codec</li>
+        <li>与 Thinker 并行运行，边理解边说</li>
+      </ul>
+      <div class="highlight" style="margin-top:8px">
+        <strong>为什么传 Hidden States 而非 Token IDs？</strong> 保留完整语义梯度（语气/强调/情感），支持端到端联合优化。
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ S25 Qwen2.5-Omni TMRoPE ═══════════════════ -->
+<section class="slide" data-title="Qwen2.5-Omni TMRoPE">
+  <div class="kicker">Qwen2.5-Omni · 创新 2-3</div>
+  <h2 class="title" style="font-size:36px">TMRoPE 物理时间轴 + 流式音频编码</h2>
+  <div class="divider-accent" style="margin-bottom:16px"></div>
+  <div class="two-col">
+    <div class="stack">
+      <h4>创新 2：TMRoPE — 统一物理时间坐标</h4>
+      <img src="./images/Qwen 系列技术演进 — 从 LLaMA 追随者到全模态架构创新者_files/MTRoPE.png" alt="TMRoPE" class="side" style="max-height:220px">
+      <ul style="font-size:14px">
+        <li><strong>问题</strong>：视频帧和音频块时间单位不统一</li>
+        <li><strong>方案</strong>：pos_id<sub>t</sub> = ⌊实际秒数 × r<sub>ref</sub>⌋</li>
+        <li>同一时刻的音视频 token 自动获得相近 temporal ID</li>
+        <li>模型隐式学习「画面嘴动 ↔ 声音出现」的时序关联</li>
+      </ul>
+    </div>
+    <div class="stack">
+      <h4>创新 3：Whisper-like 流式音频编码</h4>
+      <img src="./images/Qwen 系列技术演进 — 从 LLaMA 追随者到全模态架构创新者_files/ch9_audio_encoder.png" alt="Audio Encoder" class="side" style="max-height:220px">
+      <ul style="font-size:14px">
+        <li>16kHz → 80ch Mel → CNN 2x 下采样 → Transformer 32 层 → MLP</li>
+        <li><strong>Block-wise 流式</strong>：每 ~2 秒一个 Block，边接收边理解</li>
+        <li>首包延迟 = 1 个 Block 处理时间，而非完整说话时长</li>
+      </ul>
+    </div>
+  </div>
+  <div class="highlight" style="margin-top:8px">
+    <strong>防灾难遗忘</strong>：渐进解冻 + 持续文本复习 20-30% + Thinker-Talker 物理隔离 → 各单模态能力退化 &lt;1%
+  </div>
+</section>
+
+<!-- ═══════════════════ S26 Qwen3-Omni Causal ConvNet ═══════════════════ -->
+<section class="slide" data-title="Qwen3-Omni Causal ConvNet">
+  <div class="kicker">Qwen3-Omni · 2025.09 · 极速全模态</div>
+  <h2 class="title" style="font-size:36px">Qwen3-Omni 创新 1：DiT → Causal ConvNet</h2>
+  <div class="divider-accent" style="margin-bottom:16px"></div>
+  <div class="two-col">
+    <div>
+      <img src="./images/Qwen 系列技术演进 — 从 LLaMA 追随者到全模态架构创新者_files/ch11_dit_vs_convnet.png" alt="DiT vs ConvNet" class="side" style="max-height:300px">
+      <p class="caption">DiT（非因果多步 ~600ms）→ Causal ConvNet（因果单步 234ms）</p>
+      <img src="./images/Qwen 系列技术演进 — 从 LLaMA 追随者到全模态架构创新者_files/ch11_causal_conv.png" alt="因果卷积" class="side" style="margin-top:8px;max-height:160px">
+      <p class="caption">膨胀因果卷积：dilation=1,2,4,8 扩展感受野</p>
+    </div>
+    <div class="stack">
+      <div class="highlight">
+        <strong>关键判断</strong>：300ms 以下延迟是硬约束（人类感知阈值），MOS 下降 5% 内用户无感。延迟 &gt; 音质。
+      </div>
+      <h4>DiT 的两个延迟瓶颈</h4>
+      <ul style="font-size:14px">
+        <li>非因果感受野：等待窗口填满 ~500ms</li>
+        <li>多步迭代去噪：20-50 步扩散 ~100-300ms</li>
+      </ul>
+      <h4 style="margin-top:10px">Causal ConvNet 方案</h4>
+      <ul style="font-size:14px">
+        <li><strong>严格因果</strong>：padding 只在左侧，不看未来</li>
+        <li><strong>单步前向</strong>：O(1) 延迟 vs DiT 的 O(W)+O(T)</li>
+        <li><strong>膨胀卷积</strong>：4 层覆盖 ~500ms 历史上下文</li>
+        <li>+ Multi-Codebook RVQ 补偿声学细节</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ S27 Qwen3-Omni 延迟 + RVQ ═══════════════════ -->
+<section class="slide" data-title="Qwen3-Omni 234ms">
+  <div class="kicker">Qwen3-Omni · 创新 2-3</div>
+  <h2 class="title" style="font-size:36px">234ms 首包延迟 + Multi-Codebook RVQ</h2>
+  <div class="divider-accent" style="margin-bottom:16px"></div>
+  <div class="two-col">
+    <div class="stack">
+      <h4>创新 2：延迟分解 — 234ms 瀑布图</h4>
+      <img src="./images/Qwen 系列技术演进 — 从 LLaMA 追随者到全模态架构创新者_files/ch11_latency_waterfall.png" alt="延迟瀑布" class="side" style="max-height:240px">
+      <table style="font-size:13px;margin-top:8px">
+        <tbody><tr><th>环节</th><th>耗时</th></tr>
+        <tr><td>音频编码（first block）</td><td>~80ms</td></tr>
+        <tr><td>Thinker 首 token</td><td>~60ms</td></tr>
+        <tr><td>Talker 首 audio token</td><td>~30ms</td></tr>
+        <tr><td>ConvNet 解码（单步）</td><td>~40ms</td></tr>
+        <tr><td>Vocoder 首帧</td><td>~24ms</td></tr>
+        <tr><td style="font-weight:700">总计</td><td style="font-weight:700">234ms</td></tr>
+      </tbody></table>
+    </div>
+    <div class="stack">
+      <h4>创新 3：Multi-Codebook RVQ</h4>
+      <img src="./images/Qwen 系列技术演进 — 从 LLaMA 追随者到全模态架构创新者_files/ch11_rvq.png" alt="RVQ" class="side" style="max-height:240px">
+      <ul style="font-size:14px">
+        <li>多层码本逐层量化残差：每增一层，误差减半</li>
+        <li>K 层后误差 ≈ 原始的 2<sup>-K</sup></li>
+        <li>为 Causal ConvNet 提供更丰富输入：单层→多层 codes</li>
+        <li>最终音质差距缩小到 <strong>&lt;5% MOS</strong></li>
+      </ul>
+      <div class="highlight" style="margin-top:8px">
+        <strong>MoE Thinker</strong>：30B-A3B 替换 Dense 7B — 容量 4.3x 提升，激活参数反而更少（3B &lt; 7B），推理更快。
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ PART IV: 总结 ═══════════════════ -->
+<section class="slide section-slide" data-title="Part IV: 总结">
+  <div class="kicker" style="font-size:18px;margin-bottom:8px">Part IV</div>
+  <div class="divider-accent" style="margin-bottom:24px"></div>
+  <h2 style="font-size:48px">对比分析与趋势总结</h2>
+</section>
+
+<!-- ═══════════════════ S29 VL 四代对比 ═══════════════════ -->
+<section class="slide" data-title="VL 四代对比">
+  <h2 class="title" style="font-size:34px">VL 模型四代核心演进对比</h2>
+  <div class="divider-accent" style="margin-bottom:14px"></div>
+  <img src="./images/Qwen 系列技术演进 — 从 LLaMA 追随者到全模态架构创新者_files/ch13_vl_heatmap.png" alt="VL 热力图" class="hero" style="max-height:360px">
+  <table style="font-size:12px;margin-top:10px">
+    <tbody><tr><th>维度</th><th>Qwen-VL</th><th>Qwen2-VL</th><th>Qwen2.5-VL</th><th>Qwen3-VL</th></tr>
+    <tr><td>视觉编码器</td><td>CLIP ViT 固定</td><td>DFN ViT 675M</td><td><strong>从零训练+Window</strong></td><td>+DeepStack</td></tr>
+    <tr><td>融合机制</td><td>Cross-Attention</td><td>PatchMerger</td><td><strong>MLP Merger</strong></td><td>+多层融合</td></tr>
+    <tr><td>位置编码</td><td>2D 绝对</td><td>M-RoPE</td><td>M-RoPE+绝对时间</td><td><strong>Interleaved-MRoPE</strong></td></tr>
+    <tr><td>MoE / Thinking</td><td>❌ / ❌</td><td>❌ / ❌</td><td>❌ / ❌</td><td><strong>✅ / ✅</strong></td></tr>
+    <tr><td>上下文</td><td>2-8K</td><td>32-128K</td><td>128K</td><td><strong>256K</strong></td></tr>
+  </tbody></table>
+</section>
+
+<!-- ═══════════════════ S30 纯文本对比 ═══════════════════ -->
+<section class="slide" data-title="纯文本对比">
+  <h2 class="title" style="font-size:34px">纯文本 LLM 四代核心对比</h2>
+  <div class="divider-accent" style="margin-bottom:14px"></div>
+  <div class="two-col">
+    <div>
+      <table style="font-size:13px">
+        <tbody><tr><th>维度</th><th>Qwen-1</th><th>Qwen2</th><th>Qwen2.5</th><th>Qwen3</th></tr>
+        <tr><td>注意力</td><td>MHA</td><td><strong>GQA</strong></td><td>GQA+QK-Norm</td><td>GQA+MoE</td></tr>
+        <tr><td>扩展技术</td><td>—</td><td>NTK-aware</td><td><strong>YaRN</strong></td><td>渐进训练</td></tr>
+        <tr><td>数据量</td><td>~3T</td><td>7T</td><td>18T</td><td><strong>36T</strong></td></tr>
+        <tr><td>上下文</td><td>16K</td><td>128K</td><td><strong>1M</strong></td><td>256K 原生</td></tr>
+        <tr><td>旗舰 MMLU</td><td>65</td><td>84</td><td>87</td><td><strong>89</strong></td></tr>
+        <tr><td>RL 策略</td><td>PPO</td><td>PPO+DPO</td><td><strong>GRPO</strong></td><td>GRPO+蒸馏</td></tr>
+      </tbody></table>
+    </div>
+    <div>
+      <h4>关键观察</h4>
+      <ul style="font-size:14px">
+        <li><strong>架构创新递减</strong>：Qwen2 GQA 带来 +26 MMLU；Qwen3 MoE 带来 +2</li>
+        <li><strong>数据 Scaling 主导</strong>：Qwen2.5 不改架构纯靠 18T 数据仍提升 +3</li>
+        <li><strong>参数效率跃迁</strong>：Qwen3-32B ≈ Qwen2.5-72B（2.3x 参数效率）</li>
+        <li><strong>MoE 最优效率</strong>：Qwen3-235B MMLU/激活参数 = 4.05，远超竞品</li>
+      </ul>
+      <div class="highlight" style="margin-top:10px">
+        <strong>趋势</strong>：从「改架构提性能」转向「好架构 + 海量高质量数据 + MoE 参数效率」三轮驱动。
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ S31 全模态管线对比 ═══════════════════ -->
+<section class="slide" data-title="全模态管线对比">
+  <h2 class="title" style="font-size:34px">纯文本 vs VL vs Omni 管线对比</h2>
+  <div class="divider-accent" style="margin-bottom:14px"></div>
+  <img src="./images/Qwen 系列技术演进 — 从 LLaMA 追随者到全模态架构创新者_files/ch12_pipeline_comparison.png" alt="管线对比" class="hero" style="max-height:280px">
+  <table style="font-size:13px;margin-top:10px">
+    <tbody><tr><th>维度</th><th>纯文本 LLM</th><th>VL 模型</th><th>Omni 模型</th></tr>
+    <tr><td>输入模态</td><td>文本</td><td>文本 + 图像/视频</td><td><strong>文本 + 图像/视频 + 音频</strong></td></tr>
+    <tr><td>输出模态</td><td>文本</td><td>文本（含坐标）</td><td><strong>文本 + 流式语音</strong></td></tr>
+    <tr><td>生成架构</td><td>单路自回归</td><td>单路自回归</td><td><strong>Thinker + Talker 双轨并行</strong></td></tr>
+    <tr><td>位置编码</td><td>1D-RoPE</td><td>M-RoPE / Interleaved</td><td><strong>TMRoPE（物理时间轴）</strong></td></tr>
+    <tr><td>KV cache 压力</td><td>中</td><td>高（大量视觉 token）</td><td><strong>极高（实时递增音频）</strong></td></tr>
+  </tbody></table>
+</section>
+
+<!-- ═══════════════════ S32 六大趋势 ═══════════════════ -->
+<section class="slide" data-title="六大趋势">
+  <h2 class="title" style="font-size:34px">六大技术演进趋势</h2>
+  <div class="divider-accent" style="margin-bottom:14px"></div>
+  <div class="g3" style="gap:14px">
+    <div class="card" style="padding:16px">
+      <h4 style="font-size:14px;color:var(--accent)">1. 分辨率</h4>
+      <p style="font-size:12px;line-height:1.5">固定 224² → 动态 → 原生分辨率<br>从「描述图片」到「理解文档」</p>
+    </div>
+    <div class="card" style="padding:16px">
+      <h4 style="font-size:14px;color:var(--accent)">2. 时间感知</h4>
+      <p style="font-size:12px;line-height:1.5">静态图 → 帧序号 → 绝对秒数 → 文本时间戳 → 实时流式</p>
+    </div>
+    <div class="card" style="padding:16px">
+      <h4 style="font-size:14px;color:var(--accent)">3. 架构范式</h4>
+      <p style="font-size:12px;line-height:1.5">跨模态桥接 → 端到端统一 → 思考-说话分离<br>特征空间统一，输出空间分离</p>
+    </div>
+    <div class="card" style="padding:16px">
+      <h4 style="font-size:14px;color:var(--accent)">4. Dense → MoE</h4>
+      <p style="font-size:12px;line-height:1.5">纯文本 → VL → Omni 全面 MoE<br>打破容量-成本线性绑定</p>
+    </div>
+    <div class="card" style="padding:16px">
+      <h4 style="font-size:14px;color:var(--accent)">5. Thinking Mode</h4>
+      <p style="font-size:12px;line-height:1.5">无推理 → 文本 CoT → 视觉 CoT → 全模态 CoT<br>感知工具 → 推理引擎</p>
+    </div>
+    <div class="card" style="padding:16px">
+      <h4 style="font-size:14px;color:var(--accent)">6. 延迟优化</h4>
+      <p style="font-size:12px;line-height:1.5">非流式 → DiT ~600ms → ConvNet 234ms<br>随 AI 产品化，工程指标权重上升</p>
+    </div>
+  </div>
+  <div class="highlight" style="margin-top:12px">
+    <strong>展望 Qwen3-Next</strong>：75% DeltaNet（线性 O(N)）+ 25% 标准注意力 + 512 超稀疏 MoE — 80B 总参 / 3B 激活 / 训练成本仅 32B 的 10%
+  </div>
+</section>
+
+<!-- ═══════════════════ S33 核心启示 ═══════════════════ -->
+<section class="slide" data-title="核心启示">
+  <h2 class="title" style="font-size:36px">Qwen 系列演进的核心启示</h2>
+  <div class="divider-accent" style="margin-bottom:18px"></div>
+  <div class="g2" style="gap:24px">
+    <div class="card card-accent" style="padding:22px">
+      <h4 style="color:var(--accent)">架构设计</h4>
+      <ul style="font-size:14px">
+        <li>每一代只解决上一代暴露的<strong>最紧迫问题</strong></li>
+        <li>架构创新的边际收益递减 — 好架构 + 好数据 &gt; 新架构</li>
+        <li>统一性优于特化 — M-RoPE 一套编码服务三种模态</li>
+      </ul>
+    </div>
+    <div class="card card-accent" style="padding:22px">
+      <h4 style="color:var(--accent)">训练范式</h4>
+      <ul style="font-size:14px">
+        <li>「先对齐，再理解，再跟随」— 逐步解冻是课程学习</li>
+        <li>RL 算法复杂度应匹配<strong>奖励信号结构</strong>（GRPO vs PPO）</li>
+        <li>合成数据引入<strong>新信息维度</strong>，打破 Scaling Law 收益递减</li>
+      </ul>
+    </div>
+    <div class="card card-accent" style="padding:22px">
+      <h4 style="color:var(--accent)">工程决策</h4>
+      <ul style="font-size:14px">
+        <li>Over-Training 是工业部署的<strong>最优策略</strong> — 训练时间换推理质量</li>
+        <li>延迟 300ms 是硬约束，MOS 5% 是软约束 — 选 ConvNet 弃 DiT</li>
+        <li>Thinker-Talker 分离是防跨模态干扰<strong>最可靠的架构方案</strong></li>
+      </ul>
+    </div>
+    <div class="card card-accent" style="padding:22px">
+      <h4 style="color:var(--accent)">效率哲学</h4>
+      <ul style="font-size:14px">
+        <li>MoE 打破容量-成本绑定 — 235B 知识/22B 推理</li>
+        <li>强到弱蒸馏 — 90% 成本节省 + Thinking 能力传递</li>
+        <li>Window Attention — 120x 加速，仅 4 层全局足矣</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ S34 THANK YOU ═══════════════════ -->
+<section class="slide" data-title="Thank You">
+  <div style="display:flex;flex-direction:column;justify-content:center;align-items:center;height:100%;text-align:center">
+    <div class="divider-accent" style="width:80px;margin-bottom:28px"></div>
+    <h1 class="title" style="font-size:48px">Thank You</h1>
+    <p class="lede" style="font-size:20px;max-width:600px;margin-top:6px">好架构 + 海量高质量数据 + 工程极致优化<br>= 开源追赶闭源的核心公式</p>
+    <div style="margin-top:36px;font-size:14px;color:var(--text-3)">
+      报告日期 2026.04.12 · 覆盖 10 个模型版本 · 50+ 原创图表
+    </div>
+  </div>
+</section>
+
+</div><!-- /deck -->
+
+<script>
+(function(){'use strict';
+function ready(fn){if(document.readyState!='loading')fn();else document.addEventListener('DOMContentLoaded',fn)}
+ready(function(){
+const deck=document.querySelector('.deck');if(!deck)return;
+const slides=Array.from(deck.querySelectorAll('.slide'));if(!slides.length)return;
+let idx=0;const total=slides.length;
+let bar=document.querySelector('.progress-bar');
+if(!bar){bar=document.createElement('div');bar.className='progress-bar';bar.innerHTML='<span></span>';document.body.appendChild(bar)}
+const barFill=bar.querySelector('span');
+let notes=document.querySelector('.notes-overlay');
+if(!notes){notes=document.createElement('div');notes.className='notes-overlay';document.body.appendChild(notes)}
+let overview=document.querySelector('.overview');
+if(!overview){overview=document.createElement('div');overview.className='overview';
+slides.forEach((s,i)=>{const t=document.createElement('div');t.className='thumb';
+const title=s.getAttribute('data-title')||(s.querySelector('h1,h2,h3')||{}).textContent||('Slide '+(i+1));
+t.innerHTML='<div class="n">'+(i+1)+'</div><div class="t">'+title.trim().slice(0,80)+'</div>';
+t.addEventListener('click',()=>{go(i);toggleOverview(false)});overview.appendChild(t)});
+document.body.appendChild(overview)}
+function go(n){n=Math.max(0,Math.min(total-1,n));
+slides.forEach((s,i)=>{s.classList.toggle('is-active',i===n);s.classList.toggle('is-prev',i<n)});
+idx=n;barFill.style.width=((n+1)/total*100)+'%';
+const numEl=document.querySelector('.slide-number');
+if(numEl){numEl.setAttribute('data-current',n+1);numEl.setAttribute('data-total',total)}
+const note=slides[n].querySelector('.notes');notes.innerHTML=note?note.innerHTML:'';
+if(location.hash!=='#/'+(n+1))history.replaceState(null,'','#/'+(n+1));
+slides[n].querySelectorAll('.counter').forEach(el=>{const target=parseFloat(el.getAttribute('data-to')||el.textContent);const dur=parseInt(el.getAttribute('data-dur')||'1200',10);const start=performance.now();
+function tick(now){const t=Math.min(1,(now-start)/dur);const v=(target)*(1-Math.pow(1-t,3));el.textContent=(target%1===0)?Math.round(v):v.toFixed(1);if(t<1)requestAnimationFrame(tick)}requestAnimationFrame(tick)})}
+function toggleNotes(force){notes.classList.toggle('open',force!==undefined?force:!notes.classList.contains('open'))}
+function toggleOverview(force){overview.classList.toggle('open',force!==undefined?force:!overview.classList.contains('open'))}
+function fullscreen(){const el=document.documentElement;if(!document.fullscreenElement)el.requestFullscreen&&el.requestFullscreen();else document.exitFullscreen&&document.exitFullscreen()}
+document.addEventListener('keydown',function(e){if(e.metaKey||e.ctrlKey||e.altKey)return;
+switch(e.key){case'ArrowRight':case' ':case'PageDown':case'Enter':go(idx+1);e.preventDefault();break;case'ArrowLeft':case'PageUp':case'Backspace':go(idx-1);e.preventDefault();break;case'Home':go(0);break;case'End':go(total-1);break;case'f':case'F':fullscreen();break;case's':case'S':toggleNotes();break;case'o':case'O':toggleOverview();break;case'Escape':toggleOverview(false);toggleNotes(false);break}});
+function fromHash(){const m=/^#\/(\d+)/.exec(location.hash||'');if(m)go(Math.max(0,parseInt(m[1],10)-1))}
+window.addEventListener('hashchange',fromHash);fromHash();go(idx)})})();
+</script>
+
+<a class="fab-report" href="https://zhang-ren.github.io/Qwen-Technical-Report/report" title="查看完整技术报告">
+<svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"></path></svg>
+查看完整报告
+</a>
+
+
+
+<div class="progress-bar"><span style="width: 47.0588%;"></span></div><div class="notes-overlay"></div><div class="overview"><div class="thumb"><div class="n">1</div><div class="t">封面</div></div><div class="thumb"><div class="n">2</div><div class="t">全系列时间线</div></div><div class="thumb"><div class="n">3</div><div class="t">六大演进脉络</div></div><div class="thumb"><div class="n">4</div><div class="t">Part I: 纯文本 LLM</div></div><div class="thumb"><div class="n">5</div><div class="t">Qwen-1 架构继承</div></div><div class="thumb"><div class="n">6</div><div class="t">Qwen-1 独特设计</div></div><div class="thumb"><div class="n">7</div><div class="t">Qwen2 架构独立</div></div><div class="thumb"><div class="n">8</div><div class="t">Qwen2 NTK-aware RoPE</div></div><div class="thumb"><div class="n">9</div><div class="t">Qwen2.5 数据突破</div></div><div class="thumb"><div class="n">10</div><div class="t">Qwen2.5 YaRN &amp; GRPO</div></div><div class="thumb"><div class="n">11</div><div class="t">Qwen3 总览</div></div><div class="thumb"><div class="n">12</div><div class="t">Qwen3 MoE 路由</div></div><div class="thumb"><div class="n">13</div><div class="t">Qwen3 Thinking Mode</div></div><div class="thumb"><div class="n">14</div><div class="t">Qwen3 强到弱蒸馏</div></div><div class="thumb"><div class="n">15</div><div class="t">Part II: 多模态 VL</div></div><div class="thumb"><div class="n">16</div><div class="t">Qwen-VL</div></div><div class="thumb"><div class="n">17</div><div class="t">Qwen2-VL M-RoPE</div></div><div class="thumb"><div class="n">18</div><div class="t">Qwen2-VL 动态分辨率</div></div><div class="thumb"><div class="n">19</div><div class="t">Qwen2.5-VL 从零训练 ViT</div></div><div class="thumb"><div class="n">20</div><div class="t">Qwen2.5-VL MLP Merger</div></div><div class="thumb"><div class="n">21</div><div class="t">Qwen3-VL Interleaved-MRoPE</div></div><div class="thumb"><div class="n">22</div><div class="t">Qwen3-VL DeepStack</div></div><div class="thumb"><div class="n">23</div><div class="t">Part III: 全模态 Omni</div></div><div class="thumb"><div class="n">24</div><div class="t">Qwen2.5-Omni Thinker-Talker</div></div><div class="thumb"><div class="n">25</div><div class="t">Qwen2.5-Omni TMRoPE</div></div><div class="thumb"><div class="n">26</div><div class="t">Qwen3-Omni Causal ConvNet</div></div><div class="thumb"><div class="n">27</div><div class="t">Qwen3-Omni 234ms</div></div><div class="thumb"><div class="n">28</div><div class="t">Part IV: 总结</div></div><div class="thumb"><div class="n">29</div><div class="t">VL 四代对比</div></div><div class="thumb"><div class="n">30</div><div class="t">纯文本对比</div></div><div class="thumb"><div class="n">31</div><div class="t">全模态管线对比</div></div><div class="thumb"><div class="n">32</div><div class="t">六大趋势</div></div><div class="thumb"><div class="n">33</div><div class="t">核心启示</div></div><div class="thumb"><div class="n">34</div><div class="t">Thank You</div></div></div><div class="ait-panel-modal"><div class="ait-panel-modal-overlay"></div><div class="ait-panel-modal-wrapper"><div class="ait-panel-modal-sidebar"><div class="ait-panel-modal-sidebar-header"><button class="ait-panel-modal-close">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button><span class="ait-panel-modal-sidebar-title">Timeline</span></div><div class="ait-panel-modal-tabs"></div><div class="ait-panel-modal-footer">
+            <div class="ait-panel-modal-footer-item ait-panel-modal-footer-version" style="cursor: pointer;">v4.6.26</div>
+        </div></div><div class="ait-panel-modal-main"><div class="ait-panel-modal-header"><h2 class="ait-panel-modal-title">Panel</h2><div class="ait-panel-modal-header-actions"><label class="ait-panel-modal-language">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M2 12h20"></path>
+                <path d="M12 2a15.3 15.3 0 010 20"></path>
+                <path d="M12 2a15.3 15.3 0 000 20"></path>
+            </svg>
+        <span class="ait-panel-modal-language-value"></span><svg class="ait-panel-modal-language-arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="m3 4.5 3 3 3-3"></path></svg><select class="ait-panel-modal-language-select" disabled=""></select></label><button class="ait-panel-modal-share" aria-label="Timeline">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="18" cy="5" r="3"></circle>
+                <circle cx="6" cy="12" r="3"></circle>
+                <circle cx="18" cy="19" r="3"></circle>
+                <path d="M8.59 13.51 15.42 17.49"></path>
+                <path d="M15.41 6.51 8.59 10.49"></path>
+            </svg>
+        </button></div></div><div class="ait-panel-modal-content"></div></div></div></div><div class="ait-notepad-panel">
+            <div class="ait-notepad-header">
+                <span class="ait-notepad-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+                        <path d="M17 3a2.85 2.85 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"></path>
+                        <path d="m15 5 4 4"></path>
+                    </svg>
+                    闪记
+                </span>
+                <div class="ait-notepad-header-right">
+                    <button class="ait-notepad-list-btn" aria-label="全部笔记" style="display: flex;">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+                            <line x1="8" y1="6" x2="21" y2="6"></line>
+                            <line x1="8" y1="12" x2="21" y2="12"></line>
+                            <line x1="8" y1="18" x2="21" y2="18"></line>
+                            <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                            <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                            <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                        </svg>
+                    </button>
+                    <button class="ait-notepad-add-btn" aria-label="新建笔记">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                    </button>
+                    <button class="ait-notepad-close-btn" aria-label="关闭">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="ait-notepad-body">
+                <div class="ait-notepad-list" style="display: none;"></div>
+                <textarea class="ait-notepad-editor" placeholder="想到什么就写什么，无需排版…"></textarea>
+                <div class="ait-notepad-preview" aria-hidden="true">
+personal
+
+A new version of Docker Desktop is available.
+Containers
+milvus-standalone
+
+milvus-standalone
+c92c15c15569
+milvusdb/milvus:v2.6.13
+19530:19530
+2379:2379
+STATUS
+Exited (134) (0 seconds ago)
+
+
+	/usr/local/go/src/runtime/asm_arm64.s:1223 +0x4 fp=0x4002f8dfd0 sp=0x4002f8dfd0 pc=0x2950ad4
+
+created by github.com/milvus-io/milvus/pkg/v2/util/conc.Go[...] in goroutine 1
+
+	/workspace/source/pkg/util/conc/future.go:95 +0xe8
+
+
+goroutine 372 gp=0x4002538380 m=nil [select]:
+
+runtime.gopark(0x4001985f18?, 0x3?, 0x8?, 0x40?, 0x4001985e82?)
+
+	/usr/local/go/src/runtime/proc.go:435 +0xc8 fp=0x4001985d10 sp=0x4001985cf0 pc=0x2947d18
+
+runtime.selectgo(0x4001985f18, 0x4001985e7c, 0x0?, 0x0, 0x0?, 0x1)
+
+	/usr/local/go/src/runtime/select.go:351 +0x6c4 fp=0x4001985e40 sp=0x4001985d10 pc=0x2923c44
+
+github.com/milvus-io/milvus/pkg/v2/mq/mqimpl/rocksmq/server.(*retentionInfo).retention(0x4002906060)
+
+	/workspace/source/pkg/mq/mqimpl/rocksmq/server/rocksmq_retention.go:92 +0x17c fp=0x4001985fb0 sp=0x4001985e40 pc=0x4cb57dc
+
+github.com/milvus-io/milvus/pkg/v2/mq/mqimpl/rocksmq/server.(*retentionInfo).startRetentionInfo.gowrap1()
+
+	/workspace/source/pkg/mq/mqimpl/rocksmq/server/rocksmq_retention.go:76 +0x28 fp=0x4001985fd0 sp=0x4001985fb0 pc=0x4cb5628
+
+runtime.goexit({})
+
+	/usr/local/go/src/runtime/asm_arm64.s:1223 +0x4 fp=0x4001985fd0 sp=0x4001985fd0 pc=0x2950ad4
+
+created by github.com/milvus-io/milvus/pkg/v2/mq/mqimpl/rocksmq/server.(*retentionInfo).startRetentionInfo in goroutine 159
+
+	/workspace/source/pkg/mq/mqimpl/rocksmq/server/rocksmq_retention.go:76 +0x6c
+
+
+goroutine 373 gp=0x4002538540 m=nil [sleep]:
+
+runtime.gopark(0x27a1a8cacd?, 0x0?, 0x0?, 0x0?, 0x0?)
+
+	/usr/local/go/src/runtime/proc.go:435 +0xc8 fp=0x400094eba0 sp=0x400094eb80 pc=0x2947d18
+
+time.Sleep(0x8bb2c97000)
+
+	/usr/local/go/src/runtime/time.go:338 +0x158 fp=0x400094ec00 sp=0x400094eba0 pc=0x294c4b8
+
+github.com/milvus-io/milvus/pkg/v2/mq/mqimpl/rocksmq/server.NewRocksMQ.func1()
+
+	/workspace/source/pkg/mq/mqimpl/rocksmq/server/rocksmq_impl.go:350 +0x29c fp=0x400094efd0 sp=0x400094ec00 pc=0x4cac83c
+
+runtime.goexit({})
+
+	/usr/local/go/src/runtime/asm_arm64.s:1223 +0x4 fp=0x400094efd0 sp=0x400094efd0 pc=0x2950ad4
+
+created by github.com/milvus-io/milvus/pkg/v2/mq/mqimpl/rocksmq/server.NewRocksMQ in goroutine 159
+
+	/workspace/source/pkg/mq/mqimpl/rocksmq/server/rocksmq_impl.go:348 +0x8b4
+   q            </div>
+            </div>
+            <div class="ait-notepad-footer">
+                <div class="ait-notepad-location">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="13" height="13">
+                        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                    <span class="ait-notepad-location-text ait-notepad-location-empty">保存到文件夹</span>
+                </div>
+            </div>
+            <div class="ait-notepad-resize-handle" data-direction="se"></div>
+            <div class="ait-notepad-resize-handle" data-direction="sw"></div>
+            <div class="ait-notepad-resize-handle" data-direction="ne"></div>
+            <div class="ait-notepad-resize-handle" data-direction="nw"></div>
+            <div class="ait-notepad-resize-handle" data-direction="e"></div>
+            <div class="ait-notepad-resize-handle" data-direction="w"></div>
+            <div class="ait-notepad-resize-handle" data-direction="n"></div>
+            <div class="ait-notepad-resize-handle" data-direction="s"></div>
+        </div><div class="timeline-tooltip-base formula-tooltip" data-placement="top" style="background-color: rgb(13, 13, 13); color: rgb(255, 255, 255); border-color: rgb(13, 13, 13); --timeline-tooltip-bg: #0d0d0d; --timeline-tooltip-text: #ffffff; --timeline-tooltip-border: #0d0d0d;">复制 LaTeX 公式</div><div class="timeline-copy-feedback">✓ 已复制</div><div class="ait-highlight-standalone-btn" style="display: none;"></div></body></html>

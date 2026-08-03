@@ -450,6 +450,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#q-grpo-ppo-dpo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q: 为什么本项目用 GRPO，而不用 PPO 或 DPO？
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#0" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2331,6 +2342,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#q-grpo-ppo-dpo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q: 为什么本项目用 GRPO，而不用 PPO 或 DPO？
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#0" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2830,6 +2852,18 @@
 <strong>代码</strong>：https://github.com/uzh-dqbm-cmi/RadVLM-GRPO<br />
 <strong>模型权重</strong>：https://physionet.org/content/radvlm-model</p>
 </blockquote>
+<hr />
+<h2 id="q-grpo-ppo-dpo">Q: 为什么本项目用 GRPO，而不用 PPO 或 DPO？<a class="headerlink" href="#q-grpo-ppo-dpo" title="Permanent link">&para;</a></h2>
+<p><strong>一句话：DPO 不能优化连续奖励，PPO 多了一个难训又费显存的 Critic，GRPO 刚好合适。</strong></p>
+<p>具体说三点：</p>
+<ul>
+<li>
+<p><strong>DPO 不行</strong>：它要成对偏好数据，而我们的奖励是连续标量（<code>-RadCliQ</code>、<code>soft-F1</code>），不是 chosen/rejected；DPO 也是离线算法，无法在线生成报告再打分。</p>
+</li>
+<li>
+<p><strong>PPO 不划算</strong>：PPO 需要训练 Critic 估计每个 token 的 value，但开放域医学报告生成里这个值很难估，容易不稳定；8B 模型在 verl 里已经要驻留 Actor、Reference、Rollout 三份副本，再加 Critic 显存和通信开销都太大。</p>
+</li>
+</ul>
 <hr />
 <h2 id="0">0. 简历版项目介绍<a class="headerlink" href="#0" title="Permanent link">&para;</a></h2>
 <p><strong>RadAlign：用临床导向的奖励对齐放射学 VLM</strong>（多模态大模型 SFT 与 RL 后训练研究）</p>
